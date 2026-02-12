@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1B2B4B;
+  --color-green: #2A7D5F;
+  --color-amber: #E8922F;
+  --color-amber-hover: #D4811F;
+  --color-slate: #4A5568;
+  --color-cloud: #F5F7FA;
+
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --shadow-card: 0 1px 3px rgba(27, 43, 75, 0.08), 0 1px 2px rgba(27, 43, 75, 0.06);
+  --shadow-elevated: 0 10px 25px rgba(27, 43, 75, 0.10), 0 4px 10px rgba(27, 43, 75, 0.06);
+  --shadow-featured: 0 20px 40px rgba(27, 43, 75, 0.15), 0 8px 16px rgba(27, 43, 75, 0.08);
+  --shadow-button: 0 2px 8px rgba(232, 146, 47, 0.35);
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-slate);
+  background: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Prose styles for blog content */
+.prose h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--color-navy);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: var(--color-navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+.prose ul li {
+  list-style-type: disc;
+}
+
+.prose ol li {
+  list-style-type: decimal;
+}
+
+.prose strong {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.prose th, .prose td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--color-cloud);
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-amber);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
