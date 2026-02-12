@@ -3,6 +3,7 @@ import { Star } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import MockupFrame from '@/components/ui/MockupFrame';
 import type { Product } from '@/lib/products';
+import { getProductImage } from '@/lib/products';
 
 interface ProductCardProps {
   product: Product;
@@ -28,7 +29,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       {/* Mockup image */}
       <Link href={`/products/${product.slug}`}>
-        <MockupFrame className="!rounded-none !rounded-t-xl !shadow-none !border-0" />
+        <MockupFrame
+          className="!rounded-none !rounded-t-xl !shadow-none !border-0"
+          imageSrc={getProductImage(product.slug)}
+          imageAlt={`${product.name} template preview`}
+        />
       </Link>
 
       {/* Content */}

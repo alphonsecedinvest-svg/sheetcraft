@@ -515,6 +515,18 @@ The sensitivity analysis tab shows how your profit changes if the ARV comes in 5
   },
 ];
 
+export const productImages: Record<string, string> = {
+  'construction-budget-tracker': '/images/products/construction-budget-tracker.jpg',
+  'rental-property-analyzer': '/images/products/rental-property-analyzer.jpg',
+  'contractor-estimate-template': '/images/products/contractor-estimate.jpg',
+  'flip-brrrr-calculator': '/images/products/flip-brrrr-calculator.jpg',
+  'real-estate-development-pro-forma': '/images/products/development-pro-forma.jpg',
+};
+
+export function getProductImage(slug: string): string | undefined {
+  return productImages[slug];
+}
+
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }

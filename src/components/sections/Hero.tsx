@@ -47,7 +47,10 @@ export default function Hero() {
 
           {/* Mockup */}
           <FadeIn delay={0.2} className="mt-10 lg:mt-0">
-            <MockupFrame />
+            <MockupFrame
+              imageSrc="/images/products/hero-banner.jpg"
+              imageAlt="SheetCraft professional spreadsheet templates"
+            />
           </FadeIn>
         </div>
 

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { products, getProductBySlug } from '@/lib/products';
+import { products, getProductBySlug, getProductImage } from '@/lib/products';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import MockupFrame from '@/components/ui/MockupFrame';
@@ -94,7 +94,11 @@ export default async function ProductPage({
         <Container>
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
             {/* Left: Image */}
-            <MockupFrame className="mb-8 lg:mb-0" />
+            <MockupFrame
+              className="mb-8 lg:mb-0"
+              imageSrc={getProductImage(product.slug)}
+              imageAlt={`${product.name} template preview`}
+            />
 
             {/* Right: Info */}
             <div>
