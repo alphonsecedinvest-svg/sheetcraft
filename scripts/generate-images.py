@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, base64, urllib.request, time, os
+import json, base64, urllib.request, time, os, sys
 
 API_KEY = open(os.path.expanduser("~/.config/nanobanana/api_key")).read().strip()
 OUTPUT_DIR = "/Users/alphonse/clawd/projects/btpsheets/site/public/images/products"
@@ -17,12 +17,13 @@ IMAGES = [
 ]
 
 for name, prompt in IMAGES:
-    output = os.path.join(OUTPUT_DIR, f"{name}.png")
-    if os.path.exists(output):
-        print(f"⏭️  {name} already exists, skipping")
+    # Check for any existing format
+    existing = [f for f in os.listdir(OUTPUT_DIR) if f.startswith(name + ".")]
+    if existing:
+        print(f"⏭️  {name} already exists ({existing[0]}), skipping", flush=True)
         continue
 
-    print(f"🎨 Generating {name}...")
+    print(f"🎨 Generating {name}...", flush=True)
     
     payload = json.dumps({
         "contents": [{"parts": [{"text": prompt}]}],
@@ -32,28 +33,31 @@ for name, prompt in IMAGES:
     req = urllib.request.Request(BASE_URL, data=payload, headers={"Content-Type": "application/json"})
     
     try:
-        resp = urllib.request.urlopen(req, timeout=120)
+        resp = urllib.request.urlopen(req, timeout=180)
         data = json.loads(resp.read())
         
         saved = False
         for part in data["candidates"][0]["content"]["parts"]:
             if "inlineData" in part:
+                mime = part["inlineData"].get("mimeType", "image/png")
+                ext = "jpg" if "jpeg" in mime else "png"
                 img_bytes = base64.b64decode(part["inlineData"]["data"])
+                output = os.path.join(OUTPUT_DIR, f"{name}.{ext}")
                 with open(output, "wb") as f:
                     f.write(img_bytes)
-                print(f"✅ Saved {name} ({len(img_bytes)} bytes)")
+                print(f"✅ Saved {name}.{ext} ({len(img_bytes)} bytes)", flush=True)
                 saved = True
                 break
         
         if not saved:
-            print(f"❌ No image in response for {name}")
-            print(json.dumps(data, indent=2)[:500])
+            print(f"❌ No image in response for {name}", flush=True)
+            print(json.dumps(data, indent=2)[:500], flush=True)
     except Exception as e:
-        print(f"❌ Error generating {name}: {e}")
+        print(f"❌ Error generating {name}: {e}", flush=True)
     
     time.sleep(3)
 
-print("\n🎉 Done!")
-for f in os.listdir(OUTPUT_DIR):
+print("\n🎉 Done!", flush=True)
+for f in sorted(os.listdir(OUTPUT_DIR)):
     path = os.path.join(OUTPUT_DIR, f)
-    print(f"  {f}: {os.path.getsize(path)} bytes")
+    print(f"  {f}: {os.path.getsize(path)} bytes", flush=True)
