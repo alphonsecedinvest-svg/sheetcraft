@@ -3,22 +3,23 @@
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
 import Button from '@/components/ui/Button';
+import MicroCopy from '@/components/ui/MicroCopy';
 
 const steps = [
   {
     number: '1',
-    title: 'Choose your template',
-    description: 'Browse our collection and pick the one that matches your project — construction management, rental analysis, fix & flip, or BRRRR.',
+    title: 'Pick your template',
+    description: 'Construction budget? Rental analysis? Fix & flip? Choose the one that matches your project. Not sure? Start with the Full Toolkit — you\'ll use them all.',
   },
   {
     number: '2',
     title: 'Download instantly',
-    description: 'You\'ll get both Excel (.xlsx) and Google Sheets versions delivered to your inbox in seconds. No waiting. No subscriptions. Yours forever.',
+    description: 'Both Excel (.xlsx) and Google Sheets versions hit your inbox in seconds. No waiting. No subscriptions. Yours forever.',
   },
   {
     number: '3',
-    title: 'Plug in your numbers',
-    description: 'All formulas are pre-built and tested. Just enter your data and watch the dashboard come to life. Need help? Watch the included 5-minute video walkthrough.',
+    title: 'Plug in your numbers and go',
+    description: 'Every formula is pre-built and tested. Enter your data. Watch the dashboard calculate. Need help? The included 5-minute video walkthrough covers everything.',
   },
 ];
 
@@ -28,7 +29,7 @@ export default function HowItWorks() {
       <Container className="max-w-3xl">
         <FadeIn>
           <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
-            Up and running in 3 steps
+            Up and running in 3 steps. Under 5 minutes.
           </h2>
         </FadeIn>
 
@@ -55,8 +56,9 @@ export default function HowItWorks() {
         <FadeIn delay={0.4}>
           <div className="mt-10 text-center">
             <Button href="/products">
-              Get Started — From $29
+              Get Instant Access — From $29
             </Button>
+            <MicroCopy className="mt-3" />
           </div>
         </FadeIn>
       </Container>

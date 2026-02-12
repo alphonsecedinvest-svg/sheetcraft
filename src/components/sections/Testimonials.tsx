@@ -13,7 +13,7 @@ const testimonials = [
     initials: 'MR',
   },
   {
-    quote: 'I analyze 15-20 rental deals a month. The Rental Property Analyzer cut my analysis time from two hours to about twenty minutes per deal. The 10-year projection tab alone is worth the price.',
+    quote: 'I analyze 15–20 rental deals a month. The Rental Property Analyzer cut my analysis time from two hours to about twenty minutes per deal. The 10-year projection tab alone is worth the price.',
     name: 'Sarah Chen',
     title: 'Real Estate Investor, Charlotte, NC',
     initials: 'SC',
@@ -24,6 +24,24 @@ const testimonials = [
     title: 'Owner, Kowalski Builds LLC, Denver, CO',
     initials: 'DK',
   },
+  {
+    quote: 'I\'ve been flipping houses for 8 years and never had a proper spreadsheet. The Fix & Flip Analyzer forced me to account for holding costs I\'d been ignoring. My last flip\'s actual profit was within 3% of what the template predicted.',
+    name: 'Jessica Torres',
+    title: 'Real Estate Investor, Tampa, FL',
+    initials: 'JT',
+  },
+  {
+    quote: 'My lender asked for a detailed project budget breakdown. I exported the Construction Budget Tracker to PDF and he said it was the most professional submission he\'d seen from a small GC. Loan approved in two days.',
+    name: 'Maria Gutierrez',
+    title: 'General Contractor, Phoenix, AZ',
+    initials: 'MG',
+  },
+  {
+    quote: 'The BRRRR Calculator saved me from a terrible deal. The numbers looked great until I plugged in realistic rehab costs and the refinance terms. Walked away and found a better property the next week.',
+    name: 'Anthony Davis',
+    title: 'Investor, Atlanta, GA',
+    initials: 'AD',
+  },
 ];
 
 export default function Testimonials() {
@@ -32,7 +50,7 @@ export default function Testimonials() {
       <Container>
         <FadeIn>
           <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
-            What contractors & investors say
+            Don&apos;t take our word for it. Look at their numbers.
           </h2>
         </FadeIn>
 
@@ -63,7 +81,7 @@ export default function Testimonials() {
         </div>
 
         {/* Stats bar */}
-        <FadeIn delay={0.3}>
+        <FadeIn delay={0.6}>
           <div className="mt-12 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">

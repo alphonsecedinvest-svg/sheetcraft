@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Pricing from '@/components/sections/Pricing';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
+import StickyMobileCTA from '@/components/ui/StickyMobileCTA';
 import Container from '@/components/ui/Container';
 import { Check } from 'lucide-react';
 import { products } from '@/lib/products';
@@ -40,8 +41,8 @@ export default function PricingPage() {
                 <tr className="border-b border-navy/10">
                   <th className="text-left py-3 px-4 font-heading font-semibold text-sm text-slate">Feature</th>
                   <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-navy">Single</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-amber">Bundle ★</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-navy">Full Toolkit</th>
+                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-amber bg-amber/5">Bundle ★</th>
+                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-green">Full Toolkit</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,7 +50,7 @@ export default function PricingPage() {
                   <tr key={feature.name} className="border-b border-navy/5">
                     <td className="py-3 px-4 text-sm text-slate">{feature.name}</td>
                     {(['single', 'bundle', 'full'] as const).map((tier) => (
-                      <td key={tier} className="text-center py-3 px-4">
+                      <td key={tier} className={`text-center py-3 px-4 ${tier === 'bundle' ? 'bg-amber/5' : ''}`}>
                         {typeof feature[tier] === 'boolean' ? (
                           feature[tier] ? (
                             <Check size={18} className="inline text-green" />
@@ -84,7 +85,8 @@ export default function PricingPage() {
               ))}
             </div>
             <p className="text-center text-sm text-slate mt-4">
-              Total value: <strong className="text-navy">${products.reduce((sum, p) => sum + p.price, 0)}</strong> — yours for <strong className="text-amber">$149</strong>
+              Total value: <strong className="text-navy">${products.reduce((sum, p) => sum + p.price, 0)}</strong> — yours for <strong className="text-amber">$149</strong>.{' '}
+              <strong className="text-green">Save $77 (34% off).</strong>
             </p>
           </div>
         </Container>
@@ -92,6 +94,7 @@ export default function PricingPage() {
 
       <FAQ />
       <FinalCTA />
+      <StickyMobileCTA href="/pricing" label="Get Your Template" price="From $29" />
     </>
   );
 }

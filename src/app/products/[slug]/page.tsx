@@ -4,6 +4,10 @@ import { products, getProductBySlug } from '@/lib/products';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import MockupFrame from '@/components/ui/MockupFrame';
+import TrustBadges from '@/components/ui/TrustBadges';
+import MicroCopy from '@/components/ui/MicroCopy';
+import ComparisonTable from '@/components/ui/ComparisonTable';
+import StickyMobileCTA from '@/components/ui/StickyMobileCTA';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
 import { Star, Check, FileSpreadsheet, PlayCircle, RefreshCw, BookOpen } from 'lucide-react';
@@ -108,6 +112,9 @@ export default async function ProductPage({
 
               <p className="mt-2 text-base text-slate italic">{product.tagline}</p>
 
+              {/* Benefit line */}
+              <p className="mt-2 text-sm font-semibold text-green">→ {product.benefitLine}</p>
+
               <div className="mt-4 flex items-center gap-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
@@ -124,9 +131,12 @@ export default async function ProductPage({
 
               <div className="mt-6">
                 <Button href={product.checkoutUrl} fullWidth className="lg:!w-auto">
-                  Get This Template — ${product.price}
+                  Get Instant Access — ${product.price}
                 </Button>
               </div>
+
+              {/* Trust badges under CTA */}
+              <TrustBadges variant="stacked" className="mt-4" />
 
               {/* What's included quick list */}
               <div className="mt-6 grid grid-cols-2 gap-3">
@@ -147,17 +157,34 @@ export default async function ProductPage({
         </Container>
       </section>
 
-      {/* Description */}
+      {/* Description + Sidebar */}
       <section className="py-12 lg:py-16 bg-white">
         <Container>
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-12">
             <div>
-              <h2 className="font-heading font-semibold text-2xl text-navy mb-6">About this template</h2>
-              <div className="prose text-slate">
-                {product.description.split('\n\n').map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+              {/* Problem Section */}
+              {product.problemSection && (
+                <>
+                  <h2 className="font-heading font-semibold text-2xl text-navy mb-6">The Problem</h2>
+                  <div className="prose text-slate mb-10">
+                    {product.problemSection.split('\n\n').map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* Solution Section */}
+              {product.solutionSection && (
+                <>
+                  <h2 className="font-heading font-semibold text-2xl text-navy mb-6">The Solution</h2>
+                  <div className="prose text-slate mb-10">
+                    {product.solutionSection.split('\n\n').map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </>
+              )}
 
               {/* Features */}
               <h2 className="font-heading font-semibold text-2xl text-navy mt-10 mb-6">Features</h2>
@@ -182,42 +209,110 @@ export default async function ProductPage({
                   </li>
                 ))}
               </ul>
+
+              {/* Objection Preemption */}
+              {product.objectionPreemption.length > 0 && (
+                <>
+                  <h2 className="font-heading font-semibold text-2xl text-navy mt-10 mb-6">Common questions about this template</h2>
+                  <div className="space-y-6">
+                    {product.objectionPreemption.map((obj) => (
+                      <div key={obj.question}>
+                        <p className="font-heading font-semibold text-base text-navy mb-2">
+                          &ldquo;{obj.question}&rdquo;
+                        </p>
+                        <p className="text-sm text-slate leading-relaxed">{obj.answer}</p>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Sidebar: Bundle upsell */}
             <aside className="mt-10 lg:mt-0">
               <div className="sticky top-20 bg-cloud border border-navy/8 rounded-xl p-6">
-                <p className="font-heading font-semibold text-sm text-amber uppercase tracking-wide mb-2">
-                  Save with a bundle
+                <p className="font-heading font-semibold text-xs text-white bg-amber inline-block px-3 py-1 rounded-full uppercase tracking-wide mb-3">
+                  🔥 Most Popular Choice
                 </p>
-                <h3 className="font-heading font-semibold text-lg text-navy mb-3">
+                <h3 className="font-heading font-semibold text-lg text-navy mb-1">
                   Full Toolkit — $149
                 </h3>
+                <p className="text-sm text-slate line-through">$226</p>
+                <p className="text-sm font-semibold text-green mb-3">
+                  Save $77 — that&apos;s 34% off
+                </p>
                 <p className="text-sm text-slate mb-4">
-                  Get all 5 templates plus future releases. Save over $75 compared to buying individually.
+                  Get all 5 templates for the price of 3.
                 </p>
                 <ul className="space-y-2 mb-5">
-                  {['All 5 templates', 'Priority support', 'Future templates free'].map((item) => (
+                  {['All 5 templates', 'Priority support', 'Every future template included free'].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-slate">
                       <Check size={16} className="text-green" />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Button href="/pricing" variant="secondary" fullWidth>
-                  See Bundle Options
+                <Button href="#" fullWidth>
+                  Get the Full Toolkit — $149
                 </Button>
+                <p className="text-xs text-slate text-center mt-3">
+                  or continue with just this template for ${product.price}
+                </p>
               </div>
             </aside>
           </div>
         </Container>
       </section>
 
+      {/* Testimonials */}
+      {product.testimonials.length > 0 && (
+        <section className="py-12 lg:py-16 bg-cloud">
+          <Container>
+            <h2 className="font-heading font-semibold text-2xl text-navy text-center mb-8">
+              What customers say
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {product.testimonials.map((t) => (
+                <div key={t.name} className="bg-white border border-navy/6 rounded-xl p-6 shadow-card">
+                  <div className="flex mb-3">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} size={16} className="fill-amber text-amber" />
+                    ))}
+                  </div>
+                  <p className="text-base text-navy italic leading-relaxed">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="mt-4 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-cloud flex items-center justify-center">
+                      <span className="text-xs font-heading font-semibold text-navy">{t.initials}</span>
+                    </div>
+                    <div>
+                      <p className="font-heading font-semibold text-sm text-navy">{t.name}</p>
+                      <p className="text-xs text-slate">{t.title}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Comparison Table */}
+      <ComparisonTable category={product.category} />
+
       {/* FAQ */}
       <FAQ items={product.faq.map((f) => ({ question: f.question, answer: f.answer }))} />
 
       {/* Final CTA */}
       <FinalCTA />
+
+      {/* Sticky Mobile CTA */}
+      <StickyMobileCTA
+        href={product.checkoutUrl}
+        label={`Get ${product.name}`}
+        price={`$${product.price}`}
+      />
     </>
   );
 }

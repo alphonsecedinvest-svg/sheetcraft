@@ -7,6 +7,7 @@ import HowItWorks from '@/components/sections/HowItWorks';
 import Pricing from '@/components/sections/Pricing';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
+import StickyMobileCTA from '@/components/ui/StickyMobileCTA';
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Pricing />
       <FAQ />
       <FinalCTA />
+      <StickyMobileCTA />
     </>
   );
 }

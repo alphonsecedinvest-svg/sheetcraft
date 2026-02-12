@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
 import MockupFrame from '@/components/ui/MockupFrame';
 import FadeIn from '@/components/ui/FadeIn';
+import MicroCopy from '@/components/ui/MicroCopy';
 import { Star } from 'lucide-react';
 import { trustLogos } from '@/lib/constants';
 
@@ -16,28 +17,30 @@ export default function Hero() {
           <FadeIn>
             <div className="text-center lg:text-left">
               <h1 className="font-heading font-bold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[56px] text-navy">
-                Stop guessing.<br />
-                Start building with real numbers.
+                Stop losing money on bad spreadsheets.{' '}
+                <span className="text-amber">Start making confident decisions</span> with precise numbers.
               </h1>
               <p className="mt-5 text-lg text-slate max-w-xl mx-auto lg:mx-0">
-                Professional Excel & Google Sheets templates built for construction and real estate pros. From $29.
+                Professional Excel & Google Sheets templates for construction and real estate pros. Analyze deals in 15 minutes, track $50K–$10M projects, and never miss a line item again.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 items-center lg:justify-start justify-center">
                 <Button href="/products" fullWidth className="sm:!w-auto">
-                  Get Your Template — From $29
+                  Get Instant Access — From $29
                 </Button>
                 <Button href="/products" variant="ghost">
-                  See all templates →
+                  Preview Any Template →
                 </Button>
               </div>
+              {/* Micro-copy */}
+              <MicroCopy className="mt-3 text-center lg:text-left" />
               {/* Micro social proof */}
-              <div className="mt-6 flex items-center gap-1.5 justify-center lg:justify-start">
+              <div className="mt-5 flex items-center gap-1.5 justify-center lg:justify-start">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={16} className="fill-amber text-amber" />
                   ))}
                 </div>
-                <span className="text-sm text-slate">4.9/5 from 200+ reviews</span>
+                <span className="text-sm text-slate">4.9/5 from 200+ verified reviews · 2,000+ templates sold</span>
               </div>
             </div>
           </FadeIn>

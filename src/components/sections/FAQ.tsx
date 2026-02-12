@@ -12,36 +12,48 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'What versions of Excel are supported?',
-    answer: 'Our templates work with Excel 2016 and later (including Microsoft 365). All formulas use standard Excel functions — no macros or VBA required. If you\'re on Google Sheets, everything works there too.',
+    question: 'Can I find similar templates for free online?',
+    answer: 'You can. We started with those too. Here\'s what you\'ll find: static budget lists with no change order tracking, rental calculators that forget vacancy and maintenance reserves, and formulas that break when you add a row. Our templates are built by a general contractor with 15 years in the field. Every formula is tested. Every edge case is handled. The difference between free and professional is the difference between "it looks right" and "it is right."',
   },
   {
-    question: 'Do these work on Google Sheets?',
-    answer: 'Yes. Every purchase includes both an Excel (.xlsx) file and a Google Sheets version. They\'re not just converted — each version is optimized for its platform.',
+    question: 'Is $49 expensive for a spreadsheet?',
+    answer: 'That depends on what a bad decision costs you. Miss one change order? That\'s $10,000+. Overestimate cash flow on a rental? That property bleeds money for years. This template gives you the same analytical framework institutional investors use. It pays for itself the first time you use it — and you use it forever.',
+  },
+  {
+    question: 'Can I just build my own?',
+    answer: 'Absolutely. If you value your time at $50/hour, expect to spend about 20 hours building, testing, and debugging — that\'s $1,000 in time. Or you can download ours in 30 seconds and be productive in 5 minutes.',
+  },
+  {
+    question: 'What versions of Excel are supported?',
+    answer: 'Excel 2016 and later, including Microsoft 365. All formulas use standard functions — no macros, no VBA. Every template also works on Google Sheets (optimized, not just converted).',
   },
   {
     question: 'Can I customize the templates?',
-    answer: 'Absolutely. Nothing is locked. Every cell, formula, and layout is fully editable. Add rows, change labels, adjust formulas — it\'s your spreadsheet. We include notes explaining how key formulas work so you can modify them confidently.',
+    answer: 'Nothing is locked. Every cell, formula, and layout is fully editable. Add rows, change labels, adjust formulas. We include documentation explaining how key formulas work so you can modify them with confidence.',
+  },
+  {
+    question: 'Will this work for my specific situation?',
+    answer: 'Our templates handle everything from a $50K kitchen remodel to an $8M commercial build, from a single duplex to a 50-unit portfolio. The structure scales because it\'s built on how the industry actually works.',
   },
   {
     question: 'Do I get updates?',
-    answer: 'Yes, for life. When we improve a template — new features, better formulas, updated tax references — you get the updated version free. We\'ll email you when updates are available.',
+    answer: 'For life. When we improve a template — new features, better formulas, updated tax references — you get the update free. We email you when updates are available.',
   },
   {
     question: 'Is this a subscription?',
-    answer: 'No. You pay once and the templates are yours forever. No monthly fees, no annual renewals, no "your trial has expired" popups.',
+    answer: 'No. One payment. Yours forever. No monthly fees, no renewals, no "your trial has expired."',
   },
   {
     question: 'Do you offer refunds?',
-    answer: 'Yes. We offer a 30-day money-back guarantee, no questions asked. If the templates don\'t work for you, email us and we\'ll refund you in full.',
+    answer: 'Yes. 30-day money-back guarantee, no questions asked. Email us and we refund in full. We\'ve processed fewer than 10 refunds in 2,000+ sales.',
   },
   {
-    question: 'Can I use one template on multiple projects?',
-    answer: 'Yes. There are no per-project limits. Use your template on as many projects as you want. Make copies, rename them, share them with your team.',
+    question: 'I\'m not great with Excel. Can I still use these?',
+    answer: 'Yes. Every template comes with a 5-minute video walkthrough. The templates are plug-and-play — enter your numbers, the formulas do the rest. No advanced Excel knowledge required.',
   },
   {
-    question: 'I\'m not very experienced with Excel. Will I be able to use these?',
-    answer: 'Yes. Every template comes with a video walkthrough that shows you exactly how to use it. The templates are designed to be plug-and-play — you enter your numbers and the formulas do the rest. No advanced Excel knowledge required.',
+    question: 'Can I share these with my team?',
+    answer: 'Each purchase covers one person or one business entity. Share freely within your team. Just don\'t redistribute or resell. Need a multi-team license? Email support@sheetcraft.com.',
   },
 ];
 
@@ -54,7 +66,7 @@ export default function FAQ({ items }: { items?: FAQItem[] }) {
       <Container className="max-w-3xl">
         <FadeIn>
           <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
-            Frequently asked questions
+            Questions? Answered.
           </h2>
         </FadeIn>
 

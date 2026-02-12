@@ -8,9 +8,24 @@ interface ProductCardProps {
   product: Product;
 }
 
+function getBadge(product: Product): string | null {
+  if (product.slug === 'rental-property-analyzer') return '🔥 Most Popular';
+  if (product.slug === 'construction-budget-tracker') return '⭐ Best for Contractors';
+  return null;
+}
+
 export default function ProductCard({ product }: ProductCardProps) {
+  const badge = getBadge(product);
+
   return (
-    <div className="bg-white border border-navy/8 rounded-xl shadow-card hover:shadow-elevated hover:-translate-y-[2px] transition-all duration-200 overflow-hidden flex flex-col">
+    <div className="relative bg-white border border-navy/8 rounded-xl shadow-card hover:shadow-elevated hover:-translate-y-[2px] transition-all duration-200 overflow-hidden flex flex-col">
+      {/* Badge */}
+      {badge && (
+        <div className="absolute top-3 right-3 z-10 bg-amber text-white text-xs font-heading font-semibold px-3 py-1 rounded-full shadow-sm">
+          {badge}
+        </div>
+      )}
+
       {/* Mockup image */}
       <Link href={`/products/${product.slug}`}>
         <MockupFrame className="!rounded-none !rounded-t-xl !shadow-none !border-0" />
@@ -57,7 +72,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* CTA */}
         <div className="mt-4">
           <Button href={`/products/${product.slug}`} fullWidth>
-            Get This Template
+            See What&apos;s Inside — ${product.price}
           </Button>
         </div>
       </div>
