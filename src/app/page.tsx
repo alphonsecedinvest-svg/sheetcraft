@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/Hero';
 import PainPoints from '@/components/sections/PainPoints';
+import MarketGap from '@/components/sections/MarketGap';
 import ProductShowcase from '@/components/sections/ProductShowcase';
 import Features from '@/components/sections/Features';
 import Testimonials from '@/components/sections/Testimonials';
@@ -14,6 +15,7 @@ export default function HomePage() {
     <>
       <Hero />
       <PainPoints />
+      <MarketGap />
       <ProductShowcase />
       <Features />
       <Testimonials />

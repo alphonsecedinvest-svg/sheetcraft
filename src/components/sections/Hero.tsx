@@ -17,11 +17,11 @@ export default function Hero() {
           <FadeIn>
             <div className="text-center lg:text-left">
               <h1 className="font-heading font-bold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[56px] text-navy">
-                Stop losing money on bad spreadsheets.{' '}
-                <span className="text-amber">Start making confident decisions</span> with precise numbers.
+                Pro-grade analysis.{' '}
+                <span className="text-amber">Zero learning curve.</span>
               </h1>
               <p className="mt-5 text-lg text-slate max-w-xl mx-auto lg:mx-0">
-                Professional Excel & Google Sheets templates for construction and real estate pros. Analyze deals in 15 minutes, track $50K–$10M projects, and never miss a line item again.
+                The power of $500/month software in a spreadsheet you can use in 5 minutes. Professional Excel & Google Sheets templates for construction and real estate pros — no training required.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 items-center lg:justify-start justify-center">
                 <Button href="/products" fullWidth className="sm:!w-auto">

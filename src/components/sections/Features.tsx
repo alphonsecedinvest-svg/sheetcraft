@@ -18,12 +18,12 @@ const features = [
   {
     icon: Zap,
     title: 'Productive in 5 minutes, not 5 hours',
-    description: 'Open. Plug in your numbers. Done. Every cell is labeled. Every formula is explained. Building this yourself would take 20+ hours. At $50/hour, that\'s $1,000 of your time — for a $49 template.',
+    description: 'Open. Plug in your numbers. Done. No training videos. No onboarding calls. Every cell is labeled, every formula is explained. If you can use Excel, you can use SheetCraft — that\'s the whole point.',
   },
   {
     icon: FileSpreadsheet,
     title: 'Excel + Google Sheets — both included',
-    description: 'Every purchase includes both formats, optimized for each platform. Not just converted — rebuilt. Use what you already have. No new software. No learning curve.',
+    description: 'Every purchase includes both formats, optimized for each platform. Use the tools you already know. No new software to learn, no ecosystem to get locked into. That\'s pro power without the pro complexity.',
   },
   {
     icon: RefreshCw,

@@ -10,7 +10,7 @@ import ComparisonTable from '@/components/ui/ComparisonTable';
 import StickyMobileCTA from '@/components/ui/StickyMobileCTA';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
-import { Star, Check, FileSpreadsheet, PlayCircle, RefreshCw, BookOpen } from 'lucide-react';
+import { Star, Check, FileSpreadsheet, PlayCircle, RefreshCw, BookOpen, Clock, GraduationCap, Laptop } from 'lucide-react';
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -141,6 +141,23 @@ export default async function ProductPage({
 
               {/* Trust badges under CTA */}
               <TrustBadges variant="stacked" className="mt-4" />
+
+              {/* Ease-of-use badges */}
+              <div className="mt-5 flex flex-wrap gap-2">
+                {[
+                  { icon: Clock, text: 'Ready in 5 min' },
+                  { icon: GraduationCap, text: 'No training required' },
+                  { icon: Laptop, text: 'Works in any Excel version' },
+                ].map((badge) => (
+                  <span
+                    key={badge.text}
+                    className="inline-flex items-center gap-1.5 bg-green/10 text-green text-xs font-medium px-3 py-1.5 rounded-full"
+                  >
+                    <badge.icon size={14} />
+                    {badge.text}
+                  </span>
+                ))}
+              </div>
 
               {/* What's included quick list */}
               <div className="mt-6 grid grid-cols-2 gap-3">
