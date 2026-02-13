@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { blogPosts, getBlogPostBySlug } from '@/lib/blog';
 import { getProductBySlug } from '@/lib/products';
 import Container from '@/components/ui/Container';
@@ -28,6 +29,9 @@ export async function generateMetadata({
       description: post.metaDescription,
       type: 'article',
       publishedTime: post.publishedAt,
+      ...(post.image && {
+        images: [{ url: post.image, width: 1200, height: 675, alt: post.imageAlt || post.title }],
+      }),
     },
   };
 }
@@ -227,6 +231,20 @@ export default async function BlogPostPage({
               })}
             </div>
           </header>
+
+          {/* Hero image */}
+          {post.image && (
+            <div className="mb-10 rounded-xl overflow-hidden">
+              <Image
+                src={post.image}
+                alt={post.imageAlt || post.title}
+                width={1200}
+                height={675}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          )}
 
           {/* Content */}
           <div className="prose">

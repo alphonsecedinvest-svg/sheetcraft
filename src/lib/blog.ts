@@ -10,6 +10,8 @@ export interface BlogPost {
   publishedAt: string;
   readTime: number;
   relatedProduct: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -24,6 +26,8 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2026-01-15',
     readTime: 12,
     relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-analysis.jpg',
+    imageAlt: 'Real estate investor analyzing rental property data on laptop with spreadsheet charts',
     content: `Buying a rental property without running the numbers is like hiring a contractor without getting a quote. You might get lucky. You probably won't.
 
 The difference between investors who build wealth with rental properties and those who end up with an expensive headache comes down to analysis. Not gut feeling. Not what the listing agent told you. Not what some guy on a podcast said about "any property in this zip code being a good deal."
@@ -131,6 +135,8 @@ The deal doesn't work at $220,000 with 25% down at 7%. But what if you offered $
     publishedAt: '2026-01-28',
     readTime: 10,
     relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-budget.jpg',
+    imageAlt: 'Construction project manager reviewing budget spreadsheet on tablet at job site with blueprints',
     content: `You searched "construction budget template Excel," downloaded one from the first result, and opened it up. It had ten categories, a column for estimated cost, a column for actual cost, and a total at the bottom.
 
 Then you started a real project.
@@ -201,6 +207,8 @@ On a $350,000 project: missing overages, double-paying subs, unbilled change ord
     publishedAt: '2026-02-10',
     readTime: 14,
     relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/brrrr-calculator.jpg',
+    imageAlt: 'Real estate investor comparing house flip deals on computer with financial charts and spreadsheets',
     content: `The BRRRR method — Buy, Rehab, Rent, Refinance, Repeat — is the closest thing to a cheat code in real estate investing. Done right, you recover most of your capital at refinance and redeploy it into the next deal.
 
 Done wrong, you trap $50,000 in a property that barely cash flows.
@@ -275,6 +283,233 @@ This deal doesn't work as written. But drop the purchase to $80,000 and the math
 3. Be conservative with ARV.
 4. Negative cash flow after refinance kills the "Repeat."
 5. A BRRRR calculator turns a 3-hour analysis into 10 minutes.`,
+  },
+  {
+    slug: 'how-to-track-construction-change-orders-excel',
+    title: 'How to Track Construction Change Orders in Excel (Without Losing Money)',
+    metaTitle: 'How to Track Construction Change Orders in Excel (Without Losing Money)',
+    metaDescription: 'Learn how to build a construction change order tracking system in Excel. Step-by-step guide with templates, formulas, and real-world examples to prevent cost overruns.',
+    targetKeyword: 'construction change order tracking Excel',
+    secondaryKeywords: ['change order log template', 'construction change order spreadsheet', 'how to track change orders', 'change order management Excel'],
+    excerpt: 'Change orders are where construction budgets go to die. The average custom home project sees 15-20 change orders — here\'s how to track every one in Excel without losing your mind (or your margin).',
+    publishedAt: '2026-02-13',
+    readTime: 15,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-change-orders.jpg',
+    imageAlt: 'Construction manager reviewing change order documents with Excel spreadsheet on laptop',
+    content: `Change orders are where construction budgets go to die.
+
+The average custom home project sees 15-20 change orders. A commercial project? Easily 50+. Each one shifts your budget, your schedule, and your margin — and if you're tracking them in email threads and sticky notes, you're already behind.
+
+The good news: you don't need expensive construction management software to stay on top of change orders. A well-built Excel spreadsheet can handle everything from initial request to final payment. In this guide, we'll build one from scratch.
+
+## What Is a Construction Change Order?
+
+A change order is a formal modification to the original construction contract. It can change the scope of work, the contract price, or the project schedule — usually all three.
+
+Common triggers include:
+
+- **Owner-requested changes** ("Can we add recessed lighting in the living room?")
+- **Design errors or omissions** (The architect forgot the HVAC chase)
+- **Unforeseen conditions** (We hit rock 4 feet down)
+- **Code compliance** (The inspector requires a larger electrical panel)
+- **Material substitutions** (The specified tile is discontinued)
+
+Each change order needs to be documented, priced, approved, and tracked against the overall budget. Miss one step and you're either eating the cost or fighting about it later.
+
+## Why Email and Paper Don't Work
+
+Most contractors start tracking change orders the same way: an email to the owner, a verbal approval, and a mental note to "add it to the final bill."
+
+Here's what goes wrong:
+
+### Problem 1: Lost Approvals
+
+"I never approved that." If you don't have a documented approval trail, you're in he-said-she-said territory. On a $15,000 change order, that's an expensive argument to lose.
+
+### Problem 2: Budget Drift
+
+You approved 12 change orders over 3 months. Each one seemed reasonable — $2,000 here, $5,000 there. But without a running total tied to your original budget, you don't realize the project is $47,000 over budget until it's too late.
+
+### Problem 3: Unbilled Work
+
+Your crew completed the extra work, but the change order paperwork never made it to the invoice. At project closeout, you discover $8,000 in approved changes that were never billed. Good luck collecting months after the fact.
+
+### Problem 4: Schedule Impact Blindness
+
+That "simple" change order to move a wall added 3 days to the framing schedule, which pushed electrical rough-in, which pushed insulation, which pushed drywall. But nobody updated the schedule because the change order was handled informally.
+
+## Building Your Change Order Tracker in Excel
+
+Here's how to build a change order tracking system that actually works. We'll create three connected components:
+
+### Component 1: The Change Order Log
+
+This is your master list — every change order on the project in one place.
+
+Create a new worksheet called "CO Log" with these columns:
+
+- **CO Number** (CO-001, CO-002, etc.)
+- **Date Submitted**
+- **Submitted By** (Owner, Architect, Field, Subcontractor)
+- **Description** (Clear, one-line summary)
+- **CSI Division** (Links to your budget categories)
+- **Estimated Cost** (Your initial pricing)
+- **Approved Cost** (Final negotiated amount)
+- **Status** (Pending / Approved / Rejected / Voided)
+- **Date Approved**
+- **Approved By**
+- **Schedule Impact** (Days added/subtracted)
+- **Budget Line** (Which budget category is affected)
+- **Notes**
+
+### The Key Formulas
+
+At the top of your log, add summary cells:
+
+**Total Approved COs:**
+\`=SUMIFS(G:G, H:H, "Approved")\`
+
+**Total Pending COs:**
+\`=SUMIFS(F:F, H:H, "Pending")\`
+
+**Total COs (Approved + Pending):**
+\`=SUMIFS(G:G, H:H, "Approved") + SUMIFS(F:F, H:H, "Pending")\`
+
+**Total Schedule Impact:**
+\`=SUMIFS(K:K, H:H, "Approved")\`
+
+These four numbers should be visible without scrolling. They're the first thing you check every morning.
+
+### Component 2: The Budget Integration
+
+Your change order log is useless if it doesn't talk to your budget. Here's how to connect them:
+
+In your main budget worksheet, add two columns:
+
+- **Approved COs** — pulls the sum of approved change orders for that budget line
+- **Revised Budget** — original budget + approved COs
+
+The formula for Approved COs:
+\`=SUMIFS('CO Log'!G:G, 'CO Log'!L:L, A5, 'CO Log'!H:H, "Approved")\`
+
+This automatically updates your budget every time a change order is approved. No manual entry, no missed updates.
+
+### Component 3: The Change Order Detail Sheet
+
+For each significant change order (anything over $2,500 or with schedule impact), create a detail section on a "CO Details" tab:
+
+- **CO Number and Description**
+- **Itemized cost breakdown** (labor, materials, equipment, subcontractor markup)
+- **Markup percentage** (typically 10-20% overhead + profit)
+- **Supporting documentation references** (photos, RFIs, emails)
+- **Schedule impact analysis**
+- **Signature/approval lines**
+
+## Best Practices for Change Order Tracking
+
+### 1. Number Everything Sequentially
+
+Never skip numbers. Never reuse numbers. If CO-007 gets rejected, it stays as CO-007 with status "Rejected." This creates an audit trail.
+
+### 2. Log It Immediately
+
+The moment someone mentions a change — in a meeting, on a call, in the field — create a line item in the log. Even if the details aren't finalized, get it documented with status "Pending."
+
+### 3. Track Pending COs as Seriously as Approved Ones
+
+Pending change orders are future budget hits. If you have $80,000 in pending COs, your budget isn't what the "Approved" column says — it's $80,000 worse. Use conditional formatting to highlight this risk.
+
+### 4. Set Up Conditional Formatting Alerts
+
+Color-code your tracker:
+
+- **Red:** Pending COs over 14 days old (these are stalling — chase them)
+- **Yellow:** COs approved but not yet billed
+- **Green:** COs approved, billed, and paid
+
+The formula for the 14-day alert:
+\`=AND(H5="Pending", TODAY()-B5>14)\`
+
+### 5. Include Owner and Contractor Markup
+
+Don't forget to apply your contractual markup to change orders. If your contract allows 15% overhead and 10% profit on changes, build these into your pricing template. Many contractors leave thousands on the table by quoting change orders at cost.
+
+### 6. Weekly Change Order Review
+
+Every week, review your CO log with your project team:
+
+- Any new pending COs?
+- Any COs pending longer than 7 days?
+- Any COs completed but not invoiced?
+- What's the cumulative impact on budget and schedule?
+
+This 15-minute review prevents 90% of change order problems.
+
+## Common Change Order Tracking Mistakes
+
+### Mistake 1: Not Tracking Deductive Change Orders
+
+Change orders can reduce the contract too. If the owner deletes the second-floor deck, that's a deductive CO. Track it the same way — it affects your budget, your schedule, and your subcontractor contracts.
+
+### Mistake 2: Combining Multiple Changes into One CO
+
+Each change should be its own line item. When you bundle "move the kitchen island + add a bathroom exhaust fan + upgrade to quartz countertops" into one CO, you can't track which items affected which budget lines.
+
+### Mistake 3: Not Getting Written Approval Before Starting Work
+
+This is the most expensive mistake. Verbal approval is not approval. Never start change order work without a signed (or at minimum, emailed) authorization. Your Excel tracker should have blank approval dates flagged in red.
+
+### Mistake 4: Forgetting Time-and-Materials Tracking
+
+Some change orders are priced T&M (time and materials). For these, you need a separate tracking mechanism — daily labor hours, material receipts, equipment logs. Link these totals back to the CO log so you can invoice accurately.
+
+## Real-World Example: $385K Residential Remodel
+
+Let's walk through a real scenario:
+
+**Original contract:** $385,000
+**Change orders over 6 months:**
+
+| CO# | Description | Cost | Status |
+|-----|-------------|------|--------|
+| CO-001 | Upgrade to tankless water heater | $2,800 | Approved |
+| CO-002 | Add recessed lighting (12 cans) | $3,400 | Approved |
+| CO-003 | Relocate HVAC return | $1,900 | Approved |
+| CO-004 | Unforeseen asbestos abatement | $6,200 | Approved |
+| CO-005 | Owner deletes built-in bookshelves | -$3,100 | Approved |
+| CO-006 | Upgrade hardwood to wide-plank | $4,800 | Approved |
+| CO-007 | Add outdoor electrical outlets (4) | $1,100 | Pending |
+| CO-008 | Change window manufacturer | $0 | Rejected |
+
+**Running totals:**
+- Approved COs: $16,000 (4.2% of contract)
+- Pending COs: $1,100
+- Revised contract: $401,000
+- Schedule impact: +8 days
+
+Without tracking, this contractor would have estimated their budget impact as "maybe $10,000 in extras." The actual number is $16,000 approved with another $1,100 pending. That's the difference between a profitable project and a break-even one.
+
+## When to Upgrade from Excel
+
+Excel works beautifully for most residential and small commercial projects. But you might need dedicated software when:
+
+- You're managing **5+ active projects** simultaneously
+- You have **multiple people** entering change orders
+- You need **real-time collaboration** in the field
+- Your projects regularly exceed **$2 million**
+- You need **digital signatures** and automated approval workflows
+
+For everything else, a well-structured Excel tracker gives you 90% of the functionality at 0% of the software cost.
+
+## Key Takeaways
+
+1. **Every change order gets logged immediately** — even before pricing is finalized.
+2. **Connect your CO log to your budget** with SUMIFS formulas so budget updates are automatic.
+3. **Track pending COs separately** — they represent future budget risk.
+4. **Never start change order work without written approval.** Your tracker should flag missing approvals.
+5. **Review your CO log weekly** — 15 minutes prevents thousands in missed billings.
+6. **A proper change order tracker pays for itself** on the first project — in recovered billings, prevented disputes, and margin protection.`,
   },
 ];
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import { blogPosts } from '@/lib/blog';
 import { Clock, ArrowRight } from 'lucide-react';
@@ -29,9 +30,21 @@ export default function BlogPage() {
               href={`/blog/${post.slug}`}
               className="bg-white border border-navy/8 rounded-xl shadow-card hover:shadow-elevated hover:-translate-y-[2px] transition-all duration-200 overflow-hidden flex flex-col"
             >
-              {/* Placeholder image area */}
-              <div className="h-48 bg-navy/5 flex items-center justify-center">
-                <span className="text-4xl">📊</span>
+              {/* Hero image */}
+              <div className="h-48 bg-navy/5 relative overflow-hidden">
+                {post.image ? (
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt || post.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-full">
+                    <span className="text-4xl">📊</span>
+                  </div>
+                )}
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center gap-2 text-xs text-slate mb-2">
