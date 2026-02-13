@@ -58,22 +58,29 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <FadeIn key={t.name} delay={i * 0.1}>
               <div className="bg-white border border-navy/6 rounded-xl p-6 shadow-card h-full flex flex-col">
-                <div className="flex mb-3">
+                {/* Trustpilot-style green star bar */}
+                <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} size={16} className="fill-amber text-amber" />
+                    <div key={j} className="w-6 h-6 bg-[#00b67a] flex items-center justify-center">
+                      <Star size={14} className="fill-white text-white" />
+                    </div>
                   ))}
                 </div>
-                <p className="text-base text-navy italic leading-relaxed flex-1">
+                <p className="text-sm font-semibold text-navy mb-2">Verified Purchase</p>
+                <p className="text-base text-navy leading-relaxed flex-1">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="mt-4 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-cloud flex items-center justify-center">
-                    <span className="text-xs font-heading font-semibold text-navy">{t.initials}</span>
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-[#00b67a]/10 flex items-center justify-center">
+                      <span className="text-xs font-heading font-bold text-[#00b67a]">{t.initials}</span>
+                    </div>
+                    <div>
+                      <p className="font-heading font-semibold text-sm text-navy">{t.name}</p>
+                      <p className="text-xs text-slate">{t.title}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-heading font-semibold text-sm text-navy">{t.name}</p>
-                    <p className="text-xs text-slate">{t.title}</p>
-                  </div>
+                  <span className="text-xs text-slate">✓ Verified</span>
                 </div>
               </div>
             </FadeIn>

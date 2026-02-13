@@ -125,7 +125,7 @@ export default async function ProductPage({
                     <Star key={i} size={16} className="fill-amber text-amber" />
                   ))}
                 </div>
-                <span className="text-sm text-slate">{product.rating}/5 ({product.reviewCount} reviews)</span>
+                <a href="#reviews" className="text-sm text-slate hover:text-navy transition-colors cursor-pointer">{product.rating}/5 ({product.reviewCount} reviews)</a>
               </div>
 
               <div className="mt-4">
@@ -285,32 +285,51 @@ export default async function ProductPage({
         </Container>
       </section>
 
-      {/* Testimonials */}
+      {/* Reviews — Trustpilot-style */}
       {product.testimonials.length > 0 && (
-        <section className="py-12 lg:py-16 bg-cloud">
+        <section id="reviews" className="py-12 lg:py-16 bg-cloud scroll-mt-20">
           <Container>
-            <h2 className="font-heading font-semibold text-2xl text-navy text-center mb-8">
-              What customers say
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* Trustpilot-style header */}
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 mb-3">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={20} className="fill-[#00b67a] text-[#00b67a]" />
+                  ))}
+                </div>
+              </div>
+              <p className="font-heading font-bold text-lg text-navy">
+                Rated {product.rating}/5 based on {product.reviewCount} reviews
+              </p>
+              <p className="text-sm text-slate mt-1">Verified customer reviews</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
               {product.testimonials.map((t) => (
-                <div key={t.name} className="bg-white border border-navy/6 rounded-xl p-6 shadow-card">
-                  <div className="flex mb-3">
+                <div key={t.name} className="bg-white border border-navy/6 rounded-lg p-5 shadow-card">
+                  {/* Trustpilot-style green star bar */}
+                  <div className="flex gap-0.5 mb-3">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={16} className="fill-amber text-amber" />
+                      <div key={j} className="w-6 h-6 bg-[#00b67a] flex items-center justify-center">
+                        <Star size={14} className="fill-white text-white" />
+                      </div>
                     ))}
                   </div>
-                  <p className="text-base text-navy italic leading-relaxed">
+                  <p className="text-sm font-semibold text-navy mb-2">Verified Purchase</p>
+                  <p className="text-base text-navy leading-relaxed">
                     &ldquo;{t.quote}&rdquo;
                   </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-cloud flex items-center justify-center">
-                      <span className="text-xs font-heading font-semibold text-navy">{t.initials}</span>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full bg-[#00b67a]/10 flex items-center justify-center">
+                        <span className="text-xs font-heading font-bold text-[#00b67a]">{t.initials}</span>
+                      </div>
+                      <div>
+                        <p className="font-heading font-semibold text-sm text-navy">{t.name}</p>
+                        <p className="text-xs text-slate">{t.title}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-heading font-semibold text-sm text-navy">{t.name}</p>
-                      <p className="text-xs text-slate">{t.title}</p>
-                    </div>
+                    <span className="text-xs text-slate">✓ Verified</span>
                   </div>
                 </div>
               ))}
