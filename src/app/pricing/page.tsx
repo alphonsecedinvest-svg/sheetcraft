@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const comparisonFeatures = [
   { name: 'Number of templates', single: '1', bundle: '3', full: 'All 5 + future' },
   { name: 'Excel + Google Sheets', single: true, bundle: true, full: true },
-  { name: 'Video walkthroughs', single: true, bundle: true, full: true },
+  { name: 'Quick Start Guides (PDF)', single: true, bundle: true, full: true },
   { name: 'Lifetime updates', single: true, bundle: true, full: true },
   { name: 'Quick-start guide (PDF)', single: true, bundle: true, full: true },
   { name: 'Priority email support', single: false, bundle: true, full: true },

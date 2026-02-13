@@ -49,7 +49,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'I\'m not great with Excel. Can I still use these?',
-    answer: 'Yes. Every template comes with a 5-minute video walkthrough. The templates are plug-and-play — enter your numbers, the formulas do the rest. No advanced Excel knowledge required.',
+    answer: 'Yes. Every template comes with a detailed Quick Start Guide (PDF). The templates are plug-and-play — enter your numbers, the formulas do the rest. No advanced Excel knowledge required.',
   },
   {
     question: 'Can I share these with my team?',

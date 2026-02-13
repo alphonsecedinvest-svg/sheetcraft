@@ -98,7 +98,7 @@ This isn't a template you'll outgrow. We've had users track projects from $50K k
     whatsIncluded: [
       'Excel file (.xlsx) — compatible with Excel 2016+, Microsoft 365',
       'Google Sheets version — optimized for Sheets, not just converted',
-      '5-minute video walkthrough covering setup and daily use',
+      'Detailed Quick Start Guide (PDF) covering setup and daily use',
       'Sample data pre-loaded so you can see it in action before entering your own',
       'Quick-start guide (PDF) with customization tips',
       'Lifetime updates — every improvement, delivered free',
@@ -200,7 +200,7 @@ The comparison tab lets you analyze up to five properties side by side. When you
     whatsIncluded: [
       'Excel file (.xlsx) — compatible with Excel 2016+, Microsoft 365',
       'Google Sheets version — optimized for Sheets',
-      '5-minute video walkthrough',
+      'Quick Start Guide (PDF)',
       'Sample deal pre-loaded with realistic numbers',
       'Quick-start guide (PDF)',
       'Lifetime updates',
@@ -298,7 +298,7 @@ For contractors running multiple projects simultaneously, the multi-project view
     whatsIncluded: [
       'Excel file (.xlsx) — compatible with Excel 2016+, Microsoft 365',
       'Google Sheets version — optimized for Sheets',
-      '5-minute video walkthrough',
+      'Quick Start Guide (PDF)',
       'Sample project schedule pre-loaded',
       'Quick-start guide (PDF)',
       'Lifetime updates',
@@ -387,7 +387,7 @@ The deal summary dashboard brings it all together. Total capital invested. Capit
     whatsIncluded: [
       'Excel file (.xlsx) — compatible with Excel 2016+, Microsoft 365',
       'Google Sheets version — optimized for Sheets',
-      '5-minute video walkthrough',
+      'Quick Start Guide (PDF)',
       'Sample BRRRR deal pre-loaded with realistic numbers',
       'Quick-start guide (PDF)',
       'Lifetime updates',
@@ -477,7 +477,7 @@ The sensitivity analysis tab shows how your profit changes if the ARV comes in 5
     whatsIncluded: [
       'Excel file (.xlsx) — compatible with Excel 2016+, Microsoft 365',
       'Google Sheets version — optimized for Sheets',
-      '5-minute video walkthrough',
+      'Quick Start Guide (PDF)',
       'Sample flip deal pre-loaded with realistic numbers',
       'Quick-start guide (PDF)',
       'Lifetime updates',

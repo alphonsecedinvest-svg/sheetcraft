@@ -19,7 +19,7 @@ const steps = [
   {
     number: '3',
     title: 'Plug in your numbers and go',
-    description: 'Every formula is pre-built and tested. Enter your data. Watch the dashboard calculate. Need help? The included 5-minute video walkthrough covers everything.',
+    description: 'Every formula is pre-built and tested. Enter your data. Watch the dashboard calculate. Need help? The included Quick Start Guide walks you through everything step by step.',
   },
 ];
 

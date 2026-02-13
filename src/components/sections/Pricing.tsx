@@ -29,7 +29,7 @@ const tiers: PricingTier[] = [
     features: [
       { text: '1 template of your choice', included: true },
       { text: 'Excel + Google Sheets', included: true },
-      { text: 'Video walkthrough', included: true },
+      { text: 'Quick Start Guide (PDF)', included: true },
       { text: 'Lifetime updates', included: true },
       { text: '30-day money-back guarantee', included: true },
       { text: 'Priority email support', included: false },
@@ -49,7 +49,7 @@ const tiers: PricingTier[] = [
     features: [
       { text: 'Any 3 templates', included: true },
       { text: 'Excel + Google Sheets', included: true },
-      { text: 'Video walkthroughs', included: true },
+      { text: 'Quick Start Guides (PDF)', included: true },
       { text: 'Lifetime updates', included: true },
       { text: '30-day money-back guarantee', included: true },
       { text: 'Priority email support', included: true },
@@ -70,7 +70,7 @@ const tiers: PricingTier[] = [
     features: [
       { text: 'All 5 templates', included: true },
       { text: 'Excel + Google Sheets', included: true },
-      { text: 'Video walkthroughs', included: true },
+      { text: 'Quick Start Guides (PDF)', included: true },
       { text: 'Lifetime updates', included: true },
       { text: '30-day money-back guarantee', included: true },
       { text: 'Priority email support', included: true },

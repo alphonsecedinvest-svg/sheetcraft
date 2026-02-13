@@ -10,7 +10,7 @@ import ComparisonTable from '@/components/ui/ComparisonTable';
 import StickyMobileCTA from '@/components/ui/StickyMobileCTA';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
-import { Star, Check, FileSpreadsheet, PlayCircle, RefreshCw, BookOpen, Clock, GraduationCap, Laptop } from 'lucide-react';
+import { Star, Check, FileSpreadsheet, FileText, RefreshCw, BookOpen, Clock, GraduationCap, Laptop } from 'lucide-react';
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -163,7 +163,7 @@ export default async function ProductPage({
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {[
                   { icon: FileSpreadsheet, text: 'Excel + Google Sheets' },
-                  { icon: PlayCircle, text: 'Video walkthrough' },
+                  { icon: FileText, text: 'Quick Start Guide (PDF)' },
                   { icon: RefreshCw, text: 'Lifetime updates' },
                   { icon: BookOpen, text: 'Quick-start guide' },
                 ].map((item) => (
