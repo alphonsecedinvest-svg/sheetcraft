@@ -29,14 +29,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button href="/products" variant="primary" className="!py-2.5 !px-5 !text-xs">
+          <Button href="/products" variant="primary" className="!py-2.5 !px-5 !text-xs !min-h-0">
             Buy Now
           </Button>
         </div>
 
         {/* Mobile: CTA + hamburger */}
         <div className="flex md:hidden items-center gap-3">
-          <Button href="/products" variant="primary" className="!py-2 !px-4 !text-xs">
+          <Button href="/products" variant="primary" className="!py-2.5 !px-4 !text-xs !min-h-0">
             Buy Now
           </Button>
           <button
