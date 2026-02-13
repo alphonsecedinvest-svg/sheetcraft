@@ -45,7 +45,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'Do you offer refunds?',
-    answer: 'Yes. 30-day money-back guarantee, no questions asked. Email us and we refund in full. We\'ve processed fewer than 10 refunds in 2,000+ sales.',
+    answer: 'Yes — we offer a 30-day money-back guarantee. If the template doesn\'t work as described, you can\'t open or use the file, or you purchased the wrong product, we\'ll refund you in full. Since digital products can\'t be "returned," we ask that you briefly explain the issue so we can help. In most cases, we can resolve the problem faster than processing a refund. Just email support@sheetcraft.com.',
   },
   {
     question: 'I\'m not great with Excel. Can I still use these?',
