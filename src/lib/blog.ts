@@ -690,6 +690,264 @@ There's no shame in running a successful contracting business on spreadsheets. P
 5. **The hybrid approach works.** Excel for finances, free apps for field operations.
 6. **Revisit the decision annually.** Your needs at $1M revenue are different from $3M. Don't over-invest in tools — invest in the work.`,
   },
+  {
+    slug: 'rehab-cost-estimator-spreadsheet',
+    title: 'How to Estimate Rehab Costs Like a Pro (Free Spreadsheet Method)',
+    metaTitle: 'Rehab Cost Estimator Spreadsheet: Estimate Repairs Like a Pro',
+    metaDescription: 'Learn how to build a rehab cost estimator spreadsheet in Excel. Room-by-room breakdown, contractor pricing, and contingency formulas for house flippers.',
+    targetKeyword: 'rehab cost estimator spreadsheet',
+    secondaryKeywords: ['rehab cost calculator', 'house flip repair estimate', 'renovation cost spreadsheet', 'rehab budget template Excel'],
+    excerpt: 'Most house flippers lose money not because they bought wrong — but because they estimated repairs wrong. Here\'s exactly how to build a rehab cost estimator that keeps you honest.',
+    publishedAt: '2026-02-15',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/rehab-cost-estimator.jpg',
+    imageAlt: 'House renovation project with cost estimate spreadsheet on clipboard and construction tools',
+    content: `Most house flippers don't lose money because they bought the wrong property. They lose money because they underestimated the rehab.
+
+It's the most common mistake in real estate investing — and the most expensive. A $15,000 "miscalculation" on a kitchen remodel doesn't just cost you $15,000. It eats into your profit margin, extends your holding period, and can turn a promising deal into a break-even nightmare.
+
+The fix? A systematic rehab cost estimator spreadsheet that forces you to price every single line item before you make an offer. Not a back-of-napkin guess. Not "my contractor said it'd be about 40K." An actual, room-by-room, component-by-component estimate you can defend with real numbers.
+
+In this guide, we'll build one from scratch.
+
+## Why Most Rehab Estimates Are Wrong
+
+Before we get into the spreadsheet, let's talk about why estimates go sideways:
+
+- **Scope creep**: You planned to refinish the floors. Then you found water damage underneath. Now you're replacing subfloor.
+- **Contractor variance**: The same job can range 40-60% depending on who you hire and when.
+- **Hidden costs**: Permits, dumpster rentals, utility hookups, landscaping — the "small stuff" that adds up to $5,000+.
+- **Optimism bias**: Investors consistently underestimate by 20-30%. It's human nature to see the best-case scenario.
+
+A good spreadsheet doesn't eliminate these problems, but it makes them visible. When every cost has a line item, it's much harder to accidentally "forget" the $3,000 electrical panel upgrade.
+
+## The Room-by-Room Approach
+
+Professional estimators don't look at a house and think "this needs about $50K in work." They walk room by room, system by system, and price each component individually.
+
+Your spreadsheet should mirror this approach:
+
+### Exterior Categories
+
+| Category | Common Items | Typical Cost Range |
+|----------|-------------|-------------------|
+| Roof | Full replacement, repair, gutters | $5,000 – $15,000 |
+| Siding | Vinyl, fiber cement, paint | $3,000 – $12,000 |
+| Windows | Replacement (per window) | $300 – $800 each |
+| Landscaping | Grading, sod, trees, mulch | $1,500 – $5,000 |
+| Driveway | Repaving, sealing, concrete | $2,000 – $8,000 |
+| Front entry | Door, porch, steps, railings | $500 – $3,000 |
+
+### Interior Categories
+
+| Category | Common Items | Typical Cost Range |
+|----------|-------------|-------------------|
+| Kitchen | Cabinets, counters, appliances, backsplash | $8,000 – $35,000 |
+| Bathrooms | Vanity, tile, tub/shower, fixtures (each) | $3,000 – $15,000 |
+| Flooring | Hardwood, LVP, tile, carpet (per sq ft) | $2 – $8/sq ft |
+| Paint | Interior walls and trim (whole house) | $2,000 – $5,000 |
+| Doors | Interior door replacement (each) | $150 – $400 each |
+| Trim/baseboard | New or refinished (linear ft) | $2 – $5/linear ft |
+
+### Systems (The Expensive Ones)
+
+| System | When to Replace | Typical Cost |
+|--------|----------------|-------------|
+| HVAC | 15-20 years old, inefficient | $4,000 – $10,000 |
+| Electrical panel | Under 100 amp, Federal Pacific, fuses | $1,500 – $4,000 |
+| Plumbing | Galvanized pipes, polybutylene, lead | $3,000 – $15,000 |
+| Water heater | 10+ years, leaking, undersized | $800 – $2,000 |
+| Foundation | Cracks, settling, moisture | $2,000 – $15,000+ |
+
+## Setting Up Your Spreadsheet
+
+Open Excel (or Google Sheets) and create these columns:
+
+### Column Structure
+
+- **A: Category** (Exterior, Kitchen, Bathroom 1, etc.)
+- **B: Item** (specific component)
+- **C: Quantity** (number of units, square feet, linear feet)
+- **D: Unit** (each, sq ft, linear ft, lump sum)
+- **E: Low Estimate** (per unit cost, conservative)
+- **F: High Estimate** (per unit cost, worst case)
+- **G: Selected Estimate** (your best judgment between low and high)
+- **H: Line Total** (=C×G)
+
+At the bottom, add these summary rows:
+
+\`\`\`
+Subtotal:           =SUM(H:H)
+Contingency (15%):  =Subtotal × 0.15
+Permit Costs:       [manual entry]
+Dumpster/Cleanup:   [manual entry]
+TOTAL REHAB COST:   =Subtotal + Contingency + Permits + Cleanup
+\`\`\`
+
+### Why Low and High Columns Matter
+
+Having both estimates forces you to think about range, not a single number. Your "selected estimate" should sit between the two based on:
+
+- **Property condition** (worse = closer to high)
+- **Market labor rates** (hot market = closer to high)
+- **Your contractor relationships** (trusted crew = closer to low)
+- **Timeline pressure** (rush job = 15-20% premium)
+
+## The Contingency Formula
+
+This is where most DIY estimates fail. A 15% contingency isn't padding — it's math.
+
+On a typical rehab, unexpected costs average 10-20% of the initial estimate. Water damage behind walls. Outdated wiring that doesn't meet code. Termite damage in the framing. Asbestos in the popcorn ceiling.
+
+**Use this sliding scale:**
+
+- **Light cosmetic rehab** (paint, floors, fixtures): 10% contingency
+- **Moderate rehab** (kitchen, baths, some systems): 15% contingency
+- **Heavy rehab** (gut renovation, structural work): 20-25% contingency
+- **Unknown condition** (haven't opened walls yet): 25% minimum
+
+In Excel, use a dropdown or manual cell for your contingency percentage:
+
+\`\`\`
+=IF(B2="Light",0.10, IF(B2="Moderate",0.15, IF(B2="Heavy",0.20, 0.25)))
+\`\`\`
+
+## Getting Accurate Unit Costs
+
+Your spreadsheet is only as good as the numbers you put in. Here's how to get real pricing:
+
+### 1. Get Three Contractor Bids
+
+For any job over $5,000, get three written bids. Not verbal. Written. This gives you:
+- A realistic price range for your market
+- Leverage in negotiations
+- A backup if your first-choice contractor falls through
+
+### 2. Use Cost Databases
+
+- **HomeAdvisor/Angi** cost guides (free, updated regularly)
+- **RSMeans** construction cost data (industry standard, paid)
+- **Remodeling Magazine's Cost vs. Value Report** (annual, free)
+- **Your local building supply store** (material costs)
+
+### 3. Track Your Actual Costs
+
+After every project, go back to your estimate and fill in what you actually spent. Over time, you'll build a personal cost database that's far more accurate than any generic guide.
+
+Add a column I for "Actual Cost" and column J for "Variance" (=I-H). After 3-5 projects, you'll know exactly where you tend to under or overestimate.
+
+## Real Example: A $45K Rehab Estimate
+
+Let's walk through a real-world example. 3-bedroom, 1.5-bath ranch built in 1978. Purchase price: $165,000. ARV: $260,000.
+
+### Exterior
+
+| Item | Qty | Unit | Est/Unit | Total |
+|------|-----|------|----------|-------|
+| Roof (tear-off + reshingle) | 18 | squares | $450 | $8,100 |
+| Gutter replacement | 120 | linear ft | $8 | $960 |
+| Exterior paint | 1 | lump | $3,500 | $3,500 |
+| Front door + hardware | 1 | each | $650 | $650 |
+
+**Exterior subtotal: $13,210**
+
+### Kitchen
+
+| Item | Qty | Unit | Est/Unit | Total |
+|------|-----|------|----------|-------|
+| Cabinets (RTA shaker) | 12 | linear ft | $200 | $2,400 |
+| Countertops (quartz) | 35 | sq ft | $55 | $1,925 |
+| Backsplash (subway tile) | 30 | sq ft | $12 | $360 |
+| Appliance package | 1 | set | $2,200 | $2,200 |
+| Sink + faucet | 1 | each | $350 | $350 |
+| Labor (install) | 1 | lump | $3,000 | $3,000 |
+
+**Kitchen subtotal: $10,235**
+
+### Bathroom (Full)
+
+| Item | Qty | Unit | Est/Unit | Total |
+|------|-----|------|----------|-------|
+| Vanity + top | 1 | each | $400 | $400 |
+| Tub/shower surround | 1 | each | $1,200 | $1,200 |
+| Tile floor | 45 | sq ft | $10 | $450 |
+| Toilet | 1 | each | $200 | $200 |
+| Fixtures + mirror | 1 | set | $300 | $300 |
+| Labor | 1 | lump | $2,500 | $2,500 |
+
+**Bathroom subtotal: $5,050**
+
+### Interior General
+
+| Item | Qty | Unit | Est/Unit | Total |
+|------|-----|------|----------|-------|
+| LVP flooring | 1,100 | sq ft | $3.50 | $3,850 |
+| Interior paint | 1,400 | sq ft | $1.80 | $2,520 |
+| Interior doors | 8 | each | $175 | $1,400 |
+| Baseboards | 280 | linear ft | $3 | $840 |
+| Light fixtures | 10 | each | $75 | $750 |
+
+**Interior subtotal: $9,360**
+
+### Summary
+
+| | |
+|---|---|
+| Exterior | $13,210 |
+| Kitchen | $10,235 |
+| Bathroom | $5,050 |
+| Interior | $9,360 |
+| **Subtotal** | **$37,855** |
+| Contingency (15%) | $5,678 |
+| Permits | $1,200 |
+| Dumpster (2 hauls) | $900 |
+| **Total Rehab Estimate** | **$45,633** |
+
+With a purchase at $165,000 and rehab at $45,633, total investment is $210,633. At an ARV of $260,000, that leaves room for closing costs, holding costs, and profit — but it's tight. This is exactly the kind of clarity a spreadsheet gives you before you commit.
+
+## Common Mistakes to Avoid
+
+### 1. Estimating the Whole Kitchen as One Line Item
+
+"Kitchen remodel: $15,000" tells you nothing. Break it into cabinets, countertops, appliances, backsplash, plumbing, electrical, and labor. You'll often find the individual items add up to more (or less) than your gut estimate.
+
+### 2. Forgetting Holding Costs
+
+Your rehab estimate affects your holding period, which affects your total project cost. A $45K rehab that takes 3 months has very different economics than one that takes 6 months. Build timeline estimates into your spreadsheet.
+
+### 3. Using National Averages for Local Work
+
+A bathroom remodel in rural Ohio costs half what it does in San Francisco. Always calibrate to your local market using actual contractor bids.
+
+### 4. Not Updating After Every Project
+
+Your first estimate will probably be off by 15-25%. That's fine. Your tenth estimate should be within 5-10%. But only if you track actuals and learn from the variance.
+
+## Level Up: The Comp-Based Approach
+
+Once you've done a few projects, you can speed up your estimates using comp-based pricing:
+
+1. **Calculate your cost per square foot** from completed projects
+2. **Categorize by rehab level** (cosmetic: $15-25/sq ft, moderate: $25-40/sq ft, heavy: $40-60/sq ft)
+3. **Use comp pricing for quick initial screening**, then do the full room-by-room estimate before making an offer
+
+This is how experienced flippers evaluate 10 deals in an hour. They use a quick $/sq ft estimate to filter, then do the detailed spreadsheet on the 2-3 deals worth pursuing.
+
+## Download vs. Build Your Own
+
+You can absolutely build this spreadsheet from scratch — and doing so teaches you what every number means. But if you want a head start with built-in formulas, conditional formatting, and a proven layout, SheetCraft's [Flip & BRRRR Calculator](/products/flip-brrrr-calculator) includes a complete rehab estimator with 50+ pre-loaded line items, automatic contingency calculations, and a deal analysis dashboard that connects your rehab estimate directly to your profit projections.
+
+Whether you build or buy, the important thing is using it on every single deal. The spreadsheet only works if you do.
+
+## Key Takeaways
+
+1. **Estimate room by room, never as a lump sum.** Detailed line items catch costs you'd otherwise miss.
+2. **Always include contingency.** 15% minimum for moderate rehabs, 20-25% for heavy or unknown conditions.
+3. **Get real bids, not internet averages.** Three written contractor quotes beat any cost database.
+4. **Track actual costs after every project.** Your personal data becomes your competitive advantage.
+5. **Use the spreadsheet before making offers.** The best time to walk away from a bad deal is before you own it.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
