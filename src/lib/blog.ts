@@ -948,6 +948,240 @@ Whether you build or buy, the important thing is using it on every single deal. 
 4. **Track actual costs after every project.** Your personal data becomes your competitive advantage.
 5. **Use the spreadsheet before making offers.** The best time to walk away from a bad deal is before you own it.`,
   },
+  {
+    slug: 'construction-draw-schedule-template-excel',
+    title: 'How to Create a Construction Draw Schedule in Excel (2026 Guide)',
+    metaTitle: 'Construction Draw Schedule Template Excel | Free Guide 2026',
+    metaDescription: 'Learn how to create a construction draw schedule in Excel. Step-by-step guide with phases, percentages, and lender-ready formatting for any project.',
+    targetKeyword: 'construction draw schedule template',
+    secondaryKeywords: ['construction draw schedule Excel', 'draw schedule template free', 'construction loan draw schedule', 'builder draw schedule'],
+    excerpt: 'A construction draw schedule ties payments to completed work — not promises. Here\'s how to build one in Excel that keeps your lender happy and your cash flow under control.',
+    publishedAt: '2026-02-16',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-draw-schedule-template.jpg',
+    imageAlt: 'Construction project timeline with payment milestones and blueprints illustration',
+    content: `A construction draw schedule is the single most important document between you, your lender, and your contractor. It defines when money gets released, how much, and based on what completed work.
+
+Get it wrong, and you're either overpaying for unfinished work or running out of cash mid-project. Get it right, and every dollar flows exactly when it should.
+
+Whether you're a general contractor managing a custom home build, a real estate investor running a rehab, or an owner-builder doing your first ground-up project, this guide walks you through building a construction draw schedule in Excel — from scratch.
+
+## What Is a Construction Draw Schedule?
+
+A construction draw schedule (also called a disbursement schedule or progress payment schedule) is a table that breaks your total construction budget into phases. Each phase has a dollar amount and a percentage of the total. When a phase is completed, the contractor submits a draw request, an inspector verifies the work, and the lender releases that portion of funds.
+
+**Key components:**
+- **Line items** (phases of construction)
+- **Budgeted amount** per phase
+- **Percentage of total** budget
+- **Draw request amount** (what's being requested this period)
+- **Amount disbursed to date**
+- **Remaining balance**
+- **Completion status** (inspector sign-off)
+
+Most construction loans — whether from a bank, credit union, or hard money lender — require a draw schedule before they'll fund a single dollar. Even if you're self-funding, using one keeps you from the most common mistake in construction: paying ahead of progress.
+
+## Why You Need One (Even for Small Projects)
+
+Here's what happens without a draw schedule:
+
+1. Contractor asks for 50% upfront "for materials"
+2. Materials show up… eventually
+3. Work stalls because the contractor moved to another job
+4. You've already paid half the contract with 15% of work done
+5. Hiring a replacement contractor means paying twice for the same phase
+
+A draw schedule eliminates this. Payments are tied to verified milestones, not promises. The contractor gets paid when work is done — not before.
+
+**Lenders require them** because they're lending against the future value of improved property. They need proof that their money is actually turning into a building, not sitting in someone's operating account.
+
+## Standard Construction Phases and Percentages
+
+Every project is different, but here's a baseline draw schedule for a typical residential new construction or major renovation:
+
+| Phase | % of Budget | Typical Cost (on $300K build) |
+|-------|------------|-------------------------------|
+| Site work & foundation | 12% | $36,000 |
+| Framing & structural | 18% | $54,000 |
+| Roofing & exterior | 10% | $30,000 |
+| Rough plumbing | 6% | $18,000 |
+| Rough electrical | 5% | $15,000 |
+| HVAC rough-in | 6% | $18,000 |
+| Insulation & drywall | 10% | $30,000 |
+| Interior finishes | 15% | $45,000 |
+| Cabinets & countertops | 7% | $21,000 |
+| Final plumbing & electrical | 4% | $12,000 |
+| Flooring & paint | 4% | $12,000 |
+| Final inspections & punch list | 3% | $9,000 |
+
+**Important:** These percentages are starting points. Your actual numbers depend on your scope of work, location, and material choices. Always build your draw schedule from your detailed construction budget — not generic percentages.
+
+## Step-by-Step: Building Your Draw Schedule in Excel
+
+### Step 1: Set Up Your Header
+
+Open a new Excel workbook. In Row 1, create these column headers:
+
+- **A1:** Phase / Line Item
+- **B1:** Budgeted Amount
+- **C1:** % of Total
+- **D1:** Draw 1
+- **E1:** Draw 2
+- **F1:** Draw 3
+- **G1:** (continue for as many draws as you expect — typically 5-8 for residential)
+- **Last column:** Total Disbursed
+- **Final column:** Remaining Balance
+
+Format the header row with bold text and a light background color. Freeze the top row so it stays visible as you scroll.
+
+### Step 2: Enter Your Line Items
+
+In column A, list every phase of your project. Don't just use the generic phases above — pull directly from your construction budget or contractor's scope of work.
+
+**Pro tip:** Match your draw schedule line items exactly to your contractor's bid. If their bid breaks framing into "framing labor" and "framing materials," your draw schedule should too. Mismatched categories create confusion during inspections.
+
+### Step 3: Add Budgeted Amounts and Percentages
+
+In column B, enter the budgeted dollar amount for each phase. In column C, use this formula:
+
+\`=B2/SUM($B$2:$B$13)\`
+
+This calculates each phase as a percentage of the total budget. The SUM range should cover all your line items. Format column C as a percentage.
+
+**Add a total row** at the bottom: \`=SUM(B2:B13)\` should equal your total construction budget. If it doesn't, something's missing.
+
+### Step 4: Set Up Draw Columns
+
+Each draw column (D, E, F, etc.) represents a payment period. When a contractor submits a draw request, you enter the amount being requested for each line item in that draw's column.
+
+Most residential projects have 4-7 draws. Commercial projects might have monthly draws over 12-24 months.
+
+**Key formula — Total Disbursed:**
+\`=SUM(D2:I2)\` (sum across all draw columns for that row)
+
+**Key formula — Remaining Balance:**
+\`=B2-J2\` (budgeted amount minus total disbursed)
+
+### Step 5: Add Validation and Protection
+
+This is where most DIY draw schedules fall apart. Without validation, it's easy to accidentally disburse more than the budgeted amount for a line item.
+
+**Add conditional formatting:**
+- Select the Remaining Balance column
+- Set a rule: if value < 0, format with red fill
+- This immediately flags any over-disbursement
+
+**Add data validation:**
+- Select all draw amount cells
+- Data → Validation → Allow: Decimal, Between 0 and the budgeted amount
+- This prevents entering a draw amount larger than the budget
+
+**Lock the structure:**
+- Protect the sheet but leave draw columns unlocked
+- This prevents accidental changes to budgets or formulas while allowing draw entries
+
+### Step 6: Add a Summary Section
+
+Below your line items, create a summary block:
+
+| Metric | Formula |
+|--------|---------|
+| Total Budget | =SUM(B2:B13) |
+| Total Disbursed | =SUM of Total Disbursed column |
+| Remaining to Disburse | =Total Budget - Total Disbursed |
+| % Complete (by $) | =Total Disbursed / Total Budget |
+| Current Draw Request | =SUM of current draw column |
+| Retainage Held (10%) | =Total Disbursed * 10% |
+| Net Disbursed | =Total Disbursed - Retainage |
+
+**Retainage** is critical. Most lenders and experienced owners withhold 5-10% of each draw until the project is fully complete. This gives the contractor incentive to finish punch list items and show up for final inspection.
+
+## Retainage: The Detail Most Templates Miss
+
+Retainage (also called retention) is the portion of each payment held back until project completion. Standard is 10% for residential, 5-10% for commercial.
+
+**How to handle it in your spreadsheet:**
+
+Add two rows for each draw column:
+1. **Gross draw amount** — what the contractor earned
+2. **Retainage withheld** — 10% of the gross amount
+3. **Net payment** — what actually gets disbursed
+
+Or, add a retainage column that accumulates:
+\`=previous retainage + (current draw × 10%)\`
+
+Release retainage as a final draw after:
+- All work passes final inspection
+- Certificate of Occupancy is issued
+- Punch list items are 100% complete
+- Lien waivers are collected from all subcontractors
+
+## Common Mistakes That Cost Real Money
+
+### 1. Front-Loading the Schedule
+Some contractors push for higher percentages in early phases. "Foundation is 25% of the budget" — when it's really 12%. This means they get more cash upfront and have less incentive to finish strong.
+
+**Fix:** Base percentages on your actual detailed budget, not the contractor's suggestion. Get three bids to validate costs per phase.
+
+### 2. No Inspection Before Disbursement
+Never release a draw based on the contractor's word alone. Every draw should require:
+- Physical inspection (you, your project manager, or the lender's inspector)
+- Photos of completed work
+- Lien waivers from subcontractors and material suppliers
+
+### 3. Ignoring Change Orders
+Change orders are inevitable. When scope changes, your draw schedule must update too.
+
+**In your Excel file:** Add a "Change Orders" section below the original schedule. Each change order gets its own line with the additional amount and which draw it applies to. Update the total budget accordingly.
+
+### 4. Paying for Stored Materials
+Contractors sometimes request payment for materials delivered to the site but not yet installed. This is risky — materials can be stolen, damaged, or returned.
+
+**If you allow stored material draws:** Require proof of delivery, photos, and insurance coverage. Never pay more than 75% of stored material value. Better yet, set up direct accounts with suppliers so you're paying the supplier directly.
+
+### 5. No Lien Waivers
+Every single draw should include conditional lien waivers from the GC and all subcontractors who worked during that period. Unconditional waivers should be collected for the previous draw once payment clears.
+
+Without lien waivers, subcontractors can file a mechanic's lien against your property — even if you paid the GC in full.
+
+## Making Your Draw Schedule Lender-Ready
+
+Banks and hard money lenders have specific requirements. Before submitting your draw schedule, verify:
+
+1. **Line items match the appraisal's cost breakdown.** Lenders compare your draw schedule to the appraiser's cost approach. Major discrepancies will delay funding.
+
+2. **Contingency is included.** Most lenders want to see 10-15% contingency as a separate line item, not hidden in other categories.
+
+3. **Total matches the loan amount.** Your draw schedule total should equal the construction portion of your loan. If you have a land + construction loan, separate the land disbursement.
+
+4. **Retainage terms are specified.** Note the retainage percentage and release conditions directly on the schedule.
+
+5. **Inspector access is arranged.** Lenders send their own inspector before each draw. Make sure the contractor knows this and provides reasonable access.
+
+## A Better Way to Track Construction Draws
+
+Building a draw schedule in Excel works, but it requires discipline. Every draw needs manual entry, formula validation, and version control.
+
+SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker) includes a built-in draw schedule module that automatically:
+- Calculates retainage per phase
+- Flags over-disbursement with conditional formatting
+- Tracks change orders with automatic budget reconciliation
+- Generates lender-ready PDF reports
+- Links draw amounts to your detailed budget line items
+
+No formulas to build. No formatting to maintain. Just enter your budget, track your draws, and export when your lender asks.
+
+[See the Construction Budget Tracker →](/products/construction-budget-tracker)
+
+## Key Takeaways
+
+1. **A draw schedule ties payments to completed work.** Never pay ahead of progress — it's the #1 cause of construction payment disputes.
+2. **Base your percentages on your actual budget, not generic templates.** Every project is different, and front-loaded schedules favor the contractor, not you.
+3. **Always include retainage.** Withholding 10% until project completion gives contractors real incentive to finish punch list items.
+4. **Require inspections and lien waivers with every draw.** Photos aren't enough — physical verification and legal documentation protect your investment.
+5. **Update the schedule when change orders happen.** A draw schedule that doesn't reflect reality is worse than no schedule at all.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
