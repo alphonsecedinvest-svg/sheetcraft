@@ -1182,6 +1182,322 @@ No formulas to build. No formatting to maintain. Just enter your budget, track y
 4. **Require inspections and lien waivers with every draw.** Photos aren't enough — physical verification and legal documentation protect your investment.
 5. **Update the schedule when change orders happen.** A draw schedule that doesn't reflect reality is worse than no schedule at all.`,
   },
+  {
+    slug: 'how-to-build-real-estate-pro-forma-excel',
+    title: 'How to Build a Real Estate Pro Forma in Excel (Beginner Guide)',
+    metaTitle: 'How to Build a Real Estate Pro Forma in Excel (2026 Guide)',
+    metaDescription: 'Learn how to build a real estate pro forma spreadsheet in Excel step by step. Covers revenue projections, operating expenses, NOI, debt service, and return metrics.',
+    targetKeyword: 'real estate pro forma spreadsheet Excel',
+    secondaryKeywords: ['real estate pro forma template', 'pro forma Excel real estate', 'property cash flow projection', 'real estate financial model Excel'],
+    excerpt: 'A pro forma is just a cash flow projection — but getting it wrong can cost you six figures. Here\'s how to build one from scratch in Excel.',
+    publishedAt: '2026-02-17',
+    readTime: 14,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/real-estate-pro-forma.jpg',
+    imageAlt: 'Real estate pro forma financial analysis spreadsheet with projected cash flows and return charts',
+    content: `A real estate pro forma sounds intimidating. It's not.
+
+It's a cash flow projection. It answers one question: "If I buy this property, how much money will it make me over time?" That's it. Everything else — the fancy formatting, the 47-tab workbooks, the Latin name — is decoration.
+
+The problem? Most beginners either skip the pro forma entirely (bad) or download a template they don't understand (worse). A pro forma you can't explain is a pro forma you can't trust. And a pro forma you can't trust will eventually cost you money.
+
+In this guide, we'll build a real estate pro forma in Excel from scratch. No prior financial modeling experience required. By the end, you'll have a working spreadsheet that projects revenue, expenses, net operating income, debt service, and investor returns over a 5-year hold period.
+
+## What Is a Real Estate Pro Forma?
+
+A pro forma is a forward-looking financial model. Unlike historical financials (which show what already happened), a pro forma projects what *will* happen based on your assumptions.
+
+Every real estate pro forma has the same basic structure:
+
+1. **Gross Potential Revenue** — what the property could earn at full occupancy
+2. **Vacancy & Credit Loss** — what you'll realistically lose
+3. **Effective Gross Income** — what you'll actually collect
+4. **Operating Expenses** — what it costs to run the property
+5. **Net Operating Income (NOI)** — your profit before debt
+6. **Debt Service** — your mortgage payment
+7. **Cash Flow Before Tax** — what lands in your pocket
+
+That's the skeleton. Let's build it.
+
+## Step 1: Set Up Your Assumptions Tab
+
+Before writing a single formula, create a dedicated "Assumptions" tab. This is where every input lives. Never hardcode numbers into formulas — always reference assumptions cells.
+
+Here's what to include:
+
+**Acquisition Assumptions:**
+- Purchase price: $350,000
+- Closing costs: 3% ($10,500)
+- Down payment: 25% ($87,500)
+- Loan amount: $262,500
+- Interest rate: 7.0%
+- Loan term: 30 years
+- Amortization: 30 years
+
+**Revenue Assumptions:**
+- Monthly rent (current): $2,800
+- Annual rent growth: 3%
+- Other income (laundry, parking, late fees): $150/month
+- Vacancy rate: 7%
+- Credit loss: 1%
+
+**Expense Assumptions:**
+- Property taxes: $4,200/year
+- Insurance: $1,800/year
+- Property management: 8% of EGI
+- Maintenance & repairs: 8% of EGI
+- Capital expenditure reserve: 5% of EGI
+- Utilities (owner-paid): $1,200/year
+- Landscaping: $600/year
+- Miscellaneous: $500/year
+- Annual expense growth: 2.5%
+
+**Exit Assumptions:**
+- Hold period: 5 years
+- Exit cap rate: 6.5%
+- Selling costs: 5%
+
+**Pro tip:** Color-code all assumption cells (light yellow works well). This makes it obvious which cells are inputs vs. calculations.
+
+## Step 2: Build the Revenue Section
+
+Now create your main pro forma tab. Set up columns for Year 1 through Year 5.
+
+**Row 1: Gross Potential Rent (GPR)**
+
+In Year 1: =Monthly_Rent × 12 = $2,800 × 12 = **$33,600**
+
+For Year 2 onward, apply the annual rent growth:
+\`=Prior_Year_GPR × (1 + Rent_Growth)\`
+
+Year 2: $33,600 × 1.03 = $34,608
+Year 3: $34,608 × 1.03 = $35,646
+
+**Row 2: Other Income**
+
+$150/month × 12 = **$1,800/year** (grow this at 2% annually)
+
+**Row 3: Gross Potential Income (GPI)**
+
+\`=GPR + Other_Income\`
+
+Year 1: $33,600 + $1,800 = **$35,400**
+
+**Row 4: Vacancy & Credit Loss**
+
+\`=GPI × (Vacancy_Rate + Credit_Loss)\`
+
+Year 1: $35,400 × 8% = **($2,832)**
+
+**Row 5: Effective Gross Income (EGI)**
+
+\`=GPI - Vacancy_Loss\`
+
+Year 1: $35,400 – $2,832 = **$32,568**
+
+## Step 3: Build the Operating Expenses Section
+
+List every operating expense line item. Some are fixed dollar amounts (growing with inflation), others are percentages of EGI.
+
+**Fixed expenses (grow at 2.5%/year):**
+- Property taxes: $4,200
+- Insurance: $1,800
+- Utilities: $1,200
+- Landscaping: $600
+- Miscellaneous: $500
+
+**Variable expenses (% of EGI):**
+- Property management: 8% = $2,605
+- Maintenance: 8% = $2,605
+- CapEx reserve: 5% = $1,628
+
+**Total Operating Expenses Year 1:** $4,200 + $1,800 + $1,200 + $600 + $500 + $2,605 + $2,605 + $1,628 = **$15,138**
+
+**Important:** Do not include debt service in operating expenses. This is a common mistake. Operating expenses are costs to run the property regardless of how it's financed. Debt service comes later.
+
+## Step 4: Calculate Net Operating Income
+
+This is the single most important number on your pro forma.
+
+\`NOI = EGI - Total Operating Expenses\`
+
+Year 1: $32,568 – $15,138 = **$17,430**
+
+NOI is what the property earns before financing. It's used to calculate cap rate, value the property, and compare deals. Lenders care about NOI. Appraisers care about NOI. You should care about NOI.
+
+**Year 1-5 NOI Projection:**
+
+| Year | EGI | OpEx | NOI |
+|------|-----|------|-----|
+| 1 | $32,568 | $15,138 | $17,430 |
+| 2 | $33,657 | $15,577 | $18,080 |
+| 3 | $34,782 | $16,029 | $18,753 |
+| 4 | $35,944 | $16,495 | $19,449 |
+| 5 | $37,145 | $16,974 | $20,171 |
+
+Notice how NOI grows faster than expenses because revenue is growing at 3% while most expenses grow at 2.5%. This spread is how real estate builds wealth over time.
+
+## Step 5: Add Debt Service
+
+Use Excel's PMT function to calculate your monthly mortgage payment:
+
+\`=PMT(Rate/12, Term×12, -Loan_Amount)\`
+
+\`=PMT(0.07/12, 360, -262500)\` = **$1,746.38/month**
+
+Annual debt service: $1,746.38 × 12 = **$20,957**
+
+Break this into principal and interest using PPMT and IPMT:
+
+- Year 1 interest: \`=IPMT(0.07/12, 1, 360, -262500) × 12\` ≈ **$18,340**
+- Year 1 principal: \`=PPMT(0.07/12, 1, 360, -262500) × 12\` ≈ **$2,617**
+
+**Why split principal and interest?** Because principal paydown is technically a return (you're building equity), and interest is tax-deductible. Your pro forma should reflect both.
+
+## Step 6: Calculate Cash Flow Before Tax
+
+\`Cash Flow Before Tax = NOI - Annual Debt Service\`
+
+Year 1: $17,430 – $20,957 = **($3,527)**
+
+Wait — negative cash flow? Yes, and this is exactly why you need a pro forma. Without running the numbers, this property looks fine: $2,800/month rent on a $350,000 property. But at 7% interest with 25% down, the debt service eats the NOI.
+
+This doesn't necessarily mean it's a bad deal. Let's look at the full picture:
+
+| Year | NOI | Debt Service | Cash Flow |
+|------|-----|-------------|-----------|
+| 1 | $17,430 | $20,957 | ($3,527) |
+| 2 | $18,080 | $20,957 | ($2,877) |
+| 3 | $18,753 | $20,957 | ($2,204) |
+| 4 | $19,449 | $20,957 | ($1,508) |
+| 5 | $20,171 | $20,957 | ($786) |
+
+Cash flow improves every year because rent grows while the fixed-rate mortgage stays flat. By Year 6, this property would be cash-flow positive.
+
+## Step 7: Model the Exit (Sale in Year 5)
+
+To calculate your total return, you need to model what happens when you sell.
+
+**Estimated sale price** = Year 6 projected NOI ÷ Exit cap rate
+
+Year 6 NOI (projected): $20,171 × 1.03 = $20,776
+Sale price: $20,776 ÷ 0.065 = **$319,631**
+
+**Selling costs:** $319,631 × 5% = $15,982
+**Net sale proceeds:** $319,631 – $15,982 = **$303,649**
+
+**Remaining loan balance** after 5 years of payments: ~$249,800
+
+**Equity at sale:** $303,649 – $249,800 = **$53,849**
+
+## Step 8: Calculate Return Metrics
+
+Now for the numbers that actually tell you if this deal is worth doing.
+
+**Cash-on-Cash Return (Year 1):**
+
+\`=Annual Cash Flow ÷ Total Cash Invested\`
+
+Total cash invested: $87,500 (down payment) + $10,500 (closing) = $98,000
+
+Year 1: –$3,527 ÷ $98,000 = **–3.6%**
+
+Not great. But remember — cash-on-cash only measures one year of cash flow.
+
+**Total Return on Investment:**
+
+Sum all cash flows + equity at sale:
+
+| Component | Amount |
+|-----------|--------|
+| Year 1-5 cumulative cash flow | ($10,902) |
+| Equity at sale | $53,849 |
+| Principal paydown (5 years) | ~$12,700 |
+| **Total profit** | **$55,647** |
+| **Total return on $98k invested** | **56.8%** |
+| **Annualized return** | **~9.4%** |
+
+**Internal Rate of Return (IRR):**
+
+Use Excel's IRR function on your cash flow stream:
+
+\`=IRR({-98000, -3527, -2877, -2204, -1508, 53063})\`
+
+The last value is Year 5 cash flow ($-786) + net equity at sale ($53,849) = $53,063.
+
+IRR ≈ **7.2%**
+
+This property has modest returns driven primarily by appreciation and principal paydown rather than cash flow. Whether that's acceptable depends on your investment criteria.
+
+## Step 9: Build a Sensitivity Analysis
+
+A pro forma is only as good as its assumptions. Build a sensitivity table to see how changes in key variables affect your returns.
+
+Create a [Data Table](https://support.microsoft.com/en-us/office/calculate-multiple-results-by-using-a-data-table-e033f0d4-7781-4b4a-85c1-c8a5a7e11228) in Excel that shows IRR at different combinations of:
+
+- **Rent growth**: 1%, 2%, 3%, 4%, 5%
+- **Exit cap rate**: 5.5%, 6.0%, 6.5%, 7.0%, 7.5%
+
+This gives you a matrix of 25 scenarios. If the deal only works at 5% rent growth and a 5.5% exit cap, it's too risky. If it works at 2% growth and a 7.0% cap, it's resilient.
+
+**Example sensitivity matrix (IRR):**
+
+| | Exit 5.5% | Exit 6.0% | Exit 6.5% | Exit 7.0% | Exit 7.5% |
+|---|---|---|---|---|---|
+| **Rent 1%** | 6.1% | 4.3% | 2.7% | 1.3% | 0.0% |
+| **Rent 2%** | 8.2% | 6.3% | 4.8% | 3.4% | 2.1% |
+| **Rent 3%** | 10.3% | 8.4% | 7.2% | 5.5% | 4.1% |
+| **Rent 4%** | 12.5% | 10.5% | 8.8% | 7.3% | 5.9% |
+| **Rent 5%** | 14.7% | 12.6% | 10.9% | 9.3% | 7.9% |
+
+Now you can see the full range of outcomes. This property needs at least 3% rent growth and a sub-7% exit cap to deliver meaningful returns.
+
+## Step 10: Format for Decision Making
+
+A pro forma nobody reads is useless. Format it for clarity:
+
+1. **Bold the key metrics:** NOI, Cash Flow, IRR, Cash-on-Cash
+2. **Use conditional formatting:** Green for positive cash flow years, red for negative
+3. **Add a summary dashboard** at the top with key metrics and a go/no-go recommendation
+4. **Include charts:** A simple bar chart showing NOI vs. debt service over the hold period tells the story instantly
+5. **Lock formulas:** Protect calculation cells so only assumptions can be edited
+
+## Common Pro Forma Mistakes to Avoid
+
+**1. Using the seller's numbers.** Seller-provided financials are marketing materials, not financial statements. Verify every line item independently.
+
+**2. Underestimating expenses.** New investors consistently underestimate maintenance (especially on older properties), vacancy (especially in seasonal markets), and capital expenditures (roofs, HVAC, and plumbing don't last forever).
+
+**3. Ignoring capital expenditures.** Your pro forma needs a CapEx reserve line. Period. A property that "cash flows great" until the $15,000 roof replacement hits isn't actually cash flowing.
+
+**4. Using market-wide assumptions.** Vacancy rates, rent growth, and expense ratios vary dramatically by submarket, property type, and class. Use comps specific to your target area.
+
+**5. Forgetting closing costs.** Your total cash invested includes closing costs, not just the down payment. This meaningfully changes your return calculations.
+
+## A Faster Way to Run the Numbers
+
+Building a pro forma from scratch is a valuable learning exercise. But when you're evaluating multiple deals — which you should be — it's slow.
+
+SheetCraft's [Rental Property Analyzer](/products/rental-property-analyzer) is a pre-built pro forma that handles all the calculations above (and more) in a polished, ready-to-use Excel workbook:
+
+- 10-year cash flow projection with automatic rent and expense escalation
+- IRR, cash-on-cash, equity multiple, and cap rate calculations
+- Built-in sensitivity analysis
+- Debt modeling with amortization schedule
+- Professional formatting ready for lender presentations
+
+No formulas to debug. No formatting to wrestle with. Enter your assumptions, get your answer.
+
+[See the Rental Property Analyzer →](/products/rental-property-analyzer)
+
+## Key Takeaways
+
+1. **A pro forma is a cash flow projection, not a crystal ball.** It's only as good as your assumptions. Use conservative, well-researched inputs.
+2. **Separate operating expenses from debt service.** NOI should be calculated independently of financing — it's how you value the property.
+3. **Negative cash flow doesn't always mean a bad deal.** Total return includes appreciation, principal paydown, and tax benefits. Evaluate the full picture.
+4. **Build a sensitivity analysis.** One set of assumptions gives you one answer. A sensitivity table shows you the range of outcomes and how much risk you're taking.
+5. **Keep your assumptions tab clean and visible.** Every input should be in one place, color-coded, and easy to change. This is what separates a useful model from a mess.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
