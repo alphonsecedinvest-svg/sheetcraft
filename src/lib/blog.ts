@@ -1498,6 +1498,341 @@ No formulas to debug. No formatting to wrestle with. Enter your assumptions, get
 4. **Build a sensitivity analysis.** One set of assumptions gives you one answer. A sensitivity table shows you the range of outcomes and how much risk you're taking.
 5. **Keep your assumptions tab clean and visible.** Every input should be in one place, color-coded, and easy to change. This is what separates a useful model from a mess.`,
   },
+  {
+    slug: 'cap-rate-calculator-excel',
+    title: 'How to Calculate Cap Rate in Excel (With Free Template)',
+    metaTitle: 'Cap Rate Calculator Excel: How to Calculate Cap Rate (Free Template)',
+    metaDescription: 'Learn how to calculate capitalization rate in Excel with step-by-step formulas. Includes examples, common mistakes, and when cap rate actually matters for investors.',
+    targetKeyword: 'cap rate calculator Excel',
+    secondaryKeywords: ['capitalization rate formula Excel', 'how to calculate cap rate', 'cap rate spreadsheet', 'real estate cap rate calculator'],
+    excerpt: 'Cap rate is the first number every real estate investor learns — and the first one they misuse. Here\'s how to calculate it correctly in Excel, when it matters, and when it doesn\'t.',
+    publishedAt: '2026-02-18',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/cap-rate-calculator-excel.jpg',
+    imageAlt: 'Real estate investor calculating cap rate in Excel with property analysis spreadsheet',
+    content: `Cap rate is the first number every real estate investor learns. It's also the first one they misuse.
+
+The capitalization rate — cap rate for short — is a simple ratio that tells you what return a property generates relative to its price, assuming you paid all cash. That last part is important, and it's where most people go wrong.
+
+In this guide, we'll build a cap rate calculator in Excel from scratch, walk through real examples, and — more importantly — explain when cap rate is the right metric and when it'll lead you astray.
+
+## What Is Cap Rate, Exactly?
+
+**Cap Rate = Net Operating Income (NOI) ÷ Property Value**
+
+That's it. One division. But the simplicity is deceptive because every part of that equation requires careful calculation.
+
+**Net Operating Income** is your gross rental income minus all operating expenses — but *before* debt service (mortgage payments). This is critical: cap rate is a measure of the property's performance, not your financing structure.
+
+**Property Value** is typically the purchase price for new acquisitions, or the current market value for properties you already own.
+
+**Example:**
+- NOI: $18,000/year
+- Purchase price: $250,000
+- Cap rate: $18,000 ÷ $250,000 = **7.2%**
+
+This tells you: if you bought this property with all cash, you'd earn a 7.2% annual return on your investment from operations alone (not counting appreciation or tax benefits).
+
+## Setting Up Your Cap Rate Calculator in Excel
+
+Open Excel and create a clean, reusable calculator. Here's the layout:
+
+### Section 1: Revenue Inputs (Cells B2-B8)
+
+| Row | Label | Value |
+|-----|-------|-------|
+| 2 | Monthly Rent | $2,200 |
+| 3 | Other Monthly Income | $100 |
+| 4 | Gross Monthly Income | =B2+B3 |
+| 5 | Gross Annual Income | =B4*12 |
+| 6 | Vacancy Rate | 7% |
+| 7 | Vacancy Loss | =B5*B6 |
+| 8 | **Effective Gross Income (EGI)** | =B5-B7 |
+
+### Section 2: Operating Expenses (Cells B10-B22)
+
+| Row | Label | Value |
+|-----|-------|-------|
+| 10 | Property Taxes | $3,600 |
+| 11 | Insurance | $1,400 |
+| 12 | Property Management (% of EGI) | 8% |
+| 13 | Property Management ($) | =B8*B12 |
+| 14 | Maintenance & Repairs | =B8*0.08 |
+| 15 | CapEx Reserve | =B8*0.05 |
+| 16 | Utilities (owner-paid) | $1,200 |
+| 17 | Landscaping | $600 |
+| 18 | HOA/Condo Fees | $0 |
+| 19 | Pest Control | $200 |
+| 20 | Advertising/Leasing | $300 |
+| 21 | Miscellaneous | $400 |
+| 22 | **Total Operating Expenses** | =SUM(B10:B11,B13:B21) |
+
+### Section 3: NOI and Cap Rate (Cells B24-B27)
+
+| Row | Label | Formula |
+|-----|-------|---------|
+| 24 | **Net Operating Income** | =B8-B22 |
+| 25 | Purchase Price / Property Value | $250,000 |
+| 26 | **Cap Rate** | =B24/B25 |
+| 27 | Cap Rate (formatted) | =TEXT(B26,"0.00%") |
+
+Format cell B26 as a percentage with two decimal places. That's your cap rate calculator — every input flows into one clean output.
+
+## The NOI Calculation: Where Most People Go Wrong
+
+Your cap rate is only as accurate as your NOI. And NOI is where amateur investors make expensive mistakes.
+
+### Mistake 1: Using Gross Rent Instead of NOI
+
+This is the most common error. A listing agent says "this property rents for $2,500/month on a $300,000 property — that's a 10% cap rate!"
+
+No, it's not. That's a gross rent multiplier at best. Cap rate uses *net* operating income after expenses. Once you subtract vacancy, taxes, insurance, management, maintenance, and reserves, that $30,000 in gross rent might be $16,000 in NOI — a 5.3% cap rate.
+
+**Always calculate NOI yourself.** Never trust a seller's or agent's stated cap rate without verifying the expense assumptions.
+
+### Mistake 2: Forgetting Vacancy
+
+A property that's currently 100% occupied isn't always going to be. Budget 5-10% vacancy depending on your market. In college towns with annual turnover, use 8-10%. In stable suburban areas with long-term tenants, 5% might be appropriate.
+
+### Mistake 3: Excluding Management Fees
+
+"I'll manage it myself, so I don't need to include management." Wrong. Even if you self-manage, include 8-10% for management. Why? Because:
+
+1. Your time has value
+2. You might hire a manager later
+3. If you sell, the buyer will factor in management — so should you
+
+### Mistake 4: Ignoring CapEx Reserves
+
+Your roof, HVAC, water heater, and appliances all have finite lifespans. A 5% CapEx reserve isn't optional — it's the cost of owning a building. Skip it and your "8% cap rate" property actually yields 6.5% once the roof needs replacing.
+
+### Mistake 5: Using the Seller's Expense Numbers
+
+Seller-provided "operating statements" are marketing documents. They routinely understate expenses by:
+
+- Excluding management (owner-managed)
+- Using below-market property tax assessments (yours will be reassessed at purchase price)
+- Omitting deferred maintenance
+- Reporting actual vacancy instead of market vacancy
+
+**Rule of thumb:** For residential properties, total operating expenses typically run 35-50% of gross rent. If the seller's numbers show 20% expense ratio, they're hiding something.
+
+## Building a Multi-Property Comparison Tool
+
+One cap rate is useful. Comparing cap rates across multiple properties is powerful. Extend your spreadsheet:
+
+### Comparison Layout
+
+Create columns C, D, E for Properties 2, 3, and 4. Copy your formulas across. Now add a summary section at the bottom:
+
+| Metric | Property 1 | Property 2 | Property 3 | Property 4 |
+|--------|-----------|-----------|-----------|-----------|
+| Purchase Price | $250,000 | $315,000 | $195,000 | $420,000 |
+| Monthly Rent | $2,200 | $2,600 | $1,650 | $3,400 |
+| NOI | $13,400 | $15,200 | $10,800 | $19,600 |
+| Cap Rate | 5.4% | 4.8% | 5.5% | 4.7% |
+| Price per Unit | $250,000 | $157,500 | $195,000 | $105,000 |
+
+**Add conditional formatting:** Highlight the highest cap rate in green and the lowest in red. This gives you an instant visual comparison.
+
+**Add a RANK formula:**
+\`=RANK(B26, $B$26:$E$26, 0)\`
+
+This ranks properties from highest to lowest cap rate.
+
+## What Is a "Good" Cap Rate?
+
+This is the question every new investor asks, and the honest answer is: it depends entirely on context.
+
+### Cap Rate Ranges by Market Type
+
+| Market Type | Typical Cap Rate | What It Means |
+|-------------|-----------------|---------------|
+| Gateway cities (NYC, SF, LA) | 3.5% – 5.0% | Low yield, high appreciation bet |
+| Major metros (Denver, Nashville, Austin) | 4.5% – 6.0% | Balanced growth and yield |
+| Secondary markets (Memphis, Indianapolis, Cleveland) | 6.0% – 8.5% | Higher yield, less appreciation |
+| Rural / small towns | 8.0% – 12%+ | Maximum yield, limited liquidity |
+
+### Cap Rate Ranges by Property Type
+
+| Property Type | Typical Cap Rate |
+|---------------|-----------------|
+| Class A apartments | 4.0% – 5.5% |
+| Class B apartments | 5.0% – 7.0% |
+| Class C apartments | 6.5% – 9.0% |
+| Single-family rentals | 5.0% – 8.0% |
+| Commercial retail | 5.5% – 8.5% |
+| Industrial/warehouse | 5.0% – 7.5% |
+
+**The relationship:** Lower cap rate = higher price relative to income = lower risk (usually). Higher cap rate = lower price relative to income = higher risk or less desirable location.
+
+A 10% cap rate in a rough neighborhood isn't necessarily better than a 5% cap rate in a growing suburb. The low cap rate reflects lower risk, better tenant quality, and stronger appreciation potential.
+
+## Cap Rate as a Valuation Tool
+
+Cap rate isn't just for evaluating purchases — it's the standard tool for estimating property value.
+
+**Property Value = NOI ÷ Cap Rate**
+
+If you know the market cap rate for similar properties, you can estimate what a property is worth:
+
+- Your property's NOI: $22,000
+- Market cap rate for comparable properties: 6.0%
+- Estimated value: $22,000 ÷ 0.06 = **$366,667**
+
+In Excel, add this reverse calculation to your spreadsheet:
+
+\`\`\`
+Market Cap Rate (input):  6.0%
+Implied Value:            =NOI / Market_Cap_Rate
+Difference from Ask:      =Implied_Value - Asking_Price
+\`\`\`
+
+This tells you instantly whether a property is priced above or below what the cap rate suggests it should be worth. If the asking price implies a 4.5% cap rate in a 6% market, the seller is optimistic.
+
+## When Cap Rate Is the Wrong Metric
+
+Here's the part most "cap rate calculator" articles skip: cap rate has serious limitations.
+
+### It Ignores Financing
+
+Cap rate assumes an all-cash purchase. But most investors use leverage. A property with a 6% cap rate financed at 7% interest actually produces *negative* leveraged returns in the early years. Cash-on-cash return is the better metric for leveraged deals.
+
+### It's a Snapshot, Not a Movie
+
+Cap rate captures one year of income against today's price. It tells you nothing about:
+
+- Rent growth potential
+- Appreciation trajectory
+- Tax benefits (depreciation)
+- Principal paydown building equity
+- Exit strategy returns
+
+A property with a 4.5% cap rate in a market with 5% annual rent growth will outperform a 7% cap rate in a flat market within 3-4 years.
+
+### It Doesn't Account for Property Condition
+
+Two properties can have identical cap rates but very different futures. Property A has a new roof, HVAC, and plumbing. Property B needs all three replaced within 5 years. Same cap rate today — very different actual returns over the hold period.
+
+### It's Unreliable for Small Properties
+
+Cap rates are most useful for apartments (5+ units) and commercial properties where there's enough transaction data to establish market norms. For single-family homes, there's too much variation in condition, location, and tenant quality for cap rate to be a reliable comparison tool.
+
+## The Better Approach: Cap Rate + Cash-on-Cash + IRR
+
+Smart investors don't rely on any single metric. Use all three:
+
+| Metric | What It Tells You | Best For |
+|--------|-------------------|----------|
+| Cap Rate | Unlevered property return | Comparing properties, estimating value |
+| Cash-on-Cash Return | Actual return on your cash invested | Evaluating leveraged returns, Year 1 decision |
+| IRR | Total return including appreciation + exit | Full hold-period analysis |
+
+In your Excel calculator, add all three:
+
+\`\`\`
+Cap Rate:           =NOI / Purchase_Price
+Cash-on-Cash:       =Annual_Cash_Flow / Total_Cash_Invested
+\`\`\`
+
+For IRR, you need a multi-year cash flow projection — which goes beyond a simple cap rate calculator into a full pro forma. That's where a complete rental analysis tool pays for itself.
+
+## Advanced: Cap Rate Compression and Expansion
+
+Understanding cap rate trends helps you time markets:
+
+**Cap rate compression** (rates going down) means property values are rising faster than rents. This happens when:
+- Interest rates drop
+- Capital floods into real estate
+- Investor demand exceeds supply
+- Market sentiment is bullish
+
+**Cap rate expansion** (rates going up) means values are declining or stagnating while rents hold steady. This happens when:
+- Interest rates rise (like 2022-2024)
+- Lenders tighten standards
+- Investor sentiment shifts bearish
+- Supply increases (new construction delivers)
+
+Add a historical tracking tab to your spreadsheet:
+
+| Quarter | Market Cap Rate | Direction | Interest Rate |
+|---------|----------------|-----------|---------------|
+| Q1 2024 | 6.8% | ↑ | 7.0% |
+| Q2 2024 | 6.5% | ↓ | 6.8% |
+| Q3 2024 | 6.2% | ↓ | 6.5% |
+| Q4 2024 | 6.0% | ↓ | 6.2% |
+| Q1 2025 | 5.8% | ↓ | 6.0% |
+
+Tracking this over time tells you whether the market is getting more expensive (compression) or more affordable (expansion) — and helps you adjust your acquisition criteria accordingly.
+
+## Quick-Reference: Cap Rate Formulas for Excel
+
+Here's every formula you need, ready to copy:
+
+| Calculation | Excel Formula |
+|-------------|--------------|
+| Gross Annual Income | \`=Monthly_Rent * 12\` |
+| Vacancy Loss | \`=Gross_Income * Vacancy_Rate\` |
+| EGI | \`=Gross_Income - Vacancy_Loss\` |
+| Total OpEx | \`=SUM(expense_range)\` |
+| NOI | \`=EGI - Total_OpEx\` |
+| Cap Rate | \`=NOI / Purchase_Price\` |
+| Implied Value | \`=NOI / Market_Cap_Rate\` |
+| Expense Ratio | \`=Total_OpEx / EGI\` |
+| GRM (Gross Rent Multiplier) | \`=Purchase_Price / Gross_Income\` |
+
+## Putting It All Together: A Real Deal Analysis
+
+Let's run through a complete example.
+
+**The property:** Duplex in Indianapolis, listed at $210,000
+
+| Unit | Monthly Rent |
+|------|-------------|
+| Unit A (2BR/1BA) | $1,050 |
+| Unit B (3BR/2BA) | $1,250 |
+| **Total** | **$2,300** |
+
+**Revenue calculation:**
+- Gross annual: $27,600
+- Vacancy (7%): ($1,932)
+- EGI: $25,668
+
+**Operating expenses:**
+- Property taxes: $2,800
+- Insurance: $1,600
+- Management (8%): $2,053
+- Maintenance (10%): $2,567
+- CapEx (5%): $1,283
+- Utilities: $0 (tenant-paid)
+- Lawn/snow: $1,200
+- Misc: $400
+- **Total: $11,903**
+
+**NOI: $13,765**
+
+**Cap Rate: $13,765 ÷ $210,000 = 6.55%**
+
+For Indianapolis, a 6.55% cap rate on a duplex is roughly market rate — neither a steal nor overpriced. The real question becomes: what does the leveraged return look like?
+
+With 25% down ($52,500 + $6,300 closing = $58,800 cash invested) and a 6.5% rate:
+
+- Annual debt service: $11,944
+- Cash flow: $1,821/year
+- Cash-on-cash return: 3.1%
+
+Modest but positive. With 3% rent growth, cash-on-cash hits 6%+ by Year 3. The cap rate alone doesn't tell this story — but it's the starting point that got us here.
+
+## Key Takeaways
+
+1. **Cap rate = NOI ÷ Price.** Simple formula, but the NOI calculation is where accuracy lives. Always verify expenses independently.
+2. **Calculate NOI properly.** Include vacancy, management (even if self-managed), maintenance, CapEx reserves, and every real operating cost.
+3. **Cap rate ignores financing.** It's a property metric, not an investor return metric. Use cash-on-cash for leveraged analysis.
+4. **Context determines "good."** A 5% cap in a gateway city and a 5% cap in a rural town are very different investments with different risk profiles.
+5. **Use cap rate alongside other metrics.** Cap rate for comparison and valuation, cash-on-cash for leveraged returns, IRR for total hold-period analysis.
+6. **Build your calculator once, use it forever.** A clean Excel template with proper formulas turns a 30-minute analysis into 5 minutes.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
