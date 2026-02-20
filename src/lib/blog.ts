@@ -2038,6 +2038,324 @@ If you're at that scale, tools like Procore, Buildertrend, or even a dedicated [
 
 The contractors who get paid on time are the ones who pay on time — and can prove it. A solid payment tracking spreadsheet isn't just organization. It's your defense against disputes, your tool for cash flow management, and your audit trail when things go sideways.`,
   },
+  {
+    slug: 'construction-loan-interest-calculator-excel',
+    title: 'How to Calculate Construction Loan Interest in Excel (Step-by-Step)',
+    metaTitle: 'Construction Loan Interest Calculator Excel | Step-by-Step Guide',
+    metaDescription: 'Learn how to calculate construction loan interest in Excel with draw-based formulas. Covers interest reserves, daily accrual, and total cost projections.',
+    targetKeyword: 'construction loan interest calculator Excel',
+    secondaryKeywords: ['construction loan interest calculation', 'how to calculate construction loan interest', 'construction loan draw interest', 'builder loan interest Excel'],
+    excerpt: 'Construction loan interest doesn\'t work like a regular mortgage. You pay interest only on what\'s been drawn — and if you can\'t calculate it, you can\'t budget for it. Here\'s the Excel method.',
+    publishedAt: '2026-02-20',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-loan-interest-calculator.jpg',
+    imageAlt: 'Laptop showing Excel construction loan interest calculator with blueprints and house model on desk',
+    content: `Construction loan interest doesn't work like a regular mortgage. With a standard home loan, you borrow a lump sum and start paying interest on the full amount immediately. With a construction loan, funds are released in draws as work is completed — and you only pay interest on the amount that's been disbursed.
+
+This sounds simple. It's not.
+
+Because the outstanding balance changes with every draw, your interest payment changes too. Miss this in your project budget and you could be off by $5,000 to $15,000 on a typical residential build. That's real money — and it comes straight out of your margin.
+
+In this guide, we'll build a construction loan interest calculator in Excel that tracks interest accrual draw by draw, projects total interest cost, and helps you budget accurately from day one.
+
+## How Construction Loan Interest Actually Works
+
+Before touching Excel, let's make sure the fundamentals are clear.
+
+### Interest-Only Payments
+
+During the construction phase, you make interest-only payments — no principal reduction. The full loan balance is due at maturity (typically 12-18 months), when you either refinance into permanent financing or sell the completed property.
+
+### Draw-Based Disbursement
+
+Your lender doesn't hand you $300,000 on day one. Instead, funds are released based on completed work:
+
+- Draw 1: Foundation complete → $36,000 released
+- Draw 2: Framing complete → $54,000 released
+- Draw 3: Rough mechanicals → $51,000 released
+- And so on...
+
+After Draw 1, you owe interest on $36,000. After Draw 2, you owe interest on $90,000. The balance grows with each draw.
+
+### Daily Interest Accrual
+
+Most construction loans calculate interest daily:
+
+**Daily interest = Outstanding balance × (Annual rate ÷ 365)**
+
+This means the exact day a draw is funded matters. A draw funded on the 1st of the month costs you 30 days of interest that month. A draw funded on the 25th costs you 5-6 days.
+
+### Interest Reserve
+
+Many lenders include an interest reserve in the loan — a line item that pre-funds your expected interest payments. As interest accrues, it's deducted from the reserve rather than requiring out-of-pocket monthly payments. But if your project runs long, the reserve runs dry and you're paying cash.
+
+## Building the Calculator in Excel
+
+### Step 1: Set Up Your Loan Assumptions
+
+Create a tab called **"Assumptions"** with these inputs:
+
+| Cell | Label | Example Value |
+|------|-------|---------------|
+| B2 | Total Loan Amount | $300,000 |
+| B3 | Annual Interest Rate | 10.5% |
+| B4 | Loan Term (months) | 12 |
+| B5 | Origination Fee (points) | 2.0% |
+| B6 | Origination Fee ($) | =B2*B5 |
+| B7 | Daily Rate | =B3/365 |
+| B8 | Monthly Rate | =B3/12 |
+| B9 | Interest Reserve | $25,000 |
+| B10 | Construction Start Date | 03/01/2026 |
+
+Color these cells yellow so you know they're inputs. Everything else in the workbook should be calculated from these values.
+
+### Step 2: Create the Draw Schedule
+
+On a tab called **"Draw Schedule"**, set up your anticipated draws:
+
+| Draw # | Phase | Amount | Cumulative Balance | Draw Date | Days Until Next Draw |
+|--------|-------|--------|--------------------|-----------|---------------------|
+| 1 | Site work & foundation | $36,000 | $36,000 | 03/01/2026 | 30 |
+| 2 | Framing | $54,000 | $90,000 | 03/31/2026 | 28 |
+| 3 | Roofing & exterior | $30,000 | $120,000 | 04/28/2026 | 30 |
+| 4 | Rough plumbing & electrical | $33,000 | $153,000 | 05/28/2026 | 30 |
+| 5 | HVAC & insulation | $27,000 | $180,000 | 06/27/2026 | 30 |
+| 6 | Drywall & interior finishes | $45,000 | $225,000 | 07/27/2026 | 35 |
+| 7 | Cabinets, flooring, paint | $33,000 | $258,000 | 08/31/2026 | 30 |
+| 8 | Final mechanical & punch | $21,000 | $279,000 | 09/30/2026 | 30 |
+| 9 | Final inspection & CO | $21,000 | $300,000 | 10/30/2026 | — |
+
+**Cumulative Balance formula (D2):**
+\`=D1+C2\` (where D1 is the previous cumulative balance, or 0 for the first row)
+
+**Days Until Next Draw formula:**
+\`=E3-E2\` (difference between next draw date and current draw date)
+
+### Step 3: Calculate Interest Per Period
+
+This is the core of the calculator. For each draw period (the time between draws), you're paying interest on the cumulative balance at that point.
+
+Add these columns to your Draw Schedule:
+
+| Column | Label | Formula |
+|--------|-------|---------|
+| G | Interest This Period | =D2 × $B$7 × F2 |
+| H | Cumulative Interest | =H1+G2 |
+
+**Breaking down the formula:**
+
+\`Interest = Cumulative Balance × Daily Rate × Days in Period\`
+
+**Example — Period between Draw 2 and Draw 3:**
+- Cumulative balance: $90,000
+- Daily rate: 10.5% ÷ 365 = 0.02877%
+- Days: 28
+- Interest: $90,000 × 0.0002877 × 28 = **$724.52**
+
+### Step 4: Build the Monthly Interest Summary
+
+Lenders bill monthly, not per draw. Create a **"Monthly Interest"** tab that translates your draw-by-draw accrual into monthly payments:
+
+| Month | Starting Balance | Draws This Month | Ending Balance | Interest Due | Interest Reserve Used | Out-of-Pocket |
+|-------|-----------------|-------------------|----------------|-------------|----------------------|--------------|
+| Mar 2026 | $0 | $90,000 | $90,000 | $552 | $552 | $0 |
+| Apr 2026 | $90,000 | $30,000 | $120,000 | $817 | $817 | $0 |
+| May 2026 | $120,000 | $33,000 | $153,000 | $1,151 | $1,151 | $0 |
+
+**Monthly interest formula (simplified for full months):**
+
+For a month where the balance changes mid-month due to a draw, you need to split the calculation:
+
+\`\`\`
+=Days_at_old_balance × Old_Balance × Daily_Rate
+ + Days_at_new_balance × New_Balance × Daily_Rate
+\`\`\`
+
+For simplicity, many contractors assume each draw happens at the start of the month, making the formula:
+
+\`=Ending_Balance × Monthly_Rate\`
+
+This slightly overstates interest (since the draw isn't outstanding for the full month), but it's conservative — which is what you want for budgeting.
+
+### The Interest Reserve Drawdown
+
+Track your interest reserve depletion:
+
+\`\`\`
+Remaining Reserve = B9 - SUM(Interest_Reserve_Used_Column)
+\`\`\`
+
+Add conditional formatting: when Remaining Reserve drops below $2,000, highlight in red. This warns you that out-of-pocket payments are coming.
+
+**Example reserve drawdown:**
+
+| Month | Interest Due | Reserve Used | Reserve Remaining |
+|-------|-------------|-------------|-------------------|
+| Mar | $552 | $552 | $24,448 |
+| Apr | $817 | $817 | $23,631 |
+| May | $1,151 | $1,151 | $22,480 |
+| Jun | $1,339 | $1,339 | $21,141 |
+| Jul | $1,578 | $1,578 | $19,563 |
+| Aug | $1,971 | $1,971 | $17,592 |
+| Sep | $2,259 | $2,259 | $15,333 |
+| Oct | $2,443 | $2,443 | $12,890 |
+| Nov | $2,625 | $2,625 | $10,265 |
+| Dec | $2,625 | $2,625 | $7,640 |
+
+In this example, the $25,000 reserve covers about 10 months of interest. If construction takes 12 months, you'll need approximately $5,000 in out-of-pocket interest payments for months 11-12.
+
+## Step 5: Total Cost of the Loan
+
+At the bottom of your calculator, summarize the total cost:
+
+| Component | Amount | Formula |
+|-----------|--------|---------|
+| Origination fee | $6,000 | =Loan × Points |
+| Total interest paid | $15,360 | =SUM(Interest column) |
+| Inspection fees (est.) | $1,500 | Manual — typically $150-250 per draw |
+| Title/legal fees | $2,500 | Manual |
+| **Total loan cost** | **$25,360** | =SUM of above |
+| **Effective cost as % of loan** | **8.45%** | =Total / Loan Amount |
+
+This number — total loan cost — is what goes into your project budget under "Financing Costs." It's the number most builders underestimate because they only think about the interest rate, not the total cost including points, fees, and the compounding effect of a growing balance.
+
+## Real-World Example: $450K Construction Loan
+
+Let's run a complete example with a larger project.
+
+**Loan terms:**
+- Amount: $450,000
+- Rate: 11%
+- Term: 14 months
+- Points: 1.5% ($6,750)
+- Interest reserve: $35,000
+
+**Draw schedule and interest accrual:**
+
+| Draw | Month | Amount | Balance | Monthly Interest |
+|------|-------|--------|---------|-----------------|
+| 1 | Month 1 | $54,000 | $54,000 | $495 |
+| 2 | Month 2 | $81,000 | $135,000 | $1,238 |
+| 3 | Month 3 | $45,000 | $180,000 | $1,650 |
+| 4 | Month 4 | $49,500 | $229,500 | $2,104 |
+| 5 | Month 5 | $40,500 | $270,000 | $2,475 |
+| 6 | Month 7 | $67,500 | $337,500 | $3,094 |
+| 7 | Month 9 | $49,500 | $387,000 | $3,548 |
+| 8 | Month 11 | $31,500 | $418,500 | $3,836 |
+| 9 | Month 13 | $31,500 | $450,000 | $4,125 |
+
+**Total interest over 14 months: approximately $35,200**
+
+Notice the reserve of $35,000 is barely enough. If the project runs even one month over schedule, the builder is paying $4,125/month out of pocket. Two months over? That's $8,250 in unbudgeted cost.
+
+This is why the calculator matters. Without it, builders budget "$35K for interest" and assume they're covered. The spreadsheet shows them exactly when the reserve runs out and how much cash they need after that.
+
+## Scenario Analysis: What If the Project Runs Late?
+
+Construction delays are the norm, not the exception. Your calculator should model overruns.
+
+Add a **"Scenarios"** section:
+
+| Scenario | Extra Months | Additional Interest | Total Interest |
+|----------|-------------|--------------------|--------------------|
+| On time (12 months) | 0 | $0 | $15,360 |
+| 1 month delay | 1 | $2,625 | $17,985 |
+| 2 month delay | 2 | $5,250 | $20,610 |
+| 3 month delay | 3 | $7,875 | $23,235 |
+| 6 month delay | 6 | $15,750 | $31,110 |
+
+**Formula for additional interest per month of delay:**
+
+\`=Full_Loan_Balance × Monthly_Rate\`
+
+At full draw ($300,000 at 10.5%), each additional month costs $2,625. Three months of delays add nearly $8,000 to your project cost. This is the number that should keep builders focused on schedule management.
+
+## Advanced: Comparing Loan Offers
+
+When shopping construction loans, the interest rate isn't the whole story. Build a comparison tab:
+
+| Metric | Lender A | Lender B | Lender C |
+|--------|----------|----------|----------|
+| Loan amount | $300,000 | $300,000 | $300,000 |
+| Interest rate | 10.5% | 9.5% | 12.0% |
+| Points | 2.0% | 3.0% | 1.0% |
+| Points ($) | $6,000 | $9,000 | $3,000 |
+| Inspection fee | $1,500 | $0 | $2,000 |
+| Monthly interest (at full draw) | $2,625 | $2,375 | $3,000 |
+| Total interest (12 months) | $15,360 | $13,920 | $17,580 |
+| **Total cost** | **$22,860** | **$22,920** | **$22,580** |
+
+Lender C has the highest rate but the lowest total cost because of minimal points. Lender B has the lowest rate but the highest points. The total cost difference between all three? Less than $400. Rate shopping by APR alone would have pointed you to Lender B — but the actual cheapest option is Lender C.
+
+This is why building the full calculator matters.
+
+## Tips for Minimizing Construction Loan Interest
+
+### 1. Front-Load Your Equity
+
+If you're contributing cash to the project (above the loan amount), spend your cash first — before drawing on the loan. Every day the loan balance stays lower, you save interest.
+
+### 2. Time Your Draws Strategically
+
+If your lender does monthly interest billing, drawing funds early in the month costs you a full month of interest on that amount. Drawing late in the month means you only pay a few days of interest before the billing cycle resets.
+
+### 3. Keep the Build On Schedule
+
+At full draw, every month of delay costs you the full monthly interest. On a $300K loan at 10.5%, that's $2,625/month. Over a 3-month delay, you've burned $7,875 — equivalent to a bathroom remodel.
+
+### 4. Negotiate the Rate Lock Period
+
+Some lenders offer rate locks during construction. Others let the rate float. If rates are rising, a lock is worth the premium. Build both scenarios into your calculator.
+
+### 5. Right-Size Your Interest Reserve
+
+Too little reserve = out-of-pocket surprises. Too much = you're paying points on money that sits unused. Use your calculator to project the exact reserve needed for your construction timeline, then add 15% as a buffer.
+
+## Common Mistakes
+
+### 1. Using Simple Interest Instead of Daily Accrual
+
+Most construction loans use daily interest calculation (actual/365 or actual/360). Using simple monthly interest (rate ÷ 12 × balance) can understate costs by 2-5% depending on draw timing.
+
+### 2. Forgetting Origination Points in Total Cost
+
+Points are paid upfront but they're absolutely a cost of the loan. A 2-point origination fee on $300,000 is $6,000 — nearly half the total interest on a well-managed 12-month project.
+
+### 3. Not Budgeting for Extension Fees
+
+If your loan term is 12 months and construction takes 14, most lenders charge an extension fee (typically 0.5-1.0% of the loan amount) plus continued interest. Budget for at least one extension.
+
+### 4. Confusing Interest Reserve with Contingency
+
+Your interest reserve covers expected interest payments. Your construction contingency covers unexpected costs. They're separate line items. Don't raid your interest reserve for change orders — you'll run out of both.
+
+## Connecting to Your Project Budget
+
+Your construction loan interest calculator shouldn't live in isolation. The total interest cost needs to flow into your overall project budget:
+
+\`\`\`
+Land Cost:                  $85,000
+Hard Costs (construction):  $300,000
+Soft Costs (permits, etc):  $18,000
+Financing Costs:            $22,860  ← FROM YOUR CALCULATOR
+Contingency (10%):          $30,000
+TOTAL PROJECT COST:         $455,860
+\`\`\`
+
+If you're using SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker), the financing section includes a built-in draw-based interest calculator that updates automatically as you log actual draw dates and amounts — no separate spreadsheet required.
+
+[See the Construction Budget Tracker →](/products/construction-budget-tracker)
+
+## Key Takeaways
+
+1. **Construction loan interest is draw-based.** You pay interest only on disbursed funds, so the timing of each draw directly affects total cost.
+2. **Use daily accrual formulas.** Balance × (annual rate ÷ 365) × days = interest for each period. Monthly approximations understate costs.
+3. **Track your interest reserve drawdown.** Know exactly when the reserve runs out and how much cash you'll need after that.
+4. **Model delays.** Every extra month at full draw costs you the full monthly interest. Three months of delay on a $300K loan at 10.5% = $7,875.
+5. **Compare total cost, not just interest rate.** Points, fees, and draw timing can make a higher-rate loan cheaper than a lower-rate one.
+6. **Connect the calculator to your project budget.** Financing costs are real costs — treat them with the same rigor as hard construction costs.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
