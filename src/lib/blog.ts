@@ -2356,6 +2356,277 @@ If you're using SheetCraft's [Construction Budget Tracker](/products/constructio
 5. **Compare total cost, not just interest rate.** Points, fees, and draw timing can make a higher-rate loan cheaper than a lower-rate one.
 6. **Connect the calculator to your project budget.** Financing costs are real costs — treat them with the same rigor as hard construction costs.`,
   },
+  {
+    slug: 'house-flip-profit-calculator-excel',
+    title: 'How to Calculate House Flip Profit in Excel (Step-by-Step)',
+    metaTitle: 'How to Calculate House Flip Profit in Excel (Step-by-Step)',
+    metaDescription: 'Learn how to build a house flip profit calculator in Excel. Step-by-step formulas for ARV, rehab costs, holding costs, ROI, and net profit on any flip deal.',
+    targetKeyword: 'house flip profit calculator Excel',
+    secondaryKeywords: ['house flipping spreadsheet', 'fix and flip calculator', 'house flip ROI calculator', 'flipping houses profit formula'],
+    excerpt: 'Most flippers lose money not because they buy bad houses — but because they never ran the numbers properly. Here\'s exactly how to calculate flip profit in Excel.',
+    publishedAt: '2026-02-21',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-profit-calculator.jpg',
+    imageAlt: 'House flip profit calculator illustration showing renovation and profit arrows',
+    content: `Most house flippers don't lose money because they picked the wrong house. They lose money because they never calculated their true profit before buying.
+
+The difference between a $40,000 payday and a $15,000 loss often comes down to a few line items that never made it into the analysis — holding costs that ran three months longer than expected, closing costs on both sides of the transaction, or a rehab budget that ignored the 70% rule.
+
+In this guide, you'll build a complete house flip profit calculator in Excel, cell by cell. By the end, you'll have a reusable tool that tells you exactly what you'll make (or lose) on any deal before you sign anything.
+
+## The Flip Profit Formula
+
+Every house flip profit calculation follows the same core formula:
+
+\`\`\`
+Net Profit = ARV - Purchase Price - Rehab Costs - Holding Costs - Buying Closing Costs - Selling Closing Costs
+\`\`\`
+
+Where:
+- **ARV** = After Repair Value (what the house sells for after renovation)
+- **Purchase Price** = what you actually pay for the property
+- **Rehab Costs** = total renovation budget
+- **Holding Costs** = monthly expenses while you own the property
+- **Buying Closing Costs** = title, inspection, loan origination on purchase
+- **Selling Closing Costs** = agent commissions, title, transfer taxes on sale
+
+Simple in theory. The devil is in every single line item.
+
+## Step 1: Set Up Your Excel Layout
+
+Create a new workbook with these sections. We'll use column A for labels and column B for values:
+
+\`\`\`
+A1: HOUSE FLIP PROFIT CALCULATOR
+A3: === DEAL INPUTS ===
+A4: Property Address
+A5: Purchase Price                    B5: 180000
+A6: After Repair Value (ARV)          B6: 285000
+A7: Rehab Budget                      B7: 52000
+A8: Holding Period (months)           B8: 5
+\`\`\`
+
+Format column B as currency (Ctrl+1 → Number → Currency). This keeps everything readable as you build out the calculator.
+
+**Pro tip:** Color the input cells light yellow (select cells → Fill Color) so you always know which numbers to change for each new deal.
+
+## Step 2: Calculate Buying Costs
+
+When you purchase a flip, closing costs typically run 1.5–3% of the purchase price. Here's the breakdown:
+
+\`\`\`
+A10: === BUYING COSTS ===
+A11: Title & Escrow                   B11: =B5*0.01
+A12: Inspection                       B12: 500
+A13: Appraisal                        B13: 450
+A14: Loan Origination (1.5 pts)       B14: =B5*0.015
+A15: Recording Fees                   B15: 200
+A16: Total Buying Costs               B16: =SUM(B11:B15)
+\`\`\`
+
+If you're paying cash, delete the loan origination line and your buying costs drop significantly. That's one reason cash buyers have an edge — it's not just speed, it's lower transaction friction on both ends.
+
+For our example: Total buying costs = $1,800 + $500 + $450 + $2,700 + $200 = **$5,650**
+
+## Step 3: Build the Rehab Budget
+
+Don't just plug in one number for rehab. Break it into categories so you can spot where estimates are soft:
+
+\`\`\`
+A18: === REHAB COSTS ===
+A19: Kitchen                          B19: 15000
+A20: Bathrooms                        B20: 8000
+A21: Flooring                         B21: 6500
+A22: Paint (interior + exterior)      B22: 4500
+A23: Roof/Structural                  B23: 0
+A24: HVAC/Plumbing/Electrical         B24: 7500
+A25: Landscaping/Exterior             B25: 3500
+A26: Permits & Fees                   B26: 2000
+A27: Contingency (15%)                B27: =SUM(B19:B26)*0.15
+A28: Total Rehab                      B28: =SUM(B19:B27)
+\`\`\`
+
+That 15% contingency in B27 is non-negotiable. Experienced flippers know that unexpected issues — termite damage behind walls, outdated wiring that doesn't pass inspection, a sewer line that needs replacing — show up on nearly every project.
+
+**Total rehab with contingency:** $47,000 × 1.15 = **$54,050**
+
+Notice this is already $2,050 over our initial $52,000 estimate. That's why the contingency matters.
+
+## Step 4: Calculate Monthly Holding Costs
+
+Holding costs are where most beginners get blindsided. Every month you own the property, you're bleeding cash:
+
+\`\`\`
+A30: === MONTHLY HOLDING COSTS ===
+A31: Mortgage/Hard Money Payment       B31: 1485
+A32: Property Taxes (monthly)          B32: 250
+A33: Insurance                         B33: 150
+A34: Utilities                         B34: 200
+A35: HOA (if applicable)              B35: 0
+A36: Lawn/Maintenance                  B36: 75
+A37: Monthly Total                     B37: =SUM(B31:B36)
+A38: Total Holding Costs               B38: =B37*B8
+\`\`\`
+
+For our example: $2,160/month × 5 months = **$10,800**
+
+Here's the critical insight: **every month of delay costs you $2,160.** If your contractor runs two months late (and they will), that's $4,320 straight off your profit. This is why the holding period input in B8 is one of the most important numbers in your entire calculator.
+
+If you're using hard money (typical for flips), your monthly payment is interest-only. On a $180,000 loan at 10.5%: $180,000 × 10.5% ÷ 12 = $1,575/month. Adjust B31 accordingly.
+
+## Step 5: Calculate Selling Costs
+
+Selling is expensive. Agent commissions alone will take 5–6% of your ARV:
+
+\`\`\`
+A40: === SELLING COSTS ===
+A41: Agent Commission (5%)            B41: =B6*0.05
+A42: Seller Closing Costs (1.5%)      B42: =B6*0.015
+A43: Staging                          B43: 2500
+A44: Photography/Marketing            B44: 500
+A45: Transfer Taxes                   B45: =B6*0.005
+A46: Total Selling Costs              B46: =SUM(B41:B45)
+\`\`\`
+
+For our $285,000 ARV: Commission ($14,250) + Closing ($4,275) + Staging ($2,500) + Photos ($500) + Transfer tax ($1,425) = **$22,950**
+
+This is the number that makes beginners gasp. Nearly $23,000 gone just to sell the house. It's also why some flippers get their real estate license — saving even 2.5% on a $285K sale means $7,125 more profit per deal.
+
+## Step 6: The Final Profit Calculation
+
+Now bring it all together:
+
+\`\`\`
+A48: === PROFIT ANALYSIS ===
+A49: After Repair Value (ARV)          B49: =B6
+A50: Less: Purchase Price              B50: =B5
+A51: Less: Buying Costs                B51: =B16
+A52: Less: Rehab Costs                 B52: =B28
+A53: Less: Holding Costs               B53: =B38
+A54: Less: Selling Costs               B54: =B46
+A55: ─────────────────────
+A56: NET PROFIT                        B56: =B49-B50-B51-B52-B53-B54
+A57: ROI (%)                           B57: =B56/(B50+B51+B52+B53)*100
+A58: Profit Per Month                  B58: =B56/B8
+A59: Total Cash Invested               B59: =B50+B51+B52+B53
+\`\`\`
+
+**Running our example:**
+
+\`\`\`
+ARV:                $285,000
+- Purchase:         $180,000
+- Buying Costs:       $5,650
+- Rehab:             $54,050
+- Holding Costs:     $10,800
+- Selling Costs:     $22,950
+─────────────────────────────
+NET PROFIT:          $11,550
+ROI:                   4.6%
+Profit/Month:        $2,310
+\`\`\`
+
+$11,550 on a deal that looked great on paper. That's the reality of house flipping — the margins are thinner than most people expect.
+
+## Step 7: Add the 70% Rule Check
+
+The 70% rule is a quick sanity check used by experienced flippers:
+
+**Maximum Purchase Price = (ARV × 70%) - Rehab Costs**
+
+\`\`\`
+A61: === 70% RULE CHECK ===
+A62: Max Purchase Price (70% Rule)     B62: =(B6*0.7)-B28
+A63: Your Purchase Price               B63: =B5
+A64: Verdict                           B64: =IF(B63<=B62,"✓ PASS","✗ OVER by "&TEXT(B63-B62,"$#,##0"))
+\`\`\`
+
+For our deal: ($285,000 × 70%) - $54,050 = **$145,450** maximum purchase price.
+
+We're paying $180,000. The 70% rule says this deal is **$34,550 over** the maximum. That tracks with our thin $11,550 profit — we're overpaying.
+
+This is the power of having a calculator: it shows you the gap between what you want to pay and what the numbers say you should pay. Negotiation starts here.
+
+## Step 8: Build a Sensitivity Table
+
+One number changing can swing your deal from profitable to disastrous. Add a sensitivity analysis:
+
+\`\`\`
+A66: === SENSITIVITY ANALYSIS ===
+A67: If ARV drops 5%                   B67: =(B6*0.95)-B50-B51-B52-B53-(B6*0.95*0.065+3000)
+A68: If ARV drops 10%                  B68: =(B6*0.90)-B50-B51-B52-B53-(B6*0.90*0.065+3000)
+A69: If rehab goes 20% over            B69: =B49-B50-B51-(B52*1.2)-B53-B54
+A70: If holding runs 3 months longer   B70: =B49-B50-B51-B52-(B37*(B8+3))-B54
+A71: Worst case (all three)            B71: =(B6*0.90)-B50-B51-(B52*1.2)-(B37*(B8+3))-(B6*0.90*0.065+3000)
+\`\`\`
+
+For our deal, the worst-case scenario (ARV drops 10%, rehab goes 20% over, holding runs 3 months longer):
+
+\`\`\`
+Worst case profit: -$31,780
+\`\`\`
+
+A potential $31,780 loss. And that scenario isn't even extreme — it's actually fairly common for new flippers. The sensitivity table is your reality check.
+
+## Step 9: Add ROI Benchmarks
+
+Not all profits are created equal. Context matters:
+
+\`\`\`
+A73: === BENCHMARKS ===
+A74: Min Acceptable Profit              B74: 15000
+A75: Min ROI %                          B75: 10
+A76: Profit vs Minimum                  B76: =IF(B56>=B74,"✓ MEETS MIN","✗ Below by "&TEXT(B74-B56,"$#,##0"))
+A77: ROI vs Minimum                     B77: =IF(B57>=B75,"✓ MEETS MIN","✗ Below by "&TEXT(B75-B57,"0.0")&"%")
+\`\`\`
+
+Industry benchmarks for house flips:
+- **Minimum profit target:** $15,000–$25,000 per flip (anything less isn't worth the risk)
+- **Target ROI:** 10–20% for a 4–6 month project
+- **Profit per month:** $3,000–$5,000 is healthy
+
+Our deal hits none of these benchmarks, which is exactly why you run the calculator before writing an offer — not after.
+
+## Common Mistakes That Kill Flip Profits
+
+### 1. Ignoring Buying Costs
+Most beginners calculate: ARV - Purchase Price - Rehab = Profit. They forget $5,000–$8,000 in buying closing costs entirely.
+
+### 2. Underestimating Holding Costs
+A "quick 3-month flip" that takes 7 months adds $8,000–$12,000 in holding costs that were never budgeted.
+
+### 3. Using Optimistic ARV
+Your ARV should be based on sold comps from the last 90 days within 0.5 miles, not the highest Zestimate you can find.
+
+### 4. Skipping the Contingency
+Without 10–15% rehab contingency, one surprise (foundation crack, mold, knob-and-tube wiring) can wipe out your entire profit.
+
+### 5. Forgetting Selling Costs
+Agent commissions, closing costs, and transfer taxes on a $285K sale total nearly $23,000. That's not a rounding error.
+
+## Taking It Further
+
+A basic calculator like this handles one deal at a time. When you're evaluating multiple properties, you need:
+
+- **Side-by-side comparison** of 3–5 deals simultaneously
+- **Automated comp analysis** pulling recent sales data
+- **Built-in financing scenarios** (cash vs. hard money vs. conventional)
+- **Timeline tracking** with milestone dates and delay cost alerts
+
+SheetCraft's [Flip & BRRRR Calculator](/products/flip-brrrr-calculator) includes all of this in a single workbook — pre-built formulas, scenario comparison, and the sensitivity analysis that separates profitable flippers from expensive hobbyists.
+
+[See the Flip & BRRRR Calculator →](/products/flip-brrrr-calculator)
+
+## Key Takeaways
+
+1. **Always calculate ALL five cost categories** — buying costs, rehab, holding costs, and selling costs eat into your profit more than you think.
+2. **Run the 70% rule as a quick sanity check.** If your purchase price exceeds (ARV × 70%) - rehab costs, the deal needs renegotiation.
+3. **Add 15% rehab contingency.** If you don't need it, great — that's bonus profit. If you do need it, you won't go underwater.
+4. **Build a sensitivity table.** Know what happens to your profit if ARV drops, rehab overruns, or the timeline stretches. If the worst case bankrupts you, walk away.
+5. **Set minimum benchmarks.** Don't flip a house for $8,000 profit — the risk isn't worth it. Target $15K minimum and 10%+ ROI.
+6. **Update the calculator weekly during the project.** Your initial estimates are guesses. Real numbers come in during construction — plug them in and see where you stand.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
