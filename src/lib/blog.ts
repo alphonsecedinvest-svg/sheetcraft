@@ -2627,6 +2627,256 @@ SheetCraft's [Flip & BRRRR Calculator](/products/flip-brrrr-calculator) includes
 5. **Set minimum benchmarks.** Don't flip a house for $8,000 profit — the risk isn't worth it. Target $15K minimum and 10%+ ROI.
 6. **Update the calculator weekly during the project.** Your initial estimates are guesses. Real numbers come in during construction — plug them in and see where you stand.`,
   },
+  {
+    slug: 'contractor-estimate-template-excel',
+    title: 'How to Create a Professional Contractor Estimate in Excel (2026 Guide)',
+    metaTitle: 'How to Create a Professional Contractor Estimate in Excel',
+    metaDescription: 'Build a professional contractor estimate template in Excel step by step. Includes line items, markup, taxes, and tips to win more bids.',
+    targetKeyword: 'contractor estimate template Excel free',
+    secondaryKeywords: ['contractor estimate template', 'construction estimate Excel', 'free contractor estimate spreadsheet', 'how to create a contractor estimate'],
+    excerpt: 'Free contractor estimate templates look great until you lose a $40K job because your spreadsheet forgot to include overhead. Here\'s how to build one that actually works.',
+    publishedAt: '2026-02-22',
+    readTime: 11,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-estimate-template-excel.jpg',
+    imageAlt: 'Contractor reviewing a professional estimate spreadsheet on a tablet at a construction site',
+    content: `Free contractor estimate templates look great until you lose a $40K job because your spreadsheet forgot to include overhead. Or worse — you win the job and realize halfway through that your numbers were off by 15%.
+
+Every contractor has a horror story about an estimate gone wrong. The kitchen remodel that didn't account for permit fees. The roofing job where material prices jumped between estimate and start date. The bathroom gut that "forgot" to include demolition labor.
+
+The fix isn't better guessing. It's a better spreadsheet.
+
+In this guide, we'll build a professional contractor estimate template in Excel from scratch — one that covers every cost category, calculates markup automatically, and makes you look like a pro when you hand it to a client.
+
+## Why Most Free Templates Fall Short
+
+Search "free contractor estimate template" and you'll find hundreds of downloads. Most share the same problems:
+
+- **No overhead calculation.** They list direct costs but ignore the 15–25% overhead that keeps your business alive.
+- **No markup logic.** You're left guessing what percentage to add, and there's no formula connecting markup to your target profit margin.
+- **Missing cost categories.** Permits, dumpster rental, equipment wear, mobilization — the "invisible" costs that eat your margin.
+- **No version control.** When a client requests changes, you're saving "Estimate_v3_FINAL_revised2.xlsx" and losing track of what changed.
+- **Ugly formatting.** A sloppy spreadsheet signals a sloppy contractor. First impressions matter when you're asking someone to write a $50K check.
+
+A professional estimate template needs to handle all of this without requiring an accounting degree to use.
+
+## What Every Contractor Estimate Must Include
+
+Before touching Excel, let's outline the sections every solid estimate needs:
+
+### 1. Header Information
+- Your company name, logo, license number, and contact info
+- Client name, address, and contact info
+- Project address (if different from client address)
+- Estimate number and date
+- Estimate validity period (typically 30 days)
+
+### 2. Scope of Work
+A clear, written description of exactly what's included. This is your protection against scope creep. Be specific: "Install 120 sq ft of 3/4-inch red oak hardwood flooring in living room" is better than "install flooring."
+
+### 3. Line-Item Cost Breakdown
+Each task or phase with:
+- Description
+- Quantity and unit (sq ft, linear ft, each, lump sum)
+- Material cost per unit
+- Labor cost per unit
+- Subtotal per line
+
+### 4. Cost Summary
+- Subtotal (all direct costs)
+- Overhead percentage and amount
+- Profit markup percentage and amount
+- Permits and fees
+- Sales tax (where applicable)
+- **Grand total**
+
+### 5. Terms and Conditions
+- Payment schedule (e.g., 30% deposit, 30% at rough-in, 40% at completion)
+- Change order policy
+- Warranty information
+- Timeline estimate
+- Signature lines
+
+## Step-by-Step: Building the Template in Excel
+
+### Step 1: Set Up the Workbook Structure
+
+Create three sheets:
+- **Estimate** — the client-facing document
+- **Rates** — your internal labor rates, material costs, and markup percentages
+- **Notes** — internal notes, assumptions, and calculation backup
+
+The Rates sheet is your secret weapon. It stores your hourly labor rates by trade (framing, electrical, plumbing, finish carpentry), your standard markup percentages, and your overhead rate. The Estimate sheet pulls from this automatically.
+
+### Step 2: Build the Header Section (Rows 1–12)
+
+In the Estimate sheet:
+
+| Cell | Content |
+|------|---------|
+| A1 | Your Company Name (bold, 16pt) |
+| A2 | License # / Address / Phone / Email |
+| A4 | **ESTIMATE** (bold, 14pt) |
+| A6 | Estimate #: [auto-generated or manual] |
+| A7 | Date: =TODAY() |
+| A8 | Valid Until: =TODAY()+30 |
+| A10 | Client Name: |
+| A11 | Project Address: |
+| A12 | Project Description: |
+
+**Pro tip:** Use Excel's =TODAY() function for the date, and =TODAY()+30 for the validity date. This way the estimate always shows current dates when you open it.
+
+### Step 3: Create the Line-Item Table (Rows 15–50+)
+
+Set up columns:
+
+| Column | Header | Width |
+|--------|--------|-------|
+| A | Item # | 8 |
+| B | Description | 40 |
+| C | Quantity | 10 |
+| D | Unit | 8 |
+| E | Material $/Unit | 14 |
+| F | Labor $/Unit | 14 |
+| G | Material Total | 14 |
+| H | Labor Total | 14 |
+| I | Line Total | 14 |
+
+**Formulas:**
+- G15 (Material Total): \`=C15*E15\`
+- H15 (Labor Total): \`=C15*F15\`
+- I15 (Line Total): \`=G15+H15\`
+
+Copy these formulas down for 30+ rows. Use Excel's table feature (Ctrl+T) so new rows automatically get the formulas.
+
+### Step 4: Build the Summary Section
+
+Below the line items:
+
+| Row | Label | Formula |
+|-----|-------|---------|
+| 52 | **Direct Cost Subtotal** | =SUM(I15:I50) |
+| 53 | Overhead (18%) | =I52*Rates!B2 |
+| 54 | Profit Markup (12%) | =(I52+I53)*Rates!B3 |
+| 55 | Permits & Fees | [manual entry] |
+| 56 | Sales Tax | =(I52+I53+I54)*Rates!B4 |
+| 57 | **GRAND TOTAL** | =SUM(I52:I56) |
+
+The key here: overhead and markup pull from your Rates sheet. When you adjust your overhead rate (say, from 18% to 20% because insurance went up), every estimate updates automatically.
+
+### Step 5: Set Up the Rates Sheet
+
+This is for your eyes only — never print or share this sheet.
+
+| Row | Item | Value |
+|-----|------|-------|
+| 1 | Overhead Rate | 18% |
+| 2 | Profit Markup | 12% |
+| 3 | Sales Tax Rate | 8.25% |
+| 4 | Framing Labor ($/hr) | $45 |
+| 5 | Finish Carpentry ($/hr) | $55 |
+| 6 | Electrical ($/hr) | $75 |
+| 7 | Plumbing ($/hr) | $80 |
+| 8 | General Labor ($/hr) | $35 |
+| 9 | Painting ($/hr) | $40 |
+
+**Why this matters:** Most contractors either underprice labor (forgetting workers' comp, benefits, and downtime) or use the same rate for every trade. A framing crew at $45/hr and a master electrician at $75/hr are very different cost structures.
+
+### Step 6: Add Conditional Formatting
+
+Make the spreadsheet work harder:
+
+- **Negative margins:** If any line total exceeds a threshold, highlight it red
+- **Empty required fields:** Conditional format to highlight blank description or quantity cells in yellow
+- **Grand total:** Bold, larger font, light green background — the client's eye should land here immediately
+
+### Step 7: Print/PDF Layout
+
+Before sending:
+- Set print area to the Estimate sheet only
+- Add page breaks so the summary never splits across pages
+- Set margins to 0.5" all around
+- Add your logo as a header image
+- Footer: "This estimate is valid for 30 days from the date shown above"
+
+## Sample Estimate: Kitchen Remodel
+
+Here's what a completed estimate looks like for a mid-range kitchen remodel:
+
+| # | Description | Qty | Unit | Mat $/U | Labor $/U | Mat Total | Labor Total | Line Total |
+|---|-------------|-----|------|---------|-----------|-----------|-------------|------------|
+| 1 | Demo existing cabinets & countertops | 1 | LS | $0 | $1,200 | $0 | $1,200 | $1,200 |
+| 2 | Dumpster rental (20 yd) | 1 | EA | $450 | $0 | $450 | $0 | $450 |
+| 3 | Base cabinets (Shaker style) | 14 | LF | $180 | $65 | $2,520 | $910 | $3,430 |
+| 4 | Wall cabinets | 10 | LF | $160 | $55 | $1,600 | $550 | $2,150 |
+| 5 | Quartz countertops (installed) | 45 | SF | $75 | $25 | $3,375 | $1,125 | $4,500 |
+| 6 | Tile backsplash | 30 | SF | $12 | $18 | $360 | $540 | $900 |
+| 7 | Plumbing rough-in | 1 | LS | $350 | $1,400 | $350 | $1,400 | $1,750 |
+| 8 | Electrical (6 outlets + lighting) | 1 | LS | $600 | $1,800 | $600 | $1,800 | $2,400 |
+| 9 | Painting (walls + ceiling) | 280 | SF | $0.45 | $1.20 | $126 | $336 | $462 |
+| 10 | Permit fees | 1 | LS | $350 | $0 | $350 | $0 | $350 |
+
+**Direct Cost Subtotal:** $17,592
+**Overhead (18%):** $3,167
+**Profit Markup (12%):** $2,491
+**Sales Tax (8.25%):** $1,916
+**Grand Total: $25,166**
+
+## 5 Mistakes That Kill Your Estimates
+
+### 1. Using One Flat Rate for All Labor
+Your framing crew costs $45/hr. Your electrician costs $75/hr. Averaging them at $55/hr means you're overcharging on simple work (losing bids) and undercharging on skilled work (losing money). Break it out by trade.
+
+### 2. Forgetting Mobilization Costs
+Driving to the site, unloading tools, setting up, and cleaning up at the end of each day — this is real labor time. For a crew of three, mobilization can add $200–$400 per day. On a two-week project, that's $2,000–$4,000 you're eating if it's not in the estimate.
+
+### 3. Not Updating Material Prices
+Lumber, copper, and concrete prices fluctuate constantly. That price you quoted from a supplier three months ago? It's probably wrong. Always get fresh quotes within the last two weeks before finalizing an estimate.
+
+### 4. Skipping the Contingency Line
+Things go wrong. Walls hide surprises. Inspectors require changes. Add a 10–15% contingency on renovation work and 5–8% on new construction. Put it as a visible line item — clients appreciate the transparency.
+
+### 5. Sending Estimates Without Terms
+An estimate without payment terms, change order policies, and a validity period is a handshake deal waiting to go sideways. Include them every single time.
+
+## Excel vs. Dedicated Estimating Software
+
+| Feature | Excel Template | Estimating Software |
+|---------|---------------|-------------------|
+| Cost | Free | $50–$300/month |
+| Learning curve | Low | Medium–High |
+| Customization | Unlimited | Limited to features |
+| Integration | Manual | CRM, accounting, scheduling |
+| Speed for simple jobs | Fast | Slower (login, navigate, fill) |
+| Speed for complex jobs | Slow | Fast (database of costs) |
+| Professional appearance | Good (with effort) | Excellent (built-in) |
+
+**The verdict:** For contractors doing under $500K in annual revenue or fewer than 20 estimates per month, a well-built Excel template beats expensive software. You get exactly what you need without paying for features you won't use.
+
+Once you're sending 30+ estimates a month or managing crews across multiple projects, dedicated software starts making sense.
+
+## Level Up Your Estimates
+
+A basic Excel template handles single estimates fine. But when you're juggling multiple projects, you need:
+
+- **Cost database** with historical pricing from past projects
+- **Automatic markup calculation** based on project type and size
+- **Change order tracking** linked to the original estimate
+- **Budget vs. actual comparison** as the project progresses
+
+SheetCraft's [Contractor Estimate Template](/products/contractor-estimate-template) comes pre-built with all of this — formulas, formatting, and the cost structure logic that takes hours to build from scratch. Download it, plug in your rates, and start sending professional estimates today.
+
+[See the Contractor Estimate Template →](/products/contractor-estimate-template)
+
+## Key Takeaways
+
+1. **Every estimate needs five sections:** header, scope of work, line-item breakdown, cost summary with overhead and markup, and terms and conditions.
+2. **Separate your Rates sheet** from the client-facing estimate. This lets you update labor rates and markup percentages in one place.
+3. **Break labor out by trade.** A flat rate across all trades either loses you bids or loses you money.
+4. **Include mobilization, permits, and contingency** as explicit line items. The "hidden" costs are where most estimates fall short.
+5. **Always set a validity period.** Material prices change — don't let a client accept a three-month-old estimate at today's prices.
+6. **Format for print and PDF.** A clean, professional-looking estimate builds trust before you swing a hammer.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
