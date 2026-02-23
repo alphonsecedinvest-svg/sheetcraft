@@ -2877,6 +2877,226 @@ SheetCraft's [Contractor Estimate Template](/products/contractor-estimate-templa
 5. **Always set a validity period.** Material prices change — don't let a client accept a three-month-old estimate at today's prices.
 6. **Format for print and PDF.** A clean, professional-looking estimate builds trust before you swing a hammer.`,
   },
+  {
+    slug: 'csi-cost-codes-construction-budget',
+    title: 'CSI Cost Codes Explained: How to Organize Your Construction Budget',
+    metaTitle: 'CSI Cost Codes Explained: Organize Your Construction Budget',
+    metaDescription: 'Learn how CSI MasterFormat cost codes work and how to use them to organize your construction budget in Excel. Includes the full division list and practical setup guide.',
+    targetKeyword: 'CSI cost codes construction budget',
+    secondaryKeywords: ['CSI MasterFormat', 'construction cost codes list', 'construction budget organization', 'MasterFormat divisions Excel'],
+    excerpt: 'If your construction budgets feel like a junk drawer of line items, CSI cost codes are the fix. Here\'s how to set them up in Excel so every dollar has a home.',
+    publishedAt: '2026-02-23',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/csi-cost-codes-construction-budget.jpg',
+    imageAlt: 'Organized construction budget spreadsheet with color-coded CSI cost code categories',
+    content: `If your construction budget looks like a random list of line items — "lumber," "plumber guy," "that tile thing" — you have a tracking problem. And tracking problems become money problems fast.
+
+CSI cost codes solve this. They give every expense a standardized home so you can track costs across projects, compare bids apples-to-apples, and actually know where your money went when the job is done.
+
+In this guide, we'll break down what CSI cost codes are, walk through the MasterFormat division structure, and show you exactly how to set them up in your Excel construction budget.
+
+## What Are CSI Cost Codes?
+
+CSI stands for the Construction Specifications Institute. They created **MasterFormat**, a standardized numbering system that organizes all construction work into divisions. Think of it as a universal filing system for construction costs.
+
+Instead of every contractor inventing their own categories (and ending up with budgets that can't talk to each other), MasterFormat gives the entire industry a common language.
+
+Here's why that matters to you:
+
+- **Consistent tracking** across every project you run
+- **Easy bid comparison** when subs use the same codes
+- **Historical data** that actually means something — you can compare framing costs on Project A vs. Project B because they're coded the same way
+- **Audit-ready records** if a client, lender, or accountant needs to review your numbers
+
+## The MasterFormat Division Structure
+
+MasterFormat organizes construction work into **50 divisions** grouped by category. For most residential and small commercial contractors, you'll use divisions 01 through 14 and 31 through 33 most often. Here are the key ones:
+
+### Procurement & General Requirements
+| Division | Name | What It Covers |
+|----------|------|----------------|
+| 00 | Procurement & Contracting | Bidding, contracts, bonds |
+| 01 | General Requirements | Permits, insurance, temporary facilities, cleanup |
+
+### Structure & Envelope
+| Division | Name | What It Covers |
+|----------|------|----------------|
+| 02 | Existing Conditions | Demolition, site assessment, hazmat abatement |
+| 03 | Concrete | Foundations, slabs, footings, formwork |
+| 04 | Masonry | Brick, block, stone, mortar |
+| 05 | Metals | Structural steel, railings, misc. metals |
+| 06 | Wood, Plastics, Composites | Framing, rough carpentry, millwork, finish carpentry |
+| 07 | Thermal & Moisture Protection | Insulation, roofing, waterproofing, sealants |
+| 08 | Openings | Doors, windows, hardware, glazing |
+
+### Interiors & Finishes
+| Division | Name | What It Covers |
+|----------|------|----------------|
+| 09 | Finishes | Drywall, painting, tile, flooring, ceilings |
+| 10 | Specialties | Signage, toilet accessories, lockers, fireplaces |
+| 11 | Equipment | Appliances, residential equipment |
+| 12 | Furnishings | Cabinets, countertops, window treatments |
+
+### Infrastructure & MEP
+| Division | Name | What It Covers |
+|----------|------|----------------|
+| 13 | Special Construction | Pre-engineered structures, pools |
+| 14 | Conveying Equipment | Elevators, dumbwaiters |
+| 21 | Fire Suppression | Sprinkler systems |
+| 22 | Plumbing | Fixtures, piping, water heaters |
+| 23 | HVAC | Heating, ventilation, air conditioning, ductwork |
+| 26 | Electrical | Wiring, panels, lighting, devices |
+| 27 | Communications | Data cabling, phone, AV systems |
+| 28 | Electronic Safety & Security | Fire alarm, security, access control |
+| 31 | Earthwork | Grading, excavation, fill |
+| 32 | Exterior Improvements | Paving, landscaping, fencing |
+| 33 | Utilities | Water, sewer, storm drainage, gas lines |
+
+You don't need all 50 divisions. Most residential projects use 15–20 of them. The point is that when you need Division 09 (Finishes), it's always Division 09 — on this project, next project, and every project after that.
+
+## How to Set Up CSI Cost Codes in Excel
+
+Here's the practical part. We'll build a cost code structure in Excel that you can reuse on every project.
+
+### Step 1: Create Your Master Code List
+
+Start a new sheet called **"Cost Codes"** with three columns:
+
+| Code | Division | Description |
+|------|----------|-------------|
+| 01-100 | General Requirements | Building permits |
+| 01-200 | General Requirements | Insurance & bonds |
+| 01-300 | General Requirements | Temporary facilities |
+| 01-400 | General Requirements | Dumpsters & cleanup |
+| 03-100 | Concrete | Footings |
+| 03-200 | Concrete | Foundation walls |
+| 03-300 | Concrete | Slab on grade |
+| 06-100 | Wood & Plastics | Framing lumber |
+| 06-200 | Wood & Plastics | Framing labor |
+| 06-300 | Wood & Plastics | Finish carpentry |
+
+The first two digits are the MasterFormat division. The digits after the dash are your sub-codes. You decide how granular to go.
+
+**Rule of thumb:** If you want to track a cost separately, it gets its own code. If you don't care about the breakdown, keep it grouped.
+
+### Step 2: Build Your Budget Sheet With Codes
+
+Your main budget sheet should reference these codes. Set up columns like this:
+
+| Cost Code | Description | Estimated | Actual | Variance | % Complete |
+|-----------|-------------|-----------|--------|----------|------------|
+
+Use **Data Validation** (dropdown list) on the Cost Code column, pulling from your master list. This prevents typos and keeps your data clean.
+
+\`\`\`
+=Data Validation → List → =CostCodes!A:A
+\`\`\`
+
+### Step 3: Use SUMIF for Division Summaries
+
+Create a summary section that rolls up costs by division:
+
+\`\`\`
+=SUMIF(BudgetSheet!A:A, "03-*", BudgetSheet!C:C)
+\`\`\`
+
+This totals all concrete costs (anything starting with "03-") in one cell. Do this for each division and you get a high-level budget summary without losing the line-item detail.
+
+### Step 4: Add Conditional Formatting for Variance
+
+Color-code your variance column so overruns jump off the screen:
+
+- **Green:** Actual ≤ Estimated (on or under budget)
+- **Yellow:** Actual is 1–10% over estimate
+- **Red:** Actual is 10%+ over estimate
+
+This takes 30 seconds to set up and saves hours of squinting at numbers.
+
+## Common Mistakes With Cost Codes
+
+### 1. Making Codes Too Granular
+
+If you have 200 cost codes on a $300K residential project, you're spending more time categorizing than building. Start with 30–50 codes and add more only when you need to track something specific.
+
+### 2. Inconsistent Coding Across Projects
+
+The whole point of standardized codes is consistency. If "framing labor" is 06-200 on one project and 06-150 on another, your historical data is useless. Lock your codes down and use the same list every time.
+
+### 3. Not Coding Change Orders
+
+Change orders are where budgets go sideways. Every change order should carry the same cost code as the original work it modifies. This way, when you review Division 09 (Finishes) at the end of the project, you see the true total — original budget plus all changes.
+
+### 4. Skipping Division 01
+
+General conditions (Division 01) account for 8–15% of most project budgets. Permits, temporary power, dumpsters, site office, project management time — these are real costs. If you don't code them, they become invisible overhead that eats your margin.
+
+## Custom Codes vs. Pure MasterFormat
+
+You don't have to follow MasterFormat exactly. Many contractors use a hybrid approach:
+
+- **MasterFormat divisions** for the first two digits (keeps you compatible with subs and industry standard)
+- **Custom sub-codes** for your specific tracking needs
+
+For example, a remodeling contractor might break Division 09 into:
+
+| Code | Description |
+|------|-------------|
+| 09-100 | Drywall — material |
+| 09-110 | Drywall — labor |
+| 09-200 | Painting — material |
+| 09-210 | Painting — labor |
+| 09-300 | Tile — material |
+| 09-310 | Tile — labor |
+| 09-400 | Flooring — material |
+| 09-410 | Flooring — labor |
+
+This gives you labor vs. material breakdowns within each trade — incredibly useful for estimating future projects.
+
+## Using Cost Codes for Bid Comparison
+
+Here's where cost codes really earn their keep. When you get three bids for electrical work, and all three subs use Division 26 codes, you can compare line by line:
+
+| Code | Description | Sub A | Sub B | Sub C |
+|------|-------------|-------|-------|-------|
+| 26-100 | Rough wiring | $8,200 | $7,800 | $9,100 |
+| 26-200 | Panel & breakers | $3,100 | $3,400 | $2,900 |
+| 26-300 | Fixtures & devices | $4,500 | $4,200 | $4,800 |
+| 26-400 | Low voltage | $1,800 | $2,100 | $1,600 |
+| **Total** | | **$17,600** | **$17,500** | **$18,400** |
+
+Sub B has the lowest total, but Sub C has the cheapest panel work. Sub A is the most expensive on rough wiring. This level of detail lets you negotiate intelligently instead of just picking the lowest number.
+
+## From Spreadsheet to System
+
+Once your cost codes are set up, they become the backbone of your entire financial system:
+
+- **Estimates** use the codes to price new projects based on historical actuals
+- **Budgets** track planned vs. actual by code
+- **Invoices** reference codes so you know exactly what you're paying for
+- **Reports** roll up by division for owner presentations and lender draws
+- **Year-end analysis** shows which divisions consistently run over or under
+
+It's a small investment in setup that pays dividends on every project going forward.
+
+## Get Started Faster
+
+Building a cost-coded budget from scratch takes time — setting up the master list, configuring dropdowns, writing SUMIF formulas, formatting the variance tracking.
+
+SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker) comes pre-loaded with CSI MasterFormat divisions, customizable sub-codes, automatic division summaries, and variance highlighting. Open it, adjust the codes to match your trades, and start tracking.
+
+[See the Construction Budget Tracker →](/products/construction-budget-tracker)
+
+## Key Takeaways
+
+1. **CSI MasterFormat** is the industry standard for organizing construction costs into numbered divisions.
+2. **You don't need all 50 divisions.** Most residential projects use 15–20. Start there and expand as needed.
+3. **Set up a master code list** in a separate Excel sheet and use data validation to enforce consistency.
+4. **Use SUMIF formulas** to create division-level summaries from your line-item detail.
+5. **Code your change orders** with the same system — this is where most budget tracking falls apart.
+6. **Hybrid codes work great:** MasterFormat divisions + custom sub-codes tailored to your business.
+7. **Cost codes enable bid comparison, historical analysis, and better estimates** on every future project.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
