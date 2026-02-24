@@ -19,10 +19,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   const badge = getBadge(product);
 
   return (
-    <div className="relative bg-white border border-navy/8 rounded-xl shadow-card hover:shadow-elevated hover:-translate-y-[2px] transition-all duration-200 overflow-hidden flex flex-col">
+    <div className="relative glass-card rounded-xl overflow-hidden flex flex-col bg-white/[0.03] border border-white/10">
       {/* Badge */}
       {badge && (
-        <div className="absolute top-3 right-3 z-10 bg-amber text-white text-xs font-heading font-semibold px-3 py-1 rounded-full shadow-sm">
+        <div className="absolute top-3 right-3 z-10 bg-white text-black text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
           {badge}
         </div>
       )}
@@ -39,23 +39,23 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Content */}
       <div className="p-4 flex flex-col flex-1">
         {/* Category badge */}
-        <span className={`inline-block self-start px-3 py-1 rounded-full text-xs font-body font-medium ${
+        <span className={`inline-block self-start px-3 py-1 rounded-full text-xs font-medium ${
           product.category === 'construction'
-            ? 'bg-green/10 text-green'
-            : 'bg-amber/10 text-amber'
+            ? 'bg-sc-green/10 text-sc-green'
+            : 'bg-sc-amber/10 text-sc-amber'
         }`}>
           {product.category === 'construction' ? '📊 Construction' : '🏠 Real Estate'}
         </span>
 
         {/* Title */}
         <Link href={`/products/${product.slug}`}>
-          <h3 className="mt-2 font-heading font-semibold text-xl text-navy hover:text-amber transition-colors">
+          <h3 className="mt-2 font-semibold text-xl text-white hover:text-sc-text-muted transition-colors">
             {product.name}
           </h3>
         </Link>
 
         {/* Description */}
-        <p className="mt-2 text-sm text-slate leading-relaxed flex-1">
+        <p className="mt-2 text-sm text-sc-text-muted leading-relaxed flex-1">
           {product.shortDescription}
         </p>
 
@@ -63,15 +63,15 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="mt-3 flex items-center gap-1.5">
           <div className="flex">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={14} className="fill-amber text-amber" />
+              <Star key={i} size={14} className="fill-sc-amber text-sc-amber" />
             ))}
           </div>
-          <span className="text-xs text-slate">({product.reviewCount})</span>
+          <span className="text-xs text-sc-text-muted">({product.reviewCount})</span>
         </div>
 
         {/* Price */}
         <div className="mt-3">
-          <span className="font-heading font-bold text-2xl text-navy">${product.price}</span>
+          <span className="font-bold text-2xl text-white font-mono">${product.price}</span>
         </div>
 
         {/* CTA */}

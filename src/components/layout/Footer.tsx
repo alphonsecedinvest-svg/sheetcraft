@@ -17,18 +17,18 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-navy pt-16 pb-8">
+    <footer className="bg-sc-bg border-t border-white/10 pt-16 pb-8">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="font-heading text-xl font-bold text-white tracking-tight">
+            <Link href="/" className="text-xl font-bold text-white tracking-tight">
               SheetCraft
             </Link>
-            <p className="mt-3 text-sm text-white/60 leading-relaxed">
+            <p className="mt-3 text-sm text-sc-text-muted leading-relaxed">
               Professional Excel & Google Sheets templates for construction and real estate pros.
             </p>
-            <p className="mt-4 text-sm text-white/60">
+            <p className="mt-4 text-sm text-sc-text-muted">
               support@sheetcraft.com
             </p>
           </div>
@@ -36,13 +36,13 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-heading text-sm font-semibold text-white mb-4">{title}</h4>
+              <h4 className="text-sm font-semibold text-white mb-4">{title}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/60 hover:text-white transition-colors"
+                      className="text-sm text-sc-text-muted hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -55,10 +55,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40">© 2026 SheetCraft. All rights reserved.</p>
-          <div className="flex gap-4 text-xs text-white/40">
-            <Link href="#" className="hover:text-white/60 transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-white/60 transition-colors">Terms</Link>
+          <p className="text-xs text-sc-text-muted/60">© 2026 SheetCraft. All rights reserved.</p>
+          <div className="flex gap-4 text-xs text-sc-text-muted/60">
+            <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms</Link>
           </div>
         </div>
       </Container>

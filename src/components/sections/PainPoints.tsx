@@ -12,10 +12,10 @@ const painPoints = [
 
 export default function PainPoints() {
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-12 lg:py-16 bg-sc-bg-alt">
       <Container className="max-w-3xl">
         <FadeIn>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
             This is costing you more than you think.
           </h2>
         </FadeIn>
@@ -23,8 +23,8 @@ export default function PainPoints() {
         <div className="space-y-4">
           {painPoints.map((point, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="border-l-[3px] border-amber bg-cloud rounded-r-lg px-5 py-4">
-                <p className="text-base text-navy font-medium italic">
+              <div className="border-l-[3px] border-sc-amber bg-white/5 rounded-r-lg px-5 py-4">
+                <p className="text-base text-sc-text-muted font-medium italic">
                   😤 {point}
                 </p>
               </div>
@@ -33,7 +33,7 @@ export default function PainPoints() {
         </div>
 
         <FadeIn delay={0.4}>
-          <p className="mt-10 text-center text-lg font-heading font-semibold text-navy">
+          <p className="mt-10 text-center text-lg font-semibold text-white">
             You&apos;re not bad at spreadsheets. You&apos;re just using the wrong one — and every day you do, it&apos;s costing you time, money, or both.
           </p>
         </FadeIn>

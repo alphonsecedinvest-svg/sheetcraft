@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, DM_Sans } from 'next/font/google';
+import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -8,14 +8,14 @@ import { siteConfig } from '@/lib/constants';
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-heading',
-  weight: ['600', '700'],
+  variable: '--font-sans',
+  weight: ['400', '500', '600', '700', '800'],
 });
 
-const dmSans = DM_Sans({
+const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-body',
+  variable: '--font-mono',
   weight: ['400', '500'],
 });
 
@@ -54,9 +54,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSans.variable}`}>
-      <body className="min-h-screen flex flex-col">
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-amber focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+      <body className="min-h-screen flex flex-col bg-sc-bg text-sc-text">
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">
           Skip to content
         </a>
         <Navbar />

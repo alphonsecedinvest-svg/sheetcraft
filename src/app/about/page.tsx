@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
 import Button from '@/components/ui/Button';
-import { HardHat, Zap, ShieldCheck, Building2, TrendingUp, LayoutDashboard, Users } from 'lucide-react';
+import { HardHat, Zap, ShieldCheck, Building2, TrendingUp, LayoutDashboard } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About — SheetCraft',
@@ -62,14 +62,14 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-20 lg:py-32 bg-navy">
-        <Container className="max-w-3xl text-center">
+      <section className="relative py-20 lg:py-32 bg-sc-bg">
+        <Container className="max-w-3xl text-center relative z-10">
           <FadeIn>
-            <h1 className="font-heading font-semibold text-3xl lg:text-[48px] lg:leading-[56px] text-white mb-4">
+            <h1 className="font-semibold text-3xl lg:text-[48px] lg:leading-[56px] tracking-[-0.05em] text-white mb-4 gradient-text">
               Built by builders.{' '}
-              <span className="text-amber">Not by consultants.</span>
+              <span className="text-sc-amber">Not by consultants.</span>
             </h1>
-            <p className="text-lg lg:text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="text-lg lg:text-xl text-sc-text-muted max-w-2xl mx-auto">
               We&rsquo;ve been in the field. That&rsquo;s why our templates actually work.
             </p>
           </FadeIn>
@@ -77,10 +77,10 @@ export default function AboutPage() {
       </section>
 
       {/* Origin Story */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-sc-bg-alt">
         <Container className="max-w-3xl">
           <FadeIn>
-            <div className="space-y-6 text-base lg:text-lg text-slate leading-relaxed">
+            <div className="space-y-6 text-base lg:text-lg text-sc-text-muted leading-relaxed">
               <p>
                 SheetCraft started on a job site. Not in a Silicon Valley office.
               </p>
@@ -97,7 +97,7 @@ export default function AboutPage() {
                 financial tools, but they can&rsquo;t justify $500/month software for a
                 3-project portfolio.
               </p>
-              <p className="text-navy font-medium">
+              <p className="text-white font-medium">
                 So he built what he wished existed. Templates that work the way
                 builders actually think &mdash; not the way software engineers think
                 builders should think.
@@ -108,10 +108,10 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy */}
-      <section className="py-16 lg:py-24 bg-cloud">
+      <section className="py-16 lg:py-24 bg-sc-bg">
         <Container>
           <FadeIn>
-            <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-12">
+            <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-12 gradient-text">
               Our Philosophy
             </h2>
           </FadeIn>
@@ -119,11 +119,11 @@ export default function AboutPage() {
             {philosophy.map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.1}>
                 <div className="text-center">
-                  <item.icon size={36} className="text-amber mx-auto mb-4" />
-                  <h3 className="font-heading font-semibold text-lg text-navy mb-2">
+                  <item.icon size={36} className="text-white mx-auto mb-4" />
+                  <h3 className="font-semibold text-lg text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate leading-relaxed">
+                  <p className="text-sm text-sc-text-muted leading-relaxed">
                     {item.text}
                   </p>
                 </div>
@@ -134,10 +134,10 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 lg:py-20 bg-white">
+      <section className="py-16 lg:py-20 bg-sc-bg-alt">
         <Container>
           <FadeIn>
-            <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-12">
+            <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-12 gradient-text">
               Numbers That Matter
             </h2>
           </FadeIn>
@@ -145,10 +145,10 @@ export default function AboutPage() {
             {stats.map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.08}>
                 <div className="text-center">
-                  <p className="font-heading font-semibold text-3xl lg:text-4xl text-navy">
+                  <p className="font-semibold text-3xl lg:text-4xl text-white font-mono">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-slate mt-1">{stat.label}</p>
+                  <p className="text-sm text-sc-text-muted mt-1">{stat.label}</p>
                 </div>
               </FadeIn>
             ))}
@@ -157,24 +157,24 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Build For */}
-      <section className="py-16 lg:py-24 bg-cloud">
+      <section className="py-16 lg:py-24 bg-sc-bg">
         <Container>
           <FadeIn>
-            <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-12">
+            <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-12 gradient-text">
               Who We Build For
             </h2>
           </FadeIn>
           <div className="grid md:grid-cols-2 gap-6">
             {audiences.map((card, i) => (
               <FadeIn key={card.title} delay={i * 0.08}>
-                <div className="bg-white rounded-lg p-6 border border-navy/8">
+                <div className="glass-card rounded-lg p-6 bg-white/[0.03] border border-white/10">
                   <div className="flex items-start gap-4">
-                    <card.icon size={28} className="text-green shrink-0 mt-1" />
+                    <card.icon size={28} className="text-sc-green shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-heading font-semibold text-base text-navy mb-1">
+                      <h3 className="font-semibold text-base text-white mb-1">
                         {card.title}
                       </h3>
-                      <p className="text-sm text-slate leading-relaxed">
+                      <p className="text-sm text-sc-text-muted leading-relaxed">
                         {card.text}
                       </p>
                     </div>
@@ -187,10 +187,10 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 lg:py-24 bg-navy">
+      <section className="py-16 lg:py-24 bg-sc-bg-alt">
         <Container className="max-w-2xl text-center">
           <FadeIn>
-            <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-white mb-6">
+            <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white mb-6 gradient-text">
               Ready to build with better numbers?
             </h2>
             <Button href="/products">Browse Templates — From $29</Button>

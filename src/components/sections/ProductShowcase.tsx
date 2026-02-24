@@ -8,10 +8,10 @@ import { products } from '@/lib/products';
 
 export default function ProductShowcase() {
   return (
-    <section className="py-12 lg:py-16 bg-cloud">
+    <section className="py-12 lg:py-16 bg-sc-bg-alt">
       <Container>
         <FadeIn>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
             Proven templates for every stage of your project
           </h2>
         </FadeIn>

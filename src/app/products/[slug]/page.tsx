@@ -46,7 +46,6 @@ export default async function ProductPage({
 
   if (!product) notFound();
 
-  // Schema.org Product markup
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -90,7 +89,7 @@ export default async function ProductPage({
       />
 
       {/* Hero */}
-      <section className="py-12 lg:py-16 bg-cloud">
+      <section className="py-12 lg:py-16 bg-sc-bg">
         <Container>
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
             {/* Left: Image */}
@@ -102,35 +101,34 @@ export default async function ProductPage({
 
             {/* Right: Info */}
             <div>
-              <span className={`inline-block px-3 py-1 rounded-full text-xs font-body font-medium ${
+              <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
                 product.category === 'construction'
-                  ? 'bg-green/10 text-green'
-                  : 'bg-amber/10 text-amber'
+                  ? 'bg-sc-green/10 text-sc-green'
+                  : 'bg-sc-amber/10 text-sc-amber'
               }`}>
                 {product.category === 'construction' ? 'Construction' : 'Real Estate'}
               </span>
 
-              <h1 className="mt-3 font-heading font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-navy">
+              <h1 className="mt-3 font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-white tracking-[-0.02em]">
                 {product.name}
               </h1>
 
-              <p className="mt-2 text-base text-slate italic">{product.tagline}</p>
+              <p className="mt-2 text-base text-sc-text-muted italic">{product.tagline}</p>
 
-              {/* Benefit line */}
-              <p className="mt-2 text-sm font-semibold text-green">→ {product.benefitLine}</p>
+              <p className="mt-2 text-sm font-semibold text-sc-green">→ {product.benefitLine}</p>
 
               <div className="mt-4 flex items-center gap-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-amber text-amber" />
+                    <Star key={i} size={16} className="fill-sc-amber text-sc-amber" />
                   ))}
                 </div>
-                <a href="#reviews" className="text-sm text-slate hover:text-navy transition-colors cursor-pointer">{product.rating}/5 ({product.reviewCount} reviews)</a>
+                <a href="#reviews" className="text-sm text-sc-text-muted hover:text-white transition-colors cursor-pointer">{product.rating}/5 ({product.reviewCount} reviews)</a>
               </div>
 
               <div className="mt-4">
-                <span className="font-heading font-bold text-[36px] text-navy">${product.price}</span>
-                <span className="ml-2 text-sm text-slate">one-time payment</span>
+                <span className="font-bold text-[36px] text-white font-mono">${product.price}</span>
+                <span className="ml-2 text-sm text-sc-text-muted">one-time payment</span>
               </div>
 
               <div className="mt-6">
@@ -139,10 +137,8 @@ export default async function ProductPage({
                 </Button>
               </div>
 
-              {/* Trust badges under CTA */}
               <TrustBadges variant="stacked" className="mt-4" />
 
-              {/* Ease-of-use badges */}
               <div className="mt-5 flex flex-wrap gap-2">
                 {[
                   { icon: Clock, text: 'Ready in 5 min' },
@@ -151,7 +147,7 @@ export default async function ProductPage({
                 ].map((badge) => (
                   <span
                     key={badge.text}
-                    className="inline-flex items-center gap-1.5 bg-green/10 text-green text-xs font-medium px-3 py-1.5 rounded-full"
+                    className="inline-flex items-center gap-1.5 bg-sc-green/10 text-sc-green text-xs font-medium px-3 py-1.5 rounded-full"
                   >
                     <badge.icon size={14} />
                     {badge.text}
@@ -159,7 +155,6 @@ export default async function ProductPage({
                 ))}
               </div>
 
-              {/* What's included quick list */}
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {[
                   { icon: FileSpreadsheet, text: 'Excel + Google Sheets' },
@@ -167,8 +162,8 @@ export default async function ProductPage({
                   { icon: RefreshCw, text: 'Lifetime updates' },
                   { icon: BookOpen, text: 'Quick-start guide' },
                 ].map((item) => (
-                  <div key={item.text} className="flex items-center gap-2 text-sm text-slate">
-                    <item.icon size={16} className="text-green shrink-0" />
+                  <div key={item.text} className="flex items-center gap-2 text-sm text-sc-text-muted">
+                    <item.icon size={16} className="text-sc-green shrink-0" />
                     {item.text}
                   </div>
                 ))}
@@ -179,15 +174,14 @@ export default async function ProductPage({
       </section>
 
       {/* Description + Sidebar */}
-      <section className="py-12 lg:py-16 bg-white">
+      <section className="py-12 lg:py-16 bg-sc-bg-alt">
         <Container>
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-12">
             <div>
-              {/* Problem Section */}
               {product.problemSection && (
                 <>
-                  <h2 className="font-heading font-semibold text-2xl text-navy mb-6">The Problem</h2>
-                  <div className="prose text-slate mb-10">
+                  <h2 className="font-semibold text-2xl text-white mb-6">The Problem</h2>
+                  <div className="prose mb-10">
                     {product.problemSection.split('\n\n').map((p, i) => (
                       <p key={i}>{p}</p>
                     ))}
@@ -195,11 +189,10 @@ export default async function ProductPage({
                 </>
               )}
 
-              {/* Solution Section */}
               {product.solutionSection && (
                 <>
-                  <h2 className="font-heading font-semibold text-2xl text-navy mb-6">The Solution</h2>
-                  <div className="prose text-slate mb-10">
+                  <h2 className="font-semibold text-2xl text-white mb-6">The Solution</h2>
+                  <div className="prose mb-10">
                     {product.solutionSection.split('\n\n').map((p, i) => (
                       <p key={i}>{p}</p>
                     ))}
@@ -207,41 +200,38 @@ export default async function ProductPage({
                 </>
               )}
 
-              {/* Features */}
-              <h2 className="font-heading font-semibold text-2xl text-navy mt-10 mb-6">Features</h2>
+              <h2 className="font-semibold text-2xl text-white mt-10 mb-6">Features</h2>
               <ul className="space-y-3">
                 {product.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
-                    <Check size={18} className="text-green shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate">{feature}</span>
+                    <Check size={18} className="text-sc-green shrink-0 mt-0.5" />
+                    <span className="text-sm text-sc-text-muted">{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Who is this for */}
-              <h2 className="font-heading font-semibold text-2xl text-navy mt-10 mb-6">Who is this for?</h2>
+              <h2 className="font-semibold text-2xl text-white mt-10 mb-6">Who is this for?</h2>
               <ul className="space-y-3">
                 {product.whoIsThisFor.map((item) => (
                   <li key={item.title} className="flex items-start gap-3">
-                    <Check size={18} className="text-amber shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate">
-                      <strong className="text-navy">{item.title}</strong> {item.description}
+                    <Check size={18} className="text-sc-amber shrink-0 mt-0.5" />
+                    <span className="text-sm text-sc-text-muted">
+                      <strong className="text-white">{item.title}</strong> {item.description}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              {/* Objection Preemption */}
               {product.objectionPreemption.length > 0 && (
                 <>
-                  <h2 className="font-heading font-semibold text-2xl text-navy mt-10 mb-6">Common questions about this template</h2>
+                  <h2 className="font-semibold text-2xl text-white mt-10 mb-6">Common questions about this template</h2>
                   <div className="space-y-6">
                     {product.objectionPreemption.map((obj) => (
                       <div key={obj.question}>
-                        <p className="font-heading font-semibold text-base text-navy mb-2">
+                        <p className="font-semibold text-base text-white mb-2">
                           &ldquo;{obj.question}&rdquo;
                         </p>
-                        <p className="text-sm text-slate leading-relaxed">{obj.answer}</p>
+                        <p className="text-sm text-sc-text-muted leading-relaxed">{obj.answer}</p>
                       </div>
                     ))}
                   </div>
@@ -249,26 +239,26 @@ export default async function ProductPage({
               )}
             </div>
 
-            {/* Sidebar: Bundle upsell */}
+            {/* Sidebar */}
             <aside className="mt-10 lg:mt-0">
-              <div className="sticky top-20 bg-cloud border border-navy/8 rounded-xl p-6">
-                <p className="font-heading font-semibold text-xs text-white bg-amber inline-block px-3 py-1 rounded-full uppercase tracking-wide mb-3">
+              <div className="sticky top-20 glass-card rounded-xl p-6 bg-white/[0.03] border border-white/10">
+                <p className="font-semibold text-xs text-black bg-white inline-block px-3 py-1 rounded-full uppercase tracking-wide mb-3">
                   🔥 Most Popular Choice
                 </p>
-                <h3 className="font-heading font-semibold text-lg text-navy mb-1">
+                <h3 className="font-semibold text-lg text-white mb-1">
                   Full Toolkit — $149
                 </h3>
-                <p className="text-sm text-slate line-through">$226</p>
-                <p className="text-sm font-semibold text-green mb-3">
+                <p className="text-sm text-sc-text-muted line-through">$226</p>
+                <p className="text-sm font-semibold text-sc-green mb-3">
                   Save $77 — that&apos;s 34% off
                 </p>
-                <p className="text-sm text-slate mb-4">
+                <p className="text-sm text-sc-text-muted mb-4">
                   Get all 5 templates for the price of 3.
                 </p>
                 <ul className="space-y-2 mb-5">
                   {['All 5 templates', 'Priority support', 'Every future template included free'].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate">
-                      <Check size={16} className="text-green" />
+                    <li key={item} className="flex items-center gap-2 text-sm text-sc-text-muted">
+                      <Check size={16} className="text-sc-green" />
                       {item}
                     </li>
                   ))}
@@ -276,7 +266,7 @@ export default async function ProductPage({
                 <Button href="#" fullWidth>
                   Get the Full Toolkit — $149
                 </Button>
-                <p className="text-xs text-slate text-center mt-3">
+                <p className="text-xs text-sc-text-muted text-center mt-3">
                   or continue with just this template for ${product.price}
                 </p>
               </div>
@@ -285,51 +275,47 @@ export default async function ProductPage({
         </Container>
       </section>
 
-      {/* Reviews — Trustpilot-style */}
+      {/* Reviews */}
       {product.testimonials.length > 0 && (
-        <section id="reviews" className="py-12 lg:py-16 bg-cloud scroll-mt-20">
+        <section id="reviews" className="py-12 lg:py-16 bg-sc-bg scroll-mt-20">
           <Container>
-            {/* Trustpilot-style header */}
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 mb-3">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={20} className="fill-[#00b67a] text-[#00b67a]" />
+                    <Star key={i} size={20} className="fill-sc-amber text-sc-amber" />
                   ))}
                 </div>
               </div>
-              <p className="font-heading font-bold text-lg text-navy">
+              <p className="font-bold text-lg text-white">
                 Rated {product.rating}/5 based on {product.reviewCount} reviews
               </p>
-              <p className="text-sm text-slate mt-1">Verified customer reviews</p>
+              <p className="text-sm text-sc-text-muted mt-1">Verified customer reviews</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
               {product.testimonials.map((t) => (
-                <div key={t.name} className="bg-white border border-navy/6 rounded-lg p-5 shadow-card">
-                  {/* Trustpilot-style green star bar */}
+                <div key={t.name} className="glass-card rounded-lg p-5 bg-white/[0.03] border border-white/10">
                   <div className="flex gap-0.5 mb-3">
                     {[...Array(5)].map((_, j) => (
-                      <div key={j} className="w-6 h-6 bg-[#00b67a] flex items-center justify-center">
-                        <Star size={14} className="fill-white text-white" />
-                      </div>
+                      <Star key={j} size={16} className="fill-sc-amber text-sc-amber" />
                     ))}
                   </div>
-                  <p className="text-sm font-semibold text-navy mb-2">Verified Purchase</p>
-                  <p className="text-base text-navy leading-relaxed">
+                  <p className="text-sm font-semibold text-white/60 mb-2">Verified Purchase</p>
+                  <p className="text-base text-sc-text-muted leading-relaxed">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="mt-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-[#00b67a]/10 flex items-center justify-center">
-                        <span className="text-xs font-heading font-bold text-[#00b67a]">{t.initials}</span>
+                      <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
+                        <span className="text-xs font-bold text-white">{t.initials}</span>
                       </div>
                       <div>
-                        <p className="font-heading font-semibold text-sm text-navy">{t.name}</p>
-                        <p className="text-xs text-slate">{t.title}</p>
+                        <p className="font-semibold text-sm text-white">{t.name}</p>
+                        <p className="text-xs text-sc-text-muted">{t.title}</p>
                       </div>
                     </div>
-                    <span className="text-xs text-slate">✓ Verified</span>
+                    <span className="text-xs text-sc-green">✓ Verified</span>
                   </div>
                 </div>
               ))}
@@ -338,16 +324,9 @@ export default async function ProductPage({
         </section>
       )}
 
-      {/* Comparison Table */}
       <ComparisonTable category={product.category} />
-
-      {/* FAQ */}
       <FAQ items={product.faq.map((f) => ({ question: f.question, answer: f.answer }))} />
-
-      {/* Final CTA */}
       <FinalCTA />
-
-      {/* Sticky Mobile CTA */}
       <StickyMobileCTA
         href={product.checkoutUrl}
         label={`Get ${product.name}`}

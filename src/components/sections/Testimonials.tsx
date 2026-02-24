@@ -46,10 +46,10 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-12 lg:py-16 bg-cloud">
+    <section className="py-12 lg:py-16 bg-sc-bg-alt">
       <Container>
         <FadeIn>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
             Don&apos;t take our word for it. Look at their numbers.
           </h2>
         </FadeIn>
@@ -57,30 +57,28 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <FadeIn key={t.name} delay={i * 0.1}>
-              <div className="bg-white border border-navy/6 rounded-xl p-6 shadow-card h-full flex flex-col">
-                {/* Trustpilot-style green star bar */}
+              <div className="glass-card rounded-xl p-6 h-full flex flex-col bg-white/[0.03] border border-white/10">
+                {/* Stars */}
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, j) => (
-                    <div key={j} className="w-6 h-6 bg-[#00b67a] flex items-center justify-center">
-                      <Star size={14} className="fill-white text-white" />
-                    </div>
+                    <Star key={j} size={16} className="fill-sc-amber text-sc-amber" />
                   ))}
                 </div>
-                <p className="text-sm font-semibold text-navy mb-2">Verified Purchase</p>
-                <p className="text-base text-navy leading-relaxed flex-1">
+                <p className="text-sm font-semibold text-white/60 mb-2">Verified Purchase</p>
+                <p className="text-base text-sc-text-muted leading-relaxed flex-1">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="mt-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#00b67a]/10 flex items-center justify-center">
-                      <span className="text-xs font-heading font-bold text-[#00b67a]">{t.initials}</span>
+                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
+                      <span className="text-xs font-bold text-white">{t.initials}</span>
                     </div>
                     <div>
-                      <p className="font-heading font-semibold text-sm text-navy">{t.name}</p>
-                      <p className="text-xs text-slate">{t.title}</p>
+                      <p className="font-semibold text-sm text-white">{t.name}</p>
+                      <p className="text-xs text-sc-text-muted">{t.title}</p>
                     </div>
                   </div>
-                  <span className="text-xs text-slate">✓ Verified</span>
+                  <span className="text-xs text-sc-green">✓ Verified</span>
                 </div>
               </div>
             </FadeIn>
@@ -92,8 +90,8 @@ export default function Testimonials() {
           <div className="mt-12 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-heading font-bold text-2xl lg:text-3xl text-navy">{stat.value}</p>
-                <p className="text-sm text-slate mt-1">{stat.label}</p>
+                <p className="font-bold text-2xl lg:text-3xl text-white font-mono">{stat.value}</p>
+                <p className="text-sm text-sc-text-muted mt-1">{stat.label}</p>
               </div>
             ))}
           </div>

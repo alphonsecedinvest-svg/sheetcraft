@@ -1,20 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #1B2B4B;
-  --color-green: #2A7D5F;
-  --color-amber: #E8922F;
-  --color-amber-hover: #D4811F;
-  --color-slate: #4A5568;
-  --color-cloud: #F5F7FA;
+  --color-sc-bg: #09090b;
+  --color-sc-bg-alt: #18181b;
+  --color-sc-card: #111111;
+  --color-sc-surface: rgba(24, 24, 27, 0.8);
+  --color-sc-text: #ffffff;
+  --color-sc-text-muted: #a1a1aa;
+  --color-sc-accent: #ffffff;
+  --color-sc-border: #27272a;
+  --color-sc-border-glass: rgba(255, 255, 255, 0.1);
+  --color-sc-glow: rgba(255, 255, 255, 0.2);
+  --color-sc-green: #4ade80;
+  --color-sc-amber: #F59E0B;
+  --color-sc-red: #ef4444;
 
-  --font-heading: 'Inter', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
 
-  --shadow-card: 0 1px 3px rgba(27, 43, 75, 0.08), 0 1px 2px rgba(27, 43, 75, 0.06);
-  --shadow-elevated: 0 10px 25px rgba(27, 43, 75, 0.10), 0 4px 10px rgba(27, 43, 75, 0.06);
-  --shadow-featured: 0 20px 40px rgba(27, 43, 75, 0.15), 0 8px 16px rgba(27, 43, 75, 0.08);
-  --shadow-button: 0 2px 8px rgba(232, 146, 47, 0.35);
+  --shadow-card: 0 10px 30px -10px rgba(0,0,0,0.5);
+  --shadow-elevated: 0 20px 40px -10px rgba(0,0,0,0.7);
+  --shadow-glow: 0 0 20px rgba(255,255,255,0.2);
+
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Keyframes */
+@keyframes dramaticEntrance {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ambientFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmerMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200%); }
 }
 
 /* Base styles */
@@ -23,21 +57,56 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  color: var(--color-slate);
-  background: white;
+  font-family: var(--font-sans);
+  color: #ffffff;
+  background: #09090b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  color: var(--color-navy);
+  font-family: var(--font-sans);
+  color: #ffffff;
+}
+
+/* Utility classes */
+.gradient-text {
+  background: linear-gradient(to bottom right, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #27272a;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid var(--color-amber);
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -52,21 +121,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Prose styles for blog content */
 .prose h2 {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 2rem;
-  color: var(--color-navy);
+  color: #ffffff;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .prose h3 {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  color: var(--color-navy);
+  color: #ffffff;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
@@ -74,6 +143,7 @@ h1, h2, h3, h4, h5, h6 {
 .prose p {
   margin-bottom: 1.25rem;
   line-height: 1.75;
+  color: #a1a1aa;
 }
 
 .prose ul, .prose ol {
@@ -84,6 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 .prose li {
   margin-bottom: 0.5rem;
   line-height: 1.75;
+  color: #a1a1aa;
 }
 
 .prose ul li {
@@ -95,7 +166,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prose strong {
-  color: var(--color-navy);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -108,19 +179,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose th, .prose td {
   padding: 0.75rem 1rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #27272a;
   text-align: left;
 }
 
 .prose th {
-  background: var(--color-cloud);
+  background: #18181b;
   font-weight: 600;
-  color: var(--color-navy);
+  color: #ffffff;
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--color-amber);
+  border-left: 3px solid #a1a1aa;
   padding-left: 1rem;
   font-style: italic;
   margin: 1.5rem 0;
+  color: #a1a1aa;
 }

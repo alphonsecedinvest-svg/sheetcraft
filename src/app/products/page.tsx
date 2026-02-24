@@ -23,14 +23,14 @@ export default function ProductsPage() {
 
   return (
     <>
-      <section className="py-12 lg:py-16 bg-cloud">
+      <section className="py-12 lg:py-16 bg-sc-bg">
         <Container>
           <FadeIn>
             <div className="text-center mb-10">
-              <h1 className="font-heading font-bold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[56px] text-navy">
+              <h1 className="font-bold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[56px] text-white tracking-[-0.05em] gradient-text">
                 All Templates
               </h1>
-              <p className="mt-4 text-lg text-slate max-w-xl mx-auto">
+              <p className="mt-4 text-lg text-sc-text-muted max-w-xl mx-auto">
                 Professional spreadsheet templates for construction pros and real estate investors. From $29.
               </p>
             </div>
@@ -43,10 +43,10 @@ export default function ProductsPage() {
                 <button
                   key={f.value}
                   onClick={() => setActiveFilter(f.value)}
-                  className={`px-4 py-2 rounded-full text-sm font-heading font-semibold transition-all ${
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                     activeFilter === f.value
-                      ? 'bg-navy text-white'
-                      : 'bg-white text-slate hover:text-navy border border-navy/10'
+                      ? 'bg-white text-black'
+                      : 'bg-white/5 text-sc-text-muted hover:text-white border border-white/10'
                   }`}
                 >
                   {f.label}

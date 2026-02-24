@@ -13,31 +13,30 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-16 lg:py-24 bg-cloud">
+      <section className="py-16 lg:py-24 bg-sc-bg">
         <Container className="max-w-3xl text-center">
           <FadeIn>
-            <h1 className="font-heading font-semibold text-3xl lg:text-[44px] lg:leading-[52px] text-navy mb-4">
+            <h1 className="font-semibold text-3xl lg:text-[44px] lg:leading-[52px] tracking-[-0.05em] text-white mb-4 gradient-text">
               Frequently Asked Questions
             </h1>
-            <p className="text-lg text-slate max-w-xl mx-auto">
+            <p className="text-lg text-sc-text-muted max-w-xl mx-auto">
               Everything you need to know about SheetCraft templates
             </p>
           </FadeIn>
         </Container>
       </section>
 
-      {/* FAQ Component */}
       <FAQ />
 
       {/* CTA */}
-      <section className="py-16 lg:py-20 bg-cloud">
+      <section className="py-16 lg:py-20 bg-sc-bg-alt">
         <Container className="max-w-2xl text-center">
           <FadeIn>
-            <p className="text-lg text-slate">
+            <p className="text-lg text-sc-text-muted">
               Still have questions?{' '}
               <a
                 href="mailto:support@sheetcraft.com"
-                className="text-amber font-medium underline underline-offset-[3px] hover:text-amber-hover transition-colors"
+                className="text-white font-medium underline underline-offset-[3px] hover:text-sc-text-muted transition-colors"
               >
                 Email support@sheetcraft.com
               </a>

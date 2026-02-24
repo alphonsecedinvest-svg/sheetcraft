@@ -37,7 +37,6 @@ export async function generateMetadata({
 }
 
 function renderMarkdown(content: string) {
-  // Simple markdown-to-HTML for our blog content
   const lines = content.split('\n');
   const elements: React.ReactNode[] = [];
   let currentParagraph: string[] = [];
@@ -105,14 +104,12 @@ function renderMarkdown(content: string) {
   for (const line of lines) {
     const trimmed = line.trim();
 
-    // Table row
     if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
       if (!inTable) {
         flushParagraph();
         flushList();
         inTable = true;
       }
-      // Skip separator rows
       if (trimmed.match(/^\|[\s-|]+\|$/)) continue;
       const cells = trimmed.split('|').slice(1, -1).map((c) => c.trim());
       tableRows.push(cells);
@@ -121,54 +118,34 @@ function renderMarkdown(content: string) {
       flushTable();
     }
 
-    // Heading
     if (trimmed.startsWith('## ')) {
       flushParagraph();
       flushList();
-      elements.push(
-        <h2 key={elements.length}>{trimmed.slice(3)}</h2>
-      );
+      elements.push(<h2 key={elements.length}>{trimmed.slice(3)}</h2>);
       continue;
     }
     if (trimmed.startsWith('### ')) {
       flushParagraph();
       flushList();
-      elements.push(
-        <h3 key={elements.length}>{trimmed.slice(4)}</h3>
-      );
+      elements.push(<h3 key={elements.length}>{trimmed.slice(4)}</h3>);
       continue;
     }
 
-    // List items
     if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
       flushParagraph();
-      if (!inList) {
-        inList = true;
-        listType = 'ul';
-      }
+      if (!inList) { inList = true; listType = 'ul'; }
       listItems.push(trimmed.slice(2));
       continue;
     }
     if (trimmed.match(/^\d+\.\s/)) {
       flushParagraph();
-      if (!inList) {
-        inList = true;
-        listType = 'ol';
-      }
+      if (!inList) { inList = true; listType = 'ol'; }
       listItems.push(trimmed.replace(/^\d+\.\s/, ''));
       continue;
     }
 
-    if (inList && trimmed === '') {
-      flushList();
-      continue;
-    }
-
-    // Empty line = paragraph break
-    if (trimmed === '') {
-      flushParagraph();
-      continue;
-    }
+    if (inList && trimmed === '') { flushList(); continue; }
+    if (trimmed === '') { flushParagraph(); continue; }
 
     currentParagraph.push(trimmed);
   }
@@ -210,20 +187,18 @@ export default async function BlogPostPage({
 
       <article className="py-12 lg:py-16">
         <Container className="max-w-3xl">
-          {/* Back link */}
-          <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-amber hover:text-amber-hover mb-6">
+          <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-sc-text-muted hover:text-white mb-6 transition-colors">
             <ArrowLeft size={14} /> Back to blog
           </Link>
 
-          {/* Header */}
           <header className="mb-10">
-            <h1 className="font-heading font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-navy">
+            <h1 className="font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-white tracking-[-0.02em]">
               {post.title}
             </h1>
-            <div className="mt-4 flex items-center gap-3 text-sm text-slate">
+            <div className="mt-4 flex items-center gap-3 text-sm text-sc-text-muted">
               <Clock size={16} />
               {post.readTime} min read
-              <span className="text-slate/30">·</span>
+              <span className="text-white/20">·</span>
               {new Date(post.publishedAt).toLocaleDateString('en-US', {
                 month: 'long',
                 day: 'numeric',
@@ -232,7 +207,6 @@ export default async function BlogPostPage({
             </div>
           </header>
 
-          {/* Hero image */}
           {post.image && (
             <div className="mb-10 rounded-xl overflow-hidden">
               <Image
@@ -246,21 +220,19 @@ export default async function BlogPostPage({
             </div>
           )}
 
-          {/* Content */}
           <div className="prose">
             {renderMarkdown(post.content)}
           </div>
 
-          {/* Related product CTA */}
           {relatedProduct && (
-            <div className="mt-12 bg-cloud border border-navy/8 rounded-xl p-6 lg:p-8">
-              <p className="font-heading font-semibold text-xs text-amber uppercase tracking-wide mb-2">
+            <div className="mt-12 glass-card rounded-xl p-6 lg:p-8 bg-white/[0.03] border border-white/10">
+              <p className="font-semibold text-xs text-white uppercase tracking-[0.05em] mb-2">
                 Related template
               </p>
-              <h3 className="font-heading font-semibold text-xl text-navy mb-2">
+              <h3 className="font-semibold text-xl text-white mb-2">
                 {relatedProduct.name}
               </h3>
-              <p className="text-sm text-slate mb-4">
+              <p className="text-sm text-sc-text-muted mb-4">
                 {relatedProduct.shortDescription}
               </p>
               <Button href={`/products/${relatedProduct.slug}`}>

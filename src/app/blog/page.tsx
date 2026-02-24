@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <section className="py-12 lg:py-16 bg-cloud">
+    <section className="py-12 lg:py-16 bg-sc-bg">
       <Container>
         <div className="text-center mb-10">
-          <h1 className="font-heading font-bold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[56px] text-navy">
+          <h1 className="font-bold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[56px] tracking-[-0.05em] text-white gradient-text">
             Blog
           </h1>
-          <p className="mt-4 text-lg text-slate max-w-xl mx-auto">
+          <p className="mt-4 text-lg text-sc-text-muted max-w-xl mx-auto">
             Practical guides for construction professionals and real estate investors.
           </p>
         </div>
@@ -28,10 +28,10 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="bg-white border border-navy/8 rounded-xl shadow-card hover:shadow-elevated hover:-translate-y-[2px] transition-all duration-200 overflow-hidden flex flex-col"
+              className="glass-card rounded-xl overflow-hidden flex flex-col bg-white/[0.03] border border-white/10"
             >
               {/* Hero image */}
-              <div className="h-48 bg-navy/5 relative overflow-hidden">
+              <div className="h-48 bg-sc-bg-alt relative overflow-hidden">
                 {post.image ? (
                   <Image
                     src={post.image}
@@ -47,23 +47,23 @@ export default function BlogPage() {
                 )}
               </div>
               <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-center gap-2 text-xs text-slate mb-2">
+                <div className="flex items-center gap-2 text-xs text-sc-text-muted mb-2">
                   <Clock size={14} />
                   {post.readTime} min read
-                  <span className="text-slate/30">·</span>
+                  <span className="text-white/20">·</span>
                   {new Date(post.publishedAt).toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric',
                     year: 'numeric',
                   })}
                 </div>
-                <h2 className="font-heading font-semibold text-lg text-navy mb-2 leading-snug">
+                <h2 className="font-semibold text-lg text-white mb-2 leading-snug">
                   {post.title}
                 </h2>
-                <p className="text-sm text-slate leading-relaxed flex-1">
+                <p className="text-sm text-sc-text-muted leading-relaxed flex-1">
                   {post.excerpt}
                 </p>
-                <div className="mt-4 flex items-center gap-1 text-amber text-sm font-medium">
+                <div className="mt-4 flex items-center gap-1 text-white text-sm font-medium">
                   Read article <ArrowRight size={14} />
                 </div>
               </div>

@@ -62,10 +62,10 @@ export default function FAQ({ items }: { items?: FAQItem[] }) {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-12 lg:py-16 bg-sc-bg">
       <Container className="max-w-3xl">
         <FadeIn>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
             Questions? Answered.
           </h2>
         </FadeIn>
@@ -73,24 +73,24 @@ export default function FAQ({ items }: { items?: FAQItem[] }) {
         <div className="space-y-2">
           {faqItems.map((faq, i) => (
             <FadeIn key={faq.question} delay={i * 0.05}>
-              <div className="border border-navy/8 rounded-lg overflow-hidden">
+              <div className="border border-white/10 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                  className="w-full flex items-center justify-between p-4 text-left hover:bg-cloud/50 transition-colors"
+                  className="w-full flex items-center justify-between p-4 text-left hover:bg-white/5 transition-colors"
                 >
-                  <span className="font-heading font-semibold text-base text-navy pr-4">
+                  <span className="font-semibold text-base text-white pr-4">
                     {faq.question}
                   </span>
                   <ChevronDown
                     size={20}
-                    className={`text-slate shrink-0 transition-transform duration-200 ${
+                    className={`text-sc-text-muted shrink-0 transition-transform duration-200 ${
                       openIndex === i ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 {openIndex === i && (
                   <div className="px-4 pb-4">
-                    <p className="text-sm text-slate leading-relaxed">
+                    <p className="text-sm text-sc-text-muted leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

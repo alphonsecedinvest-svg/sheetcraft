@@ -17,8 +17,8 @@ export default function TrustBadges({ className = '', variant = 'inline' }: Trus
     return (
       <div className={`space-y-2 ${className}`}>
         {badges.map((badge) => (
-          <div key={badge.text} className="flex items-center gap-2 text-sm text-slate">
-            <badge.icon size={14} className="text-green shrink-0" />
+          <div key={badge.text} className="flex items-center gap-2 text-sm text-sc-text-muted">
+            <badge.icon size={14} className="text-sc-green shrink-0" />
             {badge.text}
           </div>
         ))}
@@ -29,8 +29,8 @@ export default function TrustBadges({ className = '', variant = 'inline' }: Trus
   return (
     <div className={`flex flex-wrap gap-x-4 gap-y-1.5 ${className}`}>
       {badges.map((badge) => (
-        <span key={badge.text} className="flex items-center gap-1.5 text-xs text-slate">
-          <badge.icon size={12} className="text-green shrink-0" />
+        <span key={badge.text} className="flex items-center gap-1.5 text-xs text-sc-text-muted">
+          <badge.icon size={12} className="text-sc-green shrink-0" />
           {badge.text}
         </span>
       ))}

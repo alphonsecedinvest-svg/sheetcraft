@@ -35,9 +35,9 @@ const realEstateRows: ComparisonRow[] = [
 function CellValue({ value }: { value: string | boolean }) {
   if (typeof value === 'boolean') {
     return value ? (
-      <Check size={18} className="inline text-green" />
+      <Check size={18} className="inline text-sc-green" />
     ) : (
-      <X size={18} className="inline text-red-400" />
+      <X size={18} className="inline text-sc-red" />
     );
   }
   return <span className="text-sm">{value}</span>;
@@ -52,13 +52,13 @@ export default function ComparisonTable({ category = 'construction' }: Compariso
   const softwareLabel = category === 'construction' ? 'PM Software' : 'RE Software';
 
   return (
-    <section className="py-12 lg:py-16 bg-cloud">
+    <section className="py-12 lg:py-16 bg-sc-bg-alt">
       <Container>
         <FadeIn>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-3">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-3 gradient-text">
             How does this compare?
           </h2>
-          <p className="text-center text-slate text-sm max-w-xl mx-auto mb-10">
+          <p className="text-center text-sc-text-muted text-sm max-w-xl mx-auto mb-10">
             You could build your own spreadsheet. You could use a free template. You could pay hundreds per month for software. Or you could be up and running in 5 minutes.
           </p>
         </FadeIn>
@@ -67,22 +67,22 @@ export default function ComparisonTable({ category = 'construction' }: Compariso
           <div className="overflow-x-auto">
             <table className="w-full min-w-[640px]">
               <thead>
-                <tr className="border-b border-navy/10">
-                  <th className="text-left py-3 px-4 font-heading font-semibold text-sm text-slate" />
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-slate/60">Free Templates</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-slate/60">Build Your Own</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-slate/60">{softwareLabel}</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-amber">SheetCraft ✓</th>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 px-4 font-semibold text-sm text-sc-text-muted" />
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-white/40">Free Templates</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-white/40">Build Your Own</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-white/40">{softwareLabel}</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-white">SheetCraft ✓</th>
                 </tr>
               </thead>
               <tbody>
-                {rows.map((row) => (
-                  <tr key={row.feature} className="border-b border-navy/5">
-                    <td className="py-3 px-4 text-sm font-medium text-navy">{row.feature}</td>
-                    <td className="text-center py-3 px-4 text-slate"><CellValue value={row.freeTemplate} /></td>
-                    <td className="text-center py-3 px-4 text-slate"><CellValue value={row.buildYourOwn} /></td>
-                    <td className="text-center py-3 px-4 text-slate"><CellValue value={row.software} /></td>
-                    <td className="text-center py-3 px-4 text-navy font-medium bg-amber/5"><CellValue value={row.sheetcraft} /></td>
+                {rows.map((row, i) => (
+                  <tr key={row.feature} className={`border-b border-white/5 ${i % 2 === 0 ? '' : 'bg-white/[0.02]'}`}>
+                    <td className="py-3 px-4 text-sm font-medium text-white">{row.feature}</td>
+                    <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.freeTemplate} /></td>
+                    <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.buildYourOwn} /></td>
+                    <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.software} /></td>
+                    <td className="text-center py-3 px-4 text-white font-medium bg-white/5"><CellValue value={row.sheetcraft} /></td>
                   </tr>
                 ))}
               </tbody>

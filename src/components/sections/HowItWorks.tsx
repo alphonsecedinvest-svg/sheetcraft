@@ -25,10 +25,10 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-12 lg:py-16 bg-sc-bg">
       <Container className="max-w-3xl">
         <FadeIn>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
             Up and running in 3 steps. Under 5 minutes.
           </h2>
         </FadeIn>
@@ -37,14 +37,14 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 0.15}>
               <div className="flex gap-5 items-start">
-                <span className="font-heading font-bold text-[40px] leading-none text-amber shrink-0 w-12">
+                <span className="font-mono font-bold text-[40px] leading-none text-white/20 shrink-0 w-12">
                   {step.number}
                 </span>
                 <div>
-                  <h3 className="font-heading font-semibold text-lg text-navy mb-1">
+                  <h3 className="font-semibold text-lg text-white mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-slate leading-relaxed">
+                  <p className="text-sm text-sc-text-muted leading-relaxed">
                     {step.description}
                   </p>
                 </div>

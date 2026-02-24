@@ -29,36 +29,36 @@ export default function PricingPage() {
       <Pricing />
 
       {/* Comparison table */}
-      <section className="py-12 lg:py-16 bg-white">
+      <section className="py-12 lg:py-16 bg-sc-bg">
         <Container>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-10">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
             Compare plans
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full min-w-[600px]">
               <thead>
-                <tr className="border-b border-navy/10">
-                  <th className="text-left py-3 px-4 font-heading font-semibold text-sm text-slate">Feature</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-navy">Single</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-amber bg-amber/5">Bundle ★</th>
-                  <th className="text-center py-3 px-4 font-heading font-semibold text-sm text-green">Full Toolkit</th>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 px-4 font-semibold text-sm text-sc-text-muted">Feature</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-white">Single</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-white bg-white/5">Bundle ★</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-green">Full Toolkit</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonFeatures.map((feature) => (
-                  <tr key={feature.name} className="border-b border-navy/5">
-                    <td className="py-3 px-4 text-sm text-slate">{feature.name}</td>
+                  <tr key={feature.name} className="border-b border-white/5">
+                    <td className="py-3 px-4 text-sm text-sc-text-muted">{feature.name}</td>
                     {(['single', 'bundle', 'full'] as const).map((tier) => (
-                      <td key={tier} className={`text-center py-3 px-4 ${tier === 'bundle' ? 'bg-amber/5' : ''}`}>
+                      <td key={tier} className={`text-center py-3 px-4 ${tier === 'bundle' ? 'bg-white/5' : ''}`}>
                         {typeof feature[tier] === 'boolean' ? (
                           feature[tier] ? (
-                            <Check size={18} className="inline text-green" />
+                            <Check size={18} className="inline text-sc-green" />
                           ) : (
-                            <span className="text-slate/30">—</span>
+                            <span className="text-white/20">—</span>
                           )
                         ) : (
-                          <span className="text-sm font-medium text-navy">{feature[tier]}</span>
+                          <span className="text-sm font-medium text-white">{feature[tier]}</span>
                         )}
                       </td>
                     ))}
@@ -70,23 +70,23 @@ export default function PricingPage() {
 
           {/* All products list */}
           <div className="mt-16">
-            <h2 className="font-heading font-semibold text-2xl text-navy text-center mb-8">
+            <h2 className="font-semibold text-2xl text-white text-center mb-8 gradient-text">
               What&apos;s in the Full Toolkit
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {products.map((p) => (
-                <div key={p.slug} className="flex items-center gap-3 bg-cloud rounded-lg p-4">
-                  <Check size={20} className="text-green shrink-0" />
+                <div key={p.slug} className="flex items-center gap-3 glass-card rounded-lg p-4 bg-white/[0.03] border border-white/10">
+                  <Check size={20} className="text-sc-green shrink-0" />
                   <div>
-                    <p className="font-heading font-semibold text-sm text-navy">{p.name}</p>
-                    <p className="text-xs text-slate">${p.price} value</p>
+                    <p className="font-semibold text-sm text-white">{p.name}</p>
+                    <p className="text-xs text-sc-text-muted font-mono">${p.price} value</p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="text-center text-sm text-slate mt-4">
-              Total value: <strong className="text-navy">${products.reduce((sum, p) => sum + p.price, 0)}</strong> — yours for <strong className="text-amber">$149</strong>.{' '}
-              <strong className="text-green">Save $77 (34% off).</strong>
+            <p className="text-center text-sm text-sc-text-muted mt-4">
+              Total value: <strong className="text-white font-mono">${products.reduce((sum, p) => sum + p.price, 0)}</strong> — yours for <strong className="text-white">$149</strong>.{' '}
+              <strong className="text-sc-green">Save $77 (34% off).</strong>
             </p>
           </div>
         </Container>

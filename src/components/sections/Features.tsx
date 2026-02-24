@@ -39,26 +39,26 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-12 lg:py-16 bg-sc-bg">
       <Container>
         <FadeIn>
-          <h2 className="font-heading font-semibold text-2xl lg:text-[32px] lg:leading-[40px] text-navy text-center mb-3">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-3 gradient-text">
             Why 2,000+ pros pay for these templates
           </h2>
-          <p className="text-center text-slate text-sm mb-10">(when free ones exist everywhere)</p>
+          <p className="text-center text-sc-text-muted text-sm mb-10">(when free ones exist everywhere)</p>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, i) => (
             <FadeIn key={feature.title} delay={i * 0.08}>
               <div className="flex flex-col items-start">
-                <div className="w-14 h-14 rounded-full bg-cloud flex items-center justify-center mb-4">
-                  <feature.icon size={28} className="text-amber" />
+                <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                  <feature.icon size={28} className="text-white" />
                 </div>
-                <h3 className="font-heading font-semibold text-lg text-navy mb-2">
+                <h3 className="font-semibold text-lg text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-slate leading-relaxed">
+                <p className="text-sm text-sc-text-muted leading-relaxed">
                   {feature.description}
                 </p>
               </div>

@@ -18,7 +18,6 @@ export default function StickyMobileCTA({
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling past the hero (~500px)
       setVisible(window.scrollY > 500);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -28,11 +27,11 @@ export default function StickyMobileCTA({
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-navy/10 p-3 md:hidden z-50 shadow-elevated">
+    <div className="fixed bottom-0 left-0 right-0 glass border-t border-white/10 p-3 md:hidden z-50">
       <Button href={href} fullWidth>
         {label} — {price}
       </Button>
-      <p className="text-[11px] text-slate text-center mt-1.5">
+      <p className="text-[11px] text-sc-text-muted text-center mt-1.5">
         Instant download · Excel + Google Sheets · 30-day guarantee
       </p>
     </div>
