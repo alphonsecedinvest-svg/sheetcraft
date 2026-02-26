@@ -2,68 +2,77 @@
 
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
-import { HardHat, Calculator, Zap, FileSpreadsheet, RefreshCw, Shield } from 'lucide-react';
+import { HardHat, Calculator, Zap, RefreshCw } from 'lucide-react';
 
 const features = [
   {
     icon: HardHat,
-    title: 'Built by a 15-year general contractor — not a template mill',
-    description: 'Created by a GC with 15+ years managing real construction budgets and a finance background. Every formula reflects how the industry actually works — not how a spreadsheet designer imagines it works.',
+    title: 'Built by a contractor',
+    description: '15 years in the field, not a template factory.',
+    detail: 'Every formula reflects how the industry actually works — markup calculations, change order tracking, cap rate analysis — all pre-built and battle-tested on real projects.',
   },
   {
     icon: Calculator,
-    title: 'Tested formulas. Zero broken references.',
-    description: 'Free templates are built to look good in a screenshot. Ours are built to produce accurate numbers on a $5M project. Markup calculations, change order tracking, cap rate analysis — all pre-built, all tested, all documented.',
+    title: 'Zero broken formulas',
+    description: 'Tested on $5M+ real projects.',
+    detail: 'Free templates are built for screenshots. Ours are built to produce accurate numbers. Every reference tested, every edge case handled, every calculation documented.',
   },
   {
     icon: Zap,
-    title: 'Productive in 5 minutes, not 5 hours',
-    description: 'Open. Plug in your numbers. Done. No training videos. No onboarding calls. Every cell is labeled, every formula is explained. If you can use Excel, you can use SheetCraft — that\'s the whole point.',
-  },
-  {
-    icon: FileSpreadsheet,
-    title: 'Excel + Google Sheets — both included',
-    description: 'Every purchase includes both formats, optimized for each platform. Use the tools you already know. No new software to learn, no ecosystem to get locked into. That\'s pro power without the pro complexity.',
+    title: 'Ready in 5 minutes',
+    description: 'No training. No onboarding calls.',
+    detail: 'Open. Plug in your numbers. Done. Every cell is labeled, every formula is explained. If you can use Excel, you can use SheetCraft.',
   },
   {
     icon: RefreshCw,
-    title: 'Pay once. Get lifetime updates.',
-    description: 'No subscriptions. No annual renewals. When tax rules change, when we add features, when we improve a formula — you get the update automatically. Free. Forever.',
-  },
-  {
-    icon: Shield,
-    title: '30-day money-back guarantee',
-    description: 'If the templates don\'t work for you, email us within 30 days. Full refund, no questions asked. We\'ve processed fewer than 10 refunds in 2,000+ sales.',
+    title: 'Pay once, own forever',
+    description: 'No subscriptions. Lifetime updates.',
+    detail: 'When tax rules change, when we add features, when we improve a formula — you get the update automatically. Excel + Google Sheets, both included.',
   },
 ];
 
 export default function Features() {
   return (
-    <section className="py-12 lg:py-16 bg-sc-bg">
+    <section className="py-16 lg:py-20">
       <Container>
         <FadeIn>
-          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-3 gradient-text">
-            Why 2,000+ pros pay for these templates
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-center mb-3 gradient-text">
+            Why 2,000+ pros pay for these
           </h2>
-          <p className="text-center text-sc-text-muted text-sm mb-10">(when free ones exist everywhere)</p>
+          <p className="text-center text-sc-text-muted text-sm mb-14">(when free templates exist everywhere)</p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, i) => (
-            <FadeIn key={feature.title} delay={i * 0.08}>
-              <div className="flex flex-col items-start">
-                <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-                  <feature.icon size={28} className="text-white" />
+        <div className="space-y-0">
+          {features.map((feature, i) => {
+            const isReversed = i % 2 === 1;
+            const bgClass = i % 2 === 0 ? 'bg-sc-bg' : 'bg-sc-bg-alt';
+
+            return (
+              <div key={feature.title} className={`${bgClass} py-10 lg:py-14 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 first:rounded-t-xl last:rounded-b-xl`}>
+                <div className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 max-w-4xl mx-auto ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
+                  {/* Text */}
+                  <FadeIn direction={isReversed ? 'right' : 'left'} delay={0.1} className="flex-1">
+                    <h3 className="font-semibold text-xl lg:text-2xl text-sc-text mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-base text-sc-blue font-medium mb-3">
+                      {feature.description}
+                    </p>
+                    <p className="text-sm text-sc-text-muted leading-relaxed">
+                      {feature.detail}
+                    </p>
+                  </FadeIn>
+
+                  {/* Visual */}
+                  <FadeIn direction={isReversed ? 'left' : 'right'} delay={0.2} className="shrink-0">
+                    <div className="w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-sc-card border border-sc-border shadow-card flex items-center justify-center">
+                      <feature.icon size={40} className="text-sc-blue" strokeWidth={1.5} />
+                    </div>
+                  </FadeIn>
                 </div>
-                <h3 className="font-semibold text-lg text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-sc-text-muted leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
-            </FadeIn>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
