@@ -31,7 +31,7 @@ export default function ProductCard({ product, featured }: ProductCardProps) {
 
   return (
     <div
-      className={`group relative rounded-xl overflow-hidden flex flex-col bg-sc-card border shadow-card transition-all duration-200 hover:shadow-elevated hover:-translate-y-1 ${
+      className={`group relative rounded-xl overflow-hidden flex flex-col bg-sc-card border shadow-card transition-all duration-300 hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-2 ${
         featured ? 'border-sc-amber border-2 lg:scale-[1.03]' : 'border-sc-border'
       }`}
     >

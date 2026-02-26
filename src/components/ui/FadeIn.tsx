@@ -11,10 +11,10 @@ interface FadeInProps {
 }
 
 const directionOffset = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: 40 },
-  right: { x: -40 },
+  up: { y: 20 },
+  down: { y: -20 },
+  left: { x: 20 },
+  right: { x: -20 },
   none: {},
 };
 
@@ -26,10 +26,10 @@ export default function FadeIn({
 }: FadeInProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, filter: 'blur(10px)', ...directionOffset[direction] }}
-      whileInView={{ opacity: 1, filter: 'blur(0px)', x: 0, y: 0 }}
+      initial={{ opacity: 0, ...directionOffset[direction] }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       {children}
