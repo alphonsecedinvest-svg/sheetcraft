@@ -6,34 +6,52 @@ import ProductCard from '@/components/products/ProductCard';
 import Button from '@/components/ui/Button';
 import { products } from '@/lib/products';
 
+const contractorProducts = products.filter((p) => p.category === 'construction');
+const investorProducts = products.filter((p) => p.category === 'real-estate');
+
 export default function ProductShowcase() {
   return (
-    <section className="py-12 lg:py-16 bg-sc-bg-alt">
+    <section className="py-16 lg:py-20 bg-sc-bg">
       <Container>
         <FadeIn>
-          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-center mb-12 gradient-text">
             Proven templates for every stage of your project
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-4 lg:gap-6">
-          {products.slice(0, 3).map((product, i) => (
-            <FadeIn key={product.slug} delay={i * 0.1}>
+        {/* For Contractors */}
+        <FadeIn delay={0.05}>
+          <p className="text-sm font-semibold text-sc-blue uppercase tracking-wider mb-4">
+            For Contractors
+          </p>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+          {contractorProducts.map((product, i) => (
+            <FadeIn key={product.slug} delay={i * 0.1 + 0.1}>
               <ProductCard product={product} />
             </FadeIn>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-4 lg:gap-6 mt-4 lg:mt-6 max-w-2xl mx-auto lg:max-w-none lg:grid-cols-2">
-          {products.slice(3).map((product, i) => (
-            <FadeIn key={product.slug} delay={(i + 3) * 0.1}>
-              <ProductCard product={product} />
+        {/* For Investors */}
+        <FadeIn delay={0.15}>
+          <p className="text-sm font-semibold text-sc-green uppercase tracking-wider mb-4">
+            For Investors
+          </p>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {investorProducts.map((product, i) => (
+            <FadeIn key={product.slug} delay={i * 0.1 + 0.2}>
+              <ProductCard
+                product={product}
+                featured={product.slug === 'rental-property-analyzer'}
+              />
             </FadeIn>
           ))}
         </div>
 
         <FadeIn delay={0.5}>
-          <div className="mt-8 text-center">
+          <div className="mt-10 text-center">
             <Button href="/products" variant="ghost">
               Browse All Templates →
             </Button>
