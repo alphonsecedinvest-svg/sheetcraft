@@ -2,7 +2,7 @@
 
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
-import { Check, X } from 'lucide-react';
+import { Check, X, Crown } from 'lucide-react';
 
 interface ComparisonRow {
   feature: string;
@@ -43,6 +43,83 @@ function CellValue({ value }: { value: string | boolean }) {
   return <span className="text-sm">{value}</span>;
 }
 
+/* ─── Mobile: stacked cards per feature ─── */
+function MobileComparison({ rows, softwareLabel }: { rows: ComparisonRow[]; softwareLabel: string }) {
+  const competitors = [
+    { key: 'freeTemplate' as const, label: 'Free Templates' },
+    { key: 'buildYourOwn' as const, label: 'Build Your Own' },
+    { key: 'software' as const, label: softwareLabel },
+  ];
+
+  return (
+    <div className="flex flex-col gap-3 lg:hidden">
+      {rows.map((row, i) => (
+        <FadeIn key={row.feature} delay={i * 0.04}>
+          <div className="rounded-xl border border-sc-border bg-white overflow-hidden">
+            {/* Feature name header */}
+            <div className="px-4 py-2.5 bg-sc-bg-alt border-b border-sc-border/50">
+              <span className="font-semibold text-sm text-sc-text">{row.feature}</span>
+            </div>
+
+            {/* Competitor rows */}
+            <div className="divide-y divide-sc-border/30">
+              {competitors.map((comp) => (
+                <div key={comp.key} className="flex items-center justify-between px-4 py-2.5">
+                  <span className="text-xs text-sc-text-muted">{comp.label}</span>
+                  <span className="text-sc-text-muted">
+                    <CellValue value={row[comp.key]} />
+                  </span>
+                </div>
+              ))}
+
+              {/* SheetCraft row — highlighted */}
+              <div className="flex items-center justify-between px-4 py-3 bg-sc-blue/[0.06]">
+                <span className="text-xs font-semibold text-sc-blue flex items-center gap-1.5">
+                  <Crown size={12} />
+                  SheetCraft
+                </span>
+                <span className="font-medium text-sc-text">
+                  <CellValue value={row.sheetcraft} />
+                </span>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      ))}
+    </div>
+  );
+}
+
+/* ─── Desktop: original table (unchanged) ─── */
+function DesktopComparison({ rows, softwareLabel }: { rows: ComparisonRow[]; softwareLabel: string }) {
+  return (
+    <div className="hidden lg:block">
+      <table className="w-full">
+        <thead>
+          <tr className="border-b border-sc-border">
+            <th className="text-left py-3 px-4 font-semibold text-sm text-sc-text-muted" />
+            <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">Free Templates</th>
+            <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">Build Your Own</th>
+            <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">{softwareLabel}</th>
+            <th className="text-center py-3 px-4 font-semibold text-sm text-sc-blue">SheetCraft</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={row.feature} className={`border-b border-sc-border/50 ${i % 2 === 1 ? 'bg-sc-bg/50' : ''}`}>
+              <td className="py-3 px-4 text-sm font-medium text-sc-text">{row.feature}</td>
+              <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.freeTemplate} /></td>
+              <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.buildYourOwn} /></td>
+              <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.software} /></td>
+              <td className="text-center py-3 px-4 text-sc-text font-medium bg-sc-blue/5"><CellValue value={row.sheetcraft} /></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 interface ComparisonTableProps {
   category?: 'construction' | 'real-estate';
 }
@@ -64,31 +141,10 @@ export default function ComparisonTable({ category = 'construction' }: Compariso
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px]">
-              <thead>
-                <tr className="border-b border-sc-border">
-                  <th className="text-left py-3 px-4 font-semibold text-sm text-sc-text-muted" />
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">Free Templates</th>
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">Build Your Own</th>
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">{softwareLabel}</th>
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-blue">SheetCraft</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, i) => (
-                  <tr key={row.feature} className={`border-b border-sc-border/50 ${i % 2 === 1 ? 'bg-sc-bg/50' : ''}`}>
-                    <td className="py-3 px-4 text-sm font-medium text-sc-text">{row.feature}</td>
-                    <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.freeTemplate} /></td>
-                    <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.buildYourOwn} /></td>
-                    <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.software} /></td>
-                    <td className="text-center py-3 px-4 text-sc-text font-medium bg-sc-blue/5"><CellValue value={row.sheetcraft} /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <DesktopComparison rows={rows} softwareLabel={softwareLabel} />
         </FadeIn>
+
+        <MobileComparison rows={rows} softwareLabel={softwareLabel} />
       </Container>
     </section>
   );
