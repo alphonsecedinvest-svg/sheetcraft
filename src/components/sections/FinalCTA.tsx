@@ -2,35 +2,35 @@
 
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
-import Button from '@/components/ui/Button';
-import DottedGlowBackground from '@/components/ui/DottedGlowBackground';
-import { Lock, Zap, FileSpreadsheet } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-16 lg:py-20 overflow-hidden">
-      <DottedGlowBackground />
+    <section className="relative py-20 lg:py-28 bg-sc-text overflow-hidden">
+      {/* Subtle dot pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
       <Container className="relative z-10 text-center">
         <FadeIn>
-          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white mb-4 gradient-text">
-            Every deal you analyze with the wrong spreadsheet is a deal you might get wrong.
+          <h2 className="font-semibold text-2xl lg:text-[40px] lg:leading-[48px] tracking-[-0.03em] text-white mb-10">
+            Stop guessing. Start knowing.
           </h2>
-          <p className="text-lg text-sc-text-muted mb-8 max-w-lg mx-auto">
-            Professional templates. Proven formulas. Precise numbers. Get the tools that 2,000+ contractors and investors already trust — and start making decisions with confidence.
+
+          <a
+            href="/products"
+            className="inline-block bg-sc-blue hover:bg-sc-blue/90 text-white font-semibold text-lg px-12 py-4 rounded-xl min-h-[56px] min-w-[300px] shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transition-all duration-300 animate-[pulse-shadow_3s_ease-in-out_infinite]"
+          >
+            Get Instant Access — From $29
+          </a>
+
+          <p className="mt-6 text-sm text-white/50">
+            30-day guarantee · Instant download · No subscription
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
-            <Button href="/products">
-              Get Instant Access — From $29
-            </Button>
-            <Button href="/products" variant="ghost">
-              Preview Any Template →
-            </Button>
-          </div>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-sm text-sc-text-muted/60">
-            <span className="flex items-center gap-1.5"><Lock size={14} /> 30-day money-back guarantee</span>
-            <span className="flex items-center gap-1.5"><Zap size={14} /> Instant download</span>
-            <span className="flex items-center gap-1.5"><FileSpreadsheet size={14} /> Excel + Google Sheets</span>
-          </div>
         </FadeIn>
       </Container>
     </section>
