@@ -3,28 +3,42 @@
 import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
 import MockupFrame from '@/components/ui/MockupFrame';
+import SpreadsheetMockup from '@/components/ui/SpreadsheetMockup';
 import FadeIn from '@/components/ui/FadeIn';
-import MicroCopy from '@/components/ui/MicroCopy';
 import DottedGlowBackground from '@/components/ui/DottedGlowBackground';
-import { Star } from 'lucide-react';
-import { trustLogos } from '@/lib/constants';
+import { stats, trustLogos } from '@/lib/constants';
+
+const trustStats = [
+  { value: '2,000+', label: 'pros' },
+  { value: '$50M+', label: 'tracked' },
+  { value: '4.9★', label: 'average' },
+];
 
 export default function Hero() {
   return (
-    <section className="relative pt-12 pb-16 lg:pt-24 lg:pb-24 overflow-hidden">
+    <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
       <DottedGlowBackground />
+
       <Container className="relative z-10">
         <div className="lg:grid lg:grid-cols-[55%_45%] lg:gap-12 lg:items-center">
-          {/* Text */}
-          <FadeIn>
-            <div className="text-center lg:text-left">
-              <h1 className="font-bold text-[32px] leading-[40px] lg:text-[80px] lg:leading-[1] tracking-[-0.05em] gradient-text">
-                Pro-grade analysis.{' '}
-                <span className="text-sc-amber">Zero learning curve.</span>
+          {/* Left — Copy */}
+          <div className="text-center lg:text-left">
+            <FadeIn delay={0.2}>
+              <h1 className="font-extrabold text-[40px] leading-[1.05] sm:text-[56px] lg:text-[72px] tracking-[-0.03em] gradient-text">
+                Stop guessing.
+                <br />
+                Start building.
               </h1>
-              <p className="mt-5 text-lg lg:text-[1.4rem] text-sc-text-muted max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                The power of $500/month software in a spreadsheet you can use in 5 minutes. Professional Excel & Google Sheets templates for construction and real estate pros — no training required.
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <p className="mt-5 text-lg lg:text-xl text-sc-text-muted max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Pro-grade construction &amp; real estate spreadsheets. The power
+                of $500/month software — yours for $29.
               </p>
+            </FadeIn>
+
+            <FadeIn delay={0.6}>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 items-center lg:justify-start justify-center">
                 <Button href="/products" fullWidth className="sm:!w-auto">
                   Get Instant Access — From $29
@@ -33,41 +47,74 @@ export default function Hero() {
                   Preview Any Template →
                 </Button>
               </div>
-              {/* Micro-copy */}
-              <MicroCopy className="mt-3 text-center lg:text-left" />
-              {/* Micro social proof */}
-              <div className="mt-5 flex items-center gap-1.5 justify-center lg:justify-start">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-sc-amber text-sc-amber" />
-                  ))}
-                </div>
-                <span className="text-sm text-sc-text-muted">4.9/5 from 200+ verified reviews · 2,000+ templates sold</span>
-              </div>
-            </div>
-          </FadeIn>
 
-          {/* Mockup */}
-          <FadeIn delay={0.2} className="mt-10 lg:mt-0">
-            <MockupFrame
-              imageSrc="/images/products/hero-banner.jpg"
-              imageAlt="SheetCraft professional spreadsheet templates"
-            />
+              {/* Microcopy */}
+              <p className="mt-3 text-xs text-sc-text-muted text-center lg:text-left">
+                Instant download · Excel + Google Sheets · 30-day guarantee
+              </p>
+            </FadeIn>
+
+            {/* Trust stats */}
+            <FadeIn delay={0.8}>
+              <div className="mt-6 flex items-center gap-4 justify-center lg:justify-start">
+                {trustStats.map((stat, i) => (
+                  <div key={stat.label} className="flex items-center gap-4">
+                    {i > 0 && (
+                      <span className="w-px h-4 bg-sc-border" aria-hidden="true" />
+                    )}
+                    <div className="text-center lg:text-left">
+                      <span className="text-sm font-bold text-sc-text font-mono">
+                        {stat.value}
+                      </span>
+                      <span className="text-xs text-sc-text-muted ml-1">
+                        {stat.label}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Right — Animated mockup */}
+          <FadeIn delay={0.8} direction="left" className="mt-10 lg:mt-0">
+            <MockupFrame>
+              <SpreadsheetMockup />
+            </MockupFrame>
           </FadeIn>
         </div>
 
-        {/* Trust bar */}
-        <FadeIn delay={0.3}>
-          <div className="mt-12 lg:mt-16 text-center">
-            <p className="text-xs text-sc-text-muted/60 uppercase tracking-[0.05em] font-medium mb-4">
+        {/* Trust bar — Company logos */}
+        <FadeIn delay={1.0}>
+          <div className="mt-14 lg:mt-20 text-center">
+            <p className="text-xs text-sc-text-muted/60 uppercase tracking-[0.1em] font-medium mb-5">
               Trusted by teams at
             </p>
-            <div className="flex items-center justify-center gap-8 flex-wrap">
-              {trustLogos.map((logo) => (
-                <span key={logo} className="text-sm font-semibold text-white/20">
-                  {logo}
+
+            {/* Desktop: static row */}
+            <div className="hidden sm:flex items-center justify-center gap-10">
+              {trustLogos.map((name) => (
+                <span
+                  key={name}
+                  className="text-sm font-semibold text-sc-text/15 select-none"
+                >
+                  {name}
                 </span>
               ))}
+            </div>
+
+            {/* Mobile: scrolling marquee */}
+            <div className="sm:hidden overflow-hidden">
+              <div className="flex animate-marquee gap-10 w-max">
+                {[...trustLogos, ...trustLogos].map((name, i) => (
+                  <span
+                    key={`${name}-${i}`}
+                    className="text-sm font-semibold text-sc-text/15 whitespace-nowrap select-none"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </FadeIn>
