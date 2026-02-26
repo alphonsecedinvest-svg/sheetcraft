@@ -87,16 +87,16 @@ export default function HowItWorks() {
         <div className="lg:hidden space-y-8">
           {steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 0.15}>
-              <div className="relative flex gap-5 items-start">
-                {/* Watermark */}
-                <span className="absolute -top-2 -left-1 font-mono font-bold text-[64px] leading-none text-sc-text/[0.04] select-none pointer-events-none">
-                  {step.number}
-                </span>
-
-                <div className="relative shrink-0 w-12 h-12 rounded-xl bg-sc-card border border-sc-border shadow-card flex items-center justify-center">
-                  <step.icon size={20} className="text-sc-blue" />
+              <div className="flex gap-4 items-start">
+                <div className="shrink-0 flex flex-col items-center gap-1.5">
+                  <span className="font-mono font-bold text-xs text-sc-blue">
+                    {step.number}
+                  </span>
+                  <div className="w-12 h-12 rounded-xl bg-sc-card border border-sc-border shadow-card flex items-center justify-center">
+                    <step.icon size={20} className="text-sc-blue" />
+                  </div>
                 </div>
-                <div className="relative">
+                <div className="pt-5">
                   <h3 className="font-semibold text-lg text-sc-text mb-1">
                     {step.title}
                   </h3>

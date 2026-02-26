@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Star } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import TrustpilotStars from '@/components/ui/TrustpilotStars';
 import MockupFrame from '@/components/ui/MockupFrame';
 import type { Product } from '@/lib/products';
 import { getProductImage } from '@/lib/products';
@@ -76,11 +76,7 @@ export default function ProductCard({ product, featured }: ProductCardProps) {
 
         {/* Rating */}
         <div className="mt-3 flex items-center gap-1.5">
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={14} className="fill-sc-amber text-sc-amber" />
-            ))}
-          </div>
+          <TrustpilotStars size={14} />
           <span className="text-xs text-sc-text-muted font-medium">{product.rating}</span>
           <span className="text-xs text-sc-text-muted">({product.reviewCount})</span>
         </div>

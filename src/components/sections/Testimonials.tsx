@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
-import { Star } from 'lucide-react';
+import TrustpilotStars from '@/components/ui/TrustpilotStars';
 import { stats } from '@/lib/constants';
 
 const featured = {
@@ -57,24 +57,6 @@ function formatQuote(quote: string) {
   );
 }
 
-function AnimatedStars({ count = 5, delay = 0 }: { count?: number; delay?: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {[...Array(count)].map((_, j) => (
-        <motion.div
-          key={j}
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: delay + j * 0.05, duration: 0.3 }}
-        >
-          <Star size={16} className="fill-sc-amber text-sc-amber" />
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
 export default function Testimonials() {
   return (
     <section className="py-16 lg:py-20 bg-sc-bg">
@@ -94,7 +76,7 @@ export default function Testimonials() {
           className="max-w-3xl mx-auto mb-10"
         >
           <div className="bg-sc-card rounded-xl border border-sc-border shadow-elevated p-8 lg:p-10">
-            <AnimatedStars delay={0.2} />
+            <TrustpilotStars animated animationDelay={0.2} showLabel />
             <blockquote className="mt-4 text-xl lg:text-2xl text-sc-text leading-relaxed font-medium">
               &ldquo;{formatQuote(featured.quote)}&rdquo;
             </blockquote>
@@ -116,7 +98,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <FadeIn key={t.name} delay={i * 0.1}>
               <div className="bg-sc-card rounded-xl border border-sc-border shadow-card p-5 h-full flex flex-col transition-all duration-200 hover:shadow-elevated hover:-translate-y-1">
-                <AnimatedStars delay={0.3 + i * 0.05} />
+                <TrustpilotStars animated animationDelay={0.3 + i * 0.05} size={16} />
                 <p className="mt-3 text-sm text-sc-text-muted leading-relaxed flex-1">
                   &ldquo;{formatQuote(t.quote)}&rdquo;
                 </p>

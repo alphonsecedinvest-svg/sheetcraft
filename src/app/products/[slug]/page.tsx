@@ -12,7 +12,8 @@ import FadeIn from '@/components/ui/FadeIn';
 import CountUpPrice from '@/components/ui/CountUpPrice';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
-import { Star, Check, FileSpreadsheet, FileText, RefreshCw, BookOpen, Clock, GraduationCap, Laptop } from 'lucide-react';
+import TrustpilotStars from '@/components/ui/TrustpilotStars';
+import { Check, FileSpreadsheet, FileText, RefreshCw, BookOpen, Clock, GraduationCap, Laptop } from 'lucide-react';
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -123,11 +124,7 @@ export default async function ProductPage({
                 <p className="mt-2 text-sm font-semibold text-sc-green">{product.benefitLine}</p>
 
                 <div className="mt-4 flex items-center gap-2">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} className="fill-sc-amber text-sc-amber" />
-                    ))}
-                  </div>
+                  <TrustpilotStars size={16} />
                   <a href="#reviews" className="text-sm text-sc-text-muted hover:text-sc-text transition-colors cursor-pointer">{product.rating}/5 ({product.reviewCount} reviews)</a>
                 </div>
 
@@ -300,12 +297,8 @@ export default async function ProductPage({
           <Container>
             <FadeIn>
               <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 mb-3">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={20} className="fill-sc-amber text-sc-amber" />
-                    ))}
-                  </div>
+                <div className="inline-flex justify-center mb-3">
+                  <TrustpilotStars size={20} showLabel reviewCount={product.reviewCount} />
                 </div>
                 <p className="font-bold text-lg text-sc-text">
                   Rated {product.rating}/5 based on {product.reviewCount} reviews
@@ -318,11 +311,7 @@ export default async function ProductPage({
               {product.testimonials.map((t, i) => (
                 <FadeIn key={t.name} delay={i * 0.1}>
                   <div className="rounded-lg p-5 bg-sc-card border border-sc-border shadow-card">
-                    <div className="flex gap-0.5 mb-3">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} size={16} className="fill-sc-amber text-sc-amber" />
-                      ))}
-                    </div>
+                    <TrustpilotStars size={16} className="mb-3" />
                     <p className="text-xs font-semibold text-sc-text-muted/60 mb-2">Verified Purchase</p>
                     <p className="text-base text-sc-text-muted leading-relaxed">
                       &ldquo;{t.quote}&rdquo;

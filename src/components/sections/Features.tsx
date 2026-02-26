@@ -1,16 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
-import { HardHat, Calculator, Zap, RefreshCw } from 'lucide-react';
+import { Calculator, Zap, RefreshCw } from 'lucide-react';
 
 const features = [
-  {
-    icon: HardHat,
-    title: 'Built by a contractor',
-    description: '15 years in the field, not a template factory.',
-    detail: 'Every formula reflects how the industry actually works — markup calculations, change order tracking, cap rate analysis — all pre-built and battle-tested on real projects.',
-  },
   {
     icon: Calculator,
     title: 'Zero broken formulas',
@@ -42,13 +37,47 @@ export default function Features() {
           <p className="text-center text-sc-text-muted text-sm mb-14">(when free templates exist everywhere)</p>
         </FadeIn>
 
+        {/* Founder story */}
+        <FadeIn>
+          <div className="bg-sc-bg py-10 lg:py-14 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-t-xl">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 max-w-4xl mx-auto">
+              {/* Photo */}
+              <div className="shrink-0">
+                <div className="w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-sc-border shadow-card">
+                  <Image
+                    src="/images/founder-jake.jpg"
+                    alt="Jake Mitchell, Founder of SheetCraft"
+                    width={120}
+                    height={120}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="text-center lg:text-left">
+                <h3 className="font-semibold text-xl lg:text-2xl text-sc-text mb-3">
+                  I built these because I needed them
+                </h3>
+                <p className="text-sm text-sc-text-muted leading-relaxed mb-4">
+                  After 15 years as a general contractor, I was tired of broken free templates and $500/month software that did too much. So I built exactly what I needed — and what every contractor and investor needs: clean, reliable spreadsheets that just work.
+                </p>
+                <p className="text-sm font-semibold text-sc-text italic">
+                  — Jake Mitchell, Founder of SheetCraft
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Remaining features — zigzag */}
         <div className="space-y-0">
           {features.map((feature, i) => {
             const isReversed = i % 2 === 1;
-            const bgClass = i % 2 === 0 ? 'bg-sc-bg' : 'bg-sc-bg-alt';
+            const bgClass = i % 2 === 0 ? 'bg-sc-bg-alt' : 'bg-sc-bg';
 
             return (
-              <div key={feature.title} className={`${bgClass} py-10 lg:py-14 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 first:rounded-t-xl last:rounded-b-xl`}>
+              <div key={feature.title} className={`${bgClass} py-10 lg:py-14 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 ${i === features.length - 1 ? 'rounded-b-xl' : ''}`}>
                 <div className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 max-w-4xl mx-auto ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Text */}
                   <FadeIn direction={isReversed ? 'right' : 'left'} delay={0.1} className="flex-1">
