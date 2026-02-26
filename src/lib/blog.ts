@@ -3702,6 +3702,365 @@ SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker
 5. **Monitor your burn rate weekly.** If you're using contingency faster than you're completing work, act immediately.
 6. **Learn from every project.** Your contingency log is a goldmine of data for future estimating.`,
   },
+  {
+    slug: "70-percent-rule-house-flipping-calculator",
+    title: "The 70% Rule in House Flipping: Calculator, Examples & When to Break It",
+    metaTitle: "The 70% Rule in House Flipping: Calculator + Real Examples (2026)",
+    metaDescription: "Learn the 70% rule for house flipping with a step-by-step calculator, real deal examples, and when experienced flippers break the rule. Includes Excel formulas.",
+    targetKeyword: "70 percent rule house flipping calculator",
+    secondaryKeywords: ["70% rule calculator","70 rule house flipping","house flipping maximum purchase price","flip deal analysis formula"],
+    excerpt: "The 70% rule is the first formula every house flipper learns — and the first one they misapply. Here's exactly how it works, when it saves you, and when following it blindly costs you the best deals.",
+    publishedAt: "2026-02-26",
+    readTime: 13,
+    relatedProduct: "flip-brrrr-calculator",
+    image: "/images/blog/70-percent-rule-house-flipping.jpg",
+    imageAlt: "House flipping investment analysis showing renovation transformation with 70% rule calculation overlay",
+    content: `The 70% rule is the single most quoted formula in house flipping. Ask any experienced flipper how they screen deals and they'll mention it within the first 30 seconds.
+
+It's also the most misunderstood.
+
+New investors treat it like gospel — rejecting every deal that doesn't pass the test. Experienced investors treat it like a starting point — useful for quick screening, dangerous as a final decision. The truth, as usual, is somewhere in between.
+
+In this guide, we'll break down exactly how the 70% rule works, build a calculator in Excel, run through real deal examples, and — most importantly — explain when the rule protects you and when it costs you money.
+
+## What Is the 70% Rule?
+
+The 70% rule states:
+
+**Maximum Purchase Price = (ARV × 70%) − Rehab Costs**
+
+Where:
+- **ARV** = After Repair Value (what the house will sell for after renovation)
+- **Rehab Costs** = total renovation budget including contingency
+
+The remaining 30% of ARV is meant to cover:
+- Buying closing costs (~2-3%)
+- Selling closing costs and agent commissions (~7-8%)
+- Holding costs during the flip (~3-5%)
+- Your profit (~15-20%)
+
+**Example:**
+- ARV: $300,000
+- Rehab costs: $50,000
+- Maximum purchase price: ($300,000 × 0.70) − $50,000 = **$160,000**
+
+If you can buy the property for $160,000 or less, the deal passes the 70% rule. Above that, the math says you're overpaying.
+
+## Why 70%? The Math Behind the Number
+
+The 70% isn't arbitrary. It's a rough allocation of where money goes on a typical flip:
+
+| Cost Category | % of ARV | On a $300K ARV |
+|---------------|----------|----------------|
+| Purchase price + rehab | 70% | $210,000 |
+| Selling costs (agent + closing) | 8% | $24,000 |
+| Holding costs (5 months) | 4% | $12,000 |
+| Buying closing costs | 2% | $6,000 |
+| **Profit** | **16%** | **$48,000** |
+
+That 16% profit margin assumes everything goes according to plan. And in construction, things rarely go according to plan.
+
+The 30% buffer absorbs the inevitable surprises: a rehab that runs 15% over budget, a property that takes an extra month to sell, an ARV that comes in $10,000 lower than expected. Without that cushion, one bad break turns your profit into a loss.
+
+## Building a 70% Rule Calculator in Excel
+
+Open Excel and set up a clean, reusable calculator:
+
+### Input Section (Yellow Cells)
+
+A1: 70% RULE CALCULATOR
+A3: After Repair Value (ARV) — B3: [input]
+A4: Estimated Rehab Costs — B4: [input]
+A5: Rehab Contingency % — B5: 15%
+A6: Total Rehab (with contingency) — B6: =B4*(1+B5)
+
+### Calculation Section
+
+A8: === 70% RULE ANALYSIS ===
+A9: Max Purchase Price (70% Rule) — B9: =(B3*0.7)-B6
+A10: Asking Price — B10: [input]
+A11: Difference — B11: =B9-B10
+A12: Verdict — B12: =IF(B10<=B9,"✓ PASS","✗ FAIL — over by "&TEXT(B10-B9,"$#,##0"))
+
+### Detailed Profit Projection
+
+A14: === PROJECTED PROFIT ===
+A15: ARV (Sale Price) — B15: =B3
+A16: Less: Purchase Price — B16: =B10
+A17: Less: Rehab (with contingency) — B17: =B6
+A18: Less: Buying Closing Costs (3%) — B18: =B10*0.03
+A19: Less: Selling Costs (8%) — B19: =B3*0.08
+A20: Less: Holding Costs — B20: [input or formula]
+A22: NET PROFIT — B22: =B15-B16-B17-B18-B19-B20
+A23: ROI — B23: =B22/(B16+B17+B18+B20)
+A24: Profit as % of ARV — B24: =B22/B15
+
+### Holding Cost Calculator
+
+Don't guess holding costs — calculate them:
+
+A26: === HOLDING COSTS ===
+A27: Holding Period (months) — B27: 5
+A28: Monthly Hard Money Payment — B28: [input]
+A29: Monthly Insurance — B29: 150
+A30: Monthly Property Taxes — B30: [input]
+A31: Monthly Utilities — B31: 200
+A32: Monthly Total — B32: =SUM(B28:B31)
+A33: Total Holding Costs — B33: =B32*B27
+
+Link B20 to B33 so holding costs flow into your profit calculation automatically.
+
+### Sensitivity Analysis
+
+Add a data table that shows profit at different ARV and rehab scenarios. Use Excel's Data Table feature (What-If Analysis → Data Table) to auto-populate a matrix showing the full range of outcomes across various ARV levels ($250K to $325K) and rehab budgets ($40K to $70K). This shows you exactly how much risk you're carrying.
+
+## Real Deal Examples: The 70% Rule in Action
+
+### Example 1: The Clear Winner
+
+**Property:** 3BR/2BA ranch in Memphis, TN
+- ARV: $185,000
+- Rehab estimate: $28,000 (cosmetic — paint, floors, kitchen refresh, landscaping)
+- Asking price: $89,000
+
+**70% Rule:** ($185,000 × 0.70) − $28,000 = **$101,500** max purchase
+
+At $89,000, you're $12,500 under the 70% threshold. Let's verify with a full profit projection:
+
+| Item | Amount |
+|------|--------|
+| Sale price | $185,000 |
+| Purchase | ($89,000) |
+| Rehab + 15% contingency | ($32,200) |
+| Buying costs (3%) | ($2,670) |
+| Selling costs (8%) | ($14,800) |
+| Holding (4 months × $1,100) | ($4,400) |
+| **Net Profit** | **$41,930** |
+| **ROI** | **32.7%** |
+
+This is a textbook deal. Clear margins, room for error, solid profit. The 70% rule correctly identified it as a winner.
+
+### Example 2: The Rule Says No, But Should It?
+
+**Property:** 4BR/2.5BA in a hot Nashville suburb
+- ARV: $485,000
+- Rehab estimate: $75,000 (kitchen, baths, hardwood refinish, exterior paint)
+- Asking price: $295,000
+
+**70% Rule:** ($485,000 × 0.70) − $75,000 = **$264,500** max purchase
+
+At $295,000, the deal fails by $30,500. Most beginners would walk away. But let's run the actual numbers:
+
+| Item | Amount |
+|------|--------|
+| Sale price | $485,000 |
+| Purchase | ($295,000) |
+| Rehab + 15% contingency | ($86,250) |
+| Buying costs (3%) | ($8,850) |
+| Selling costs (7%) | ($33,950) |
+| Holding (5 months × $2,800) | ($14,000) |
+| **Net Profit** | **$46,950** |
+| **ROI** | **11.6%** |
+
+$46,950 profit on a deal the 70% rule rejected. Why? Because the 70% rule assumes the same cost structure regardless of price point. On a $485K property, selling costs as a percentage are slightly lower (you can negotiate 5-6% commission on higher-value homes), and the profit dollar amount is substantial even at a tighter percentage margin.
+
+**Lesson:** The 70% rule is most accurate in the $100K–$250K range. Above $300K, it becomes overly conservative and you'll miss good deals.
+
+### Example 3: The Rule Says Yes, But Watch Out
+
+**Property:** 2BR/1BA in a C+ neighborhood
+- ARV: $95,000
+- Rehab estimate: $15,000 (paint, floors, fixtures)
+- Asking price: $45,000
+
+**70% Rule:** ($95,000 × 0.70) − $15,000 = **$51,500** max purchase
+
+At $45,000, you're well under. Green light, right?
+
+| Item | Amount |
+|------|--------|
+| Sale price | $95,000 |
+| Purchase | ($45,000) |
+| Rehab + 15% contingency | ($17,250) |
+| Buying costs (3%) | ($1,350) |
+| Selling costs (9%) | ($8,550) |
+| Holding (6 months × $850) | ($5,100) |
+| **Net Profit** | **$17,750** |
+| **ROI** | **25.8%** |
+
+The numbers look fine on paper. But here's what the 70% rule doesn't tell you:
+
+- **Low-price properties have higher selling cost percentages.** Agent commission is the same 5-6% but buyer's agents in cheap neighborhoods are harder to motivate. You may need to offer more.
+- **Holding periods run longer.** Sub-$100K properties in C+ neighborhoods can sit for 60-90 days on market vs. 15-30 days in A/B areas.
+- **Rehab surprises hit harder.** A $5,000 surprise on a $15K rehab is a 33% overrun. The same surprise on a $75K rehab is 7%.
+- **ARV is less reliable.** Fewer comps, more variation, harder to pin down the exact sale price.
+
+The 70% rule passed this deal, but the risk profile is much higher than the numbers suggest. Smart flippers adjust the rule to 65% or even 60% for low-priced properties in marginal areas.
+
+## When to Use the 70% Rule
+
+The 70% rule works best as a **first-pass screening tool**. When you're looking at 20 properties a week, you need a quick filter to separate the "worth a deeper look" from the "definitely not."
+
+Here's the workflow:
+
+1. **Quick screen:** Does it pass the 70% rule? If no → move on (unless it's close and in a premium market)
+2. **Detailed analysis:** Run full profit projection with actual holding costs, closing costs, and rehab line items
+3. **Comp verification:** Confirm ARV with 3+ sold comps within 0.5 miles and 90 days
+4. **Walk the property:** Verify rehab scope in person before finalizing numbers
+5. **Make the offer:** Based on your detailed numbers, not just the 70% formula
+
+Never make an offer based solely on the 70% rule. It's step 1 of 5, not the whole process.
+
+## When to Break the 70% Rule
+
+Experienced flippers regularly break the 70% rule — profitably. Here's when it makes sense:
+
+### 1. High-Value Markets ($400K+ ARV)
+
+In expensive markets, the fixed-cost components (holding costs, permits, inspections) become a smaller percentage of the deal. A 75% rule often makes more sense when ARV exceeds $400K.
+
+**Adjusted formula for high-value markets:** Max Purchase = (ARV × 0.75) − Rehab Costs
+
+### 2. Fast-Moving Markets
+
+If comparable properties are selling within 15 days of listing, your holding costs drop dramatically. A 4-month holding period assumption baked into the 70% rule might actually be 2 months, freeing up 2-3% of ARV as additional margin.
+
+### 3. Light Cosmetic Rehabs
+
+A $15,000 cosmetic flip (paint, floors, landscaping) has far less risk than a $75,000 gut renovation. The contingency you need is smaller, the timeline is shorter, and the chance of hidden problems is lower. Using 72-75% on cosmetic flips is common.
+
+### 4. You're Also the Agent
+
+If you have your real estate license, you save 2.5-3% on selling commissions. That effectively turns the 70% rule into a 73% rule for you.
+
+### 5. BRRRR Strategy (Not Selling)
+
+If you're refinancing and holding rather than selling, you eliminate selling costs entirely (7-8% of ARV). The 70% rule makes no sense for BRRRR — you need a completely different analysis focused on cash flow after refinance.
+
+## When to Be Stricter Than 70%
+
+Sometimes 70% isn't conservative enough:
+
+### 1. Distressed or Marginal Neighborhoods
+
+Use 65%. Longer holding periods, higher selling costs, less reliable ARV, and more rehab surprises.
+
+### 2. Major Structural Work
+
+Foundation repairs, full roof replacements, load-bearing wall modifications — these carry 25-50% contingency risk. Use 65% and add a 20% rehab contingency.
+
+### 3. Your First Flip
+
+You don't know what you don't know. Use 65% on your first deal. The education is worth more than the extra profit on a thin deal. Once you've completed 3-5 flips and have actual cost data, you can adjust upward.
+
+### 4. Rising Interest Rate Environment
+
+Higher rates mean your hard money costs more per month, buyer pools shrink (reducing ARV reliability), and properties take longer to sell. All three effects eat into that 30% margin.
+
+### 5. Slowing Market
+
+If days-on-market are trending up in your target area, add 1-2% to your holding cost assumption. A property that takes 60 days to sell instead of 30 costs you an extra month of carrying charges.
+
+## The 70% Rule vs. Full Deal Analysis
+
+Here's a side-by-side comparison showing why the 70% rule is a starting point, not the finish line:
+
+| Factor | 70% Rule | Full Analysis |
+|--------|----------|---------------|
+| ARV | Single number | Range based on 3-5 comps |
+| Rehab | Estimate | Room-by-room line items + contingency |
+| Holding costs | Baked into 30% | Calculated month by month |
+| Buying costs | Baked into 30% | Itemized (title, inspection, points) |
+| Selling costs | Baked into 30% | Commission + closing + staging |
+| Profit | Whatever's left | Targeted minimum ($15K or 10% ROI) |
+| Risk assessment | None | Sensitivity table with worst case |
+| Time to calculate | 10 seconds | 15-30 minutes |
+
+The 70% rule tells you "maybe." Full analysis tells you "yes, no, or only if."
+
+## Adjusting the Percentage for Your Market
+
+The 70% is a national average. Your local market may warrant different math. Here's a framework:
+
+**Step 1:** Calculate your actual cost structure from past flips:
+- Average buying costs as % of purchase price
+- Average selling costs as % of ARV
+- Average holding costs as % of ARV
+- Your minimum acceptable profit as % of ARV
+
+**Step 2:** Add them up: Your rule % = 100% − (selling % + holding % + buying % + profit %)
+
+**Example:**
+- Selling costs: 7%
+- Holding costs: 3%
+- Buying costs: 2%
+- Minimum profit: 15%
+- **Your rule: 100% − 27% = 73%**
+
+In this market, with your cost structure, a 73% rule makes more sense than 70%. Build this calculation into your Excel spreadsheet so it auto-adjusts based on your actual data.
+
+## Mistakes Flippers Make With the 70% Rule
+
+### 1. Using Zillow Zestimate as ARV
+
+The Zestimate can be off by 10-20%. A 10% error on a $300K ARV means your "safe" deal just lost $30,000 in expected profit. Always use sold comps — properties that actually closed, not active listings with aspirational asking prices.
+
+### 2. Forgetting to Include Contingency in Rehab
+
+The 70% rule formula subtracts rehab costs. If your rehab estimate is $50,000 but you don't add 15% contingency, you're actually subtracting $50,000 when you should be subtracting $57,500. That $7,500 difference comes straight out of your profit.
+
+### 3. Treating 70% as a Hard Rule Instead of a Guideline
+
+Walking away from a $50,000 profit deal because it's at 72% instead of 70% is leaving money on the table. The rule is a screening tool, not a commandment.
+
+### 4. Not Adjusting for Property Price Range
+
+As we showed in Example 2, the 70% rule is most accurate for properties with ARVs between $100K-$250K. Adjust for your price range.
+
+### 5. Ignoring Market Conditions
+
+A deal that passes at 70% in a hot seller's market might fail in a cooling market where you hold the property 3 months longer and sell for 5% less. Factor in where the market is heading, not just where it is today.
+
+## Quick Reference: 70% Rule Cheat Sheet
+
+| Market Condition | Suggested Rule | Why |
+|------------------|---------------|-----|
+| First-time flipper | 65% | Extra margin for learning curve |
+| Stable market, moderate rehab | 70% | Standard rule applies |
+| Hot market, light cosmetic flip | 73-75% | Lower risk, faster sell |
+| High-value market ($400K+ ARV) | 73-75% | Fixed costs are lower % of deal |
+| Declining market | 65% | ARV and holding period uncertainty |
+| Major structural rehab | 60-65% | High contingency risk |
+| You're also the selling agent | 73% | Save 2.5-3% on commissions |
+| BRRRR (not selling) | N/A | Use cash-flow analysis instead |
+
+## Connecting to Your Deal Pipeline
+
+A standalone calculator is useful. A calculator connected to your deal pipeline is powerful.
+
+Build a second tab in your Excel workbook called "Deal Pipeline" with columns for each property you're evaluating:
+
+| Property | ARV | Rehab | 70% Max | Asking | Pass/Fail | Profit Est. | Status |
+|----------|-----|-------|---------|--------|-----------|-------------|--------|
+| 123 Oak St | $220K | $35K | $119K | $115K | ✓ | $28K | Analyzing |
+| 456 Elm Ave | $310K | $55K | $162K | $175K | ✗ | $18K | Passed |
+| 789 Pine Rd | $175K | $20K | $102.5K | $95K | ✓ | $35K | Offer sent |
+
+This gives you a bird's-eye view of every deal in your pipeline, with the 70% rule as the first filter and projected profit as the second.
+
+SheetCraft's [Flip & BRRRR Calculator](/products/flip-brrrr-calculator) includes a built-in 70% rule screen, full profit projection, sensitivity analysis, and a deal comparison dashboard — everything from this article in a pre-built, ready-to-use workbook.
+
+[See the Flip & BRRRR Calculator →](/products/flip-brrrr-calculator)
+
+## Key Takeaways
+
+1. **The 70% rule formula: Max Purchase = (ARV × 70%) − Rehab Costs.** Simple, effective for quick screening, but not sufficient for final decisions.
+2. **Always add rehab contingency before applying the rule.** Use 15% for moderate rehabs, 20-25% for heavy renovation. The 70% rule only works if your rehab number is honest.
+3. **The rule is most accurate for $100K-$250K ARV properties.** Adjust to 73-75% for high-value markets and 60-65% for distressed neighborhoods or your first flip.
+4. **Never make an offer based solely on the 70% rule.** It's step 1 of a 5-step analysis. Always run a full profit projection with itemized costs.
+5. **Build your own percentage** based on actual closing costs, holding costs, and profit targets in your market. The "70" in the 70% rule is a starting point, not a universal truth.
+6. **Track your actual results** and compare them to your 70% rule predictions. Over time, you'll develop an intuitive feel for what percentage works in your specific market and deal type.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
