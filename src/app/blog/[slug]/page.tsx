@@ -187,18 +187,18 @@ export default async function BlogPostPage({
 
       <article className="py-12 lg:py-16">
         <Container className="max-w-3xl">
-          <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-sc-text-muted hover:text-white mb-6 transition-colors">
+          <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-sc-text-muted hover:text-sc-text mb-6 transition-colors">
             <ArrowLeft size={14} /> Back to blog
           </Link>
 
           <header className="mb-10">
-            <h1 className="font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-white tracking-[-0.02em]">
+            <h1 className="font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-sc-text tracking-[-0.02em]">
               {post.title}
             </h1>
             <div className="mt-4 flex items-center gap-3 text-sm text-sc-text-muted">
               <Clock size={16} />
               {post.readTime} min read
-              <span className="text-white/20">·</span>
+              <span className="text-sc-border">·</span>
               {new Date(post.publishedAt).toLocaleDateString('en-US', {
                 month: 'long',
                 day: 'numeric',
@@ -225,11 +225,11 @@ export default async function BlogPostPage({
           </div>
 
           {relatedProduct && (
-            <div className="mt-12 glass-card rounded-xl p-6 lg:p-8 bg-white/[0.03] border border-white/10">
-              <p className="font-semibold text-xs text-white uppercase tracking-[0.05em] mb-2">
+            <div className="mt-12 rounded-xl p-6 lg:p-8 bg-sc-card border border-sc-border shadow-card">
+              <p className="font-semibold text-xs text-sc-blue uppercase tracking-[0.05em] mb-2">
                 Related template
               </p>
-              <h3 className="font-semibold text-xl text-white mb-2">
+              <h3 className="font-semibold text-xl text-sc-text mb-2">
                 {relatedProduct.name}
               </h3>
               <p className="text-sm text-sc-text-muted mb-4">

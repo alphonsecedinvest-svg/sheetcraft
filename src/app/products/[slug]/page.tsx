@@ -103,19 +103,19 @@ export default async function ProductPage({
             <div>
               <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
                 product.category === 'construction'
-                  ? 'bg-sc-green/10 text-sc-green'
-                  : 'bg-sc-amber/10 text-sc-amber'
+                  ? 'bg-sc-blue/10 text-sc-blue'
+                  : 'bg-sc-green/10 text-sc-green'
               }`}>
                 {product.category === 'construction' ? 'Construction' : 'Real Estate'}
               </span>
 
-              <h1 className="mt-3 font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-white tracking-[-0.02em]">
+              <h1 className="mt-3 font-bold text-[28px] leading-[36px] lg:text-[40px] lg:leading-[48px] text-sc-text tracking-[-0.02em]">
                 {product.name}
               </h1>
 
               <p className="mt-2 text-base text-sc-text-muted italic">{product.tagline}</p>
 
-              <p className="mt-2 text-sm font-semibold text-sc-green">→ {product.benefitLine}</p>
+              <p className="mt-2 text-sm font-semibold text-sc-green">{product.benefitLine}</p>
 
               <div className="mt-4 flex items-center gap-2">
                 <div className="flex">
@@ -123,11 +123,11 @@ export default async function ProductPage({
                     <Star key={i} size={16} className="fill-sc-amber text-sc-amber" />
                   ))}
                 </div>
-                <a href="#reviews" className="text-sm text-sc-text-muted hover:text-white transition-colors cursor-pointer">{product.rating}/5 ({product.reviewCount} reviews)</a>
+                <a href="#reviews" className="text-sm text-sc-text-muted hover:text-sc-text transition-colors cursor-pointer">{product.rating}/5 ({product.reviewCount} reviews)</a>
               </div>
 
               <div className="mt-4">
-                <span className="font-bold text-[36px] text-white font-mono">${product.price}</span>
+                <span className="font-bold text-[36px] text-sc-text font-mono">${product.price}</span>
                 <span className="ml-2 text-sm text-sc-text-muted">one-time payment</span>
               </div>
 
@@ -180,7 +180,7 @@ export default async function ProductPage({
             <div>
               {product.problemSection && (
                 <>
-                  <h2 className="font-semibold text-2xl text-white mb-6">The Problem</h2>
+                  <h2 className="font-semibold text-2xl text-sc-text mb-6">The Problem</h2>
                   <div className="prose mb-10">
                     {product.problemSection.split('\n\n').map((p, i) => (
                       <p key={i}>{p}</p>
@@ -191,7 +191,7 @@ export default async function ProductPage({
 
               {product.solutionSection && (
                 <>
-                  <h2 className="font-semibold text-2xl text-white mb-6">The Solution</h2>
+                  <h2 className="font-semibold text-2xl text-sc-text mb-6">The Solution</h2>
                   <div className="prose mb-10">
                     {product.solutionSection.split('\n\n').map((p, i) => (
                       <p key={i}>{p}</p>
@@ -200,7 +200,7 @@ export default async function ProductPage({
                 </>
               )}
 
-              <h2 className="font-semibold text-2xl text-white mt-10 mb-6">Features</h2>
+              <h2 className="font-semibold text-2xl text-sc-text mt-10 mb-6">Features</h2>
               <ul className="space-y-3">
                 {product.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
@@ -210,13 +210,13 @@ export default async function ProductPage({
                 ))}
               </ul>
 
-              <h2 className="font-semibold text-2xl text-white mt-10 mb-6">Who is this for?</h2>
+              <h2 className="font-semibold text-2xl text-sc-text mt-10 mb-6">Who is this for?</h2>
               <ul className="space-y-3">
                 {product.whoIsThisFor.map((item) => (
                   <li key={item.title} className="flex items-start gap-3">
                     <Check size={18} className="text-sc-amber shrink-0 mt-0.5" />
                     <span className="text-sm text-sc-text-muted">
-                      <strong className="text-white">{item.title}</strong> {item.description}
+                      <strong className="text-sc-text">{item.title}</strong> {item.description}
                     </span>
                   </li>
                 ))}
@@ -224,11 +224,11 @@ export default async function ProductPage({
 
               {product.objectionPreemption.length > 0 && (
                 <>
-                  <h2 className="font-semibold text-2xl text-white mt-10 mb-6">Common questions about this template</h2>
+                  <h2 className="font-semibold text-2xl text-sc-text mt-10 mb-6">Common questions about this template</h2>
                   <div className="space-y-6">
                     {product.objectionPreemption.map((obj) => (
                       <div key={obj.question}>
-                        <p className="font-semibold text-base text-white mb-2">
+                        <p className="font-semibold text-base text-sc-text mb-2">
                           &ldquo;{obj.question}&rdquo;
                         </p>
                         <p className="text-sm text-sc-text-muted leading-relaxed">{obj.answer}</p>
@@ -241,11 +241,11 @@ export default async function ProductPage({
 
             {/* Sidebar */}
             <aside className="mt-10 lg:mt-0">
-              <div className="sticky top-20 glass-card rounded-xl p-6 bg-white/[0.03] border border-white/10">
-                <p className="font-semibold text-xs text-black bg-white inline-block px-3 py-1 rounded-full uppercase tracking-wide mb-3">
-                  🔥 Most Popular Choice
+              <div className="sticky top-20 rounded-xl p-6 bg-sc-card border border-sc-border shadow-elevated">
+                <p className="font-semibold text-xs text-white bg-sc-blue inline-block px-3 py-1 rounded-full uppercase tracking-wide mb-3">
+                  Most Popular Choice
                 </p>
-                <h3 className="font-semibold text-lg text-white mb-1">
+                <h3 className="font-semibold text-lg text-sc-text mb-1">
                   Full Toolkit — $149
                 </h3>
                 <p className="text-sm text-sc-text-muted line-through">$226</p>
@@ -287,7 +287,7 @@ export default async function ProductPage({
                   ))}
                 </div>
               </div>
-              <p className="font-bold text-lg text-white">
+              <p className="font-bold text-lg text-sc-text">
                 Rated {product.rating}/5 based on {product.reviewCount} reviews
               </p>
               <p className="text-sm text-sc-text-muted mt-1">Verified customer reviews</p>
@@ -295,27 +295,27 @@ export default async function ProductPage({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
               {product.testimonials.map((t) => (
-                <div key={t.name} className="glass-card rounded-lg p-5 bg-white/[0.03] border border-white/10">
+                <div key={t.name} className="rounded-lg p-5 bg-sc-card border border-sc-border shadow-card">
                   <div className="flex gap-0.5 mb-3">
                     {[...Array(5)].map((_, j) => (
                       <Star key={j} size={16} className="fill-sc-amber text-sc-amber" />
                     ))}
                   </div>
-                  <p className="text-sm font-semibold text-white/60 mb-2">Verified Purchase</p>
+                  <p className="text-xs font-semibold text-sc-text-muted/60 mb-2">Verified Purchase</p>
                   <p className="text-base text-sc-text-muted leading-relaxed">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="mt-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
-                        <span className="text-xs font-bold text-white">{t.initials}</span>
+                      <div className="w-9 h-9 rounded-full bg-sc-blue/10 flex items-center justify-center">
+                        <span className="text-xs font-bold text-sc-blue">{t.initials}</span>
                       </div>
                       <div>
-                        <p className="font-semibold text-sm text-white">{t.name}</p>
+                        <p className="font-semibold text-sm text-sc-text">{t.name}</p>
                         <p className="text-xs text-sc-text-muted">{t.title}</p>
                       </div>
                     </div>
-                    <span className="text-xs text-sc-green">✓ Verified</span>
+                    <span className="text-xs text-sc-green font-medium">Verified</span>
                   </div>
                 </div>
               ))}

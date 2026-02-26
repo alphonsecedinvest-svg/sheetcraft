@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
-import FAQ from '@/components/sections/FAQ';
+import FAQ, { fullFaqs } from '@/components/sections/FAQ';
 
 export const metadata: Metadata = {
   title: 'FAQ — SheetCraft',
@@ -16,7 +16,7 @@ export default function FAQPage() {
       <section className="py-16 lg:py-24 bg-sc-bg">
         <Container className="max-w-3xl text-center">
           <FadeIn>
-            <h1 className="font-semibold text-3xl lg:text-[44px] lg:leading-[52px] tracking-[-0.05em] text-white mb-4 gradient-text">
+            <h1 className="font-semibold text-3xl lg:text-[44px] lg:leading-[52px] tracking-[-0.05em] mb-4 gradient-text">
               Frequently Asked Questions
             </h1>
             <p className="text-lg text-sc-text-muted max-w-xl mx-auto">
@@ -26,7 +26,7 @@ export default function FAQPage() {
         </Container>
       </section>
 
-      <FAQ />
+      <FAQ items={fullFaqs} />
 
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-sc-bg-alt">
@@ -36,7 +36,7 @@ export default function FAQPage() {
               Still have questions?{' '}
               <a
                 href="mailto:support@sheetcraft.com"
-                className="text-white font-medium underline underline-offset-[3px] hover:text-sc-text-muted transition-colors"
+                className="text-sc-blue font-medium underline underline-offset-[3px] hover:text-sc-blue/80 transition-colors"
               >
                 Email support@sheetcraft.com
               </a>

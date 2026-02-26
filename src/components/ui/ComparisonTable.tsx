@@ -55,7 +55,7 @@ export default function ComparisonTable({ category = 'construction' }: Compariso
     <section className="py-12 lg:py-16 bg-sc-bg-alt">
       <Container>
         <FadeIn>
-          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-3 gradient-text">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-center mb-3 gradient-text">
             How does this compare?
           </h2>
           <p className="text-center text-sc-text-muted text-sm max-w-xl mx-auto mb-10">
@@ -67,22 +67,22 @@ export default function ComparisonTable({ category = 'construction' }: Compariso
           <div className="overflow-x-auto">
             <table className="w-full min-w-[640px]">
               <thead>
-                <tr className="border-b border-white/10">
+                <tr className="border-b border-sc-border">
                   <th className="text-left py-3 px-4 font-semibold text-sm text-sc-text-muted" />
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-white/40">Free Templates</th>
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-white/40">Build Your Own</th>
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-white/40">{softwareLabel}</th>
-                  <th className="text-center py-3 px-4 font-semibold text-sm text-white">SheetCraft ✓</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">Free Templates</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">Build Your Own</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-text-muted/60">{softwareLabel}</th>
+                  <th className="text-center py-3 px-4 font-semibold text-sm text-sc-blue">SheetCraft</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((row, i) => (
-                  <tr key={row.feature} className={`border-b border-white/5 ${i % 2 === 0 ? '' : 'bg-white/[0.02]'}`}>
-                    <td className="py-3 px-4 text-sm font-medium text-white">{row.feature}</td>
+                  <tr key={row.feature} className={`border-b border-sc-border/50 ${i % 2 === 1 ? 'bg-sc-bg/50' : ''}`}>
+                    <td className="py-3 px-4 text-sm font-medium text-sc-text">{row.feature}</td>
                     <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.freeTemplate} /></td>
                     <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.buildYourOwn} /></td>
                     <td className="text-center py-3 px-4 text-sc-text-muted"><CellValue value={row.software} /></td>
-                    <td className="text-center py-3 px-4 text-white font-medium bg-white/5"><CellValue value={row.sheetcraft} /></td>
+                    <td className="text-center py-3 px-4 text-sc-text font-medium bg-sc-blue/5"><CellValue value={row.sheetcraft} /></td>
                   </tr>
                 ))}
               </tbody>
