@@ -1,19 +1,58 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Container from '@/components/ui/Container';
 import FadeIn from '@/components/ui/FadeIn';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, DollarSign, Clock, Shield, FileSpreadsheet, Settings, Scaling } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 interface FAQItem {
   question: string;
   answer: string;
 }
 
-const faqs: FAQItem[] = [
+interface FAQItemWithIcon extends FAQItem {
+  icon: LucideIcon;
+}
+
+const faqs: FAQItemWithIcon[] = [
+  {
+    icon: DollarSign,
+    question: 'Is $49 expensive for a spreadsheet?',
+    answer: 'Miss one change order? That\'s $10,000+. This template pays for itself the first time you use it — and you use it forever.',
+  },
+  {
+    icon: Clock,
+    question: 'Can I just build my own?',
+    answer: 'At $50/hour, expect 20+ hours building, testing, and debugging — $1,000 in time. Or download ours in 30 seconds.',
+  },
+  {
+    icon: FileSpreadsheet,
+    question: 'What versions of Excel are supported?',
+    answer: 'Excel 2016+, Microsoft 365, and Google Sheets. Standard functions only — no macros, no VBA.',
+  },
+  {
+    icon: Settings,
+    question: 'Can I customize the templates?',
+    answer: 'Nothing is locked. Every cell, formula, and layout is fully editable. Documentation included.',
+  },
+  {
+    icon: Shield,
+    question: 'Do you offer refunds?',
+    answer: 'Yes — 30-day money-back guarantee, no questions asked. Email support@sheetcraft.com.',
+  },
+  {
+    icon: Scaling,
+    question: 'Will this work for my situation?',
+    answer: 'From a $50K kitchen remodel to an $8M commercial build, from a single duplex to a 50-unit portfolio.',
+  },
+];
+
+// Full FAQ list for the dedicated FAQ page (more comprehensive)
+const fullFaqs: FAQItem[] = [
   {
     question: 'Can I find similar templates for free online?',
-    answer: 'You can. We started with those too. Here\'s what you\'ll find: static budget lists with no change order tracking, rental calculators that forget vacancy and maintenance reserves, and formulas that break when you add a row. Our templates are built by a general contractor with 15 years in the field. Every formula is tested. Every edge case is handled. The difference between free and professional is the difference between "it looks right" and "it is right."',
+    answer: 'You can. We started with those too. Here\'s what you\'ll find: static budget lists with no change order tracking, rental calculators that forget vacancy and maintenance reserves, and formulas that break when you add a row. Our templates are built by a general contractor with 15 years in the field. Every formula is tested. Every edge case is handled.',
   },
   {
     question: 'Is $49 expensive for a spreadsheet?',
@@ -45,7 +84,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'Do you offer refunds?',
-    answer: 'Yes — we offer a 30-day money-back guarantee. If the template doesn\'t work as described, you can\'t open or use the file, or you purchased the wrong product, we\'ll refund you in full. Since digital products can\'t be "returned," we ask that you briefly explain the issue so we can help. In most cases, we can resolve the problem faster than processing a refund. Just email support@sheetcraft.com.',
+    answer: 'Yes — we offer a 30-day money-back guarantee. If the template doesn\'t work as described, you can\'t open or use the file, or you purchased the wrong product, we\'ll refund you in full. Just email support@sheetcraft.com.',
   },
   {
     question: 'I\'m not great with Excel. Can I still use these?',
@@ -57,51 +96,134 @@ const faqs: FAQItem[] = [
   },
 ];
 
-export default function FAQ({ items }: { items?: FAQItem[] }) {
-  const faqItems = items || faqs;
-  const [openIndex, setOpenIndex] = useState<number>(0);
+function AccordionItem({
+  faq,
+  isOpen,
+  onToggle,
+  icon: Icon,
+}: {
+  faq: FAQItem;
+  isOpen: boolean;
+  onToggle: () => void;
+  icon?: LucideIcon;
+}) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<number>(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [isOpen]);
 
   return (
-    <section className="py-12 lg:py-16 bg-sc-bg">
+    <div className={`rounded-lg overflow-hidden transition-all duration-200 ${
+      isOpen ? 'bg-sc-card shadow-card border border-sc-border' : 'border border-transparent'
+    }`}>
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center gap-3 p-4 text-left hover:bg-sc-bg-alt/50 transition-colors"
+      >
+        {Icon && (
+          <Icon
+            size={18}
+            className={`shrink-0 transition-transform duration-300 ${
+              isOpen ? 'text-sc-blue rotate-45' : 'text-sc-text-muted'
+            }`}
+          />
+        )}
+        <span className="font-semibold text-base text-sc-text pr-4 flex-1">
+          {faq.question}
+        </span>
+        <ChevronDown
+          size={18}
+          className={`text-sc-text-muted shrink-0 transition-transform duration-300 ease-out ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      <div
+        className="overflow-hidden transition-[max-height] duration-300 ease-out"
+        style={{ maxHeight: isOpen ? `${height}px` : '0px' }}
+      >
+        <div ref={contentRef} className="px-4 pb-4 pl-11">
+          <p className="text-sm text-sc-text-muted leading-relaxed">
+            {faq.answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function FAQ({ items }: { items?: FAQItem[] }) {
+  const useCustomItems = !!items;
+  const [openIndex, setOpenIndex] = useState<number>(0);
+
+  // When custom items are passed, use them with no icons
+  if (useCustomItems) {
+    return (
+      <section className="py-16 lg:py-20 bg-sc-bg">
+        <Container className="max-w-3xl">
+          <FadeIn>
+            <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-center mb-10 gradient-text">
+              Questions? Answered.
+            </h2>
+          </FadeIn>
+
+          <div className="space-y-2">
+            {items.map((faq, i) => (
+              <FadeIn key={faq.question} delay={i * 0.05}>
+                <AccordionItem
+                  faq={faq}
+                  isOpen={openIndex === i}
+                  onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+                />
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  return (
+    <section className="py-16 lg:py-20 bg-sc-bg">
       <Container className="max-w-3xl">
         <FadeIn>
-          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-white text-center mb-10 gradient-text">
+          <h2 className="font-semibold text-2xl lg:text-[32px] lg:leading-[40px] tracking-[-0.02em] text-center mb-10 gradient-text">
             Questions? Answered.
           </h2>
         </FadeIn>
 
         <div className="space-y-2">
-          {faqItems.map((faq, i) => (
+          {faqs.map((faq, i) => (
             <FadeIn key={faq.question} delay={i * 0.05}>
-              <div className="border border-white/10 rounded-lg overflow-hidden">
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                  className="w-full flex items-center justify-between p-4 text-left hover:bg-white/5 transition-colors"
-                >
-                  <span className="font-semibold text-base text-white pr-4">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    size={20}
-                    className={`text-sc-text-muted shrink-0 transition-transform duration-200 ${
-                      openIndex === i ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                {openIndex === i && (
-                  <div className="px-4 pb-4">
-                    <p className="text-sm text-sc-text-muted leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
+              <AccordionItem
+                faq={faq}
+                isOpen={openIndex === i}
+                onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+                icon={faq.icon}
+              />
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.3}>
+          <p className="mt-8 text-center text-sm text-sc-text-muted">
+            Have another question?{' '}
+            <a
+              href="mailto:support@sheetcraft.com"
+              className="text-sc-blue font-medium underline underline-offset-2 hover:text-sc-blue/80 transition-colors"
+            >
+              support@sheetcraft.com
+            </a>
+          </p>
+        </FadeIn>
       </Container>
     </section>
   );
 }
 
+export { fullFaqs };
 export type { FAQItem };
