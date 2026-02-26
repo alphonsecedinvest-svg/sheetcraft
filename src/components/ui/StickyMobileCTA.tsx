@@ -18,7 +18,13 @@ export default function StickyMobileCTA({
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 500);
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      const distanceFromBottom = docHeight - scrollY - viewportHeight;
+
+      // Show after 300px scroll, hide when within 600px of bottom (near pricing/footer)
+      setVisible(scrollY > 300 && distanceFromBottom > 600);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -27,7 +33,7 @@ export default function StickyMobileCTA({
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 glass border-t border-white/10 p-3 md:hidden z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-sc-card border-t border-sc-border p-3 md:hidden z-50 shadow-elevated">
       <Button href={href} fullWidth>
         {label} — {price}
       </Button>
