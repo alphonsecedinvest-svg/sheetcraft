@@ -4061,6 +4061,398 @@ SheetCraft's [Flip & BRRRR Calculator](/products/flip-brrrr-calculator) includes
 5. **Build your own percentage** based on actual closing costs, holding costs, and profit targets in your market. The "70" in the 70% rule is a starting point, not a universal truth.
 6. **Track your actual results** and compare them to your 70% rule predictions. Over time, you'll develop an intuitive feel for what percentage works in your specific market and deal type.`,
   },
+  {
+    slug: 'rental-property-comparison-spreadsheet',
+    title: 'How to Compare Rental Properties Side-by-Side in a Spreadsheet',
+    metaTitle: 'How to Compare Rental Properties Side-by-Side in a Spreadsheet (2026)',
+    metaDescription: 'Learn how to build a rental property comparison spreadsheet in Excel. Compare cash flow, cap rate, cash-on-cash return, and risk across multiple investment properties.',
+    targetKeyword: 'rental property comparison spreadsheet',
+    secondaryKeywords: ['compare rental properties Excel', 'rental property comparison template', 'investment property comparison spreadsheet', 'side by side rental analysis'],
+    excerpt: 'Analyzing one rental property is straightforward. Comparing five to find the best one? That\'s where most investors lose hours — or pick the wrong deal. Here\'s the spreadsheet that fixes it.',
+    publishedAt: '2026-02-27',
+    readTime: 14,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-comparison-spreadsheet.jpg',
+    imageAlt: 'Real estate investor comparing multiple rental property deals on monitor with side-by-side spreadsheet analysis',
+    content: `Analyzing one rental property is straightforward. You run the numbers, check the cash flow, and make a decision. But real estate investing rarely works that way.
+
+In practice, you're looking at five, ten, maybe twenty properties at once. Different prices, different neighborhoods, different rent potentials. One has better cash flow but a worse neighborhood. Another has lower cap rate but stronger appreciation potential. A third looks mediocre on paper but it's two blocks from a new transit station.
+
+How do you compare them objectively — without drowning in tabs, scribbled notes, and gut feelings?
+
+You build a comparison spreadsheet. One view, all properties, every metric that matters. In this guide, we'll build exactly that.
+
+## Why Comparison Beats Individual Analysis
+
+Most investors analyze properties one at a time. They run the numbers on Property A, feel good about it, make an offer. Then they see Property B and realize it's better. Then Property C makes them question everything.
+
+This serial approach has three problems:
+
+**1. Recency bias.** The last property you analyzed always feels like the best because its numbers are freshest in your mind.
+
+**2. No baseline.** Without side-by-side metrics, you can't tell if a 6.2% cap rate is good for this market or just average. Context comes from comparison.
+
+**3. Hidden trade-offs.** Property A might have higher cash flow but Property B has lower maintenance risk. You only see these trade-offs when the numbers sit next to each other.
+
+A comparison spreadsheet eliminates all three problems. One glance tells you which property wins on each metric — and which trade-offs you're making.
+
+## The Metrics That Actually Matter for Comparison
+
+Before building the spreadsheet, let's establish which metrics to compare. Not all numbers are equally useful.
+
+### Tier 1: Decision-Making Metrics (Always Include)
+
+| Metric | What It Tells You | Why It Matters |
+|--------|-------------------|----------------|
+| Cash-on-cash return | Return on your actual cash invested | The single best measure of leveraged returns |
+| Monthly cash flow | Dollars in your pocket each month | Determines if the property sustains itself |
+| Cap rate | Property return independent of financing | Apples-to-apples comparison across deals |
+| Total cash required | Down payment + closing + reserves | Can you actually afford this deal? |
+
+### Tier 2: Risk & Quality Metrics (Include for Serious Analysis)
+
+| Metric | What It Tells You | Why It Matters |
+|--------|-------------------|----------------|
+| Debt service coverage ratio (DSCR) | NOI ÷ mortgage payment | Measures margin of safety — how close to break-even |
+| Operating expense ratio | OpEx ÷ gross rent | Flags properties with unusually high costs |
+| Price per unit/door | Purchase price ÷ number of units | Quick comparison across different property sizes |
+| Rent-to-price ratio | Monthly rent ÷ purchase price | The 1% rule screening metric |
+| Year built / condition | Age and state of systems | Predicts future CapEx needs |
+
+### Tier 3: Growth & Exit Metrics (Include for Long-Term Holds)
+
+| Metric | What It Tells You | Why It Matters |
+|--------|-------------------|----------------|
+| 5-year projected IRR | Total return including appreciation | The complete picture over your hold period |
+| Rent growth trend | Historical rent increases in the area | Future cash flow potential |
+| Appreciation potential | Market/submarket trajectory | Equity growth outlook |
+| Exit cap rate estimate | Likely cap rate at sale | Determines future sale price |
+
+You don't need every metric on every analysis. But your spreadsheet should support all of them so you can dive deeper when two properties are close.
+
+## Building the Comparison Spreadsheet in Excel
+
+### Step 1: Set Up the Structure
+
+Create a layout where properties are columns and metrics are rows. This is the opposite of how most people think about it — but it's far easier to scan visually.
+
+**Column A:** Metric labels
+**Column B:** Property 1
+**Column C:** Property 2
+**Column D:** Property 3
+**Column E:** Property 4
+**Column F:** Best/Worst indicator (optional — we'll add formulas)
+
+Leave Row 1 for property addresses or nicknames. Start metrics in Row 3.
+
+### Step 2: Input Section (Rows 3–20)
+
+These are the raw inputs you'll enter for each property:
+
+\`\`\`
+Row 3:  Property Address
+Row 4:  Asking Price
+Row 5:  Estimated Market Value
+Row 6:  Monthly Gross Rent
+Row 7:  Number of Units
+Row 8:  Year Built
+Row 9:  Square Footage
+Row 10: Down Payment %
+Row 11: Interest Rate
+Row 12: Loan Term (years)
+Row 13: Closing Costs (buying)
+Row 14: Vacancy Rate %
+Row 15: Property Tax (annual)
+Row 16: Insurance (annual)
+Row 17: Property Management %
+Row 18: Maintenance % of rent
+Row 19: CapEx Reserve % of rent
+Row 20: HOA / Other Monthly
+\`\`\`
+
+Color these rows light yellow so you know they're inputs. Everything below will be calculated.
+
+### Step 3: Calculated Metrics (Rows 22–45)
+
+Here's where the spreadsheet does the heavy lifting. Every formula below references Property 1 in Column B — copy across for other properties.
+
+**Revenue Calculations:**
+
+\`\`\`
+Row 22: Annual Gross Rent         =B6*12
+Row 23: Vacancy Loss              =B22*B14
+Row 24: Effective Gross Income    =B22-B23
+\`\`\`
+
+**Operating Expenses:**
+
+\`\`\`
+Row 26: Property Tax              =B15
+Row 27: Insurance                 =B16
+Row 28: Property Management       =B24*B17
+Row 29: Maintenance               =B22*B18
+Row 30: CapEx Reserve             =B22*B19
+Row 31: HOA/Other                 =B20*12
+Row 32: Total Operating Expenses  =SUM(B26:B31)
+\`\`\`
+
+**Key Metrics:**
+
+\`\`\`
+Row 34: NOI                       =B24-B32
+Row 35: Cap Rate                  =B34/B4
+Row 36: Operating Expense Ratio   =B32/B24
+Row 37: Rent-to-Price Ratio       =B6/B4
+\`\`\`
+
+**Financing:**
+
+\`\`\`
+Row 39: Loan Amount               =B4*(1-B10)
+Row 40: Monthly Mortgage (P&I)    =PMT(B11/12,B12*12,-B39)
+Row 41: Annual Debt Service       =B40*12
+\`\`\`
+
+**Cash Flow & Returns:**
+
+\`\`\`
+Row 43: Annual Cash Flow          =B34-B41
+Row 44: Monthly Cash Flow         =B43/12
+Row 45: Total Cash Required       =B4*B10+B13
+Row 46: Cash-on-Cash Return       =B43/B45
+Row 47: DSCR                      =B34/B41
+Row 48: Price Per Unit            =B4/B7
+Row 49: Price Per Sq Ft           =B4/B9
+\`\`\`
+
+### Step 4: The Ranking Row (Row 51+)
+
+Add a ranking section that automatically highlights the winner for each metric:
+
+\`\`\`
+Row 51: === RANKINGS ===
+Row 52: Best Cash Flow            =IF(B44=MAX(B44:E44),"★","")
+Row 53: Best Cap Rate             =IF(B35=MAX(B35:E35),"★","")
+Row 54: Best Cash-on-Cash         =IF(B46=MAX(B46:E46),"★","")
+Row 55: Lowest Cash Required      =IF(B45=MIN(B45:E45),"★","")
+Row 56: Best DSCR                 =IF(B47=MAX(B47:E47),"★","")
+Row 57: Total Stars               =COUNTIF(B52:B56,"★")
+\`\`\`
+
+The property with the most stars is your quantitative winner. But stars don't capture everything — which is why we add the qualitative section next.
+
+### Step 5: Qualitative Factors (Rows 59–65)
+
+Some factors don't reduce to numbers:
+
+\`\`\`
+Row 59: === QUALITATIVE ===
+Row 60: Neighborhood Grade (A/B/C/D)    [manual]
+Row 61: School District Rating           [manual]
+Row 62: Proximity to Employment          [manual]
+Row 63: Condition / Deferred Maint.      [manual - Low/Med/High]
+Row 64: Tenant Quality Expectation       [manual]
+Row 65: Appreciation Outlook             [manual - Low/Med/High]
+\`\`\`
+
+These subjective assessments put the numbers in context. A property with a 7.5% cap rate in a D neighborhood tells a very different story than 6% in an A neighborhood.
+
+### Step 6: Conditional Formatting
+
+Make the spreadsheet scannable with color:
+
+- **Cash flow row:** Green if positive, red if negative
+- **Cap rate row:** Color scale from red (low) to green (high)
+- **Cash-on-cash row:** Green if ≥8%, yellow if 5-8%, red if <5%
+- **DSCR row:** Green if ≥1.25, yellow if 1.0-1.25, red if <1.0
+- **Star cells:** Bold gold text
+
+Select each metric row, go to Home → Conditional Formatting, and set the rules. This takes 5 minutes and transforms a wall of numbers into a visual dashboard.
+
+## Real-World Example: Comparing 4 Properties
+
+Let's run through an actual comparison to show the spreadsheet in action.
+
+### The Properties
+
+| | Property A | Property B | Property C | Property D |
+|---|---|---|---|---|
+| Address | 142 Oak St | 567 Elm Dr | 23 Pine Ave | 891 Maple Ct |
+| Price | $195,000 | $245,000 | $168,000 | $310,000 |
+| Units | 1 (SFR) | 2 (duplex) | 1 (SFR) | 2 (duplex) |
+| Monthly rent | $1,650 | $2,400 | $1,350 | $3,100 |
+| Year built | 2001 | 1985 | 1972 | 1998 |
+| Neighborhood | B+ | B | C+ | A- |
+
+### The Results
+
+| Metric | Property A | Property B | Property C | Property D |
+|---|---|---|---|---|
+| Cap Rate | 5.8% | 6.4% | 5.1% | 5.9% |
+| Monthly Cash Flow | $142 | $287 | $58 | $198 |
+| Cash-on-Cash | 3.2% | 5.5% | 1.9% | 3.7% |
+| Total Cash Required | $53,100 | $66,850 | $45,720 | $84,500 |
+| DSCR | 1.12 | 1.28 | 1.05 | 1.18 |
+| Price/Unit | $195,000 | $122,500 | $168,000 | $155,000 |
+| Rent-to-Price | 0.85% | 0.98% | 0.80% | 1.00% |
+| ★ Stars | 0 | 4 | 1 | 1 |
+
+### Analysis
+
+**Property B wins on the numbers.** Highest cap rate, best cash flow, best cash-on-cash, best DSCR, and near the 1% rule. The duplex structure gives better per-unit economics.
+
+**But look at the qualitative factors:** It was built in 1985 (potentially needing roof, HVAC, or plumbing updates within 5 years), and it's in a B neighborhood. Those future CapEx hits could eat into the superior cash flow.
+
+**Property D is the sleeper.** Lower cash-on-cash but it's in an A- neighborhood with a 1998 build. Lower maintenance risk, better tenant quality, stronger appreciation potential. For a long-term hold, it might outperform Property B on total return even though it looks worse on Year 1 metrics.
+
+**Property C is the trap.** Lowest cash required (tempting for capital-constrained investors) but also lowest returns, oldest building, and weakest neighborhood. The 1.05 DSCR means one vacancy month and you're writing checks.
+
+**Property A is average across the board.** Not the best at anything, not the worst. Unless there's a specific strategic reason (location, future development nearby), it's the one to pass on.
+
+This is exactly the kind of insight you can't get from analyzing properties individually. Side-by-side, the story becomes obvious.
+
+## Advanced: Adding a Scoring System
+
+For investors comparing many properties, add a weighted scoring system:
+
+### Define Your Weights
+
+| Metric | Weight | Your Priority |
+|--------|--------|---------------|
+| Cash-on-cash return | 25% | Cash flow focused |
+| Cap rate | 15% | Market comparison |
+| DSCR | 20% | Safety margin |
+| Neighborhood grade | 20% | Tenant quality / appreciation |
+| Condition / CapEx risk | 10% | Future cost exposure |
+| Appreciation potential | 10% | Long-term growth |
+
+### Scoring Formula
+
+For each metric, score each property 1–10 relative to the others. Then calculate:
+
+\`\`\`
+Weighted Score = Σ (Score × Weight)
+\`\`\`
+
+In Excel:
+
+\`\`\`
+=B70*$A$70 + B71*$A$71 + B72*$A$72 + B73*$A$73 + B74*$A$74 + B75*$A$75
+\`\`\`
+
+Where column A has weights and Row 70-75 has individual metric scores.
+
+**Adjust the weights to match your strategy:**
+- Cash flow investor? Weight cash-on-cash and DSCR higher.
+- Appreciation investor? Weight neighborhood and growth potential higher.
+- Conservative investor? Weight DSCR and condition higher.
+
+The scoring system turns a subjective "gut feel" comparison into a systematic, repeatable process.
+
+## Common Comparison Mistakes
+
+### 1. Comparing Properties With Different Financing
+
+If you're running Property A with 20% down and Property B with 25% down, cash-on-cash returns aren't comparable. Standardize your financing assumptions across all properties (same down payment percentage, same rate, same term). You can run different financing scenarios separately, but the comparison sheet should use consistent terms.
+
+### 2. Ignoring Future CapEx Differences
+
+A 2010-built property and a 1975-built property might have similar current cash flow, but the 1975 building has a roof replacement, HVAC update, and plumbing concerns within your hold period. Add a "Projected CapEx (5-year)" row that estimates major repairs based on the age and condition of each property's systems.
+
+**Quick CapEx estimate by age:**
+- Roof: Replace every 20-25 years ($8,000-$15,000)
+- HVAC: Replace every 15-20 years ($4,000-$10,000)
+- Water heater: Replace every 10-12 years ($800-$2,000)
+- Appliances: Replace every 10-15 years ($2,000-$5,000)
+
+If a property's roof is 18 years old, budget $12,000 for replacement within your hold period. This dramatically changes the comparison when one property needs $25,000 in CapEx and another needs $3,000.
+
+### 3. Not Verifying Rent Assumptions
+
+Your entire analysis depends on accurate rent numbers. For each property, verify rents using:
+
+- **Rentometer** or **Zillow Rent Zestimate** for market comps
+- **Actual current lease** (if buying occupied)
+- **Comparable listings** within 0.5 miles
+- **Property manager input** if you have one
+
+A $100/month rent overestimate on a $1,500/month property overstates annual income by $1,200 — enough to flip a marginal deal from positive to negative cash flow.
+
+### 4. Comparing Across Incompatible Markets
+
+A property in Memphis and a property in San Francisco are not meaningfully comparable on metrics like cap rate or rent-to-price ratio. These metrics vary dramatically by market. Compare properties within the same metro area, or at minimum, within similar market types (secondary Midwest cities vs. other secondary Midwest cities).
+
+### 5. Only Looking at Year 1
+
+Year 1 cash flow matters, but a 5-year view matters more. Property A might have better Year 1 cash flow, but Property B is in a market with 5% annual rent growth vs. 2%. By Year 3, Property B overtakes — and by Year 5, it's significantly ahead.
+
+Add a "Projected Year 5 Cash Flow" row using assumed rent and expense growth rates:
+
+\`\`\`
+Year 5 Rent = Current Rent × (1 + Rent Growth)^4
+Year 5 Expenses = Current Expenses × (1 + Expense Growth)^4
+Year 5 Cash Flow = Year 5 NOI - Debt Service
+\`\`\`
+
+## Multi-Property Portfolio View
+
+If you already own rentals and are deciding which to add next, expand your spreadsheet to include your current portfolio:
+
+**Existing Portfolio Summary:**
+- Total monthly cash flow from current properties
+- Average cap rate across portfolio
+- Geographic concentration (how many properties in one area)
+
+**New Property Impact:**
+- Does the new property improve or dilute your average cap rate?
+- Does it diversify your geographic risk?
+- Does the total portfolio cash flow remain positive if one property goes vacant?
+
+This portfolio-level thinking separates serious investors from hobbyists. A property with a 5.5% cap rate might be worth buying if it diversifies your portfolio into a new market — even though you could get 7% in your current market.
+
+## Template Customization Tips
+
+### For Multifamily Investors
+Add rows for: cost per unit, revenue per unit, expense per unit, unit mix (1BR/2BR/3BR breakdown), and average rent per unit type. Multifamily deals are compared by per-unit economics, not totals.
+
+### For House Hackers
+Add a row for "Your portion of mortgage" — the amount you pay after tenant rents are applied. The property where your net housing cost is lowest might be the winner, even if pure investment metrics favor another property.
+
+### For BRRRR Investors
+Add rows for: ARV, rehab cost, all-in cost, refinance LTV, cash left in deal, and post-refinance cash flow. BRRRR deals are compared by capital recovery efficiency, not just ongoing cash flow.
+
+### For Out-of-State Investors
+Add rows for: distance to property manager, property manager rating/reviews, market familiarity score, and timezone difference. Operational complexity matters when you can't drive by the property.
+
+## From Spreadsheet to Decision
+
+The comparison spreadsheet doesn't make the decision for you. It gives you the information to make a confident one. Here's the decision framework:
+
+1. **Eliminate any property with DSCR below 1.1.** Too close to break-even — one surprise and you're negative.
+
+2. **Rank by your primary metric.** Cash-on-cash for cash flow investors, cap rate for value investors, projected IRR for growth investors.
+
+3. **Check qualitative factors on your top 2–3.** Neighborhood, condition, and appreciation outlook can override a 1% difference in cap rate.
+
+4. **Run the worst case.** What happens if vacancy runs 50% higher than projected? What if rents drop 5%? The property that still works under stress is the safer bet.
+
+5. **Make the offer.** Analysis paralysis kills more deals than bad analysis. Once you've compared systematically, trust the process and act.
+
+## A Faster Way to Compare
+
+Building a comparison spreadsheet from scratch takes 2-3 hours of formula work. SheetCraft's [Rental Property Analyzer](/products/rental-property-analyzer) includes a built-in comparison module that handles up to 10 properties side-by-side with automatic ranking, conditional formatting, and 10-year projections — ready to use in minutes.
+
+[See the Rental Property Analyzer →](/products/rental-property-analyzer)
+
+## Key Takeaways
+
+1. **Always compare properties side-by-side, never sequentially.** Serial analysis leads to recency bias and missed trade-offs.
+2. **Standardize your financing assumptions** across all properties in the comparison. Different down payments make metrics incomparable.
+3. **Use both quantitative metrics and qualitative factors.** Numbers tell you what; neighborhood, condition, and growth outlook tell you why.
+4. **Include a 5-year CapEx projection** based on each property's age and condition. A cheap property with deferred maintenance isn't actually cheap.
+5. **Weight your metrics to match your strategy.** Cash flow investors and appreciation investors should rank properties differently — and the spreadsheet should reflect that.
+6. **The comparison spreadsheet is a decision tool, not a decision maker.** Use it to narrow your options, then apply judgment on the final pick.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
