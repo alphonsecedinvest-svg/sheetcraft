@@ -63,9 +63,11 @@ export default function Footer() {
           </nav>
 
           <div className="flex items-center gap-4 text-xs text-sc-text-muted/60">
-            <Link href="#" className="hover:text-sc-text transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-sc-text transition-colors">Terms</Link>
-            <span>© 2026 SheetCraft</span>
+            <Link href="/privacy" className="hover:text-sc-text transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-sc-text transition-colors">Terms</Link>
+            <Link href="/refund-policy" className="hover:text-sc-text transition-colors">Refunds</Link>
+            <Link href="/imprint" className="hover:text-sc-text transition-colors">Imprint</Link>
+            <span>© 2026 Cedinvest SA</span>
           </div>
         </div>
       </Container>
