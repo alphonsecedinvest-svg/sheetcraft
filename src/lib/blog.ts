@@ -4884,6 +4884,447 @@ No formulas to build, no formatting to configure. Enter your budget, update your
 5. **Separate change orders from base budget overruns.** Owner-driven scope changes are not contractor cost overruns — mixing them destroys accountability.
 6. **Connect variance data back to your estimating process.** Every project's variance report should make your next project's estimate more accurate. That feedback loop is how contractors build consistent profitability over time.`,
   },
+  {
+    slug: 'aia-g702-g703-payment-application-excel',
+    title: 'AIA G702/G703 Payment Application: How to Build a Free Excel Alternative',
+    metaTitle: 'AIA G702/G703 Payment Application: Free Excel Alternative (2026)',
+    metaDescription: 'Learn how to create AIA G702 and G703 payment application forms in Excel. Step-by-step guide with formulas, retainage tracking, and lender-ready formatting.',
+    targetKeyword: 'AIA G702 G703 Excel template',
+    secondaryKeywords: ['AIA G702 template Excel', 'AIA G703 continuation sheet Excel', 'construction payment application template', 'AIA pay app spreadsheet'],
+    excerpt: 'AIA G702/G703 forms cost $3-5 per set and require handwriting or expensive software. Here\'s how to build a reusable Excel version that your lender will actually accept.',
+    publishedAt: '2026-03-01',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/aia-g702-g703-payment-application.jpg',
+    imageAlt: 'Construction office desk with AIA payment application forms and Excel spreadsheet on laptop',
+    content: `If you've ever submitted a payment application on a construction project, you've dealt with AIA G702 and G703 forms. They're the industry standard — required by most lenders, expected by most owners, and hated by most contractors.
+
+Not because the forms are bad. They're actually well-designed. The problem is how they're distributed: pre-printed pads that cost $3-5 per set, fillable PDFs that fight you at every cell, or proprietary software that charges monthly fees for what's essentially a spreadsheet with formulas.
+
+Here's the thing: the AIA G702/G703 is just a structured payment application with a continuation sheet. Every calculation on it can be replicated — and improved — in Excel. You get a reusable template that auto-calculates, tracks history across multiple pay periods, and produces a professional document your lender will accept.
+
+In this guide, we'll build both forms from scratch in Excel, explain every field and formula, and show you how to connect them into a system that handles your entire project billing.
+
+## What Are the AIA G702 and G703 Forms?
+
+### G702: Application and Certificate for Payment
+
+The G702 is the cover sheet — a one-page summary of the payment application. It contains:
+
+- Project identification (name, number, location)
+- Contractor and owner information
+- Contract details (original sum, change orders, current sum)
+- Payment summary (total completed, retainage, amount due)
+- Certification and signature blocks
+
+Think of it as the executive summary. The owner or lender reads this page to understand the total amount being requested.
+
+### G703: Continuation Sheet
+
+The G703 is where the detail lives. It's a multi-row table that breaks down every line item in the schedule of values, showing:
+
+- Item number and description
+- Scheduled value (contract amount per line)
+- Work completed from previous applications
+- Work completed this period
+- Materials presently stored
+- Total completed and stored to date
+- Percentage complete
+- Balance to finish
+- Retainage
+
+The G703 feeds into the G702. The totals from the continuation sheet populate the summary on the cover page.
+
+## Why Build This in Excel Instead of Buying AIA Forms?
+
+### Cost
+AIA forms cost $3-5 per printed set, or $200+ annually for digital access through AIA Contract Documents software. On a project with 8-12 pay applications, that's $24-60 just in forms. Across five projects a year, you're spending $120-300 on formatted paper.
+
+An Excel template costs you a few hours to build — once — and works forever.
+
+### Reusability
+Pre-printed forms are single-use. PDFs are awkward to modify. An Excel template carries forward from one pay period to the next, automatically populating "previous application" values from the last submission.
+
+### Calculations
+The printed G703 requires manual math — adding columns, calculating percentages, computing retainage. One arithmetic error and the entire application needs to be redone. Excel handles all of this with formulas.
+
+### History
+With Excel, every pay application lives in the same workbook (one tab per pay period, or one row per period in a cumulative tracker). You can see the full billing history at a glance, compare periods, and generate reports.
+
+### Customization
+Some lenders and owners want slightly different formats — extra columns for stored materials, split retainage rates, or additional certifications. Excel lets you adapt instantly.
+
+## Important Note on Copyright
+
+AIA document formats are copyrighted. You cannot photocopy or exactly replicate the AIA G702/G703 layout. What you *can* do is create your own payment application that captures the same information in your own format. Most lenders care about the data, not the specific form design — as long as all required fields are present.
+
+The template we're building contains all the same fields and calculations as the AIA forms, organized in a clean, professional layout that serves the same purpose.
+
+## Building the G703 Continuation Sheet in Excel
+
+We'll start with the G703 because it contains the detail that feeds the G702 summary.
+
+### Column Structure
+
+Set up these columns starting in Row 4 (leave rows 1-3 for the header):
+
+| Column | Header | Width |
+|--------|--------|-------|
+| A | Item No. | 8 |
+| B | Description of Work | 35 |
+| C | Scheduled Value | 15 |
+| D | Work Completed — Previous Applications | 15 |
+| E | Work Completed — This Period | 15 |
+| F | Materials Presently Stored | 15 |
+| G | Total Completed and Stored (D+E+F) | 15 |
+| H | % Complete (G/C) | 10 |
+| I | Balance to Finish (C-G) | 15 |
+| J | Retainage (G × retainage %) | 15 |
+
+### Row Setup
+
+**Rows 1-3: Header Information**
+
+\`\`\`
+A1: CONTINUATION SHEET                    (Bold, 14pt)
+A2: Application No: [input]    C2: Application Date: [input]    E2: Period To: [input]
+A3: Project: [input]           C3: Contract For: [input]
+\`\`\`
+
+**Rows 5-54: Line Items** (50 rows should handle most projects)
+
+Enter your schedule of values — each line item from your contract with its scheduled (contract) value in Column C.
+
+**Row 55: Totals**
+
+### Key Formulas (Row 5 as example)
+
+**G5 (Total Completed and Stored):**
+\`=D5+E5+F5\`
+
+**H5 (Percent Complete):**
+\`=IF(C5=0,"",G5/C5)\`
+
+Format as percentage. The IF prevents #DIV/0! errors on empty rows.
+
+**I5 (Balance to Finish):**
+\`=C5-G5\`
+
+**J5 (Retainage):**
+\`=G5*$B$58\`
+
+Where B58 contains your retainage percentage (typically 10%). Using an absolute reference means you can change the retainage rate in one cell and every line updates.
+
+**Row 55 Totals:**
+\`\`\`
+C55: =SUM(C5:C54)    Total Scheduled Value
+D55: =SUM(D5:D54)    Total Previous Work
+E55: =SUM(E5:E54)    Total This Period
+F55: =SUM(F5:F54)    Total Stored Materials
+G55: =SUM(G5:G54)    Grand Total Completed
+H55: =G55/C55        Overall % Complete
+I55: =SUM(I5:I54)    Total Balance to Finish
+J55: =SUM(J5:J54)    Total Retainage
+\`\`\`
+
+### Validation Rules
+
+Add data validation to prevent common errors:
+
+**Work Completed This Period (Column E):** Cannot exceed Balance to Finish from the previous application. Use:
+\`=Data Validation → Custom → =E5<=(C5-D5-F5)\`
+
+**Materials Stored (Column F):** Cannot be negative:
+\`=Data Validation → Custom → =F5>=0\`
+
+**Total Completed (Column G):** Cannot exceed Scheduled Value. Add conditional formatting:
+\`=Conditional Format → Rule: =G5>C5 → Red fill\`
+
+This prevents the classic mistake of billing more than the contract amount for a line item.
+
+### Carrying Forward Previous Applications
+
+This is the most valuable automation. When you start Pay App #2, Column D ("Previous Applications") should automatically equal Column G ("Total Completed") from Pay App #1.
+
+**Option 1: Separate tabs per pay app**
+
+Create tabs named "PayApp01", "PayApp02", etc. In PayApp02, Column D:
+\`=PayApp01!G5\`
+
+**Option 2: Cumulative tracker with one tab**
+
+Add a column for each pay period and use SUMIFS to calculate cumulative previous work. More complex to set up but easier to maintain long-term.
+
+For most contractors, Option 1 is simpler and more intuitive.
+
+## Building the G702 Cover Sheet in Excel
+
+The G702 pulls summary data from the G703 and adds project/contract information.
+
+### Layout
+
+\`\`\`
+Row 1:  APPLICATION AND CERTIFICATE FOR PAYMENT        (Bold, 16pt)
+Row 3:  To Owner: [input]                Application No: =G703!B2
+Row 4:  From Contractor: [input]          Application Date: =G703!D2
+Row 5:  Project: =G703!B3                 Period To: =G703!F2
+Row 6:  Contract For: =G703!D3            Contract Date: [input]
+\`\`\`
+
+### Contract Summary Section (Rows 8-14)
+
+| Row | Label | Value / Formula |
+|-----|-------|-----------------|
+| 8 | 1. Original Contract Sum | [input — your original contract amount] |
+| 9 | 2. Net Change by Change Orders | [input or linked to CO log] |
+| 10 | 3. Contract Sum to Date (1+2) | =B8+B9 |
+| 11 | 4. Total Completed & Stored to Date | =G703!G55 |
+| 12 | 5. Retainage: | |
+| 12a | a. __% of Completed Work | =G703!J55 (or split formula) |
+| 12b | b. __% of Stored Material | [if different rate] |
+| 12c | Total Retainage | =B12a+B12b |
+| 13 | 6. Total Earned Less Retainage (4-5) | =B11-B12c |
+| 14 | 7. Less Previous Certificates for Payment | [previous pay app total or formula] |
+| 15 | 8. Current Payment Due (6-7) | =B13-B14 |
+| 16 | 9. Balance to Finish Including Retainage | =B10-B11+B12c |
+
+Line 15 — **Current Payment Due** — is the number everyone's looking for. It's the check amount.
+
+### Split Retainage
+
+Some contracts have different retainage rates for completed work vs. stored materials. If yours does, modify the retainage calculation:
+
+\`\`\`
+Retainage on completed work: =(G703!D55+G703!E55) × Work_Retainage_%
+Retainage on stored materials: =G703!F55 × Material_Retainage_%
+Total retainage: =Sum of above
+\`\`\`
+
+Common split: 10% on work, 0% on stored materials (to encourage contractors to store materials on site without penalty).
+
+### Certification Block
+
+Below the numbers, add a certification statement:
+
+\`\`\`
+"The undersigned Contractor certifies that to the best of the Contractor's knowledge,
+information, and belief, the Work covered by this Application for Payment has been
+completed in accordance with the Contract Documents, that all amounts have been paid
+by the Contractor for Work for which previous Certificates for Payment were issued and
+payments received from the Owner, and that current payment shown herein is now due."
+
+Contractor: ___________________________    Date: ___________
+
+State of: ___________  County of: ___________
+
+Notary Public: ________________________   Commission Expires: ___________
+\`\`\`
+
+Not all projects require notarization, but include the block — it's easier to skip it than to add it last minute when a lender demands it.
+
+## Connecting G702 and G703
+
+The power of the Excel version is that these two sheets talk to each other. Here's the connection map:
+
+| G702 Field | Source |
+|------------|--------|
+| Total Completed & Stored | =G703 Grand Total (G55) |
+| Retainage | =G703 Retainage Total (J55) |
+| Application Number | =G703 Header |
+| Application Date | =G703 Header |
+| Period To | =G703 Header |
+
+When you update line items on the G703, the G702 cover sheet updates automatically. No manual transfer, no arithmetic errors.
+
+## Handling Change Orders
+
+Change orders modify your schedule of values — and therefore your G703. There are two approaches:
+
+### Approach 1: Add New Lines
+
+When a change order is approved, add a new line item at the bottom of your G703 with:
+- Description: "CO #1 — [description]"
+- Scheduled Value: The approved change order amount
+
+This keeps the original contract items separate from changes, making it clear what was base contract vs. modifications.
+
+### Approach 2: Modify Existing Lines
+
+If the change order modifies an existing line item (e.g., upgrading countertops from laminate to quartz increases Division 12 by $4,500), update the Scheduled Value for that line.
+
+**Important:** If you modify existing lines, track the original vs. revised scheduled value somewhere. The G702's "Net Change by Change Orders" field should equal the total adjustment across all modified lines.
+
+**Recommendation:** Use Approach 1 for clarity. Auditors, lenders, and owners prefer seeing change orders as distinct line items.
+
+## Retainage Release
+
+At project completion (or sometimes at substantial completion), retainage is released. Handle this in your spreadsheet by:
+
+1. Creating a final pay application tab (e.g., "PayApp-Final")
+2. Setting the retainage percentage to 0% for that application
+3. The "Current Payment Due" on the G702 will include the released retainage
+
+Some contracts release retainage in stages — 50% at substantial completion, 50% after punch list. In that case, create two final applications with adjusted retainage rates.
+
+Add a **Retainage Release** row in your G702:
+
+\`\`\`
+10. Retainage Released This Period:  [manual or formula]
+11. Adjusted Current Payment Due:    =Current_Payment + Retainage_Released
+\`\`\`
+
+## Formatting for Professional Submission
+
+Your Excel template needs to look professional when printed or saved as PDF. Here's the formatting checklist:
+
+### Page Setup
+- **Paper size:** Letter (8.5" × 11")
+- **Orientation:** Landscape for G703, Portrait for G702
+- **Margins:** 0.5" all sides
+- **Print area:** Set explicitly (don't print empty rows)
+- **Header/Footer:** Include project name and application number
+- **Grid lines:** Print gridlines for the G703 table; hide for G702
+
+### Cell Formatting
+- **Currency columns:** Format as Currency, 2 decimal places, with comma separator
+- **Percentage column:** Format as Percentage, 1 decimal place
+- **Headers:** Bold, centered, with light gray background
+- **Total row:** Bold, with top border (double line)
+- **Input cells:** Light yellow fill (so reviewers know what was entered vs. calculated)
+
+### Print Preview Check
+Always check print preview before submitting. Common issues:
+- Column headers split across pages
+- Total row orphaned on a second page
+- Currency formatting inconsistent
+- Percentage column showing as decimal (0.45 instead of 45%)
+
+## Common Mistakes on Payment Applications
+
+### 1. Overbilling Early Line Items
+
+Front-loading — billing a higher percentage on early line items than work actually completed — is a red flag for lenders. If your foundation is 80% billed but the inspector says it's 60% complete, you'll face a retainage adjustment or outright rejection.
+
+**Prevention:** Your G703 percentage complete (Column H) should match the inspector's assessment, not your cash flow needs.
+
+### 2. Not Matching the Schedule of Values
+
+Your G703 line items must match the approved schedule of values exactly. If the SOV has "Division 09 - Finishes" as one line but you break it into "Drywall," "Paint," and "Tile," the lender will reject the application until you reconcile.
+
+**Prevention:** Set up your G703 from the approved SOV before your first application. Don't reorganize mid-project.
+
+### 3. Missing Lien Waivers
+
+Most owners and lenders require conditional lien waivers with each pay application. Your Excel template should include a checklist:
+
+\`\`\`
+□ Contractor conditional lien waiver (this period)
+□ Contractor unconditional lien waiver (previous period)
+□ Subcontractor conditional waivers (this period)
+□ Subcontractor unconditional waivers (previous period)
+□ Supplier conditional waivers (if applicable)
+\`\`\`
+
+Add this as a row or comment in your G702 template as a submission reminder.
+
+### 4. Retainage Arithmetic Errors
+
+On the printed AIA form, retainage math is done by hand — and it's wrong surprisingly often. Your Excel formulas eliminate this. But double-check that your retainage formula references the correct total (Total Completed and Stored, not just Work This Period).
+
+### 5. Inconsistent Application Numbering
+
+Pay applications should be numbered sequentially with no gaps. PayApp 01, 02, 03... If the lender receives #4 and #6 but not #5, it creates confusion and delays payment. Your Excel template should auto-increment based on the previous tab.
+
+## Multi-Period Tracking Dashboard
+
+Once you have several pay applications submitted, add a summary tab that tracks billing progress across the entire project:
+
+| Pay App # | Date | Work This Period | Total Completed | % Complete | Retainage Held | Amount Paid | Cumulative Paid |
+|-----------|------|-----------------|-----------------|------------|---------------|-------------|-----------------|
+
+This becomes your project financial summary — showing the billing S-curve over time. Plot "% Complete" and "Cumulative Paid" on a chart to visualize cash flow.
+
+**Useful formulas for the dashboard:**
+
+**Average monthly billing rate:**
+\`=AVERAGE(Work_This_Period_Range)\`
+
+**Projected remaining pay apps:**
+\`=Balance_to_Finish / Average_Monthly_Billing\`
+
+**Projected completion date:**
+\`=TODAY() + Projected_Remaining_PayApps * 30\`
+
+These projections help with cash flow planning — both yours and the owner's.
+
+## Stored Materials: The Tricky Column
+
+Column F (Materials Presently Stored) deserves special attention because it's the most disputed field on the G703.
+
+### What Qualifies as Stored Materials
+- Materials delivered to the job site and verified by the inspector
+- Materials stored off-site at a bonded warehouse (with proof)
+- Custom-fabricated items in the manufacturer's facility (with documentation)
+
+### What Doesn't Qualify
+- Materials on order but not yet delivered
+- Materials at the supplier's warehouse (unless specifically approved)
+- Standard stock items available from any supplier
+
+### Documentation Requirements
+
+For each stored material entry, you should have:
+- Purchase order or invoice proving ownership
+- Photos of materials on site (or warehouse receipt for off-site)
+- Insurance certificate covering stored materials
+- Bill of lading or delivery receipt
+
+### The Transition: Stored → Installed
+
+When stored materials are installed, they move from Column F to Column E in the next pay period. The total in Column G stays the same — the material just changes category from "stored" to "work completed."
+
+In your Excel template, add a note row or comment reminding yourself: "Reduce stored materials by the amount installed this period."
+
+## When Your Lender Requires Actual AIA Forms
+
+Some lenders and owners contractually require the official AIA G702/G703 forms. In that case, your Excel template still serves a critical purpose:
+
+1. **Do all calculations in Excel** — verify totals, check percentages, validate retainage
+2. **Transfer final numbers to the AIA form** — whether printed or fillable PDF
+3. **Keep the Excel version as your working copy** — it carries forward to the next period
+
+This hybrid approach gives you the calculation accuracy of Excel with the compliance of the official form. It takes an extra 10 minutes to transfer numbers, but it eliminates the arithmetic errors that cause rejections.
+
+## Connecting to Your Construction Budget
+
+Your G703 continuation sheet and your project budget should reference the same schedule of values. When they diverge, you either have billing errors or budget tracking errors.
+
+**In your Excel system:**
+
+\`\`\`
+Budget Tracker (Estimated vs Actual by CSI division)
+     ↕
+Schedule of Values (Contract amount per line item)
+     ↕
+G703 Continuation Sheet (Billing against each line item)
+\`\`\`
+
+The scheduled value in your G703 should equal the contract amount for that division in your budget. If they don't match, reconcile before submitting.
+
+SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker) includes a payment application module that automatically generates G702/G703-style documents from your budget data — scheduled values, work completed, retainage, and balance to finish are all calculated from the same source of truth. No double-entry, no reconciliation headaches.
+
+[See the Construction Budget Tracker →](/products/construction-budget-tracker)
+
+## Key Takeaways
+
+1. **The AIA G702 is the summary; the G703 is the detail.** Build the G703 first — it feeds the G702 automatically through cell references.
+2. **Every calculation on these forms can be replicated in Excel** with simple formulas. The result is faster, more accurate, and reusable across pay periods.
+3. **Carry forward previous application totals automatically** by linking tabs or using cell references. This eliminates the #1 source of pay app errors.
+4. **Track retainage as a formula, not a manual entry.** When the retainage rate changes (or is released), one cell update propagates everywhere.
+5. **Match your G703 line items to the approved schedule of values exactly.** Discrepancies cause payment delays.
+6. **Always check print layout before submitting.** A professional-looking pay application builds trust and gets processed faster.
+7. **Keep your Excel version even if the lender requires official AIA forms.** Use Excel for calculations and the AIA form for submission — best of both worlds.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
