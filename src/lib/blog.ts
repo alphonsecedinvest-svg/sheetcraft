@@ -5325,6 +5325,406 @@ SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker
 6. **Always check print layout before submitting.** A professional-looking pay application builds trust and gets processed faster.
 7. **Keep your Excel version even if the lender requires official AIA forms.** Use Excel for calculations and the AIA form for submission — best of both worlds.`,
   },
+  {
+    slug: 'after-repair-value-calculator-house-flips',
+    title: 'How to Calculate After Repair Value (ARV) for House Flips',
+    metaTitle: 'After Repair Value Calculator: How to Calculate ARV for House Flips (2026)',
+    metaDescription: 'Learn how to calculate After Repair Value (ARV) for house flips using comps, adjustments, and a free spreadsheet method. Includes real examples and common mistakes.',
+    targetKeyword: 'after repair value calculator',
+    secondaryKeywords: ['how to calculate ARV', 'after repair value formula', 'ARV real estate calculator', 'house flip ARV spreadsheet'],
+    excerpt: 'ARV is the single most important number in any house flip — and the one investors get wrong most often. Here\'s exactly how to calculate it using comps, adjustments, and a spreadsheet that keeps you honest.',
+    publishedAt: '2026-03-02',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/after-repair-value-calculator.jpg',
+    imageAlt: 'House renovation before and after transformation with property value analysis overlay',
+    content: `After Repair Value — ARV — is the single most important number in any house flip. Get it right and you know exactly what you can pay, what you can spend on rehab, and what your profit will be. Get it wrong and every other calculation in your deal falls apart.
+
+The problem? Most investors calculate ARV the way they calculate tips at a restaurant — a rough estimate based on vibes and round numbers. "Similar houses are selling for around $280K, so let's call it $275K to be safe." That's not analysis. That's a guess with a safety discount.
+
+Real ARV calculation is a systematic process: find comparable sales, adjust for differences, weight the results, and arrive at a number you can defend. It's what appraisers do — and it's what you need to do before writing an offer on any flip.
+
+In this guide, we'll walk through the entire ARV calculation process, build a reusable calculator in Excel, and show you how to avoid the mistakes that cost flippers thousands.
+
+## What Is After Repair Value?
+
+ARV is the estimated market value of a property after all planned renovations are complete. It answers the question: "What will this house sell for once I'm done fixing it up?"
+
+**ARV is NOT:**
+- What Zillow says the house is worth (Zestimates can be off by 10-20%)
+- What the highest comp in the neighborhood sold for
+- What you need it to be worth for the deal to work
+- The listing price of similar active listings
+
+**ARV IS:**
+- A data-driven estimate based on recently sold comparable properties
+- Adjusted for differences in size, condition, features, and location
+- Conservative enough to account for market uncertainty
+- The foundation of every other number in your flip analysis
+
+## Why ARV Errors Are So Expensive
+
+A 5% ARV error on a $300,000 property is $15,000. That doesn't sound catastrophic until you realize it comes directly out of your profit.
+
+Here's the cascade:
+
+| Scenario | Correct ARV ($300K) | Overestimated ARV ($315K) |
+|----------|--------------------|--------------------------| 
+| Purchase price | $180,000 | $189,000 (paid more because "margin" looked bigger) |
+| Rehab | $50,000 | $50,000 |
+| Holding costs | $12,000 | $14,000 (took longer to sell at inflated price) |
+| Selling costs (8%) | $24,000 | $24,000 (sold at $300K, not $315K) |
+| **Net profit** | **$34,000** | **$23,000** |
+
+That $15,000 ARV overestimate cost you $11,000 in actual profit — a 32% reduction. And this is a mild scenario. In a cooling market with a 10% ARV miss, the same deal can flip from profitable to a loss.
+
+## The Comp-Based ARV Method (How Appraisers Do It)
+
+Professional appraisers use the Sales Comparison Approach to determine property value. You should too. Here's the process:
+
+### Step 1: Find Comparable Sales
+
+Search for recently sold properties that match your subject property as closely as possible. "Comparable" means:
+
+**Must-match criteria:**
+- Same property type (single-family, townhouse, condo)
+- Same neighborhood or comparable submarket
+- Sold within the last 90 days (180 days maximum in slow markets)
+- Within 0.5 miles (1 mile maximum in rural areas)
+
+**Should-match criteria (adjust if different):**
+- Similar square footage (within 20%)
+- Similar bedroom/bathroom count (within 1)
+- Similar lot size (within 25%)
+- Similar age/era of construction
+- Similar condition (this is key — you're comparing to your AFTER condition)
+
+**Where to find comps:**
+- MLS (through your agent or license) — the gold standard
+- Zillow/Redfin "Recently Sold" filter
+- County assessor records (for sale prices)
+- PropStream, BatchLeads, or similar investor tools
+
+### Step 2: Select Your Best 3-5 Comps
+
+You need at least three comps to build a reliable ARV. Five is ideal. More than seven and you're diluting the analysis with less relevant data.
+
+**Rank your comps by similarity.** The perfect comp is:
+- Same street or block
+- Same size (within 100 sq ft)
+- Same bedroom/bath count
+- Same condition as your planned renovation
+- Sold within 30 days
+
+You'll rarely find a perfect comp. That's what adjustments are for.
+
+### Step 3: Make Adjustments
+
+This is where most DIY ARV calculations fall apart. Two houses are never identical, so you need to adjust comp prices to account for differences.
+
+**The rule:** Adjust the COMP to match the SUBJECT, not the other way around. If your subject has 3 bedrooms and the comp has 4, you subtract value from the comp (because if the comp only had 3 bedrooms like yours, it would have sold for less).
+
+**Common adjustments:**
+
+| Feature Difference | Typical Adjustment | Direction |
+|---|---|---|
+| Square footage | $50-$150 per sq ft (varies by market) | Add if comp is smaller, subtract if larger |
+| Bedroom count | $5,000-$15,000 per bedroom | Add if comp has fewer, subtract if more |
+| Bathroom count | $5,000-$12,000 per bathroom | Add if comp has fewer, subtract if more |
+| Garage (none vs. 2-car) | $15,000-$30,000 | Add if comp lacks garage |
+| Lot size | $1-$5 per sq ft (varies wildly) | Adjust proportionally |
+| Pool | $10,000-$25,000 | Subtract if comp has pool and subject doesn't |
+| Condition (updated vs. dated) | 5-15% of sale price | Add if comp is less updated |
+| Age difference | $1,000-$3,000 per decade | Adjust if significant gap |
+| Location (busy road, view, etc.) | 3-10% of sale price | Situational |
+
+**Important:** These are ranges, not rules. A bedroom in a $150,000 Memphis house is worth less than a bedroom in a $500,000 Nashville house. Calibrate your adjustments to your local market by studying how features actually affect sale prices in your area.
+
+### Step 4: Calculate Adjusted Comp Values
+
+For each comp:
+
+\`Adjusted Value = Sale Price + Sum of All Adjustments\`
+
+**Example:**
+
+| | Comp 1 | Comp 2 | Comp 3 |
+|---|---|---|---|
+| Sale Price | $278,000 | $295,000 | $268,000 |
+| Sq ft adjustment | +$7,500 (150 sq ft smaller) | -$5,000 (100 sq ft larger) | +$12,500 (250 sq ft smaller) |
+| Bedroom adjustment | $0 (same) | -$8,000 (extra bedroom) | $0 (same) |
+| Bathroom adjustment | +$7,000 (one fewer bath) | $0 (same) | +$7,000 (one fewer bath) |
+| Garage adjustment | $0 (same) | $0 (same) | +$18,000 (no garage) |
+| Condition adjustment | $0 (similar) | -$5,000 (slightly nicer) | +$10,000 (dated kitchen) |
+| **Adjusted Value** | **$292,500** | **$277,000** | **$315,500** |
+
+### Step 5: Reconcile to a Final ARV
+
+Don't just average the adjusted values. Weight them by relevance:
+
+- **Most similar comp** gets the highest weight
+- **Most recent sale** gets higher weight than older sales
+- **Closest proximity** gets higher weight
+- **Fewest adjustments** gets higher weight (fewer adjustments = more reliable)
+
+**Weighted average example:**
+
+| Comp | Adjusted Value | Weight | Weighted Value |
+|---|---|---|---|
+| Comp 1 (most similar, closest) | $292,500 | 50% | $146,250 |
+| Comp 2 (most recent) | $277,000 | 30% | $83,100 |
+| Comp 3 (most adjustments) | $315,500 | 20% | $63,100 |
+| **Weighted ARV** | | | **$292,450** |
+
+Round to the nearest $1,000: **ARV = $292,000**
+
+**Conservative adjustment:** Many experienced flippers then knock 2-3% off as a market uncertainty buffer. $292,000 × 0.97 = **$283,000 conservative ARV**.
+
+## Building Your ARV Calculator in Excel
+
+### Input Section
+
+\`\`\`
+A1: AFTER REPAIR VALUE (ARV) CALCULATOR
+A3: === SUBJECT PROPERTY ===
+A4: Address                          B4: [input]
+A5: Bedrooms                         B5: [input]
+A6: Bathrooms                        B6: [input]
+A7: Square Footage                   B7: [input]
+A8: Lot Size (sq ft)                 B8: [input]
+A9: Year Built                       B9: [input]
+A10: Garage                          B10: [input — None/1-car/2-car]
+A11: Pool                            B11: [input — Yes/No]
+A12: Planned Condition After Rehab   B12: [input — Updated/Fully Renovated]
+\`\`\`
+
+### Comp Entry Section (repeat for Comps 1-5)
+
+\`\`\`
+A14: === COMP 1 ===
+A15: Address                         B15: [input]
+A16: Sale Price                      B16: [input]
+A17: Sale Date                       B17: [input]
+A18: Days Since Sale                 B18: =TODAY()-B17
+A19: Distance (miles)                B19: [input]
+A20: Bedrooms                        B20: [input]
+A21: Bathrooms                       B21: [input]
+A22: Square Footage                  B22: [input]
+A23: Lot Size                        B23: [input]
+A24: Year Built                      B24: [input]
+A25: Garage                          B25: [input]
+A26: Pool                            B26: [input]
+A27: Condition                       B27: [input]
+\`\`\`
+
+### Adjustment Section (per comp)
+
+\`\`\`
+A29: === COMP 1 ADJUSTMENTS ===
+A30: Sq Ft Adjustment               B30: =(B7-B22)*$B$60
+A31: Bedroom Adjustment             B31: =(B5-B20)*$B$61
+A32: Bathroom Adjustment            B32: =(B6-B21)*$B$62
+A33: Garage Adjustment              B33: [manual or lookup]
+A34: Pool Adjustment                B34: [manual or lookup]
+A35: Lot Size Adjustment            B35: =(B8-B23)*$B$63
+A36: Condition Adjustment           B36: [manual]
+A37: Other Adjustments              B37: [manual]
+A38: Total Adjustments              B38: =SUM(B30:B37)
+A39: Adjusted Value                 B39: =B16+B38
+\`\`\`
+
+### Adjustment Rates (Reference Section)
+
+\`\`\`
+A60: === ADJUSTMENT RATES (customize for your market) ===
+B60: Price per Sq Ft adjustment      $75
+B61: Price per Bedroom               $8,000
+B62: Price per Bathroom              $7,000
+B63: Price per Lot Sq Ft             $2
+\`\`\`
+
+### Reconciliation Section
+
+\`\`\`
+A45: === ARV RECONCILIATION ===
+A46: Comp 1 Adjusted Value          B46: =B39
+A47: Comp 1 Weight                  C46: [input %]
+A48: Comp 2 Adjusted Value          B48: [from Comp 2 section]
+A49: Comp 2 Weight                  C48: [input %]
+A50: Comp 3 Adjusted Value          B50: [from Comp 3 section]
+A51: Comp 3 Weight                  C50: [input %]
+A52: Weighted ARV                   B52: =SUMPRODUCT(B46:B50,C46:C50)
+A53: Conservative ARV (−3%)         B53: =B52*0.97
+A54: Aggressive ARV (+3%)           B54: =B52*1.03
+\`\`\`
+
+### Sensitivity Output
+
+\`\`\`
+A56: === DEAL IMPACT ===
+A57: Conservative ARV Profit         B57: =B53-Purchase-Rehab-Costs
+A58: Base ARV Profit                 B58: =B52-Purchase-Rehab-Costs
+A59: Aggressive ARV Profit           B59: =B54-Purchase-Rehab-Costs
+\`\`\`
+
+This three-scenario view shows you the profit range — not just one number. If the deal only works at the aggressive ARV, it's too risky.
+
+## The $/Square Foot Cross-Check
+
+After running your comp-based analysis, cross-check with a simpler metric:
+
+**ARV Cross-Check = Average $/sq ft of comps × Subject square footage**
+
+\`\`\`
+Comp 1: $278,000 ÷ 1,850 sq ft = $150/sq ft
+Comp 2: $295,000 ÷ 2,100 sq ft = $140/sq ft
+Comp 3: $268,000 ÷ 1,750 sq ft = $153/sq ft
+Average: $148/sq ft
+
+Subject: 1,950 sq ft × $148 = $288,600
+\`\`\`
+
+Compare this to your weighted ARV of $292,000. They're within 1.2% — that's excellent convergence. If the two methods diverge by more than 5%, investigate why. Usually it means one of your comps is an outlier or your adjustments need revisiting.
+
+## Common ARV Mistakes That Cost Flippers Money
+
+### 1. Using Active Listings Instead of Sold Comps
+
+An active listing at $310,000 doesn't mean anything has actually sold at that price. Listing prices reflect seller aspirations, not market reality. Only use SOLD properties for ARV calculation.
+
+Exception: In very hot markets where properties sell above asking, pending sales (under contract) can supplement your analysis. But weight them lower than closed sales.
+
+### 2. Using Comps Older Than 6 Months
+
+Real estate markets move. A comp from 8 months ago might reflect a different interest rate environment, different buyer demand, or different seasonal dynamics. Stick to 90 days; stretch to 180 only if you absolutely must.
+
+If you're forced to use older comps, adjust for market trends. If prices have been rising 0.5% per month, a 6-month-old comp should be adjusted up 3%.
+
+### 3. Cherrypicking the Highest Comp
+
+It's tempting to anchor your ARV to the highest comp and rationalize why your property will match it. "Our kitchen will be even nicer." "We're adding that fourth bedroom." 
+
+Resist this. Your ARV should be a weighted average of multiple comps, not an aspirational number based on the best-case scenario. The market doesn't care about your renovation vision — it prices based on location, size, and condition.
+
+### 4. Ignoring Negative Adjustments
+
+Your subject property backs up to a busy road. The best comp is on a quiet cul-de-sac. That's a negative adjustment — $10,000 to $25,000 depending on the market. Investors who "forget" this adjustment overestimate ARV every time.
+
+Be as rigorous with negative adjustments as positive ones. If you adjust a comp UP for having fewer bathrooms, you must adjust another comp DOWN for having a bigger lot.
+
+### 5. Over-Adjusting
+
+If you're making $60,000 in total adjustments to a $280,000 comp, that comp is too different from your subject. A good rule: total adjustments shouldn't exceed 15-20% of the comp's sale price. Beyond that, find a better comp.
+
+### 6. Assuming Your Renovation Adds Dollar-for-Dollar Value
+
+A $50,000 kitchen renovation doesn't add $50,000 to the home's value. It might add $30,000-$40,000. A $25,000 pool might add $10,000-$15,000 (and in some markets, zero).
+
+Your ARV should be based on what comparable FINISHED homes actually sell for — not your purchase price plus renovation cost.
+
+### 7. Not Visiting Comps
+
+Photos lie. A comp that looks similar online might be on a completely different street, have a weird layout, or back up to a commercial property. Drive by your top 3 comps to confirm they're truly comparable. 10 minutes of driving can save you $20,000 in ARV errors.
+
+## ARV in Different Market Conditions
+
+### Rising Markets
+
+In a market with 5%+ annual appreciation, your ARV might be higher at the time of sale (6 months from now) than what comps show today. Some investors add a "market appreciation" adjustment.
+
+**Be careful.** Markets can turn mid-project. If you're banking on appreciation to make the deal work, you're speculating — not investing. Use today's comps for your base ARV and treat any appreciation as bonus profit.
+
+### Falling Markets
+
+In a declining market, your ARV at the time of sale will be LOWER than current comps suggest. Apply a negative market adjustment:
+
+\`Adjusted ARV = Comp-Based ARV × (1 - Monthly Decline Rate × Expected Months to Sale)\`
+
+If prices are dropping 0.5% per month and you'll sell in 6 months: $292,000 × (1 - 0.03) = $283,240.
+
+### Flat Markets
+
+The easiest scenario. Current comps are the best predictor of future value. No adjustment needed.
+
+## The Appraisal Gap: Why Your ARV and the Appraiser's Value Differ
+
+Even if your ARV calculation is perfect, the buyer's lender will send an appraiser — and their number might differ from yours. Common reasons:
+
+**Different comps selected.** The appraiser might use comps you didn't find, or exclude ones you used.
+
+**Different adjustment values.** Appraisers have their own adjustment tables, which may differ from your market knowledge.
+
+**Conservative bias.** Appraisers are penalized for overvaluing properties (post-2008 regulations). They tend to be conservative.
+
+**Build in a buffer.** If your ARV analysis says $292,000, price the home at $289,000-$295,000 and mentally budget for an appraisal at $280,000-$285,000. If the appraisal comes in low, you either negotiate with the buyer, drop the price, or wait for a cash buyer who doesn't need an appraisal.
+
+## Putting It All Together: ARV in Your Flip Analysis
+
+Your ARV feeds directly into every other calculation:
+
+**Maximum purchase price (70% rule):**
+\`= (ARV × 0.70) - Rehab Costs\`
+\`= ($292,000 × 0.70) - $50,000 = $154,400\`
+
+**Projected profit:**
+\`= ARV - Purchase - Rehab - Holding Costs - Closing Costs\`
+\`= $292,000 - $155,000 - $50,000 - $12,000 - $23,360 = $51,640\`
+
+**Selling price strategy:**
+List at ARV ($292,000) or slightly below to generate multiple offers and sell quickly. In a competitive market, pricing at $285,000 might generate offers above $290,000.
+
+The accuracy of your ARV determines the accuracy of everything downstream. A 5% miss cascades into wrong purchase prices, wrong profit projections, and wrong go/no-go decisions.
+
+## ARV for BRRRR Deals
+
+For BRRRR investors, ARV serves a different purpose — it determines your refinance amount, not your sale price.
+
+**Refinance proceeds = ARV × LTV (typically 70-80%)**
+
+\`= $292,000 × 0.75 = $219,000\`
+
+If your all-in cost (purchase + rehab + closing + holding) is $220,000, you're leaving $1,000 in the deal. A 3% ARV overestimate ($300,700 instead of $292,000) would make it look like you'd pull ALL your cash out — when in reality you wouldn't.
+
+For BRRRR specifically, conservative ARV matters even more because you're not selling to find out the real number. You're refinancing — and the appraiser has the final say on your LTV.
+
+## Quick Reference: ARV Calculation Checklist
+
+Use this checklist before finalizing your ARV on any deal:
+
+- [ ] Found 3-5 sold comps within 0.5 miles and 90 days
+- [ ] All comps are the same property type as subject
+- [ ] Adjusted for square footage differences
+- [ ] Adjusted for bedroom/bathroom count
+- [ ] Adjusted for garage, pool, and major features
+- [ ] Adjusted for condition (comparing to AFTER-rehab condition)
+- [ ] Adjusted for lot size if significantly different
+- [ ] Adjusted for location factors (busy road, views, school zone)
+- [ ] Total adjustments per comp are under 20% of sale price
+- [ ] Cross-checked with $/square foot method
+- [ ] Weighted comps by similarity (not just averaged)
+- [ ] Applied conservative buffer (2-3% reduction)
+- [ ] Drove by top 3 comps to verify visual similarity
+- [ ] Checked market trend direction (rising/flat/falling)
+- [ ] Verified comps are truly arm's-length transactions (not foreclosures sold to relatives)
+
+## Level Up Your Deal Analysis
+
+ARV is just the first number. A complete flip analysis connects your ARV to purchase price, rehab costs, holding costs, closing costs, and profit projection in one integrated view.
+
+SheetCraft's [Flip & BRRRR Calculator](/products/flip-brrrr-calculator) includes a built-in ARV calculator with comp tracking, automatic adjustments, weighted reconciliation, and a direct connection to your profit analysis. Change the ARV and instantly see how it affects your maximum purchase price, projected profit, and ROI — no manual recalculation required.
+
+[See the Flip & BRRRR Calculator →](/products/flip-brrrr-calculator)
+
+## Key Takeaways
+
+1. **ARV is the foundation of every flip calculation.** A 5% error cascades into wrong purchase prices, wrong profit projections, and bad investment decisions.
+2. **Use 3-5 sold comps within 0.5 miles and 90 days.** Active listings are not comps — only closed sales count.
+3. **Adjust comps systematically for every difference** — square footage, bedrooms, bathrooms, garage, condition, lot size, and location. Adjust the comp to match your subject, not the reverse.
+4. **Weight your comps by relevance.** The most similar, most recent, and closest comp deserves the most influence on your final ARV.
+5. **Cross-check with $/square foot.** If the two methods diverge by more than 5%, investigate why.
+6. **Always apply a conservative buffer.** Knock 2-3% off your weighted ARV to account for market uncertainty and appraisal risk.
+7. **Drive by your comps.** Photos don't tell the whole story. 10 minutes of windshield time can save you five figures in ARV errors.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
