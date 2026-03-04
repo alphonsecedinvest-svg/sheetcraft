@@ -6317,6 +6317,269 @@ SheetCraft's [Rental Property Analyzer](/products/rental-property-analyzer) incl
 6. **Use the mid-month convention** for Year 1 and the final year. Getting this wrong triggers corrections and potential penalties.`,
   },
 
+  {
+    slug: 'rental-property-depreciation-calculator-excel',
+    title: 'Rental Property Depreciation Calculator: Track Your Tax Deductions in Excel',
+    metaTitle: 'Rental Property Depreciation Calculator Excel | SheetCraft',
+    metaDescription: 'Build a rental property depreciation calculator in Excel. Covers straight-line, cost segregation, bonus depreciation, and recapture tracking for real estate investors.',
+    targetKeyword: 'rental property depreciation calculator Excel',
+    secondaryKeywords: ['rental property depreciation spreadsheet', 'real estate depreciation tracker', 'cost segregation calculator Excel', 'depreciation recapture tracker'],
+    excerpt: 'Depreciation is the largest non-cash deduction available to rental property investors. Most track it wrong or not at all. Here is how to build a depreciation calculator that keeps you accurate at tax time.',
+    publishedAt: '2026-03-04',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-depreciation-calculator.jpg',
+    imageAlt: 'Laptop showing depreciation schedule spreadsheet with calculator and tax documents on desk',
+    content: `# Rental Property Depreciation Calculator: Track Your Tax Deductions in Excel
+
+Depreciation is the single largest tax deduction most rental property investors have. On a $300,000 property, straight-line depreciation alone puts roughly $10,900 back in your pocket every year for 27.5 years. That is over $300,000 in total deductions on a single property.
+
+Yet most investors either let their CPA handle it as a black box, track it on a napkin, or ignore it until tax season and scramble. All three approaches lead to the same problem: missed deductions, inaccurate basis tracking, and ugly surprises when you sell.
+
+This guide shows you how to build a depreciation calculator in Excel that handles straight-line depreciation, cost segregation, bonus depreciation, and recapture tracking — so you always know exactly where you stand.
+
+## Why You Need to Track Depreciation Yourself
+
+Your CPA calculates depreciation for your tax return. That is their job. But here is what they do not do:
+
+- Tell you in real time how much depreciation you have left on each property
+- Model the tax impact of a cost segregation study before you pay for one
+- Track your adjusted basis across improvements, dispositions, and partial asset retirements
+- Show you the depreciation recapture liability if you sell today vs. three years from now
+
+These are investor decisions, not accounting tasks. And they require a spreadsheet you control.
+
+## The Basics: How Rental Property Depreciation Works
+
+Residential rental property in the US is depreciated over 27.5 years using the straight-line method. Commercial property uses 39 years. The IRS requires you to depreciate the building only — land is not depreciable.
+
+Here is the formula:
+
+\`Annual Depreciation = (Purchase Price - Land Value) / 27.5\`
+
+If you bought a property for $350,000 and the land is worth $70,000, your depreciable basis is $280,000 and your annual depreciation is $10,182.
+
+But this is just the starting point. Real depreciation tracking gets more complex when you add improvements, do a cost segregation study, or take bonus depreciation.
+
+## Setting Up Your Spreadsheet
+
+Create a workbook with four sheets: **Property Info**, **Straight-Line Schedule**, **Cost Segregation**, and **Recapture Tracker**.
+
+### Property Info Sheet
+
+This captures the inputs for each property:
+
+| Cell | Label | Example |
+|------|-------|---------|
+| B2 | Property Address | 123 Oak St, Unit A |
+| B3 | Purchase Date | 2024-03-15 |
+| B4 | Purchase Price | $350,000 |
+| B5 | Land Value | $70,000 |
+| B6 | Depreciable Basis | $280,000 |
+| B7 | Property Type | Residential (27.5 yr) |
+| B8 | Cost Seg Study Done? | Yes/No |
+
+The depreciable basis formula in B6:
+
+\`=B4-B5\`
+
+### How to Determine Land Value
+
+The IRS does not accept "I guessed." You need a defensible allocation. Three common methods:
+
+1. **County tax assessment ratio.** If your county assesses the land at 20% of total value, use that ratio. For a $350,000 purchase: $70,000 land, $280,000 building.
+
+2. **Appraisal.** Your purchase appraisal usually breaks out land and improvements separately. Use those numbers.
+
+3. **Comparable land sales.** If similar vacant lots in the area sell for $65,000-$75,000, use the midpoint.
+
+Document your method. If the IRS questions it, you need a paper trail.
+
+## Building the Straight-Line Schedule
+
+Your straight-line schedule shows annual depreciation for the full 27.5-year recovery period.
+
+Set up columns:
+
+| A | B | C | D | E |
+|---|---|---|---|---|
+| Year | Annual Depreciation | Cumulative Depreciation | Remaining Basis | % Depleted |
+
+Row 2 formulas:
+
+- **B2:** \`='Property Info'!B6/27.5\`
+- **C2:** \`=B2\`
+- **D2:** \`='Property Info'!B6-C2\`
+- **E2:** \`=C2/'Property Info'!B6\`
+
+Row 3 and below:
+
+- **B3:** \`=B2\` (same annual amount for straight-line)
+- **C3:** \`=C2+B3\`
+- **D3:** \`='Property Info'!B6-C3\`
+- **E3:** \`=C3/'Property Info'!B6\`
+
+Drag down to row 29 (27.5 years plus the partial first year).
+
+### Handling the Partial First Year
+
+The IRS uses a mid-month convention for real property. If you placed the property in service in March, you get 9.5 months of depreciation in year one and 2.5 months in year 28.
+
+Adjust B2:
+
+\`='Property Info'!B6/27.5*(DATEDIF('Property Info'!B3,DATE(YEAR('Property Info'!B3),12,31),"m")+0.5)/12\`
+
+And add a final row 29 for the remaining partial year.
+
+## Adding Capital Improvements
+
+Every time you add a roof, HVAC system, or major renovation, you create a new depreciation schedule layered on top of the original.
+
+Add a sheet called **Improvements** with these columns:
+
+| A | B | C | D | E | F |
+|---|---|---|---|---|---|
+| Description | Date | Cost | Life (years) | Annual Depr | Years Remaining |
+
+Examples:
+
+| New Roof | 2025-06-01 | $12,000 | 27.5 | $436 | 26.5 |
+| HVAC Replacement | 2025-09-15 | $8,500 | 27.5 | $309 | 27 |
+| Appliances | 2026-01-10 | $3,200 | 5 | $640 | 5 |
+
+Note that appliances and certain personal property items have a 5-year or 7-year recovery period, not 27.5 years. This is where cost segregation becomes relevant.
+
+Your total annual depreciation for any given year is:
+
+\`=Straight-Line!B2 + SUMPRODUCT((Improvements!D2:D100>0)*(Improvements!E2:E100))\`
+
+## Cost Segregation: Accelerating Your Deductions
+
+A cost segregation study reclassifies components of your building into shorter recovery periods:
+
+- **5-year property:** Carpeting, appliances, certain fixtures, decorative lighting
+- **7-year property:** Office furniture, certain equipment
+- **15-year property:** Land improvements (parking lots, landscaping, fencing, sidewalks)
+- **27.5-year property:** The structural building itself
+
+On a $280,000 depreciable basis, a typical cost segregation study might reclassify 20-30% of the value into shorter-lived categories. That means instead of $10,182/year in depreciation, you could front-load $40,000-$60,000 in deductions in the first few years.
+
+### Modeling Cost Segregation in Your Spreadsheet
+
+Add the **Cost Segregation** sheet with:
+
+| A | B | C | D | E |
+|---|---|---|---|---|
+| Asset Category | Allocated Value | Recovery Period | Annual Depreciation | Method |
+| 5-Year Property | $42,000 | 5 | $8,400 | Straight-Line |
+| 7-Year Property | $14,000 | 7 | $2,000 | Straight-Line |
+| 15-Year Property | $28,000 | 15 | $1,867 | Straight-Line |
+| 27.5-Year Building | $196,000 | 27.5 | $7,127 | Straight-Line |
+| **Total** | **$280,000** | — | **$19,394** | — |
+
+In this example, cost segregation nearly doubles first-year depreciation from $10,182 to $19,394.
+
+With bonus depreciation (currently at 40% for 2026 under the phase-down schedule), you can deduct 40% of the 5-year, 7-year, and 15-year property in year one:
+
+\`=B2*0.40 + B3*0.40 + B4*0.40\`
+
+That adds $33,600 in year-one deductions on top of the straight-line amounts for remaining basis.
+
+### Is a Cost Segregation Study Worth It?
+
+A professional cost segregation study costs $5,000-$15,000 depending on property size and complexity. The rule of thumb: it is worth it if your depreciable basis exceeds $500,000, or if your marginal tax rate makes the accelerated deductions valuable enough to justify the fee.
+
+Model it in your spreadsheet before committing. Calculate total deductions with and without cost segregation over a 5-year hold period and compare the present value of tax savings.
+
+## The Recapture Tracker: What Happens When You Sell
+
+Here is the part most investors forget until closing day: when you sell a depreciated property, the IRS recaptures the depreciation you claimed at a 25% tax rate (Section 1250 recapture).
+
+If you claimed $100,000 in total depreciation and sell at a gain, you owe $25,000 in recapture tax — regardless of your ordinary income tax bracket.
+
+Your **Recapture Tracker** sheet should show:
+
+| A | B |
+|---|---|
+| Original Basis | $350,000 |
+| Total Depreciation Claimed | $85,000 |
+| Adjusted Basis | $265,000 |
+| Estimated Sale Price | $420,000 |
+| Total Gain | $155,000 |
+| Recapture Amount | $85,000 |
+| Recapture Tax (25%) | $21,250 |
+| Capital Gain (above basis) | $70,000 |
+| Capital Gains Tax (15%) | $10,500 |
+| **Total Tax on Sale** | **$31,750** |
+
+Formulas:
+
+- **Adjusted Basis:** \`=B1-B2\`
+- **Total Gain:** \`=B4-B3\`
+- **Recapture Amount:** \`=MIN(B2, B5)\` (recapture cannot exceed total depreciation claimed)
+- **Recapture Tax:** \`=B6*0.25\`
+- **Capital Gain:** \`=B5-B6\`
+- **Capital Gains Tax:** \`=B8*0.15\` (adjust for your bracket)
+
+Update this every year as cumulative depreciation increases. It keeps the eventual tax bill visible instead of being a nasty surprise.
+
+## 1031 Exchange Considerations
+
+If you plan to do a 1031 exchange, depreciation does not disappear — it transfers to the replacement property. Your spreadsheet should track the "inherited" depreciation from exchanged properties separately.
+
+Add a column to your Property Info sheet:
+
+| B9 | Inherited Depreciation (from 1031) | $45,000 |
+
+This amount carries forward and continues to reduce your adjusted basis on the new property. When you eventually sell without exchanging, all accumulated depreciation — original and inherited — is subject to recapture.
+
+## Multi-Property Portfolio View
+
+If you own more than one rental property, create a **Portfolio Summary** sheet:
+
+| Property | Depreciable Basis | Annual Depr | Cumulative Depr | Adjusted Basis | Recapture Liability |
+|----------|------------------|-------------|-----------------|----------------|-------------------|
+| 123 Oak St | $280,000 | $10,182 | $30,545 | $249,455 | $7,636 |
+| 456 Pine Ave | $195,000 | $7,091 | $14,182 | $180,818 | $3,545 |
+| 789 Elm Dr | $340,000 | $12,364 | $12,364 | $327,636 | $3,091 |
+| **Total** | **$815,000** | **$29,637** | **$57,091** | **$757,909** | **$14,273** |
+
+This dashboard tells you at a glance: your portfolio generates $29,637 in annual depreciation deductions, and you would owe $14,273 in recapture taxes if you sold everything today.
+
+## Common Mistakes to Avoid
+
+**Not separating land from building.** If you depreciate the full purchase price including land, you are over-deducting and will face penalties if audited. Always document your land allocation method.
+
+**Forgetting to depreciate improvements.** Every capital improvement starts its own depreciation schedule. That $12,000 roof replacement is not just an expense — it is a 27.5-year depreciable asset.
+
+**Depreciating repairs instead of capitalizing them.** Repairs (fixing a leak, patching drywall) are current-year expenses. Improvements (new roof, new HVAC) are capitalized and depreciated. The distinction matters for both tax accuracy and basis tracking.
+
+**Not tracking adjusted basis.** Your adjusted basis is purchase price plus improvements minus depreciation. If you do not track it continuously, you will scramble at sale time and likely overpay on taxes.
+
+**Ignoring the mid-month convention.** The first and last years of depreciation are always partial. Using a full year in year one means you are claiming too much too early.
+
+## From Spreadsheet to Tax Return
+
+Your depreciation spreadsheet feeds directly into IRS Form 4562 (Depreciation and Amortization) and Schedule E (Supplemental Income and Loss). Having accurate, up-to-date depreciation schedules makes tax preparation faster, cheaper, and more accurate.
+
+Give your CPA the spreadsheet at tax time. They will verify the calculations and plug the numbers into the return. A clean depreciation schedule can cut your CPA's time in half — and their bill along with it.
+
+## Track Depreciation Alongside Cash Flow
+
+Depreciation does not exist in isolation. It interacts with your rental income, expenses, mortgage interest, and overall tax picture. SheetCraft's [Rental Property Analyzer](/products/rental-property-analyzer) integrates depreciation tracking with cash flow analysis, return calculations, and tax projections — all in one spreadsheet.
+
+[See the Rental Property Analyzer →](/products/rental-property-analyzer)
+
+## Key Takeaways
+
+1. **Track depreciation yourself, not just through your CPA.** You need real-time visibility into your adjusted basis and recapture liability.
+2. **Separate land value from building value with a defensible method.** Tax assessments, appraisals, and comparable land sales all work.
+3. **Every capital improvement creates a new depreciation schedule.** Track them individually with their own recovery period.
+4. **Model cost segregation before paying for a study.** It nearly doubles first-year deductions but costs $5,000-$15,000.
+5. **Track recapture liability continuously.** Knowing your tax bill on sale avoids nasty surprises and informs hold vs. sell decisions.
+6. **Update your spreadsheet annually.** Depreciation compounds over time — a small error in year one becomes a large error by year ten.`,
+  },
+
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
