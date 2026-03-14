@@ -16,6 +16,186 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'wholesale-real-estate-deal-calculator',
+    title: 'Wholesale Real Estate Deal Calculator: Analyze Assignments in 5 Minutes',
+    metaTitle: 'Wholesale Deal Calculator in Excel | SheetCraft',
+    metaDescription: 'Calculate MAO, assignment fees, and end-buyer profit in 5 minutes. Exact Excel formulas for analyzing wholesale real estate deals.',
+    targetKeyword: 'wholesale real estate deal calculator',
+    secondaryKeywords: ['MAO calculator', 'maximum allowable offer', 'wholesale deal analysis', 'assignment fee calculator', 'ARV formula Excel'],
+    excerpt: 'A wholesale real estate deal calculator tells you the maximum you can pay for a property and still assign it profitably. Here are the exact Excel formulas and spreadsheet layout to analyze any wholesale deal in 5 minutes.',
+    publishedAt: '2026-03-14',
+    readTime: 8,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/wholesale-real-estate-deal-calculator.png',
+    imageAlt: 'Excel spreadsheet showing a wholesale real estate deal calculator with MAO formula and DEAL verdict',
+    content: `<p>A wholesale real estate deal calculator separates the investors who close profitably from the ones who "thought the numbers worked." Wholesaling moves fast. A motivated seller gives you 24 hours to make an offer. A bird dog texts you a lead while you're driving. You run the numbers in your head, throw out a figure, and either leave $8,000 on the table or scare off your end buyer with a contract that doesn't pencil out. Both outcomes cost you money. One costs you reputation.</p>
+
+<p>The fix is simple: a spreadsheet that takes ARV, repair estimates, and your assignment fee, then tells you in five minutes whether the deal works. Not a gut feeling. Not "I think comps are around 220." A formula that spits out your maximum allowable offer and flags bad deals before you sign anything.</p>
+
+<h2>Why Wholesalers Lose Money on Bad MAO Math</h2>
+
+<p>Most wholesale deals fall apart for one of two reasons. Either the wholesaler offered too much (and no buyer will touch the contract), or they offered too low (and the seller went with someone who actually showed up with real numbers).</p>
+
+<p>Here's what this looks like in practice. You find a distressed property. The seller wants $155,000. You estimate ARV at $230,000, repairs at $35,000, and you want a $10,000 assignment fee. In your head, that sounds like it works. You lock it up at $155,000.</p>
+
+<p>Then your buyer runs the numbers properly. Using the 70% rule:</p>
+
+<p><code>=230000*0.70-35000-10000</code></p>
+
+<p>That's $116,000. Your contract is $39,000 over MAO. No serious flipper is buying that deal. You just wasted two weeks, burned a seller relationship, and your buyer list gets a little shorter.</p>
+
+<p>The other version: you lowball the seller at $95,000 because you "wanted to leave room." The seller had two other offers at $115,000 and $120,000. You never hear back. That deal had $15,000-$20,000 in assignment fee potential, gone because you didn't calculate your ceiling before the conversation.</p>
+
+<h3>The Real Cost of Mental Math</h3>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>ARV</th><th>Repairs</th><th>Your Offer</th><th>Correct MAO (at $10K fee)</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>Overestimated ARV by $20K</td><td>$230,000 (actual: $210,000)</td><td>$35,000</td><td>$126,000</td><td>$102,000</td><td>Buyer walks, contract expires</td></tr>
+<tr><td>Forgot holding costs</td><td>$195,000</td><td>$25,000</td><td>$111,500</td><td>$101,500</td><td>Buyer renegotiates, fee drops to $2K</td></tr>
+<tr><td>Lowballed to "be safe"</td><td>$240,000</td><td>$40,000</td><td>$90,000</td><td>$118,000</td><td>Seller rejects, deal lost</td></tr>
+<tr><td>Ran numbers correctly</td><td>$210,000</td><td>$30,000</td><td>$107,000</td><td>$107,000</td><td>Closed, $10K fee collected</td></tr>
+</tbody>
+</table>
+
+<p>Mental math doesn't account for holding costs, closing costs, or the buyer's required profit margin. A spreadsheet does. Every time.</p>
+
+<h2>The Wholesale Deal Formula (MAO Explained)</h2>
+
+<p>MAO stands for Maximum Allowable Offer. It's the most you can put a property under contract for and still assign it to a buyer at a price that makes sense for both of you.</p>
+
+<p>The standard formula uses the 70% rule:</p>
+
+<p><code>=ARV * 0.70 - Repair Costs - Assignment Fee</code></p>
+
+<p>In Excel terms, if ARV is in B3, repairs in B4, and your desired assignment fee in B5:</p>
+
+<p><code>=B3*0.70-B4-B5</code></p>
+
+<p>The 70% factor exists because your end buyer (the flipper) needs roughly 30% of ARV to cover holding costs, closing costs on both ends, financing, and profit. Some experienced flippers work at 75%. Some conservative buyers want 65%. But 70% is the industry standard starting point.</p>
+
+<h3>What Each Variable Actually Means</h3>
+
+<ul>
+<li><strong>ARV (After Repair Value)</strong>: What the property sells for after rehab. Pull this from actual closed comps within 0.5 miles and 90 days. Not Zillow estimates. Not "potential value." Closed sales of similar square footage, bed/bath count, and condition.</li>
+<li><strong>Repair Costs</strong>: What your buyer will spend on rehab. If you're not a contractor, get a ballpark from one. Use $25-$45/sqft for cosmetic rehabs, $60-$100/sqft for gut jobs. Always round up.</li>
+<li><strong>Assignment Fee</strong>: Your profit. Typical range is $5,000-$15,000 on standard residential deals. Higher on commercial or luxury properties.</li>
+</ul>
+
+<h3>Adjusting the Formula for Your Market</h3>
+
+<p>In hot markets where flippers accept thinner margins, you might adjust to 75%:</p>
+
+<p><code>=B3*0.75-B4-B5</code></p>
+
+<p>In slow or rural markets where properties sit longer, drop to 65%:</p>
+
+<p><code>=B3*0.65-B4-B5</code></p>
+
+<p>Your spreadsheet should let you toggle this percentage. Put it in its own cell (B2) and reference it:</p>
+
+<p><code>=B3*B2-B4-B5</code></p>
+
+<p>Now you can run the same deal at 65%, 70%, and 75% in seconds.</p>
+
+<h2>Build Your Wholesale Deal Calculator in Excel</h2>
+
+<p>Here's the layout. Column A holds your labels, column B holds your inputs and formulas.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Label (Column A)</th><th>Value / Formula (Column B)</th></tr>
+</thead>
+<tbody>
+<tr><td>B1</td><td>Property Address</td><td>123 Oak Street</td></tr>
+<tr><td>B2</td><td>Buyer Threshold %</td><td>70%</td></tr>
+<tr><td>B3</td><td>ARV</td><td>$215,000</td></tr>
+<tr><td>B4</td><td>Estimated Repairs</td><td>$32,000</td></tr>
+<tr><td>B5</td><td>Assignment Fee</td><td>$10,000</td></tr>
+<tr><td>B6</td><td>Closing Costs (est.)</td><td>$4,500</td></tr>
+<tr><td>B7</td><td>MAO</td><td><code>=B3*B2-B4-B5-B6</code></td></tr>
+<tr><td>B8</td><td>Seller Asking Price</td><td>$110,000</td></tr>
+<tr><td>B9</td><td>Deal Verdict</td><td><code>=IF(B8&lt;=B7,"DEAL","PASS")</code></td></tr>
+<tr><td>B10</td><td>Spread (MAO - Ask)</td><td><code>=B7-B8</code></td></tr>
+<tr><td>B11</td><td>Buyer's All-In Cost</td><td><code>=B8+B4+B5+B6</code></td></tr>
+<tr><td>B12</td><td>Buyer's Projected Profit</td><td><code>=B3-B11</code></td></tr>
+<tr><td>B13</td><td>Buyer's ROI</td><td><code>=B12/B11</code></td></tr>
+</tbody>
+</table>
+
+<p>Cell B9 is the one that matters most. It compares the seller's asking price against your MAO. If the ask is at or below MAO, you see "DEAL." If it's above, you see "PASS." No emotions, no gut feelings, just math.</p>
+
+<p>B12 and B13 are for your buyer conversation. When you present the deal, you can say: "At $110,000, your all-in cost is $156,500, ARV is $215,000. That's $58,500 in projected profit, a 37% ROI." That's how you move properties fast.</p>
+
+<h2>A Full Example: Running the Numbers on a Real Deal</h2>
+
+<p>You get a lead on a 3-bed/2-bath ranch in a B-class neighborhood. The owner inherited the property and wants out. They're asking $125,000. You pull comps and estimate ARV at $198,000. A contractor buddy says $22,000 for cosmetic rehab (new kitchen counters, paint, flooring, bathroom vanity, landscaping). You want a $8,000 assignment fee.</p>
+
+<p>Plug the numbers in:</p>
+
+<ul>
+<li>B2: 70%</li>
+<li>B3: $198,000</li>
+<li>B4: $22,000</li>
+<li>B5: $8,000</li>
+<li>B6: $4,000 (estimated closing costs)</li>
+</ul>
+
+<p>MAO formula: <code>=198000*0.70-22000-8000-4000</code></p>
+
+<p>Result: <strong>$104,600</strong></p>
+
+<p>The seller wants $125,000. Your MAO is $104,600. Cell B9 shows "PASS." The deal doesn't work at asking price.</p>
+
+<p>But this isn't where you stop. This is where negotiation starts.</p>
+
+<p>You know your ceiling is $104,600. You could offer $100,000 to leave yourself a cushion. If the seller counters at $108,000, you can re-run the numbers with a reduced assignment fee:</p>
+
+<p><code>=198000*0.70-22000-5000-4000</code> = $107,600</p>
+
+<p>At a $5,000 fee instead of $8,000, the deal works at $107,600. The seller at $108,000 is close enough to negotiate. You might split the difference at $105,000, keep your $5,000 fee, and close.</p>
+
+<p>Without the calculator, you either walk away from a workable deal or agree to $125,000 and find out three days later that nobody on your buyer list will take it.</p>
+
+<h2>When the Deal Doesn't Work (And What to Do Next)</h2>
+
+<p>Not every lead is a deal. That's the entire point of running the numbers. Here's what to check when your calculator says "PASS."</p>
+
+<h3>1. Re-check Your ARV</h3>
+
+<p>Are your comps actually comparable? A 1,200 sqft ranch is not comparable to a 1,800 sqft colonial, even if they're on the same street. Tighten your comp criteria. If ARV moves up by $15,000 on better comps, re-run the formula.</p>
+
+<h3>2. Get a Second Repair Estimate</h3>
+
+<p>Repair costs are the most common source of error. If you estimated $35,000 and a contractor says $24,000, that's an $11,000 swing in your MAO. Always get at least one real number from someone who does the work.</p>
+
+<h3>3. Reduce Your Assignment Fee</h3>
+
+<p>A $5,000 fee on a deal that closes beats a $12,000 fee on a deal that doesn't. Use your spreadsheet to test different fee levels:</p>
+
+<p><code>=B3*B2-B4-5000-B6</code> vs. <code>=B3*B2-B4-12000-B6</code></p>
+
+<p>The difference in MAO is $7,000. That's often the gap between "PASS" and "DEAL."</p>
+
+<h3>4. Adjust the Buyer Threshold</h3>
+
+<p>If you have a buyer who works at 75% instead of 70%, your MAO increases by 5% of ARV. On a $200,000 ARV property, that's $10,000 more room. Know your buyers. Some are aggressive, some are conservative. Build your calculator to test both.</p>
+
+<h3>5. Walk Away</h3>
+
+<p>If the numbers don't work after adjusting every variable, walk away. Put the seller's info in a follow-up file and check back in 60-90 days. Motivation changes. Prices drop. The deal that doesn't work today might work in three months.</p>
+
+<p>The worst thing you can do is force a deal that your calculator says is a "PASS." That's how wholesalers end up with contracts they can't assign, earnest money they can't recover, and a reputation that dries up their buyer list.</p>
+
+<h2>Stop Guessing on Wholesale Deals</h2>
+
+<p>Every dollar you leave on the table because of bad math is a dollar you worked for and didn't collect. Every deal you lose because your offer was too high or too low is a deal your competitor closed instead. A wholesale real estate deal calculator takes five minutes to build and saves you from the two most expensive mistakes in wholesaling: overpaying and underoffering.</p>
+
+<p>If you're analyzing multiple deals per week, flipping some yourself, or running BRRRR numbers alongside your wholesale pipeline, you need more than a single-formula spreadsheet. The <a href="https://sheetcraft.co/templates/flip-brrrr-calculator">SheetCraft Flip &amp; BRRRR Calculator</a> handles MAO calculations, rehab budgets, holding cost projections, and exit strategy comparisons in one workbook. It's built for investors who run real numbers on real deals, not for people who guess. Plug in your next lead and know in five minutes whether to make the call or move on.</p>`,
+  },
+  {
     slug: 'construction-punch-list-template-excel',
     title: 'Your Punch List Is Costing You Thousands in Withheld Retainage',
     metaTitle: 'Construction Punch List Template Excel | SheetCraft',
