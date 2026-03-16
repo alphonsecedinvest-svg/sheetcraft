@@ -16,6 +16,213 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'analyze-multifamily-property-deals-excel',
+    title: 'Analyze Multifamily Property Deals in Excel (2026 Guide)',
+    metaTitle: 'Multifamily Property Analysis Spreadsheet | SheetCraft',
+    metaDescription: 'Learn to build Excel spreadsheets that prevent costly multifamily investment mistakes. Includes cap rate, cash flow, and NOI formulas plus real examples.',
+    targetKeyword: 'multifamily property analysis spreadsheet',
+    secondaryKeywords: ['multifamily investment calculator', 'rental property analysis', 'cash flow analysis', 'cap rate calculation', 'real estate Excel'],
+    excerpt: 'A real estate investor lost $30,000 annually by trusting seller numbers instead of building proper multifamily analysis spreadsheets. Learn the Excel formulas and frameworks that prevent costly investment mistakes.',
+    publishedAt: '2026-03-16',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/analyze-multifamily-property-deals-excel.png',
+    imageAlt: 'Real estate investor analyzing multifamily property financials using Excel spreadsheet with building blueprints',
+    content: `# How to Analyze a Multifamily Property Deal in Excel
+
+Last month, a client called me panicked. He'd just bought a 12-unit apartment building in Phoenix for $1.8 million. His "back of the envelope" analysis showed it would cash flow $3,000 per month. Six months later, he was writing $2,500 checks every month just to keep the lights on.
+
+What went wrong? He trusted the seller's numbers instead of building his own multifamily property analysis spreadsheet. That $30,000 annual shortfall could have been avoided with 90 minutes of proper Excel work.
+
+## Why Most Multifamily Analysis Gets You in Trouble
+
+Real estate agents love to show you pro formas that look like this:
+
+<table>
+<tr><th>Income</th><th>Amount</th></tr>
+<tr><td>Gross Monthly Rent</td><td>$15,000</td></tr>
+<tr><td>Annual Income</td><td>$180,000</td></tr>
+<tr><td>Expenses</td><td>$108,000 (60%)</td></tr>
+<tr><td>Net Operating Income</td><td>$72,000</td></tr>
+<tr><td>Monthly Cash Flow</td><td>$6,000</td></tr>
+</table>
+
+This analysis is garbage. Here's why:
+
+**No vacancy assumptions.** That 12-unit building won't stay 100% occupied. Even in hot markets, plan for 5-8% vacancy. That's $750-1,200 lost monthly.
+
+**Fantasy expense ratios.** "60% of gross" sounds reasonable until you dig into actual costs. Property taxes alone might eat 20% of gross income in high-tax areas.
+
+**Missing capex reserves.** Roofs, HVAC systems, and parking lots don't last forever. Without a capital expenditure fund, your "profitable" property becomes a monthly money pit.
+
+A proper multifamily investment calculator would have caught these issues before signing.
+
+## The 4 Numbers That Make or Break Your Deal
+
+Your Excel analysis needs to nail these four metrics:
+
+### 1. Actual Net Operating Income (NOI)
+
+Start with realistic gross income:
+\`=Monthly_Rent*12*(1-Vacancy_Rate)\`
+
+Then subtract every real expense:
+- Property taxes (get exact amounts from tax records)
+- Insurance (get quotes, don't guess)
+- Property management (typically 8-12% of gross)
+- Maintenance and repairs (3-7% of gross)
+- Utilities you pay
+- Legal and professional fees
+- Marketing costs for tenant turnover
+
+### 2. Cap Rate (Purchase vs Market)
+
+\`=(Net_Operating_Income/Purchase_Price)*100\`
+
+But also calculate what cap rate you'd need to break even:
+\`=(Your_NOI_Calculation/Purchase_Price)*100\`
+
+If your calculated cap rate is 2+ points below market cap rates for similar properties, walk away.
+
+### 3. Cash-on-Cash Return
+
+\`=(Annual_Cash_Flow/Total_Cash_Invested)*100\`
+
+This shows your actual return on the cash you put in. Include everything: down payment, closing costs, immediate repairs, and initial capital reserves.
+
+### 4. Debt Coverage Ratio
+
+\`=Net_Operating_Income/(Annual_Debt_Service*12)\`
+
+Lenders want this above 1.2. Below 1.0 means the property can't cover its own mortgage.
+
+## Building Your Multifamily Analysis Spreadsheet
+
+Here's the Excel framework I use for every deal:
+
+### Income Section
+
+\`\`\`
+A1: Gross Monthly Rent
+B1: =SUMPRODUCT(Unit_Rents_Range)
+A2: Other Income (laundry, parking)
+B2: [Enter amount]
+A3: Gross Annual Income
+B3: =(B1+B2)*12
+A4: Vacancy Allowance (7%)
+B4: =B3*0.07
+A5: Effective Gross Income
+B5: =B3-B4
+\`\`\`
+
+### Operating Expenses
+
+Create detailed line items. Here's a real example for a 20-unit property in Dallas:
+
+<table>
+<tr><th>Expense Category</th><th>Annual Amount</th><th>% of Gross</th></tr>
+<tr><td>Property Taxes</td><td>$24,000</td><td>10.0%</td></tr>
+<tr><td>Insurance</td><td>$8,400</td><td>3.5%</td></tr>
+<tr><td>Property Management</td><td>$21,600</td><td>9.0%</td></tr>
+<tr><td>Maintenance & Repairs</td><td>$14,400</td><td>6.0%</td></tr>
+<tr><td>Utilities</td><td>$9,600</td><td>4.0%</td></tr>
+<tr><td>Professional Services</td><td>$3,600</td><td>1.5%</td></tr>
+<tr><td>Marketing/Turnover</td><td>$4,800</td><td>2.0%</td></tr>
+<tr><td>Capital Reserves</td><td>$7,200</td><td>3.0%</td></tr>
+<tr><td><strong>Total Operating Expenses</strong></td><td><strong>$93,600</strong></td><td><strong>39.0%</strong></td></tr>
+</table>
+
+### Cash Flow Calculation
+
+\`\`\`
+A15: Net Operating Income
+B15: =Effective_Gross_Income-Total_Expenses
+A16: Annual Debt Service
+B16: =Monthly_Payment*12
+A17: Before Tax Cash Flow
+B17: =B15-B16
+A18: Cash-on-Cash Return
+B18: =(B17/Total_Cash_Invested)*100
+\`\`\`
+
+## Advanced Analysis for Serious Investors
+
+### Scenario Analysis
+
+Build three scenarios: Best Case, Base Case, and Stress Test.
+
+Use data tables to see how different vacancy rates affect cash flow:
+\`=TABLE(,Vacancy_Rate_Cell)\`
+
+For a 24-unit building with $20,000 monthly gross rent:
+- 5% vacancy: $1,000 monthly loss
+- 8% vacancy: $1,600 monthly loss
+- 12% vacancy: $2,400 monthly loss
+
+### Market Rent Analysis
+
+Use \`=VLOOKUP()\` to compare your rents with market data:
+\`=VLOOKUP(Unit_Type,Market_Rent_Table,2,FALSE)\`
+
+If your rents are 10% below market, you might have upside. If they're already at market peaks, budget for competitive pressure.
+
+### 1031 Exchange Modeling
+
+If you're trading up from another property, model the tax impact:
+\`\`\`
+A25: Current Property Basis
+B25: [Enter amount]
+A26: Sale Price (Net)
+B26: [Enter amount]
+A27: Capital Gains
+B27: =B26-B25
+A28: Tax Avoided (1031)
+B28: =B27*0.25
+A29: Additional Investment Power
+B29: =B28
+\`\`\`
+
+## Red Flags Your Spreadsheet Should Catch
+
+### Expense Ratio Red Flags
+
+If your rental property analysis shows expenses below these minimums, dig deeper:
+
+- Property taxes under 8% of gross (except in low-tax states)
+- Insurance under 2% of gross (review coverage)
+- Maintenance under 4% of gross (deferred maintenance coming)
+- No capex reserves (guaranteed future problems)
+
+### Cash Flow Red Flags
+
+\`=IF(Cash_Flow<Purchase_Price*0.02,"INVESTIGATE","OK")\`
+
+If monthly cash flow is less than 2% of purchase price annually, you're buying at full retail prices.
+
+### Debt Coverage Warnings
+
+\`=IF(Debt_Coverage_Ratio<1.25,"RISKY","ACCEPTABLE")\`
+
+Banks get nervous below 1.25. You should too.
+
+### Market Timing Indicators
+
+Use Excel to track cap rate compression:
+\`=AVERAGE(Last_3_Sales_Cap_Rates)-Current_Cap_Rate\`
+
+If this number is negative and growing, you might be buying at the peak.
+
+## Your Next Steps
+
+That Phoenix investor I mentioned? He eventually sold the property for a $150,000 loss. His mistake wasn't buying multifamily real estate (which can be incredibly profitable). His mistake was trusting someone else's numbers instead of building his own analysis.
+
+Don't make the same error. Start with a conservative multifamily investment calculator that accounts for real vacancy rates, actual expenses, and proper reserves. Model different scenarios. Stress test your assumptions.
+
+If you want to skip the Excel learning curve and get started immediately, check out SheetCraft's rental property analyzer. It includes pre-built multifamily analysis templates with all the formulas I've shown you, plus advanced features like automated market comparisons and scenario modeling.
+
+The difference between a profitable multifamily investment and a monthly money pit often comes down to 90 minutes of proper analysis. Make sure you get it right.`,
+  },
+  {
     slug: 'construction-schedule-of-values-template',
     title: 'Schedule of Values Explained: Template + Best Practices for Contractors',
     metaTitle: 'Construction Schedule of Values Template + Excel Formulas',
