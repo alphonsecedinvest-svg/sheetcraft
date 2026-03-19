@@ -16,6 +16,164 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-rfi-tracking-spreadsheet',
+    title: 'How to Track RFIs in Excel (Before They Derail Your Schedule)',
+    metaTitle: 'RFI Tracking Excel Template for Construction | SheetCraft',
+    metaDescription: 'Stop RFI delays from crushing project schedules. Get our construction RFI tracking spreadsheet template with formulas that prevent costly bottlenecks.',
+    targetKeyword: 'construction RFI tracking spreadsheet',
+    secondaryKeywords: ['RFI management Excel', 'construction request for information', 'RFI log template', 'project RFI tracking', 'Excel construction management'],
+    excerpt: 'Construction RFIs pile up fast without proper tracking. One delayed response can cascade into weeks of schedule delays and cost overruns. Here\'s how to build an Excel system that prevents RFI chaos.',
+    publishedAt: '2026-03-19',
+    readTime: 8,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-rfi-tracking-spreadsheet.png',
+    imageAlt: 'Construction project manager reviewing RFI tracking spreadsheet on laptop at job site',
+    content: `# How to Track RFIs in Excel (Before They Derail Your Schedule)
+
+**Meta-title:** RFI Tracking Excel Template for Construction | SheetCraft
+**Meta-description:** Stop RFI delays from crushing project schedules. Get our construction RFI tracking spreadsheet template with formulas that prevent costly bottlenecks.
+**Slug:** construction-rfi-tracking-spreadsheet
+**Excerpt:** Construction RFIs pile up fast without proper tracking. One delayed response can cascade into weeks of schedule delays and cost overruns. Here's how to build an Excel system that prevents RFI chaos.
+**Read time:** 8 minutes
+**Hero image prompt:** Construction site manager reviewing RFI documents with laptop showing Excel spreadsheet
+**Image alt:** Construction project manager reviewing RFI tracking spreadsheet on laptop at job site
+
+---
+
+Last month, a general contractor in Phoenix watched his $2.3 million office build slip three weeks behind schedule. The culprit? Seventeen unanswered requests for information (RFIs) buried in email threads, each one blocking critical path work.
+
+The electrical contractor couldn't rough-in without clarification on panel locations. The HVAC sub sat idle waiting for ductwork routing decisions. Meanwhile, the project burned $4,200 per day in extended overhead costs.
+
+This isn't rare. Construction projects generate an average of 150-300 RFIs, and poor RFI management Excel practices cause 67% of project delays according to FMI Research. When RFIs stack up without systematic tracking, they create bottlenecks that ripple through entire schedules.
+
+Here's how to build a construction request for information tracking system in Excel that prevents these costly delays.
+
+## The Real Cost of RFI Chaos
+
+Before diving into spreadsheet mechanics, understand what's at stake. A typical commercial project handles 8-15 RFIs per $1 million of contract value. Each RFI averages 7-14 days from submission to resolution, and untracked RFIs take 40% longer to resolve.
+
+Consider a $5 million project with 60 RFIs. If poor tracking extends resolution time from 10 to 14 days per RFI, that's 240 additional days of potential delays spread across the project timeline. Even if only 20% of those delays hit the critical path, you're looking at 48 days of schedule slip.
+
+At $3,000 per day in extended overhead (superintendent, trailer, utilities, equipment), that RFI mismanagement costs $144,000. Add potential liquidated damages, and the price of poor RFI log template management becomes staggering.
+
+## Setting Up Your RFI Management Excel System
+
+Your RFI tracking spreadsheet needs to capture more than just basic information. It must identify bottlenecks before they become delays and provide clear visibility into response times.
+
+Start with these core columns:
+
+| RFI # | Date Submitted | Trade | Description | Priority | Days Open | Status | Response Due | Cost Impact |
+|-------|----------------|-------|-------------|----------|-----------|--------|--------------|-------------|
+| 001 | 03/15/2026 | Electrical | Panel location conflicts with structural beam | High | 4 | Pending | 03/22/2026 | $2,400 |
+| 002 | 03/16/2026 | Plumbing | Domestic water pressure requirements | Medium | 3 | Under Review | 03/23/2026 | $800 |
+| 003 | 03/18/2026 | HVAC | Ductwork routing around new beam layout | Critical | 1 | Pending | 03/25/2026 | $5,200 |
+
+The "Days Open" column uses this formula in cell F2: \`=TODAY()-B2\`. This automatically calculates how long each RFI has been outstanding, making bottlenecks visible at a glance.
+
+For the "Response Due" column, use: \`=B2+7\` assuming a 7-day standard response time. Adjust the number based on your contract requirements.
+
+## Priority-Based Tracking That Prevents Delays
+
+Not all RFIs are equal. A question about paint color selection won't stop work, but unclear structural details can halt multiple trades. Your project RFI tracking system needs to reflect these differences.
+
+Create a priority matrix based on schedule impact:
+
+- **Critical**: Affects critical path activities (0-24 hour response required)
+- **High**: Affects near-term work within 2 weeks (48-72 hour response)
+- **Medium**: Affects work within 30 days (7-day response)
+- **Low**: Clarification only, no immediate schedule impact (14-day response)
+
+Use conditional formatting to make priorities visual. In Excel, select your priority column and apply these rules:
+- Critical = Red background
+- High = Orange background
+- Medium = Yellow background
+- Low = Green background
+
+Add a formula to count overdue critical RFIs: \`=COUNTIFS(E:E,"Critical",F:F,">1")\`. This counts RFIs marked critical that have been open more than one day. Place this in a dashboard cell where it's always visible.
+
+## Automated Alerts and Response Tracking
+
+Manual tracking fails when projects get busy. Build automatic alerts that flag problems before they become crises.
+
+Create an "Alert" column with this formula: \`=IF(AND(G2="Pending",F2>7),"OVERDUE",IF(AND(G2="Pending",F2>5),"URGENT","OK"))\`. This flags RFIs approaching or exceeding response deadlines.
+
+For response time analysis, add a "Response Time" column that calculates actual resolution speed: \`=IF(G2="Closed",H2-B2,"")\`. This only calculates for closed RFIs, giving you historical data on response performance.
+
+Track response times by trade with: \`=AVERAGEIFS(I:I,C:C,"Electrical",G:G,"Closed")\`. This shows average response time for electrical RFIs, helping identify which subcontractors or design disciplines consistently cause delays.
+
+## Cost Impact Analysis
+
+Every RFI has financial implications, even if it's just labor sitting idle waiting for answers. Track potential costs to quantify RFI management value.
+
+Create cost categories:
+- **Direct costs**: Material changes, rework, additional labor
+- **Delay costs**: Daily overhead burn rate for affected activities
+- **Acceleration costs**: Overtime or additional resources needed to recover schedule
+
+For delay cost calculations, use: \`=IF(E2="Critical",F2*500,IF(E2="High",F2*200,0))\`. This assumes critical path delays cost $500/day and high-priority delays cost $200/day in extended overhead. Adjust these rates based on your project economics.
+
+Sum total exposure with: \`=SUMIF(G:G,"Pending",J:J)\` where column J contains your cost impact calculations. This shows current financial exposure from open RFIs.
+
+## Dashboard Views for Project Control
+
+Raw data doesn't drive decisions. Create dashboard views that highlight what needs immediate attention.
+
+Build a summary section at the top of your sheet:
+- Total RFIs: \`=COUNTA(A:A)-1\`
+- Open RFIs: \`=COUNTIF(G:G,"Pending")+COUNTIF(G:G,"Under Review")\`
+- Overdue RFIs: \`=COUNTIF(L:L,"OVERDUE")\`
+- Total Cost Exposure: \`=SUMIF(G:G,"Pending",J:J)\`
+
+Create trade-specific breakdowns:
+- Electrical Open: \`=COUNTIFS(C:C,"Electrical",G:G,"Pending")\`
+- Plumbing Open: \`=COUNTIFS(C:C,"Plumbing",G:G,"Pending")\`
+- HVAC Open: \`=COUNTIFS(C:C,"HVAC",G:G,"Pending")\`
+
+Add average response time by priority: \`=AVERAGEIFS(I:I,E:E,"Critical",G:G,"Closed")\` for critical RFIs, with similar formulas for other priority levels.
+
+## Weekly Reporting and Follow-Up
+
+Consistent reporting keeps RFIs from falling through cracks. Create a weekly summary that identifies trends and problem areas.
+
+Track submission rates with: \`=COUNTIFS(B:B,">="&TODAY()-7)\` to count RFIs submitted in the last 7 days. Rising submission rates often indicate design development issues or unclear documentation.
+
+Measure closure rates: \`=COUNTIFS(H:H,">="&TODAY()-7,G:G,"Closed")\` for RFIs closed in the past week. If closure rates consistently lag submission rates, you're building a backlog that will eventually cause delays.
+
+Identify repeat offenders by tracking multiple RFIs on similar topics. While Excel can't automatically detect this, create a "Related RFIs" column where you manually note connections. Patterns of related RFIs often reveal systemic issues in design coordination.
+
+## Integration with Project Schedules
+
+Your construction RFI tracking spreadsheet becomes most valuable when connected to your project schedule. While Excel can't directly link to scheduling software, you can create reference connections.
+
+Add a "Schedule Activity" column that notes which schedule line item each RFI affects. This helps prioritize responses based on schedule criticality and upcoming work.
+
+Create a "Schedule Impact" column with options like:
+- Critical Path
+- Near Critical (2-week float or less)
+- Non-Critical
+- Future Work (30+ days out)
+
+Use this for advanced sorting: \`=COUNTIFS(M:M,"Critical Path",G:G,"Pending")\` to count open RFIs affecting critical path work.
+
+## Beyond Basic Tracking
+
+Advanced RFI management Excel goes beyond simple lists. Consider these additional tracking elements:
+
+**Submittal Correlation**: Many RFIs stem from unclear or missing submittals. Track whether each RFI could have been prevented with better submittal processes.
+
+**Design Discipline Tracking**: Note whether RFIs target architectural, structural, MEP, or other disciplines. Patterns reveal which design areas need additional coordination.
+
+**Resolution Quality**: Track whether RFI responses require follow-up questions. High follow-up rates indicate poor initial response quality.
+
+**Preventable Analysis**: Mark RFIs that could have been avoided with better initial documentation or coordination. This data drives process improvements for future projects.
+
+Your construction request for information system should evolve with your project needs. Start with core tracking, then add sophistication as you identify specific pain points in your RFI workflow.
+
+Proper RFI tracking transforms a chaotic process into a controlled system that prevents delays rather than just documenting them. The difference between good and poor RFI management often determines project success or failure.
+
+Ready to take project financial control to the next level? Our [construction budget tracker](https://sheetcraft.io/construction-budget-tracker) integrates with RFI tracking to provide complete project financial visibility, helping you manage both costs and schedule risks from a single dashboard.`,
+  },
+  {
     slug: 'construction-daily-log-template-excel',
     title: 'Construction Daily Log Template: What to Track and Why It Matters',
     metaTitle: 'Construction Daily Log Template Excel | SheetCraft',
