@@ -16,6 +16,179 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: '1031-exchange-calculator-excel',
+    title: '1031 Exchange Calculator Excel: Stop Losing Money on Bad Timing',
+    metaTitle: '1031 Exchange Calculator Excel Template | SheetCraft',
+    metaDescription: 'Build an Excel 1031 exchange calculator that prevents costly timing mistakes. Track deadlines, calculate taxes, and model replacement properties.',
+    targetKeyword: '1031 exchange calculator Excel',
+    secondaryKeywords: ['like-kind exchange', 'tax deferred exchange', 'investment property calculator', 'real estate Excel template'],
+    excerpt: 'Most investors lose tens of thousands on 1031 exchanges because they can\'t model the true costs and timing requirements. A proper Excel calculator prevents these expensive mistakes.',
+    publishedAt: '2026-03-20',
+    readTime: 7,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/1031-exchange-calculator-excel.png',
+    imageAlt: 'Real estate investor analyzing 1031 exchange calculations on Excel spreadsheet with property documents',
+    content: `# 1031 Exchange Calculator Excel: Stop Losing Money on Bad Timing
+
+**Meta-title:** 1031 Exchange Calculator Excel Template | SheetCraft
+**Meta-description:** Build an Excel 1031 exchange calculator that prevents costly timing mistakes. Track deadlines, calculate taxes, and model replacement properties.
+**Slug:** 1031-exchange-calculator-excel
+**Excerpt:** Most investors lose tens of thousands on 1031 exchanges because they can't model the true costs and timing requirements. A proper Excel calculator prevents these expensive mistakes.
+**Read time:** 7 minutes
+**Hero image prompt:** Real estate investor reviewing property documents and Excel spreadsheet calculations at construction site office
+**Image alt:** Real estate investor analyzing 1031 exchange calculations on Excel spreadsheet with property documents
+
+---
+
+Jake bought a duplex in Portland for $400,000 in 2019. Three years later, it's worth $650,000. He wants to sell and buy a bigger property, but faces a brutal reality: without proper planning, he'll pay $62,500 in capital gains tax on his $250,000 profit. That's money he can't reinvest.
+
+A **1031 exchange calculator Excel** spreadsheet would show Jake exactly what he needs: find a replacement property worth at least $650,000 within 45 days of closing, close within 180 days total, and defer that entire tax bill. Miss any deadline by even one day? Pay the full $62,500.
+
+Most real estate investors lose tens of thousands because they can't model the true costs and timing requirements of a **like-kind exchange**. They guess at replacement property values, underestimate closing costs, or miss critical deadlines. A proper Excel calculator prevents these expensive mistakes.
+
+## Why Basic Math Isn't Enough for 1031 Exchanges
+
+The IRS requires exact compliance with 1031 exchange rules. You must identify replacement properties within 45 days and close within 180 days. But here's what kills deals: investors focus on these deadlines and ignore the financial calculations that determine success or failure.
+
+Consider this scenario: You sell a $500,000 rental property with a $300,000 basis. Your gain is $200,000. At a 25% depreciation recapture rate plus 15% capital gains, you owe $50,000 in taxes. To defer this through a **tax deferred exchange**, your replacement property must be worth at least $500,000, and you must invest all $500,000 in sales proceeds.
+
+Here's where Excel becomes critical. If your closing costs are $15,000 and you only net $485,000, you need a replacement property worth $485,000 minimum, not $500,000. Get this wrong and you'll pay partial taxes on the difference.
+
+## Building Your 1031 Exchange Calculator in Excel
+
+Your **investment property calculator** needs to track six critical variables: sale price, adjusted basis, exchange expenses, replacement property value, financing amounts, and timeline dates.
+
+Start with these key formulas in Excel:
+
+**Capital Gain Calculation:**
+Cell B5: \`=B2-B3\` (Sale Price minus Adjusted Basis)
+
+**Depreciation Recapture:**
+Cell B6: \`=MIN(B4,B5)*0.25\` (Lesser of depreciation taken or gain, times 25%)
+
+**Capital Gains Tax:**
+Cell B7: \`=MAX(0,B5-B4)*0.15\` (Gain minus depreciation, times 15%)
+
+**Total Tax Without Exchange:**
+Cell B8: \`=B6+B7\`
+
+**Minimum Replacement Property Value:**
+Cell B9: \`=B2-B10\` (Sale Price minus Exchange Costs)
+
+Create a timing tracker with these formulas:
+
+**Days Remaining for Identification:**
+Cell D3: \`=45-(TODAY()-D1)\` (Where D1 is your sale closing date)
+
+**Days Remaining for Exchange:**
+Cell D4: \`=180-(TODAY()-D1)\`
+
+Set conditional formatting to turn these cells red when under 10 days remaining.
+
+## Real Numbers: A Complete 1031 Exchange Analysis
+
+Let's work through Maria's actual 1031 exchange. She's selling a fourplex in Austin for $800,000. Here are her numbers:
+
+| Item | Amount |
+|------|---------|
+| Sale Price | $800,000 |
+| Original Purchase Price | $500,000 |
+| Improvements Made | $50,000 |
+| Depreciation Taken | $75,000 |
+| Adjusted Basis | $475,000 |
+| Capital Gain | $325,000 |
+
+Her Excel calculator shows:
+
+**Tax Calculation Without 1031:**
+- Depreciation Recapture: \`=MIN(75000,325000)*0.25 = $18,750\`
+- Capital Gains Tax: \`=MAX(0,325000-75000)*0.15 = $37,500\`
+- **Total Tax Due: $56,250**
+
+**1031 Exchange Requirements:**
+- Sale Proceeds: $800,000
+- Less: Selling costs (6%): $48,000
+- Less: Exchange fees: $3,000
+- **Net Proceeds: $749,000**
+- **Minimum Replacement Value: $749,000**
+
+If Maria finds a replacement property for exactly $749,000 and invests all proceeds, she defers the entire $56,250 tax bill. That's $56,250 more capital working for her.
+
+## Advanced Excel Formulas for Complex Exchanges
+
+**Partial 1031 Exchange Calculator:**
+Sometimes you can't reinvest all proceeds. This formula calculates taxable boot:
+
+Cell C5: \`=MAX(0,B2-B11)\` (Sale price minus replacement property value)
+
+**Tax on Boot:**
+Cell C6: \`=MIN(C5,B8)\` (Lesser of boot or total potential tax)
+
+**Multi-Property Exchange Analysis:**
+For investors exchanging into multiple properties, use this array formula to ensure compliance:
+
+Cell E3: \`=SUM(E5:E8)\` (Total replacement property values)
+Cell E4: \`=IF(E3>=B9,"Compliant","Need More Value")\`
+
+**Financing Impact Calculator:**
+When using financing on replacement properties, track debt requirements:
+
+Original Property Debt: $300,000
+Replacement Property Value: $750,000
+New Debt Needed: \`=MAX(300000, 750000*0.8)\` = $600,000
+Cash Required: \`=750000-600000\` = $150,000
+
+## Timeline Management: Where Most Exchanges Fail
+
+Your Excel **real estate Excel template** must track critical dates automatically. Create these formulas:
+
+**Contract Date Tracker:**
+Cell F2: Sale contract date (manual entry)
+Cell F3: \`=F2+45\` (Identification deadline)
+Cell F4: \`=F2+180\` (Exchange deadline)
+
+**Property Identification Status:**
+Cell F5: Number of properties identified
+Cell F6: \`=IF(F5>=1,"On Track","URGENT: Need Properties")\`
+
+**Days to Close Calculator:**
+For each identified property, track purchase contract dates:
+Cell G5: First property contract date
+Cell G6: \`=180-(G5-F2)\` (Days remaining for this property)
+
+Use conditional formatting:
+- Green: More than 30 days remaining
+- Yellow: 10-30 days remaining
+- Red: Less than 10 days remaining
+
+## The True Cost of Getting It Wrong
+
+David thought he understood 1031 exchanges. He sold his Denver rental for $600,000, planning to buy two smaller properties worth $300,000 each. But he miscalculated closing costs and only netted $575,000. His Excel calculator would have shown this problem before listing.
+
+When he found replacement properties, the combined value was only $570,000. Result: $5,000 in taxable boot, costing him $1,250 in unnecessary taxes plus the stress of a partial exchange.
+
+Worse: David identified properties on day 44 but couldn't close the second property within 180 days due to financing delays. Half his exchange failed, triggering $15,000 in capital gains tax.
+
+A proper 1031 exchange calculator Excel spreadsheet would have flagged both issues weeks in advance.
+
+## Download vs. Build: Getting Your Calculator Ready
+
+You have two options: build your own calculator using the formulas above, or use a pre-built template that handles the complexities automatically.
+
+If building your own, include these essential worksheets:
+- Transaction Summary
+- Tax Calculations
+- Timeline Tracker
+- Property Comparison
+- Financing Analysis
+
+For serious investors doing multiple exchanges yearly, consider our rental-property-analyzer template, which includes 1031 exchange calculations plus ongoing property analysis tools.
+
+Remember: a $50 Excel template can save you $50,000 in taxes. The math isn't complicated, but the stakes are too high for guesswork.
+
+**Key Takeaway:** Your 1031 exchange calculator Excel spreadsheet isn't just about organizing numbers. It's about protecting your wealth from IRS penalties and maximizing your investment capital. Every real estate investor needs this tool before listing their first property for sale.`,
+  },
+  {
     slug: 'construction-rfi-tracking-spreadsheet',
     title: 'How to Track RFIs in Excel (Before They Derail Your Schedule)',
     metaTitle: 'RFI Tracking Excel Template for Construction | SheetCraft',
