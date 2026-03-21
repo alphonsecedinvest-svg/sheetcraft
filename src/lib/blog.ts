@@ -16,6 +16,131 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-retainage-tracking-spreadsheet',
+    title: 'Construction Retainage Tracking Spreadsheet: Stop Losing Money on Every Project',
+    metaTitle: 'Construction Retainage Tracking Spreadsheet | SheetCraft',
+    metaDescription: 'Track and recover every dollar of construction retainage with our Excel spreadsheet. Stop losing money on retention with automated calculations and payment schedules.',
+    targetKeyword: 'construction retainage tracking spreadsheet',
+    secondaryKeywords: ['construction retention tracking', 'retainage management Excel', 'contractor payment tracking', 'construction project cash flow', 'retention release schedule'],
+    excerpt: 'Missing retainage payments can cost contractors thousands per project. Our construction retainage tracking spreadsheet helps you monitor every retention dollar and automate release schedules to protect your cash flow.',
+    publishedAt: '2026-03-21',
+    readTime: 8,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-retainage-tracking-spreadsheet.png',
+    imageAlt: 'Construction retainage tracking spreadsheet on laptop with blueprints and calculator showing payment calculations',
+    content: `# Construction Retainage Tracking Spreadsheet: Stop Losing Money on Every Project
+
+**Title:** Construction Retainage Tracking Spreadsheet: Stop Losing Money on Every Project
+
+**Slug:** construction-retainage-tracking-spreadsheet
+
+**Meta-title:** Construction Retainage Tracking Spreadsheet | SheetCraft
+
+**Meta-description:** Track and recover every dollar of construction retainage with our Excel spreadsheet. Stop losing money on retention with automated calculations and payment schedules.
+
+**Secondary Keywords:**
+- construction retention tracking
+- retainage management Excel
+- contractor payment tracking
+- construction project cash flow
+- retention release schedule
+
+**Excerpt:** Missing retainage payments can cost contractors thousands per project. Our construction retainage tracking spreadsheet helps you monitor every retention dollar and automate release schedules to protect your cash flow.
+
+**Read Time:** 8 minutes
+
+**Hero Image Prompt:** Construction site with blueprints and calculator on a desk, showing spreadsheet on laptop screen tracking payment percentages, professional lighting, business setting
+
+**Image Alt Text:** Construction retainage tracking spreadsheet on laptop with blueprints and calculator showing payment calculations
+
+---
+
+## Article Content (HTML)
+
+Last month, a general contractor in Dallas discovered he was missing $47,000 in retainage payments across six completed projects. The money was there, earned and owed, but scattered across different payment schedules with different release dates. Without a system to track it, those payments slipped through the cracks.
+
+Construction retainage typically holds 5-10% of every progress payment until project completion. On a $300,000 project, that's $15,000 to $30,000 of your money sitting in someone else's account. Multiply that across multiple projects, and you're looking at serious cash flow problems.
+
+A construction retainage tracking spreadsheet solves this by creating a central system that monitors every retention dollar, calculates release dates, and flags overdue payments before they become collection problems.
+
+## The Hidden Cost of Poor Retainage Tracking
+
+Most contractors track retainage in their heads or scattered across project folders. This costs money in three ways:
+
+**Delayed collections:** The average contractor takes 90 days longer than necessary to collect retainage because they don't have systematic follow-up. On a $200,000 project with 7% retention, that's $14,000 earning zero interest while you pay for equipment and payroll.
+
+**Missed payments:** Without tracking, retention payments get forgotten entirely. Industry data shows contractors lose 3-5% of total retainage to missed collections over the project lifecycle.
+
+**Cash flow gaps:** Poor retainage tracking creates unpredictable income. You can't plan equipment purchases or staff hiring when $50,000 in earned money might show up next month or next year.
+
+## Essential Elements of a Retainage Tracking System
+
+An effective construction retainage tracking spreadsheet monitors five critical data points:
+
+| Data Point | Example Value | Business Impact |
+|------------|---------------|-----------------|
+| Retention Percentage | 7% | Determines amount held per payment |
+| Progress Payment Amount | $35,000 | Base for calculating retention |
+| Retention Balance | $23,450 | Total money currently held |
+| Release Date | 45 days post-completion | When money becomes collectible |
+| Collection Status | Submitted/Pending/Paid | Current stage in collection process |
+
+The spreadsheet uses formulas to calculate retention automatically. For each progress payment, use: \`=PaymentAmount*RetentionRate\`. Running retention balance becomes: \`=SUM(PreviousRetention)+CurrentRetention-ReleasedAmounts\`.
+
+## Building Your Retainage Calculation System
+
+Start with a master project list that links to individual project tracking sheets. The master formula tracks total retention across all projects: \`=SUMIF(ProjectStatus,"Active",RetentionBalance)\`.
+
+Each project sheet needs these calculated columns:
+
+**Monthly Retention:** \`=IF(PaymentAmount>0,PaymentAmount*RetentionPercent,0)\`
+
+**Cumulative Retention:** \`=SUM($E$2:E2)\` (where E2 is your first retention amount)
+
+**Days Since Release Date:** \`=IF(ReleaseDate<TODAY(),TODAY()-ReleaseDate,0)\`
+
+**Collection Priority:** \`=IF(DaysSinceRelease>30,"URGENT",IF(DaysSinceRelease>0,"DUE","PENDING"))\`
+
+This creates an automatic priority system that flags overdue retainage for immediate collection action.
+
+## Tracking Multiple Release Schedules
+
+Different projects have different retention release terms. Some release half at substantial completion and half at final completion. Others hold everything until punch list completion. Your spreadsheet needs to handle both.
+
+| Release Type | Trigger Event | Amount Released | Example Project Value |
+|--------------|---------------|-----------------|----------------------|
+| Single Release | Final completion + 45 days | 100% ($21,000) | $300,000 @ 7% |
+| Split Release | Substantial completion | 50% ($10,500) | $300,000 @ 7% |
+| Split Release | Final completion + 30 days | 50% ($10,500) | $300,000 @ 7% |
+| Progressive Release | 90% completion | 25% ($5,250) | $300,000 @ 7% |
+
+Use conditional logic to handle multiple release points: \`=IF(CompletionDate>0,IF(TODAY()>CompletionDate+ReleaseDays,RetentionBalance*ReleasePercent,0),0)\`.
+
+For split releases, create separate rows for each release event with formulas that reference the appropriate trigger dates and percentages.
+
+## Automating Collection Follow-up
+
+The most valuable feature of a retainage tracking spreadsheet is automated collection reminders. Build a dashboard that shows:
+
+**Ready to Submit:** Projects where retention can be claimed but hasn't been submitted yet
+**Submitted Pending:** Claims submitted but not yet paid, with days outstanding
+**Overdue Collections:** Claims past their payment terms that need immediate attention
+
+Use this formula to calculate collection priority scores: \`=DaysPastDue*RetentionAmount/1000\`. This weights larger amounts and longer delays, helping you focus collection efforts where they'll have the biggest cash flow impact.
+
+Set up conditional formatting to highlight overdue items in red and ready-to-submit items in yellow. This visual system makes it impossible to miss collection opportunities.
+
+## Protecting Your Cash Flow with Data
+
+A construction retainage tracking spreadsheet transforms retention from a cash flow problem into a predictable income stream. Instead of discovering missing payments months later, you know exactly when every dollar will be released and can plan accordingly.
+
+The contractor who discovered his missing $47,000 implemented a tracking system and recovered $31,000 within 60 days. The remaining $16,000 was legitimately tied up in warranty periods, but now he knows exactly when those funds will be released.
+
+Your tracking system should integrate with your overall project financial management. Consider linking it to a comprehensive construction budget tracker that monitors all project finances, not just retainage.
+
+Start tracking your retainage today. Every day you wait is money that could be in your account instead of someone else's.`,
+  },
+  {
     slug: '1031-exchange-calculator-excel',
     title: '1031 Exchange Calculator Excel: Stop Losing Money on Bad Timing',
     metaTitle: '1031 Exchange Calculator Excel Template | SheetCraft',
