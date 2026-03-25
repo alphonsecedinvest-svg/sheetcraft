@@ -16,6 +16,181 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-deal-pipeline-tracker-manage-funnel-excel',
+    title: 'Real Estate Deal Pipeline Tracker: Manage Your Funnel in Excel',
+    metaTitle: 'Real Estate Deal Pipeline Tracker: Manage Funnel | SheetCraft',
+    metaDescription: 'Stop losing profitable real estate deals. Track your pipeline in Excel with automated alerts, deal scoring, and profit calculations. Includes BRRRR formulas.',
+    targetKeyword: 'real estate deal pipeline tracker spreadsheet',
+    secondaryKeywords: ['real estate pipeline management', 'BRRRR deal tracking', 'property investment spreadsheet', 'Excel real estate formulas', 'deal flow automation'],
+    excerpt: 'Real estate investors lose ,000 per quarter from deals that slip through tracking gaps. Learn how to build an Excel pipeline tracker that prevents missed opportunities and prioritizes profitable deals with automated alerts and scoring formulas.',
+    publishedAt: '2026-03-25',
+    readTime: 8,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-deal-pipeline-tracker-manage-funnel-excel.png',
+    imageAlt: 'Real estate investor using Excel deal pipeline tracker spreadsheet to manage property investment opportunities',
+    content: `# Real Estate Deal Pipeline Tracker: Manage Your Funnel in Excel
+
+Missing a profitable deal because you forgot to follow up costs more than poor organization. When you're juggling 15 potential properties across different stages, from initial contact to closing, Excel becomes your deal-saving command center.
+
+Real estate investors lose an average of $12,000 per quarter from deals that slip through tracking gaps. The fix isn't complex project management software. It's a properly structured **real estate deal pipeline tracker spreadsheet** that catches every opportunity before it walks to your competitor.
+
+## The Hidden Cost of Deal Tracking Failures
+
+Sarah, a fix-and-flip investor, tracked deals in her head until she lost a $28,000 profit margin house because she forgot to call back a motivated seller. The property sold to another investor three days later at her target price.
+
+Poor deal tracking creates three expensive problems:
+
+**Missed Follow-ups**: Motivated sellers move fast. Miss one callback, lose the deal.
+**Duplicate Effort**: Analyzing the same property twice wastes 2-3 hours per occurrence.
+**Poor Resource Allocation**: Chasing dead deals while profitable ones go cold.
+
+The solution requires tracking every deal from lead generation through closing with automatic alerts for time-sensitive actions.
+
+## Essential Columns for Deal Pipeline Tracking
+
+Your real estate deal pipeline tracker spreadsheet needs eight core columns to prevent deal loss:
+
+<table>
+<tr><th>Column</th><th>Purpose</th><th>Example Formula</th></tr>
+<tr><td>Deal Source</td><td>Track lead quality by origin</td><td>Dropdown validation</td></tr>
+<tr><td>Property Address</td><td>Unique identifier</td><td>Text field</td></tr>
+<tr><td>Stage</td><td>Current deal status</td><td>=IF(E2<>"","Under Contract",IF(D2<>"","Analyzing","Lead"))</td></tr>
+<tr><td>Days in Stage</td><td>Prevent stagnant deals</td><td>=TODAY()-C2</td></tr>
+<tr><td>Next Action Date</td><td>Time-sensitive reminders</td><td>Date field</td></tr>
+<tr><td>Estimated Profit</td><td>Prioritize high-value deals</td><td>=IF(H2>0,H2-G2-I2,0)</td></tr>
+<tr><td>Probability Score</td><td>Weight deal likelihood</td><td>=IF(J2="Hot",0.8,IF(J2="Warm",0.5,0.2))</td></tr>
+<tr><td>Expected Value</td><td>Portfolio planning</td><td>=F2*G2</td></tr>
+</table>
+
+The **Days in Stage** column prevents deals from going stale. Any deal over 14 days in "Initial Contact" or 7 days in "Awaiting Response" triggers immediate action.
+
+## Building Deal Stage Automation
+
+Deal stages in real estate follow predictable patterns. Your spreadsheet should automatically advance deals based on data entry:
+
+**Stage 1 - Lead Generated**: Contact information entered
+**Stage 2 - Initial Contact**: First conversation logged
+**Stage 3 - Property Analysis**: ARV and repair estimates added
+**Stage 4 - Offer Submitted**: Offer amount and date recorded
+**Stage 5 - Under Contract**: Contract date entered
+**Stage 6 - Closed**: Sale completion recorded
+
+Use this formula in your Stage column (assuming Column E contains contract dates and Column D contains offer dates):
+
+\`\`\`
+=IF(E2<>"","Under Contract",IF(D2<>"","Offer Submitted",IF(C2<>"","Analyzing",IF(B2<>"","Initial Contact","New Lead"))))
+\`\`\`
+
+This automation prevents human error in stage tracking while maintaining deal flow visibility.
+
+## Critical Formulas for Deal Prioritization
+
+Two formulas separate profitable tracking from busy work: Expected Value calculation and Deal Score ranking.
+
+**Expected Value Formula** (Column H):
+\`\`\`
+=IF(F2>0,F2*G2,0)
+\`\`\`
+
+This multiplies estimated profit by probability score, giving you weighted portfolio value. A $30,000 profit deal with 50% probability (0.5) shows $15,000 expected value.
+
+**Deal Score Formula** (Column I):
+\`\`\`
+=IF(H2>20000,3,IF(H2>10000,2,1))+IF(J2<=7,2,IF(J2<=14,1,0))
+\`\`\`
+
+This ranks deals by expected value and urgency. High-value deals with approaching deadlines score highest, directing your daily focus.
+
+## Setting Up Automated Alert System
+
+Excel's conditional formatting creates visual alerts for time-sensitive deals without external software.
+
+**Overdue Follow-ups** (Red highlighting):
+Select your Next Action Date column and apply this conditional formatting rule:
+\`\`\`
+=AND($E2<>"",$E2<TODAY())
+\`\`\`
+
+**Stagnant Deals** (Yellow highlighting):
+Apply this rule to your Days in Stage column:
+\`\`\`
+=AND($D2>=14,$C2<>"Closed")
+\`\`\`
+
+**Hot Prospects** (Green highlighting):
+Use this rule for high-probability, high-value combinations:
+\`\`\`
+=AND($G2>=0.7,$F2>=25000)
+\`\`\`
+
+These visual cues eliminate daily scanning time while ensuring critical deals receive immediate attention.
+
+## Sample Deal Tracking Scenarios
+
+**Scenario 1**: Direct mail lead comes in Tuesday. Property analysis shows $22,000 profit potential. Seller motivated (0.8 probability). Expected value: $17,600. Deal score: 5 (maximum priority).
+
+**Scenario 2**: Driving for dollars lead from last month sits in "Initial Contact" for 18 days. Conditional formatting flags it yellow for follow-up. Either advance or archive within 48 hours.
+
+**Scenario 3**: Wholesaler brings deal with $8,000 profit, 0.9 probability. Expected value: $7,200. Lower than Scenario 1 despite higher probability, so it ranks second priority.
+
+Your spreadsheet handles these prioritization decisions automatically, removing guesswork from daily planning.
+
+## Advanced Tracking for BRRRR and Buy-and-Hold
+
+Buy-and-hold investors need additional columns for cash flow analysis:
+
+<table>
+<tr><th>Metric</th><th>Formula</th><th>Business Impact</th></tr>
+<tr><td>Monthly Rent</td><td>=Property_Value*0.01</td><td>Initial cash flow estimate</td></tr>
+<tr><td>Debt Service</td><td>=Purchase_Price*0.8*(Rate/12)/(1-(1+(Rate/12))^(-360))</td><td>Mortgage payment calculation</td></tr>
+<tr><td>Cash Flow</td><td>=Monthly_Rent-Debt_Service-Property_Tax/12-Insurance/12</td><td>Monthly profit/loss</td></tr>
+<tr><td>Cash-on-Cash Return</td><td>=Cash_Flow*12/Down_Payment</td><td>Investment efficiency metric</td></tr>
+</table>
+
+BRRRR investors add refinance tracking columns:
+- **Rehab Budget vs Actual**: \`=Rehab_Actual-Rehab_Budget\`
+- **Post-Rehab Value**: Market value after improvements
+- **Refinance Amount**: \`=Post_Rehab_Value*0.75\` (assuming 75% LTV)
+- **Capital Recovery**: \`=Refinance_Amount-Total_Investment\`
+
+## Pipeline Performance Metrics
+
+Track these four metrics monthly to improve deal flow:
+
+**Conversion Rate by Source**: \`=COUNTIFS(Source_Column,"Direct Mail",Stage_Column,"Closed")/COUNTIFS(Source_Column,"Direct Mail")\`
+
+**Average Days to Close**: \`=AVERAGEIFS(Days_Column,Stage_Column,"Closed")\`
+
+**Pipeline Value**: \`=SUMPRODUCT(Expected_Value_Column)\`
+
+**Win Rate by Deal Size**: Separate analysis for deals above and below $20,000 profit
+
+These metrics identify which marketing channels generate quality leads and where deals stall in your process.
+
+## Integration with Market Analysis
+
+Your deal tracker should reference market data for accurate valuations. Create separate sheets for:
+
+**Comparable Sales**: Recent sales in target areas with price per square foot
+**Rental Comps**: Current rental rates by bedroom count and location
+**Contractor Costs**: Updated repair cost estimates by project type
+
+Link these reference sheets to your main tracker using \`VLOOKUP\` formulas:
+\`\`\`
+=VLOOKUP(Property_Zip,Rental_Comps,3,FALSE)*Square_Feet
+\`\`\`
+
+This integration eliminates time spent researching the same markets repeatedly.
+
+## Conclusion
+
+A properly configured real estate deal pipeline tracker spreadsheet prevents the $12,000 quarterly losses that hit disorganized investors. The difference between profit and missed opportunity often comes down to following up within 24 hours instead of "when you remember."
+
+Your tracker should prioritize deals by expected value, alert you to time-sensitive actions, and provide market-informed valuations. The goal isn't perfect organization but capturing every profitable deal before competitors do.
+
+Ready to implement a complete real estate analysis system that includes both deal tracking and financial modeling? Our [BRRRR and Fix-and-Flip Calculator](flip-brrrr-calculator) combines pipeline management with detailed property analysis, cash flow projections, and refinancing scenarios in one integrated Excel template. Stop losing deals to poor tracking and start building wealth with systematic deal management.`,
+  },
+  {
     slug: 'construction-equipment-tracking-spreadsheet-save-money',
     title: 'How a Construction Equipment Tracking Spreadsheet Can Save You $50K Per Project',
     metaTitle: 'Construction Equipment Tracking Spreadsheet Guide | SheetCraft',
