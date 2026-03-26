@@ -16,6 +16,276 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'dscr-calculator-excel-real-estate',
+    title: 'DSCR Calculator for Real Estate: Will the Bank Say Yes?',
+    metaTitle: 'DSCR Calculator Excel Real Estate | SheetCraft',
+    metaDescription: 'Build a DSCR calculator in Excel to get real estate loan approval. Includes formulas, scenarios, and analysis for investment properties.',
+    targetKeyword: 'DSCR calculator Excel real estate',
+    secondaryKeywords: ['debt service coverage ratio', 'real estate investment analysis', 'rental property loans', 'commercial property financing', 'investment property calculator'],
+    excerpt: 'Learn how to build a DSCR calculator in Excel that actually gets you loan approval. Includes real scenarios, Excel formulas, and analysis frameworks.',
+    publishedAt: '2026-03-26',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/dscr-calculator-excel-real-estate.png',
+    imageAlt: 'Professional real estate investor analyzing DSCR calculations on Excel spreadsheet with calculator and financial documents',
+    content: `# DSCR Calculator for Real Estate: Will the Bank Say Yes?
+
+**Meta-title:** DSCR Calculator Excel Real Estate: Will the Bank Say Yes? | SheetCraft
+**Meta-description:** Build a DSCR calculator in Excel for real estate loans. Get formulas, scenarios, and templates to boost your loan approval odds.
+**Excerpt:** Learn how to build a debt service coverage ratio calculator in Excel that gives you the confidence to approach lenders with winning investment property deals.
+**Estimated read time:** 8 minutes
+**Article slug:** dscr-calculator-excel-real-estate
+
+---
+
+You're standing in front of a duplex that could cash flow $800 per month. The seller wants $180,000. Your contractor says it needs $15,000 in repairs. But here's the million-dollar question: will the bank approve your loan?
+
+The answer hinges on one critical metric that most investors calculate wrong: the Debt Service Coverage Ratio (DSCR). Get it right, and you walk away with financing. Get it wrong, and you waste weeks on a deal that never closes.
+
+A proper DSCR calculator Excel real estate template doesn't just crunch numbers. It predicts whether your loan officer will smile or frown when they see your application. Here's how to build one that actually works.
+
+## Why DSCR Makes or Breaks Your Real Estate Deal
+
+The debt service coverage ratio tells lenders one thing: can this property pay its own mortgage? Banks want to see a DSCR of at least 1.25 for investment properties. That means the property generates 25% more income than it needs to cover the mortgage payment.
+
+Miss this target, and you're looking at:
+- Loan rejection after 3-6 weeks of processing time
+- $500-$1,500 in wasted application fees and appraisals
+- Lost earnest money if your financing contingency expires
+- Opportunity cost while comparable properties get snatched up
+
+But nail the DSCR calculation upfront, and you can negotiate with confidence, knowing exactly which deals pencil out and which ones don't.
+
+### The Real Cost of Bad DSCR Calculations
+
+Consider two investors, both looking at the same $200,000 rental property:
+
+**Investor A** uses a basic calculator that shows gross rental income versus mortgage payments. They calculate: $2,400 monthly rent ÷ $1,600 mortgage payment = 1.50 DSCR. Looks great!
+
+**Investor B** builds a proper DSCR calculator that includes vacancy rates, maintenance reserves, and actual net operating income. Their calculation shows: $2,040 net monthly income ÷ $1,600 mortgage payment = 1.28 DSCR.
+
+Investor A gets their loan denied after spending $1,200 on appraisal and fees. Investor B gets approved and closes in 30 days. The difference? A DSCR calculator Excel real estate template that reflects reality, not wishful thinking.
+
+## Building Your DSCR Calculator in Excel
+
+Let's build a calculator that lenders actually trust. Start with a new Excel worksheet and set up these key sections:
+
+### Property Income Section
+
+Create these rows in column A with corresponding input cells in column B:
+
+\`\`\`
+A1: Property Address
+A2: Gross Monthly Rent
+A3: Other Income (laundry, parking, etc.)
+A4: Gross Annual Income
+\`\`\`
+
+In cell B4, use this formula to calculate total annual income:
+\`=(B2+B3)*12\`
+
+This accounts for both rental income and ancillary revenue streams that lenders recognize.
+
+### Operating Expenses Section
+
+Real DSCR calculations subtract actual operating expenses, not just mortgage payments. Set up these expense categories:
+
+\`\`\`
+A6: Vacancy Rate (%)
+A7: Property Management (%)
+A8: Insurance (annual)
+A9: Property Taxes (annual)
+A10: Maintenance Reserve
+A11: Total Annual Expenses
+\`\`\`
+
+In cell B11, calculate total expenses with this formula:
+\`=(B4*B6/100)+(B4*B7/100)+B8+B9+(B2*12*0.05)\`
+
+This formula handles vacancy as a percentage of gross income, management fees, fixed costs, and a 5% maintenance reserve.
+
+### Net Operating Income Calculation
+
+In cell B13, calculate your NOI:
+\`=B4-B11\`
+
+This is the number that matters to lenders. Not gross rent, but actual cash flow after realistic expenses.
+
+### Debt Service Calculation
+
+Set up your loan parameters:
+
+\`\`\`
+A15: Purchase Price
+A16: Down Payment (%)
+A17: Loan Amount
+A18: Interest Rate (%)
+A19: Loan Term (years)
+A20: Monthly Payment
+A21: Annual Debt Service
+\`\`\`
+
+Calculate loan amount in B17: \`=B15*(1-B16/100)\`
+
+For monthly payment in B20: \`=PMT(B18/12/100,B19*12,-B17)\`
+
+Annual debt service in B21: \`=B20*12\`
+
+### DSCR Calculation
+
+Finally, the moment of truth in cell B23:
+\`=B13/B21\`
+
+This divides your net operating income by annual debt service to give you the DSCR that lenders use for approval decisions.
+
+## Real-World DSCR Scenarios with Actual Numbers
+
+Let's test this calculator with three common real estate scenarios:
+
+### Scenario 1: Single Family Rental
+
+| Property Details | Values |
+|-----------------|--------|
+| Purchase Price | $185,000 |
+| Monthly Rent | $1,850 |
+| Vacancy Rate | 6% |
+| Property Taxes | $2,220/year |
+| Insurance | $1,200/year |
+| Down Payment | 25% |
+| Interest Rate | 7.5% |
+| Loan Term | 30 years |
+
+**DSCR Calculation:**
+- Gross Annual Income: \`=$1,850*12\` = $22,200
+- Total Expenses: \`=($22,200*0.06)+($22,200*0.08)+$2,220+$1,200+($1,850*12*0.05)\` = $6,865
+- Net Operating Income: \`=$22,200-$6,865\` = $15,335
+- Loan Amount: \`=$185,000*0.75\` = $138,750
+- Monthly Payment: \`=PMT(7.5%/12,360,-138750)\` = $970
+- Annual Debt Service: \`=$970*12\` = $11,640
+- **DSCR: \`=$15,335/$11,640\` = 1.32**
+
+This property passes the 1.25 minimum threshold.
+
+### Scenario 2: Small Multifamily Property
+
+| Property Details | Values |
+|-----------------|--------|
+| Purchase Price | $320,000 |
+| Monthly Rent (4 units) | $3,200 |
+| Vacancy Rate | 8% |
+| Property Management | 10% |
+| Property Taxes | $4,800/year |
+| Insurance | $2,400/year |
+| Down Payment | 25% |
+| Interest Rate | 8.0% |
+| Loan Term | 30 years |
+
+Using our Excel formulas:
+- Net Operating Income: $25,344
+- Annual Debt Service: $21,166
+- **DSCR: 1.20**
+
+This property falls short of the 1.25 minimum. You'd need to negotiate a lower price or find additional income sources.
+
+## Advanced DSCR Formulas for Different Property Types
+
+### Commercial Property DSCR with Triple Net Leases
+
+For commercial properties where tenants pay operating expenses, modify your NOI calculation:
+
+\`\`\`
+B13: =B4-B11+(B4*B25/100)
+\`\`\`
+
+Where B25 contains the percentage of expenses covered by tenants (often 80-100% for triple net leases).
+
+### Mixed-Use Property Calculator
+
+For properties with both residential and commercial tenants, create separate income streams:
+
+\`\`\`
+B4: =(B2*12)+(B26*12)
+\`\`\`
+
+Where B2 is residential rent and B26 is commercial rent. Use different vacancy rates for each:
+
+\`\`\`
+B11: =(B2*12*B6/100)+(B26*12*B27/100)+B8+B9+(B4*0.05)
+\`\`\`
+
+Where B27 is the commercial vacancy rate (typically lower than residential).
+
+### Seasonal Rental Property DSCR
+
+For vacation rentals or seasonal properties, account for income fluctuations:
+
+\`\`\`
+B4: =(B2*B28)+(B29*B30)
+\`\`\`
+
+Where:
+- B28 = number of peak season months
+- B29 = off-season monthly rent
+- B30 = number of off-season months
+
+## Common DSCR Calculation Mistakes That Kill Deals
+
+### Using Gross Rent Instead of NOI
+
+The biggest mistake is using gross rental income instead of net operating income. A $2,000 monthly rent sounds impressive until you subtract $400 for vacancy, management, taxes, insurance, and maintenance. Your actual NOI might only be $1,600.
+
+Formula fix: Always calculate NOI first with \`=GrossIncome-TotalExpenses\`
+
+### Forgetting Principal Payments
+
+Some investors only include interest in their debt service calculation. Lenders include both principal and interest.
+
+Wrong formula: \`=LoanAmount*(InterestRate/12)\`
+Right formula: \`=PMT(InterestRate/12,LoanTerm*12,-LoanAmount)\`
+
+### Ignoring Vacancy and Maintenance
+
+A 0% vacancy rate and no maintenance budget might look good on paper, but lenders know better. Use realistic assumptions:
+- Single family: 5-6% vacancy, 5% maintenance
+- Multifamily: 6-8% vacancy, 8% maintenance
+- Commercial: 4-10% depending on lease terms
+
+## Optimizing Your DSCR for Loan Approval
+
+If your DSCR falls below 1.25, try these Excel-based scenarios:
+
+### Scenario Analysis with Data Tables
+
+Create a data table to test different purchase prices:
+
+1. Set up your base DSCR calculation in cell B23
+2. Create a column with purchase prices from $150K to $200K in $10K increments
+3. Use Excel's Data Table feature to show DSCR at each price point
+4. Formula for data table: Reference cell B23 as your formula cell
+
+This shows you the maximum price you can pay while maintaining a 1.25+ DSCR.
+
+### Rent Optimization Calculator
+
+Test different rental rates with this sensitivity analysis:
+
+\`\`\`
+=IF(B2*12*0.94-B11>=B21*1.25,"APPROVED","REJECTED")
+\`\`\`
+
+This formula tells you instantly whether a given rent level will generate loan approval.
+
+## Your Next Step: Stop Guessing, Start Calculating
+
+Building a DSCR calculator Excel real estate template transforms you from someone who hopes deals work to someone who knows they will. But creating these formulas from scratch takes hours you don't have.
+
+Instead of building from zero, consider starting with our [Rental Property Analyzer](https://sheetcraft.com/rental-property-analyzer) template. It includes pre-built DSCR calculations, sensitivity analysis tools, and bank-ready reports that have helped thousands of investors secure financing faster.
+
+The difference between approved and rejected loan applications often comes down to preparation. Your DSCR calculator is your first line of defense against deals that look good but don't pencil out. Use it before you make an offer, not after you're already committed.
+
+Remember: banks don't approve dreams. They approve numbers. Make sure your numbers tell the right story.`,
+  },
+  {
     slug: 'real-estate-deal-pipeline-tracker-manage-funnel-excel',
     title: 'Real Estate Deal Pipeline Tracker: Manage Your Funnel in Excel',
     metaTitle: 'Real Estate Deal Pipeline Tracker: Manage Funnel | SheetCraft',
