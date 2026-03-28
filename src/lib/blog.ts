@@ -16,6 +16,261 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'fix-flip-project-timeline-spreadsheet',
+    title: 'Fix and Flip Project Timeline: Plan Every Week of Your Rehab in Excel',
+    metaTitle: 'Fix and Flip Project Timeline Spreadsheet | SheetCraft',
+    metaDescription: 'Plan every week of your fix and flip rehab with Excel timeline spreadsheets. Stop delays, control costs, coordinate contractors effectively.',
+    targetKeyword: 'fix and flip project timeline spreadsheet',
+    secondaryKeywords: ['construction project scheduling', 'rehab timeline template', 'contractor coordination spreadsheet', 'flip project management excel', 'real estate timeline tracking'],
+    excerpt: 'Most flippers lose money to poor scheduling. A systematic Excel timeline prevents costly delays, coordinates contractors, and keeps projects profitable.',
+    publishedAt: '2026-03-28',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/fix-flip-project-timeline-spreadsheet.png',
+    imageAlt: 'Excel spreadsheet showing construction project timeline with Gantt chart, surrounded by blueprints, calculator, and construction tools on office desk',
+    content: `<h1>Fix and Flip Project Timeline: Plan Every Week of Your Rehab in Excel</h1>
+
+<p>You bought a $180,000 distressed property, budgeted $35,000 for rehab, and planned to flip it in 10 weeks. Three months later, you're still paying $1,200 monthly holding costs while your electrician waits for the plumber who can't start until the framing inspector signs off. Sound familiar?</p>
+
+<p>Most flippers treat project scheduling like an afterthought. They hire good contractors, buy quality materials, then wonder why a 10-week rehab stretches to 16 weeks. The answer isn't bad luck. It's bad planning.</p>
+
+<p>A fix and flip project timeline spreadsheet isn't just a nice-to-have. It's the difference between a $15,000 profit and breaking even after extra holding costs eat your margins.</p>
+
+<h2>The Real Cost of Poor Project Scheduling</h2>
+
+<p>Here's what happens when you wing it: Your contractor starts demo on Monday. Tuesday, he realizes the electrical panel needs upgrading before he can run new wire. The electrician can't come until next week. Your contractor moves to another job to stay busy. When the electrician finishes, your contractor is tied up elsewhere for three days.</p>
+
+<p>Those three days cost you:</p>
+<ul>
+<li>$360 in holding costs ($1,200/month mortgage payment)</li>
+<li>$450 in lost opportunity (your next flip sits on the sidelines)</li>
+<li>Contractor scheduling premium when he finally returns</li>
+</ul>
+
+<p>Multiply this scenario across a dozen trade dependencies, and your 10-week flip becomes a 16-week marathon. That extra 6 weeks costs $7,200 in holding costs alone, assuming you can even get your contractors back on schedule.</p>
+
+<p>Compare this to flippers who map every task, dependency, and milestone in Excel before breaking ground. They know the electrician comes Thursday after the framing inspection Wednesday. Their contractors rarely sit idle. Their projects finish on time.</p>
+
+<h2>Why Excel Beats Project Management Software for Flippers</h2>
+
+<p>Dedicated project management tools sound appealing until you realize most small contractors don't use them. Your framers, plumbers, and electricians communicate via text and phone calls, not Gantt charts.</p>
+
+<p>Excel works because:</p>
+<ul>
+<li>Every contractor can read a simple schedule</li>
+<li>You can email updates without requiring software adoption</li>
+<li>Financial calculations integrate with your rehab budget</li>
+<li>Templates work for every property type</li>
+</ul>
+
+<p>The goal isn't sophisticated project management. It's preventing costly delays through clear communication and realistic sequencing.</p>
+
+<h2>Building Your Fix and Flip Timeline Spreadsheet</h2>
+
+<p>Start with these core columns in Excel:</p>
+
+<table border="1">
+<tr>
+<th>Column A</th>
+<th>Column B</th>
+<th>Column C</th>
+<th>Column D</th>
+<th>Column E</th>
+<th>Column F</th>
+</tr>
+<tr>
+<td>Task</td>
+<td>Start Date</td>
+<td>Duration (Days)</td>
+<td>End Date</td>
+<td>Contractor</td>
+<td>Dependencies</td>
+</tr>
+<tr>
+<td>Demo interior</td>
+<td>3/1/2024</td>
+<td>3</td>
+<td>3/4/2024</td>
+<td>Johnson Demo</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Rough plumbing</td>
+<td>3/5/2024</td>
+<td>4</td>
+<td>3/8/2024</td>
+<td>ABC Plumbing</td>
+<td>Demo complete</td>
+</tr>
+<tr>
+<td>Rough electrical</td>
+<td>3/5/2024</td>
+<td>4</td>
+<td>3/8/2024</td>
+<td>Smith Electric</td>
+<td>Demo complete</td>
+</tr>
+</table>
+
+<p>Your End Date formula in column D should be: \`=B2+C2-1\`. This calculates the final day based on start date plus duration.</p>
+
+<p>For tasks with dependencies, use conditional logic. If rough plumbing must finish before insulation starts, your insulation start date becomes: \`=IF(D2<TODAY(),D2+1,TODAY())\`. This ensures insulation doesn't start until plumbing is actually complete.</p>
+
+<h2>Critical Path Analysis for Flippers</h2>
+
+<p>Not every task is equally important to your timeline. Painting can wait. Framing inspection cannot. Identify your critical path by tracking which delays actually push back your completion date.</p>
+
+<p>Add a "Critical Path" column with this formula: \`=IF(AND(B2<=TODAY(),D2>=TODAY()),"ACTIVE",IF(D2<TODAY(),"COMPLETE",IF(B2>TODAY()+7,"FUTURE","UPCOMING")))\`. This flags which tasks need immediate attention.</p>
+
+<p>Focus your daily management on "ACTIVE" and "UPCOMING" critical path items. If your rough electrical inspection gets delayed two days, every subsequent task shifts right. If your bathroom tile delivery is late, only finish work gets affected.</p>
+
+<h2>Contractor Coordination Made Simple</h2>
+
+<p>The best timeline spreadsheet prevents contractor conflicts before they happen. Create a "Weekly View" tab showing which trades work when:</p>
+
+<table border="1">
+<tr>
+<th>Week of</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+</tr>
+<tr>
+<td>3/1/2024</td>
+<td>Demo (Johnson)</td>
+<td>Demo (Johnson)</td>
+<td>Demo (Johnson)</td>
+<td>Plumbing rough-in</td>
+<td>Electrical rough-in</td>
+</tr>
+<tr>
+<td>3/8/2024</td>
+<td>Insulation</td>
+<td>Drywall delivery</td>
+<td>Drywall hang</td>
+<td>Drywall hang</td>
+<td>Drywall mud</td>
+</tr>
+</table>
+
+<p>Use Excel's conditional formatting to highlight conflicts. If two contractors are scheduled the same day in a small space, color those cells red. Your \`=COUNTIF(B3:F3,B3)>1\` formula flags overlapping trades automatically.</p>
+
+<p>Email this weekly view to all contractors every Friday. They see exactly when they're needed and can flag conflicts early.</p>
+
+<h2>Buffer Time and Risk Management</h2>
+
+<p>Every experienced flipper builds buffer time into critical milestones. Your formula should add contingency based on task complexity:</p>
+
+<p>\`=IF(C2<=2,C2*1.1,IF(C2<=5,C2*1.2,C2*1.3))\` adds 10% buffer for simple tasks, 20% for medium complexity, and 30% for complex work like full kitchen renovations.</p>
+
+<p>Weather delays, permit issues, and material shortages happen. Your timeline should absorb these without derailing the entire project.</p>
+
+<h2>Financial Impact Tracking</h2>
+
+<p>Link your timeline directly to holding costs. If your monthly expenses total $2,400 (mortgage, insurance, utilities, property taxes), each day of delay costs $80.</p>
+
+<p>Add a "Delay Cost" column: \`=IF(TODAY()>D2,(TODAY()-D2)*80,0)\`. This calculates the financial impact of late tasks in real time.</p>
+
+<p>When your flooring contractor asks for an extra week, you see immediately that this delay costs $560 in additional holding costs. Sometimes paying a premium for faster completion saves money overall.</p>
+
+<h2>Inspection and Permit Scheduling</h2>
+
+<p>Municipal inspections kill more flip schedules than bad contractors. Build inspection wait times into your timeline from day one.</p>
+
+<p>Research your local building department's average turnaround times:</p>
+<ul>
+<li>Framing inspection: 3-5 business days</li>
+<li>Rough electrical: 2-3 business days</li>
+<li>Final inspection: 5-7 business days</li>
+</ul>
+
+<p>Schedule inspection requests based on realistic lead times, not wishful thinking. If framing takes 5 days to inspect, request the inspection when framing starts, not when it finishes.</p>
+
+<p>Use this formula for inspection scheduling: \`=WORKDAY(D2,5)\` schedules your framing inspection 5 working days after rough framing completes.</p>
+
+<h2>Material Delivery Coordination</h2>
+
+<p>Nothing stops progress faster than missing materials. Track delivery dates alongside labor schedules.</p>
+
+<p>Create a "Materials" tab with delivery dates linked to installation tasks:</p>
+
+<table border="1">
+<tr>
+<th>Material</th>
+<th>Supplier</th>
+<th>Order Date</th>
+<th>Delivery Date</th>
+<th>Installation Task</th>
+<th>Buffer Days</th>
+</tr>
+<tr>
+<td>Kitchen cabinets</td>
+<td>Home Depot</td>
+<td>3/1/2024</td>
+<td>3/15/2024</td>
+<td>Cabinet install</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hardwood flooring</td>
+<td>Lumber Liquidators</td>
+<td>3/5/2024</td>
+<td>3/20/2024</td>
+<td>Floor installation</td>
+<td>3</td>
+</tr>
+</table>
+
+<p>Your cabinet installation can't start before \`=E2+F2\` (delivery date plus buffer for acclimatization). Link this to your main timeline to prevent scheduling conflicts.</p>
+
+<h2>Common Timeline Mistakes Flippers Make</h2>
+
+<p><strong>Mistake 1:</strong> Scheduling trades back-to-back with zero buffer. Real projects have delays. Your timeline should absorb minor setbacks without cascading effects.</p>
+
+<p><strong>Mistake 2:</strong> Ignoring contractor availability. Just because your timeline says electrical starts Monday doesn't mean your electrician is free Monday. Confirm availability before finalizing schedules.</p>
+
+<p><strong>Mistake 3:</strong> Underestimating inspection dependencies. You can't install drywall until electrical passes inspection. Your timeline should reflect actual approval sequences.</p>
+
+<p><strong>Mistake 4:</strong> Failing to communicate changes. When schedules shift, every affected contractor needs immediate notification. Delayed updates cause scheduling conflicts and idle time.</p>
+
+<h2>Technology Integration for Advanced Tracking</h2>
+
+<p>Modern flippers integrate their Excel timelines with simple mobile tools. Use Excel's mobile app to update task status from the jobsite. Share your timeline via OneDrive so contractors see real-time updates.</p>
+
+<p>For photo documentation, link progress pictures to timeline milestones. Your \`=HYPERLINK()\` formula can connect task completion to timestamped photos stored in cloud folders.</p>
+
+<h2>Scaling Your Timeline System</h2>
+
+<p>Successful flippers eventually run multiple projects simultaneously. Your Excel template should standardize across properties while allowing customization for unique situations.</p>
+
+<p>Create master templates for common renovation types:</p>
+<ul>
+<li>Cosmetic flip (paint, carpet, fixtures): 6-8 weeks</li>
+<li>Kitchen/bath renovation: 10-12 weeks</li>
+<li>Full gut rehab: 14-18 weeks</li>
+</ul>
+
+<p>Each template includes realistic task durations, common dependencies, and typical contractor sequences. Customize for specific properties while maintaining proven frameworks.</p>
+
+<h2>Measuring Timeline Performance</h2>
+
+<p>Track your actual performance against planned timelines. Add columns for "Actual Start Date" and "Actual End Date" alongside original projections.</p>
+
+<p>Calculate variance with: \`=D2-H2\` where D2 is planned completion and H2 is actual completion. Negative numbers indicate early completion, positive numbers show delays.</p>
+
+<p>Analyze patterns across projects. Do electrical tasks consistently run 2 days long? Is your framing contractor reliably early? Use this data to improve future timeline estimates.</p>
+
+<h2>Conclusion: Turn Chaos Into Profit</h2>
+
+<p>A fix and flip project timeline spreadsheet transforms renovation chaos into predictable, profitable execution. Instead of reacting to daily crises, you anticipate problems and prevent delays.</p>
+
+<p>The math is simple: projects that finish on schedule make more money. A 10-week flip earning $15,000 beats a 16-week flip earning $8,000 after extra holding costs. Your timeline spreadsheet is the difference.</p>
+
+<p>Ready to standardize your timeline planning across all your flips? The <a href="/templates/flip-brrrr-calculator">SheetCraft Flip & BRRRR Calculator</a> includes a complete project timeline template with built-in formulas for dependency tracking, cost analysis, and contractor coordination. Stop losing money to poor scheduling and start finishing projects on time, every time.</p>`,
+  },
+  {
     slug: 'construction-lien-waiver-tracking-excel',
     title: 'Construction Lien Waiver Tracking Excel System Guide',
     metaTitle: 'Construction Lien Waiver Tracking Excel | SheetCraft',
