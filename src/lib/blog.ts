@@ -16,6 +16,245 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-partnership-split-calculator',
+    title: 'Real Estate Partnership Split Calculator: Who Gets What (and When)',
+    metaTitle: 'Real Estate Partnership Split Calculator | SheetCraft',
+    metaDescription: 'Calculate partnership splits with Excel formulas. Avoid legal fees with clear profit distributions, sweat equity valuations, and exit strategies.',
+    targetKeyword: 'real estate partnership split calculator',
+    secondaryKeywords: ['partnership profit split', 'real estate investment partnerships', 'sweat equity calculator', 'Excel real estate formulas', 'property partnership agreement'],
+    excerpt: 'Real estate partnerships fail over money fights that Excel formulas can prevent. Calculate fair profit splits, sweat equity valuations, and exit distributions before disputes destroy profitable deals.',
+    publishedAt: '2026-03-30',
+    readTime: 8,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/real-estate-partnership-split-calculator.png',
+    imageAlt: 'Two real estate partners reviewing partnership split calculations on laptop with property documents spread on conference table',
+    content: `# Real Estate Partnership Split Calculator: Who Gets What (and When)
+
+Jake put $80,000 into a duplex. His partner Mike contributed $20,000 plus 120 hours of renovation work. Nine months later, they're fighting over how to split the $1,200 monthly profit. Mike thinks his sweat equity equals Jake's extra cash. Jake thinks Mike should get paid for labor, not ownership.
+
+Without a **real estate partnership split calculator**, partnerships like this burn through legal fees, destroy relationships, and kill profitable deals. The cost? One investor I know spent $15,000 in attorney fees fighting over a $300/month profit difference that a simple Excel formula could have prevented.
+
+This isn't about partnership philosophy. This is about building spreadsheets that prevent expensive arguments before they start.
+
+## Why Manual Partnership Math Fails (And Costs You Money)
+
+Real estate partnerships collapse over three predictable money fights:
+
+**Initial contribution disputes.** Partner A puts in $100K cash. Partner B contributes $60K cash plus renovation labor. How much is that labor worth? Without clear formulas, you're guessing.
+
+**Ongoing investment confusion.** Six months in, the property needs a $8,000 roof repair. Who pays? How does this change profit splits? Most partnerships wing it, creating resentment.
+
+**Exit value disagreements.** Property sells for $420K after two years. Partner A wants profits split by cash contribution. Partner B thinks sweat equity deserves equal weight. Lawyers get rich.
+
+A real estate partnership split calculator eliminates these fights by documenting the math upfront. Partners agree to formulas, not feelings.
+
+## Core Partnership Split Formulas That Prevent Legal Bills
+
+### Equal Split Partnership (50/50)
+
+The simplest structure. Each partner owns exactly half, regardless of contribution differences.
+
+\`\`\`
+Partner A Ownership = 50%
+Partner B Ownership = 50%
+Monthly Profit Split = Total Profit * 0.5
+\`\`\`
+
+Example: $2,400 monthly rental income, $1,800 expenses = $600 profit.
+- Partner A gets: \`=$B$10*0.5\` = $300
+- Partner B gets: \`=$B$10*0.5\` = $300
+
+| Metric | Partner A | Partner B |
+|--------|-----------|-----------|
+| Initial Investment | $75,000 | $45,000 |
+| Ownership % | 50% | 50% |
+| Monthly Profit | $300 | $300 |
+| Annual Return | $3,600 | $3,600 |
+
+### Capital-Weighted Split
+
+Ownership percentage matches initial cash investment. More money in = bigger slice.
+
+\`\`\`
+Total Investment = SUM of all partner contributions
+Partner A % = Partner A Investment / Total Investment
+Partner B % = Partner B Investment / Total Investment
+\`\`\`
+
+Using the same example:
+- Total investment: \`=B4+C4\` = $120,000
+- Partner A ownership: \`=B4/D4\` = 62.5%
+- Partner B ownership: \`=C4/D4\` = 37.5%
+
+| Metric | Partner A | Partner B | Total |
+|--------|-----------|-----------|-------|
+| Initial Investment | $75,000 | $45,000 | $120,000 |
+| Ownership % | 62.5% | 37.5% | 100% |
+| Monthly Profit | $375 | $225 | $600 |
+| ROI on Investment | 6.0% | 6.0% | 6.0% |
+
+### Hybrid Split (Capital + Sweat Equity)
+
+This structure values both cash and labor contributions. Set dollar values for sweat equity upfront.
+
+\`\`\`
+Sweat Equity Value = Hours Worked * Hourly Rate
+Adjusted Investment = Cash + Sweat Equity Value
+Ownership % = Adjusted Investment / Total Adjusted Investment
+\`\`\`
+
+Real scenario: Partner A invests $80K cash. Partner B invests $40K cash plus 100 hours at $25/hour.
+
+- Partner A total contribution: $80,000
+- Partner B total contribution: \`=40000+(100*25)\` = $42,500
+- Total contributions: \`=B6+C6\` = $122,500
+- Partner A ownership: \`=B6/D6\` = 65.3%
+- Partner B ownership: \`=C6/D6\` = 34.7%
+
+## Handling Ongoing Contributions and Capital Calls
+
+Partnerships don't end after the initial purchase. Properties need repairs, improvements, and sometimes emergency funding. Your calculator must handle these scenarios.
+
+### Proportional Capital Calls
+
+When the property needs additional money, partners contribute based on current ownership percentages.
+
+\`\`\`
+Required Contribution = Current Ownership % * Total Capital Need
+\`\`\`
+
+Example: $10,000 roof repair needed.
+- Partner A (65.3% owner): \`=10000*0.653\` = $6,530
+- Partner B (34.7% owner): \`=10000*0.347\` = $3,470
+
+### Disproportionate Contributions
+
+What happens when one partner can't or won't contribute to a capital call? The partnership agreement should specify, but here's the math:
+
+**Option 1: Non-contributing partner loses ownership**
+\`\`\`
+New Ownership % = (Original Investment + New Contribution) / New Total Investment
+\`\`\`
+
+**Option 2: Contributing partner gets loan terms**
+\`\`\`
+Interest Owed = Unpaid Amount * Interest Rate * Time
+\`\`\`
+
+If Partner B can't pay their $3,470 share:
+- Partner A pays full $10,000
+- Partner B owes: \`=3470*1.08*1\` = $3,748 after one year at 8% interest
+
+## Advanced Split Scenarios: Profit Waterfalls and Preferred Returns
+
+High-stakes partnerships often use waterfall distributions. Partners get paid in priority order until hitting target returns.
+
+### Preferred Return Structure
+
+Partner A (money partner) gets 8% preferred return before any profit sharing.
+
+\`\`\`
+Preferred Return = Initial Investment * Preferred Rate
+Remaining Profit = Total Profit - Preferred Return
+Split Remaining = Remaining Profit * Ownership %
+\`\`\`
+
+Example with $8,000 annual profit:
+- Partner A preferred: \`=80000*0.08\` = $6,400
+- Remaining profit: \`=8000-6400\` = $1,600
+- Partner A additional: \`=1600*0.653\` = $1,045
+- Partner B gets: \`=1600*0.347\` = $555
+
+| Distribution Layer | Partner A | Partner B |
+|-------------------|-----------|-----------|
+| Preferred Return (8%) | $6,400 | $0 |
+| Remaining Split | $1,045 | $555 |
+| Total Annual Profit | $7,445 | $555 |
+
+### Profit Hurdle Rates
+
+Some partnerships flip split percentages after hitting return thresholds. Partner A gets 70% until achieving 10% returns, then splits become 50/50.
+
+\`\`\`
+IF(Total Return Rate > Hurdle Rate, New Split %, Original Split %)
+\`\`\`
+
+Formula: \`=IF(B15>0.10,0.50,0.70)\`
+
+This rewards the money partner for early risk while giving the operating partner upside after hitting targets.
+
+## Exit Strategy Mathematics: Who Gets What When You Sell
+
+The biggest partnership fights happen at sale time. Your calculator must handle appreciation splits, cost recovery, and profit distribution.
+
+### Sale Proceeds Waterfall
+
+Typical priority order:
+1. Outstanding debt payoff
+2. Selling costs (6% realtor fees, closing costs)
+3. Return of original capital to partners
+4. Profit split per ownership percentages
+
+\`\`\`
+Net Proceeds = Sale Price - Outstanding Debt - Selling Costs
+Capital Recovery = MIN(Partner Investment, Available Proceeds)
+Profit = Net Proceeds - Total Capital Recovery
+Partner Profit Share = Profit * Ownership %
+\`\`\`
+
+Example: Property bought for $200K, sold for $280K after two years.
+
+| Line Item | Amount | Formula |
+|-----------|--------|---------|
+| Sale Price | $280,000 | Given |
+| Outstanding Debt | $120,000 | Given |
+| Selling Costs (6%) | $16,800 | \`=B2*0.06\` |
+| Net Proceeds | $143,200 | \`=B2-B3-B4\` |
+| Partner A Capital | $80,000 | Given |
+| Partner B Capital | $42,500 | Given |
+| Remaining Profit | $20,700 | \`=B5-B6-B7\` |
+| Partner A Profit Share | $13,517 | \`=B8*0.653\` |
+| Partner B Profit Share | $7,183 | \`=B8*0.347\` |
+
+## Common Partnership Calculator Mistakes That Cost Money
+
+**Using percentages instead of dollar tracking.** Percentages change as contributions change. Track actual dollar amounts for each partner's basis.
+
+**Ignoring tax implications.** Partnership profits might be ordinary income or capital gains. Your calculator should flag which partner gets what type of income for tax planning.
+
+**Forgetting about depreciation recapture.** When you sell, depreciation gets taxed as ordinary income up to 25%. Factor this into net proceeds.
+
+**Not updating for additional contributions.** Every capital improvement or cash injection changes ownership percentages. Update formulas immediately.
+
+**Missing opportunity cost calculations.** Partner A's $80K could earn 5% in index funds. Your partnership needs to beat that hurdle, or the deal doesn't make sense.
+
+Use this validation formula to catch errors: \`=IF(SUM(Partner_A_Ownership, Partner_B_Ownership)<>1,"ERROR: Percentages don't add to 100%","OK")\`
+
+## Building Your Partnership Split Calculator
+
+A complete real estate partnership calculator needs these core worksheets:
+
+**Initial Investment Tracking:** Cash contributions, sweat equity values, total basis per partner.
+
+**Monthly Operations:** Rental income, expenses, cash flow, profit/loss splits.
+
+**Capital Contributions Log:** Date, amount, contributing partner, new ownership percentages.
+
+**Sale Analysis:** Purchase price, improvements, sale price, costs, net proceeds, profit distribution.
+
+**Tax Planning:** Depreciation tracking, recapture calculations, 1099 preparation.
+
+Link worksheets with formulas like \`='Initial Investment'!B12*'Monthly Ops'!C8\` to ensure data consistency across scenarios.
+
+---
+
+Manual partnership calculations killed more real estate deals than bad markets or bad properties. Investors spend thousands in legal fees fighting over splits they could have calculated in advance.
+
+If you're tired of building partnership calculators from scratch every time, the [rental property analyzer template](https://sheetcraft.co/rental-property-analyzer) includes pre-built partnership split formulas, waterfall distributions, and exit scenario modeling. No more recreating the same calculations for every deal.
+
+Stop arguing about money. Start calculating it.`,
+  },
+  {
     slug: 'construction-labor-cost-calculator-excel',
     title: 'Construction Labor Cost Calculator: Loaded vs Bare Rate in Excel',
     metaTitle: 'Construction Labor Cost Calculator Excel | SheetCraft',
