@@ -16,6 +16,206 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'seller-financing-amortization-calculator-excel',
+    title: 'Seller Financing Amortization Calculator: Structure Creative Deals in Excel',
+    metaTitle: 'Seller Financing Amortization Calculator Excel | SheetCraft',
+    metaDescription: 'Build Excel spreadsheets for seller financing deals. Calculate payments, balloon amounts, and cash flow with step-by-step formulas.',
+    targetKeyword: 'seller financing amortization calculator Excel',
+    secondaryKeywords: ['seller financing calculator', 'real estate amortization', 'Excel mortgage calculator', 'property investment spreadsheet', 'balloon payment calculator'],
+    excerpt: 'Master seller financing with Excel amortization calculators. Structure profitable deals with precise payment calculations, balloon modeling, and cash flow analysis.',
+    publishedAt: '2026-04-06',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/seller-financing-amortization-calculator-excel.png',
+    imageAlt: 'Professional real estate investor reviewing Excel amortization spreadsheet in modern office setting',
+    content: `# Seller Financing Amortization Calculator: Structure Creative Deals in Excel
+
+When traditional bank financing falls through, seller financing can save the deal. But here's the problem: most investors wing the payment calculations, leaving money on the table or worse, creating deals that don't pencil out.
+
+A **seller financing amortization calculator Excel** spreadsheet eliminates the guesswork. Instead of relying on online calculators that don't factor in your specific deal structure, you control every variable that affects your monthly payment, total interest, and cash flow.
+
+## The Hidden Costs of Bad Seller Financing Math
+
+Sarah found a duplex listed at $180,000. The seller agreed to finance at 6% over 20 years with $25,000 down. Sounds reasonable, right?
+
+Without proper amortization calculations, she agreed to the deal. Six months later, she realized her monthly payments of $1,168 left her with negative cash flow of $200 per month. The rental income barely covered the payment, let alone repairs, vacancy, and property management.
+
+Had Sarah built an Excel amortization calculator, she would have discovered that a 25-year term at 5.5% would reduce her payment to $960, creating positive cash flow from day one. That extra 5 years and 0.5% difference saves $2,496 annually in payments.
+
+## What Seller Financing Amortization Calculators Actually Calculate
+
+Standard mortgage calculators miss the creative elements of seller financing. Your Excel calculator needs to handle:
+
+- **Balloon payments**: Many seller financing deals include a balloon payment after 5-10 years
+- **Interest-only periods**: Initial years with interest-only payments before principal kicks in
+- **Variable down payments**: Sellers often negotiate down payment amounts based on total terms
+- **Unusual payment schedules**: Quarterly, semi-annual, or seasonal payments instead of monthly
+
+## Building Your Excel Amortization Calculator
+
+### Core Formula Structure
+
+Start with the basic payment calculation in cell D5:
+\`=PMT(B5/12,B6,B4-B3)\`
+
+Where:
+- B3 = Down payment
+- B4 = Purchase price  
+- B5 = Annual interest rate
+- B6 = Number of payments (years × 12)
+
+This formula calculates the monthly principal and interest payment for a standard amortizing loan.
+
+### Advanced Calculations for Creative Terms
+
+For interest-only periods, modify the calculation:
+\`=IF(A8<=B7,B4*B5/12,PMT(B5/12,B6-B7,B4-B3))\`
+
+Where:
+- A8 = Payment number
+- B7 = Number of interest-only payments
+
+This formula switches from interest-only to amortizing payments at the specified period.
+
+### Balloon Payment Scenarios
+
+Calculate remaining balance for balloon payments:
+\`=PV(B5/12,B6-A8,PMT(B5/12,B6,B4-B3))\`
+
+This shows your remaining loan balance at any payment number, critical for planning balloon payments.
+
+## Real-World Example: Structuring a Deal
+
+Let's structure a $250,000 property purchase with seller financing:
+
+| Parameter | Option A | Option B | Option C |
+|-----------|----------|----------|----------|
+| Purchase Price | $250,000 | $250,000 | $250,000 |
+| Down Payment | $50,000 | $40,000 | $50,000 |
+| Interest Rate | 6.5% | 6.0% | 5.5% |
+| Term | 20 years | 25 years | 30 years |
+| Monthly Payment | $1,508 | $1,357 | $1,136 |
+| Total Interest | $161,920 | $147,100 | $158,960 |
+
+Using \`=PMT(6.5%/12,240,200000)\` for Option A, you get $1,508 monthly.
+
+Option C provides the lowest monthly payment but higher total interest due to the longer term. Option B balances payment and total cost.
+
+### Cash Flow Analysis
+
+Add rental income projections:
+
+| | Option A | Option B | Option C |
+|--|----------|----------|----------|
+| Monthly Payment | $1,508 | $1,357 | $1,136 |
+| Gross Rental Income | $1,800 | $1,800 | $1,800 |
+| Operating Expenses | $450 | $450 | $450 |
+| Net Operating Income | $1,350 | $1,350 | $1,350 |
+| Cash Flow | -$158 | -$7 | $214 |
+
+Only Option C generates positive cash flow. The Excel formula in this case:
+\`=B12-B13-B14\` where B12 is rent, B13 is expenses, B14 is payment.
+
+## Balloon Payment Calculations
+
+Many seller financing deals include balloon payments. Calculate the balloon amount using:
+\`=PV(B5/12,B6-B10,-PMT(B5/12,B6,B4-B3))\`
+
+For a 10-year balloon on a 30-year amortization:
+- Purchase price: $200,000
+- Down payment: $30,000  
+- Loan amount: $170,000
+- Rate: 6%
+- Monthly payment: $1,019 (30-year amortization)
+- Balloon after 10 years: $137,404
+
+This means you need to refinance or pay $137,404 after 10 years.
+
+## Interest-Only Period Strategies
+
+Some sellers agree to interest-only periods to reduce initial payments:
+
+**Year 1-3: Interest Only**
+Monthly payment: \`=B4*B5/12\` = $170,000 × 6% ÷ 12 = $850
+
+**Year 4-30: Principal + Interest**
+Remaining term: 27 years
+Monthly payment: \`=PMT(6%/12,324,170000)\` = $1,065
+
+This strategy reduces payments by $169 monthly for the first three years, improving early cash flow.
+
+## Negotiation Leverage Through Calculations
+
+Your Excel calculator becomes a negotiation tool. When a seller proposes terms, you can instantly model alternatives:
+
+"Mr. Smith, at 6.5% over 20 years, my monthly payment is $1,508. If we adjust to 6% over 25 years, my payment drops to $1,357, improving my cash flow by $151 monthly. This extra cushion makes me more likely to close on time and reduces my default risk."
+
+Run scenarios in real-time during negotiations:
+- \`=PMT(B5/12,B6*12,B4-B3)\` for different rates and terms
+- \`=PV(B5/12,B6-60,-PMT(B5/12,B6*12,B4-B3))\` for 5-year balloon amounts
+- \`=(PMT(B5/12,B6*12,B4-B3)*B6*12)+B3-B4\` for total interest over loan life
+
+## Tax Implications and Documentation
+
+Your amortization schedule becomes crucial for tax reporting. Each payment splits between principal and interest:
+
+**Interest portion**: \`=IPMT(B5/12,A8,B6,B4-B3)\`
+**Principal portion**: \`=PPMT(B5/12,A8,B6,B4-B3)\`
+
+Where A8 is the payment number. The interest portion is tax-deductible, while principal payments reduce your basis.
+
+## Common Seller Financing Mistakes to Avoid
+
+**Mistake 1**: Agreeing to payments without calculating debt service coverage ratio.
+**Solution**: Use \`=(B12-B13)/(B14)\` where the result should be above 1.25.
+
+**Mistake 2**: Not planning for balloon payments.
+**Solution**: Model refinancing costs and alternative exit strategies.
+
+**Mistake 3**: Ignoring prepayment penalties.
+**Solution**: Calculate breakeven points for early payoff scenarios.
+
+## Setting Up Your Excel Template
+
+Create these worksheets in your seller financing calculator:
+
+1. **Deal Summary**: Key terms and monthly payments
+2. **Amortization Schedule**: Month-by-month breakdown
+3. **Scenario Analysis**: Multiple financing options
+4. **Cash Flow Projections**: 10-year income/expense forecast
+5. **Balloon Planning**: Refinancing scenarios and timelines
+
+Your amortization schedule should show:
+- Payment number
+- Payment amount
+- Interest portion: \`=IPMT($B$5/12,A10,$B$6,$B$4-$B$3)\`
+- Principal portion: \`=PPMT($B$5/12,A10,$B$6,$B$4-$B$3)\`
+- Remaining balance: \`=PV($B$5/12,$B$6-A10,-PMT($B$5/12,$B$6,$B$4-$B$3))\`
+
+## Advanced Features for Complex Deals
+
+**Graduated Payment Mortgages**: Payments that increase over time
+\`=PMT(B5/12,B6,B4-B3)*(1+B8)^ROUNDDOWN((A10-1)/12,0)\`
+
+**Seasonal Payment Adjustments**: Different payments during peak/off seasons
+\`=IF(MOD(A10,12)<=B9,B10,B11)\` where B9, B10, B11 define seasonal parameters
+
+**Partial Interest Credits**: Seller credits part of the interest back
+\`=PMT(B5/12,B6,B4-B3)-B12\` where B12 is the monthly credit amount
+
+## Closing the Deal with Data
+
+Your Excel calculator provides the foundation for successful seller financing negotiations. Instead of relying on gut feelings or rough estimates, you present concrete numbers that demonstrate your understanding of the deal structure.
+
+When you can show a seller exactly how different terms affect your cash flow and their total return, negotiations become collaborative rather than adversarial. You're not just asking for better terms; you're engineering a deal structure that works for both parties.
+
+Stop guessing at seller financing terms. The SheetCraft Flip & BRRRR Calculator includes pre-built seller financing scenarios with full amortization schedules, balloon payment modeling, and cash flow projections. Get the professional-grade Excel templates that real estate investors use to structure profitable deals.
+
+[**Download the Flip & BRRRR Calculator →**](https://sheetcraft.com/products/flip-brrrr-calculator)
+
+Transform your seller financing negotiations from guesswork into precision. Your next deal depends on getting the numbers right.`,
+  },
+  {
     slug: 'construction-time-materials-billing-excel',
     title: 'How Construction Time and Materials Billing Excel Systems Stop Revenue Leaks and Billing Disputes',
     metaTitle: 'Construction T&M Billing Excel | SheetCraft',
