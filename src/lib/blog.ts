@@ -291,6 +291,555 @@ export const blogPosts: BlogPost[] = [
     </article>`,
   },
   {
+    slug: 'construction-warranty-tracking-spreadsheet',
+    title: 'Construction Warranty Tracking Spreadsheet: Never Miss a Callback Window',
+    metaTitle: 'Construction Warranty Tracking Spreadsheet Excel | SheetCraft',
+    metaDescription: 'Track construction warranties and callback periods with Excel. Prevent missed warranty claims and protect your reputation with automated deadline alerts.',
+    targetKeyword: 'construction warranty tracking spreadsheet',
+    secondaryKeywords: ['warranty tracking Excel', 'construction callback tracking', 'warranty management spreadsheet', 'construction guarantee tracking', 'warranty expiration alerts'],
+    excerpt: 'Construction warranties expire silently, costing contractors thousands in repair costs they could have avoided. Learn how to build a warranty tracking spreadsheet that alerts you before every callback window closes.',
+    publishedAt: '2026-04-07',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-warranty-tracking-spreadsheet.png',
+    imageAlt: 'Construction warranty tracking spreadsheet on laptop with project documents and blueprints',
+    content: `<article>
+        <h1>Construction Warranty Tracking Spreadsheet: Never Miss a Callback Window</h1>
+
+        <p>Last month, a roofing contractor in Denver received a $12,800 repair bill for a commercial membrane roof he installed 18 months ago. The leak wasn't his fault—a manufacturing defect in the membrane material. But because he missed the 12-month warranty registration deadline, the manufacturer denied the claim. That $12,800 came straight from his profit margin.</p>
+
+        <p>Construction warranties are financial assets. Material warranties, workmanship guarantees, equipment warranties, and manufacturer defects coverage collectively represent 5-15% of your total project value. But most contractors treat warranty tracking as an afterthought, losing thousands annually to expired claims and missed callback windows.</p>
+
+        <p>A construction warranty tracking spreadsheet transforms warranty management from reactive crisis response to proactive asset protection. Instead of discovering expired warranties when problems arise, you get automated alerts while claims are still valid—and you build the documentation that gets manufacturers to pay.</p>
+
+        <h2>The Real Cost of Poor Warranty Tracking</h2>
+
+        <p>The construction industry operates on thin margins. A 10% net profit on a $500,000 project leaves $50,000. Lose one major warranty claim and you've erased 20-40% of your annual profit on that job.</p>
+
+        <p>Here's what poor warranty tracking actually costs:</p>
+
+        <p><strong>Expired Material Warranties</strong>: Roofing materials, windows, HVAC equipment, and structural components carry 10-30 year manufacturer warranties. But only if you register them within 30-90 days of installation. Miss the registration window and a $25,000 defect repair becomes your problem.</p>
+
+        <p><strong>Workmanship Callbacks</strong>: Your 1-year workmanship guarantee creates liability exposure. Without tracking, you discover problems when tenants complain, not during systematic inspections. Emergency repairs cost 3-5x more than scheduled maintenance.</p>
+
+        <p><strong>Equipment Downtime</strong>: Generators, pumps, and mechanical equipment have warranty periods. When they fail at month 13 and you never registered the warranty, you're buying a new unit instead of getting a free replacement.</p>
+
+        <p><strong>Reputation Damage</strong>: Callbacks you could have prevented become client relationship problems. One unaddressed warranty issue generates negative reviews that cost you future bids.</p>
+
+        <p>The Denver roofing contractor now uses a warranty tracking spreadsheet. His $12,800 lesson taught him that warranty management is profit protection.</p>
+
+        <h2>What Construction Warranties You Should Track</h2>
+
+        <p>Your warranty tracking system needs to capture four distinct warranty types, each with different terms, triggers, and documentation requirements.</p>
+
+        <h3>Manufacturer Material Warranties</h3>
+
+        <p>These cover defects in materials and typically require registration within 30-90 days of installation.</p>
+
+        <p><strong>Common Coverage Periods:</strong></p>
+        <ul>
+            <li>Roofing shingles: 25-50 years (prorated after year 10)</li>
+            <li>Windows and doors: 10-20 years</li>
+            <li>HVAC equipment: 5-10 years on compressors, 1-5 years on parts</li>
+            <li>Structural steel: 20-30 years</li>
+            <li>Waterproofing membranes: 10-20 years</li>
+            <li>Electrical panels: Lifetime to 25 years</li>
+        </ul>
+
+        <p><strong>Critical Tracking Element</strong>: Registration deadlines. Most manufacturers require online registration within 30-60 days of installation. Miss this and your 25-year shingle warranty becomes worthless.</p>
+
+        <h3>Workmanship Warranties</h3>
+
+        <p>Your guarantee that installation was performed correctly. These are your contractual obligation to the owner.</p>
+
+        <p><strong>Typical Terms:</strong></p>
+        <ul>
+            <li>1 year standard for most trades</li>
+            <li>2-5 years for roofing and waterproofing</li>
+            <li>10 years for structural work in some jurisdictions</li>
+        </ul>
+
+        <p><strong>Critical Tracking Element</strong>: Expiration dates and inspection schedules. Systematic inspections at month 6 and month 11 catch problems before warranties expire.</p>
+
+        <h3>Equipment Warranties</h3>
+
+        <p>Mechanical and electrical equipment carry separate warranties from installation warranties.</p>
+
+        <p><strong>Coverage Examples:</strong></p>
+        <ul>
+            <li>Generators: 2-5 years</li>
+            <li>Water heaters: 6-12 years</li>
+            <li>Sump pumps: 1-5 years</li>
+            <li>Fire alarm systems: 1-3 years</li>
+            <li>Elevators: 1 year standard, up to 5 years with maintenance contracts</li>
+        </ul>
+
+        <p><strong>Critical Tracking Element</strong>: Maintenance requirements. Many equipment warranties require documented preventive maintenance. Miss a service interval and the warranty voids.</p>
+
+        <h3>Extended Warranties and Service Contracts</h3>
+
+        <p>Optional coverage purchased for additional protection.</p>
+
+        <p><strong>Common Types:</strong></p>
+        <ul>
+            <li>Extended equipment warranties (beyond standard manufacturer terms)</li>
+            <li>Roof maintenance agreements with warranty extensions</li>
+            <li>Waterproofing maintenance contracts</li>
+            <li>Structural monitoring programs</li>
+        </ul>
+
+        <p><strong>Critical Tracking Element</strong>: Payment schedules and renewal dates. Extended warranties often require annual payments. Miss the renewal and coverage lapses.</p>
+
+        <h2>Building Your Warranty Tracking Spreadsheet</h2>
+
+        <p>An effective construction warranty tracking spreadsheet needs five core components: warranty registry, deadline monitoring, documentation storage, claim history, and cost tracking.</p>
+
+        <h3>Sheet 1: Warranty Registry</h3>
+
+        <p>Create a master list of every warranty on every project. One row per warranty item.</p>
+
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Header</th>
+                    <th>Purpose</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A</td>
+                    <td>Project Code</td>
+                    <td>Links to project files</td>
+                    <td>CC-2024-015</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>Project Name</td>
+                    <td>Human-readable reference</td>
+                    <td>Riverside Office Building</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>Warranty Type</td>
+                    <td>Category classification</td>
+                    <td>Material / Workmanship / Equipment</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>Item Description</td>
+                    <td>Specific component</td>
+                    <td>TPO Roofing Membrane</td>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>Manufacturer/Contractor</td>
+                    <td>Who issued the warranty</td>
+                    <td>Carlisle SynTec</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>Installation Date</td>
+                    <td>When warranty period starts</td>
+                    <td>2024-03-15</td>
+                </tr>
+                <tr>
+                    <td>G</td>
+                    <td>Warranty Period (Years)</td>
+                    <td>Duration of coverage</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>H</td>
+                    <td>Expiration Date</td>
+                    <td>When coverage ends</td>
+                    <td>2044-03-15</td>
+                </tr>
+                <tr>
+                    <td>I</td>
+                    <td>Registration Required</td>
+                    <td>Yes/No flag</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>J</td>
+                    <td>Registration Deadline</td>
+                    <td>Latest registration date</td>
+                    <td>2024-05-14</td>
+                </tr>
+                <tr>
+                    <td>K</td>
+                    <td>Registration Status</td>
+                    <td>Current state</td>
+                    <td>Registered / Pending / Expired</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>Warranty Document</td>
+                    <td>File reference</td>
+                    <td>Warranty_Carlisle_CC015.pdf</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>Notes</td>
+                    <td>Additional details</td>
+                    <td>Prorated after year 10</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Key Formulas:</strong></p>
+
+        <p>Registration Deadline calculation (assuming 60-day window):</p>
+        <p><code>=IF(I2="Yes",F2+60,"N/A")</code></p>
+
+        <p>Expiration Date calculation:</p>
+        <p><code>=DATE(YEAR(F2)+G2,MONTH(F2),DAY(F2))</code></p>
+
+        <p>Days Until Registration Deadline:</p>
+        <p><code>=IF(AND(I2="Yes",K2<>"Registered"),J2-TODAY(),"N/A")</code></p>
+
+        <p>Days Until Warranty Expiration:</p>
+        <p><code>=H2-TODAY()</code></p>
+
+        <h3>Sheet 2: Alert Dashboard</h3>
+
+        <p>Create a summary view that highlights warranties requiring immediate attention.</p>
+
+        <p><strong>Section 1: Critical Alerts (Next 30 Days)</strong></p>
+
+        <p>Use COUNTIFS to tally urgent items:</p>
+
+        <p>Registration deadlines approaching:</p>
+        <p><code>=COUNTIFS('Warranty Registry'!I:I,"Yes",'Warranty Registry'!K:K,"<>Registered",'Warranty Registry'!J:J,"<="&TODAY()+30,'Warranty Registry'!J:J,">"&TODAY())</code></p>
+
+        <p>Workmanship warranties expiring:</p>
+        <p><code>=COUNTIFS('Warranty Registry'!C:C,"Workmanship",'Warranty Registry'!H:H,"<="&TODAY()+30,'Warranty Registry'!H:H,">"&TODAY())</code></p>
+
+        <p><strong>Section 2: Overdue Items</strong></p>
+
+        <p>Unregistered warranties past deadline:</p>
+        <p><code>=COUNTIFS('Warranty Registry'!I:I,"Yes",'Warranty Registry'!K:K,"<>Registered",'Warranty Registry'!J:J,"<"&TODAY())</code></p>
+
+        <p>Expired warranties with open claims:</p>
+        <p><code>=COUNTIFS('Warranty Registry'!H:H,"<"&TODAY(),'Warranty Registry'!N:N,"Open Claim")</code></p>
+
+        <p><strong>Section 3: Summary Statistics</strong></p>
+
+        <p>Total active warranties:</p>
+        <p><code>=COUNTIF('Warranty Registry'!H:H,">"&TODAY())</code></p>
+
+        <p>Total warranty value at risk:</p>
+        <p><code>=SUMIF('Warranty Registry'!H:H,">"&TODAY(),'Warranty Registry'!O:O)</code></p>
+
+        <p>(Where column O tracks estimated replacement value)</p>
+
+        <h3>Sheet 3: Documentation Index</h3>
+
+        <p>Warranty claims fail without proper documentation. Track what you have and what's missing.</p>
+
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Warranty ID</th>
+                    <th>Warranty Certificate</th>
+                    <th>Registration Confirmation</th>
+                    <th>Installation Photos</th>
+                    <th>Maintenance Records</th>
+                    <th>Claim Forms</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CC015-001</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>CC015-002</td>
+                    <td>✅</td>
+                    <td>⬜</td>
+                    <td>✅</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>CC015-003</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>⬜</td>
+                    <td>Quarterly</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use data validation dropdowns (✅/⬜/N/A) for consistent tracking.</p>
+
+        <p><strong>Document Completion Formula:</strong></p>
+        <p><code>=COUNTIF(B2:F2,"✅")/COUNTIF(B2:F2,"<>N/A")</code></p>
+
+        <p>This calculates what percentage of required documentation is complete for each warranty.</p>
+
+        <h3>Sheet 4: Claim History</h3>
+
+        <p>Track every warranty claim to build your manufacturer performance database.</p>
+
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Claim Date</th>
+                    <th>Warranty ID</th>
+                    <th>Issue Description</th>
+                    <th>Manufacturer</th>
+                    <th>Claim Amount</th>
+                    <th>Status</th>
+                    <th>Resolution</th>
+                    <th>Days to Resolve</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-08-15</td>
+                    <td>CC015-001</td>
+                    <td>Membrane seam failure</td>
+                    <td>Carlisle</td>
+                    <td>$8,400</td>
+                    <td>Approved</td>
+                    <td>Full replacement</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>2024-09-02</td>
+                    <td>CC015-004</td>
+                    <td>Compressor failure</td>
+                    <td>Trane</td>
+                    <td>$3,200</td>
+                    <td>Denied</td>
+                    <td>Warranty expired</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Performance Metrics:</strong></p>
+
+        <p>Average resolution time:</p>
+        <p><code>=AVERAGEIF(H:H,">0",H:H)</code></p>
+
+        <p>Claim approval rate:</p>
+        <p><code>=COUNTIF(F:F,"Approved")/COUNTA(F:F)</code></p>
+
+        <p>Total claims value (YTD):</p>
+        <p><code>=SUMIFS(E:E,A:A,">="&DATE(YEAR(TODAY()),1,1))</code></p>
+
+        <h3>Sheet 5: Cost Avoidance Tracker</h3>
+
+        <p>Quantify the value of your warranty tracking system.</p>
+
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Quarter</th>
+                    <th>Warranties Registered</th>
+                    <th>Claims Filed</th>
+                    <th>Claims Approved</th>
+                    <th>Value Recovered</th>
+                    <th>Potential Loss Avoided</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Q1 2024</td>
+                    <td>12</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>$11,400</td>
+                    <td>$11,400</td>
+                </tr>
+                <tr>
+                    <td>Q2 2024</td>
+                    <td>18</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>$8,200</td>
+                    <td>$14,600</td>
+                </tr>
+                <tr>
+                    <td>Q3 2024</td>
+                    <td>15</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>$4,800</td>
+                    <td>$4,800</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>ROI Calculation:</strong></p>
+        <p><code>=SUM(F:F)/SUM(E:E)*100</code></p>
+
+        <p>Where column E tracks time invested in warranty management and column F tracks value recovered. Most contractors see 10-20x ROI on warranty tracking time.</p>
+
+        <h2>Automated Alert System</h2>
+
+        <p>The power of an Excel warranty tracking system is automated alerts. Set up conditional formatting to highlight problems before they become expensive.</p>
+
+        <h3>Registration Deadline Alerts</h3>
+
+        <p>Apply to the "Days Until Registration" column:</p>
+
+        <p><strong>Red background (Critical)</strong>: ≤ 7 days remaining</p>
+        <p><code>=AND(I2="Yes",K2<>"Registered",J2-TODAY()<=7,J2-TODAY()>=0)</code></p>
+
+        <p><strong>Yellow background (Warning)</strong>: 8-30 days remaining</p>
+        <p><code>=AND(I2="Yes",K2<>"Registered",J2-TODAY()<=30,J2-TODAY()>=8)</code></p>
+
+        <p><strong>Green background (Good)</strong>: Registered or >30 days</p>
+        <p><code>=OR(K2="Registered",J2-TODAY()>30)</code></p>
+
+        <h3>Warranty Expiration Alerts</h3>
+
+        <p>For workmanship warranties (typically shorter term):</p>
+
+        <p><strong>Red</strong>: Expiring within 30 days</p>
+        <p><code>=AND(C2="Workmanship",H2-TODAY()<=30,H2-TODAY()>0)</code></p>
+
+        <p><strong>Orange</strong>: Expiring within 90 days</p>
+        <p><code>=AND(C2="Workmanship",H2-TODAY()<=90,H2-TODAY()>30)</code></p>
+
+        <h3>Maintenance Requirement Alerts</h3>
+
+        <p>For equipment warranties requiring periodic maintenance:</p>
+
+        <p><strong>Overdue maintenance:</strong></p>
+        <p><code>=AND(C2="Equipment",N2<TODAY(),N2<>"N/A")</code></p>
+
+        <p>(Where column N tracks next maintenance due date)</p>
+
+        <h2>Warranty Registration Workflow</h2>
+
+        <p>Your spreadsheet should drive a systematic registration process:</p>
+
+        <p><strong>Weekly Registration Review (Every Friday):</strong></p>
+
+        <ol>
+            <li>Filter Warranty Registry for "Registration Status = Pending"</li>
+            <li>Sort by "Days Until Deadline" ascending</li>
+            <li>Process all warranties with ≤14 days remaining</li>
+            <li>Update status to "Registered" with confirmation number</li>
+            <li>File registration confirmation in project documentation</li>
+        </ol>
+
+        <p><strong>Monthly Warranty Audit (First Monday of Month):</strong></p>
+
+        <ol>
+            <li>Review Alert Dashboard for overdue items</li>
+            <li>Verify all registrations from prior month completed</li>
+            <li>Inspect workmanship warranties expiring in next 90 days</li>
+            <li>Schedule preventive maintenance for equipment warranties</li>
+            <li>Update claim history with any new submissions</li>
+        </ol>
+
+        <p><strong>Quarterly Warranty Analysis:</strong></p>
+
+        <ol>
+            <li>Calculate cost avoidance and ROI</li>
+            <li>Review manufacturer claim approval rates</li>
+            <li>Identify warranty types with highest failure rates</li>
+            <li>Adjust specifications for future projects based on performance</li>
+            <li>Update standard warranty tracking templates</li>
+        </ol>
+
+        <h2>Common Warranty Tracking Mistakes</h2>
+
+        <h3>Mistake 1: Tracking Only Major Warranties</h3>
+
+        <p>Roofing and HVAC get tracked. Windows, doors, waterproofing, and electrical components get forgotten. Track every warranty—material costs add up fast when minor components fail.</p>
+
+        <h3>Mistake 2: Missing Registration Deadlines</h3>
+
+        <p>The 30-60 day registration window passes quickly during project closeout. Build registration into your punch list process. No substantial completion until warranties are registered.</p>
+
+        <h3>Mistake 3: No Documentation System</h3>
+
+        <p>Warranty claims require proof of purchase, installation dates, and maintenance records. Your spreadsheet must track document locations, not just warranty existence.</p>
+
+        <h3>Mistake 4: Ignoring Prorated Coverage</h3>
+
+        <p>Many warranties (especially roofing) prorate after year 10. A 25-year warranty might only cover 20% of replacement cost in year 18. Track proration schedules for accurate cost projections.</p>
+
+        <h3>Mistake 5: No Manufacturer Performance Tracking</h3>
+
+        <p>Some manufacturers deny claims routinely. Others pay quickly. Your claim history data should inform future material specifications. A cheap product with poor warranty service costs more than premium materials with strong backing.</p>
+
+        <h2>Integrating Warranty Tracking With Project Closeout</h2>
+
+        <p>Warranty registration should be a substantial completion requirement. Add these items to your project closeout checklist:</p>
+
+        <ul>
+            <li>[ ] All material warranties registered with manufacturers</li>
+            <li>[ ] Registration confirmations filed in project documentation</li>
+            <li>[ ] Workmanship warranty terms documented in owner handover</li>
+            <li>[ ] Equipment maintenance schedules established</li>
+            <li>[ ] Warranty tracking spreadsheet updated with all project warranties</li>
+            <li>[ ] 6-month and 11-month inspection dates scheduled</li>
+            <li>[ ] Owner educated on warranty claim procedures</li>
+        </ul>
+
+        <h2>Scaling Your Warranty System</h2>
+
+        <p>For contractors managing 20+ projects annually, consider these advanced features:</p>
+
+        <p><strong>Manufacturer Database</strong>: Separate sheet tracking manufacturer contact info, typical claim processing times, and approval rates.</p>
+
+        <p><strong>Project Type Templates</strong>: Standard warranty lists by project type (office, retail, residential, industrial) to ensure consistent tracking.</p>
+
+        <p><strong>Integration with Project Management</strong>: Link warranty tracking to your project database for automatic project code population.</p>
+
+        <p><strong>Mobile Access</strong>: Save your Excel file to OneDrive or SharePoint for field access via mobile devices. Update warranty status from job sites.</p>
+
+        <h2>The Financial Case for Warranty Tracking</h2>
+
+        <p>A mid-size general contractor completing $8M annually in projects typically manages $400,000-$1.2M in warranty coverage. Without tracking, 10-15% of potential claims expire unregistered or undiscovered.</p>
+
+        <p><strong>Conservative scenario:</strong></p>
+        <ul>
+            <li>Annual warranty coverage: $600,000</li>
+            <li>Unregistered/unclaimed percentage: 12%</li>
+            <li>Average claim value: $4,500</li>
+            <li>Annual lost warranty value: $32,400</li>
+        </ul>
+
+        <p><strong>With proper tracking:</strong></p>
+        <ul>
+            <li>Time investment: 4 hours/month (48 hours/year)</li>
+            <li>Value recovered: $28,000</li>
+            <li>Effective hourly rate: $583/hour</li>
+        </ul>
+
+        <p>No other administrative task delivers this ROI.</p>
+
+        <h2>Your Warranty Tracking Action Plan</h2>
+
+        <ol>
+            <li><strong>This week</strong>: Create your warranty registry and populate with current project warranties</li>
+            <li><strong>Next week</strong>: Set up automated alerts and conditional formatting</li>
+            <li><strong>Month 1</strong>: Establish weekly registration review process</li>
+            <li><strong>Month 2</strong>: Build manufacturer performance database from claim history</li>
+            <li><strong>Quarter 1</strong>: Calculate actual cost avoidance and ROI</li>
+        </ol>
+
+        <p>The contractors who protect their margins don't rely on memory and hope. They build systems that ensure every warranty dollar gets claimed. Your warranty tracking spreadsheet is that system.</p>
+
+        <p>Ready to integrate warranty tracking with your complete project management system? SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> includes warranty tracking modules that link to your project budget, schedule, and closeout documentation. Protect your profits with systematic warranty management that pays for itself on the first claim.</p>
+    </article>`,
+  },
+  {
     slug: 'real-estate-portfolio-tracker-spreadsheet',
     title: 'How to Build a Real Estate Portfolio Tracker in Excel That Actually Makes Money',
     metaTitle: 'Real Estate Portfolio Tracker Spreadsheet | SheetCraft',
