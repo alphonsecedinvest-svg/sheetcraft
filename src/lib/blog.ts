@@ -16,6 +16,280 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-progress-billing-template-excel',
+    title: 'Construction Progress Billing Template: Invoice by Percentage Complete',
+    metaTitle: 'Construction Progress Billing Template Excel | SheetCraft',
+    metaDescription: 'Track construction progress billing with Excel templates. Calculate percentage complete, manage retainage, prevent overpayments to subcontractors.',
+    targetKeyword: 'construction progress billing template Excel',
+    secondaryKeywords: ['construction billing template', 'progress billing Excel', 'construction invoice template', 'percentage completion billing', 'construction retainage calculator'],
+    excerpt: 'Stop overpaying subcontractors with systematic progress billing. This Excel template tracks measurable completion milestones, calculates retainage, and prevents cash flow timing errors that cost contractors thousands monthly.',
+    publishedAt: '2026-04-13',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-progress-billing-template-excel.png',
+    imageAlt: 'Construction worker reviewing progress billing spreadsheet with percentage calculations on clipboard in professional office setting',
+    content: `<h1>Construction Progress Billing Template: Invoice by Percentage Complete</h1>
+
+<p>You just finished framing the second floor of a $450,000 custom home build. Your subcontractor submits an invoice for $28,000, claiming they're "80% complete" with the framing package. But when you walk the site, you see missing headers, incomplete sheathing, and zero progress on the covered porch that was included in their $35,000 bid.</p>
+
+<p>This scenario burns contractors every month. Without a systematic way to track and bill construction progress, you either overpay subcontractors for incomplete work or underpay yourself on your own invoices to clients. A construction progress billing template in Excel solves both problems by tying payments to measurable completion percentages.</p>
+
+<h2>The Real Cost of Informal Progress Billing</h2>
+
+<p>Most small contractors handle progress billing through gut feel and round numbers. "Looks like you're about halfway done, so here's half the money." This approach costs money in three specific ways:</p>
+
+<p><strong>Cash flow timing errors:</strong> If you bill a client for 70% completion but actually completed 85%, you've given them a $15,000+ interest-free loan on a $100,000 project. Over 12 months with six similar projects, that's $90,000 in delayed revenue.</p>
+
+<p><strong>Subcontractor overpayments:</strong> When your electrician claims 90% completion but has only pulled wire without making connections or installing fixtures, you might overpay by $8,000-$12,000 on a $40,000 electrical package. Those overpayments never get recovered.</p>
+
+<p><strong>Client disputes:</strong> Clients who receive bills for work they can't verify will withhold payment. "You invoiced us for completed drywall, but I see bare studs in three bedrooms." These disputes delay project completion and damage relationships.</p>
+
+<h2>Setting Up Measurable Completion Milestones</h2>
+
+<p>Effective progress billing starts with breaking each trade into measurable milestones before work begins. Instead of tracking "plumbing" as one line item, create specific checkpoints:</p>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+<thead>
+<tr>
+<th>Trade Task</th>
+<th>% of Total Trade</th>
+<th>Verification Method</th>
+<th>Example Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rough plumbing</td>
+<td>40%</td>
+<td>Fixture count</td>
+<td>All supply/waste lines to fixture locations</td>
+</tr>
+<tr>
+<td>Pressure testing</td>
+<td>15%</td>
+<td>Inspection pass</td>
+<td>24-hour pressure test at 60 PSI</td>
+</tr>
+<tr>
+<td>Fixture installation</td>
+<td>35%</td>
+<td>Fixture count</td>
+<td>All toilets, sinks, showers connected</td>
+</tr>
+<tr>
+<td>Final testing</td>
+<td>10%</td>
+<td>Function test</td>
+<td>Hot water, proper drainage confirmed</td>
+</tr>
+</tbody>
+</table>
+
+<p>These milestones prevent the common mistake of paying for "completed rough plumbing" when pipes are run but not tested. Each milestone connects to a measurable deliverable.</p>
+
+<h2>Excel Formula Structure for Progress Tracking</h2>
+
+<p>The core formula for progress billing calculates the percentage complete based on finished milestones:</p>
+
+<p><code>=SUMIF(D4:D10,"Complete",C4:C10)/SUM(C4:C10)</code></p>
+
+<p>Where column C contains the percentage weight for each milestone and column D shows completion status. This formula adds up the percentage weights for all completed milestones and divides by the total possible percentage.</p>
+
+<p>For a plumbing example with the milestones above:</p>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+<thead>
+<tr>
+<th>Milestone (Column B)</th>
+<th>Weight % (Column C)</th>
+<th>Status (Column D)</th>
+<th>Running Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rough plumbing</td>
+<td>40%</td>
+<td>Complete</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>Pressure testing</td>
+<td>15%</td>
+<td>Complete</td>
+<td>55%</td>
+</tr>
+<tr>
+<td>Fixture installation</td>
+<td>35%</td>
+<td>Pending</td>
+<td>55%</td>
+</tr>
+<tr>
+<td>Final testing</td>
+<td>10%</td>
+<td>Pending</td>
+<td>55%</td>
+</tr>
+</tbody>
+</table>
+
+<p>The plumber can legitimately bill for 55% of their contract amount, not the "75% complete" they might claim based on time spent.</p>
+
+<h2>Calculating Billable Amounts with Retainage</h2>
+
+<p>Most commercial and many residential contracts include retainage (typically 5-10% held until project completion). Your billing formula needs to account for this:</p>
+
+<p><code>=B15*B16*(1-B17)-B18</code></p>
+
+<p>Where:</p>
+<ul>
+<li>B15 = Contract amount ($45,000)</li>
+<li>B16 = Completion percentage (55%)</li>
+<li>B17 = Retainage percentage (10%)</li>
+<li>B18 = Previous payments received ($18,000)</li>
+</ul>
+
+<p>This calculates: $45,000 × 55% × (1 - 10%) - $18,000 = $22,275 - $18,000 = $4,275 due this billing cycle.</p>
+
+<p>Without the retainage calculation, you'd bill $24,750 and create a $2,475 overpayment that must be corrected later.</p>
+
+<h2>Managing Multiple Trades on One Project</h2>
+
+<p>Real projects involve multiple trades running simultaneously. Your progress billing template needs to track each trade separately while rolling up to overall project completion.</p>
+
+<p>Use this formula to weight each trade's completion by their contract value:</p>
+
+<p><code>=SUMPRODUCT(F4:F8,G4:G8)/SUM(F4:F8)</code></p>
+
+<p>Where column F contains contract amounts and column G contains completion percentages:</p>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+<thead>
+<tr>
+<th>Trade</th>
+<th>Contract Amount (F)</th>
+<th>% Complete (G)</th>
+<th>Weighted Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foundation</td>
+<td>$35,000</td>
+<td>100%</td>
+<td>$35,000</td>
+</tr>
+<tr>
+<td>Framing</td>
+<td>$65,000</td>
+<td>75%</td>
+<td>$48,750</td>
+</tr>
+<tr>
+<td>Electrical</td>
+<td>$28,000</td>
+<td>30%</td>
+<td>$8,400</td>
+</tr>
+<tr>
+<td>Plumbing</td>
+<td>$22,000</td>
+<td>55%</td>
+<td>$12,100</td>
+</tr>
+</tbody>
+</table>
+
+<p>Total project completion: ($35,000 + $48,750 + $8,400 + $12,100) ÷ $150,000 = 69.5%</p>
+
+<p>This prevents the mistake of averaging completion percentages (65%) when higher-value trades are further along.</p>
+
+<h2>Handling Change Orders in Progress Billing</h2>
+
+<p>Change orders complicate progress billing because they alter both the total contract value and completion percentages. Build change order tracking into your template from the start.</p>
+
+<p>Original contract formula: <code>=B4*B5</code> (Base contract × completion %)</p>
+
+<p>With change orders: <code>=(B4+B6)*B5-B7</code> Where B6 contains approved change order amounts.</p>
+
+<p>Example scenario: Original electrical contract $28,000, change order for additional outlets $3,500, 60% complete.</p>
+
+<p>Correct billing: ($28,000 + $3,500) × 60% = $18,900</p>
+<p>Wrong calculation using original contract: $28,000 × 60% = $16,800</p>
+
+<p>The $2,100 difference matters for cash flow, especially across multiple trades with change orders.</p>
+
+<h2>Red Flags to Build into Your Template</h2>
+
+<p>Smart progress billing templates include automatic alerts for suspicious patterns. Add conditional formatting or formulas to flag:</p>
+
+<p><strong>Completion percentage jumps:</strong> <code>=IF(G4-G3>0.3,"FLAG","OK")</code></p>
+<p>Flags any trade claiming more than 30% completion in one billing cycle.</p>
+
+<p><strong>High completion, low visible progress:</strong> <code>=IF(AND(G4>0.8,H4="No"),"REVIEW","OK")</code></p>
+<p>Where column H tracks whether recent site visits confirm the reported progress.</p>
+
+<p><strong>Front-loaded billing:</strong> <code>=IF(G4>0.5*I4,"CAUTION","OK")</code></p>
+<p>Where column I contains the expected completion percentage based on project timeline.</p>
+
+<p>These flags don't prevent payment, but they trigger verification before processing invoices.</p>
+
+<h2>Documentation That Supports Billing</h2>
+
+<p>Progress billing disputes often come down to documentation. Your Excel template should reference supporting evidence for each milestone completion:</p>
+
+<ul>
+<li>Photo documentation (link to cloud storage folder)</li>
+<li>Inspection results (pass/fail with inspector name)</li>
+<li>Material delivery confirmations (for material-heavy milestones)</li>
+<li>Subcontractor sign-offs (for multi-step processes)</li>
+</ul>
+
+<p>Use Excel's hyperlink function to connect completion checkmarks to evidence:</p>
+
+<p><code>=HYPERLINK("file:///path/to/photos/framing_complete_2024-04-13.jpg","COMPLETE")</code></p>
+
+<p>This creates a clickable link from your billing template to photographic proof of completion.</p>
+
+<h2>Monthly Reconciliation Process</h2>
+
+<p>Run a monthly reconciliation to catch discrepancies before they compound. Compare your completion percentages to actual project spending and timeline progress.</p>
+
+<p>Budget comparison formula: <code>=B4*B5/B6</code></p>
+<p>Where B4 is original budget, B5 is completion percentage, and B6 is actual spending to date.</p>
+
+<p>If this ratio significantly exceeds 1.0, you're either over budget or reporting inflated completion percentages. A ratio below 0.8 suggests under-billing or ahead-of-budget performance.</p>
+
+<h2>Integration with Project Management</h2>
+
+<p>Your progress billing template works best when connected to your overall project schedule. Use Excel's conditional logic to prevent billing for work that can't realistically be complete:</p>
+
+<p><code>=IF(TODAY()<B12,"CANNOT_BILL",IF(B5="COMPLETE",B4*B6,0))</code></p>
+
+<p>This prevents billing for electrical work (B5) before the scheduled start date (B12), even if someone mistakenly marks it complete.</p>
+
+<h2>Client Communication Templates</h2>
+
+<p>Include standardized language in your template for client invoices. Clear descriptions prevent payment delays:</p>
+
+<p><strong>Good description:</strong> "Framing package: 75% complete. Includes all exterior walls, interior partition walls first floor, floor joists second floor. Remaining: interior walls second floor, roof trusses, sheathing."</p>
+
+<p><strong>Poor description:</strong> "Framing work: mostly done."</p>
+
+<p>The detailed version lets clients verify progress and understand what they're paying for.</p>
+
+<h2>Conclusion</h2>
+
+<p>Construction progress billing doesn't have to be guesswork that costs you money every month. A structured Excel template with measurable milestones, proper retainage calculations, and built-in verification prevents overpayments to subcontractors and ensures accurate client billing.</p>
+
+<p>The difference between "looks about 70% done" and systematically calculated 73% completion might seem small, but on a $200,000 project, that's $6,000 in cash flow timing that affects every subsequent decision you make.</p>
+
+<p>Stop estimating completion percentages and start measuring them. Your bank account will notice the difference within 60 days.</p>
+
+<p>For a complete construction progress billing system that integrates with budget tracking, change orders, and payment schedules, check out SheetCraft's <a href="/templates/construction-budget-tracker">Construction Budget Tracker</a>. It includes pre-built milestone templates for 15 common trades, automatic retainage calculations, and progress billing reports that clients actually understand.</p>`,
+  },
+  {
     slug: 'real-estate-tax-deduction-tracker-excel',
     title: 'Real Estate Tax Deduction Tracker: Every Write-Off Landlords Miss',
     metaTitle: 'Real Estate Tax Deduction Tracker Excel | SheetCraft',
