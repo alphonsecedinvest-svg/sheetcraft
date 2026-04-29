@@ -16,6 +16,142 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rent-roll-template-excel-lenders-buyers',
+    title: 'Rent Roll Template: What Lenders and Buyers Actually Need to See',
+    metaTitle: 'Rent Roll Template Excel: What Lenders Need | SheetCraft',
+    metaDescription: 'Professional rent roll template that meets lender requirements. Includes DSCR calculations, occupancy tracking, and market rent analysis for real estate investors.',
+    targetKeyword: 'rent roll template Excel',
+    secondaryKeywords: ['rent roll Excel', 'property management spreadsheet', 'real estate rental analysis', 'DSCR calculator', 'landlord template'],
+    excerpt: 'Professional rent roll templates that meet lender requirements and help real estate investors secure better loan terms with accurate occupancy and cash flow data.',
+    publishedAt: '2026-04-29',
+    readTime: 8,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rent-roll-template-excel-lenders-buyers.png',
+    imageAlt: 'Professional real estate investor reviewing rent roll spreadsheet with calculator and property documents on desk',
+    content: `# Rent Roll Template: What Lenders and Buyers Actually Need to See
+
+When you're buying a rental property or refinancing existing real estate, a rent roll isn't just a nice-to-have document. It's the foundation every lender uses to determine if your property qualifies for financing and what loan terms you'll get. A poorly formatted rent roll can kill a deal faster than a bad inspection report.
+
+Most investors create rent rolls that look professional but miss the critical data points lenders and buyers scrutinize. The difference between a good rent roll and a great one can mean the difference between a loan approval at 6.5% and a rejection letter.
+
+## What Lenders Look for in a Rent Roll
+
+Lenders evaluate your rent roll for three key metrics that determine your loan eligibility:
+
+**Debt Service Coverage Ratio (DSCR)**: Your net operating income divided by annual debt service. Most lenders want to see 1.25x minimum. If your NOI is $48,000 and your mortgage payments total $36,000 annually, your DSCR is 1.33 (\`=48000/36000\`).
+
+**Occupancy Rate**: Current occupied units divided by total units. Lenders typically require 85-90% occupancy for investment property loans. A 12-unit building with 2 vacant units has 83% occupancy (\`=10/12\`), which might trigger additional scrutiny.
+
+**Market Rent vs. Actual Rent**: The difference between what you're collecting and what similar units rent for. If you're collecting $1,200 but market rent is $1,400, lenders see $200 monthly in potential upside but also question why your rents are below market.
+
+## Essential Data Points Every Rent Roll Needs
+
+Your rent roll template must include these columns to meet lender requirements:
+
+| Data Point | Why Lenders Care | Excel Formula Example |
+|------------|------------------|---------------------|
+| Unit Number | Property identification | Manual entry |
+| Tenant Name | Lease verification | Manual entry |
+| Lease Start Date | Lease stability assessment | Manual entry |
+| Lease End Date | Vacancy risk evaluation | Manual entry |
+| Monthly Rent | Cash flow calculation | Manual entry |
+| Security Deposit | Tenant quality indicator | Manual entry |
+| Square Footage | Rent per sq ft analysis | \`=Monthly_Rent/Sq_Ft\` |
+| Current Status | Occupancy calculation | "Occupied", "Vacant", "Notice Given" |
+| Days Vacant | Turnover cost assessment | \`=TODAY()-Move_Out_Date\` |
+| Market Rent | Upside potential | Manual entry |
+
+## Setting Up Your Excel Rent Roll Template
+
+Start with these column headers in Row 1:
+
+**A1:** Unit Number  
+**B1:** Tenant Name  
+**C1:** Lease Start  
+**D1:** Lease End  
+**E1:** Monthly Rent  
+**F1:** Security Deposit  
+**G1:** Square Footage  
+**H1:** Status  
+**I1:** Days Vacant  
+**J1:** Market Rent  
+**K1:** Variance
+
+For the variance calculation in column K, use: \`=J2-E2\` to show the difference between market rent and actual rent.
+
+Add these summary calculations below your data:
+
+**Total Monthly Rent:** \`=SUMIF(H:H,"Occupied",E:E)\`  
+**Occupancy Rate:** \`=COUNTIF(H:H,"Occupied")/COUNTA(A:A)-1\`  
+**Average Rent per Sq Ft:** \`=SUMPRODUCT((H2:H20="Occupied")*(E2:E20/G2:G20))/COUNTIF(H2:H20,"Occupied")\`
+
+## Example: 8-Unit Building Rent Roll
+
+Here's what a properly formatted rent roll looks like with real numbers:
+
+| Unit | Tenant | Start Date | End Date | Rent | Deposit | Sq Ft | Status | Days Vacant | Market | Variance |
+|------|--------|------------|----------|------|---------|--------|--------|-------------|---------|----------|
+| 101 | Johnson, M | 3/1/2024 | 2/28/2025 | $1,250 | $1,250 | 850 | Occupied | 0 | $1,300 | $50 |
+| 102 | Smith, K | 6/15/2023 | 6/14/2024 | $1,180 | $1,180 | 800 | Occupied | 0 | $1,250 | $70 |
+| 201 | Davis, L | 1/1/2024 | 12/31/2024 | $1,300 | $1,300 | 900 | Occupied | 0 | $1,350 | $50 |
+| 202 | - | - | - | $0 | $0 | 850 | Vacant | 45 | $1,300 | $1,300 |
+
+**Summary Metrics:**
+- Total Monthly Rent: $3,730
+- Occupancy Rate: 75% (3/4 units)
+- Average Market Rent: $1,300
+- Potential Monthly Income: $5,200
+- Monthly Loss to Market: $1,470
+
+This rent roll immediately tells a lender several things: the building is 75% occupied (below most lender thresholds), actual rents are $170 below market average, and there's significant upside potential.
+
+## Red Flags That Kill Loan Applications
+
+**Short-term leases:** Multiple leases expiring within 6 months signal potential vacancy risk. Lenders prefer lease terms extending 12+ months beyond loan closing.
+
+**Below-market rents with long leases:** If you're locked into $1,000 rents while market rate is $1,400, and leases don't expire for 18 months, lenders see this as restricted cash flow.
+
+**High tenant turnover:** If your rent roll shows multiple tenants with lease starts within the past 6 months, lenders question your property management or tenant screening.
+
+**Inconsistent rent increases:** Units with identical square footage showing $300 rent differences without explanation suggest poor property management.
+
+## Advanced Rent Roll Features for Serious Investors
+
+**Lease expiration timeline:** Add a column showing months until lease expiration: \`=DATEDIF(TODAY(),D2,"M")\`. This helps you plan renewals and rent increases.
+
+**Rent increase projections:** Calculate potential income after renewals: \`=IF(K2>0,E2+MIN(K2,50),E2)\`. This formula increases rent by the lesser of market variance or $50.
+
+**Days of rent collected:** Track which tenants pay early vs. late: \`=DATEDIF(C2,TODAY(),"D")/365*12*E2\`. This shows total rent collected from each tenant since move-in.
+
+**Tenant quality score:** Combine payment history, lease length, and deposit amount into a single metric for tenant evaluation.
+
+## Presenting Your Rent Roll to Lenders
+
+**Format requirements:** Most lenders accept Excel files, but some require PDF exports. Always prepare both formats.
+
+**Supporting documentation:** Include lease agreements for any rent above $2,500/month and vacancy explanations for units empty more than 60 days.
+
+**Market rent justification:** Attach comparable rental listings or rent surveys supporting your market rent assumptions.
+
+## When Rent Rolls Become Deal Breakers
+
+A commercial lender recently rejected a 16-unit apartment building purchase because the rent roll showed 6 lease expirations within 90 days of closing. The borrower hadn't accounted for potential vacancy during lease renewals.
+
+Another investor lost a refinance opportunity when his rent roll showed consistent $200 below-market rents with 2-year remaining lease terms. The lender calculated NOI based on actual rents, not market potential, dropping the DSCR below 1.25x.
+
+## Moving Beyond Basic Rent Rolls
+
+Once your property portfolio grows beyond 10-15 units, basic Excel templates become insufficient. You need automated rent tracking, lease renewal alerts, and market rent monitoring.
+
+Professional investors use systems that automatically flag lease expirations 90 days in advance, track late payments, and update market rent comps quarterly. This level of sophistication becomes essential when managing 50+ units or seeking commercial financing above $5 million.
+
+## The Bottom Line on Rent Roll Templates
+
+Your rent roll is financial documentation, not marketing material. Lenders want accuracy, consistency, and transparency. A well-formatted rent roll that clearly shows current performance and market positioning will get you better loan terms and faster approvals.
+
+The SheetCraft Rental Property Analyzer includes a professional rent roll template that automatically calculates occupancy rates, market variances, and DSCR metrics. It's designed specifically for real estate investors who need lender-ready documentation without manual calculation errors.`,
+  },
+  {
     slug: 'construction-project-cost-report-template',
     title: 'Construction Cost Report Template: What Your Bank and Client Need to See',
     metaTitle: 'Construction Cost Report Template: Bank & Client Requirements | SheetCraft',
