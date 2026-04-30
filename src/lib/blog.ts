@@ -16,6 +16,410 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'tenant-tracking-spreadsheet',
+    title: 'Tenant Tracking Spreadsheet: Leases, Deposits, and Payment History in One Sheet',
+    metaTitle: 'Tenant Tracking Spreadsheet Guide | SheetCraft',
+    metaDescription: 'Build a tenant tracking spreadsheet that manages leases, deposits, payment history & violations. Stop losing money to scattered records.',
+    targetKeyword: 'tenant tracking spreadsheet',
+    secondaryKeywords: ['tenant management excel', 'rental property tracking', 'lease tracking spreadsheet', 'landlord record keeping', 'property management templates'],
+    excerpt: 'Most landlords lose money to scattered tenant records. A proper tenant tracking spreadsheet prevents deposit mistakes, lease confusion, and payment pattern blindness.',
+    publishedAt: '2026-04-30',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/tenant-tracking-spreadsheet.png',
+    imageAlt: 'Professional laptop displaying tenant tracking spreadsheet with lease dates, payment history, and property management documents on office desk',
+    content: `<h2>The $3,000 Mistake Every Landlord Makes</h2>
+
+<p>You're losing money every month, and you don't even know it. Last week, a landlord in Portland discovered she'd been charging Tenant B the wrong rent for eight months. Not $50 wrong. $375 wrong. Her "system" was a notebook, three different apps, and whatever she remembered. That mistake cost her $3,000.</p>
+
+<p>If you manage more than two properties, you need a <strong>tenant tracking spreadsheet</strong> that handles leases, deposits, payment history, and violations in one place. Not because spreadsheets are fun, but because scattered information costs you money.</p>
+
+<h2>Why Most Landlord Record Systems Fail</h2>
+
+<p>Property management software costs $200-400 per month for serious features. Apps like Cozy or Avail work for basic rent collection but fall apart when you need to track lease renewals, deposit calculations, or violation patterns across multiple tenants.</p>
+
+<p>The real problem: you're making decisions with incomplete information. When Tenant A gives notice, do you know their deposit status instantly? When Tenant C is late again, do you have their full payment history visible? Most landlords spend 20 minutes hunting through emails and apps to answer simple questions.</p>
+
+<p>Here's what a proper tenant tracking system prevents:</p>
+
+<ul>
+<li><strong>Deposit miscalculations:</strong> Wrong security deposit amounts or forgotten pet deposits</li>
+<li><strong>Lease confusion:</strong> Not knowing which leases expire when</li>
+<li><strong>Payment pattern blindness:</strong> Missing chronic late payment trends</li>
+<li><strong>Violation amnesia:</strong> Forgetting noise complaints or lease violations during eviction proceedings</li>
+</ul>
+
+<h2>Core Components of an Effective Tenant Tracker</h2>
+
+<h3>Master Tenant Registry</h3>
+
+<p>Your foundation is a clean tenant list with current status. This isn't about contact information (use your phone for that). This is about business data.</p>
+
+<table>
+<thead>
+<tr>
+<th>Tenant Name</th>
+<th>Unit</th>
+<th>Lease Start</th>
+<th>Lease End</th>
+<th>Monthly Rent</th>
+<th>Security Deposit</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smith, John</td>
+<td>4A</td>
+<td>2024-01-15</td>
+<td>2025-01-14</td>
+<td>$1,850</td>
+<td>$1,850</td>
+<td>Active</td>
+</tr>
+<tr>
+<td>Johnson, Maria</td>
+<td>2B</td>
+<td>2024-03-01</td>
+<td>2025-02-28</td>
+<td>$2,100</td>
+<td>$2,100</td>
+<td>Active</td>
+</tr>
+<tr>
+<td>Williams, Dave</td>
+<td>1C</td>
+<td>2024-06-01</td>
+<td>2025-05-31</td>
+<td>$1,675</td>
+<td>$1,675</td>
+<td>Active</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Payment History Tracking</h3>
+
+<p>Payment tracking isn't about whether rent arrived. It's about identifying patterns that predict problems. Use a separate tab with this structure:</p>
+
+<table>
+<thead>
+<tr>
+<th>Tenant Name</th>
+<th>Month</th>
+<th>Due Date</th>
+<th>Paid Date</th>
+<th>Amount Due</th>
+<th>Amount Paid</th>
+<th>Days Late</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smith, John</td>
+<td>2026-04</td>
+<td>2026-04-01</td>
+<td>2026-04-03</td>
+<td>$1,850</td>
+<td>$1,850</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Johnson, Maria</td>
+<td>2026-04</td>
+<td>2026-04-01</td>
+<td>2026-04-01</td>
+<td>$2,100</td>
+<td>$2,100</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Williams, Dave</td>
+<td>2026-04</td>
+<td>2026-04-01</td>
+<td>2026-04-08</td>
+<td>$1,675</td>
+<td>$1,675</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+
+<p>The key calculation is Days Late in column G: <code>=IF(D2="","",D2-C2)</code>. This formula shows the gap between due date (C2) and paid date (D2), returning blank if no payment date is entered yet.</p>
+
+<h3>Automated Late Payment Flags</h3>
+
+<p>Create a rolling late payment average using <code>=AVERAGEIFS()</code> to spot problem tenants before they become disasters.</p>
+
+<p>In your master registry, add a column for "Avg Days Late" with this formula: <code>=AVERAGEIFS(PaymentHistory!$G:$G,PaymentHistory!$A:$A,A2)</code></p>
+
+<p>This looks up each tenant's name in the payment history tab and averages their late days. If Williams averages 6 days late over six months, that's a pattern. If Smith suddenly jumps from 0 to 5 days late for two months, that's a warning.</p>
+
+<p>Add a status flag: <code>=IF(H2>5,"REVIEW","OK")</code> where H2 is the average late days. Anyone averaging more than 5 days late gets flagged for review.</p>
+
+<h2>Lease Management and Renewal Tracking</h2>
+
+<h3>Upcoming Lease Expirations</h3>
+
+<p>Nothing kills cash flow like surprise vacancies. Use conditional formatting and formulas to highlight leases expiring in the next 60-90 days.</p>
+
+<p>Add a "Days Until Expiration" column: <code>=D2-TODAY()</code> where D2 is the lease end date.</p>
+
+<p>Then use conditional formatting to highlight cells where the value is less than 90 days. Red for under 60 days, yellow for 60-90 days.</p>
+
+<h3>Renewal Decision Matrix</h3>
+
+<p>Not every tenant gets automatic renewal. Create a decision framework that combines payment history, lease violations, and market rent analysis.</p>
+
+<table>
+<thead>
+<tr>
+<th>Tenant</th>
+<th>Avg Late Days</th>
+<th>Violations</th>
+<th>Current Rent</th>
+<th>Market Rate</th>
+<th>Rent Gap</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smith, John</td>
+<td>2</td>
+<td>0</td>
+<td>$1,850</td>
+<td>$1,950</td>
+<td>$100</td>
+<td>Renew +$50</td>
+</tr>
+<tr>
+<td>Johnson, Maria</td>
+<td>0</td>
+<td>0</td>
+<td>$2,100</td>
+<td>$2,200</td>
+<td>$100</td>
+<td>Renew +$75</td>
+</tr>
+<tr>
+<td>Williams, Dave</td>
+<td>6</td>
+<td>2</td>
+<td>$1,675</td>
+<td>$1,800</td>
+<td>$125</td>
+<td>Non-renewal</td>
+</tr>
+</tbody>
+</table>
+
+<p>The decision formula: <code>=IF(AND(B2<4,C2<2),"Renew +$"&ROUND((E2-D2)/2,0),"Non-renewal")</code></p>
+
+<p>This suggests renewal with a moderate rent increase for good tenants (under 4 days average late, fewer than 2 violations) and flags problematic tenants for non-renewal.</p>
+
+<h2>Security Deposit Management</h2>
+
+<h3>Deposit Accounting</h3>
+
+<p>Security deposits aren't your money until a tenant moves out and you document damages. Track them properly to avoid legal problems and ensure accurate refunds.</p>
+
+<table>
+<thead>
+<tr>
+<th>Tenant</th>
+<th>Move-in Date</th>
+<th>Security Deposit</th>
+<th>Pet Deposit</th>
+<th>Interest Rate</th>
+<th>Interest Earned</th>
+<th>Total Due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smith, John</td>
+<td>2024-01-15</td>
+<td>$1,850</td>
+<td>$300</td>
+<td>2.5%</td>
+<td>$67</td>
+<td>$2,217</td>
+</tr>
+<tr>
+<td>Johnson, Maria</td>
+<td>2024-03-01</td>
+<td>$2,100</td>
+<td>$0</td>
+<td>2.5%</td>
+<td>$54</td>
+<td>$2,154</td>
+</tr>
+</tbody>
+</table>
+
+<p>Interest calculation: <code>=C2*(1+E2/100)*((TODAY()-B2)/365)</code></p>
+
+<p>This compounds the security deposit at the specified interest rate for the number of days the tenant has occupied the unit. Some states require interest on deposits, others don't. Know your local laws.</p>
+
+<h3>Move-out Damage Assessment</h3>
+
+<p>When tenants leave, document everything. Create a damage assessment section that calculates deposit refunds automatically:</p>
+
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Cost</th>
+<th>Tenant Responsibility</th>
+<th>Landlord Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carpet cleaning</td>
+<td>$150</td>
+<td>$150</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Wall paint (normal wear)</td>
+<td>$300</td>
+<td>$0</td>
+<td>$300</td>
+</tr>
+<tr>
+<td>Broken window</td>
+<td>$125</td>
+<td>$125</td>
+<td>$0</td>
+</tr>
+<tr>
+<td><strong>Total Deductions</strong></td>
+<td></td>
+<td><strong>$275</strong></td>
+<td><strong>$300</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p>Refund calculation: <code>=Security_Deposit_Total-Tenant_Responsibility_Total</code></p>
+
+<h2>Violation and Communication Log</h2>
+
+<p>Documentation wins eviction cases. Track every lease violation, warning, and communication in a timestamped log.</p>
+
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Tenant</th>
+<th>Type</th>
+<th>Description</th>
+<th>Action Taken</th>
+<th>Follow-up Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-04-15</td>
+<td>Williams, Dave</td>
+<td>Noise</td>
+<td>Neighbor complaint about loud music after 11pm</td>
+<td>Verbal warning</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>2026-04-22</td>
+<td>Williams, Dave</td>
+<td>Noise</td>
+<td>Second complaint from same neighbor</td>
+<td>Written warning</td>
+<td>2026-05-01</td>
+</tr>
+</tbody>
+</table>
+
+<p>Use data validation to create dropdown menus for "Type" (Noise, Pet, Maintenance, Payment, Other) and "Action Taken" (Verbal Warning, Written Warning, Notice to Quit, etc.).</p>
+
+<h2>Financial Performance by Tenant</h2>
+
+<p>Track which tenants generate the most profit after maintenance, vacancy costs, and management time.</p>
+
+<table>
+<thead>
+<tr>
+<th>Tenant</th>
+<th>Annual Rent</th>
+<th>Maintenance Costs</th>
+<th>Late Fees Collected</th>
+<th>Management Time (Hours)</th>
+<th>Net Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smith, John</td>
+<td>$22,200</td>
+<td>$450</td>
+<td>$0</td>
+<td>3</td>
+<td>$21,600</td>
+</tr>
+<tr>
+<td>Johnson, Maria</td>
+<td>$25,200</td>
+<td>$200</td>
+<td>$0</td>
+<td>2</td>
+<td>$24,800</td>
+</tr>
+<tr>
+<td>Williams, Dave</td>
+<td>$20,100</td>
+<td>$800</td>
+<td>$150</td>
+<td>12</td>
+<td>$18,850</td>
+</tr>
+</tbody>
+</table>
+
+<p>Net profit formula: <code>=B2-C2+D2-(E2*50)</code></p>
+
+<p>This assumes you value your management time at $50/hour. Williams generated $20,100 in rent but cost you $800 in maintenance plus 12 hours of your time dealing with violations and late payments. His true value: $18,850 versus $24,800 for hassle-free Maria.</p>
+
+<h2>Automated Reporting and Alerts</h2>
+
+<h3>Monthly Dashboard</h3>
+
+<p>Create a summary dashboard that shows key metrics at a glance:</p>
+
+<ul>
+<li><strong>Collection rate:</strong> <code>=SUM(Amount_Paid)/SUM(Amount_Due)</code></li>
+<li><strong>Average late days:</strong> <code>=AVERAGE(Days_Late_Column)</code></li>
+<li><strong>Leases expiring next 90 days:</strong> <code>=COUNTIFS(Lease_End_Date,"<"&TODAY()+90,Status,"Active")</code></li>
+<li><strong>Total security deposits held:</strong> <code>=SUMIF(Status,"Active",Security_Deposit)</code></li>
+</ul>
+
+<h3>Email Alerts</h3>
+
+<p>Set up conditional formatting to highlight urgent items:</p>
+<ul>
+<li>Red: Rent over 10 days late</li>
+<li>Yellow: Leases expiring within 60 days</li>
+<li>Orange: Tenants with 2+ violations in past 6 months</li>
+</ul>
+
+<h2>Stop Managing Tenants with Sticky Notes</h2>
+
+<p>A proper tenant tracking system saves you 5-10 hours per month and prevents expensive mistakes. You need one place to see lease statuses, payment patterns, and violation history without hunting through apps, emails, and notebooks.</p>
+
+<p>If you're managing more than five units, build this system now. If you're managing 20+ units, this spreadsheet approach will work until you hit 50+ units and justify property management software costs.</p>
+
+<p>The <a href="https://sheetcraft.io/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes a complete tenant tracking module plus cash flow analysis, cap rate calculations, and expense tracking. It handles the complex formulas and formatting automatically, so you can focus on managing properties instead of building spreadsheets.</p>`,
+  },
+  {
     slug: 'rent-roll-template-excel-lenders-buyers',
     title: 'Rent Roll Template: What Lenders and Buyers Actually Need to See',
     metaTitle: 'Rent Roll Template Excel: What Lenders Need | SheetCraft',
