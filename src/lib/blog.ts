@@ -16,6 +16,213 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'property-maintenance-log-spreadsheet',
+    title: 'Property Maintenance Log: Track Every Repair Request and Vendor Cost in Excel',
+    metaTitle: 'Property Maintenance Log Spreadsheet | SheetCraft',
+    metaDescription: 'Track repair requests and vendor costs with this Excel property maintenance log. Prevent emergencies, budget accurately, and maximize tax deductions.',
+    targetKeyword: 'property maintenance log spreadsheet',
+    secondaryKeywords: ['property maintenance tracking', 'maintenance log excel', 'rental property maintenance', 'vendor cost tracking', 'property management spreadsheet'],
+    excerpt: 'Stop losing money on emergency repairs and scattered maintenance records. This Excel property maintenance log tracks every repair request, vendor cost, and prevention schedule in one organized system that saves thousands annually.',
+    publishedAt: '2026-05-01',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/property-maintenance-log-spreadsheet.png',
+    imageAlt: 'Professional desk with laptop displaying property maintenance spreadsheet, construction tools, blueprints, and repair invoices for real estate management',
+    content: `<h1>Property Maintenance Log: Track Every Repair Request and Vendor Cost in Excel</h1>
+
+<p>Your tenant calls at 8 PM: broken dishwasher. Your property manager emails: HVAC needs service. Your contractor texts: plumbing estimate ready. By morning, you've forgotten half the details, lost the contractor's number, and have no idea what you spent on maintenance last quarter.</p>
+
+<p>Most landlords track maintenance the same way they track their keys: poorly. Sticky notes, random text messages, and "I'll remember that" promises that evaporate by next week. The result? Emergency repairs that could have been prevented, vendors charging different rates for the same work, and tax season panic when you can't prove legitimate deductions.</p>
+
+<p>A property maintenance log spreadsheet fixes this chaos. Not another app subscription, not another login to forget. Excel, with the right formulas and structure, tracking every repair request, vendor cost, and prevention schedule in one place.</p>
+
+<h2>The Real Cost of Poor Maintenance Tracking</h2>
+
+<p>Before you dismiss this as "paperwork," consider what poor tracking actually costs you. Take Maria, who owns four rental properties in Phoenix. Last year, her AC unit failed in July because she forgot the spring maintenance. Emergency repair: $2,400. Regular maintenance would have been $150.</p>
+
+<p>That same year, she paid three different plumbers for similar issues because she couldn't remember which one charged less. She overpaid by $180 per call because she had no historical data. During tax season, she lost $1,200 in deductions because she couldn't prove expenses without proper documentation.</p>
+
+<p>Total annual cost of poor tracking: $4,140. More than most people's monthly rent.</p>
+
+<p>Multiply this across multiple properties and years, and you're looking at five-figure losses. A maintenance log prevents this bleeding.</p>
+
+<h2>Essential Fields for Your Maintenance Log</h2>
+
+<p>Your property maintenance log needs eight core fields to be useful. Not 20 fields that look impressive but take forever to fill. Eight fields that capture the information that actually matters for decision-making.</p>
+
+<table border="1">
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Example Entry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date Requested</td>
+<td>Track response time and seasonal patterns</td>
+<td>2026-03-15</td>
+</tr>
+<tr>
+<td>Property Address</td>
+<td>Identify problem properties</td>
+<td>1247 Oak Street Unit 2B</td>
+</tr>
+<tr>
+<td>Issue Category</td>
+<td>Budget planning and vendor specialization</td>
+<td>HVAC</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Insurance claims and repeat issues</td>
+<td>Furnace not heating, tenant reports cold air</td>
+</tr>
+<tr>
+<td>Vendor Name</td>
+<td>Performance comparison and rate negotiation</td>
+<td>Phoenix HVAC Solutions</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Budget tracking and tax deductions</td>
+<td>$340</td>
+</tr>
+<tr>
+<td>Date Completed</td>
+<td>Response time analysis</td>
+<td>2026-03-17</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Outstanding issue management</td>
+<td>Complete</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Excel Formulas That Actually Help You Decide</h2>
+
+<p>Data without analysis is just expensive record-keeping. These formulas turn your maintenance log into a decision-making tool that saves money and prevents emergencies.</p>
+
+<h3>Monthly Maintenance Spending by Property</h3>
+
+<p>Use \`=SUMIFS(F:F,B:B,"1247 Oak Street",A:A,">="&DATE(2026,3,1),A:A,"<"&DATE(2026,4,1))\` to calculate March spending for 1247 Oak Street. Replace F:F with your Cost column, B:B with Property Address, and A:A with Date Requested.</p>
+
+<p>This formula answers: "How much am I spending on maintenance per property per month?" Essential for budgeting and identifying problem properties that eat profit.</p>
+
+<h3>Average Response Time by Vendor</h3>
+
+<p>In a new column, calculate response time: \`=G2-A2\` (Date Completed minus Date Requested). Then use \`=AVERAGEIF(E:E,"Phoenix HVAC Solutions",H:H)\` where E:E is your Vendor column and H:H is the response time column.</p>
+
+<p>This shows which vendors actually show up when they promise. Response time matters more than hourly rate when you have angry tenants and potential lease breaks.</p>
+
+<h3>Most Expensive Issue Categories</h3>
+
+<p>Use \`=SUMIF(C:C,"HVAC",F:F)\` to total HVAC expenses, where C:C is your Issue Category column. Create similar formulas for Plumbing, Electrical, and other categories.</p>
+
+<p>This identifies where you're hemorrhaging money and which systems need preventive attention.</p>
+
+<h2>Seasonal Pattern Analysis</h2>
+
+<p>Smart landlords track maintenance seasonally because tenants don't break things randomly. HVAC fails in summer and winter. Plumbing freezes in cold months. Roofing leaks show up during heavy rains.</p>
+
+<p>Create a summary table using \`=SUMIFS(F:F,A:A,">="&DATE(2026,6,1),A:A,"<"&DATE(2026,9,1),C:C,"HVAC")\` to track summer HVAC spending. Adjust the dates and categories for different seasons.</p>
+
+<table border="1">
+<thead>
+<tr>
+<th>Season</th>
+<th>HVAC Costs</th>
+<th>Plumbing Costs</th>
+<th>Electrical Costs</th>
+<th>Roofing Costs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Summer (Jun-Aug)</td>
+<td>$2,840</td>
+<td>$320</td>
+<td>$180</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Fall (Sep-Nov)</td>
+<td>$150</td>
+<td>$280</td>
+<td>$90</td>
+<td>$1,200</td>
+</tr>
+<tr>
+<td>Winter (Dec-Feb)</td>
+<td>$1,680</td>
+<td>$560</td>
+<td>$240</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Spring (Mar-May)</td>
+<td>$220</td>
+<td>$190</td>
+<td>$130</td>
+<td>$450</td>
+</tr>
+</tbody>
+</table>
+
+<p>This data tells you to schedule HVAC maintenance in May and October, not when systems are already stressed. It shows you need roof inspections before fall rain season. It proves you should budget heavy maintenance reserves for summer and winter.</p>
+
+<h2>Vendor Performance Scorecards</h2>
+
+<p>Rate vendors on three metrics that matter: average cost, response time, and repeat issues. Create separate columns for each metric and use conditional formatting to highlight top and bottom performers.</p>
+
+<p>Average Cost: \`=AVERAGEIF(E:E,"Vendor Name",F:F)\`</p>
+<p>Average Response Time: \`=AVERAGEIF(E:E,"Vendor Name",H:H)\` (using the response time column you created)</p>
+<p>Repeat Issue Rate: Count how often the same vendor returns to the same property for the same issue category within 90 days.</p>
+
+<p>Use conditional formatting to color-code performance. Green for top performers, red for vendors who cost too much or take too long. This eliminates emotional vendor selection and prevents calling the expensive guy just because his number is in your phone.</p>
+
+<h2>Preventive Maintenance Scheduling</h2>
+
+<p>The best maintenance log prevents problems instead of just documenting them after the fact. Add a separate sheet for preventive maintenance schedules.</p>
+
+<p>Create columns for Property Address, System (HVAC, Water Heater, etc.), Last Service Date, Next Service Due, and Estimated Cost. Use \`=B2+365\` to calculate annual service dates, or \`=B2+180\` for semi-annual maintenance.</p>
+
+<p>Add a Status column with \`=IF(D2<=TODAY(),"OVERDUE",IF(D2<=TODAY()+30,"DUE SOON","SCHEDULED"))\` to flag upcoming maintenance needs.</p>
+
+<p>This transforms you from reactive to proactive. Instead of emergency repairs, you schedule maintenance during your slow season when vendors offer better rates and faster response times.</p>
+
+<h2>Tax Documentation Made Simple</h2>
+
+<p>Your maintenance log becomes your tax deduction proof when structured correctly. Add columns for Receipt Attached (Yes/No) and Business Purpose. Use \`=SUMIF(I:I,"Yes",F:F)\` to calculate your documented deductible expenses.</p>
+
+<p>For business purpose, use consistent language: "Maintain rental property habitability" or "Repair tenant-reported issue." This satisfies IRS documentation requirements and prevents deduction challenges.</p>
+
+<p>At year-end, filter by Status = "Complete" and Receipt Attached = "Yes" to generate your maintenance expense report. Print it, file it, deduct it.</p>
+
+<h2>Beyond Basic Tracking: Strategic Insights</h2>
+
+<p>Once your log has six months of data, it reveals patterns that change how you manage properties. You'll identify properties that consume disproportionate maintenance dollars, vendors who create repeat problems, and systems that fail predictably.</p>
+
+<p>Use \`=SUMIF(B:B,"Problem Property Address",F:F)/SUMIF(B:B,"Good Property Address",F:F)\` to compare maintenance costs between properties. If one property costs 3x more to maintain, investigate why. Bad tenants? Deferred maintenance? Systems at end-of-life?</p>
+
+<p>Track vendor performance over time. If a vendor's average job cost increases 50% year-over-year while others stay flat, they're taking advantage of your business relationship. Time to rebid your work.</p>
+
+<p>Calculate total cost of ownership by property. Maintenance plus vacancy plus turnover costs. This data drives hold-vs-sell decisions and helps you identify which properties actually generate positive cash flow after all expenses.</p>
+
+<h2>The Complete System in Action</h2>
+
+<p>Your property maintenance log spreadsheet doesn't work in isolation. It connects to your rent roll, expense tracking, and tax preparation. When a tenant calls with a problem, you log it immediately. When a vendor sends a bill, it goes into the system with receipt attached. When your accountant asks for maintenance expenses, you filter and export.</p>
+
+<p>The goal isn't perfect record-keeping. It's profitable decision-making. Your maintenance log should answer these questions instantly: Which properties cost the most to maintain? Which vendors perform best? What systems need preventive attention? How much should you budget for next year's maintenance?</p>
+
+<p>If your current tracking system can't answer these questions, you're not tracking maintenance - you're just collecting receipts.</p>
+
+<p>A professional rental property analyzer takes this foundation and adds cash flow projections, tax optimization, and performance comparisons across your entire portfolio. Instead of building every formula from scratch, you get proven systems that hundreds of successful landlords use to maximize their real estate returns.</p>`,
+  },
+  {
     slug: 'tenant-tracking-spreadsheet',
     title: 'Tenant Tracking Spreadsheet: Leases, Deposits, and Payment History in One Sheet',
     metaTitle: 'Tenant Tracking Spreadsheet Guide | SheetCraft',
