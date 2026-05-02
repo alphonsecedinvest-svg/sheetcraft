@@ -16,6 +16,264 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'lease-expiration-tracker-excel',
+    title: 'Lease Expiration Tracker: Never Miss a Renewal Window With Conditional Formatting',
+    metaTitle: 'Lease Expiration Tracker Excel | SheetCraft',
+    metaDescription: 'Build an Excel lease expiration tracker with conditional formatting alerts to prevent missed renewals and costly vacancies. Includes formulas and real examples.',
+    targetKeyword: 'lease expiration tracker Excel',
+    secondaryKeywords: ['Excel rental tracking', 'lease renewal alerts', 'property management Excel', 'Excel conditional formatting alerts', 'rental property tracker'],
+    excerpt: 'A property manager missed three lease renewals costing ,100 in lost rent. One Excel formula with conditional formatting could have prevented this. Learn to build automatic lease expiration alerts that save thousands.',
+    publishedAt: '2026-05-02',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/lease-expiration-tracker-excel.png',
+    imageAlt: 'Excel spreadsheet showing lease expiration tracker with conditional formatting alerts and property management dashboard',
+    content: `<h1>Lease Expiration Tracker: Never Miss a Renewal Window With Conditional Formatting</h1>
+
+<p>A property manager in Denver missed three lease renewals in one quarter because they were tracking expiration dates in a basic spreadsheet without alerts. Those three units sat vacant for an average of 45 days each. At $1,800 per month average rent, that's $8,100 in lost income, plus $2,400 in re-leasing costs. One Excel formula could have prevented this.</p>
+
+<p>Missing lease expiration tracker Excel deadlines isn't just an organizational problem. It's a cash flow killer that compounds quickly across a portfolio. The larger your property count, the more expensive these oversights become.</p>
+
+<h2>The Real Cost of Manual Lease Tracking</h2>
+
+<p>Most landlords track lease expirations in basic spreadsheets or even paper calendars. This approach fails when you need to act 60-90 days before expiration to secure renewals or find replacement tenants. Consider these numbers:</p>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+<tr>
+<th>Portfolio Size</th>
+<th>Vacancy Rate Without Tracker</th>
+<th>Annual Revenue Loss</th>
+<th>Re-leasing Costs</th>
+<th>Total Impact</th>
+</tr>
+<tr>
+<td>5 properties</td>
+<td>8%</td>
+<td>$4,320</td>
+<td>$1,000</td>
+<td>$5,320</td>
+</tr>
+<tr>
+<td>15 properties</td>
+<td>12%</td>
+<td>$19,440</td>
+<td>$3,600</td>
+<td>$23,040</td>
+</tr>
+<tr>
+<td>50 properties</td>
+<td>15%</td>
+<td>$81,000</td>
+<td>$15,000</td>
+<td>$96,000</td>
+</tr>
+</table>
+
+<p>These losses assume average rent of $1,800/month and 30-day average vacancy per missed renewal. The pattern is clear: manual tracking becomes exponentially more expensive as your portfolio grows.</p>
+
+<h2>Building an Excel Lease Expiration Warning System</h2>
+
+<p>The solution uses conditional formatting and date calculations to automatically flag leases requiring attention. This isn't about pretty colors. It's about preventing five-figure revenue losses.</p>
+
+<h3>Core Tracking Formula</h3>
+
+<p>Cell D4 calculates days until lease expiration: <code>=C4-TODAY()</code></p>
+
+<p>This formula subtracts today's date from the lease end date in column C. Positive numbers mean days remaining, negative numbers mean the lease has expired. Cell E4 determines the urgency level: <code>=IF(D4<=30,"URGENT",IF(D4<=60,"WARNING",IF(D4<=90,"ATTENTION","OK")))</code></p>
+
+<p>This creates four alert levels:</p>
+<ul>
+<li><strong>URGENT</strong>: 30 days or less (immediate action required)</li>
+<li><strong>WARNING</strong>: 31-60 days (begin renewal conversations)</li>
+<li><strong>ATTENTION</strong>: 61-90 days (prepare renewal documentation)</li>
+<li><strong>OK</strong>: More than 90 days (routine monitoring)</li>
+</ul>
+
+<h3>Conditional Formatting Rules</h3>
+
+<p>Apply these formatting rules to column E (Status) to create visual alerts:</p>
+
+<ol>
+<li>URGENT: Red background, white text</li>
+<li>WARNING: Orange background, black text</li>
+<li>ATTENTION: Yellow background, black text</li>
+<li>OK: Green background, white text</li>
+</ol>
+
+<p>The conditional formatting rule for "URGENT" status: <code>=$E4="URGENT"</code> with red fill. Repeat for each status level with appropriate colors.</p>
+
+<h2>Advanced Tracking Features</h2>
+
+<h3>Renewal Probability Calculator</h3>
+
+<p>Column F calculates renewal likelihood based on tenant payment history: <code>=IF(G4="Excellent",0.85,IF(G4="Good",0.70,IF(G4="Fair",0.45,0.15)))</code></p>
+
+<p>Payment history ratings translate to renewal probabilities:</p>
+<ul>
+<li><strong>Excellent</strong>: 85% renewal chance (never late, no issues)</li>
+<li><strong>Good</strong>: 70% renewal chance (1-2 late payments per year)</li>
+<li><strong>Fair</strong>: 45% renewal chance (3-5 late payments)</li>
+<li><strong>Poor</strong>: 15% renewal chance (frequent late payments)</li>
+</ul>
+
+<h3>Revenue Impact Assessment</h3>
+
+<p>Column H estimates potential revenue loss if renewal fails: <code>=IF(F4<0.5,I4*2,I4*0.5)</code></p>
+
+<p>This formula assumes tenants with below 50% renewal probability will cost two months of rent to replace (vacancy plus re-leasing costs). Higher-probability renewals only risk half a month if negotiations fail.</p>
+
+<h3>Action Priority Score</h3>
+
+<p>Column J combines urgency and revenue risk: <code>=(91-D4)*I4*F4</code></p>
+
+<p>This multiplies urgency (91 minus days remaining), monthly rent, and renewal probability. Higher scores demand immediate attention. Sort by this column to prioritize your renewal efforts.</p>
+
+<h2>Real-World Implementation Example</h2>
+
+<p>Here's how this system works with actual data:</p>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+<tr>
+<th>Property</th>
+<th>Lease End</th>
+<th>Days Left</th>
+<th>Status</th>
+<th>Renewal Prob</th>
+<th>Monthly Rent</th>
+<th>Priority Score</th>
+</tr>
+<tr>
+<td>1247 Oak St</td>
+<td>2026-05-15</td>
+<td>13</td>
+<td>URGENT</td>
+<td>70%</td>
+<td>$2,200</td>
+<td>120,120</td>
+</tr>
+<tr>
+<td>892 Pine Ave</td>
+<td>2026-06-01</td>
+<td>30</td>
+<td>URGENT</td>
+<td>85%</td>
+<td>$1,950</td>
+<td>101,025</td>
+</tr>
+<tr>
+<td>445 Elm Dr</td>
+<td>2026-06-30</td>
+<td>59</td>
+<td>WARNING</td>
+<td>45%</td>
+<td>$1,600</td>
+<td>23,040</td>
+</tr>
+</table>
+
+<p>The Oak Street property tops the priority list despite lower rent because the combination of urgency (13 days) and decent renewal probability (70%) creates the highest action score. Start there.</p>
+
+<h3>Monthly Workflow Integration</h3>
+
+<p>Run this analysis on the first of each month:</p>
+
+<ol>
+<li>Sort by Priority Score (highest first)</li>
+<li>Address all URGENT items immediately</li>
+<li>Schedule WARNING conversations within one week</li>
+<li>Prepare ATTENTION documentation and market research</li>
+<li>Update payment history ratings based on recent performance</li>
+</ol>
+
+<h2>Preventing Common Tracking Mistakes</h2>
+
+<h3>Date Format Consistency</h3>
+
+<p>Use <code>=DATE(2026,5,15)</code> instead of typing "5/15/2026". This prevents Excel from misinterpreting dates and breaking your calculations. The DATE function ensures your lease expiration tracker Excel formulas work regardless of regional settings.</p>
+
+<h3>Weekend and Holiday Adjustment</h3>
+
+<p>Lease end dates on weekends complicate move-out scheduling. Use <code>=WORKDAY(C4,-1)</code> to find the last business day before lease expiration for planning purposes.</p>
+
+<h3>Multiple Lease Terms</h3>
+
+<p>For properties with multiple lease lengths, create separate tabs or use data validation to ensure accurate tracking. A six-month lease tracked as 12-month will miss the actual expiration by half a year.</p>
+
+<h2>Scaling Beyond Basic Tracking</h2>
+
+<p>Once your portfolio exceeds 20 properties, add these columns:</p>
+
+<ul>
+<li><strong>Market Rent</strong>: Current market rate for comparable units</li>
+<li><strong>Rent Increase Potential</strong>: <code>=K4-I4</code> (market minus current)</li>
+<li><strong>Renewal Strategy</strong>: "Increase", "Match", or "Reduce" based on market conditions</li>
+<li><strong>Tenant Notes</strong>: Recent interactions, complaints, or positive feedback</li>
+</ul>
+
+<p>These additions transform your tracker from a simple reminder system into a strategic renewal planning tool.</p>
+
+<h3>Portfolio-Level Metrics</h3>
+
+<p>Track these summary statistics at the bottom of your sheet:</p>
+
+<ul>
+<li><strong>Average Days to Expiration</strong>: <code>=AVERAGE(D:D)</code></li>
+<li><strong>Total At-Risk Revenue</strong>: <code>=SUMIF(E:E,"URGENT",I:I)*2</code></li>
+<li><strong>Expected Renewal Count</strong>: <code>=SUMPRODUCT(F:F,1)</code> (sum of all probabilities)</li>
+</ul>
+
+<h2>Integration with Property Management</h2>
+
+<p>Your lease expiration tracker Excel system should connect to your broader property management workflow. Export URGENT and WARNING items to your calendar application. Set up email reminders 90, 60, and 30 days before each expiration.</p>
+
+<p>For properties requiring immediate attention, add these action items to your tracking:</p>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+<tr>
+<th>Timeline</th>
+<th>Action Required</th>
+<th>Documentation</th>
+<th>Expected Cost</th>
+</tr>
+<tr>
+<td>90 days</td>
+<td>Market analysis</td>
+<td>Comparable rent research</td>
+<td>$50 (time)</td>
+</tr>
+<tr>
+<td>60 days</td>
+<td>Tenant outreach</td>
+<td>Renewal offer letter</td>
+<td>$25 (postage/time)</td>
+</tr>
+<tr>
+<td>30 days</td>
+<td>Final decision</td>
+<td>Move-out notice if needed</td>
+<td>$200 (legal compliance)</td>
+</tr>
+<tr>
+<td>0 days</td>
+<td>Unit turnover</td>
+<td>Marketing materials</td>
+<td>$800 (cleaning, repairs, advertising)</td>
+</tr>
+</table>
+
+<p>The total cost of proper lease management is $1,075 per unit. Compare this to $3,600+ in lost revenue from missed renewals, and the ROI becomes obvious.</p>
+
+<h2>Stop Losing Money to Missed Renewals</h2>
+
+<p>A lease expiration tracker Excel system isn't optional once you own more than three rental properties. The revenue losses from missed renewals compound quickly, and manual tracking fails at scale. The formulas above prevent five-figure mistakes for the cost of an afternoon's setup work.</p>
+
+<p>But Excel tracking is just one piece of profitable rental management. If you want to analyze cash flow, calculate optimal rent increases, estimate renovation ROI, and track all your property finances in one place, you need a comprehensive system that goes beyond simple lease tracking.</p>
+
+<p>The <a href="https://sheetcraft.com/templates/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes advanced lease management alongside complete financial analysis. It automatically calculates renewal strategies, compares market rents, tracks maintenance costs, and projects multi-year returns. Instead of building separate systems for different aspects of property management, get everything you need in one proven template that's already helped over 1,200 real estate investors make better decisions.</p>
+
+<p>Your lease expiration tracker Excel spreadsheet prevents revenue losses. A complete rental analysis system helps you maximize profits from every property in your portfolio.</p>`,
+  },
+  {
     slug: 'property-maintenance-log-spreadsheet',
     title: 'Property Maintenance Log: Track Every Repair Request and Vendor Cost in Excel',
     metaTitle: 'Property Maintenance Log Spreadsheet | SheetCraft',
