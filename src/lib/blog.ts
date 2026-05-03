@@ -16,6 +16,423 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'commercial-real-estate-noi-calculator-excel',
+    title: 'Commercial Real Estate NOI Calculator: Build a Simple Model for Office, Retail, and Industrial',
+    metaTitle: 'Commercial Real Estate NOI Calculator Excel | SheetCraft',
+    metaDescription: 'Build a property-specific NOI calculator that adapts to office, retail, and industrial properties. Includes vacancy risk modeling and cash flow timing.',
+    targetKeyword: 'commercial real estate NOI calculator Excel',
+    secondaryKeywords: ['NOI calculator', 'commercial property analysis', 'real estate Excel', 'property NOI formula', 'commercial real estate spreadsheet'],
+    excerpt: 'Most commercial real estate NOI calculators treat every property the same. Office, retail, and industrial properties have different expense patterns and risks that generic templates miss.',
+    publishedAt: '2026-05-03',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/commercial-real-estate-noi-calculator-excel.png',
+    imageAlt: 'Commercial real estate spreadsheet with NOI calculations on modern office desk with calculator and building blueprints',
+    content: `<h1>Commercial Real Estate NOI Calculator: Build a Simple Model for Office, Retail, and Industrial</h1>
+
+<p>Most commercial real estate NOI calculators treat every property the same. Office spaces, retail centers, and industrial warehouses all get the same generic template. That approach costs money.</p>
+
+<p>A warehouse tenant breaking a 10-year lease hits differently than a dentist office going month-to-month. Industrial properties have different expense patterns than retail. Office buildings in 2026 face vacancy risks that didn't exist five years ago. Your commercial real estate NOI calculator Excel needs to account for these differences, or you're flying blind on deals worth hundreds of thousands of dollars.</p>
+
+<p>Here's how to build a commercial real estate NOI calculator in Excel that adapts to property type, handles realistic scenarios, and flags the deals that will drain your cash flow.</p>
+
+<h2>Why Generic NOI Calculators Fail on Commercial Deals</h2>
+
+<p>Most NOI calculators assume steady rents, predictable expenses, and tenants who stay forever. Real commercial properties behave differently:</p>
+
+<ul>
+<li><strong>Office buildings</strong>: Tenant improvement allowances of $20-50 per square foot. Free rent periods during leasing. High vacancy risk post-COVID.</li>
+<li><strong>Retail properties</strong>: Seasonal revenue swings. Percentage rent clauses. Common area maintenance that fluctuates with occupancy.</li>
+<li><strong>Industrial warehouses</strong>: Lower maintenance costs but higher tenant improvement costs for specialized use. Longer lease terms but fewer replacement tenants.</li>
+</ul>
+
+<p>A 50,000 square foot office building with 20% vacancy costs you $500,000 annually in lost rent at $50/sq ft. But that same building might need $1.5 million in tenant improvements to fill the space. Generic calculators don't show this cash requirement.</p>
+
+<h2>Building the Property Type-Specific NOI Model</h2>
+
+<p>Start with three separate input sections for Office, Retail, and Industrial properties. Each property type gets its own expense assumptions and risk factors.</p>
+
+<h3>Office Building Inputs (Cells A1:C20)</h3>
+
+<p>Set up your office building parameters with realistic market assumptions:</p>
+
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Cell</th>
+<th>Example Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Square Feet</td>
+<td>B2</td>
+<td>25,000</td>
+<td>Rentable area only</td>
+</tr>
+<tr>
+<td>Current Rent PSF</td>
+<td>B3</td>
+<td>$35</td>
+<td>Annual rate</td>
+</tr>
+<tr>
+<td>Occupancy Rate</td>
+<td>B4</td>
+<td>85%</td>
+<td>Current occupied percentage</td>
+</tr>
+<tr>
+<td>TI Allowance PSF</td>
+<td>B5</td>
+<td>$25</td>
+<td>Tenant improvement budget</td>
+</tr>
+<tr>
+<td>Free Rent Months</td>
+<td>B6</td>
+<td>3</td>
+<td>Typical concession period</td>
+</tr>
+<tr>
+<td>Operating Expenses PSF</td>
+<td>B7</td>
+<td>$12</td>
+<td>Annual maintenance/utilities</td>
+</tr>
+</tbody>
+</table>
+
+<p>Your effective rent calculation needs to account for tenant concessions: <code>=B3*(B4/100)*B2*(1-(B6/12))</code></p>
+
+<p>This formula takes your base rent, multiplies by occupancy rate and total square footage, then reduces it by the free rent percentage. A $35/sq ft rent with 3 months free rent is really $26.25/sq ft effective.</p>
+
+<h3>Retail Property Inputs (Cells A25:C45)</h3>
+
+<p>Retail properties require percentage rent tracking and seasonal adjustments:</p>
+
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Cell</th>
+<th>Example Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base Rent PSF</td>
+<td>B27</td>
+<td>$28</td>
+<td>Minimum guaranteed rent</td>
+</tr>
+<tr>
+<td>Sales Breakpoint PSF</td>
+<td>B28</td>
+<td>$400</td>
+<td>Sales level triggering % rent</td>
+</tr>
+<tr>
+<td>Percentage Rent Rate</td>
+<td>B29</td>
+<td>6%</td>
+<td>% of sales above breakpoint</td>
+</tr>
+<tr>
+<td>Seasonal Variance</td>
+<td>B30</td>
+<td>±25%</td>
+<td>Q4 holiday vs Q1 slowdown</td>
+</tr>
+<tr>
+<td>CAM Charges PSF</td>
+<td>B31</td>
+<td>$8</td>
+<td>Common area maintenance</td>
+</tr>
+</tbody>
+</table>
+
+<p>Calculate percentage rent with this formula: <code>=MAX(0,(B32*B28*(B29/100))-B27*B2)</code> where B32 is actual sales PSF.</p>
+
+<p>If tenant sales hit $450/sq ft, they pay percentage rent on the $50 above breakpoint: $450 - $400 = $50 × 6% = $3/sq ft additional rent.</p>
+
+<h3>Industrial Property Inputs (Cells A50:C70)</h3>
+
+<p>Industrial properties have different cost structures and tenant profiles:</p>
+
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Cell</th>
+<th>Example Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warehouse Rent PSF</td>
+<td>B52</td>
+<td>$8</td>
+<td>Basic warehouse space</td>
+</tr>
+<tr>
+<td>Office Space PSF</td>
+<td>B53</td>
+<td>$18</td>
+<td>Office portion of facility</td>
+</tr>
+<tr>
+<td>Dock Doors Count</td>
+<td>B54</td>
+<td>6</td>
+<td>Loading dock premium</td>
+</tr>
+<tr>
+<td>Dock Premium per Door</td>
+<td>B55</td>
+<td>$200</td>
+<td>Monthly premium per door</td>
+</tr>
+<tr>
+<td>Maintenance PSF</td>
+<td>B56</td>
+<td>$2.50</td>
+<td>Lower than office/retail</td>
+</tr>
+</tbody>
+</table>
+
+<p>Industrial rent calculation: <code>=B52*C52+B53*C53+(B54*B55*12)</code> where C52 and C53 are warehouse and office square footage respectively.</p>
+
+<h2>Cash Flow Timing and Vacancy Risk</h2>
+
+<p>NOI tells you annual performance, but cash flow timing determines whether you survive year one. Office buildings with 6-month free rent periods create cash flow gaps that can break financing.</p>
+
+<h3>Monthly Cash Flow Model (Cells E1:P20)</h3>
+
+<p>Build a 12-month cash flow projection showing when money actually arrives:</p>
+
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Rent Collected</th>
+<th>TI Payment</th>
+<th>Operating Expense</th>
+<th>Net Cash Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jan</td>
+<td>$72,000</td>
+<td>$-125,000</td>
+<td>$-25,000</td>
+<td>$-78,000</td>
+</tr>
+<tr>
+<td>Feb</td>
+<td>$72,000</td>
+<td>$0</td>
+<td>$-25,000</td>
+<td>$47,000</td>
+</tr>
+<tr>
+<td>Mar</td>
+<td>$72,000</td>
+<td>$0</td>
+<td>$-25,000</td>
+<td>$47,000</td>
+</tr>
+</tbody>
+</table>
+
+<p>Use this formula for monthly net cash flow: <code>=F2-G2-H2</code> where F2 is rent collected, G2 is TI payment, and H2 is monthly operating expenses.</p>
+
+<p>This shows the real cost of tenant turnover. A new 5,000 sq ft office tenant with $25/sq ft TI allowance costs $125,000 upfront, plus lost rent during the build-out period.</p>
+
+<h3>Vacancy Risk Calculation</h3>
+
+<p>Different property types have different vacancy risks. Build this into your projections:</p>
+
+<ul>
+<li><strong>Office</strong>: 15-25% vacancy risk (post-COVID impact)</li>
+<li><strong>Retail</strong>: 10-20% vacancy risk (e-commerce pressure)</li>
+<li><strong>Industrial</strong>: 5-10% vacancy risk (high demand, limited supply)</li>
+</ul>
+
+<p>Calculate expected vacancy cost with: <code>=B3*B2*(E75/100)</code> where E75 is your vacancy risk percentage.</p>
+
+<p>A $35/sq ft office building with 20% vacancy risk has an expected annual loss of $7/sq ft just from vacancy. That's $175,000 annually on a 25,000 sq ft building.</p>
+
+<h2>Operating Expense Deep Dive by Property Type</h2>
+
+<p>Operating expenses vary dramatically by property type. Using the wrong assumptions can flip a profitable deal into a money pit.</p>
+
+<h3>Office Building Operating Expenses (Annual PSF)</h3>
+
+<ul>
+<li>Utilities: $4-8 (HVAC intensive)</li>
+<li>Maintenance: $2-4 (elevators, complex systems)</li>
+<li>Property management: $1-2</li>
+<li>Insurance: $0.50-1.50</li>
+<li>Property taxes: Variable by location</li>
+<li><strong>Total: $8-16 PSF annually</strong></li>
+</ul>
+
+<h3>Retail Property Operating Expenses (Annual PSF)</h3>
+
+<ul>
+<li>CAM charges: $6-12 (parking, landscaping, security)</li>
+<li>Utilities: $2-5 (tenant responsibility varies)</li>
+<li>Marketing fund: $1-3 (shopping center promotion)</li>
+<li>Property management: $1-2</li>
+<li>Insurance: $1-2</li>
+<li><strong>Total: $11-24 PSF annually</strong></li>
+</ul>
+
+<h3>Industrial Property Operating Expenses (Annual PSF)</h3>
+
+<ul>
+<li>Utilities: $1-3 (tenant typically pays)</li>
+<li>Maintenance: $0.50-2 (concrete floors, steel structure)</li>
+<li>Property management: $0.50-1</li>
+<li>Insurance: $0.50-1.50</li>
+<li><strong>Total: $2.50-7.50 PSF annually</strong></li>
+</ul>
+
+<p>Use these ranges in your model with: <code>=IF(B1="Office",B2*12,IF(B1="Retail",B2*18,B2*5))</code> where B1 is property type and B2 is square footage.</p>
+
+<h2>Market Rent Analysis and Rent Growth</h2>
+
+<p>Your NOI calculator needs to account for rent growth, but different property types see different growth patterns.</p>
+
+<h3>Rent Growth by Property Type (Historical 10-Year Average)</h3>
+
+<ul>
+<li><strong>Office</strong>: 1-3% annually (declining post-COVID)</li>
+<li><strong>Retail</strong>: 2-4% annually (varies by location/type)</li>
+<li><strong>Industrial</strong>: 4-8% annually (supply shortage driving growth)</li>
+</ul>
+
+<p>Project future NOI with compounding rent growth: <code>=B3*(1+C20)^A20</code> where C20 is annual rent growth percentage and A20 is year number.</p>
+
+<p>Industrial properties with 6% annual rent growth turn a $8/sq ft base rent into $12.76/sq ft by year 8. Office properties with 2% growth only reach $9.37/sq ft by year 8.</p>
+
+<h2>Deal Analysis: Three Property Comparison</h2>
+
+<p>Compare three properties using your NOI calculator to see how property type affects returns:</p>
+
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Size</th>
+<th>Rent PSF</th>
+<th>Op Ex PSF</th>
+<th>NOI</th>
+<th>Cap Rate (at $150 PSF)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Office Building</td>
+<td>25,000</td>
+<td>$35</td>
+<td>$12</td>
+<td>$575,000</td>
+<td>5.1%</td>
+</tr>
+<tr>
+<td>Retail Center</td>
+<td>15,000</td>
+<td>$28</td>
+<td>$18</td>
+<td>$150,000</td>
+<td>6.7%</td>
+</tr>
+<tr>
+<td>Industrial Warehouse</td>
+<td>50,000</td>
+<td>$8</td>
+<td>$5</td>
+<td>$150,000</td>
+<td>7.5%</td>
+</tr>
+</tbody>
+</table>
+
+<p>Calculate cap rate with: <code>=(B3-B7)*B2/(150*B2)</code> where B3 is rent PSF, B7 is operating expense PSF, and 150 is purchase price PSF.</p>
+
+<p>The industrial warehouse shows the highest cap rate, but that doesn't account for tenant improvement costs or vacancy risk differences between property types.</p>
+
+<h2>Advanced NOI Calculations: Expense Recoveries and Escalations</h2>
+
+<p>Commercial leases include expense recovery clauses that affect actual NOI. Your calculator needs to model these correctly.</p>
+
+<h3>Expense Recovery Types</h3>
+
+<ul>
+<li><strong>Triple Net (NNN)</strong>: Tenant pays all operating expenses</li>
+<li><strong>Modified Gross</strong>: Tenant pays some expenses above base year</li>
+<li><strong>Full Service</strong>: Landlord pays all expenses</li>
+</ul>
+
+<p>Calculate recovered expenses with: <code>=IF(D5="NNN",C8*B2,IF(D5="Modified",MAX(0,(C8-C9)*B2),0))</code> where D5 is lease type, C8 is current operating expenses PSF, C9 is base year expenses PSF, and B2 is square footage.</p>
+
+<h3>Rent Escalation Modeling</h3>
+
+<p>Model different escalation types:</p>
+
+<ul>
+<li><strong>Fixed increases</strong>: $1 PSF annually</li>
+<li><strong>Percentage increases</strong>: 3% annually</li>
+<li><strong>CPI adjustments</strong>: Tied to inflation index</li>
+</ul>
+
+<p>Formula for year 5 rent with fixed escalations: <code>=B3+(A20*C25)</code> where A20 is year number and C25 is fixed annual increase.</p>
+
+<p>Formula for percentage escalations: <code>=B3*(1+C26/100)^A20</code> where C26 is annual percentage increase.</p>
+
+<h2>Warning Signs Your NOI Calculator Should Flag</h2>
+
+<p>Build alerts into your model that flag problematic deals:</p>
+
+<h3>Cash Flow Warning Flags</h3>
+
+<ul>
+<li><strong>Negative cash flow months</strong>: <code>=IF(E20<0,"CASH FLOW WARNING","")</code></li>
+<li><strong>High vacancy risk</strong>: <code>=IF(F25>15,"HIGH VACANCY RISK","")</code></li>
+<li><strong>Below market rent</strong>: <code>=IF(B3<G30,"BELOW MARKET RENT","")</code></li>
+<li><strong>High TI requirements</strong>: <code>=IF(B5>30,"HIGH TI COST","")</code></li>
+</ul>
+
+<h3>Market Risk Indicators</h3>
+
+<ul>
+<li><strong>Rent growth vs inflation</strong>: <code>=IF(C20<2.5,"RENT GROWTH LAGGING","")</code></li>
+<li><strong>Operating expense increases</strong>: <code>=IF(C21>5,"HIGH EXPENSE GROWTH","")</code></li>
+<li><strong>Market cap rate spread</strong>: <code>=IF(ABS(H25-I25)>1,"CAP RATE DEVIATION","")</code></li>
+</ul>
+
+<h2>Conclusion: Beyond Basic NOI to Deal Intelligence</h2>
+
+<p>A proper commercial real estate NOI calculator does more than subtract expenses from income. It models property-specific risks, cash flow timing, and market conditions that determine whether a deal makes money or loses it.</p>
+
+<p>The difference between a $35 PSF office building at 85% occupancy and 65% occupancy is $125,000 annually on a 25,000 sq ft property. Your calculator should show you that risk before you sign the purchase contract.</p>
+
+<p>Industrial properties might show lower rents PSF but deliver higher returns through lower operating costs and stronger tenant retention. Retail properties generate percentage rent upside but carry seasonal cash flow risks.</p>
+
+<p>Your NOI calculator should reflect these differences, not treat every commercial property like a generic rental building.</p>
+
+<p>Ready to build a comprehensive commercial real estate analysis model that handles all these variables automatically? Our <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes dedicated commercial property analysis with built-in property type assumptions, cash flow modeling, and market risk calculations. Stop making NOI estimates on the back of a napkin and start making data-driven commercial real estate decisions.</p>`,
+  },
+  {
     slug: 'lease-expiration-tracker-excel',
     title: 'Lease Expiration Tracker: Never Miss a Renewal Window With Conditional Formatting',
     metaTitle: 'Lease Expiration Tracker Excel | SheetCraft',
