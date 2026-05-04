@@ -16,6 +16,182 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-irr-calculator-excel',
+    title: 'Real Estate IRR Calculator: Measure Levered and Unlevered Returns With XIRR()',
+    metaTitle: 'Real Estate IRR Calculator Excel Guide | SheetCraft',
+    metaDescription: 'Build a real estate IRR calculator in Excel using XIRR function. Calculate levered vs unlevered returns, handle cash flows, refinancing, and stress test deals.',
+    targetKeyword: 'real estate IRR calculator Excel',
+    secondaryKeywords: ['XIRR function real estate', 'property investment calculator', 'real estate cash flow analysis', 'leveraged vs unleveraged IRR', 'investment property returns'],
+    excerpt: 'Learn how to build a powerful real estate IRR calculator in Excel using the XIRR function. Calculate true returns on investment properties, handle complex cash flows, and compare levered vs unlevered performance.',
+    publishedAt: '2026-05-04',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-irr-calculator-excel.png',
+    imageAlt: 'Professional real estate investment analysis workspace with Excel spreadsheet showing IRR calculations, financial charts, calculator, and property investment documents',
+    content: `A contractor just pitched you a $2.4M apartment building that will generate $18,000/month in rent. He says you'll double your money in 5 years. Without a real estate IRR calculator in Excel, you're flying blind on whether this deal actually makes sense.
+
+Most investors guess at returns using simple math: "I put in $500K, I'll get back $1M, so I doubled my money." But that ignores the time value of money, loan payments, vacancy costs, and dozens of other cash flows that determine your real return. The Internal Rate of Return (IRR) captures all of this in one number.
+
+The problem? Most IRR calculators online are basic toys that don't handle real estate's complexity. You need something that accounts for uneven cash flows, refinancing, capital improvements, and leverage. Excel's \`=XIRR()\` function does exactly that.
+
+## Why Simple Return Calculations Mislead Real Estate Investors
+
+Your $500K down payment on that $2.4M building isn't the whole story. Real estate investments have cash flows scattered across years:
+
+- **Initial investment**: Down payment, closing costs, immediate repairs
+- **Operating cash flows**: Monthly rent minus mortgage payments, expenses, vacancies
+- **Capital expenditures**: HVAC replacement, roof work, major maintenance
+- **Exit cash flow**: Sale proceeds minus remaining loan balance
+
+A property that "doubles your money in 5 years" might actually deliver a 12% IRR or a 18% IRR depending on these cash flows. That's the difference between a mediocre investment and an excellent one.
+
+## Building Your Real Estate IRR Calculator With XIRR
+
+Excel's \`=XIRR(values, dates)\` function calculates IRR for irregular cash flows. Unlike the basic \`=IRR()\` function that assumes monthly or yearly intervals, \`=XIRR()\` handles the messy reality of real estate timing.
+
+### Setting Up Your Cash Flow Structure
+
+Create a table with three columns:
+
+| Date | Description | Cash Flow |
+|------|-------------|-----------|
+| 2024-01-15 | Down payment + closing | -$520,000 |
+| 2024-02-01 | Month 1 net cash flow | $2,400 |
+| 2024-03-01 | Month 2 net cash flow | $2,400 |
+| 2024-06-01 | HVAC replacement | -$8,500 |
+| 2024-07-01 | Month 6 net cash flow | $2,400 |
+| ... | ... | ... |
+| 2029-01-15 | Sale proceeds | $1,240,000 |
+
+**Cash flow calculation**: For each month, use \`=Rent_Income - Mortgage_Payment - Operating_Expenses - Vacancy_Allowance\`. Put negative cash flows (your money out) as negative numbers, positive cash flows (your money in) as positive.
+
+### The XIRR Formula
+
+In cell D2, enter: \`=XIRR(C:C, A:A)\`
+
+This tells Excel to calculate the annualized return rate that makes the net present value of all cash flows equal zero. Your result will be a percentage like 14.2%, meaning this investment delivers 14.2% annually.
+
+### Handling Common Real Estate Scenarios
+
+**Scenario 1: Refinancing**
+If you refinance in year 3 and pull out $150K in cash:
+
+| 2027-03-15 | Refinance cash out | $150,000 |
+
+This cash extraction affects your IRR calculation because it changes your total investment base.
+
+**Scenario 2: Partner Contributions**
+If a partner contributes additional capital for improvements:
+
+| 2025-08-10 | Partner capital injection | -$75,000 |
+
+Mark this as negative because it's additional investment, even though it's not your money.
+
+**Scenario 3: Vacancy Periods**
+During a 3-month vacancy between tenants:
+
+| 2026-04-01 | Month 28 (vacant) | -$3,200 |
+| 2026-05-01 | Month 29 (vacant) | -$3,200 |
+| 2026-06-01 | Month 30 (vacant) | -$3,200 |
+
+You're still paying mortgage and expenses but receiving no rent.
+
+## Levered vs Unlevered IRR: Why Both Matter
+
+Most investors only calculate levered IRR (including mortgage effects). But you also need unlevered IRR to understand the property's fundamental performance.
+
+### Levered IRR Calculation
+Uses actual cash flows including mortgage payments:
+- Initial investment: Down payment + closing costs
+- Monthly flows: Rent minus ALL expenses including mortgage
+- Exit: Sale proceeds minus remaining loan balance
+
+### Unlevered IRR Calculation
+Assumes you bought the property cash:
+- Initial investment: Full purchase price + closing costs
+- Monthly flows: Rent minus operating expenses only (no mortgage)
+- Exit: Total sale proceeds
+
+**Example comparison**:
+- Levered IRR: 16.8% (what you actually earn on your cash)
+- Unlevered IRR: 11.2% (what the property itself earns)
+
+The spread (16.8% - 11.2% = 5.6%) shows how much leverage is boosting your returns. If this spread is large, the deal depends heavily on cheap financing.
+
+## Advanced IRR Analysis: Stress Testing Your Deal
+
+Smart investors run multiple IRR scenarios to understand deal sensitivity:
+
+### Sensitivity Analysis Table
+
+| Scenario | Purchase Price | Exit Cap Rate | 5-Year IRR |
+|----------|----------------|---------------|------------|
+| Base case | $2,400,000 | 6.5% | 14.2% |
+| Conservative | $2,400,000 | 7.0% | 12.1% |
+| Optimistic | $2,400,000 | 6.0% | 16.8% |
+| Price negotiation | $2,250,000 | 6.5% | 17.9% |
+
+Create these scenarios using Excel's Data Table feature. Change cell B10 (exit cap rate) from 6.0% to 7.0% in 0.1% increments, then observe IRR changes in column C.
+
+### The 2% Rule for IRR Acceptance
+
+Professional real estate investors typically require:
+- **Core investments** (stable, low-risk): 8-12% IRR
+- **Value-add investments** (moderate rehab): 12-18% IRR  
+- **Opportunistic investments** (major renovation/development): 18-25%+ IRR
+
+If your calculated IRR falls below these thresholds for the risk level, walk away.
+
+## Common IRR Calculation Mistakes That Cost Money
+
+**Mistake 1: Forgetting initial capital improvements**
+Your spreadsheet shows the purchase closing on January 15th, but you spent $35K on immediate repairs before getting tenants. That $35K reduces your IRR because it's part of your initial investment.
+
+Correct approach: Combine down payment + closing costs + immediate CapEx as your initial cash outflow.
+
+**Mistake 2: Using inconsistent vacancy assumptions**
+You assume 5% vacancy in year 1 but 8% vacancy in years 2-5. If vacancy rates change, your cash flows become unpredictable and your IRR calculation becomes meaningless.
+
+Correct approach: Use consistent vacancy rates based on local market data, or model specific vacancy periods.
+
+**Mistake 3: Ignoring tax implications**
+IRR measures pre-tax returns. A 16% IRR might become 12% after taxes if you're in a high tax bracket and can't optimize depreciation.
+
+Correct approach: Calculate after-tax IRR using \`=XIRR(after_tax_cash_flows, dates)\` where after-tax flows account for depreciation benefits and tax on cash flow.
+
+## Making Investment Decisions With IRR Data
+
+IRR alone doesn't determine if a deal works. Compare your IRR against:
+
+**Alternative investments**: If 10-year Treasury bonds yield 4.5% and the S&P 500 averages 10%, your real estate IRR should exceed 12-15% to compensate for illiquidity and management time.
+
+**Deal complexity**: A hands-off triple-net lease property might be acceptable at 10% IRR. A property requiring active management should deliver 15%+ to justify the effort.
+
+**Market timing**: In a rising interest rate environment, your IRR calculation assumes current financing costs. If rates increase, your actual returns could fall below projections.
+
+## Beyond IRR: Using Multiple Metrics for Complete Analysis
+
+IRR works best alongside other metrics:
+
+- **Cash-on-cash return**: \`=Annual_Net_Cash_Flow / Initial_Investment\` (measures year-one performance)
+- **Net Present Value (NPV)**: \`=NPV(discount_rate, cash_flows) + initial_investment\` (measures absolute dollar gain)
+- **Equity multiple**: \`=Total_Cash_Received / Total_Cash_Invested\` (measures total return without time weighting)
+
+A strong deal typically shows:
+- IRR above 15% for value-add investments
+- Cash-on-cash return above 8% in year one
+- Positive NPV at a 10-12% discount rate
+- Equity multiple above 1.8x over 5 years
+
+## Conclusion
+
+That $2.4M apartment building might generate strong cash flow, but without calculating IRR properly, you're guessing whether it beats your other investment options. Excel's \`=XIRR()\` function handles the complexity of real estate cash flows, giving you the data to make confident investment decisions.
+
+Don't rely on the seller's projections or simple rules of thumb. Build your own real estate IRR calculator that accounts for your specific financing, tax situation, and exit strategy. The 30 minutes you spend building this tool could save you from years of subpar returns.
+
+Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calculator includes pre-built IRR calculations for both levered and unlevered scenarios, sensitivity analysis tables, and cash flow projections that handle refinancing, improvements, and variable vacancy rates. Download it today and stop guessing at your real estate returns.`,
+  },
+  {
     slug: 'commercial-real-estate-noi-calculator-excel',
     title: 'Commercial Real Estate NOI Calculator: Build a Simple Model for Office, Retail, and Industrial',
     metaTitle: 'Commercial Real Estate NOI Calculator Excel | SheetCraft',
