@@ -16,6 +16,199 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'equity-waterfall-model-excel',
+    title: 'Equity Waterfall Model in Excel: Building LP/GP Splits That Hold Up at Exit',
+    metaTitle: 'Equity Waterfall Model Excel: LP/GP Splits | SheetCraft',
+    metaDescription: 'Build an equity waterfall model in Excel for LP/GP splits. Pref returns, catch-up, promote tiers, IRR hurdles, and the formulas that prevent costly errors.',
+    targetKeyword: 'equity waterfall model Excel',
+    secondaryKeywords: ['LP GP split Excel', 'preferred return calculation', 'promote calculation real estate', 'multifamily waterfall', 'IRR hurdle formula'],
+    excerpt: 'First-time syndicators lose six figures to one bad waterfall formula. Here is how to build an equity waterfall model in Excel that holds up under accountant scrutiny: cumulative pref, proper catch-up, IRR hurdles, and the lookback math most amateur GPs skip.',
+    publishedAt: '2026-05-05',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/equity-waterfall-model-excel.png',
+    imageAlt: 'Isometric illustration of a tiered financial waterfall with cash flowing across three stacked levels, representing LP and GP distribution tiers in a real estate equity model',
+    content: `<h1>Equity Waterfall Model in Excel: Building LP/GP Splits That Hold Up at Exit</h1>
+
+<p>A general partner closes his first $5M multifamily syndication. He pitches an 8% pref to limited partners with a 70/30 promote. Three years later, at exit, his LP's accountant runs the waterfall and finds a $210,000 discrepancy. The GP's Excel model treated the preferred return as simple interest, not cumulative compound. The operating agreement said cumulative. The check gets written. Word travels. The next raise stalls.</p>
+
+<p>This is the most common failure mode for first-time syndicators. An equity waterfall model in Excel looks deceptively simple: cash flows in, distributions split per the agreement, summary metrics out. The mechanics underneath, the cumulative pref, the catch-up provision, the IRR hurdles, the lookback, are where six-figure mistakes hide. Build the model wrong and you either underpay LPs (lawsuit) or overpay yourself (clawback).</p>
+
+<p>Here is how the equity waterfall actually works in Excel, the formulas that drive each tier, and where most GPs get the math wrong.</p>
+
+<h2>What the Waterfall Actually Does</h2>
+
+<p>An equity waterfall is the sequence of cash distributions between limited partners (the passive capital) and the general partner (the operator). Cash flows fill one bucket, then spill to the next. The standard four-tier structure on a value-add multifamily deal:</p>
+
+<ul>
+<li><strong>Tier 1: Return of Capital.</strong> All distributions go to LPs until they have received their original investment back.</li>
+<li><strong>Tier 2: Preferred Return.</strong> LPs receive the preferred return (typically 7 to 9 percent) on contributed capital before the GP earns a dollar of promote.</li>
+<li><strong>Tier 3: Catch-Up.</strong> The GP receives 100 percent of distributions until the cumulative split between LP pref and GP catch-up reaches the target ratio (commonly 80/20).</li>
+<li><strong>Tier 4: Promote.</strong> Remaining distributions split per the promote schedule (often 70/30 or 80/20 LP/GP), sometimes with additional IRR hurdles that change the split above certain return thresholds.</li>
+</ul>
+
+<p>The waterfall determines who gets what at every distribution event. The Excel model converts the operating agreement into formulas. If the formulas drift from the agreement language, the model lies.</p>
+
+<h2>The Real Cost of a Sloppy Waterfall</h2>
+
+<p>Consider a $5M raise on a 24-unit garden-style multifamily. LPs commit $4M, GP commits $1M. 8 percent preferred return, 70/30 promote above the catch-up. The deal exits in year 5 for $11M after debt paydown and capex. Net distributable proceeds across the hold: $7.2M.</p>
+
+<p>Two ways to model the pref. First way, treat it as simple annual interest paid each year regardless of distributions. Second way, treat it as cumulative compound, payable from any source whenever cash is available.</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>LP Total</th><th>GP Total</th><th>GP Error</th></tr>
+</thead>
+<tbody>
+<tr><td>Sloppy (simple, non-cumulative pref)</td><td>$5.49M</td><td>$1.71M</td><td>+$210K to GP</td></tr>
+<tr><td>Correct (cumulative compound pref)</td><td>$5.70M</td><td>$1.50M</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>That $210,000 is not yours. When the LP's accountant reconciles the model against the operating agreement, you write a check for the difference plus interest plus legal fees. The Excel cell that should have read <code>=B5*((1+B8)^A15-1)</code> instead read <code>=B5*B8*A15</code>. One formula. Six figures.</p>
+
+<h2>Building the Equity Waterfall Model Cell by Cell</h2>
+
+<p>The model needs four blocks: deal inputs, distribution schedule, waterfall calculation, and summary metrics. Lay them out top-to-bottom so the logic reads in one direction.</p>
+
+<h3>Block 1: Deal Inputs</h3>
+
+<p>Set up rows 4 to 12 for the assumption inputs. These cells are referenced everywhere downstream, so name them or use absolute references religiously.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Label</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Total raise</td><td>$5,000,000</td></tr>
+<tr><td>B5</td><td>LP contribution</td><td>$4,000,000</td></tr>
+<tr><td>B6</td><td>GP contribution</td><td>$1,000,000</td></tr>
+<tr><td>B7</td><td>LP ownership %</td><td><code>=B5/B4</code> (80%)</td></tr>
+<tr><td>B8</td><td>Preferred return rate</td><td>8%</td></tr>
+<tr><td>B9</td><td>Catch-up split (GP %)</td><td>100%</td></tr>
+<tr><td>B10</td><td>Target catch-up split (LP %)</td><td>80%</td></tr>
+<tr><td>B11</td><td>Promote LP %</td><td>70%</td></tr>
+<tr><td>B12</td><td>Hold period (years)</td><td>5</td></tr>
+</tbody>
+</table>
+
+<h3>Block 2: Distribution Schedule</h3>
+
+<p>Rows 14 to 20 hold projected distributions per year. For a value-add deal these are typically minimal in years 1 to 2, growing in years 3 to 4, with a large exit distribution in year 5. Use column A for the year number, column B for the total distributable cash.</p>
+
+<table>
+<thead>
+<tr><th>Cell A</th><th>Cell B (Total Distribution)</th></tr>
+</thead>
+<tbody>
+<tr><td>1 (Year 1)</td><td>$80,000</td></tr>
+<tr><td>2 (Year 2)</td><td>$160,000</td></tr>
+<tr><td>3 (Year 3)</td><td>$240,000</td></tr>
+<tr><td>4 (Year 4)</td><td>$320,000</td></tr>
+<tr><td>5 (Year 5, exit)</td><td>$6,400,000</td></tr>
+<tr><td>Total</td><td><code>=SUM(B15:B19)</code></td></tr>
+</tbody>
+</table>
+
+<h3>Block 3: The Waterfall Calculation</h3>
+
+<p>This is where most spreadsheets break. The trick: each tier has a "remaining cash to distribute" balance and a "ceiling" representing how much the tier still needs before spilling to the next. Cash flowing into a tier equals <code>=MIN(remaining cash, tier ceiling)</code>.</p>
+
+<p>For each year row, calculate four columns: C (return of capital), D (LP pref), E (GP catch-up), F+G (promote split).</p>
+
+<p><strong>Column C, Return of LP Capital.</strong> The ceiling is whatever LP capital has not yet been returned. In cell C15:</p>
+
+<p><code>=MIN(B15, MAX(0, $B$5 - SUM($C$14:C14)))</code></p>
+
+<p>This pays cash to LP capital up to the remaining unreturned balance, then stops. Once $B$5 has been fully distributed across years, the formula returns zero and cash spills down.</p>
+
+<p><strong>Column D, LP Preferred Return.</strong> The cumulative pref owed at the end of year N on $4M at 8 percent compounding is:</p>
+
+<p><code>=$B$5*((1+$B$8)^A15-1)</code></p>
+
+<p>This year's pref payment equals whatever cash remains after Tier 1, capped by the cumulative pref owed minus pref already paid. In cell D15:</p>
+
+<p><code>=MIN(B15-C15, MAX(0, $B$5*((1+$B$8)^A15-1) - SUM($D$14:D14)))</code></p>
+
+<p>Note the compounding base. Some agreements pay pref on contributed capital (the original $4M, never decreasing). Others pay pref on unreturned capital (whatever is still outstanding after returns of capital, which falls as you distribute). The latter requires a more complex formula tracking the running unreturned balance year by year.</p>
+
+<p><strong>Column E, GP Catch-Up.</strong> The catch-up runs until the GP has received the target percentage of cumulative profits paid (LP pref plus GP catch-up). If the target is 80/20, the GP catches up to 25 percent of LP pref paid (because 20/80 = 0.25).</p>
+
+<p>In cell E15:</p>
+
+<p><code>=MIN(B15-C15-D15, MAX(0, SUM($D$14:D15)*0.25 - SUM($E$14:E14)))</code></p>
+
+<p>Read this carefully. The denominator for the catch-up target is LP pref paid, not LP capital. This is the most common formula error in amateur waterfall models.</p>
+
+<p><strong>Columns F and G, Promote Split.</strong> Whatever remains after Tier 3 splits per the promote schedule. With a 70/30 promote:</p>
+
+<p>F15 (LP promote): <code>=(B15-C15-D15-E15)*$B$11</code><br>
+G15 (GP promote): <code>=(B15-C15-D15-E15)*(1-$B$11)</code></p>
+
+<h3>Block 4: Summary Metrics</h3>
+
+<p>LP total cash received: <code>=SUM(C15:C19)+SUM(D15:D19)+SUM(F15:F19)</code><br>
+GP total cash received: <code>=SUM(E15:E19)+SUM(G15:G19)+B6</code></p>
+
+<p>(GP capital is typically returned proportionally with LP capital in Tier 1 if GP is co-invested. Adjust your Tier 1 formulas accordingly. The example above pays pari passu with LP for simplicity.)</p>
+
+<p>LP IRR: <code>=IRR({-B5, C15+D15+F15, C16+D16+F16, C17+D17+F17, C18+D18+F18, C19+D19+F19})</code></p>
+
+<p>If LP IRR is below the preferred return rate when there is positive total cash flow, your model has a bug. The LP IRR should always be at least the pref when sufficient cash exists.</p>
+
+<h2>Where Most GPs Get the Math Wrong</h2>
+
+<p>Five errors that show up in real PPMs and Excel models, in descending order of frequency.</p>
+
+<h3>1. Non-Cumulative vs Cumulative Pref</h3>
+
+<p>The operating agreement says "8 percent preferred return." That is almost always cumulative. If year 1 pays no distribution, the LP is owed 16.64 percent (compounded) by end of year 2, not 8 percent. A non-cumulative pref disappears if you do not pay it. Most LPs assume cumulative because that is the market standard. If your spreadsheet treats it as non-cumulative, you are underpaying them on paper, then overpaying yourself.</p>
+
+<p>Test: in your model, set year 1 distribution to zero. Year 2 pref payment should equal <code>=B5*((1.08)^2-1)</code> = $665,600, not <code>=B5*0.08</code> = $320,000.</p>
+
+<h3>2. Pref Base: Contributed vs Unreturned Capital</h3>
+
+<p>Some structures pay pref on contributed capital (the original $4M, fixed). Others pay pref on unreturned capital (whatever is still outstanding after returns of capital, which falls as you return capital). The difference on a 5-year hold can swing 5 to 15 percent of GP take.</p>
+
+<p>Read your operating agreement language. Then encode it. Do not copy a template assuming the base is what your last deal used.</p>
+
+<h3>3. Tiered Promote With IRR Hurdles That Trigger Mid-Distribution</h3>
+
+<p>A tiered promote ("70/30 to a 12 percent IRR, then 60/40 above 12 percent") requires identifying the exact distribution that triggers the hurdle. A single distribution can flow partly under one tier and partly under another. If your model treats each whole distribution as one tier, you misallocate cash.</p>
+
+<p>Use an <code>=XIRR</code> calculation per row checking whether cumulative LP cash flows have crossed the hurdle yet. Then split the triggering distribution into pre-hurdle and post-hurdle pieces using a binary search or solver. This is the single hardest piece of waterfall modeling and the one most amateurs skip entirely.</p>
+
+<h3>4. Catch-Up Misclassification</h3>
+
+<p>"100 percent GP catch-up to 20 percent" means the GP gets 100 percent of distributions until cumulative GP take equals 20 percent of cumulative profits paid (LP pref plus GP catch-up combined). "50/50 catch-up" splits cash 50/50 during the catch-up phase, taking longer to reach the target. These produce dramatically different GP economics.</p>
+
+<p>The most common amateur error: comparing GP catch-up to LP capital instead of LP pref. The GP target denominator should be cumulative profits, never invested principal.</p>
+
+<h3>5. Lookback Provisions</h3>
+
+<p>Some agreements include a lookback at exit: if LP IRR over the full hold falls below a threshold, the GP gives back promote until LP hits the threshold. Modeling this requires a final reconciliation row at year 5 that nets out any clawback. Skipping it on the spreadsheet means you might distribute promote in year 3, then owe it back at exit. The cash is gone. The LP wants it. Your insurer's E&O coverage does not pay this.</p>
+
+<h2>Pre-Investment Checklist</h2>
+
+<p>Before you raise a single dollar against this model, verify:</p>
+
+<ul>
+<li>Operating agreement language matches the model formulas (cumulative pref, contributed vs unreturned base, catch-up percentage, target ratio)</li>
+<li>LP IRR exceeds the preferred return rate at base case</li>
+<li>At least three downside scenarios tested (no exit appreciation, 50 percent rent loss in year 2, exit at break-even)</li>
+<li>Sum check: LP total plus GP total equals total distributions across all years (no cash leaked, no cash created)</li>
+<li>Tier 1 fully satisfied before any pref accrues to GP</li>
+<li>If lookback exists, year 5 reconciliation row nets out any clawback</li>
+<li>CPA or syndication attorney has reviewed model output against PPM language</li>
+</ul>
+
+<h2>The Faster Path</h2>
+
+<p>You can build all of this from scratch. It takes 8 to 12 hours the first time, longer if you hit the catch-up trap. Then you debug it across three deal scenarios and another four hours go away. By the time you have validated the math and built the IRR sensitivity table, you have spent more time on the spreadsheet than on the deal itself.</p>
+
+<p>Or you can start with a model that already encodes the four-tier structure, the cumulative compound pref, the proper catch-up logic with the right denominator, and the IRR-based promote splits. The SheetCraft Rental Property Analyzer includes a multifamily syndication module with the equity waterfall built in. Plug in your raise size, pref rate, and promote schedule. The LP/GP distributions calculate correctly across any cash flow projection, including downside scenarios. You spend the saved hours stress-testing the deal terms, not the spreadsheet logic.</p>`,
+  },
+  {
     slug: 'real-estate-irr-calculator-excel',
     title: 'Real Estate IRR Calculator: Measure Levered and Unlevered Returns With XIRR()',
     metaTitle: 'Real Estate IRR Calculator Excel Guide | SheetCraft',
