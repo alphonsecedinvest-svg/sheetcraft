@@ -16,6 +16,168 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'self-storage-underwriting-excel',
+    title: 'Self Storage Underwriting in Excel: Building a Model That Catches Bad Deals Before You Sign',
+    metaTitle: 'Self Storage Underwriting Excel Model | SheetCraft',
+    metaDescription: 'Build a self storage underwriting Excel model with real occupancy, street rate, cap rate, and sensitivity analysis. Stop overpaying on broker proformas.',
+    targetKeyword: 'self storage underwriting Excel',
+    secondaryKeywords: ['self storage cap rate', 'self storage NOI calculation', 'economic occupancy formula', 'storage facility proforma', 'storage cash flow model'],
+    excerpt: 'Broker proformas inflate occupancy and street rates. Buyers overpay six figures on assumptions that fall apart at month 18. Build a self storage underwriting Excel model that separates physical from economic occupancy, prices the rate roll honestly, and flags deals priced for perfection.',
+    publishedAt: '2026-05-06',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/self-storage-underwriting-excel.png',
+    imageAlt: 'Isometric illustration of a self storage facility with rows of orange roll-up doors and floating spreadsheet panels showing occupancy bar charts and cap rate analysis tables',
+    content: `<h1>Self Storage Underwriting in Excel: Building a Model That Catches Bad Deals Before You Sign</h1>
+
+<p>A first-time self storage buyer pays $4.2M for a 320-unit facility in a tertiary market. The broker's offering memorandum claims 92 percent physical occupancy and $14.50 per square foot in street rates. Eighteen months in, his actual collected revenue runs 19 percent below the proforma. The cause: 92 percent occupancy was the all-time peak from two summers ago, the street rates were Saturday-morning quoted prices that nobody was actually paying, and the existing tenant base was locked into legacy rates 22 percent below the quoted street rate. He overpaid by $680,000 against any reasonable underwrite.</p>
+
+<p>Self storage looks easy on the surface. Concrete boxes, low operating expenses, sticky tenants. The financial model that backs the purchase decision is where the discipline lives. A self storage underwriting Excel model that does not separate physical occupancy from economic occupancy, does not pull street rates from actual move-ins, and does not stress-test the rate roll, will mislead you on every deal you look at.</p>
+
+<p>This article walks through how to build a self storage underwriting Excel model that survives contact with reality. It covers the revenue stack, the expense items most buyers underestimate, the cap rate math that brokers spin, and the sensitivity analysis that tells you when to walk.</p>
+
+<h2>Why Broker Proformas Lie About Self Storage</h2>
+
+<p>A broker's job is to sell the asset. The numbers in the offering memorandum reflect that incentive. Three specific distortions show up on almost every self storage deal:</p>
+
+<p><strong>Physical occupancy gets quoted instead of economic occupancy.</strong> A facility can show 90 percent of its units rented while collecting 75 percent of gross potential revenue. Free months, manager units, delinquencies, and rate concessions all create gaps. The Excel model needs both numbers.</p>
+
+<p><strong>Street rates get used as collected rates.</strong> The street rate is what a new tenant pays today for a unit listed on the website. The collected rate is what the existing tenant base actually pays after years of moderate increases that lag market. On a stabilized facility, collected rates often run 15 to 25 percent below current street rates. Underwriting at street rates assumes you can flip the entire tenant base overnight, which you cannot.</p>
+
+<p><strong>Expense ratios borrow from a different asset class.</strong> Brokers love to quote 30 to 35 percent expense ratios because that is the headline self storage number from REIT data. For a single-asset operator running a third-generation facility in a non-climate-controlled market, true expenses including management, insurance, property tax reassessment, and capex reserves often run 38 to 45 percent of effective gross income.</p>
+
+<p>The model has to expose all three distortions and let you replace the broker's numbers with your own.</p>
+
+<h2>Building the Revenue Block: Occupancy and Street Rates</h2>
+
+<p>Lay out the revenue assumptions across rows 4 to 18. Use a column for each unit type because self storage facilities have heterogeneous unit mixes (5x5, 5x10, 10x10, 10x15, 10x20, 10x30, climate vs non-climate) and rates differ by 80 percent or more across them.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Label</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Net rentable square feet</td><td>42,500</td></tr>
+<tr><td>B5</td><td>Total units</td><td>320</td></tr>
+<tr><td>B6</td><td>Trailing 12 month physical occupancy</td><td>87%</td></tr>
+<tr><td>B7</td><td>Underwritten physical occupancy</td><td>85%</td></tr>
+<tr><td>B8</td><td>Economic occupancy adjustment</td><td>92%</td></tr>
+<tr><td>B9</td><td>Effective economic occupancy</td><td><code>=B7*B8</code> (78.2%)</td></tr>
+<tr><td>B10</td><td>Average street rate per sq ft</td><td>$14.40</td></tr>
+<tr><td>B11</td><td>Collected rate discount to street</td><td>18%</td></tr>
+<tr><td>B12</td><td>Effective collected rate per sq ft</td><td><code>=B10*(1-B11)</code> ($11.81)</td></tr>
+<tr><td>B13</td><td>Gross potential rent</td><td><code>=B4*B12</code> ($501,925)</td></tr>
+<tr><td>B14</td><td>Effective rental income</td><td><code>=B13*B9</code> ($392,506)</td></tr>
+<tr><td>B15</td><td>Tenant insurance income</td><td>$24,000</td></tr>
+<tr><td>B16</td><td>Late fees and admin</td><td>$11,500</td></tr>
+<tr><td>B17</td><td>Other ancillary (boxes, locks)</td><td>$6,800</td></tr>
+<tr><td>B18</td><td>Effective gross income</td><td><code>=SUM(B14:B17)</code> ($434,806)</td></tr>
+</tbody>
+</table>
+
+<p>The distinction between B7 and B9 is the entire game. The broker proforma will show physical occupancy, the bank wants to see economic occupancy, and your underwrite needs both because they tell different stories. A facility with 90 percent physical and 70 percent economic occupancy has an operations problem, not a demand problem, and that is fixable. A facility with 75 percent physical and 95 percent economic occupancy has a demand ceiling that you will not break through with cosmetic upgrades.</p>
+
+<h3>Pulling Real Street Rates From the Market</h3>
+
+<p>Do not trust the broker's street rate. Pull your own. The most reliable approach: open the facility's website in incognito mode, request a quote on three or four different unit sizes, and compare against the same unit sizes at the two nearest competitors. Repeat this on a Tuesday morning and a Saturday afternoon. The average across that sample is what a new tenant actually pays. Drop those numbers into a small reference table and feed them into B10 with a SUMPRODUCT weighted by unit mix:</p>
+
+<p><code>=SUMPRODUCT(unit_count_range, street_rate_range)/SUM(unit_count_range)</code></p>
+
+<p>This anchors the street rate to your market data, not the seller's data.</p>
+
+<h2>The Expense Stack Most Buyers Underestimate</h2>
+
+<p>Self storage runs lean compared to multifamily, but the line items that get missed cost real money. Lay out the expense block in rows 22 to 35.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Expense Line</th><th>Per Sq Ft</th><th>Annual ($)</th></tr>
+</thead>
+<tbody>
+<tr><td>B22</td><td>Property management (6% of EGI)</td><td><code>=B18*0.06/B4</code></td><td>$26,088</td></tr>
+<tr><td>B23</td><td>On-site labor</td><td>$0.85</td><td>$36,125</td></tr>
+<tr><td>B24</td><td>Property insurance</td><td>$0.42</td><td>$17,850</td></tr>
+<tr><td>B25</td><td>Property tax (post-reassessment)</td><td>$1.35</td><td>$57,375</td></tr>
+<tr><td>B26</td><td>Utilities</td><td>$0.38</td><td>$16,150</td></tr>
+<tr><td>B27</td><td>Repairs and maintenance</td><td>$0.30</td><td>$12,750</td></tr>
+<tr><td>B28</td><td>Marketing and PPC</td><td>$0.55</td><td>$23,375</td></tr>
+<tr><td>B29</td><td>Software and merchant fees</td><td>$0.18</td><td>$7,650</td></tr>
+<tr><td>B30</td><td>Office and admin</td><td>$0.12</td><td>$5,100</td></tr>
+<tr><td>B31</td><td>Capex reserves</td><td>$0.20</td><td>$8,500</td></tr>
+<tr><td>B32</td><td>Total operating expenses</td><td></td><td><code>=SUM(B22:B31)</code> ($210,963)</td></tr>
+<tr><td>B33</td><td>Expense ratio</td><td></td><td><code>=B32/B18</code> (48.5%)</td></tr>
+<tr><td>B34</td><td>Net operating income</td><td></td><td><code>=B18-B32</code> ($223,843)</td></tr>
+<tr><td>B35</td><td>NOI per sq ft</td><td></td><td><code>=B34/B4</code> ($5.27)</td></tr>
+</tbody>
+</table>
+
+<p>Three line items deserve specific attention. <strong>Property tax reassessment</strong> is the silent killer. In most US markets, property tax resets to the new sale price after closing. If the seller bought the facility for $2.1M in 2018 and you buy at $4.2M, your tax bill roughly doubles even though nothing about the building changed. Pull the assessor's millage rate, multiply by your purchase price times the assessment ratio, and override the seller's tax line with your real number. <strong>Marketing</strong> is where amateur operators cheat their model. Storage facilities now compete on Google PPC, and a facility in a competitive submarket can spend $0.60 to $0.90 per square foot per year on customer acquisition. The seller who managed the facility passively was not spending this. You will. <strong>Capex reserves</strong> get omitted from broker proformas because brokers do not want to show the line. Asphalt resurfacing, roof replacement, gate motor replacement, and door cycle replacement add up to $0.20 to $0.35 per square foot per year on average across a hold period.</p>
+
+<h2>Cap Rate Math That Reflects Real Risk</h2>
+
+<p>The cap rate is the lever that brokers use to inflate price. A 10 basis point compression on a $4M facility moves the price by $200,000. Hold the cap rate honest in the model and you protect the basis.</p>
+
+<p>The simple formula is straightforward: <code>=B34/B40</code> where B40 is the purchase price. The discipline is in choosing what cap rate you actually need, not what the comps suggest.</p>
+
+<table>
+<thead>
+<tr><th>Market Tier</th><th>Stabilized Cap Range</th><th>Add for Lease-Up</th><th>Add for Tertiary</th></tr>
+</thead>
+<tbody>
+<tr><td>Top 25 MSA</td><td>5.50% to 6.25%</td><td>+75 bps</td><td>n/a</td></tr>
+<tr><td>Secondary MSA</td><td>6.25% to 7.25%</td><td>+100 bps</td><td>+50 bps</td></tr>
+<tr><td>Tertiary market</td><td>7.50% to 9.00%</td><td>+125 bps</td><td>+75 bps</td></tr>
+<tr><td>Rural / single facility</td><td>9.00% to 11.00%</td><td>+150 bps</td><td>included</td></tr>
+</tbody>
+</table>
+
+<p>A non-stabilized facility in a tertiary market should not be priced at the same cap rate as a stabilized REIT-quality property in Phoenix. If the broker is pitching you a 6.5 cap on a 78 percent occupied facility in a town of 22,000 people, the model should kick out a value-driven price using a 9.0 cap, then show the gap. <code>=B34/0.09</code> versus <code>=B34/0.065</code> on the same NOI gives you the negotiation range. On $223,843 NOI, that is $2.49M versus $3.44M. Almost a million dollars of disagreement, and the model tells you exactly where you stand.</p>
+
+<h2>Sensitivity Tables That Tell You When to Walk</h2>
+
+<p>Single-point underwriting is how you go broke. Build a sensitivity table that flexes the two variables that matter most, occupancy and rate, against the value driver, NOI and resulting price.</p>
+
+<p>Use a two-variable data table in rows 45 to 55. Vertical axis: economic occupancy from 70 percent to 88 percent in 2 percent steps. Horizontal axis: collected rate per square foot from $10.50 to $13.50 in $0.50 steps. The cell formula references the NOI calculation, then divides by your target cap rate. Excel populates the grid through Data &gt; What-If Analysis &gt; Data Table.</p>
+
+<table>
+<thead>
+<tr><th>Occupancy \\ Rate</th><th>$10.50</th><th>$11.50</th><th>$12.50</th><th>$13.50</th></tr>
+</thead>
+<tbody>
+<tr><td>70%</td><td>$1.85M</td><td>$2.18M</td><td>$2.51M</td><td>$2.84M</td></tr>
+<tr><td>76%</td><td>$2.21M</td><td>$2.57M</td><td>$2.93M</td><td>$3.30M</td></tr>
+<tr><td>82%</td><td>$2.57M</td><td>$2.96M</td><td>$3.36M</td><td>$3.75M</td></tr>
+<tr><td>88%</td><td>$2.93M</td><td>$3.36M</td><td>$3.78M</td><td>$4.21M</td></tr>
+</tbody>
+</table>
+
+<p>If the asking price is $4.2M and the table shows that you only hit that valuation at 88 percent occupancy and $13.50 per sq ft, both of which are top-of-market assumptions, the deal is priced for perfection. Build a flag in the model: <code>=IF(B40&gt;MAX(table_range),"OVERPRICED","WITHIN RANGE")</code>. The flag does the deciding for you.</p>
+
+<h2>The Decision Checklist Before You Sign</h2>
+
+<p>Run these checks before submitting an offer. If any check fails, the model is not telling you the deal is good. The model is telling you where to push back.</p>
+
+<ul>
+<li>Physical occupancy and economic occupancy both shown, with a delta less than 5 percent (or explained variance documented)</li>
+<li>Street rates verified against three independent quote pulls, not broker numbers</li>
+<li>Collected rate discount to street rate set at 15 to 25 percent based on rate roll analysis</li>
+<li>Property tax line replaced with post-reassessment estimate using your purchase price</li>
+<li>Marketing and PPC line at minimum $0.40 per sq ft, more in competitive submarkets</li>
+<li>Capex reserve at $0.20 to $0.30 per sq ft minimum</li>
+<li>Cap rate selected from market-tier table with appropriate adjustments for lease-up and tertiary location</li>
+<li>Two-variable sensitivity table built showing NOI and resulting price across realistic occupancy and rate ranges</li>
+<li>Asking price compared against sensitivity grid: deal is priced inside the grid, not at the corner</li>
+</ul>
+
+<h2>From Underwriting Model to Acquisition Decision</h2>
+
+<p>The point of the model is not to produce a number. The point is to produce a defensible offer price and to know which assumptions break the deal. When the seller comes back with a counter $400,000 above your number, you can point at the cell that drives the gap. When your lender asks why you discounted street rates by 18 percent, you have the rate-pull data behind it. When the LP partner asks what happens if occupancy never rises above 80 percent, you flip to the sensitivity tab and show them.</p>
+
+<p>Self storage is one of the few asset classes where a small operator can still beat institutional capital, because institutional capital cannot be bothered with a $4M facility in a tertiary market. The edge comes from disciplined underwriting that institutional teams cannot replicate at scale. A self storage underwriting Excel model is the tool that converts that discipline into a consistent acquisition process.</p>
+
+<p>If you are running self storage underwriting alongside flips, BRRRR refinances, or other value-add real estate plays, the same discipline applies across asset types. The <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> handles the acquisition math for renovation-driven deals with the same rigor: real expenses, post-rehab valuation that reflects market reality, refinance scenarios that survive lender scrutiny, and sensitivity tables that flag deals priced for perfection. Stop underwriting on broker proformas. Build the model once, run every deal through it, and let the spreadsheet kill the bad ones for you.</p>`,
+  },
+  {
     slug: 'equity-waterfall-model-excel',
     title: 'Equity Waterfall Model in Excel: Building LP/GP Splits That Hold Up at Exit',
     metaTitle: 'Equity Waterfall Model Excel: LP/GP Splits | SheetCraft',
