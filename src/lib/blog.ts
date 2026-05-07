@@ -16,6 +16,192 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'mobile-home-park-underwriting-spreadsheet',
+    title: 'Mobile Home Park Underwriting Spreadsheet: Lot Rents, Infill, and RUBS in Excel',
+    metaTitle: 'Mobile Home Park Underwriting Spreadsheet | SheetCraft',
+    metaDescription: 'Underwrite mobile home parks in Excel without paying broker pro forma prices. Model lot rents, infill upside, and RUBS recovery with real numbers.',
+    targetKeyword: 'mobile home park underwriting spreadsheet',
+    secondaryKeywords: ['mobile home park acquisition model', 'mhp pro forma excel', 'lot rent analysis', 'park-owned homes underwriting', 'RUBS excel calculation'],
+    excerpt: 'A broker pro forma at 9.2% cap rate looks great until you split lot rent from park-owned home revenue and discount infill optionality at 20% IRR. Here is how to build the underwriting spreadsheet that prices MHP deals correctly.',
+    publishedAt: '2026-05-07',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/mobile-home-park-underwriting-spreadsheet.png',
+    imageAlt: 'Minimalist illustration of a mobile home park street with rows of manufactured homes for underwriting analysis',
+    content: `<article>
+<p>A Texas investor sent us a broker pro forma last March. The package looked clean: 80-pad mobile home park, $2.4M asking price, 9.2% pro forma cap rate, "value-add through infill and utility billing." He almost wired the earnest money. Then he ran the numbers in his own underwriting spreadsheet and discovered the seller was reporting <em>economic</em> occupancy at 95% while <em>physical</em> occupancy was 76%. The pro forma assumed 20 vacant lots would fill in year one. The actual cost to bring those lots online was buried in a CapEx footnote at $4,800 per pad. The deal worked at $1.7M, not $2.4M.</p>
+
+<p>This is what a real mobile home park underwriting spreadsheet does. It strips away the broker narrative and forces the asset to defend its price using lot rents, infill costs, and utility recovery math. If your model just multiplies trailing NOI by a cap rate, you are not underwriting, you are accepting the seller's pricing.</p>
+
+<p>This article shows the structure of an MHP underwriting model that handles the three things that separate winners from losers in this asset class: the lot rent versus park-owned home revenue split, infill optionality, and RUBS (Ratio Utility Billing System) implementation. Real numbers, real Excel formulas, real decisions.</p>
+
+<h2>Why Apartment Underwriting Models Fail on Mobile Home Parks</h2>
+
+<p>Most investors come to MHP from single-family rentals or small multifamily. They open a copy of their multifamily underwriting spreadsheet, swap "units" for "pads," and call it a day. This is how you overpay.</p>
+
+<p>Apartments and mobile home parks generate revenue differently. In a 24-unit apartment, every unit produces gross rent that includes the building, the appliances, the HVAC, and the land. In an 80-pad MHP, you might have 60 lot rents at $325 (where the tenant owns the home) and 20 park-owned home rents at $850 (where you own a depreciating asset that needs roofs, plumbing, and tenant turnover capital).</p>
+
+<p>Lot rent is the goose. Park-owned home rent is the egg, and the egg has eyebrow shingles that fall off every seven years. Underwriting them at the same multiple is wrong.</p>
+
+<h3>Three Numbers That Drive MHP Value</h3>
+
+<ul>
+<li><strong>Lot rent per pad:</strong> The recurring revenue from tenant-owned homes. Trades at high multiples because operating costs are minimal (you do not maintain the home, the tenant does).</li>
+<li><strong>POH (park-owned home) revenue:</strong> Bundled rent that includes the home itself. Trades at lower multiples because you are essentially running a Class C apartment portfolio with declining collateral.</li>
+<li><strong>Infill optionality value:</strong> The discounted cash flow from vacant lots that can be filled. This is where 30 to 60 percent of value-add MHP returns come from, and it is the line item brokers misuse most.</li>
+</ul>
+
+<h2>Building the Lot Rent Block in Excel</h2>
+
+<p>Start with the rent roll. Not the seller's pro forma rent roll, the actual T-12 (trailing twelve months) deposit history you got in due diligence. The model needs three sections: stabilized lot rent, POH rent, and other income (storage, application fees, late fees, RV pads).</p>
+
+<p>Set up your inputs in column B starting at row 4:</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Total pads</td><td>80</td></tr>
+<tr><td>B5</td><td>Tenant-owned occupied pads</td><td>52</td></tr>
+<tr><td>B6</td><td>Park-owned occupied homes</td><td>8</td></tr>
+<tr><td>B7</td><td>Vacant pads (no home)</td><td>15</td></tr>
+<tr><td>B8</td><td>Vacant POH (home, no tenant)</td><td>5</td></tr>
+<tr><td>B9</td><td>Average lot rent (TOH)</td><td>$325</td></tr>
+<tr><td>B10</td><td>Average POH rent</td><td>$850</td></tr>
+<tr><td>B11</td><td>Lot rent embedded in POH rent</td><td>$325</td></tr>
+</tbody>
+</table>
+
+<p>Now compute monthly gross potential income, splitting it cleanly between lot revenue and home revenue. The split matters for valuation later.</p>
+
+<p><strong>Lot revenue (Cell B13):</strong><br>
+<code>=(B5+B6)*B9+B8*B9</code><br>
+This counts lot rent from tenant-owned occupied pads, lot rent embedded in occupied POH (always count it as lot revenue, not home revenue), and lot rent from vacant POH (still your land asset, just not currently producing). Vacant pads with no home contribute zero until infilled.</p>
+
+<p><strong>Home revenue (Cell B14):</strong><br>
+<code>=B6*(B10-B11)</code><br>
+This is the premium over lot rent that the home itself generates. For 8 occupied POH at $850 with $325 embedded lot rent, that is 8 x $525 = $4,200 per month of home revenue.</p>
+
+<p><strong>Physical occupancy (Cell B15):</strong><br>
+<code>=(B5+B6)/B4</code><br>
+For our example, 60/80 = 75%. Brokers will quote you economic occupancy at 95% by including delinquent tenants and aspirational rents. Always compute physical first.</p>
+
+<h2>Modeling Infill the Right Way</h2>
+
+<p>Infill is bringing a vacant pad online by either moving in a home or selling a home in place. Brokers love to underwrite stabilized infill at 100% in year one. Real infill takes 18 to 36 months and costs real cash. If your model does not separate stabilized NOI from infill upside, you are paying for value-add that may never materialize.</p>
+
+<h3>Infill Cost Structure</h3>
+
+<p>Per vacant pad, here is what brings it online in 2026 markets:</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr><th>Infill Cost Item</th><th>Low Range</th><th>High Range</th></tr>
+</thead>
+<tbody>
+<tr><td>Pad prep (concrete, anchors, skirting)</td><td>$2,500</td><td>$4,500</td></tr>
+<tr><td>Utility hookup (water, sewer, electric)</td><td>$1,800</td><td>$5,000</td></tr>
+<tr><td>Used home acquisition (singlewide, livable)</td><td>$8,000</td><td>$22,000</td></tr>
+<tr><td>Transport and set</td><td>$3,500</td><td>$7,500</td></tr>
+<tr><td>Marketing and tenant placement</td><td>$500</td><td>$1,500</td></tr>
+<tr><td><strong>Total per infilled pad</strong></td><td><strong>$16,300</strong></td><td><strong>$40,500</strong></td></tr>
+</tbody>
+</table>
+
+<p>If you are selling the home rather than renting it (the right move in most markets, because POH inventory is a maintenance trap), you recover $15,000 to $35,000 of that capital over 24 to 60 months through home note payments. Build a separate infill schedule that tracks deployed capital, recovered capital, and stabilized lot rent month by month.</p>
+
+<p><strong>Infill NPV (Cell F25):</strong><br>
+<code>=NPV(B30,F5:F28)-F4</code><br>
+Where B30 is your discount rate (12% is a fair starting point for MHP value-add), F4 is the upfront capital deployed, and F5:F28 are the 24 monthly cash flows from lot rent, home note, and recovered tenant turnover.</p>
+
+<p>Run a sensitivity flag on infill velocity: <code>=IF(F25/F4&lt;0.20,"INFILL DOES NOT JUSTIFY PRICE","OK")</code>. If the infill IRR cannot clear 20% in your model, you are paying for the seller's pro forma, not the asset's actual upside.</p>
+
+<h2>RUBS Implementation: The Most Misunderstood Line Item</h2>
+
+<p>RUBS (Ratio Utility Billing System) is how you stop paying tenant water bills. Most parks built before 2000 are master-metered for water and sewer, meaning the park pays one bill and tenants use water like it is free. A 60-occupied pad park typically pays $1,800 to $3,200 per month in water and sewer that should be the tenants' problem.</p>
+
+<p>Implementing RUBS does two things: it recovers utility costs and it changes tenant behavior. Water consumption typically drops 20 to 30% in the first six months after billing starts because nobody fixes their leaking toilet when they are not paying for it.</p>
+
+<h3>The Math on RUBS</h3>
+
+<p>Set up the RUBS block at row 40:</p>
+
+<ul>
+<li><strong>B40:</strong> Current monthly water and sewer expense ($2,400)</li>
+<li><strong>B41:</strong> Occupied pads to bill (60)</li>
+<li><strong>B42:</strong> Per-pad allocation method (formula or sub-meter)</li>
+<li><strong>B43:</strong> Recovery rate after billing (assume 75 to 85%)</li>
+<li><strong>B44:</strong> Implementation cost (sub-meters, billing software, legal review)</li>
+</ul>
+
+<p><strong>Annual recovered utility income (B46):</strong><br>
+<code>=B40*12*B43</code><br>
+At $2,400 monthly water expense and 80% recovery, that is $23,040 per year of new income with no rent increase required.</p>
+
+<p><strong>RUBS payback period (B47):</strong><br>
+<code>=B44/(B46/12)</code><br>
+At $18,000 implementation cost and $1,920 monthly recovery, payback is 9.4 months. Anything under 18 months is a clean win.</p>
+
+<p><strong>Value uplift at exit (B48):</strong><br>
+<code>=B46/B49</code><br>
+Where B49 is your exit cap rate. At a 7.5% exit cap, $23,040 of new NOI creates $307,200 of asset value from a $18,000 investment.</p>
+
+<h3>Why Brokers Already Took This Number</h3>
+
+<p>If the seller's pro forma already includes RUBS recovery, you cannot pay for it. The whole point of underwriting RUBS yourself is to capture it as upside, not to validate the broker's price. Always run two scenarios: pre-RUBS NOI for current valuation, post-RUBS NOI for exit valuation. The spread is your value-add.</p>
+
+<h2>The Cap Rate Stack: How to Price the Deal</h2>
+
+<p>Apartments use one cap rate for the whole asset. MHPs need a stack because lot rent and POH revenue trade at different multiples.</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr><th>Revenue Component</th><th>Typical Cap Rate (2026)</th><th>Why</th></tr>
+</thead>
+<tbody>
+<tr><td>Stabilized lot rent (TOH only)</td><td>6.5% to 8.0%</td><td>Recurring, low operating cost, sticky tenants</td></tr>
+<tr><td>POH rent (home portion only)</td><td>11% to 14%</td><td>Maintenance, depreciation, turnover risk</td></tr>
+<tr><td>RUBS recovery</td><td>7.0% to 8.5%</td><td>Recurring once implemented</td></tr>
+<tr><td>Infill upside</td><td>Discounted at 15% to 20% IRR</td><td>Execution risk, time risk</td></tr>
+</tbody>
+</table>
+
+<p>Your blended valuation formula sits at the bottom of the model:</p>
+
+<p><strong>Asset value (B60):</strong><br>
+<code>=B13*12/B61+B14*12/B62+B46/B63+F25</code><br>
+Where B61, B62, B63 are the cap rates for lot rent, POH home revenue, and RUBS, and F25 is the infill NPV from earlier.</p>
+
+<p>For our 80-pad example: $325 lot rent x 60 occupied x 12 months / 7.0% = $3,343,000 from lot rent. Plus $4,200 monthly POH premium x 12 / 12% = $420,000. Plus $23,040 RUBS / 7.5% = $307,000. Plus $180,000 infill NPV. Total fair value: $4.25M before assumed financing terms.</p>
+
+<p>If the asking price is $4.6M, you are 8% over. If the asking price is $5.5M, the seller is asking you to pay for stabilized infill that has not happened yet. Walk away.</p>
+
+<h2>The MHP Underwriting Checklist</h2>
+
+<p>Before you wire earnest money, your spreadsheet should answer all of these:</p>
+
+<ul>
+<li>What is physical occupancy (not economic)?</li>
+<li>What is the split between TOH lot rent and POH bundled rent?</li>
+<li>How many vacant pads are truly infillable (utilities present, zoning compatible)?</li>
+<li>What is the all-in cost per infilled pad and the IRR on infill capital?</li>
+<li>Does the seller already bill RUBS? If yes, that upside is gone. If no, what is the implementation cost and payback?</li>
+<li>Are there any park-owned homes older than 1976? (Pre-HUD homes cannot be financed and depreciate fast.)</li>
+<li>What is the deferred maintenance on roads, water lines, and septic? Get a full inspection before closing.</li>
+<li>Does the loan you are quoting (agency or community bank) require minimum POH percentage limits? Many agency lenders cap POH at 25% of total pads.</li>
+</ul>
+
+<h2>From Broker Pro Forma to Real Decision</h2>
+
+<p>The Texas investor we mentioned at the start did not buy at $2.4M. He countered at $1.85M with a 90-day inspection period. The seller refused. Six months later the same park was on the market at $1.95M and the investor passed because the regional bank had tightened lending standards on parks under 100 pads.</p>
+
+<p>That is the right outcome. A real underwriting spreadsheet protects you from buying badly priced assets. The lazy investor would have closed at $2.4M, fought infill cost overruns for two years, and exited at break-even. The disciplined investor moved on and put capital into the next deal where the math worked.</p>
+
+<p>If you want a pre-built model that handles lot rent stacks, POH separation, infill cash flow timing, and RUBS recovery valuation in a single connected workbook, the <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> ships with an MHP variant that includes the formulas in this article and the full cap rate stack model. Built for investors who underwrite rather than accept pro formas.</p>
+</article>`,
+  },
+  {
     slug: 'self-storage-underwriting-excel',
     title: 'Self Storage Underwriting in Excel: Building a Model That Catches Bad Deals Before You Sign',
     metaTitle: 'Self Storage Underwriting Excel Model | SheetCraft',
