@@ -16,6 +16,165 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'airbnb-occupancy-tracker-spreadsheet',
+    title: 'Airbnb Occupancy Tracker Spreadsheet: The Numbers Your Dashboard Hides',
+    metaTitle: 'Airbnb Occupancy Tracker Spreadsheet | SheetCraft',
+    metaDescription: 'Build an Airbnb occupancy tracker spreadsheet that catches the gap between dashboard occupancy and reality. Channel-level RevPAR, cleaning rotation, real ADR.',
+    targetKeyword: 'Airbnb occupancy tracker spreadsheet',
+    secondaryKeywords: ['short term rental occupancy', 'Airbnb revenue tracking', 'RevPAR Airbnb', 'vacation rental spreadsheet', 'STR portfolio tracker'],
+    excerpt: 'Most short-term rental hosts trust the Airbnb dashboard. It rounds up occupancy, ignores cleaning days, and never compares channels. A real Airbnb occupancy tracker spreadsheet shows where the revenue actually leaks.',
+    publishedAt: '2026-05-08',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/airbnb-occupancy-tracker-spreadsheet.png',
+    imageAlt: 'Top-down view of a short-term rental host\'s desk with a calendar laptop, booking log spreadsheet, property keys, and coffee cup',
+    content: `<p>If you run two or more short-term rentals, your Airbnb dashboard is lying to you. Not maliciously, just structurally. It shows occupancy on its own platform, ignores Vrbo and direct bookings, treats your manual blocks as "you chose this," and never separates cleaning turnover days from genuinely available inventory. Hosts looking at 82% occupancy in the app are often running at 60% in reality.</p>
+
+<p>That gap is where the money goes. An <strong>Airbnb occupancy tracker spreadsheet</strong> that captures every channel, every block, and every cleaning rotation will tell you within a week which property is underperforming, which channel is actually paying, and where you are leaving cash on the table. This is not an Excel tutorial. It is a way to see your short term rental occupancy honestly so you can stop pricing on bad data.</p>
+
+<h2>Why Hosts Track the Wrong Number</h2>
+
+<p>The standard mistake is trusting the host-side analytics on a single platform. Airbnb shows you "occupancy rate" calculated as booked nights divided by available nights on Airbnb. If you also list on Vrbo and accept direct bookings, those nights show up as "blocked" on Airbnb. So a property that is 100% booked across three channels can show 60% occupancy on Airbnb's dashboard.</p>
+
+<p>The opposite problem also happens. Hosts who look only at gross revenue miss the channel commission delta. Airbnb takes 14% to 16% with the host-only fee structure. Vrbo runs roughly 8% commission plus payment processing. Direct bookings via Lodgify or Hospitable cost 2% to 5% in processing. On a $5,000 booking month, that is a $400 to $700 swing in net revenue based on channel mix alone.</p>
+
+<p>Then there is the cleaning constraint. If you have four properties and one cleaner, your maximum theoretical occupancy is bounded by your cleaner's schedule. A same-day turnover for one property means another property cannot have its check-in before late afternoon. Hosts price as if every night is bookable. Cleaners have other ideas.</p>
+
+<p>A proper Airbnb revenue tracking system pulls these three problems into one view.</p>
+
+<h2>The Four Columns That Matter in Your Booking Log</h2>
+
+<p>Every booking row needs to capture these four pieces of data, no matter how casual your operation feels:</p>
+
+<table>
+<thead>
+<tr><th>Field</th><th>Why it matters</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>Channel</td><td>Tells you commission rate and where the booking originated</td><td>Airbnb / Vrbo / Direct</td></tr>
+<tr><td>Gross paid by guest</td><td>Total guest payment including all fees</td><td>$1,247</td></tr>
+<tr><td>Channel fee</td><td>Commission and processing taken before payout</td><td>$176</td></tr>
+<tr><td>Cleaning cost paid</td><td>What you actually pay your cleaner per turnover</td><td>$80</td></tr>
+</tbody>
+</table>
+
+<p>Lay out the booking log as columns A through L: Booking ID, Property, Channel, Check-in, Check-out, Nights, Gross, Channel Fee, Cleaning Charged, Cleaning Cost, Net to Host, Notes. Then your net per stay is one formula:</p>
+
+<p><code>=G2-H2-J2</code></p>
+
+<p>Suppose Booking ID 1024 on Airbnb checks in March 14, checks out March 19, gross $1,247, Airbnb fee $176, cleaning cost $80. Net to host returns $991. The Airbnb dashboard shows $1,071 because it stops at gross minus platform fee. Your actual bank deposit, after the cleaner gets paid, is $991. Over 60 stays a year, that $80 difference compounds to $4,800 you thought you had but did not.</p>
+
+<p>If the cleaning fee you charge guests is higher than what you pay the cleaner, that delta is income. Track it explicitly:</p>
+
+<p><code>=I2-J2</code></p>
+
+<p>Some hosts make $30 per stay just on the cleaning markup. Worth surfacing so you can see if a property has a sustainable model or if you are quietly subsidizing turnovers.</p>
+
+<h2>The Operations Log: Where Cleaning Rotation Lives</h2>
+
+<p>The booking log alone is not enough. You need a daily status log so you can see exactly what each property is doing on every date. One row per property per day. Five statuses, each with a different role in the math:</p>
+
+<table>
+<thead>
+<tr><th>Status</th><th>Counts as available?</th><th>Counts as booked?</th></tr>
+</thead>
+<tbody>
+<tr><td>Booked</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Open (vacant, listed)</td><td>Yes</td><td>No</td></tr>
+<tr><td>Cleaning turnover</td><td>No</td><td>No</td></tr>
+<tr><td>Owner block (personal use)</td><td>No</td><td>No</td></tr>
+<tr><td>Maintenance</td><td>No</td><td>No</td></tr>
+</tbody>
+</table>
+
+<p>Cleaning turnover days come out of the available pool. If your cleaner needs the morning of March 19 to flip the unit between a checkout and a same-day checkin, that morning is not freely bookable. If you cannot land a same-day check-in reliably, that whole night is gone.</p>
+
+<p>Now real occupancy is calculable. On a summary tab listing each property in column A, you compute booked nights per property:</p>
+
+<p><code>=COUNTIFS(Operations!B:B,A2,Operations!C:C,"Booked")</code></p>
+
+<p>And available nights, which excludes owner blocks, maintenance, and cleaning turnover:</p>
+
+<p><code>=COUNTIFS(Operations!B:B,A2)-COUNTIFS(Operations!B:B,A2,Operations!C:C,"Owner block")-COUNTIFS(Operations!B:B,A2,Operations!C:C,"Maintenance")-COUNTIFS(Operations!B:B,A2,Operations!C:C,"Cleaning turnover")</code></p>
+
+<p>Real occupancy is the ratio. <code>=BookedNights/AvailableNights</code></p>
+
+<p>This is the only number that should drive pricing decisions. The Airbnb dashboard occupancy is a vanity metric.</p>
+
+<h2>RevPAR by Channel: The Real Performance Test</h2>
+
+<p>Hosts compare ADR (average daily rate) and think they are looking at performance. ADR only counts nights that actually booked. A property at $250 ADR with 40% occupancy is losing to a property at $180 ADR with 70% occupancy. RevPAR Airbnb hosts should be tracking is revenue per <em>available</em> night, not booked night.</p>
+
+<p><code>RevPAR = TotalNetRevenue / AvailableNights</code></p>
+
+<p>In Excel, for a single property:</p>
+
+<p><code>=SUMIFS(Bookings!K:K,Bookings!B:B,A2)/D2</code></p>
+
+<p>Where column K is Net to Host, column B is Property, and D2 is available nights for that property. Useful, but the interesting question is not "what is my RevPAR" but "what is my RevPAR per channel." Here is what a real scenario looks like for a 1-bedroom Scottsdale unit, 365 calendar days, 0 owner blocks, 28 cleaning turnover nights, 337 truly available:</p>
+
+<table>
+<thead>
+<tr><th>Channel</th><th>Booked Nights</th><th>Net Revenue</th><th>ADR</th><th>RevPAR (on 337 avail)</th></tr>
+</thead>
+<tbody>
+<tr><td>Airbnb</td><td>168</td><td>$31,920</td><td>$190</td><td>$94.72</td></tr>
+<tr><td>Vrbo</td><td>32</td><td>$6,720</td><td>$210</td><td>$19.94</td></tr>
+<tr><td>Direct</td><td>15</td><td>$3,375</td><td>$225</td><td>$10.01</td></tr>
+<tr><td>Total</td><td>215</td><td>$42,015</td><td>$195</td><td>$124.67</td></tr>
+</tbody>
+</table>
+
+<p>The host's instinct is to keep pushing Airbnb because 78% of bookings come from there. But RevPAR per channel exposes the real story. Vrbo is delivering $210 ADR versus Airbnb's $190. Direct is even better at $225 with no platform commission. The host should be reallocating marketing dollars toward direct booking conversion, not paying Airbnb to push pricing.</p>
+
+<p>The formula that surfaces this in your tracker, with property name in column A, channel headers across row 1 (B1 = Airbnb, C1 = Vrbo, D1 = Direct), and available nights in column E:</p>
+
+<p><code>=SUMIFS(Bookings!K:K,Bookings!B:B,$A2,Bookings!C:C,B$1)/$E2</code></p>
+
+<p>Drag across the channel columns and down for each property. You will see channel performance in one grid. Properties where direct bookings convert profitably are candidates for a real direct booking site. Properties where Airbnb dominates revenue regardless of margin are stuck on the platform until you can build a guest list.</p>
+
+<h2>The Cleaning Rotation Constraint Most Hosts Ignore</h2>
+
+<p>Here is the trap. You list four properties. Your cleaner can do two same-day turnovers max. On a high-demand weekend, four checkouts on Sunday and four checkins Sunday means two of those properties cannot turn. Either you push checkin to Monday and lose a night, or you split between cleaners and pay rush rates.</p>
+
+<p>A flag in your operations log catches conflicts. Add a "Cleaner" column to the operations sheet. Then for each turnover row, count how many turnovers that cleaner has on that date:</p>
+
+<p><code>=COUNTIFS(Operations!A:A,A2,Operations!E:E,B2,Operations!C:C,"Cleaning turnover")</code></p>
+
+<p>If this returns more than your cleaner's daily capacity (usually 2 for one cleaner), conditional formatting paints the cell red. You see the conflict before the booking calendar gets there. To forecast pressure across the next 30 days:</p>
+
+<p><code>=SUMPRODUCT((Operations!A:A>=TODAY())*(Operations!A:A<=TODAY()+30)*(Operations!C:C="Cleaning turnover"))</code></p>
+
+<p>Divide by 30 to get average daily turnover demand. If this is above your cleaner's daily capacity, you have a structural problem. Either hire a second cleaner, raise minimum night requirements, or accept that some weekends will have unbookable nights.</p>
+
+<p>A 2-night minimum on Friday and Saturday alone shifts cleaning rotation dramatically. The math on a single property:</p>
+
+<table>
+<thead>
+<tr><th>Minimum stay</th><th>Annual turnovers</th><th>Cleaning cost @ $80</th><th>Cleaning days lost to rotation</th></tr>
+</thead>
+<tbody>
+<tr><td>1 night</td><td>120</td><td>$9,600</td><td>~30</td></tr>
+<tr><td>2 nights</td><td>72</td><td>$5,760</td><td>~18</td></tr>
+<tr><td>3 nights</td><td>48</td><td>$3,840</td><td>~12</td></tr>
+</tbody>
+</table>
+
+<p>Going from a 1-night to 2-night minimum saves $3,840 in cleaning and frees roughly 12 cleaning days that become bookable. At $190 ADR, that is up to $2,280 in recovered revenue. Net upside: roughly $6,000 per property per year, before factoring price compression from 1-nighters who often pay below average rate anyway.</p>
+
+<p>You cannot make this decision without the tracker. Most hosts running 1-night minimums have never measured their cleaning cost as a percentage of revenue. When that ratio crosses 18%, you are running a cleaning service with rooms attached.</p>
+
+<h2>What to Build vs What to Buy</h2>
+
+<p>The tracker has three sheets (booking log, operations log, summary), about 12 formulas, and two pivot views (RevPAR by channel, cleaning rotation calendar). You can build it from scratch in an afternoon. You will spend the first month getting the data entry rhythm right, fixing column types, and tweaking conditional formatting rules. By month two, the tracker tells you things your gut would not have caught for another year.</p>
+
+<p>If you have one property and time on your hands, build it yourself. The discipline of typing each booking in trains you to see your operation as a unit economic, not a vibe.</p>
+
+<p>If you have three or more properties, the time you save buying a pre-built STR portfolio tracker pays for itself in week one. The SheetCraft Rental Property Analyzer comes pre-configured for short-term rental tracking with channel-level RevPAR, cleaning rotation flags, owner block accounting, and per-property profitability dashboards already wired. Drop in your booking history, and every formula above is ready to run.</p>
+
+<p><a href="/products/rental-property-analyzer">Get the Rental Property Analyzer</a> and stop pricing your portfolio on numbers your dashboard rounded up.</p>`,
+  },
+  {
     slug: 'mobile-home-park-underwriting-spreadsheet',
     title: 'Mobile Home Park Underwriting Spreadsheet: Lot Rents, Infill, and RUBS in Excel',
     metaTitle: 'Mobile Home Park Underwriting Spreadsheet | SheetCraft',
