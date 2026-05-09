@@ -16,6 +16,128 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'short-term-rental-expense-tracker-excel',
+    title: 'Short-Term Rental Expense Tracker Excel: Categorize Every Schedule E Deduction',
+    metaTitle: 'Short-Term Rental Expense Tracker Excel | SheetCraft',
+    metaDescription: 'Build a short term rental expense tracker Excel that maps every Schedule E deduction. Stop missing depreciation, supplies, and platform fees at tax time.',
+    targetKeyword: 'short term rental expense tracker Excel',
+    secondaryKeywords: ['STR tax deductions', 'Schedule E expenses spreadsheet', 'Airbnb expense categories', 'short term rental tax tracker', 'vacation rental bookkeeping'],
+    excerpt: 'Most STR hosts treat tax season as a fire drill, then miss thousands in deductions. A short term rental expense tracker Excel mapped to Schedule E line items fixes that in an hour of setup, and it pays back every April.',
+    publishedAt: '2026-05-09',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/short-term-rental-expense-tracker-excel.png',
+    imageAlt: 'Top-down view of a short-term rental host\'s tax preparation desk with laptop showing an expense spreadsheet, organized receipts, calculator, tax form, notebook, coffee cup, and house keys',
+    content: `<p>Most short-term rental hosts treat tax season like a fire drill. They dump twelve months of Airbnb statements, Home Depot receipts, and credit card exports into a folder, then hand it to a CPA who charges by the hour to sort it out. Or worse, they upload everything to TurboTax and guess which line items go where. Either way, the same thing happens every April: a deduction gets missed, a category gets misclassified, and the host pays more tax than they owed.</p>
+
+<p>A proper <strong>short term rental expense tracker Excel</strong> file fixes this in about an hour of setup. Not a generic expense log. A tracker built around the actual line items on Schedule E, with category codes that map straight onto the IRS form your accountant fills out. This guide walks through what that tracker needs, why each piece matters, and where most STR hosts leave money on the table.</p>
+
+<h2>Why STR Expense Tracking Is Not the Same as Long-Term Rental</h2>
+
+<p>The IRS treats short-term rentals differently from regular rental property in two ways that matter for how you track expenses.</p>
+
+<p>First, if your average guest stay is seven days or less, the property is not a rental for passive activity loss purposes. It is treated more like a hotel. That changes which losses you can deduct against ordinary income and whether you file on Schedule E or Schedule C. Most hosts still file on Schedule E because they do not provide substantial services like daily cleaning during the stay or meals. But if you provide concierge services, you are a Schedule C business with self-employment tax exposure. Your tracker needs to flag this.</p>
+
+<p>Second, personal use days kill deductions fast. Use the property more than 14 days personally or more than 10% of rental days, whichever is greater, and the IRS limits your deductions to the rental income. No loss carryforward. Your tracker needs a personal use day counter because that single number determines whether you take a $12,000 loss this year or carry it forward forever.</p>
+
+<p>The expense tracker most hosts download from a blog ignores both of these. It has a "supplies" column and a "utilities" column and calls it done. Then at tax time, the CPA asks: "Was that toilet paper for the rental or your house?" and nobody knows.</p>
+
+<h2>The Schedule E Category Map</h2>
+
+<p>Open IRS Schedule E. The expense lines run from 5 to 19. Your tracker columns should map directly onto these. Here is the layout that works:</p>
+
+<table>
+<thead>
+<tr><th>Schedule E Line</th><th>Category</th><th>Tracker Code</th><th>Common STR Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>Advertising</td><td>ADV</td><td>Boost listings, professional photos, Pricelabs</td></tr>
+<tr><td>6</td><td>Auto and travel</td><td>AUTO</td><td>Mileage to property, airline travel for inspection</td></tr>
+<tr><td>7</td><td>Cleaning and maintenance</td><td>CLEAN</td><td>Cleaner pay, turnover supplies, lawn care</td></tr>
+<tr><td>8</td><td>Commissions</td><td>COMM</td><td>Property manager fees, co-host splits</td></tr>
+<tr><td>9</td><td>Insurance</td><td>INS</td><td>Proper STR policy, umbrella, Airbnb host protection top-up</td></tr>
+<tr><td>10</td><td>Legal and professional</td><td>LEGAL</td><td>CPA fees, LLC formation, lease attorney</td></tr>
+<tr><td>11</td><td>Management fees</td><td>MGMT</td><td>Vacasa, Evolve, full-service co-host</td></tr>
+<tr><td>12</td><td>Mortgage interest</td><td>INT</td><td>From Form 1098, allocated to STR portion</td></tr>
+<tr><td>13</td><td>Other interest</td><td>OINT</td><td>HELOC interest if used for the property</td></tr>
+<tr><td>14</td><td>Repairs</td><td>REP</td><td>Plumber visit, broken AC fix, replaced lock</td></tr>
+<tr><td>15</td><td>Supplies</td><td>SUPP</td><td>Toiletries, paper goods, coffee, batteries</td></tr>
+<tr><td>16</td><td>Taxes</td><td>TAX</td><td>Property tax, occupancy tax remitted</td></tr>
+<tr><td>17</td><td>Utilities</td><td>UTIL</td><td>Electric, gas, water, internet, streaming</td></tr>
+<tr><td>18</td><td>Depreciation</td><td>DEPR</td><td>Building depreciation, furniture, appliances</td></tr>
+<tr><td>19</td><td>Other</td><td>OTH</td><td>Platform fees, software subscriptions, HOA</td></tr>
+</tbody>
+</table>
+
+<p>That gives you 15 codes. Every transaction in your expense tracker gets one of these codes in column D. No category column with free text. No "miscellaneous." If you cannot decide which code applies, the answer is almost always you need to learn the difference between Repairs and Improvements, because that is the most common confusion and it has real tax consequences.</p>
+
+<h2>The Tracker Layout That Works</h2>
+
+<p>Set up your spreadsheet with these columns from A to J: Date, Property, Vendor, Category Code, Description, Amount, Payment Method, Receipt Link, Personal Use %, Deductible Amount.</p>
+
+<p>The two columns that earn their keep are H and I. Receipt Link points to a PDF or photo in your Google Drive or Dropbox. Personal Use % is a number from 0 to 100. Deductible Amount in column J is then a single formula:</p>
+
+<p><code>=F2*(1-I2/100)</code></p>
+
+<p>Suppose on June 14 you bought $342 of patio furniture for the rental. You also use the patio yourself when you stay there 8 days a year out of 320 rental days. Personal use is 8/(320+8) = 2.4%. Your deductible amount is $333.79. That precision matters when the IRS asks you to defend it.</p>
+
+<p>For 100% rental expenses, Personal Use % is 0 and the deductible equals the spend. For an expense that is 100% personal that you accidentally logged, set Personal Use % to 100 and the deductible drops to zero. Keeping bad transactions in the log with a zero deductible is better than deleting them, because if the bank statement shows a charge, you want a record of why it is not deducted.</p>
+
+<h2>Where Hosts Lose the Most Money</h2>
+
+<h3>Platform fees and channel deductions</h3>
+
+<p>Airbnb takes 14% to 16% with the host-only fee structure. Vrbo takes around 8% plus payment processing. These come out before you ever see the money. Many hosts only record gross revenue, then their CPA only sees gross revenue, then they pay tax on gross revenue. The platform fee is a deductible expense under Other (OTH) on line 19. On a property doing $60,000 gross, that is $9,000 you forgot to deduct. At a 24% bracket plus state, you just overpaid by $2,500.</p>
+
+<p>Use a SUMIFS formula on a summary tab to surface it:</p>
+
+<p><code>=SUMIFS(F:F,D:D,"OTH",B:B,"Property A")</code></p>
+
+<p>That gives you total Other expenses for Property A. If the number is suspiciously low and you have $40,000 in Airbnb revenue, you have not logged platform fees. Build that flag into your tracker.</p>
+
+<h3>Cleaning fees that pass through</h3>
+
+<p>Guests pay a cleaning fee. You pay your cleaner. These are two separate transactions. The cleaning fee from the guest is income on Schedule E line 3. The amount you pay the cleaner is an expense on line 7. They do not net out on the platform statement, but they net out on your bank account, and that creates confusion.</p>
+
+<p>If your cleaning fee charged is $150 and your cleaner gets $120, you have $30 in income and $120 in expense. Some hosts only book the $30 net, missing $120 in deductions. Track them separately:</p>
+
+<p><code>=SUMIFS(F:F,D:D,"CLEAN")</code></p>
+
+<p>Compare that to your cleaning fees collected from your booking log. The difference should match what you pocket as a markup.</p>
+
+<h3>The depreciation nobody runs</h3>
+
+<p>Residential rental property depreciates over 27.5 years. Furniture and appliances depreciate over 5 or 7 years. STR hosts who buy a $400,000 property and furnish it for $25,000 are sitting on roughly $14,545 a year in building depreciation plus $3,500 to $5,000 a year in furniture depreciation. That is $18,000 to $19,500 in non-cash deductions per property. Most hosts never run this calculation.</p>
+
+<p>In your tracker, create a Depreciation tab with columns: Asset, Date in Service, Cost Basis, Recovery Period, Annual Depreciation. Annual depreciation is:</p>
+
+<p><code>=C2/D2</code></p>
+
+<p>Pull the sum into your main category summary as DEPR. If you bought the property mid-year, prorate the first year using the IRS mid-month convention for real property and the half-year convention for personal property. A $400,000 building placed in service on June 15 gets $400,000 / 27.5 * (6.5/12) = $7,879 in year one, not the full $14,545.</p>
+
+<h3>Mileage to the property</h3>
+
+<p>The 2026 standard mileage rate is 70 cents per mile. If you drive 90 minutes to your STR for a turnover check, that round trip might be 120 miles. At 70 cents, that is $84 deductible per trip. Six trips a year is $504. Hosts who own a property in the same metro often skip this entirely. Log it under AUTO with the date and odometer reading. The trip log itself becomes your audit defense.</p>
+
+<h2>The Quarterly Reconciliation That Catches Everything</h2>
+
+<p>Once a quarter, sit down with three things: your tracker, your bank statement, and your platform payout reports. Three checks take 30 minutes:</p>
+
+<ol>
+<li><strong>Bank statement reconciliation.</strong> Every debit related to the property should appear in the tracker. Filter your spreadsheet by date range. If the statement shows charges your tracker does not, log them.</li>
+<li><strong>Platform payout reconciliation.</strong> Sum platform deposits to your bank. Compare to gross revenue minus platform fees on your booking log. They should match. If platform fees on Schedule E (line 19, OTH code) are zero but you got Airbnb deposits, you have a problem.</li>
+<li><strong>Category sanity check.</strong> Run a SUMIFS by code. Flag anything that looks wrong. Repairs over $5,000 might actually be capitalized improvements that get depreciated, not deducted in one year. Supplies over $4,000 for a single property is unusual, double check what got coded there.</li>
+</ol>
+
+<p>The quarterly cadence is the difference between a clean tax season and a panic. Hosts who do this finish their Schedule E in 90 minutes in March. Hosts who skip it spend two weekends and still pay too much.</p>
+
+<h2>What to Build Next</h2>
+
+<p>The expense tracker is one half of the equation. The other half is the income side: per-property revenue, occupancy, and net cash flow that ties out to your bank account. Layer those on top and you have a system that answers "should I buy another STR?" with real numbers, not vibes.</p>
+
+<p>If you want to skip the setup, the SheetCraft <a href="/products/rental-property-analyzer">rental property analyzer</a> ships with the Schedule E category map preloaded, depreciation schedules built in for both building and personal property, and per-property reconciliation tabs that flag missing platform fees automatically. Drop your transactions in, code them once, and your Schedule E line items populate themselves. That is the difference between an expense log and a tax-ready system.</p>`,
+  },
+  {
     slug: 'airbnb-occupancy-tracker-spreadsheet',
     title: 'Airbnb Occupancy Tracker Spreadsheet: The Numbers Your Dashboard Hides',
     metaTitle: 'Airbnb Occupancy Tracker Spreadsheet | SheetCraft',
