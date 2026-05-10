@@ -16,6 +16,207 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'land-development-proforma-excel',
+    title: 'Land Development Proforma in Excel: How to Build the Model',
+    metaTitle: 'Land Development Proforma in Excel | SheetCraft',
+    metaDescription: 'Build a working land development proforma in Excel: model acquisition, soft costs, infrastructure, lot sales, and IRR. Real numbers, real formulas.',
+    targetKeyword: 'land development proforma Excel',
+    secondaryKeywords: ['land subdivision Excel model', 'real estate development proforma', 'lot sales pro forma', 'land acquisition financial model', 'subdivision cash flow Excel'],
+    excerpt: 'Most land deals die in pencil, not at the closing table. A working proforma tells you the maximum lot price, the soft cost float, and the months you can carry before the bank squeezes. Here is how to build one in Excel that holds up under a real underwriter\'s red pen.',
+    publishedAt: '2026-05-10',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/land-development-proforma-excel.png',
+    imageAlt: 'Aerial illustration of a residential subdivision with curving streets and lot layouts',
+    content: `<p><strong>Most land deals die in pencil, not at the closing table.</strong> The buyer who walked away from a 40-lot subdivision because their land development proforma Excel model showed a 6% IRR is the buyer who keeps capital intact. The buyer who closes on a "great location" without modeling the absorption schedule is the buyer who finds out, 28 months in, that the bank wants their personal guarantee called.</p>
+
+<p>A land development proforma in Excel is the document that decides this. Done right, it tells you the maximum land price you can pay, how much soft cost float you need before the first lot sells, and exactly which month carry costs will eat your contingency. Done wrong, it is a vanity exhibit for a pitch deck.</p>
+
+<p>This article walks through how to build a land development proforma Excel model from scratch, with the inputs, formulas, and exit math that real underwriters run before they sign a term sheet.</p>
+
+<h2>The Real Cost of a Bad Pro Forma</h2>
+
+<p>A 50-lot subdivision in a Sun Belt suburb pencils to roughly $4.5 million in hard costs and $700K in soft costs. The land itself might be $1.8 million. Total project cost: $7 million. Gross lot revenue at $90,000 per lot: $4.5 million. Wait. That does not work.</p>
+
+<p>That is the problem. Buyers run gross lot revenue against hard costs, see a "spread", and skip the dozen line items that turn a 22% projected margin into a 4% actual margin. The fix is not better intuition. The fix is a proforma that forces every line item into a cell, every timing assumption into a column, and every dependency into a formula.</p>
+
+<p>Here is what a missed line item costs in real dollars on a 100-lot deal:</p>
+
+<table>
+<thead>
+<tr><th>Missed Item</th><th>Typical Cost</th><th>Hits Margin By</th></tr>
+</thead>
+<tbody>
+<tr><td>Subdivision improvement bond premium</td><td>$90,000</td><td>~1.0%</td></tr>
+<tr><td>Off-site road improvements (county requirement)</td><td>$350,000</td><td>~3.9%</td></tr>
+<tr><td>Stormwater detention rebuild after engineering revision</td><td>$180,000</td><td>~2.0%</td></tr>
+<tr><td>Property tax during 30-month hold</td><td>$120,000</td><td>~1.3%</td></tr>
+<tr><td>Realtor commissions (3% on lot sales)</td><td>$270,000</td><td>~3.0%</td></tr>
+<tr><td><strong>Total impact</strong></td><td><strong>$1,010,000</strong></td><td><strong>~11.2%</strong></td></tr>
+</tbody>
+</table>
+
+<p>An 11% miss on a deal you underwrote at 18% margin is the difference between a profitable subdivision and a personal guarantee being called.</p>
+
+<h2>The Five Buckets Every Land Development Proforma Needs</h2>
+
+<p>Forget the 80-tab models you find on consulting decks. A working land development proforma Excel file has five logical sections, each tied to the next by formula references. Build them in this order:</p>
+
+<ol>
+<li><strong>Acquisition</strong>: land price, closing costs, due diligence, broker fees</li>
+<li><strong>Soft costs</strong>: engineering, entitlements, legal, financing fees, marketing</li>
+<li><strong>Hard costs</strong>: site work and infrastructure delivered to the "finished lot" stage</li>
+<li><strong>Carry</strong>: interest, property tax, insurance, HOA setup, contingency draw schedule</li>
+<li><strong>Sales</strong>: absorption schedule, lot pricing by phase, commissions, closing costs</li>
+</ol>
+
+<p>Each bucket maps to a contiguous block of cells. Acquisition lives in rows 5 to 15. Soft costs in rows 18 to 35. Hard costs in 38 to 60. Carry in 62 to 75. Sales absorption gets its own monthly grid in columns C through AZ. The discipline of fixed regions matters because every formula downstream references these ranges.</p>
+
+<h2>Inputs and Assumptions Tab</h2>
+
+<p>Before you write a single sum, build a dedicated Assumptions tab. This is not optional. The whole point of a proforma is sensitivity. If "land price" is hardcoded inside a formula deep in the cash flow tab, you cannot run "what if the seller comes off another $200K" in 30 seconds. Your model is dead.</p>
+
+<p>Here is a minimal assumptions block for a 60-lot subdivision:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Total acres (gross)</td><td>22.5</td></tr>
+<tr><td>B5</td><td>Yield (lots per acre, net)</td><td>2.7</td></tr>
+<tr><td>B6</td><td>Total lots</td><td><code>=ROUNDDOWN(B4*B5,0)</code></td></tr>
+<tr><td>B7</td><td>Land price per acre</td><td>$95,000</td></tr>
+<tr><td>B8</td><td>Total land cost</td><td><code>=B4*B7</code></td></tr>
+<tr><td>B9</td><td>Avg lot sale price</td><td>$92,000</td></tr>
+<tr><td>B10</td><td>Hard cost per finished lot</td><td>$58,000</td></tr>
+<tr><td>B11</td><td>Soft cost as % of hard</td><td>15%</td></tr>
+<tr><td>B12</td><td>Contingency %</td><td>10%</td></tr>
+<tr><td>B13</td><td>Land loan rate</td><td>9.5%</td></tr>
+<tr><td>B14</td><td>Development loan rate</td><td>10.5%</td></tr>
+<tr><td>B15</td><td>Hold months before first sale</td><td>14</td></tr>
+<tr><td>B16</td><td>Absorption (lots per month)</td><td>3</td></tr>
+<tr><td>B17</td><td>Realtor commission</td><td>3.0%</td></tr>
+<tr><td>B18</td><td>Closing costs (sale)</td><td>1.5%</td></tr>
+</tbody>
+</table>
+
+<p>Lock B6 as a calculated cell using <code>=ROUNDDOWN(B4*B5,0)</code> because lot count is a function of net density, not a guess. Total land cost in B8 is <code>=B4*B7</code>. Every downstream formula references these cells, never the raw numbers.</p>
+
+<h2>Hard Cost Build-Up</h2>
+
+<p>The most common proforma sin: rolling all hard costs into "$60,000 per lot" and moving on. That works for a back-of-envelope. It does not work when the bank's third-party engineer reviews your loan request. Build the hard cost line items individually:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Item</th><th>Per Lot</th><th>Total (60 lots)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Clearing and grubbing</td><td>$3,500</td><td>$210,000</td></tr>
+<tr><td>2</td><td>Mass grading and earthwork</td><td>$8,000</td><td>$480,000</td></tr>
+<tr><td>3</td><td>Sanitary sewer</td><td>$6,500</td><td>$390,000</td></tr>
+<tr><td>4</td><td>Water main and services</td><td>$5,200</td><td>$312,000</td></tr>
+<tr><td>5</td><td>Storm drainage and detention</td><td>$7,800</td><td>$468,000</td></tr>
+<tr><td>6</td><td>Roads (curb, gutter, paving)</td><td>$11,500</td><td>$690,000</td></tr>
+<tr><td>7</td><td>Sidewalks and streetlights</td><td>$2,400</td><td>$144,000</td></tr>
+<tr><td>8</td><td>Dry utilities (electric, gas, telecom)</td><td>$4,200</td><td>$252,000</td></tr>
+<tr><td>9</td><td>Erosion control and SWPPP</td><td>$1,800</td><td>$108,000</td></tr>
+<tr><td>10</td><td>Subdivision improvement bond</td><td>$1,500</td><td>$90,000</td></tr>
+<tr><td>11</td><td>Off-site improvements (allowance)</td><td>$5,600</td><td>$336,000</td></tr>
+<tr><td><strong>Subtotal</strong></td><td></td><td><strong>$58,000</strong></td><td><strong>$3,480,000</strong></td></tr>
+<tr><td>12</td><td>Contingency (10%)</td><td>$5,800</td><td>$348,000</td></tr>
+<tr><td><strong>Total hard</strong></td><td></td><td><strong>$63,800</strong></td><td><strong>$3,828,000</strong></td></tr>
+</tbody>
+</table>
+
+<p>The contingency line uses <code>=B12*SUM(D5:D15)</code> where B12 is the contingency percentage and D5:D15 holds the line item totals. Every off-site allowance, every bond, every dry utility tap fee belongs as its own line. If you cannot point to the cell that holds "stormwater detention", the underwriter will not believe your number.</p>
+
+<h2>Soft Costs and Pre-Development Float</h2>
+
+<p>Soft costs typically run 12% to 18% of hard costs in a normal suburban subdivision, higher if the project requires extensive entitlement work. The mistake is treating them as one bucket. Break them out:</p>
+
+<ul>
+<li>Civil engineering and surveying: 4% to 6% of hard costs</li>
+<li>Environmental, geotech, traffic studies: $25K to $80K depending on jurisdiction</li>
+<li>Legal and entitlement (rezoning, plat approval): $40K to $150K</li>
+<li>Financing fees (origination, appraisal, title): 1.5% to 2.5% of total loan</li>
+<li>Market study and marketing setup: $15K to $35K</li>
+<li>Property tax during hold (pre-sale): assessed value times mill rate times months divided by 12</li>
+</ul>
+
+<p>The float matters because soft costs hit BEFORE the development loan funds. You are paying engineers and lawyers out of equity for 8 to 14 months before the first dirt moves. Model this in a monthly cash flow column. The formula for cumulative pre-development equity outlay:</p>
+
+<p><code>=SUMPRODUCT((Month_Range&lt;=Current_Month)*Soft_Cost_Range)</code></p>
+
+<p>This tells you, at any month in the hold, how much equity is already locked in. If your investor expects a $500K capital call and your model shows $720K outlaid by month 9, you have a margin call coming.</p>
+
+<h2>Carry Costs and the Interest Calculation</h2>
+
+<p>Land development carry costs are the silent killer of margin. A 30-month hold on a $5 million development loan at 10.5% is roughly $1.3 million in interest, even with a paydown structure. Most proformas underestimate this because they apply the rate to the full loan balance for the full term, when reality is interest accruing on drawn-down balances over time.</p>
+
+<p>The right way to model interest: build a monthly draw schedule that mirrors the construction sequence (clearing in months 8 to 9, sewer in 10 to 12, paving in 14 to 15), then calculate interest as:</p>
+
+<p><code>=Cumulative_Drawn_Balance*(Annual_Rate/12)</code></p>
+
+<p>For a screening view, use average outstanding balance:</p>
+
+<p><code>=((Total_Loan/2)*Annual_Rate)*(Hold_Months/12)</code></p>
+
+<p>The simplified version is fine for a screening proforma. For a bank submission, build the full draw-by-draw schedule. The difference between the two methods on a $4M loan over 24 months can be $60K to $120K, which is the difference between an approved deal and a re-trade at the term sheet stage.</p>
+
+<h2>The Sales Absorption Engine</h2>
+
+<p>Lot sales are not a single line item. They are a schedule. You will not sell 60 lots on day one of certificate of occupancy. You will sell 2 to 4 per month if your market is healthy, slower if it is not. The proforma needs a column for each month showing lots sold, gross revenue, commissions, and net to project.</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Lots Sold</th><th>Gross Revenue</th><th>Commission (3%)</th><th>Closing (1.5%)</th><th>Net</th></tr>
+</thead>
+<tbody>
+<tr><td>15</td><td>3</td><td>$276,000</td><td>$8,280</td><td>$4,140</td><td>$263,580</td></tr>
+<tr><td>16</td><td>3</td><td>$276,000</td><td>$8,280</td><td>$4,140</td><td>$263,580</td></tr>
+<tr><td>17</td><td>4</td><td>$368,000</td><td>$11,040</td><td>$5,520</td><td>$351,440</td></tr>
+<tr><td>18</td><td>3</td><td>$276,000</td><td>$8,280</td><td>$4,140</td><td>$263,580</td></tr>
+</tbody>
+</table>
+
+<p>Use <code>=IF(SUM($C$15:C15)&gt;=$B$6,0,Absorption_Rate)</code> to cap lots sold at total inventory. Net revenue per month becomes <code>=Lots_Sold*Avg_Price*(1-Commission_Pct-Closing_Pct)</code>. These monthly nets feed the cumulative cash flow waterfall, which feeds the IRR calculation at the bottom of the model.</p>
+
+<h2>The Exit Math: IRR, Margin, and Max Land Price</h2>
+
+<p>The output that matters: what IRR does the project deliver, and what is the maximum I can pay for the land to hit my hurdle rate?</p>
+
+<p>Build a monthly net cash flow row across the timeline. Acquisition equity goes negative in month 0. Soft cost outlays are negative through month 14. Hard cost outlays are negative in months 8 to 14, offset by loan draws. Sales revenue is positive starting month 15. Loan payoff happens at the end. The formula for project IRR:</p>
+
+<p><code>=IRR(Net_Cash_Flow_Range,0.15)</code></p>
+
+<p>Equity multiple is simpler:</p>
+
+<p><code>=Total_Distributions/Total_Equity_Invested</code></p>
+
+<p>Project margin on cost:</p>
+
+<p><code>=(Gross_Revenue-Total_Cost)/Total_Cost</code></p>
+
+<p>To solve for max land price at a target IRR, use Goal Seek. Set the cell containing project IRR to your hurdle (say 22%), and let Excel change the land price per acre cell. The output is the most you can pay and still clear your hurdle. This single calculation is the difference between an offer letter that wins the deal and one that buries you.</p>
+
+<h2>What Most Models Get Wrong</h2>
+
+<p>Three errors recur in nearly every land development proforma I review:</p>
+
+<ul>
+<li><strong>Single-period accounting</strong>: Treating the project as one big inflow versus one big outflow, ignoring the timing. A 22% margin over 36 months is a 6.8% annualized return. That is worse than a Treasury bill.</li>
+<li><strong>No phasing</strong>: Assuming all 60 lots get developed and sold in one push when reality is two or three phases over four years. Phasing changes interest expense, marketing cost, and absorption. Model it.</li>
+<li><strong>Missing the residual</strong>: Land that does not sell becomes the residual. If 8 of 60 lots sit unsold at month 36, the model needs a discounted residual value. Hard-coding "all lots sell at price" is a fairytale.</li>
+</ul>
+
+<h2>Build Faster With a Working Template</h2>
+
+<p>Constructing the proforma from scratch teaches you the model, but it costs 12 to 20 hours of Excel work the first time. If you are evaluating your third land deal this quarter, you should not be rebuilding the assumptions tab from a blank sheet. Start from a structure that already has the absorption engine, the draw schedule, and the IRR plumbing wired up. Plug in the numbers from your specific deal, run sensitivities, and ship the analysis to your investor before the seller signs an offer from someone else.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> shares the same DNA as a land development model: timed cash flows, equity in versus distributions out, IRR and equity multiple at exit. If you are running both fix-and-flip deals and small subdivisions, that template gives you the underwriting muscle without rebuilding it for every parcel.</p>`,
+  },
+  {
     slug: 'short-term-rental-expense-tracker-excel',
     title: 'Short-Term Rental Expense Tracker Excel: Categorize Every Schedule E Deduction',
     metaTitle: 'Short-Term Rental Expense Tracker Excel | SheetCraft',
