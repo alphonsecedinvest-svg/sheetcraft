@@ -16,6 +16,223 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'new-construction-home-builder-pro-forma',
+    title: 'New Construction Home Builder Pro Forma: Cost Per SF and Margin Before You Break Ground',
+    metaTitle: 'Home Builder Pro Forma in Excel | SheetCraft',
+    metaDescription: 'Build a new construction home builder pro forma in Excel. Real cost per SF, margin math, and the checklist that catches losses before you pour foundation.',
+    targetKeyword: 'new construction home builder pro forma',
+    secondaryKeywords: ['spec home pro forma', 'cost per square foot home build', 'home builder margin', 'construction budget excel', 'new construction profit margin'],
+    excerpt: 'Most spec builders learn their real margin two months after closing. A pro forma is the document that prevents that. Here is how to model lot cost, hard cost per SF, soft costs, carry, and sale proceeds for a 2,400 SF new build before you sign a lot purchase agreement.',
+    publishedAt: '2026-05-11',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/new-construction-home-builder-pro-forma.png',
+    imageAlt: 'Editorial illustration of a home builder pro forma spreadsheet with calculator, suburban house elevation, and blueprint',
+    content: `<p><strong>Most spec builders learn what their margin actually was two months after the keys hand over.</strong> They got the construction loan, hired the framer, fought the inspector, and sold the house. The accountant cleans up the numbers in March and tells them they cleared 6% on a job they pitched their banker at 22%. By then the lot for the next build is already under contract at a price set by the same flawed thinking.</p>
+
+<p>A new construction home builder pro forma is the document that prevents this. It is a single spreadsheet that models the entire project, from lot acquisition through closing, before a single permit is pulled. Done right, it tells you the maximum lot price you can pay, the cost per square foot you need to hit, the carry months you can survive, and the gross margin the project will deliver if every assumption holds. Done wrong, it is a feel-good exhibit you show your wife when you announce you bought another lot.</p>
+
+<p>This article walks through how to build a new construction home builder pro forma in Excel from scratch, using real numbers a small builder would see on a 2,400 square foot spec home in a typical American suburb.</p>
+
+<h2>Why Cost Per Square Foot Lies to You</h2>
+
+<p>Ask any production builder what their hard cost is and they will quote a number per square foot. $165. $210. $245. The number is useful as a screening shortcut and dangerous as a budgeting tool. Cost per square foot is the average of a dozen line items moving in different directions, and the average hides every line where you are about to lose money.</p>
+
+<p>Consider two identical 2,400 SF homes built six months apart in the same subdivision. Same plan, same builder, same crews:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>House A</th><th>House B</th><th>Delta</th></tr>
+</thead>
+<tbody>
+<tr><td>Foundation</td><td>$18,500</td><td>$22,000</td><td>+$3,500</td></tr>
+<tr><td>Framing labor and material</td><td>$58,000</td><td>$71,000</td><td>+$13,000</td></tr>
+<tr><td>HVAC</td><td>$14,500</td><td>$16,800</td><td>+$2,300</td></tr>
+<tr><td>Roofing</td><td>$11,000</td><td>$13,500</td><td>+$2,500</td></tr>
+<tr><td>Interior trim and millwork</td><td>$22,000</td><td>$19,500</td><td>(-$2,500)</td></tr>
+<tr><td>Site work and grading</td><td>$24,000</td><td>$31,000</td><td>+$7,000</td></tr>
+<tr><td><strong>Hard cost total</strong></td><td><strong>$420,000</strong></td><td><strong>$465,800</strong></td><td><strong>+$45,800</strong></td></tr>
+<tr><td>Cost per square foot</td><td>$175</td><td>$194</td><td>+$19</td></tr>
+</tbody>
+</table>
+
+<p>House A pencils at $175 per SF. House B pencils at $194 per SF. The builder who quoted $180 as their "we always come in around there" number lost $34,800 on House B. The cost per square foot averaged out across the portfolio looks fine. The individual project bleeds margin.</p>
+
+<p>The pro forma fix is to never use cost per square foot as an input. Use it only as an output, calculated from a detailed line item build-up. The builder who plugs $180 per SF into a single cell and multiplies by 2,400 is the builder who finds out about rough framing inflation in week 14.</p>
+
+<h2>The Five Buckets of a Home Builder Pro Forma</h2>
+
+<p>A new construction home builder pro forma has five logical sections, each tied to the next by formula references. Build them as separate cell blocks on a single sheet:</p>
+
+<ol>
+<li><strong>Acquisition</strong>: lot price, closing costs, survey, due diligence</li>
+<li><strong>Hard costs</strong>: every trade line built up individually with quantity and unit cost</li>
+<li><strong>Soft costs</strong>: permits, impact fees, architectural, engineering, financing fees, marketing</li>
+<li><strong>Carry</strong>: construction loan interest, property tax, insurance, utilities during build</li>
+<li><strong>Sale</strong>: list price, expected sale price, commissions, seller concessions, closing costs</li>
+</ol>
+
+<p>The output block at the bottom of the sheet does the arithmetic on these five buckets and tells you gross profit, margin on cost, margin on revenue, and cash-on-cash return. Three numbers a builder should know before they sign the lot purchase agreement.</p>
+
+<h2>The Assumptions Block</h2>
+
+<p>Before any formula, build an assumptions block in rows 4 to 25. Every input lives here as a named cell. Every downstream calculation references these cells, never raw numbers. This is what lets you run "what if the lot is $15K cheaper" in 10 seconds instead of rebuilding the model.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Heated square footage</td><td>2,400</td></tr>
+<tr><td>B5</td><td>Garage square footage</td><td>440</td></tr>
+<tr><td>B6</td><td>Lot purchase price</td><td>$95,000</td></tr>
+<tr><td>B7</td><td>Lot closing costs</td><td>$2,800</td></tr>
+<tr><td>B8</td><td>Hard cost per SF (heated)</td><td>$175</td></tr>
+<tr><td>B9</td><td>Garage cost per SF</td><td>$65</td></tr>
+<tr><td>B10</td><td>Soft cost as % of hard</td><td>9%</td></tr>
+<tr><td>B11</td><td>Contingency %</td><td>5%</td></tr>
+<tr><td>B12</td><td>Construction loan rate</td><td>9.0%</td></tr>
+<tr><td>B13</td><td>Loan to cost</td><td>80%</td></tr>
+<tr><td>B14</td><td>Build months</td><td>7</td></tr>
+<tr><td>B15</td><td>Marketing months</td><td>3</td></tr>
+<tr><td>B16</td><td>Target sale price</td><td>$615,000</td></tr>
+<tr><td>B17</td><td>Realtor commission</td><td>5.5%</td></tr>
+<tr><td>B18</td><td>Seller concessions</td><td>1.5%</td></tr>
+<tr><td>B19</td><td>Closing costs (sale)</td><td>1.0%</td></tr>
+<tr><td>B20</td><td>Target margin on cost</td><td>20%</td></tr>
+</tbody>
+</table>
+
+<p>Note B8 is the placeholder for hard cost per SF and gets replaced by an output from the detailed hard cost block below. The first pass of the model uses $175 as a sanity check. The final model calculates this from line items.</p>
+
+<h2>The Detailed Hard Cost Build-Up</h2>
+
+<p>The hard cost block lives in rows 30 to 75. One row per trade. Quantity, unit, unit cost, line total. The formulas chain together so a change in window count or square footage automatically rolls through:</p>
+
+<table>
+<thead>
+<tr><th>Trade</th><th>Quantity</th><th>Unit Cost</th><th>Line Total</th></tr>
+</thead>
+<tbody>
+<tr><td>Site work and grading</td><td>1 LS</td><td>$18,000</td><td>$18,000</td></tr>
+<tr><td>Foundation (slab or crawl)</td><td>2,400 SF</td><td>$8.50</td><td>$20,400</td></tr>
+<tr><td>Framing labor</td><td>2,400 SF</td><td>$11.00</td><td>$26,400</td></tr>
+<tr><td>Framing lumber</td><td>2,400 SF</td><td>$14.50</td><td>$34,800</td></tr>
+<tr><td>Roofing (architectural shingle)</td><td>2,800 SF</td><td>$4.20</td><td>$11,760</td></tr>
+<tr><td>Windows and exterior doors</td><td>18 EA</td><td>$680</td><td>$12,240</td></tr>
+<tr><td>Siding and exterior trim</td><td>2,200 SF</td><td>$9.50</td><td>$20,900</td></tr>
+<tr><td>HVAC (15 SEER, 3-ton)</td><td>1 LS</td><td>$14,500</td><td>$14,500</td></tr>
+<tr><td>Plumbing rough and trim</td><td>1 LS</td><td>$18,000</td><td>$18,000</td></tr>
+<tr><td>Electrical rough and trim</td><td>1 LS</td><td>$16,500</td><td>$16,500</td></tr>
+<tr><td>Insulation</td><td>2,400 SF</td><td>$2.20</td><td>$5,280</td></tr>
+<tr><td>Drywall hang and finish</td><td>10,800 SF</td><td>$2.10</td><td>$22,680</td></tr>
+<tr><td>Interior doors and trim</td><td>1 LS</td><td>$8,500</td><td>$8,500</td></tr>
+<tr><td>Cabinets and countertops</td><td>1 LS</td><td>$22,000</td><td>$22,000</td></tr>
+<tr><td>Flooring</td><td>2,400 SF</td><td>$6.50</td><td>$15,600</td></tr>
+<tr><td>Paint (interior and exterior)</td><td>1 LS</td><td>$9,800</td><td>$9,800</td></tr>
+<tr><td>Appliances</td><td>1 LS</td><td>$6,800</td><td>$6,800</td></tr>
+<tr><td>Plumbing fixtures and tile</td><td>1 LS</td><td>$11,500</td><td>$11,500</td></tr>
+<tr><td>Light fixtures</td><td>1 LS</td><td>$3,800</td><td>$3,800</td></tr>
+<tr><td>Driveway and walks</td><td>1 LS</td><td>$9,200</td><td>$9,200</td></tr>
+<tr><td>Landscaping and final grade</td><td>1 LS</td><td>$6,500</td><td>$6,500</td></tr>
+<tr><td><strong>Subtotal</strong></td><td></td><td></td><td><strong>$315,160</strong></td></tr>
+<tr><td>Garage (440 SF at $65)</td><td></td><td></td><td>$28,600</td></tr>
+<tr><td>Contingency (5%)</td><td></td><td></td><td>$17,188</td></tr>
+<tr><td><strong>Total hard cost</strong></td><td></td><td></td><td><strong>$360,948</strong></td></tr>
+</tbody>
+</table>
+
+<p>Each line total uses <code>=Quantity*Unit_Cost</code>. The subtotal at row 70 is <code>=SUM(D30:D69)</code>. The garage line is <code>=B5*B9</code>. Contingency is <code>=B11*SUM(D30:D70)</code>. Total hard cost on this build pencils to roughly $150 per heated SF using <code>=Total_Hard/B4</code>, not the $175 the builder quoted. A below-line cost per SF on the same build sequence is a six-figure swing on a portfolio.</p>
+
+<h2>Soft Costs and Carry: The Items That Sink Margin</h2>
+
+<p>Soft costs on a new construction home are the line items that hit before the first stud goes up and after the last punchlist item gets fixed. Builders chronically underestimate them. Run them out as their own block:</p>
+
+<ul>
+<li>Building permit and impact fees: $4,000 to $18,000 depending on jurisdiction</li>
+<li>Plan review and inspection fees: $800 to $2,500</li>
+<li>Architectural and structural engineering: $2,500 to $9,000 if not stock plan</li>
+<li>Survey, perc test, environmental: $1,500 to $4,000</li>
+<li>Builder risk insurance: $1,200 to $3,500</li>
+<li>Construction loan origination and appraisal: 1.5% to 2% of loan</li>
+<li>Title insurance and closing on lot: 0.5% to 0.8% of lot price</li>
+<li>Marketing, photography, staging: $2,500 to $8,000</li>
+<li>Property tax during build and marketing: assessed value times mill rate prorated</li>
+<li>Utilities during build (temp power, water): $1,500 to $3,500</li>
+</ul>
+
+<p>On a $97,800 lot plus $360,948 hard, soft costs at 9% land near $41,300. The carry calculation is where most builders blow it. A 7-month build plus 3-month marketing window on a $367,000 construction loan at 9% with 50% average outstanding balance produces:</p>
+
+<p><code>=(Loan_Amount/2)*(Rate/12)*Total_Months</code></p>
+
+<p>Or numerically: <code>=(367000/2)*(0.09/12)*10 = $13,762</code></p>
+
+<p>The 50% average balance assumption is fine for a screening pro forma. For the bank submission, build a draw schedule that maps to the construction sequence (foundation in month 1, framing in months 2 to 3, mechanicals in 4, finishes in 5 to 6, punch in 7) and calculate interest on the cumulative drawn balance month by month. The real-world interest on this kind of build is typically 15% to 25% higher than the average-balance shortcut suggests.</p>
+
+<h2>The Output Block: Margin, Max Lot Price, and the Go/No-Go</h2>
+
+<p>Once acquisition, hard, soft, and carry are stacked, the output block lives at the bottom of the sheet. Six cells that decide whether the project happens:</p>
+
+<table>
+<thead>
+<tr><th>Output</th><th>Formula</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>Total project cost</td><td><code>=Acquisition+Hard+Soft+Carry</code></td><td>$513,810</td></tr>
+<tr><td>Net sale proceeds</td><td><code>=Sale_Price*(1-Comm-Conc-Closing)</code></td><td>$565,800</td></tr>
+<tr><td>Gross profit</td><td><code>=Net_Sale-Total_Cost</code></td><td>$51,990</td></tr>
+<tr><td>Margin on cost</td><td><code>=Gross_Profit/Total_Cost</code></td><td>10.1%</td></tr>
+<tr><td>Margin on revenue</td><td><code>=Gross_Profit/Sale_Price</code></td><td>8.5%</td></tr>
+<tr><td>Cash-on-cash</td><td><code>=Gross_Profit/Equity_In</code></td><td>40.6%</td></tr>
+</tbody>
+</table>
+
+<p>This project pencils at 10.1% margin on cost against a 20% target. That is a no-go. The builder has three levers: lot price, sale price, or cost. The pro forma tells you exactly how much each lever needs to move. To hit 20% on cost at the modeled $513,810, the sale price needs to clear $658,000 net, which means a list price of $722,000 after commissions. If the comps say $615,000, the lot price has to come down. Solve for max lot price using:</p>
+
+<p><code>=Target_Net_Sale/(1+Target_Margin)-Hard-Soft-Carry-Closing_Costs</code></p>
+
+<p>Plug the numbers and the answer is $54,000. Not $95,000. The seller is asking $95K. The lot does not work at the price they want. The pro forma just saved the builder from a $40,000 mistake.</p>
+
+<h2>Sensitivity Testing Before You Sign</h2>
+
+<p>One column on the sheet runs sensitivity scenarios. Hold every input constant except one, vary it across a realistic range, and watch margin move. The three variables that matter:</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Change</th><th>Margin Impact</th></tr>
+</thead>
+<tbody>
+<tr><td>Framing lumber spike</td><td>+$15K hard cost</td><td>-2.7 points</td></tr>
+<tr><td>Build delay 2 months</td><td>+$5,500 carry, +$2,000 tax</td><td>-1.4 points</td></tr>
+<tr><td>Comps soften 4%</td><td>-$24,600 sale price</td><td>-4.5 points</td></tr>
+<tr><td>Realtor pushes to 6%</td><td>-$3,075 net</td><td>-0.6 points</td></tr>
+<tr><td><strong>Stack everything bad</strong></td><td></td><td><strong>-9.2 points</strong></td></tr>
+</tbody>
+</table>
+
+<p>If your project pencils at 18% margin and a stacked bad scenario takes you to 9%, the deal still works on a bad day. If you start at 14% and stacked bad takes you to 5%, you are one framer no-show away from breakeven. The pro forma tells you which deals can absorb a hit and which cannot. Builders who skip this run on hope.</p>
+
+<h2>The Build-or-Walk Threshold</h2>
+
+<p>Every builder should set a numeric threshold that triggers a no-go before emotion gets involved. A defensible threshold for a spec build in a normal market:</p>
+
+<ul>
+<li>Margin on cost: 18% minimum at the base case</li>
+<li>Margin on cost: 10% minimum at the stacked-bad case</li>
+<li>Cash-on-cash: 35% minimum on equity-in</li>
+<li>Build months: under 9 from groundbreak to CO</li>
+<li>Comps within 10% of target sale price in the past 90 days</li>
+</ul>
+
+<p>If two of these miss, walk. If three miss, walk faster. The pro forma is the document that makes that conversation about numbers, not gut feel. Builders who run pro formas walk away from 6 of 10 deals they look at. Builders who do not walk away from 1 of 10 and wonder why their portfolio averages 5% margin instead of 20%.</p>
+
+<h2>Build It Once, Use It Every Deal</h2>
+
+<p>A new construction home builder pro forma is not a one-off exercise. It is the template you run every lot, every plan, every market shift. Build it once with the structure described above, lock the formula cells, color the assumption cells yellow, and save the file as your evaluation engine. Every new lot under consideration takes 20 minutes to model. The deals that pencil get a deeper draw schedule and a real bank submission. The deals that do not get killed in pencil, where killing them is free.</p>
+
+<p>If you do not want to build the structure from scratch, SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> is pre-built with the assumption block, hard cost line items, soft cost categories, draw schedule, and sensitivity table described in this article. It is set up to be your standing pro forma engine, so the next lot you look at gets evaluated with the same discipline as the last one, and you spend your time deciding which deals are real instead of building spreadsheets at the kitchen table.</p>`,
+  },
+  {
     slug: 'land-development-proforma-excel',
     title: 'Land Development Proforma in Excel: How to Build the Model',
     metaTitle: 'Land Development Proforma in Excel | SheetCraft',
