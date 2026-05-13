@@ -16,6 +16,156 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'job-costing-spreadsheet-for-contractors',
+    title: 'Job Costing Spreadsheet for Contractors: Catch Margin Erosion in Week 3, Not Month 6',
+    metaTitle: 'Job Costing Spreadsheet for Contractors | SheetCraft',
+    metaDescription: 'Job costing spreadsheet for contractors that flags margin erosion before payroll. Estimated vs actual by phase, plus the variance formulas that matter.',
+    targetKeyword: 'job costing spreadsheet for contractors',
+    secondaryKeywords: ['estimated vs actual cost tracking', 'construction cost code spreadsheet', 'contractor budget tracking Excel', 'job cost variance formula', 'construction phase budgeting'],
+    excerpt: 'A residential remodeler in Austin bid 21% margin and finished at 14%. No one stole anything. The margin walked out the door across nine cost phases, and the GC did not see it until the August reconciliation. A job costing spreadsheet for contractors catches this in week 3. Here is the structure, the five formulas, and the Friday review cadence that protects gross margin before it is gone.',
+    publishedAt: '2026-05-13',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/job-costing-spreadsheet-for-contractors.png',
+    imageAlt: 'Laptop on a contractor\'s desk displaying a job costing spreadsheet with cost code rows and color-coded variance cells, blueprints and hard hat nearby',
+    content: `<p><strong>A residential remodeler in Austin closed a $284,000 whole-house renovation in February with a quoted gross margin of 21%.</strong> The job wrapped in July at 14%. Nobody stole anything. No subs went bankrupt. The owner did not change scope wildly. The margin walked out the door $400 at a time, $1,200 at a time, $2,800 at a time, in a hundred different transactions across nine cost phases, and the GC did not see any of it until the final reconciliation in August. By then the cash was already gone.</p>
+
+<p>A job costing spreadsheet for contractors is the document that catches this in week 3, not month 6. It is not a budget. A budget is what you bid. A job costing spreadsheet is what actually happens on the job, mapped against the budget, broken down by phase or cost code, updated as invoices and time cards come in. The gap between budget and actual is where your gross margin lives or dies.</p>
+
+<p>This article walks through how to build a job costing spreadsheet that does the work, with the Excel formulas that flag margin erosion before payroll Friday becomes a problem. We will use a $284,000 whole-house remodel as the running example. The same structure scales to a $2.4 million ground-up commercial build or a $48,000 deck and pergola job.</p>
+
+<h2>Why QuickBooks Job Costing Quietly Fails Small Contractors</h2>
+
+<p>The standard answer when a contractor asks about job costing is "use QuickBooks." That answer skips three things that determine whether the system actually works on a real jobsite.</p>
+
+<p>First, QuickBooks job costing only sees what hits the books. An invoice that lands in the inbox Tuesday and gets entered Friday is invisible for three days. A change order with the framer that the PM agreed to over text on a Wednesday afternoon is not in the system until somebody types it. Field actuals lag accounting by anywhere from 4 to 21 days. By the time the numbers are accurate in QuickBooks, the bleeding is already done.</p>
+
+<p>Second, QuickBooks job costing reports answer the question "what did this job cost so far." A job costing spreadsheet for contractors needs to answer "what will this job cost when it is done." Those are different questions. The first is bookkeeping. The second is project management. A contractor running on bookkeeping reports finds out the job lost money after the job ended.</p>
+
+<p>Third, the cost code structure in QuickBooks is usually built by whoever set up the file three years ago, often the bookkeeper, often without input from the estimator. The codes used for job costing do not match the codes used for bidding. So the actual costs cannot be compared back to the bid without a translation layer that nobody maintains.</p>
+
+<p>A spreadsheet fixes all three. The PM enters actuals in real time, projects to completion on the fly, and uses the same cost codes the estimator used to win the job. The cost is about 2 hours of setup and 15 minutes per week of upkeep. The payoff is that the GC knows by week 3 of a 22-week job whether the margin is holding.</p>
+
+<h2>Cost Code Structure That Matches How You Actually Bid</h2>
+
+<p>The single most common reason job costing spreadsheets fail is that the cost codes do not match the bid. The estimator quoted "framing labor and material" as one line at $42,000. The PM tracked "rough carpentry," "framing material," and "framer subcontractor" as three separate buckets. At the end of the job nobody can tell whether framing came in over or under because the structure does not align.</p>
+
+<p>Fix this before you build the spreadsheet. The cost codes in the job costing file must be identical to the cost codes in the estimate. Most residential GCs need 8 to 14 codes. Most light commercial GCs need 16 to 22. Going beyond 25 codes makes the spreadsheet slower to maintain than the savings justify.</p>
+
+<p>For the $284,000 remodel example, the cost code structure looks like this:</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr><th>Code</th><th>Phase</th><th>Budget</th><th>% of Job</th></tr>
+</thead>
+<tbody>
+<tr><td>10</td><td>General Conditions (PM, dumpster, permits)</td><td>$18,400</td><td>6.5%</td></tr>
+<tr><td>20</td><td>Demolition</td><td>$11,200</td><td>3.9%</td></tr>
+<tr><td>30</td><td>Framing and Structural</td><td>$42,800</td><td>15.1%</td></tr>
+<tr><td>40</td><td>Mechanical, Electrical, Plumbing</td><td>$58,600</td><td>20.6%</td></tr>
+<tr><td>50</td><td>Insulation and Drywall</td><td>$22,400</td><td>7.9%</td></tr>
+<tr><td>60</td><td>Interior Finishes (paint, trim, doors)</td><td>$31,800</td><td>11.2%</td></tr>
+<tr><td>70</td><td>Cabinets and Countertops</td><td>$38,200</td><td>13.5%</td></tr>
+<tr><td>80</td><td>Flooring and Tile</td><td>$24,600</td><td>8.7%</td></tr>
+<tr><td>90</td><td>Exterior (siding, deck, paint)</td><td>$15,400</td><td>5.4%</td></tr>
+<tr><td>99</td><td>Contingency</td><td>$20,600</td><td>7.3%</td></tr>
+<tr><td></td><td><strong>Total Direct Cost</strong></td><td><strong>$284,000</strong></td><td><strong>100%</strong></td></tr>
+</tbody>
+</table>
+
+<p>Each cost code gets its own row in the job costing spreadsheet. Across the row: budgeted cost, committed cost (POs and subcontracts signed), actual cost to date (invoices and time cards posted), projected cost at completion, variance against budget, and percent complete. Six columns per code, ten to twenty-two rows, and the spreadsheet is structurally complete.</p>
+
+<h2>The Job Costing Spreadsheet Formulas That Flag Bleeding Early</h2>
+
+<p>Setting up the columns is the easy part. The formulas are what turn a static table into a project management tool that pays for itself in the first job. Here are the five that matter most.</p>
+
+<h3>Committed Cost Formula</h3>
+
+<p>Committed cost equals everything you have signed up for: subcontract values, purchase orders issued, time cards expected through end of week. Not invoices received, but obligations entered into. If the framer's subcontract is $38,400 and the PO for framing lumber is $14,200, the committed cost on cost code 30 is $52,600 even if you have not seen an invoice yet.</p>
+
+<p>In the spreadsheet, with subcontracts in column C and POs in column D for each code:</p>
+
+<p><code>Committed = C5 + D5</code></p>
+
+<p>Why this matters: the contractor in the Austin example signed a framing subcontract at $44,200 against a budget of $42,800 because the framer needed to add a labor day for a structural beam relocation. Committed cost flagged a $1,400 overrun on code 30 the day the subcontract was signed. The PM had time to value-engineer back two days of trim labor on code 60 and protect total job margin. Without that flag, the overrun would have shown up in invoices two weeks later when the trim labor was already burning.</p>
+
+<h3>Projected Cost at Completion Formula</h3>
+
+<p>This is the formula that separates a job costing spreadsheet from a bookkeeping report. Projected cost asks: based on actuals to date and what we know about the work remaining, where will this code end up?</p>
+
+<p>The simplest version uses percent complete:</p>
+
+<p><code>Projected = Actual / Percent_Complete</code></p>
+
+<p>If you have spent $18,200 on framing (code 30) and the framer reports 42% complete, projected cost at completion is $18,200 / 0.42 = $43,333. Against the $42,800 budget, you are tracking $533 over. The formula in Excel, with actuals in column E and percent complete in column G:</p>
+
+<p><code>=IF(G5=0,C5+D5,E5/G5)</code></p>
+
+<p>The IF wrapper handles the case where work has not started: if percent complete is zero, the formula falls back to committed cost. Without it, the cell returns a divide-by-zero error and the total at the bottom of the column breaks.</p>
+
+<h3>Variance Formula</h3>
+
+<p>Variance compares projected cost to budgeted cost. Negative variance means you are over budget. Positive variance means you are under. Most GCs flip this sign convention and confuse themselves. Pick one and stick with it across every job. Industry standard is: variance equals budget minus projected, so favorable variance is positive.</p>
+
+<p>With budget in column B:</p>
+
+<p><code>=B5-F5</code></p>
+
+<p>Where F5 is projected cost from the formula above. On the Austin remodel, the variance on code 30 (framing) was negative $533 by week 4. The variance on code 70 (cabinets) was negative $4,200 by week 11 because the homeowner upgraded the island countertop from quartz to marble after the cabinet shop had already cut the template. The cabinet code flag let the PM redirect contingency from code 99 before the marble invoice landed.</p>
+
+<h3>Variance Percentage and Margin Flag</h3>
+
+<p>Raw variance in dollars is useful. Variance as a percentage of budget is what tells you whether to escalate. A $1,400 variance on a $42,800 framing budget is 3.3% and probably absorbable. A $1,400 variance on a $11,200 demo budget is 12.5% and means the demo crew hit something nobody priced.</p>
+
+<p>The formula, with variance in column H and budget in column B:</p>
+
+<p><code>=H5/B5</code></p>
+
+<p>Then add a conditional flag in column J:</p>
+
+<p><code>=IF(I5&lt;-0.10,"ESCALATE",IF(I5&lt;-0.05,"WATCH","OK"))</code></p>
+
+<p>Anything more than 10% over gets escalated to the owner. Anything 5 to 10% over goes on the weekly watch list. Anything under 5% over stays quiet. These thresholds are not universal. A GC running 8% margins should escalate at 3% variance because the margin will not absorb more. A GC running 22% margins can absorb 6% variances on a single code without panic. Calibrate to your actual gross margin.</p>
+
+<h3>Total Job Margin Formula</h3>
+
+<p>Sum projected costs across all codes, compare to contract value, divide by contract value. With projected costs in column F, rows 5 through 14, and contract value in cell B2:</p>
+
+<p><code>=(B2-SUM(F5:F14))/B2</code></p>
+
+<p>Format the cell as a percentage. This is the single number the owner should look at every Friday. If it falls below the bid margin by more than 2 percentage points, the job is in trouble and somebody needs to do something this week, not next month.</p>
+
+<h2>Daily Field Entry Without Losing the Field Team</h2>
+
+<p>The hardest part of running a job costing spreadsheet is not the formulas. It is getting the actuals in. Field crews do not want to fill out spreadsheets. PMs do not want to chase field crews. The contractors who get this right pick one of three approaches.</p>
+
+<p>The first approach is a paper time card with cost codes printed at the top. Crew foreman writes hours per code at the end of each day. Time cards land on the PM's desk Monday morning. PM enters the numbers in 12 minutes. This works for crews of 4 to 8 people.</p>
+
+<p>The second approach is a shared Google Sheet linked to the master spreadsheet. Field uses a tablet or phone to enter hours and material received. PM reviews daily. This works for crews of 8 to 25 across multiple sites if the foremen are reasonably comfortable with phones.</p>
+
+<p>The third approach is a job costing app (Buildertrend, CompanyCam, Knowify) that exports to CSV. PM imports the CSV into the master spreadsheet weekly. This works for companies running $4M to $20M in annual revenue where the per-seat software cost is justified by the time savings.</p>
+
+<p>What does not work: the PM trying to reconstruct actuals from invoices at the end of the month. By then half the field detail is gone, three change orders nobody documented are baked into the costs, and the variance signal is noise.</p>
+
+<h2>The Friday Review: Three Questions That Save Margin</h2>
+
+<p>A job costing spreadsheet is only useful if somebody reads it. Every Friday, before the weekend, the GC or PM looks at the sheet for each active job and asks three questions.</p>
+
+<p>First: are any cost codes flagged ESCALATE or WATCH? If yes, what is the corrective action by next Friday? Not "I will keep an eye on it." A specific action: renegotiate the sub's labor count, pull the marble swap back to quartz, redirect contingency, talk to the owner about a change order.</p>
+
+<p>Second: is total job margin within 2 points of the bid margin? If no, find the codes that are eating the margin and act this week. The Austin remodeler lost the job's margin because they did not ask this question until August. The data was sitting in the cost code rows in June.</p>
+
+<p>Third: how much contingency is left and how much job is left? Contingency at 40% with 60% of the job left is healthy. Contingency at 12% with 60% of the job left is a warning. Contingency at zero with 30% of the job left means the GC is bidding the remaining work out of profit. None of these states fix themselves.</p>
+
+<p>The Friday review takes 8 to 14 minutes per active job. Over a year on six concurrent projects, that is roughly 60 hours of owner time, and it is the most leveraged 60 hours in the company. The alternative is finding out in August what you could have known in May.</p>
+
+<h2>Build It Once, Use It On Every Job</h2>
+
+<p>A job costing spreadsheet for contractors is not complicated to build. Twelve cost code rows, six tracking columns, five formulas, one weekly review cadence. The challenge is consistency: building it for every job, updating it every week, reading it every Friday. Contractors who do this on the back of an envelope find their margin in their bank account. Contractors who do it in a structured spreadsheet find their margin in the cost code rows before it becomes a cash problem.</p>
+
+<p>The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> is the pre-built version of this spreadsheet. Cost codes are set up for residential, light commercial, and ground-up builds. The formulas above are wired in. Conditional formatting flags ESCALATE and WATCH variances in red and yellow. Change order tracking is integrated so a signed CO updates the budget without breaking the variance math. If you are still rebuilding a job costing spreadsheet from scratch every project, or worse, running jobs without one, the template pays for itself on the first $40,000 in cost code variance it surfaces.</p>`,
+  },
+  {
     slug: 'construction-cash-flow-forecast-excel',
     title: 'Construction Cash Flow Forecast Excel: S-Curve Draw Schedule That Lenders Approve',
     metaTitle: 'Construction Cash Flow Forecast Excel | SheetCraft',
