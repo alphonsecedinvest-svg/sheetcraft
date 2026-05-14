@@ -16,6 +16,143 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-overhead-markup-calculator',
+    title: 'Construction Overhead Markup Calculator: Stop Losing Money on Winning Bids',
+    metaTitle: 'Construction Overhead Markup Calculator | SheetCraft',
+    metaDescription: 'Build a construction overhead markup calculator that covers real fixed and variable overhead, hits your target margin, and flags below-breakeven bids.',
+    targetKeyword: 'construction overhead markup calculator',
+    secondaryKeywords: ['markup vs margin construction', 'contractor overhead calculation', 'general contractor markup formula', 'construction profit margin Excel', 'contractor pricing formula'],
+    excerpt: 'Most contractors confuse markup with margin and apply a single overhead rate to every job. The result: winning bids that quietly lose money. Here is the calculator that fixes both errors before you sign.',
+    publishedAt: '2026-05-14',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-overhead-markup-calculator.png',
+    imageAlt: 'Isometric illustration of a blueprint roll, hard hat, calculator, and stacked coins on a contractor\'s desk',
+    content: `<p>Most contractors do not lose money on bad jobs. They lose money on jobs they thought were good. A 10% markup feels safe until you realize your overhead is 13% of revenue and you just bid a $200,000 job at a $6,000 loss. The math that wins you the job is the math that bankrupts you. A construction overhead markup calculator built correctly tells you, before you sign the contract, whether the bid number actually covers the cost of being in business.</p>
+
+<p>This is not a tutorial on Excel formulas. It is a pricing system for general contractors and subcontractors who are tired of looking at a P&L in March and wondering where the year went. If you have ever finished a job on schedule, on budget, and still ended the year with less cash than you started, your markup is wrong. Probably by a lot.</p>
+
+<h2>Why most contractor markup math is broken</h2>
+
+<p>There are two errors that show up on almost every spreadsheet I have audited for a small or mid-size contractor. Both cost real money.</p>
+
+<p><strong>Error one: confusing markup with margin.</strong> A 20% markup is not a 20% margin. If your direct job cost is $100,000 and you mark it up 20%, you bill $120,000. Your profit is $20,000 on $120,000 of revenue, which is a 16.7% margin. The 3.3 points you just gave up is the gap that eats into overhead. Multiply that across $3M of revenue and you have given away $99,000 you needed to pay rent, insurance, and your office manager.</p>
+
+<p><strong>Error two: treating overhead as a single rate.</strong> Contractors who actually calculate overhead usually do it once a year, get a number like 12%, and apply it to every job. But a six-month commercial buildout does not consume overhead at the same rate as a two-week residential remodel. The longer the job and the more supervision it needs, the more overhead it eats. A single rate undercharges complex jobs and overcharges simple ones, which is why you keep losing the bids you should win and winning the bids you should lose.</p>
+
+<h2>The markup formula that actually covers overhead</h2>
+
+<p>The formula contractors should be using to convert a desired net margin into a job markup is straightforward, but you almost never see it on the back of a napkin.</p>
+
+<p>Markup % = (Overhead % + Profit %) / (1 - Overhead % - Profit %)</p>
+
+<p>That denominator is what most pricing spreadsheets miss. It is the reason a 10% overhead + 10% profit target requires a 25% markup on direct cost, not 20%. Here is what a properly structured calculator looks like in a spreadsheet.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Label</th><th>Value</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Annual overhead ($)</td><td>240,000</td><td>(input)</td></tr>
+<tr><td>B4</td><td>Annual direct cost run rate ($)</td><td>2,000,000</td><td>(input)</td></tr>
+<tr><td>B5</td><td>Target net profit %</td><td>10%</td><td>(input)</td></tr>
+<tr><td>B6</td><td>Overhead as % of direct cost</td><td>12%</td><td><code>=B3/B4</code></td></tr>
+<tr><td>B7</td><td>Required markup on direct cost</td><td>24.4%</td><td><code>=(B6+B5)/(1-B5)</code></td></tr>
+<tr><td>B8</td><td>Equivalent gross margin %</td><td>19.6%</td><td><code>=B7/(1+B7)</code></td></tr>
+</tbody>
+</table>
+
+<p>The formula in B7 converts a target profit margin into the markup you actually apply to a direct cost number on a bid sheet. If you want a 10% net margin on revenue and your overhead runs at 12% of direct cost, you mark up direct costs by 24.4%, not 22%, and definitely not 20%.</p>
+
+<p>The formula in B8 shows the contractor what gross margin that markup produces, which is the number a banker or surety will ask about. Markup is for pricing the job. Margin is for evaluating the business. You need both.</p>
+
+<h2>Splitting overhead into fixed and variable</h2>
+
+<p>A single overhead rate is the lazy version of this calculation. The contrarian move is splitting overhead into two pools and applying them differently to each bid.</p>
+
+<p><strong>Fixed overhead</strong> is what the company costs to exist whether you have jobs or not. Office rent, owner salary, accounting, insurance base, software, vehicle leases. This pool gets recovered as a percentage of total revenue or direct cost, because every job has to pay its share.</p>
+
+<p><strong>Variable overhead</strong> scales with job activity. Project manager time, jobsite supervision, supply runs, dumpsters allocated to general conditions, temporary utilities. This pool gets recovered per labor hour, per week of job duration, or per supervision day, depending on how it actually behaves.</p>
+
+<p>Here is what a two-pool overhead calculator looks like with realistic numbers for a $2M revenue general contractor.</p>
+
+<table>
+<thead>
+<tr><th>Pool</th><th>Annual cost</th><th>Driver</th><th>Recovery rate</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>Fixed overhead</td><td>$150,000</td><td>Direct cost</td><td>7.5%</td><td><code>=C2/total_direct_cost</code></td></tr>
+<tr><td>Variable overhead</td><td>$90,000</td><td>Supervised job-weeks</td><td>$865/week</td><td><code>=C3/total_job_weeks</code></td></tr>
+</tbody>
+</table>
+
+<p>For a 12-week job with $200,000 direct cost, applied overhead is now $200,000 x 7.5% + 12 x $865 = $15,000 + $10,380 = $25,380. A single 12% rate would have applied $24,000. Close, but the longer the job runs, the more the two-pool method diverges. On a 24-week job the two-pool method captures $20,760 of variable overhead versus $24,000 from the flat rate, and you would have undercharged by enough to wipe out a quarter of the profit.</p>
+
+<p>The Excel formula that ties this together on a per-job basis lives in your bid worksheet, not your annual planning file.</p>
+
+<p>Required bid price = Direct cost + Fixed OH allocation + Variable OH allocation + Target profit</p>
+
+<p>In cells, if direct cost is in C5, job duration in weeks is in C6, fixed OH rate is in C7, weekly variable OH rate is in C8, and target profit % on price is in C9:</p>
+
+<p><code>=(C5 + C5*C7 + C6*C8) / (1 - C9)</code></p>
+
+<p>That single formula does the work most contractors do with three separate guesses.</p>
+
+<h2>What the calculator tells you to do with each bid</h2>
+
+<p>A markup calculator is not just a number generator. It is a decision tool. The decisions a contractor should pull from it on every bid are these.</p>
+
+<ol>
+<li><strong>Walk-away price.</strong> The minimum price below which the job loses money after overhead. For most contractors this is direct cost + overhead allocation, no profit. Bidding below that on purpose only makes sense if you are buying market access or keeping a crew busy through a slow week.</li>
+<li><strong>Target price.</strong> Walk-away price grossed up for target profit margin. This is what you submit.</li>
+<li><strong>Stretch price.</strong> Target price plus 3 to 5 points of margin for unusual risk (unknown site conditions, owner who has stiffed two contractors in town, scope written on a napkin). If the market is hot, this is what you submit. If it is cold, this is your private ceiling.</li>
+<li><strong>Break-even sensitivity.</strong> A formula like <code>=IF(B12&lt;B7,"BELOW BREAKEVEN","OK")</code> in your bid worksheet that flashes red when your bid number is below the walk-away price. It is shocking how often this fires when contractors actually build the formula.</li>
+</ol>
+
+<p>The decision rule is simple. If the calculator says walk-away is $182,000 and the customer's budget is $170,000, you do not negotiate. You either reduce scope to bring direct cost down, or you decline. A contractor who bids $170,000 to win the relationship and figures they will make it up on change orders is a contractor whose change order percentage needs to be 8% or more just to break even. That is a hope, not a plan.</p>
+
+<h2>The numbers from a real contractor pricing audit</h2>
+
+<p>Here is a side-by-side of how a $1.8M residential remodel GC was pricing jobs before and after we built the two-pool markup calculator. The annual overhead was $215,000. Target net profit was 8%.</p>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Direct cost</th><th>Old price (15% markup)</th><th>Calculator price</th><th>Old profit</th><th>True profit</th></tr>
+</thead>
+<tbody>
+<tr><td>4-week kitchen remodel</td><td>$48,000</td><td>$55,200</td><td>$58,400</td><td>$7,200</td><td>$2,100 (after OH)</td></tr>
+<tr><td>12-week full home remodel</td><td>$185,000</td><td>$212,750</td><td>$235,800</td><td>$27,750</td><td>($1,200) loss</td></tr>
+<tr><td>20-week addition + remodel</td><td>$340,000</td><td>$391,000</td><td>$453,200</td><td>$51,000</td><td>($14,500) loss</td></tr>
+</tbody>
+</table>
+
+<p>The pattern is brutal. A flat 15% markup looks fine on the kitchen remodel and disastrous on the addition. The contractor was financing the big jobs with the small ones and could not figure out why bank balances kept dropping during busy seasons. Once we moved to the two-pool calculator, the kitchen job stayed competitive, the long jobs got priced correctly, and two of them did not happen. The owner thought he lost two jobs. He actually avoided $35,000 in losses he was going to absorb personally.</p>
+
+<h2>A pre-bid checklist before you send the number</h2>
+
+<p>Run every bid through this before you email it.</p>
+
+<ul>
+<li>Direct cost includes labor, materials, subs, equipment, and a documented contingency (3 to 7% depending on scope clarity).</li>
+<li>Fixed overhead percentage matches your last 12-month actuals, not your aspiration.</li>
+<li>Variable overhead is calculated on actual supervised job weeks, not calendar weeks.</li>
+<li>Target profit is applied on top of overhead, not blended into the markup.</li>
+<li>Walk-away price is calculated and the bid is above it.</li>
+<li>The formula that flags below-breakeven bids is active in the worksheet.</li>
+<li>Job duration assumption matches the schedule you are signing.</li>
+</ul>
+
+<p>That last one is the trap. A bid built on a 12-week duration that gets dragged to 18 weeks because the owner cannot pick tile is a bid that lost 6 weeks of variable overhead recovery. Either price for the realistic duration, or put delay-cost language in the contract.</p>
+
+<h2>From spreadsheet to a system</h2>
+
+<p>The Excel formulas in this article work. You can build the calculator yourself in an afternoon. The harder part is keeping the inputs honest. Annual overhead changes every time you hire, lose, or shift roles. The labor base shifts every quarter. The variable overhead rate moves whenever your average job duration changes. A calculator that runs on stale numbers is worse than no calculator, because it gives you false confidence.</p>
+
+<p>If you are building the calculator from scratch, plan to update the inputs quarterly. If you want the structure already built, with the two-pool overhead pools, the markup formula, the walk-away calculator, the bid sensitivity flags, and a place to track actual job costs against bid, the SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> includes all of it. It is built for contractors who would rather price the next bid correctly than spend another Saturday rebuilding their overhead spreadsheet from scratch.</p>
+
+<p>The next job you bid will either pay for your business or quietly drain it. The math takes ten minutes. Do it before you sign.</p>`,
+  },
+  {
     slug: 'job-costing-spreadsheet-for-contractors',
     title: 'Job Costing Spreadsheet for Contractors: Catch Margin Erosion in Week 3, Not Month 6',
     metaTitle: 'Job Costing Spreadsheet for Contractors | SheetCraft',
