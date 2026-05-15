@@ -16,6 +16,169 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'certificate-of-insurance-tracking-spreadsheet',
+    title: 'Certificate of Insurance Tracking Spreadsheet: Flag Expiring Sub COIs Before They Cost You',
+    metaTitle: 'COI Tracking Spreadsheet for Contractors | SheetCraft',
+    metaDescription: 'Track every subcontractor\'s certificate of insurance in one spreadsheet. Auto-flag expired COIs, missing endorsements, and 30-day renewal alerts.',
+    targetKeyword: 'certificate of insurance tracking spreadsheet',
+    secondaryKeywords: ['subcontractor insurance tracking', 'COI compliance Excel', 'contractor insurance management', 'subcontractor certificate of insurance log', 'general contractor risk tracking'],
+    excerpt: 'An expired sub COI is not a paperwork problem. It is a six-figure liability you did not see coming. Here is what an actually useful COI tracking spreadsheet looks like, the formulas that turn it into an early warning system, and the three mistakes that make most trackers useless.',
+    publishedAt: '2026-05-15',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/certificate-of-insurance-tracking-spreadsheet.png',
+    imageAlt: 'Contractor desk with laptop showing COI tracking spreadsheet, insurance certificate clipboard, and hard hat',
+    content: `<p>If you run jobs with subcontractors, your single biggest uninsured exposure is not the bid you lost or the change order you ate. It is the moment a sub's general liability policy lapsed two weeks ago and one of their guys puts a circular saw through his thigh on your site. Your insurance gets tapped. Your modifier goes up. Your premiums climb 20 to 40 percent at renewal. And nobody told you the policy had expired because the COI was sitting in an email from nine months ago that you never followed up on.</p>
+
+<p>A certificate of insurance tracking spreadsheet exists to make that conversation impossible. Not because Excel is the perfect tool for insurance management, but because the alternative for most small to mid-size general contractors is worse: a manila folder, a Gmail label, and a memory that fails when you scale past five subs. The point of this article is to show you what an actually useful COI tracker looks like, the formulas that turn it from a static log into an early warning system, and why most contractors get this wrong even when they do build one.</p>
+
+<h2>Why COI Tracking Is a Financial Control, Not a Filing Chore</h2>
+
+<p>Every GC owner I talk to who has been sued by a subcontractor's injured worker says the same thing afterward: "I thought we had a COI on file." They did. It was from 2022. The job was in 2024. The policy expired six months before the accident, and nobody at the office had a system to catch it.</p>
+
+<p>Run the math on what that costs:</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Direct Cost</th><th>Insurance Cost</th><th>Total Exposure</th></tr></thead>
+<tbody>
+<tr><td>Sub's worker injured, COI expired, no waiver of subrogation</td><td>$0 to $50,000 deductible</td><td>+30% premium for 3 years on a $18,000 policy</td><td>$66,200 over 3 years</td></tr>
+<tr><td>OSHA finds expired COI during site inspection</td><td>$15,000 to $76,000 fine</td><td>Project shutdown 5 to 15 days</td><td>$30,000 to $200,000</td></tr>
+<tr><td>Owner audit on OCIP project finds missing additional insured endorsement</td><td>Backcharges, possible contract termination</td><td>Lost future work with that owner</td><td>$100,000+ per relationship</td></tr>
+<tr><td>Lawsuit names you when sub's policy denied claim</td><td>$50,000 to $500,000 settlement</td><td>Possible coverage drop</td><td>Six figures, minimum</td></tr>
+</tbody>
+</table>
+
+<p>Now compare that to the cost of building and maintaining a real tracking system: roughly four hours of setup, fifteen minutes a week of upkeep, and zero recurring software fees. The ROI on a COI spreadsheet is one of the highest in any construction back office. The fact that most GCs still do not have one is purely an attention problem, not a tooling one.</p>
+
+<h2>What Your COI Tracking Spreadsheet Must Actually Track</h2>
+
+<p>Most templates floating around online track three fields and call it done: subcontractor name, expiration date, and a "received yes/no" column. That is not tracking, that is a list. A working COI tracker captures the data that lets you answer four questions in under thirty seconds:</p>
+
+<ol>
+<li>Whose insurance expires in the next 30, 60, or 90 days?</li>
+<li>Which active subs are non-compliant right now, and why?</li>
+<li>For each policy, do we have the right endorsements (additional insured, waiver of subrogation, primary and non-contributory)?</li>
+<li>What is our total open contract value sitting under non-compliant COIs?</li>
+</ol>
+
+<p>To answer those, your sheet needs columns for the following. Use one row per subcontractor per policy type, since GL, auto, workers comp, and umbrella all expire on different schedules and carry different limits.</p>
+
+<table>
+<thead><tr><th>Column</th><th>Field</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Sub Name</td><td>Reyes Concrete LLC</td></tr>
+<tr><td>B</td><td>Trade</td><td>Concrete Flatwork</td></tr>
+<tr><td>C</td><td>Active Project(s)</td><td>Maplewood SFR, Westgate Remodel</td></tr>
+<tr><td>D</td><td>Contract Value Open</td><td>$48,500</td></tr>
+<tr><td>E</td><td>Policy Type</td><td>General Liability</td></tr>
+<tr><td>F</td><td>Carrier</td><td>Travelers</td></tr>
+<tr><td>G</td><td>Policy Number</td><td>GL-998472-A</td></tr>
+<tr><td>H</td><td>Effective Date</td><td>2025-04-01</td></tr>
+<tr><td>I</td><td>Expiration Date</td><td>2026-04-01</td></tr>
+<tr><td>J</td><td>Per Occurrence Limit</td><td>$1,000,000</td></tr>
+<tr><td>K</td><td>Aggregate Limit</td><td>$2,000,000</td></tr>
+<tr><td>L</td><td>Additional Insured?</td><td>Yes</td></tr>
+<tr><td>M</td><td>Waiver of Subrogation?</td><td>Yes</td></tr>
+<tr><td>N</td><td>Primary and Non-Contributory?</td><td>Yes</td></tr>
+<tr><td>O</td><td>Cert Holder Listed Correctly?</td><td>Yes</td></tr>
+<tr><td>P</td><td>Days Until Expiration</td><td>(formula)</td></tr>
+<tr><td>Q</td><td>Status</td><td>(formula)</td></tr>
+<tr><td>R</td><td>Compliance Score</td><td>(formula)</td></tr>
+<tr><td>S</td><td>File Link</td><td>OneDrive path</td></tr>
+<tr><td>T</td><td>Last Requested</td><td>2026-03-12</td></tr>
+<tr><td>U</td><td>Notes</td><td>Awaiting renewed endorsement</td></tr>
+</tbody>
+</table>
+
+<h2>The Formulas That Turn a List Into a Warning System</h2>
+
+<p>This is where most spreadsheets die. People build the column structure and then check it manually every quarter, which defeats the entire purpose. The formulas below give you a sheet that flags itself.</p>
+
+<h3>Days Until Expiration</h3>
+
+<p>In column P, calculate days remaining on each policy. Negative numbers mean expired.</p>
+
+<pre><code>=I2-TODAY()</code></pre>
+
+<p>Format this column with conditional formatting: red fill if less than or equal to 0, orange if between 1 and 30, yellow if 31 to 60, no fill above 60. The visual scan replaces a manual review.</p>
+
+<h3>Status Flag With Multiple Conditions</h3>
+
+<p>Column Q is the workhorse. It tells you in plain English whether you can let this sub on site tomorrow.</p>
+
+<pre><code>=IF(P2&lt;=0,"EXPIRED - STOP WORK",IF(P2&lt;=30,"EXPIRES SOON - REQUEST RENEWAL",IF(OR(L2="No",M2="No",N2="No",O2="No"),"NON-COMPLIANT - MISSING ENDORSEMENT","COMPLIANT")))</code></pre>
+
+<p>This single formula nests four checks: expired, expiring within 30 days, missing required endorsements, or fully compliant. The output is a directive, not a status. "EXPIRED - STOP WORK" tells your super what to do without you having to translate.</p>
+
+<h3>Compliance Score</h3>
+
+<p>Some owners want a percentage. Column R gives you one based on the four endorsement columns.</p>
+
+<pre><code>=(COUNTIF(L2:O2,"Yes")/4)*100</code></pre>
+
+<p>Anything below 100 is a gap. Use this for monthly reports to owners on OCIP or CCIP projects where compliance scoring is contractually required.</p>
+
+<h3>Total Exposure Under Non-Compliant COIs</h3>
+
+<p>On a summary tab, this formula tells you exactly how much open contract value is currently riding on insurance you cannot rely on.</p>
+
+<pre><code>=SUMIFS(D:D,Q:Q,"EXPIRED - STOP WORK")+SUMIFS(D:D,Q:Q,"NON-COMPLIANT - MISSING ENDORSEMENT")</code></pre>
+
+<p>If that number is anything other than zero on a Monday morning, your week starts with phone calls to subcontractors. Not bids. Not invoices. Phone calls.</p>
+
+<h3>30-Day Renewal Pipeline</h3>
+
+<p>Build a separate tab listing every sub whose policy expires in the next 30 days, so you can batch outreach instead of chasing one at a time.</p>
+
+<pre><code>=FILTER(A:I,(P:P&lt;=30)*(P:P&gt;0))</code></pre>
+
+<p>If you are on a version of Excel without dynamic arrays, the SUMIFS and INDEX/MATCH combos work too, but FILTER is cleaner and updates in real time.</p>
+
+<h2>The Three Mistakes That Make COI Tracking Useless</h2>
+
+<h3>Mistake 1: Tracking Only the Expiration Date</h3>
+
+<p>An unexpired COI with no waiver of subrogation and no additional insured endorsement gives you almost nothing. The carrier can subrogate against your insurer, and you are not named on the policy so the sub's coverage does not respond on your behalf. You need all four endorsement checks, every time, on every policy. Column structure forces this. A free Word doc COI form does not.</p>
+
+<h3>Mistake 2: Not Tracking Contract Value at Risk</h3>
+
+<p>If your spreadsheet does not link COIs to active job dollars, you cannot prioritize. A $1,200 plumbing repair under a lapsed COI is irritating. A $340,000 framing contract under a lapsed COI is an emergency. Column D and the SUMIFS exposure formula are what make this distinction obvious. Without them, every non-compliance flag looks the same and you triage badly.</p>
+
+<h3>Mistake 3: Logging the COI on Receipt and Never Looking Again</h3>
+
+<p>Most tracking spreadsheets are write-once. A sub sends a COI in January, someone enters the data, and the row sits there until someone needs it in November. By then the policy expired in April. The fix is the conditional formatting plus a weekly 15-minute review on Mondays: filter Q for anything that is not "COMPLIANT" and work the list. Build this into your Monday operations meeting and it stops being optional.</p>
+
+<h2>Sample Output: One Week of COI Monitoring</h2>
+
+<p>Here is what a working COI tracker looks like on a Monday morning for a GC running 11 active subs across four projects:</p>
+
+<table>
+<thead><tr><th>Sub</th><th>Contract Open</th><th>Expires</th><th>Days Left</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Reyes Concrete LLC</td><td>$48,500</td><td>2026-04-01</td><td>-44</td><td>EXPIRED - STOP WORK</td></tr>
+<tr><td>Hammer Down Framing</td><td>$340,000</td><td>2026-05-29</td><td>14</td><td>EXPIRES SOON - REQUEST RENEWAL</td></tr>
+<tr><td>Bright Spark Electrical</td><td>$72,000</td><td>2026-09-15</td><td>123</td><td>NON-COMPLIANT - MISSING ENDORSEMENT</td></tr>
+<tr><td>Northshore Plumbing</td><td>$28,300</td><td>2026-11-02</td><td>171</td><td>COMPLIANT</td></tr>
+<tr><td>Apex Drywall</td><td>$91,400</td><td>2026-07-18</td><td>64</td><td>COMPLIANT</td></tr>
+<tr><td>Sierra Roofing Co</td><td>$58,200</td><td>2026-06-10</td><td>26</td><td>EXPIRES SOON - REQUEST RENEWAL</td></tr>
+</tbody>
+</table>
+
+<p>Total exposure under non-compliant or expired policies in this snapshot: $460,500. That is the number you should be working down to zero every Monday before you do anything else. If your current system cannot produce that figure in less than a minute, your current system is not working, regardless of how organized your file folders look.</p>
+
+<h2>When to Move Off a Spreadsheet</h2>
+
+<p>For 5 to 50 active subs, Excel is faster, cheaper, and more flexible than any dedicated SaaS. You can change a column, add a project, restructure a tab in five minutes. Software like myCOI or Jones costs $150 to $500 per month, requires onboarding, and locks you into their data model. The break point is usually around 75 to 100 active policies or when an OCIP requires direct integration with the owner's compliance portal. Below that, a well-built spreadsheet outperforms.</p>
+
+<p>The threshold is not the number of subs. It is the number of hours per week you spend on COI work. If you cross three hours, automation pays. Below that, a sheet wins every time.</p>
+
+<h2>Build It Once, or Start From Something Built</h2>
+
+<p>You can build the structure above from scratch in an afternoon if you know Excel. The formulas are not advanced. The discipline is in the column design and the conditional formatting, which is where most homemade trackers fall apart by the third week. The other path is to start from a tracker that already integrates COI tracking with the rest of your project financials, so the contract values, change orders, and sub compliance live in the same workbook instead of three different files.</p>
+
+<p>The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> includes a subcontractor compliance module with the formulas above already wired in, conditional formatting pre-configured, and a one-click summary view showing total dollar exposure under non-compliant COIs across all your active jobs. If your Monday morning currently starts with "I think we have a COI for Reyes somewhere," that is the spreadsheet you want open instead.</p>`,
+  },
+  {
     slug: 'construction-overhead-markup-calculator',
     title: 'Construction Overhead Markup Calculator: Stop Losing Money on Winning Bids',
     metaTitle: 'Construction Overhead Markup Calculator | SheetCraft',
