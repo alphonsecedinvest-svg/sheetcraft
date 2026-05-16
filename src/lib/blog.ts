@@ -16,6 +16,182 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-equipment-depreciation-tracker-excel',
+    title: 'Build a Construction Equipment Depreciation Tracker in Excel',
+    metaTitle: 'Equipment Depreciation Tracker in Excel | SheetCraft',
+    metaDescription: 'Build a construction equipment depreciation tracker in Excel. MACRS schedules, true hourly cost, and the replacement formula small GCs miss.',
+    targetKeyword: 'construction equipment depreciation tracker Excel',
+    secondaryKeywords: ['MACRS depreciation Excel', 'equipment cost per hour calculator', 'construction fleet management spreadsheet', 'equipment replacement schedule', 'contractor equipment tracking'],
+    excerpt: 'Most small GCs run their equipment without knowing the true hourly cost. Here is the Excel tracker that combines MACRS depreciation, real operating cost, and replacement timing in one workbook.',
+    publishedAt: '2026-05-16',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-equipment-depreciation-tracker-excel.png',
+    imageAlt: 'Yellow skid steer loader and mini excavator side view illustration representing a construction equipment fleet',
+    content: `<p>Most small general contractors run their equipment like they run their pickup trucks. They bought the skid steer four years ago, it still starts, and that is the depth of the financial analysis. Then a hydraulic pump grenades on a Tuesday, the rental yard delivers a $4,200 weekly bill, and the margin on a $180,000 retaining wall job disappears in three weeks.</p>
+
+<p>A construction equipment depreciation tracker in Excel solves three problems at once: it tells you what each machine is actually worth on your books, what it costs per hour to run, and when keeping it stops making sense. None of those answers come from your accountant. Your accountant gives you MACRS for the tax return. You need MACRS plus operating cost plus replacement timing for the bid sheet.</p>
+
+<p>This is the spreadsheet most GCs running 3 to 15 pieces of equipment never build. Here is how to build it, with formulas you can drop into a workbook this afternoon.</p>
+
+<h2>The Cost of Not Tracking Equipment Properly</h2>
+
+<p>Run the math on a single piece of equipment. A 2021 CAT 259D3 track loader, bought new at $58,000. The GC depreciates it on the tax return using MACRS 5-year schedule because the CPA told him to. He never builds a separate operating cost number. When he bids site prep on a 4,000 sq ft commercial pad, he plugs in "$85/hour for the skid steer" because that is what the local rental yard charges.</p>
+
+<p>Three problems with that number:</p>
+
+<ul>
+<li>$85 is the <em>rental</em> rate. Rental yards mark up 40 to 60 percent over true cost. He owns the machine, so his real number is lower.</li>
+<li>He has no idea what his real number is, because he never broke out fuel, maintenance, insurance, and depreciation per operating hour.</li>
+<li>He has no warning system for when the machine crosses the threshold from "worth keeping" to "money pit." He finds out from a breakdown.</li>
+</ul>
+
+<p>If his true cost is $52/hour and he bids at $85, he leaves $33/hour of margin on the table on small jobs where he could be more aggressive. If his true cost is $97/hour (because year 6 maintenance is killing him) and he bids at $85, he loses $12/hour on every machine hour. He has no way of knowing which scenario he is in.</p>
+
+<h2>Building the Equipment Master Sheet</h2>
+
+<p>Start with one row per machine. The columns are not negotiable: you need every one of these to make the rest of the tracker work.</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Cell</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Asset ID</td><td>A2</td><td>SK-001</td></tr>
+<tr><td>Make/Model</td><td>B2</td><td>CAT 259D3</td></tr>
+<tr><td>Purchase Date</td><td>C2</td><td>2022-04-15</td></tr>
+<tr><td>Purchase Price</td><td>D2</td><td>58000</td></tr>
+<tr><td>Salvage Value</td><td>E2</td><td>12000</td></tr>
+<tr><td>MACRS Class</td><td>F2</td><td>5</td></tr>
+<tr><td>Useful Life (years)</td><td>G2</td><td>7</td></tr>
+<tr><td>Annual Hours</td><td>H2</td><td>900</td></tr>
+<tr><td>Hour Meter (current)</td><td>I2</td><td>2750</td></tr>
+</tbody>
+</table>
+
+<p>Two numbers people get wrong here. Salvage value is what you can actually sell the machine for at the end, not what the IRS says. Look at IronPlanet or Ritchie Bros sales for comparable hour counts. Useful life is your <em>operational</em> useful life, which is almost always longer than the MACRS class life. A skid steer is MACRS 5-year, but if you maintain it, it runs profitably for 7 to 9 years.</p>
+
+<h2>MACRS Depreciation Schedule in Excel</h2>
+
+<p>MACRS for construction equipment is 5-year property under the General Depreciation System. The half-year convention is the default. Here are the percentages you multiply against the purchase price:</p>
+
+<table>
+<thead>
+<tr><th>Year</th><th>MACRS 5-yr %</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>20.00%</td></tr>
+<tr><td>2</td><td>32.00%</td></tr>
+<tr><td>3</td><td>19.20%</td></tr>
+<tr><td>4</td><td>11.52%</td></tr>
+<tr><td>5</td><td>11.52%</td></tr>
+<tr><td>6</td><td>5.76%</td></tr>
+</tbody>
+</table>
+
+<p>Build a separate tab called <code>MACRS_Schedule</code> with these percentages in column B, years 1 through 6 in column A. Then in your equipment sheet, build a depreciation block.</p>
+
+<p>For year 1 tax depreciation in column J: <code>=D2*VLOOKUP(1,MACRS_Schedule!$A$2:$B$7,2,FALSE)</code></p>
+
+<p>For book value at end of year 1: <code>=D2-J2</code></p>
+
+<p>This gives you the IRS book value, which is what shows up on your balance sheet and what you need for any financing application or sale. For the CAT 259D3 at $58,000, year 1 MACRS depreciation = $11,600. Book value end of year 1 = $46,400. Year 2 depreciation = $18,560. Book value = $27,840. By end of year 6, book value is zero.</p>
+
+<p>One trap: bonus depreciation. Section 168(k) lets you write off a percentage in year 1 on top of MACRS. For 2024 it was 60%, for 2025 it dropped to 40%, and for 2026 it is 20%. If you took bonus depreciation, your year 1 number is much bigger and the remaining schedule shifts. Add a <code>Bonus_Pct</code> column and modify the formula: <code>=D2*K2+D2*(1-K2)*VLOOKUP(1,MACRS_Schedule!$A$2:$B$7,2,FALSE)</code> where K2 holds the bonus percentage taken in year 1.</p>
+
+<h2>True Hourly Cost: The Number Your Bid Sheet Actually Needs</h2>
+
+<p>MACRS is for the tax return. It has nothing to do with what the machine costs you to run. For bidding, you need true hourly cost, which has five components.</p>
+
+<table>
+<thead>
+<tr><th>Cost Component</th><th>How to Calculate</th><th>Example (CAT 259D3, 900 hr/yr)</th></tr>
+</thead>
+<tbody>
+<tr><td>Economic depreciation</td><td>(Purchase Price - Salvage) / (Useful Life * Annual Hours)</td><td>($58,000 - $12,000) / (7 * 900) = $7.30/hr</td></tr>
+<tr><td>Fuel</td><td>Gal/hr * $/gallon</td><td>2.8 gal * $3.75 = $10.50/hr</td></tr>
+<tr><td>Maintenance & repairs</td><td>Annual cost / Annual hours</td><td>$5,400 / 900 = $6.00/hr</td></tr>
+<tr><td>Insurance & registration</td><td>Annual cost / Annual hours</td><td>$1,800 / 900 = $2.00/hr</td></tr>
+<tr><td>Cost of capital</td><td>(Avg book value * interest rate) / Annual hours</td><td>($30,000 * 8%) / 900 = $2.67/hr</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>$28.47/hr</strong></td></tr>
+</tbody>
+</table>
+
+<p>$28.47/hour is the floor. That is what the skid steer costs you to own and operate, before you add the operator's wage and overhead burden. Compare that to the $85 rental rate the GC was using on bids. He was bidding the wrong number by 200 percent.</p>
+
+<p>Build this as a calculated section on the equipment sheet:</p>
+
+<ul>
+<li>Cell L2 (economic depreciation/hr): <code>=(D2-E2)/(G2*H2)</code></li>
+<li>Cell M2 (fuel/hr): <code>=N2*O2</code> where N2 is gal/hr and O2 is fuel price</li>
+<li>Cell P2 (maintenance/hr): <code>=Q2/H2</code> where Q2 is annual maintenance cost</li>
+<li>Cell R2 (insurance/hr): <code>=S2/H2</code> where S2 is annual insurance</li>
+<li>Cell T2 (capital cost/hr): <code>=((D2+(D2-SUM(J2:J7)))/2)*U2/H2</code> where U2 is your borrowing rate</li>
+<li>Cell V2 (total true hourly cost): <code>=L2+M2+P2+R2+T2</code></li>
+</ul>
+
+<p>The capital cost formula is the part most people skip. Even if you paid cash, that capital has an opportunity cost. Use your line of credit rate or your expected return on capital, whichever is higher. For most small GCs that is 7 to 10 percent.</p>
+
+<h2>Maintenance Cost Curve: Why Old Equipment Eats Margin</h2>
+
+<p>Here is the part fleet management software charges $300/month for. You can do it in Excel in 20 minutes.</p>
+
+<p>Track every maintenance invoice in a separate tab called <code>Maintenance_Log</code>. Columns: Date, Asset ID, Hours, Cost, Type (routine/repair). Then build a rolling maintenance cost per hour on the equipment master.</p>
+
+<p>Annual maintenance cost (last 12 months): <code>=SUMIFS(Maintenance_Log!D:D,Maintenance_Log!B:B,A2,Maintenance_Log!A:A,">="&EDATE(TODAY(),-12))</code></p>
+
+<p>Maintenance cost per hour, last 12 months: <code>=W2/H2</code> where W2 holds the SUMIFS result.</p>
+
+<p>Now run that number every quarter. Year 1 maintenance on a new skid steer might be $1,200 (oil, filters, one minor repair). Year 5 might be $4,500 (hydraulic seal, undercarriage, electronics). Year 7 might be $9,800 (engine work, transmission, multiple cylinders).</p>
+
+<p>When maintenance per hour starts increasing 30 percent year over year, you are on the back side of the curve. When the trailing 12 months of maintenance exceeds 25 percent of current market value, the machine is officially eating you alive.</p>
+
+<h2>Replacement Timing: The Decision Most GCs Get Wrong</h2>
+
+<p>The replacement decision is not "the machine is too old." It is a math problem with three inputs: current true hourly cost, projected next-year hourly cost, and the hourly cost of a replacement.</p>
+
+<p>Build a decision cell on each equipment row. Call it <code>Replace_Flag</code>:</p>
+
+<p><code>=IF(V2>X2*1.15,"REPLACE",IF(V2>X2,"WATCH","KEEP"))</code></p>
+
+<p>Where V2 is current true hourly cost and X2 is the projected true hourly cost of buying a new equivalent machine. The 15 percent buffer accounts for transaction costs of selling old and buying new, dealer markup, and downtime during transition.</p>
+
+<p>The CAT 259D3 in year 7 might be running you $42/hour all-in (high maintenance, low book value but lots of capital opportunity cost on the remaining value). A new equivalent at $72,000, depreciated over 7 years at 900 hours/year, runs $33/hour all-in. Your formula returns "REPLACE" because $42 > $33 * 1.15.</p>
+
+<p>One more decision input: utilization. If you only ran the machine 380 hours last year instead of the budgeted 900, your fixed costs are spreading over a smaller base. Annual utilization rate: <code>=I2/H2</code> (current hour meter / annual budget). If this drops below 60 percent for two years running, you should not own this machine. Rent it or sell it.</p>
+
+<h2>The Dashboard That Pulls It All Together</h2>
+
+<p>On a fresh tab called <code>Fleet_Dashboard</code>, build these summary rows pulling from your equipment master.</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Formula</th><th>Why It Matters</th></tr>
+</thead>
+<tbody>
+<tr><td>Total fleet book value</td><td><code>=SUM(BookValue_Column)</code></td><td>Balance sheet number for financing</td></tr>
+<tr><td>Total annual depreciation (MACRS)</td><td><code>=SUM(CurrentYear_MACRS_Column)</code></td><td>Tax planning</td></tr>
+<tr><td>Average true hourly cost</td><td><code>=AVERAGE(TrueCost_Column)</code></td><td>Baseline for bid markups</td></tr>
+<tr><td>Machines flagged REPLACE</td><td><code>=COUNTIF(ReplaceFlag_Column,"REPLACE")</code></td><td>Capex pipeline</td></tr>
+<tr><td>Machines below 60% utilization</td><td><code>=COUNTIFS(Util_Column,"&lt;0.6")</code></td><td>Candidates to sell</td></tr>
+</tbody>
+</table>
+
+<p>Look at this dashboard before every big bid. If the average true hourly cost on your fleet is $34 and you are bidding equipment at $80 for a competitive job, you have room to drop to $65 and still make money. Your competition does not have this number, so they cannot make the same call.</p>
+
+<h2>What to Do This Week</h2>
+
+<p>Three actions in priority order:</p>
+
+<ol>
+<li><strong>List every piece of equipment</strong> with purchase date, price, salvage estimate, and hour meter. If you own more than five machines and cannot fill this out in 30 minutes, that is the actual problem.</li>
+<li><strong>Pull 12 months of maintenance invoices</strong> per machine. Categorize each as routine or repair. Sum the repair column. That number, divided by hours run, is your current maintenance cost per hour. Anything above $6/hour on a piece of equipment under $80K is a warning.</li>
+<li><strong>Calculate true hourly cost</strong> on your top three most-used machines. Compare to what you charge on bids. Adjust your bid template this week.</li>
+</ol>
+
+<p>The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> includes an equipment module with MACRS schedules, true hourly cost formulas, maintenance logging, and the replacement decision matrix already wired up. It also rolls equipment cost into job-level budget tracking so you see equipment burn on each project, not just at the fleet level. That last connection is what most fleet management software misses: equipment cost is meaningless until you tie it to the job that paid for it.</p>`,
+  },
+  {
     slug: 'certificate-of-insurance-tracking-spreadsheet',
     title: 'Certificate of Insurance Tracking Spreadsheet: Flag Expiring Sub COIs Before They Cost You',
     metaTitle: 'COI Tracking Spreadsheet for Contractors | SheetCraft',
