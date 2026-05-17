@@ -16,6 +16,184 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hard-money-loan-calculator-excel',
+    title: 'The Hard Money Loan Calculator Every Flipper Should Build in Excel',
+    metaTitle: 'Hard Money Loan Calculator Excel | SheetCraft',
+    metaDescription: 'Build a hard money loan calculator in Excel that models points, interest reserves, draws, and prepay penalty. Real flipper math, not the cover-page rate.',
+    targetKeyword: 'hard money loan calculator Excel',
+    secondaryKeywords: ['hard money loan formula', 'flipper financing calculator', 'interest reserve calculation', 'ARV loan calculator', 'house flip financing Excel'],
+    excerpt: 'Most flippers shop hard money lenders by interest rate and lose thousands to points, interest reserves, and prepay penalties they never modeled. Here is the hard money loan calculator in Excel that compares lenders on actual cost of capital, with formulas you can drop into a workbook this afternoon.',
+    publishedAt: '2026-05-17',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/hard-money-loan-calculator-excel.png',
+    imageAlt: 'Flat illustration of a house under renovation with scaffolding, calculator, stack of cash, and rising profit chart representing hard money loan analysis for flippers',
+    content: `<p>Most house flippers shop hard money loans the way they shop gas stations. They look at the price on the sign, pick the cheapest, and drive off. The sign in this case is the interest rate. 10 percent beats 12 percent, end of analysis. Then they close on a deal where the 10 percent loan actually costs $9,400 more than the 12 percent loan would have, and they have no idea why their net check at closing came in light.</p>
+
+<p>A hard money loan calculator in Excel that only tracks the rate is a calculator built for the lender, not the borrower. The real cost of capital on a flip is the interest plus the points plus the draw structure plus the prepay penalty plus the extension fees, divided by the actual months you held the money. You need a workbook that models all of it. Here is how to build one this afternoon.</p>
+
+<h2>Why Rate-First Shopping Costs Flippers Real Money</h2>
+
+<p>Two real lenders on the same deal. Purchase price $200,000. Rehab budget $50,000. ARV $325,000. Planned 6-month hold.</p>
+
+<table>
+<thead>
+<tr><th>Term</th><th>Lender A</th><th>Lender B</th></tr>
+</thead>
+<tbody>
+<tr><td>Interest Rate</td><td>10.00%</td><td>12.00%</td></tr>
+<tr><td>Points</td><td>4.00</td><td>2.00</td></tr>
+<tr><td>Loan to Cost</td><td>85%</td><td>90%</td></tr>
+<tr><td>Interest Reserve Required</td><td>6 months upfront</td><td>None (pay monthly)</td></tr>
+<tr><td>Draw Structure</td><td>Lump sum at close</td><td>4 draws against receipts</td></tr>
+<tr><td>Prepay Penalty</td><td>3 months minimum interest</td><td>None</td></tr>
+<tr><td>Extension Fee</td><td>1 point per month</td><td>0.5 point per month</td></tr>
+</tbody>
+</table>
+
+<p>Lender A looks cheaper. The rate is 200 basis points lower. Run the actual numbers on a 5-month hold (you finish ahead of schedule and refinance to a DSCR rental loan or list and sell):</p>
+
+<p><strong>Lender A total cost:</strong> Loan amount $212,500 (85 percent of $250K total project). Points = $8,500. Interest reserve = 6 months at $1,770/month = $10,627. Prepay penalty triggers because you paid off in month 5, so you owe a minimum of 3 months interest already covered by the reserve, no refund. Total cost of capital = $19,127.</p>
+
+<p><strong>Lender B total cost:</strong> Loan amount $225,000 (90 percent of $250K total project). Points = $4,500. Average outstanding balance over 5 months with draws = roughly $180,000. Interest paid = $180,000 times 12 percent times (5/12) = $9,000. No prepay. Total cost of capital = $13,500.</p>
+
+<p>The 12 percent loan costs $5,627 less on the actual deal. And Lender B fronted $12,500 more of your money, so your cash to close dropped by that amount too. You held less of your own capital in the deal, which means your return on cash improves even further.</p>
+
+<p>This is the math a flipper-focused hard money loan calculator forces. A generic mortgage calculator does not.</p>
+
+<h2>The Inputs Tab: Every Variable That Moves Cost</h2>
+
+<p>Build a tab called <code>Inputs</code>. One section per loan you are comparing. The cells matter because the formulas reference them by position.</p>
+
+<table>
+<thead>
+<tr><th>Variable</th><th>Cell</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Purchase Price</td><td>B3</td><td>200000</td></tr>
+<tr><td>Rehab Budget</td><td>B4</td><td>50000</td></tr>
+<tr><td>ARV</td><td>B5</td><td>325000</td></tr>
+<tr><td>Loan to Cost %</td><td>B6</td><td>0.85</td></tr>
+<tr><td>Interest Rate (annual)</td><td>B7</td><td>0.10</td></tr>
+<tr><td>Points</td><td>B8</td><td>4</td></tr>
+<tr><td>Origination Fees (flat)</td><td>B9</td><td>995</td></tr>
+<tr><td>Term (months)</td><td>B10</td><td>12</td></tr>
+<tr><td>Planned Hold (months)</td><td>B11</td><td>5</td></tr>
+<tr><td>Interest Reserve Months</td><td>B12</td><td>6</td></tr>
+<tr><td>Avg Outstanding % of Loan</td><td>B13</td><td>0.85</td></tr>
+<tr><td>Prepay Penalty Months</td><td>B14</td><td>3</td></tr>
+<tr><td>Extension Fee (points/mo)</td><td>B15</td><td>1</td></tr>
+</tbody>
+</table>
+
+<p>The "Avg Outstanding % of Loan" cell is the one most calculators skip. If your lender does draws against receipts, you do not pay interest on the full loan amount from day one. You pay it on the funds that have been advanced. On a typical flip, the average outstanding balance over the hold runs somewhere between 70 and 90 percent of the total loan, depending on how front-loaded the rehab is.</p>
+
+<h2>The Cost Calculation Formulas</h2>
+
+<p>Build a tab called <code>Cost_Breakdown</code>. Each row is one cost component, each column is a lender scenario.</p>
+
+<p><strong>Loan Amount</strong> in B3: <code>=Inputs!B6*(Inputs!B3+Inputs!B4)</code></p>
+
+<p>This calculates loan to cost against total project cost (purchase plus rehab). For the example, 0.85 times ($200,000 + $50,000) = $212,500.</p>
+
+<p><strong>Points Cost</strong> in B4: <code>=B3*(Inputs!B8/100)</code></p>
+
+<p>Points are a percentage of the loan amount, paid at close. 4 points on $212,500 = $8,500. Add the flat origination on the next row: <code>=Inputs!B9</code>.</p>
+
+<p><strong>Monthly Interest</strong> in B6: <code>=B3*Inputs!B13*(Inputs!B7/12)</code></p>
+
+<p>This is where most calculators get it wrong. Loan amount times average outstanding percentage times monthly rate. For Lender A: $212,500 times 0.85 times (0.10/12) = $1,505. Note that this is the average monthly interest across the hold period, not the maximum monthly payment.</p>
+
+<p><strong>Total Interest Paid</strong> in B7: <code>=IF(Inputs!B12>0,B6*MAX(Inputs!B12,Inputs!B11),B6*Inputs!B11)</code></p>
+
+<p>If the lender requires an interest reserve, you pay the larger of the reserve months or the actual hold months (because most lenders do not refund unused reserve). If you pay monthly, you pay only for the months you held.</p>
+
+<p><strong>Prepay Penalty (additional)</strong> in B8: <code>=IF(Inputs!B11<Inputs!B14,MAX(0,(Inputs!B14-Inputs!B11-IF(Inputs!B12>=Inputs!B14,Inputs!B14,0))*B6),0)</code></p>
+
+<p>If you pay off earlier than the prepay floor and the reserve does not already cover that floor, you owe additional months of interest. This nested IF handles the common cases without breaking when reserve covers the penalty.</p>
+
+<p><strong>Total Cost of Capital</strong> in B10: <code>=B4+B5+B7+B8</code></p>
+
+<p>Sum of points, origination, total interest paid (including any reserve that was not refunded), and any additional prepay penalty. For Lender A with a 5-month hold and 6-month reserve: $8,500 + $995 + $10,627 + $0 = $20,122. (The reserve covers all the interest and the prepay floor, so no additional penalty, but the reserve itself is fully consumed.)</p>
+
+<h2>The Net Profit After Payoff Calculation</h2>
+
+<p>This is the number every flipper actually cares about. What lands in your pocket when the sale closes and the lender gets paid off.</p>
+
+<p>Build a tab called <code>Net_Profit</code>. The structure works in stages.</p>
+
+<p><strong>Gross Sale Price</strong> in B3: <code>=Inputs!B5</code> (your ARV, assuming you sell at appraisal).</p>
+
+<p><strong>Selling Costs</strong> in B4: <code>=B3*0.08</code></p>
+
+<p>Realtor commissions, title, transfer tax, closing costs typically run 7 to 9 percent of sale price. Use 8 percent as a baseline unless you have hard numbers for your market.</p>
+
+<p><strong>Net Sale Proceeds</strong> in B5: <code>=B3-B4</code></p>
+
+<p><strong>Loan Payoff</strong> in B6: <code>=Cost_Breakdown!B3</code></p>
+
+<p>Principal balance owed at payoff. Points and interest were paid up front or out of the reserve, so this line is just principal.</p>
+
+<p><strong>Cash to Seller (You)</strong> in B7: <code>=B5-B6</code></p>
+
+<p><strong>Cash Invested</strong> in B9: <code>=(Inputs!B3+Inputs!B4)-Cost_Breakdown!B3+Cost_Breakdown!B10+Inputs!B4*0.10</code></p>
+
+<p>Your down payment (project cost minus loan amount) plus the total cost of capital (points, origination, interest reserve) plus a 10 percent rehab contingency you funded out of pocket. Most flippers underestimate this because they only count the down payment.</p>
+
+<p><strong>Net Profit</strong> in B11: <code>=B7-B9</code></p>
+
+<p><strong>Cash on Cash Return</strong> in B12: <code>=B11/B9</code></p>
+
+<p>For the example deal with Lender A: Cash to seller = $299,000 minus $212,500 loan payoff = $86,500. Cash invested = $37,500 down + $20,122 cost of capital + $5,000 contingency = $62,622. Net profit = $23,878. Cash on cash return = 38 percent over 5 months.</p>
+
+<p>For Lender B on the same deal: Cash to seller = $299,000 minus $225,000 = $74,000. Cash invested = $25,000 down + $13,500 cost of capital + $5,000 contingency = $43,500. Net profit = $30,500. Cash on cash return = 70 percent over 5 months.</p>
+
+<p>The 12 percent loan produces nearly twice the cash on cash return of the 10 percent loan on the same deal. That is the number you are choosing between, not the rate on the term sheet.</p>
+
+<h2>Stress Testing With What-If Scenarios</h2>
+
+<p>Build a tab called <code>Scenarios</code>. Three columns: Base Case, ARV Miss (8 percent low), Hold Extension (3 extra months). The formulas reference the same inputs but override key cells.</p>
+
+<p>For ARV Miss, override B3 on Net_Profit: <code>=Inputs!B5*0.92</code>. Watch what happens. On the Lender A scenario, an 8 percent ARV miss takes net profit from $23,878 down to roughly $135. The deal becomes a break-even instead of a 38 percent return. On Lender B, the same ARV miss takes net profit from $30,500 to $6,750, still a positive return on cash.</p>
+
+<p>For Hold Extension, override B11 in Inputs to 8 months instead of 5. Recalculate. Lender A interest reserve covered 6 months, so you pay 2 additional months at $1,505 each plus extension fees of 1 point per month = $3,010 + $4,250 = $7,260 of additional cost. Lender B adds 3 months of interest at roughly $1,800 plus 0.5 point per month extension = $5,400 + $3,375 = $8,775.</p>
+
+<p>Now Lender A is cheaper on the extended scenario. The right answer depends on your confidence in the timeline. If your last three flips all ran 30 percent long, model around that, not your optimistic schedule.</p>
+
+<h2>The Checklist Before You Sign</h2>
+
+<p>Run every hard money term sheet through this list before you compare rates:</p>
+
+<ul>
+<li>Loan to cost vs loan to ARV. Some lenders cap at 70 percent of ARV, which matters if your ARV is light relative to total cost.</li>
+<li>Interest reserve required, and whether it refunds on early payoff. Most do not refund.</li>
+<li>Draw structure. Lump sum at close vs draws against receipts. Draws save real money on long rehabs.</li>
+<li>Prepay penalty floor. 3 months minimum interest is common. Some lenders go to 6.</li>
+<li>Extension fees and how many extensions are allowed before the loan defaults.</li>
+<li>Title and escrow fees the lender requires. Some have captive title companies that charge above market.</li>
+<li>Inspection fees on each draw. $300 to $750 per inspection adds up over 4 draws.</li>
+<li>Personal guarantee scope. Carve-out PG or full recourse changes your real risk picture.</li>
+</ul>
+
+<p>Add a line in your calculator for every fee you find on the term sheet. The lender who looks 200 basis points cheaper on rate often makes up the difference (and then some) on the back end.</p>
+
+<h2>Where the IRR Calculation Belongs</h2>
+
+<p>Cash on cash is the headline number but it does not annualize for hold time. A 70 percent return over 5 months is not the same as 70 percent over 12 months. The first one means you can roll the capital 2.4 times in a year and theoretically earn 168 percent annualized. The second one is 70 percent annualized.</p>
+
+<p>Add an IRR cell to your Net_Profit tab. Build a simple cash flow row: month 0 (negative cash invested), months 1 through hold-1 (zero, because nothing comes back during the flip), and month hold (positive cash to seller minus loan payoff plus return of any contingency not spent).</p>
+
+<p>Formula: <code>=IRR(CashFlow_Range)*12</code> gives you annualized IRR.</p>
+
+<p>This is how you compare a 5-month flip return to a 9-month flip return honestly. The shorter deal with a lower headline return is often the better use of capital because you can redeploy.</p>
+
+<h2>From Calculator to Closed Deal</h2>
+
+<p>The hard money loan calculator you just built compares lenders honestly, but it only matters if you use it before you sign. Most flippers run the math after the deal closes and the wire hits, which is the wrong order of operations. Build the workbook once, drop two or three lender term sheets into it whenever a deal comes up, and pick the one with the highest cash on cash return on a realistic timeline, not the one with the lowest rate on the cover page.</p>
+
+<p>If you want a calculator that already has the full flip model built in (purchase, rehab schedule, hard money structure with draws and reserves, ARV scenarios, BRRRR refinance pathway, and cash on cash return tracking), the <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> ships with all of this wired up. Drop in your numbers, compare lenders side by side, and stop choosing financing based on the rate alone.</p>`,
+  },
+  {
     slug: 'construction-equipment-depreciation-tracker-excel',
     title: 'Build a Construction Equipment Depreciation Tracker in Excel',
     metaTitle: 'Equipment Depreciation Tracker in Excel | SheetCraft',
