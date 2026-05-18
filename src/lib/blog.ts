@@ -16,6 +16,161 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'private-money-lending-spreadsheet',
+    title: 'Private Money Lending Spreadsheet: Track Notes, Maturities, and True Yield',
+    metaTitle: 'Private Money Lending Spreadsheet Guide | SheetCraft',
+    metaDescription: 'Build a private money lending spreadsheet in Excel that tracks notes, amortization, maturity alerts, and true XIRR yield across a growing portfolio.',
+    targetKeyword: 'private money lending spreadsheet',
+    secondaryKeywords: ['note tracking excel', 'private lender portfolio', 'xirr loan yield', 'balloon maturity tracker', 'hard money note ledger'],
+    excerpt: 'Most private lenders lose 5% of their gross yield to admin entropy: missed maturities, uncollected late fees, miscalculated interest. Here is the spreadsheet structure that fixes it.',
+    publishedAt: '2026-05-18',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/private-money-lending-spreadsheet.png',
+    imageAlt: 'Private money lender\'s clean workspace with laptop and documents for note portfolio tracking',
+    content: `<p>A private money lender I know in Phoenix had eleven active notes at the end of last year. Total deployed: $1.84M. In January, he sat down to file his taxes and discovered two notes had matured in November without him noticing. One borrower paid the balloon. The other did not, and did not tell him. By the time he sent the demand letter in February, the borrower had pulled $40,000 in fresh draws against the property from another lender. The lien position was still first, the equity was still there, but three months of accrued interest, late fees, and legal costs ate the spread he had on that deal. He made the money back, but the lesson was expensive.</p>
+
+<p>That is the actual problem a private money lending spreadsheet solves. Not "tracking loans." Tracking loans is a side effect. The real job is making sure no maturity date, payment date, or covenant breach goes unnoticed across a portfolio that keeps growing. If you have one note, a sticky note works. If you have five, you need something better. If you have fifteen and you are still using your servicer's PDF statements as your system of record, you are paying for that complacency without seeing the bill.</p>
+
+<h2>What Sloppy Note Tracking Actually Costs</h2>
+
+<p>Run the math on a portfolio of $1.5M deployed across ten notes at an average 11% rate with 2 points. Gross annual interest is $165,000. Add $30,000 in points spread across origination. Your nominal yield looks like 13%.</p>
+
+<p>Now subtract the things you miss when you track notes in your inbox and a folder of PDFs:</p>
+
+<ul>
+<li>Two late payments per quarter where you forgot to invoice the late fee ($50 each, $400 per year)</li>
+<li>One balloon you noticed thirty days late, requiring a forbearance and an extension fee you negotiated down ($2,500)</li>
+<li>One borrower who refinanced and prepaid, where you failed to enforce the prepayment penalty because you could not find the note ($4,800)</li>
+<li>Three notes where you miscalculated interest accrual on partial-month payments ($600 across the year)</li>
+<li>One CPA bill increase because your records were a mess and reconstruction took her 4 extra hours at $350 per hour ($1,400)</li>
+</ul>
+
+<p>That is $9,700 per year on a $195,000 gross. Almost 5% of your earnings, gone to admin entropy. A working private money lending spreadsheet does not promise to make you a better underwriter. It promises to keep you from giving back what you already earned.</p>
+
+<h2>The Note Ledger: One Row Per Note, Columns That Matter</h2>
+
+<p>The foundation is a single sheet called Notes. Every active and paid-off note gets one row. Forget the urge to split by year or by borrower. One ledger, filterable.</p>
+
+<p>Minimum columns:</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Example</th><th>Why It Matters</th></tr>
+</thead>
+<tbody>
+<tr><td>Note ID</td><td>2025-007</td><td>Unique reference, year prefix sorts chronologically</td></tr>
+<tr><td>Borrower</td><td>Castillo Holdings LLC</td><td>Entity, not personal name, for K-1 and 1099 routing</td></tr>
+<tr><td>Property Address</td><td>4412 W Glendale, Phoenix AZ</td><td>The collateral, not the borrower</td></tr>
+<tr><td>Lien Position</td><td>1st</td><td>Critical for default workflow priority</td></tr>
+<tr><td>Original Principal</td><td>$185,000</td><td>The base for all calculations</td></tr>
+<tr><td>Current Balance</td><td>$185,000</td><td>Updated after each principal-reducing payment</td></tr>
+<tr><td>Rate</td><td>11.5%</td><td>Annual, simple interest</td></tr>
+<tr><td>Points</td><td>2.5</td><td>Collected at origination, key for true yield</td></tr>
+<tr><td>Origination Date</td><td>2025-03-18</td><td>Day-count basis starts here</td></tr>
+<tr><td>Maturity Date</td><td>2026-03-18</td><td>The most important date in the row</td></tr>
+<tr><td>Payment Type</td><td>Interest-only</td><td>vs. Amortizing or Accrued</td></tr>
+<tr><td>Monthly Payment</td><td>$1,773.96</td><td>Calculated, see formula below</td></tr>
+<tr><td>Status</td><td>Current</td><td>Current, Late, Default, Paid, Modified</td></tr>
+<tr><td>Days to Maturity</td><td>112</td><td>Calculated daily, drives alert color</td></tr>
+</tbody>
+</table>
+
+<p>The monthly interest-only payment formula, assuming the rate is in column G as a decimal:</p>
+
+<p><code>=ROUND(F2*(G2/12),2)</code></p>
+
+<p>For amortizing notes, use the standard payment formula. Assume term in months in column N:</p>
+
+<p><code>=ROUND(-PMT(G2/12,N2,F2),2)</code></p>
+
+<p>Days to maturity, with today's date pulled fresh on open:</p>
+
+<p><code>=K2-TODAY()</code></p>
+
+<p>And the conditional format that actually does work. Apply this rule to the Days to Maturity column with a custom formula:</p>
+
+<p><code>=AND($O2&gt;0,$O2&lt;=60)</code> formatted in yellow. Then add a second rule: <code>=$O2&lt;=0</code> in red. Now every time you open the file, the notes within sixty days of maturity glow yellow and the matured ones glow red. You do not need a separate dashboard. The ledger is the dashboard.</p>
+
+<h2>Amortization That Matches the Deal, Not the Textbook</h2>
+
+<p>Most amortization calculators online assume a 30-year residential mortgage. Private money does not work that way. The typical deal is interest-only for 6 to 24 months with a balloon at the end. Sometimes the borrower makes partial principal paydowns. Sometimes interest accrues and rolls into the balloon (PIK). Your amortization tab has to handle all three.</p>
+
+<p>Build a separate sheet called Payments. One row per payment received, with these columns: Date, Note ID, Type (Interest, Principal, Fee, Points, Payoff), Amount, Days Covered, Principal Balance After. The Days Covered field is what trips up most lenders.</p>
+
+<p>If the note's payment is due on the 18th and the borrower pays on the 25th, you have two choices. Either you charge a late fee and credit the payment to the prior month's interest, or you bump the next payment date and charge prorated interest. Whatever you choose, document it in the note and apply it consistently.</p>
+
+<p>The interest accrual formula for a partial-month payment, where E2 is days covered and the rate is annual:</p>
+
+<p><code>=ROUND(F2*(G2/365)*E2,2)</code></p>
+
+<p>Some lenders use a 360-day year (Actual/360), which is more common in commercial lending and yields slightly more interest. Pick one, write it into your note, and stick to it. The IRS does not care which you pick, but they care that you are consistent.</p>
+
+<p>For PIK notes where interest accrues and rolls into the principal, add a column called Accrued Interest. The running total uses a SUMIFS:</p>
+
+<p><code>=SUMIFS(Payments!D:D,Payments!B:B,A2,Payments!C:C,"Interest")</code></p>
+
+<p>Subtract that from the expected interest at the current date and you get your accrued-but-unpaid balance, which is what gets added to the payoff at maturity.</p>
+
+<h2>Maturity Alerts: the 60-Day Window</h2>
+
+<p>A note that matures in 90 days is not your problem. A note that matures in 60 days is your problem. A note that matures in 30 days and the borrower has not called you is a crisis in waiting.</p>
+
+<p>The conditional formatting handles the visual. But you also want a Maturity Schedule sheet that lists every note maturing in the next 120 days, sorted by date. Use this formula in column A:</p>
+
+<p><code>=IFERROR(INDEX(Notes!A:A,SMALL(IF(Notes!O:O&lt;=120,ROW(Notes!O:O)),ROW()-1)),"")</code></p>
+
+<p>Press Ctrl+Shift+Enter to commit it as an array formula in older Excel versions. In Excel 365, FILTER does the same thing more cleanly:</p>
+
+<p><code>=FILTER(Notes!A:K,Notes!O:O&lt;=120)</code></p>
+
+<p>Sixty days out: email or text the borrower. "Your note matures on X. What is your plan?" Get the response in writing. If they want to refi out, you need to be ready to coordinate with their new lender or title company. If they want to extend, negotiate the extension fee and any rate bump before day 30, not day 0. Notes that mature without a plan are how forbearances become defaults.</p>
+
+<h2>True Yield: the Only Number That Matters at Year-End</h2>
+
+<p>A note at 11% with 2 points and a 12-month term does not yield 11%. It yields about 13% in year one, because the points are earned on day one but reported across the term. If the borrower pays off in month six, the points effectively annualize at 4 points per year, so the true IRR is closer to 15%.</p>
+
+<p>Build a Yield sheet that pulls each note's cashflows from the Payments table. Use XIRR, which handles irregular dates:</p>
+
+<p><code>=XIRR(payment_amounts_range, payment_dates_range)</code></p>
+
+<p>For a $185,000 note at 11.5% with 2.5 points and a 14-month term that paid off on schedule, the cashflow stream looks like this:</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Amount</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>2025-03-18</td><td>-$180,375</td><td>Funding net of points</td></tr>
+<tr><td>2025-04-18</td><td>$1,774</td><td>Interest</td></tr>
+<tr><td>... monthly ...</td><td>$1,774</td><td>Interest</td></tr>
+<tr><td>2026-05-18</td><td>$186,774</td><td>Final interest plus principal</td></tr>
+</tbody>
+</table>
+
+<p>XIRR on that stream returns about 14.1%. That is what you actually earned. If you only tracked the nominal 11.5%, you would underprice your next deal and leave money on the table.</p>
+
+<h2>Tax Reporting: Do Not Let Your CPA Reconstruct This in March</h2>
+
+<p>The IRS treats private money interest as ordinary income, reported on Schedule B if you lend personally or Schedule E and K-1 if you lend through an entity. You need a clean record of interest received per note per calendar year. If you operate as a business lender, you may also need to issue Form 1098 to borrowers who paid more than $600 of interest, though most individual private lenders rely on the borrower's own records here.</p>
+
+<p>Add a Year-End sheet with a simple SUMIFS for each note for the calendar year:</p>
+
+<p><code>=SUMIFS(Payments!D:D,Payments!B:B,A2,Payments!C:C,"Interest",Payments!A:A,"&gt;="&amp;DATE(2025,1,1),Payments!A:A,"&lt;="&amp;DATE(2025,12,31))</code></p>
+
+<p>Do the same for points received, which are income in the year received for cash-basis lenders (not amortized like the borrower deducts them). If you sold a note at a discount or premium, that is a capital gain or loss tracked separately.</p>
+
+<p>One spreadsheet, one source of truth. Your CPA goes from billing you for forensic accounting to billing you for filing.</p>
+
+<h2>Build It or Buy It</h2>
+
+<p>If you have three notes or fewer, build the ledger from scratch using the structure above. It will take you a Saturday afternoon and you will understand every formula. If you have ten or more, the math gets dense fast, especially when you add PIK accrual, partial paydowns, modifications, and multi-borrower entities.</p>
+
+<p>That is why the SheetCraft <a href="/products/flip-brrrr-calculator">Flip & BRRRR Calculator</a> includes a private money lending tab that handles all of this out of the box. Note ledger, payment log, amortization that supports interest-only and PIK, maturity alerts with conditional formatting already configured, XIRR yield calculations, and a year-end interest summary. The same structure works whether you are running three notes or thirty. Open it, drop in your notes, and you stop losing money to entropy.</p>
+
+<p>Whichever way you go, build it or buy it, just build it. The lender in Phoenix has eleven notes today, same as last year, but he opens the file every Monday morning. He has not missed a maturity since.</p>`,
+  },
+  {
     slug: 'hard-money-loan-calculator-excel',
     title: 'The Hard Money Loan Calculator Every Flipper Should Build in Excel',
     metaTitle: 'Hard Money Loan Calculator Excel | SheetCraft',
