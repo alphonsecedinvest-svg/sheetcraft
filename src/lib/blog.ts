@@ -16,6 +16,211 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'cost-segregation-calculator-excel',
+    title: 'Cost Segregation Calculator in Excel: Capture $30,000+ in Year-1 Tax Savings Without a $10k Engineering Study',
+    metaTitle: 'Cost Segregation Calculator Excel: Save Taxes | SheetCraft',
+    metaDescription: 'Build a cost segregation calculator in Excel that captures 80% of pro study value. MACRS formulas, bonus depreciation rules, and real tax savings examples.',
+    targetKeyword: 'cost segregation calculator Excel',
+    secondaryKeywords: ['MACRS depreciation Excel', 'bonus depreciation calculator', 'rental property tax savings', 'accelerated depreciation rental', 'residential cost segregation'],
+    excerpt: 'Cost segregation can shift $30,000 plus in deductions to year one of owning a rental, but pros charge $5k to $15k for a study. Here is how to build a defensible Excel calculator for properties under $750k, with the exact MACRS schedules and bonus depreciation logic professional engineers use.',
+    publishedAt: '2026-05-19',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/cost-segregation-calculator-excel.png',
+    imageAlt: 'Real estate investor calculating cost segregation tax savings in Excel with IRS Form 4562 and rental property documents',
+    content: `<p>A real estate investor in Phoenix closed on a $385,000 single-family rental in March 2024. His accountant did the obvious thing, set up straight-line depreciation over 27.5 years on the building portion, and called it done. The investor took $11,200 in depreciation that first year and felt fine about it.</p>
+
+<p>He missed $38,000 in legal year-one deductions. At his 32% marginal tax rate, that is roughly $12,160 in cash he could have kept. On a single rental. Every year that he keeps the property under straight-line depreciation, he is bleeding value he is entitled to under existing tax code.</p>
+
+<p>This is what cost segregation fixes. And contrary to what most CPAs will tell you, you do not need a $10,000 engineering study to capture most of that value on a residential rental under $750,000. A well-built cost segregation calculator in Excel, grounded in IRS publication 946 asset class definitions and MACRS depreciation tables, will get you 75 to 85 percent of what a professional study delivers. This article shows you how to build it.</p>
+
+<h2>Why Cost Segregation Is Not Optional for Serious Investors</h2>
+
+<p>Standard depreciation treats a $400,000 rental as one giant asset that loses value evenly across 27.5 years. That is convenient for the IRS. It is also nonsense from an economics standpoint. The carpet does not last 27.5 years. The dishwasher does not. The asphalt driveway, the landscaping, the fence, the decorative light fixtures, none of them last anywhere close to 27.5 years.</p>
+
+<p>Cost segregation is the process of reclassifying portions of a property into the correct shorter-life asset categories that the IRS already recognizes. The 5-year, 7-year, and 15-year categories are not loopholes. They are explicitly defined in the depreciation tables. The problem is that most investors and many CPAs default to lumping everything into the 27.5-year residential category because it is easier, not because it is correct.</p>
+
+<h3>What You Actually Save</h3>
+
+<p>Take that $385,000 Phoenix purchase. Assume a $77,000 land allocation (20 percent), leaving $308,000 in depreciable basis. Here is the difference between the two approaches in year one, assuming 60 percent bonus depreciation for property placed in service in 2024:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Year 1 Depreciation</th>
+      <th>Tax Saved at 32%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Straight-line 27.5 years on full $308k</td>
+      <td>$11,200</td>
+      <td>$3,584</td>
+    </tr>
+    <tr>
+      <td>Cost seg, 22% reclassified, with bonus dep</td>
+      <td>$49,520</td>
+      <td>$15,846</td>
+    </tr>
+    <tr>
+      <td><strong>Cash difference, year 1</strong></td>
+      <td><strong>$38,320</strong></td>
+      <td><strong>$12,262</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>That is on one $385,000 property. If you own four similar rentals, you are looking at roughly $49,000 in year-one tax savings versus the lazy approach. Compound that across a portfolio over a decade and the gap is substantial enough to fund another acquisition.</p>
+
+<h2>How to Categorize a Rental Property Without an Engineer</h2>
+
+<p>Professional cost segregation engineers walk the property, photograph every component, and assign costs using contractor pricing data. For a residential rental under $750,000, you can approximate this process using IRS-accepted percentage allocations from comparable studies and publicly available construction cost data. The IRS has not rejected this approach when documented properly, particularly under the "rule of thumb" guidance that has emerged from case law for smaller residential properties.</p>
+
+<h3>The Four Buckets You Need</h3>
+
+<p>Every dollar of your depreciable basis falls into one of these four categories:</p>
+
+<ul>
+  <li><strong>5-year property:</strong> Carpets, vinyl flooring, removable cabinetry, appliances, decorative lighting fixtures, window treatments. Typical range for residential: 5 to 12 percent of basis.</li>
+  <li><strong>7-year property:</strong> Office equipment, some specialty equipment. Usually negligible for a typical single-family rental, often 0 percent.</li>
+  <li><strong>15-year property (land improvements):</strong> Driveways, walkways, fences, retaining walls, landscaping, exterior lighting, pool equipment, septic systems. Typical range: 8 to 18 percent of basis.</li>
+  <li><strong>27.5-year property:</strong> The structural building shell, roof, framing, foundation, plumbing systems, electrical systems, HVAC infrastructure. Everything else.</li>
+</ul>
+
+<p>For a basic single-family rental built post-1990 with standard finishes, a defensible starting allocation is 7 percent into 5-year, 0 percent into 7-year, 13 percent into 15-year, and 80 percent into 27.5-year. Adjust upward for properties with substantial landscaping, pools, large driveways, or recent finish upgrades. Adjust downward for stripped-down rentals with minimal site improvements.</p>
+
+<h2>Building the Cost Segregation Calculator in Excel</h2>
+
+<p>The calculator has four sections: inputs, asset allocation, depreciation schedule, and tax savings comparison. Build it once, use it on every property you analyze.</p>
+
+<h3>Section 1: Inputs</h3>
+
+<p>Set up these inputs on rows 3 through 10:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Cell</th>
+      <th>Label</th>
+      <th>Example Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>B3</td><td>Total Purchase Price</td><td>$385,000</td></tr>
+    <tr><td>B4</td><td>Land Value Percentage</td><td>20%</td></tr>
+    <tr><td>B5</td><td>Marginal Tax Rate</td><td>32%</td></tr>
+    <tr><td>B6</td><td>Year Placed in Service</td><td>2024</td></tr>
+    <tr><td>B7</td><td>Bonus Depreciation Rate</td><td>60%</td></tr>
+    <tr><td>B8</td><td>5-Year Asset Allocation</td><td>7%</td></tr>
+    <tr><td>B9</td><td>15-Year Asset Allocation</td><td>13%</td></tr>
+    <tr><td>B10</td><td>27.5-Year Asset Allocation</td><td>80%</td></tr>
+  </tbody>
+</table>
+
+<p>The bonus depreciation rate is critical and changes by year. For property placed in service in 2023 it was 80 percent, 2024 is 60 percent, 2025 is 40 percent, 2026 is 20 percent, and 2027 onward is 0 percent unless Congress acts. Hardcode the year you bought, do not pull from TODAY().</p>
+
+<h3>Section 2: Asset Allocation</h3>
+
+<p>Calculate the dollar value going into each bucket. In cell B12 calculate depreciable basis:</p>
+
+<p><code>=B3*(1-B4)</code></p>
+
+<p>This strips out land, which is not depreciable. For the $385,000 example with 20 percent land, B12 returns $308,000.</p>
+
+<p>In rows 13 through 15, calculate dollars per asset class:</p>
+
+<ul>
+  <li>B13 (5-year basis): <code>=B12*B8</code> returns $21,560</li>
+  <li>B14 (15-year basis): <code>=B12*B9</code> returns $40,040</li>
+  <li>B15 (27.5-year basis): <code>=B12*B10</code> returns $246,400</li>
+</ul>
+
+<p>Add a check formula in B16 to verify allocations sum to 100 percent:</p>
+
+<p><code>=IF(SUM(B8:B10)=1,"OK","ERROR: allocations must sum to 100%")</code></p>
+
+<h3>Section 3: Year-1 Depreciation Calculation</h3>
+
+<p>Each asset class has its own depreciation method. The 5-year and 15-year classes use MACRS half-year convention with bonus depreciation applied first. The 27.5-year residential class uses straight-line with a mid-month convention. Here are the formulas you need.</p>
+
+<p><strong>5-year MACRS year 1 depreciation (cell B18):</strong></p>
+
+<p><code>=B13*B7+B13*(1-B7)*0.2</code></p>
+
+<p>This applies bonus depreciation to the full 5-year basis, then applies the standard 20 percent first-year MACRS rate to the remaining unbonused portion. For $21,560 in 5-year basis with 60 percent bonus, that returns $14,798.</p>
+
+<p><strong>15-year MACRS year 1 depreciation (cell B19):</strong></p>
+
+<p><code>=B14*B7+B14*(1-B7)*0.05</code></p>
+
+<p>Same logic, but the 15-year half-year first-year rate is 5 percent. For $40,040 in 15-year basis with 60 percent bonus, that returns $24,825.</p>
+
+<p><strong>27.5-year straight-line year 1 (cell B20):</strong></p>
+
+<p>The 27.5-year residential class does not qualify for bonus depreciation. It uses a mid-month convention, meaning if you placed the property in service in July, you get 5.5 months of depreciation in year 1, not 6. To keep the calculator simple, assume mid-year placement, which yields roughly 1.667 percent in year 1:</p>
+
+<p><code>=B15*0.01667</code></p>
+
+<p>For $246,400 in 27.5-year basis, that returns $4,108. If you know the exact month placed in service, refine by replacing 0.01667 with the correct mid-month factor from IRS publication 946 table A-6.</p>
+
+<p><strong>Total year 1 depreciation (cell B21):</strong></p>
+
+<p><code>=B18+B19+B20</code></p>
+
+<p>For our example, that returns $43,731 in year 1 depreciation under cost seg, versus $11,200 under straight-line on the full basis.</p>
+
+<h3>Section 4: Tax Savings Comparison</h3>
+
+<p>The cash impact is what matters. In cell B23 calculate straight-line year 1:</p>
+
+<p><code>=B12*0.03636</code></p>
+
+<p>The 3.636 percent reflects a full year of 27.5-year straight-line depreciation, which is what most CPAs apply without thinking. For $308,000, that is $11,200.</p>
+
+<p>In B24, the year-1 tax savings from cost seg versus the lazy approach:</p>
+
+<p><code>=(B21-B23)*B5</code></p>
+
+<p>For our example: ($43,731 - $11,200) times 32% equals $10,410 in cash kept in year one.</p>
+
+<p>Add a stress test row. In B25, model what happens if you are wrong about your allocation by 30 percent:</p>
+
+<p><code>=B24*0.7</code></p>
+
+<p>If you are aggressive on the percentages and the IRS audits you down to 5 percent 5-year and 9 percent 15-year, you still capture $7,287 in year 1. The downside of a defensible cost seg attempt is still better than ignoring it.</p>
+
+<h2>When DIY Cost Segregation Is Enough and When to Hire a Pro</h2>
+
+<p>The honest answer: for a residential rental under $500,000 in purchase price with standard finishes, a DIY calculator using the percentages above is defensible if you keep a documentation file showing your allocation logic, comparable property study percentages from publicly available IRS-accepted studies, and your assumptions about asset class definitions.</p>
+
+<p>Hire a professional cost segregation engineer when any of these apply:</p>
+
+<ul>
+  <li>The property cost more than $750,000</li>
+  <li>The property is commercial (retail, office, industrial) on a 39-year schedule</li>
+  <li>You made significant capital improvements after purchase and need to segregate those</li>
+  <li>The deduction exceeds $50,000 in year 1, which raises audit attention thresholds</li>
+  <li>You are reclassifying a property you bought more than a year ago, which requires a Form 3115 change in accounting method</li>
+</ul>
+
+<p>The math on hiring a pro is straightforward. A study costs $4,000 to $8,000 for a typical single-family rental and captures perhaps 5 percent more value than a careful DIY calculator. If 5 percent of your depreciable basis times your tax rate exceeds the study fee, hire a pro. If it does not, run the calculator yourself and keep the cash.</p>
+
+<h2>The Mistake That Kills Cost Segregation Claims</h2>
+
+<p>The IRS rarely audits cost segregation directly. What kills these claims is sloppy documentation. If you take aggressive depreciation in year 1 and cannot produce a workpaper showing how you arrived at your asset allocations, you lose on audit.</p>
+
+<p>Your calculator output is not enough. You need a one-page memo for each property documenting the purchase price, land allocation source (county assessor, appraisal, or insurance allocation), the asset class percentages you used, and the publicly available comparable study or IRS guidance you relied on. Print it, sign it, file it with the closing documents. This takes 15 minutes per property and converts an aggressive position into a defensible one.</p>
+
+<p>The other common mistake is forgetting depreciation recapture. When you sell, the IRS recaptures the 5-year and 15-year depreciation at ordinary income rates rather than capital gains rates. This is not a reason to skip cost segregation. It is a reason to model the exit before you do the front-end calculation, particularly if you plan to sell within five years rather than 1031-exchange into the next property.</p>
+
+<h2>Stop Leaving Five-Figure Deductions on the Table</h2>
+
+<p>Every rental property you own and depreciate on straight-line is a property where you are voluntarily paying more tax than the code requires. The cost segregation calculator described above takes one afternoon to build and pays for itself the first time you run a new acquisition through it. For investors with three or more rentals, the cumulative effect over a decade typically exceeds $100,000 in deferred taxes.</p>
+
+<p>Building this calculator from scratch is the kind of project that takes a weekend if you have the depreciation tables and asset class rules memorized. If you would rather skip the build and run your numbers immediately, the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes a full cost segregation module with MACRS schedules pre-loaded, bonus depreciation rules updated through 2027, automatic asset class allocations adjusted by property type, and the side-by-side tax savings comparison that makes the case to your accountant. Drop in a purchase price, set your tax rate, and see your real year-one depreciation in under two minutes per property.</p>`,
+  },
+  {
     slug: 'private-money-lending-spreadsheet',
     title: 'Private Money Lending Spreadsheet: Track Notes, Maturities, and True Yield',
     metaTitle: 'Private Money Lending Spreadsheet Guide | SheetCraft',
