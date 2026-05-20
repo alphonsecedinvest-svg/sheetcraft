@@ -16,6 +16,241 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'qbi-deduction-calculator-real-estate',
+    title: 'QBI Deduction Calculator for Real Estate: How to Claim Your 20% Pass-Through Deduction Without Triggering an Audit',
+    metaTitle: 'QBI Deduction Calculator Real Estate | SheetCraft',
+    metaDescription: 'Build a QBI deduction calculator for real estate in Excel. Section 199A safe harbor, 250-hour log, wage and UBIA limits, with real landlord examples.',
+    targetKeyword: 'QBI deduction calculator real estate',
+    secondaryKeywords: ['Section 199A rental property', '250 hour safe harbor rental', 'QBI rental real estate', 'Rev Proc 2019-38 calculator', 'pass through deduction landlord'],
+    excerpt: 'Most small landlords skip the 20 percent QBI deduction because their CPA will not push for it. Here is how to build a Section 199A calculator in Excel, paired with the 250-hour safe harbor log that survives an audit, with the exact formulas and a realistic landlord example.',
+    publishedAt: '2026-05-20',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/qbi-deduction-calculator-real-estate.png',
+    imageAlt: 'Real estate investor reviewing a QBI deduction calculator in Excel beside a rental property file, IRS Schedule E, and a calculator on a wooden desk',
+    content: `<p>A landlord in Tampa with four single-family rentals netted $52,000 in rental income in 2023. His CPA filed a clean return and told him the rentals were "passive investments" and not eligible for the 20 percent qualified business income deduction. The landlord paid his tax bill and moved on.</p>
+
+<p>He left $3,328 on the table that year. He has done the same thing every year since 2018. Over six years that is roughly $20,000 in cash that legally belonged to him, plus the compounded return he could have earned on it. The deduction was sitting there. His CPA was being conservative, not correct.</p>
+
+<p>This is the most under-claimed tax benefit in the small-landlord world. Section 199A, also known as the Qualified Business Income deduction, allows pass-through entities to deduct up to 20 percent of their qualified business income. Rentals can qualify. Most CPAs will not push you toward it because the documentation burden lives on your side of the line, not theirs. A QBI deduction calculator for real estate, built in Excel and paired with a 250-hour activity log, fixes both the math problem and the documentation problem at once.</p>
+
+<h2>Why Your CPA Probably Will Not Claim QBI on Your Rentals</h2>
+
+<p>The IRS has not been generous with clarity here. Section 199A was added in the 2017 Tax Cuts and Jobs Act and applies to tax years 2018 through 2025. To claim the deduction on rental income, the activity must rise to the level of a "trade or business" under Section 162. That phrase is the entire ballgame.</p>
+
+<p>The Treasury issued Revenue Procedure 2019-38 to give landlords a safe harbor. If you log 250 or more hours of "rental services" per year on a rental enterprise, maintain separate books for each property, and meet the documentation requirements, the IRS will treat your rentals as a trade or business for QBI purposes. That is the cleanest path. Outside the safe harbor you can still qualify, but you need facts that support a Section 162 trade-or-business finding, and that is where most CPAs back off.</p>
+
+<p>Conservative tax preparers default to "no QBI" because the worst outcome for them is an audit triggered by a deduction the client cannot substantiate. The worst outcome for you is paying tax on income that Congress explicitly said you should not have to. Those are different incentives. Your CPA cannot document your 250 hours of rental services. You can.</p>
+
+<h3>What You Actually Save</h3>
+
+<p>Here is what the QBI deduction is worth at a few common rental income levels, assuming you are under the 2024 income thresholds of $383,900 married filing jointly or $191,950 single, and you are in the 24 percent marginal bracket:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Net Rental Income (QBI)</th>
+      <th>20% Deduction</th>
+      <th>Tax Saved at 24%</th>
+      <th>10-Year Value (compounded at 7%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>$25,000</td><td>$5,000</td><td>$1,200</td><td>$17,700</td></tr>
+    <tr><td>$50,000</td><td>$10,000</td><td>$2,400</td><td>$35,400</td></tr>
+    <tr><td>$75,000</td><td>$15,000</td><td>$3,600</td><td>$53,100</td></tr>
+    <tr><td>$100,000</td><td>$20,000</td><td>$4,800</td><td>$70,800</td></tr>
+  </tbody>
+</table>
+
+<p>For a landlord with $50,000 in net rental income, ignoring QBI for the eight years it has been available costs roughly $19,200 in direct tax plus the lost compounding. The "I don't want the audit hassle" excuse only makes sense if you genuinely cannot defend 250 hours of work on the portfolio. Most active landlords already cross that threshold without tracking it.</p>
+
+<h2>What Counts as 250 Hours of Rental Services</h2>
+
+<p>Rev Proc 2019-38 defines rental services with reasonable specificity. The list is broader than most landlords realize. Hours spent by you, your employees, your agents, or your independent contractors all count toward the 250-hour total. The key category exclusions are also worth knowing because that is where investors mess up the log.</p>
+
+<h3>Hours That Count</h3>
+
+<ul>
+  <li>Advertising to rent the property</li>
+  <li>Negotiating and executing leases</li>
+  <li>Verifying tenant applications, running background and credit checks</li>
+  <li>Collecting rent and following up on late payments</li>
+  <li>Daily operation, maintenance, and repair of the property</li>
+  <li>Management of the property by an employee or contractor</li>
+  <li>Purchasing materials for the property</li>
+  <li>Supervising employees and contractors</li>
+</ul>
+
+<h3>Hours That Do Not Count</h3>
+
+<ul>
+  <li>Financial activities: arranging financing, refinancing, reviewing financial statements, planning capital improvements</li>
+  <li>Time spent traveling to and from the rental (commuting)</li>
+  <li>Time on your investor education (reading books, courses, podcasts)</li>
+  <li>Time procuring the property (buying)</li>
+</ul>
+
+<p>A common mistake: a landlord logs 80 hours of "studying the market" and 30 hours of "looking at mortgage rates" toward the 250. Both are explicitly excluded. The log gets thrown out under audit. Build the log around activities the IRS has already accepted.</p>
+
+<h2>Building the QBI Deduction Calculator in Excel</h2>
+
+<p>The calculator has five sections: rental income inputs, taxable income limits, the deduction math, the W-2 wage and UBIA test for higher earners, and the safe harbor hours tracker. The wage and UBIA portion only applies above the income thresholds, but build it once so you do not have to revisit when your income grows.</p>
+
+<h3>Section 1: Inputs</h3>
+
+<p>Set up these inputs on rows 3 through 12. For multi-property portfolios, decide upfront whether you are treating each property as a separate enterprise or aggregating into one. Aggregation is generally favorable but requires consistency across years.</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr><th>Cell</th><th>Label</th><th>Example Value</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>B3</td><td>Filing Status (1=Single, 2=MFJ)</td><td>2</td></tr>
+    <tr><td>B4</td><td>Total Taxable Income (line 15 of 1040)</td><td>$210,000</td></tr>
+    <tr><td>B5</td><td>Net Rental Income (Schedule E line 26)</td><td>$52,000</td></tr>
+    <tr><td>B6</td><td>Other Qualified Business Income</td><td>$0</td></tr>
+    <tr><td>B7</td><td>Net Capital Gains</td><td>$4,500</td></tr>
+    <tr><td>B8</td><td>W-2 Wages Paid by Rental Enterprise</td><td>$0</td></tr>
+    <tr><td>B9</td><td>UBIA of Qualified Property</td><td>$1,180,000</td></tr>
+    <tr><td>B10</td><td>Total Hours Logged on Rentals</td><td>312</td></tr>
+    <tr><td>B11</td><td>Separate Books Maintained (1=Yes, 0=No)</td><td>1</td></tr>
+    <tr><td>B12</td><td>Contemporaneous Time Log (1=Yes, 0=No)</td><td>1</td></tr>
+  </tbody>
+</table>
+
+<p>UBIA stands for Unadjusted Basis Immediately after Acquisition. For a rental property, this is your original purchase price minus the land allocation, before depreciation. The W-2 wages and UBIA matter only above the income thresholds, but track them anyway. The IRS expects consistency in how you report these values year over year.</p>
+
+<h3>Section 2: Threshold and Phase-In</h3>
+
+<p>The 2024 thresholds: $191,950 for single filers, $383,900 for married filing jointly. Above the threshold but below the full phase-in ($241,950 single, $483,900 MFJ), a partial wage and UBIA test applies. Above the upper phase-in, the full test kicks in.</p>
+
+<p>In cell B14, compute the threshold based on filing status:</p>
+
+<p><code>=IF(B3=1,191950,383900)</code></p>
+
+<p>In B15, compute the upper phase-in:</p>
+
+<p><code>=IF(B3=1,241950,483900)</code></p>
+
+<p>In B16, determine which tier the taxpayer falls into:</p>
+
+<p><code>=IF(B4&lt;=B14,"Below threshold",IF(B4&lt;=B15,"Phase-in zone","Full limit applies"))</code></p>
+
+<p>For the $210,000 MFJ example, this returns "Below threshold," which is the simple case. The 20 percent deduction applies without the wage and UBIA limitation.</p>
+
+<h3>Section 3: The Core Deduction</h3>
+
+<p>The QBI deduction is the lesser of two amounts: 20 percent of qualified business income, or 20 percent of taxable income minus net capital gains. The capital gains limit catches taxpayers whose QBI is artificially high relative to their actual taxable income.</p>
+
+<p>In B18, calculate combined QBI:</p>
+
+<p><code>=B5+B6</code></p>
+
+<p>In B19, calculate the 20 percent QBI amount:</p>
+
+<p><code>=B18*0.2</code></p>
+
+<p>In B20, calculate the taxable income limit:</p>
+
+<p><code>=(B4-B7)*0.2</code></p>
+
+<p>In B21, the tentative deduction is the smaller of the two:</p>
+
+<p><code>=MIN(B19,B20)</code></p>
+
+<p>For the example: B18 returns $52,000, B19 returns $10,400, B20 returns $41,100, and B21 returns $10,400. The taxpayer gets the full 20 percent because they are well under the taxable income ceiling.</p>
+
+<h3>Section 4: W-2 Wage and UBIA Limit (For Higher Earners)</h3>
+
+<p>Above the income threshold, the deduction is capped at the greater of: 50 percent of W-2 wages paid by the rental enterprise, or 25 percent of W-2 wages plus 2.5 percent of UBIA. Most small landlords pay no W-2 wages, which means the 2.5 percent of UBIA test does the heavy lifting.</p>
+
+<p>In B23, the 50 percent wage test:</p>
+
+<p><code>=B8*0.5</code></p>
+
+<p>In B24, the wage-plus-UBIA test:</p>
+
+<p><code>=B8*0.25+B9*0.025</code></p>
+
+<p>In B25, the wage and UBIA limit:</p>
+
+<p><code>=MAX(B23,B24)</code></p>
+
+<p>For a landlord above the threshold with no W-2 wages and $1,180,000 UBIA, B25 returns $29,500. The deduction is the smaller of $10,400 (20 percent of QBI) and $29,500 (UBIA limit), so still $10,400. UBIA is rarely a binding constraint for landlords because real estate is capital intensive. The constraint bites for service businesses, not rentals.</p>
+
+<h3>Section 5: Safe Harbor Compliance Check</h3>
+
+<p>The deduction is worthless if the audit knocks it out. Build a compliance check that flags missing requirements. In B27:</p>
+
+<p><code>=IF(AND(B10&gt;=250,B11=1,B12=1),"SAFE HARBOR MET","REVIEW: missing safe harbor element")</code></p>
+
+<p>If the cell returns "REVIEW," do not claim the deduction until you fix the gap. Either log more hours before year-end, set up separate books per property, or start a contemporaneous time log immediately. Trying to reconstruct a year of activity in March before filing is the fastest way to lose an audit.</p>
+
+<h3>Section 6: Final Deduction</h3>
+
+<p>Tie everything together in B29:</p>
+
+<p><code>=IF(B27="SAFE HARBOR MET",IF(B16="Below threshold",B21,MIN(B21,B25)),0)</code></p>
+
+<p>This formula returns the deduction only if the safe harbor is satisfied. Below the threshold, you get the 20 percent of QBI capped by taxable income. Above the threshold, you get the smaller of QBI 20 percent and the wage and UBIA limit. If the safe harbor fails, the formula returns zero, which forces you to look at the deduction question more carefully before filing.</p>
+
+<h2>The 250-Hour Activity Log</h2>
+
+<p>The number one reason landlords lose this deduction under audit is a reconstructed time log. The IRS knows the difference between a log created in January for the prior year and a log created weekly throughout the year. Make the log defensible by recording entries within a few days of the activity.</p>
+
+<p>Build a separate tab in the same workbook with these columns:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Property</th>
+      <th>Activity Category</th>
+      <th>Description</th>
+      <th>Hours</th>
+      <th>Who Performed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>2024-03-14</td><td>421 Maple St</td><td>Tenant Screening</td><td>Reviewed 4 applications, ran background checks</td><td>2.5</td><td>Owner</td></tr>
+    <tr><td>2024-03-16</td><td>421 Maple St</td><td>Lease Execution</td><td>Walk-through, lease signing</td><td>2.0</td><td>Owner</td></tr>
+    <tr><td>2024-04-02</td><td>Portfolio</td><td>Maintenance Coordination</td><td>Scheduled HVAC service across 3 properties</td><td>1.5</td><td>Owner</td></tr>
+    <tr><td>2024-04-18</td><td>1840 Oak Ave</td><td>Repair Supervision</td><td>Met plumber, supervised water heater install</td><td>3.0</td><td>Owner</td></tr>
+  </tbody>
+</table>
+
+<p>At the bottom of the log, sum the hours column. Cross-reference the total to cell B10 in the calculator. If the total drops below 260 with two months left in the year, you have a problem to solve before December 31, not after.</p>
+
+<h2>Aggregation: One Enterprise or Many?</h2>
+
+<p>Rev Proc 2019-38 allows you to treat all your residential rentals as a single enterprise, or all your commercial rentals as a single enterprise, but not mix the two. For a small landlord with three single-family rentals, aggregation almost always wins. You only need to clear 250 hours across the portfolio, not 250 per property.</p>
+
+<p>You cannot aggregate residential and commercial. You cannot aggregate triple-net leased property with any other category, because triple-net property has its own carve-out that generally disqualifies it from safe harbor entirely. If you own one triple-net lease and three single-family rentals, run the calculator twice and exclude the triple-net.</p>
+
+<h2>What This Calculator Will Not Do</h2>
+
+<p>This is not tax advice and it does not handle every edge case. It does not address:</p>
+
+<ul>
+  <li>Real estate professional status under Section 469, which is a different test entirely (750 hours plus material participation) and affects whether rental losses can offset W-2 income</li>
+  <li>Specified Service Trade or Business issues, which generally do not apply to standard rentals but can apply to fix-and-flip operations or short-term rentals with substantial services</li>
+  <li>Loss carryforwards from prior years where QBI was negative</li>
+  <li>State-level adjustments where states do not conform to Section 199A</li>
+  <li>The treatment of rentals owned through partnerships or S corps versus disregarded LLCs</li>
+</ul>
+
+<p>For income under $200,000 in net rental income with simple ownership structures, this calculator gets you 90 percent of the way there. For larger or more complex situations, use the calculator to estimate the deduction, then validate the result with a tax professional who understands real estate.</p>
+
+<h2>Run the Numbers Before Year-End, Not After</h2>
+
+<p>The QBI deduction is a planning tool, not a reporting tool. By December 31, the question is settled: either you logged 250 hours of rental services or you did not. If you are at 180 hours in November, you can still legitimately push to 250 by year-end if you focus your remaining work hours on qualifying activities. If you wait until tax prep in March, you have already lost the ability to influence the outcome.</p>
+
+<p>The other half of the planning question is income management. If you are sitting just above the threshold, an extra retirement contribution or a strategic deductible expense in December can drop you under and dramatically simplify your QBI claim. Run the calculator in October with your projected year-end numbers. If you are in the phase-in zone, model what a $5,000 IRA contribution or $10,000 of accelerated maintenance would do to the deduction.</p>
+
+<p>SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes a built-in QBI calculator paired with the 250-hour activity log, automatic threshold tracking by filing status, and the aggregation logic for multi-property portfolios. It handles the wage and UBIA test for higher earners and flags safe harbor gaps before they cost you the deduction. If you have rentals netting more than $25,000 a year and you are not claiming QBI, you are paying tax you do not owe. Stop doing that.</p>`,
+  },
+  {
     slug: 'cost-segregation-calculator-excel',
     title: 'Cost Segregation Calculator in Excel: Capture $30,000+ in Year-1 Tax Savings Without a $10k Engineering Study',
     metaTitle: 'Cost Segregation Calculator Excel: Save Taxes | SheetCraft',
