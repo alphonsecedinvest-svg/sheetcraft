@@ -16,6 +16,189 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'lease-abstract-template-excel',
+    title: 'Lease Abstract Template Excel: Distill a 50-Page Commercial Lease Into One Page',
+    metaTitle: 'Lease Abstract Template Excel Guide | SheetCraft',
+    metaDescription: 'Build a lease abstract template in Excel that tracks rent, escalations, options, and notice dates across a commercial portfolio. Formulas and real examples.',
+    targetKeyword: 'lease abstract template Excel',
+    secondaryKeywords: ['commercial lease abstract', 'lease summary Excel', 'CAM reconciliation tracker', 'rent escalation formula', 'lease expiration tracker'],
+    excerpt: 'Commercial leases are 50+ pages of dense legal text. A lease abstract template in Excel pulls the 30 data points that drive cash flow onto one page, with formulas that surface critical dates before you miss them.',
+    publishedAt: '2026-05-21',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/lease-abstract-template-excel.png',
+    imageAlt: 'Flat illustration of a commercial lease abstract spreadsheet open on a laptop next to bound lease documents',
+    content: `<p>A property manager in Charlotte just paid $112,000 more than she should have on a single retail lease renewal. Her tenant, a regional coffee chain, exercised a five-year option at the original 2017 base rent because nobody on her team noticed the lease tied the option rent to "then-current base rent" with no escalation language. The lease was 67 pages. The clause was on page 41. She had never read it.</p>
+
+<p>This is what happens when commercial leases live as PDFs in a shared drive and not as structured data. The information you need to make money is buried in dense legal text that nobody reads after closing. A proper lease abstract template in Excel solves this by pulling the 30 to 50 data points that actually drive cash flow, options, and risk onto a single page you can scan in 60 seconds.</p>
+
+<p>This guide shows you how to build a lease abstract template in Excel that handles multi-tenant portfolios, tracks critical dates, and prevents the kind of $100,000 mistakes that come from skipping the abstract entirely.</p>
+
+<h2>What a Lease Abstract Actually Needs to Capture</h2>
+
+<p>Most lease abstracts you find online capture too little or too much. The "too little" version has tenant name, square footage, rent, and term. That tells you almost nothing about the actual economics or risk of the lease. The "too much" version copies entire clauses into Excel cells, which defeats the purpose and turns your abstract back into a document you have to read.</p>
+
+<p>A useful lease abstract sits between those extremes. It captures the structured data plus a one-sentence summary of any non-standard clause that affects valuation.</p>
+
+<h3>The 8 Categories That Belong on Every Abstract</h3>
+
+<p>Group your data into these blocks. Each block becomes a section in your Excel template:</p>
+
+<ol>
+    <li><strong>Identification:</strong> Property address, suite, tenant legal name, guarantor, lease execution date, lease type (NNN, modified gross, full service).</li>
+    <li><strong>Term and dates:</strong> Commencement date, rent commencement, expiration, current term remaining in months, holdover provisions.</li>
+    <li><strong>Base rent schedule:</strong> Year-by-year base rent, escalation type (fixed %, CPI, fair market), free rent months, abatement details.</li>
+    <li><strong>Additional rent:</strong> CAM treatment (pro-rata share %, caps on controllable costs, gross-up provisions), real estate tax pass-through, insurance pass-through.</li>
+    <li><strong>Options:</strong> Renewal options (number, length, rent mechanism, notice windows), termination options, expansion or contraction rights, right of first offer or refusal.</li>
+    <li><strong>Security and credit:</strong> Security deposit, letter of credit, personal guaranty, parent guaranty, financial reporting requirements.</li>
+    <li><strong>Use and restrictions:</strong> Permitted use, exclusivity clauses, co-tenancy requirements, operating covenant, radius restrictions.</li>
+    <li><strong>Landlord obligations:</strong> TI allowance, landlord work, ongoing maintenance, capital repair responsibility, signage rights.</li>
+</ol>
+
+<p>For a 50-unit office or retail portfolio, this gives you roughly 40 columns. Each row is one lease. When you want to answer "which leases expire in the next 18 months and have no renewal option?", that question becomes a 10-second filter instead of a 4-hour project.</p>
+
+<h2>Excel Layout: One Lease Per Row, One Question Per Column</h2>
+
+<p>Set up the abstract as a flat table starting in row 4 (rows 1 to 3 are for portfolio totals and headers). Use column A for a unique lease ID, column B for property name, column C for tenant. Freeze row 4 and columns A through C so you can scroll without losing context.</p>
+
+<h3>Column Structure for the Rent Block</h3>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Field</th>
+            <th>Example Value</th>
+            <th>Data Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>H</td>
+            <td>Rentable SF</td>
+            <td>3,200</td>
+            <td>Number</td>
+        </tr>
+        <tr>
+            <td>I</td>
+            <td>Current Base Rent ($/SF/yr)</td>
+            <td>$32.50</td>
+            <td>Currency</td>
+        </tr>
+        <tr>
+            <td>J</td>
+            <td>Current Annual Rent</td>
+            <td>=H4*I4</td>
+            <td>Formula</td>
+        </tr>
+        <tr>
+            <td>K</td>
+            <td>Escalation Type</td>
+            <td>CPI capped 3%</td>
+            <td>Dropdown</td>
+        </tr>
+        <tr>
+            <td>L</td>
+            <td>Next Escalation Date</td>
+            <td>2027-01-01</td>
+            <td>Date</td>
+        </tr>
+        <tr>
+            <td>M</td>
+            <td>CAM Pro-Rata Share</td>
+            <td>4.85%</td>
+            <td>Percent</td>
+        </tr>
+        <tr>
+            <td>N</td>
+            <td>CAM Cap (controllable)</td>
+            <td>5% YoY</td>
+            <td>Text</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>The data validation on column K (escalation type) is what makes the abstract searchable. Restrict it to a dropdown with five choices: Fixed %, CPI uncapped, CPI capped, FMV, None. If you let people type free text, you will end up with "3%", "Three percent", "3% annually", and "CPI w/ floor" all describing the same thing, and your filters will break.</p>
+
+<h2>The Formulas That Turn an Abstract Into a Risk Dashboard</h2>
+
+<p>A static abstract is a glorified summary. The version that actually pays for itself uses formulas to surface the dates and dollars you need to act on.</p>
+
+<h3>Days Until Critical Notice</h3>
+
+<p>Every lease has at least one notice deadline that, if missed, costs real money. Renewal option notice windows (typically 6 to 12 months before expiration), termination option notices, and CAM audit windows are the big ones. Track them with a column that shows days remaining:</p>
+
+<p><code>=IF(P4="","",P4-TODAY())</code></p>
+
+<p>Where P4 is the next notice deadline. Wrap it in conditional formatting: red if under 60 days, yellow if under 180 days, green otherwise. For a portfolio of 80 leases, this is the single most valuable column in the file. It is the difference between calling your tenant 9 months ahead of the option window with a market-rate renewal proposal, and finding out 2 days late that they already exercised at below-market rent.</p>
+
+<h3>Lease Expiration Bucketing</h3>
+
+<p>To understand portfolio risk, you need to know rollover exposure by year. Add a column that buckets each lease:</p>
+
+<p><code>=IF(F4&lt;TODAY(),"Expired",IF(F4&lt;EDATE(TODAY(),12),"0-12 mo",IF(F4&lt;EDATE(TODAY(),24),"12-24 mo",IF(F4&lt;EDATE(TODAY(),60),"2-5 yr","5+ yr"))))</code></p>
+
+<p>Where F4 is the lease expiration date. Pivot the abstract on this column and you have a rollover schedule by year, by property, or by tenant credit tier in under a minute.</p>
+
+<h3>Annual Rent Projection</h3>
+
+<p>For underwriting or refinancing, you need to project rent five years out. If the escalation is a fixed percentage, the formula for year N is straightforward:</p>
+
+<p><code>=J4*(1+Q4)^N</code></p>
+
+<p>Where J4 is current annual rent and Q4 is the annual escalator. For CPI-linked rent with a cap, assume the cap (most leases bump to the cap in any year with normal inflation):</p>
+
+<p><code>=J4*(1+MIN(R4,S4))^N</code></p>
+
+<p>Where R4 is the cap and S4 is your assumed CPI. Underwriting against the cap rather than projected CPI is the conservative move and the one acquisition committees actually approve.</p>
+
+<h3>CAM Reconciliation Flag</h3>
+
+<p>Most NNN leases give the tenant a right to audit CAM reconciliation for 90 to 180 days after the annual statement is issued. Tenants miss this constantly. Landlords also miss it from the other side: they fail to send the reconciliation on time and lose the right to bill underbillings from the prior year. Track it:</p>
+
+<p><code>=IF(AND(T4&lt;&gt;"",TODAY()-T4&gt;90),"AUDIT WINDOW CLOSED",IF(T4="","No recon yet","Open: "&amp;(T4+90-TODAY())&amp;" days"))</code></p>
+
+<p>Where T4 is the date the most recent CAM statement was issued.</p>
+
+<h2>What to Pull From the Lease Document (and What to Skip)</h2>
+
+<p>The fastest way to build an abstract is to know exactly what you are looking for before you open the PDF. Otherwise you will read the whole document and waste 4 hours per lease. Aim for 45 minutes per lease once you have done five of them.</p>
+
+<h3>Sections That Always Have Critical Data</h3>
+
+<ul>
+    <li><strong>Article 1 (Basic Lease Provisions):</strong> Term, base rent schedule, security deposit, premises. This is usually a chart on page 1 or 2 and gives you 60% of the abstract in 5 minutes.</li>
+    <li><strong>The rent escalation article:</strong> Usually article 3 or 4. Read carefully. "CPI" with no cap is a different lease than "CPI not less than 3% and not more than 5%".</li>
+    <li><strong>Operating expenses article:</strong> Read the controllable cost cap definition. The exclusions list (capital repairs, depreciation, marketing of vacant space) is where 30% of CAM disputes come from.</li>
+    <li><strong>Options article:</strong> Renewal, termination, expansion. Capture the notice window in days, not "9 months prior". You need a calculable date.</li>
+    <li><strong>Default and assignment articles:</strong> Note any non-standard cure period or change-of-control language for the abstract notes column.</li>
+</ul>
+
+<h3>Sections You Can Skim</h3>
+
+<p>Insurance requirements, indemnification, force majeure, surrender condition, broker representations. These rarely affect economics unless a problem arises. Note their page numbers in the abstract so you can find them fast when a tenant goes dark or a fire happens. Do not transcribe them.</p>
+
+<h2>Common Mistakes That Make Abstracts Useless</h2>
+
+<p>Even teams that build abstracts often build them wrong. The four failure modes:</p>
+
+<p><strong>Mistake 1: Free-text dates.</strong> "September 2027" instead of 2027-09-01 means no date math, no filtering, no critical-date alerts. Force ISO dates with column data validation.</p>
+
+<p><strong>Mistake 2: Mixing $/SF/year and $/SF/month.</strong> Office leases quote annual, retail and industrial often quote monthly. Pick one convention for the whole abstract and convert at entry. Add a conversion helper column if your team needs both views.</p>
+
+<p><strong>Mistake 3: Abstracts without a "last updated" column.</strong> A lease can be amended five times in 10 years. Without a "Last Reviewed" date and an "Amendments On File" count column, you will run reports off stale data and not know it.</p>
+
+<p><strong>Mistake 4: One abstract file per property.</strong> The whole value of an Excel abstract is portfolio queries. Filter, pivot, sort across 80 leases at once. If you split files by property, you lose that. Use one workbook, one tab per portfolio.</p>
+
+<h2>Putting It Into Production</h2>
+
+<p>Build the template once, then load it with your existing leases at the rate of 8 to 10 per day until the portfolio is covered. Add new leases at execution, not at the next quarterly review. Set a quarterly recurring task to run three reports off the abstract: (1) options expiring within 12 months, (2) leases expiring within 24 months with no renewal option, (3) CAM reconciliations more than 60 days late.</p>
+
+<p>Those three reports, run quarterly off a clean abstract, eliminate roughly 80% of the avoidable rent leakage on a commercial portfolio. The Charlotte property manager who lost $112,000 on a single option would have caught it 9 months earlier with a "Days Until Notice" column showing 240 days and a market-rate renewal proposal ready to send.</p>
+
+<p>If you manage a residential or mixed portfolio rather than pure commercial, the same abstract principle applies with a different field set. The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes a lease tracking module built for multifamily and small commercial, with rent roll, escalation modeling, and option date alerts already wired together. Use it as the operating system for your rent collection and renewal calendar, then build a deeper commercial abstract on top for complex retail or office leases.</p>`,
+  },
+  {
     slug: 'qbi-deduction-calculator-real-estate',
     title: 'QBI Deduction Calculator for Real Estate: How to Claim Your 20% Pass-Through Deduction Without Triggering an Audit',
     metaTitle: 'QBI Deduction Calculator Real Estate | SheetCraft',
