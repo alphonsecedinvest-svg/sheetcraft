@@ -16,6 +16,186 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'section-8-rental-property-analysis',
+    title: 'Section 8 Rental Property Analysis: The Excel Model That Tells You When Vouchers Actually Win',
+    metaTitle: 'Section 8 Rental Property Analysis in Excel | SheetCraft',
+    metaDescription: 'Build a Section 8 rental property analysis in Excel that compares HAP voucher cash flow to market rent by ZIP. Formulas, decision rules, red flags.',
+    targetKeyword: 'Section 8 rental property analysis',
+    secondaryKeywords: ['HUD voucher analysis', 'Small Area FMR', 'Section 8 cash flow', 'HAP payment standard', 'rental property Excel model'],
+    excerpt: 'Most investors get Section 8 wrong by treating vouchers as either toxic or a money printer. Both miss the real math. Here is the Excel model that compares voucher cash flow to market rent in the same ZIP, with honest numbers for inspection delay, HQS repair burden, and re-lease friction.',
+    publishedAt: '2026-05-22',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/section-8-rental-property-analysis.png',
+    imageAlt: 'Laptop on wooden desk showing rental property financial analysis spreadsheet, with HUD voucher paperwork and house keys beside it',
+    content: `<p>Most investors get Section 8 wrong in one of two directions. The first group avoids it because their uncle had a tenant who trashed a kitchen in 2009. The second group treats HUD vouchers like a money printer and buys anything in a "Section 8 area." Both groups skip the only part that matters: a real <strong>Section 8 rental property analysis</strong> that compares the voucher cash flow to the market-rate cash flow in the same ZIP, with honest numbers for vacancy, inspections, and repair burden.</p>
+
+<p>The Housing Choice Voucher program moves roughly $30 billion a year through Public Housing Authorities (PHAs) to private landlords. In some ZIPs, Section 8 pays 110% of market rent. In others, it pays 78% and adds 45 days of lease-up delay. The difference between a winning deal and a money pit is not "Section 8 good" or "Section 8 bad." It is whether you modeled the right ZIP with the right Small Area Fair Market Rent (SAFMR), the right tenant portion, and the right HAP payment timeline. This article shows how to build that model in Excel and what cell values flag a deal as a pass.</p>
+
+<h2>The real cost of not modeling Section 8 properly</h2>
+
+<p>A landlord in Cleveland buys a duplex for $145,000. Market rent in that ZIP is $1,050 per unit. The local PHA's 2025 SAFMR for a 2-bed is $1,180. The investor sees the spread and assumes she's beating market by $130 per unit per month, or $3,120 per year across both units.</p>
+
+<p>What she didn't model:</p>
+
+<ul>
+<li>The PHA pays 90% of SAFMR for this property class (payment standard set by PHA, not always 100% of SAFMR). Effective contract rent: $1,062.</li>
+<li>Initial inspection delay: 38 days average in her metro. Lost rent on first lease-up: $1,310 per unit.</li>
+<li>Annual reinspection failures: 22% in her county. Average repair cost to pass: $640.</li>
+<li>Voucher tenant turnover: similar to market, but re-lease takes 6 weeks vs 2 weeks because tenant must port the voucher and the unit must re-pass inspection.</li>
+</ul>
+
+<p>True annual delta vs market: <strong>negative $480 per unit</strong>. She thought she was up $3,120 per year. She's actually down $960 per year across the duplex. Worse, she made the buy decision based on a number that didn't exist.</p>
+
+<p>This is the central problem. Section 8 is a contract with specific cash mechanics. If you don't model the mechanics, you're guessing.</p>
+
+<h2>The variables a Section 8 model needs</h2>
+
+<p>A Section 8 rental property analysis has six inputs that a standard rental model does not have. Skip any one of them and the numbers lie.</p>
+
+<table>
+<thead>
+<tr><th>Variable</th><th>Where to get it</th><th>Why it matters</th></tr>
+</thead>
+<tbody>
+<tr><td>Small Area FMR (SAFMR) by ZIP and bedroom count</td><td>HUD User SAFMR lookup (huduser.gov)</td><td>Sets the ceiling for what the PHA can pay. ZIP-level, not metro-level.</td></tr>
+<tr><td>Payment Standard (% of SAFMR)</td><td>Local PHA admin plan</td><td>PHAs set 90% to 110% of SAFMR. This is the actual rent ceiling.</td></tr>
+<tr><td>Tenant Portion</td><td>Tenant income certification</td><td>Tenant pays roughly 30% of adjusted monthly income. PHA pays the rest (HAP).</td></tr>
+<tr><td>Average inspection delay (initial)</td><td>Local PHA, BiggerPockets local threads, ask 3 landlords</td><td>Direct hit to first-year cash flow. Range: 21 to 60 days.</td></tr>
+<tr><td>Reinspection failure rate</td><td>Local PHA annual report, REAC scores</td><td>Drives recurring repair burden specific to HQS standards.</td></tr>
+<tr><td>Re-lease friction</td><td>Local PHA waitlist depth, voucher utilization rate</td><td>If voucher demand exceeds supply in your ZIP, you re-lease in 2 weeks. If it doesn't, expect 8+.</td></tr>
+</tbody>
+</table>
+
+<p>The first two variables are public data. The other four come from making three phone calls to PHA staff and two landlords who already own there. Skip the calls, accept worse numbers.</p>
+
+<h2>Building the Excel model</h2>
+
+<p>Set up the worksheet with a clear input block at the top and a comparison block below. Here's the layout that works.</p>
+
+<h3>Input block (rows 3 to 18)</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Label</th><th>Example value</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Property address ZIP</td><td>44120</td></tr>
+<tr><td>B4</td><td>Bedrooms</td><td>2</td></tr>
+<tr><td>B5</td><td>SAFMR (2-bed, ZIP 44120)</td><td>$1,180</td></tr>
+<tr><td>B6</td><td>Payment Standard (% of SAFMR)</td><td>90%</td></tr>
+<tr><td>B7</td><td>Market rent (comparable units)</td><td>$1,050</td></tr>
+<tr><td>B8</td><td>Initial inspection delay (days)</td><td>38</td></tr>
+<tr><td>B9</td><td>Annual reinspection failure rate</td><td>22%</td></tr>
+<tr><td>B10</td><td>Avg repair to pass HQS</td><td>$640</td></tr>
+<tr><td>B11</td><td>Voucher re-lease delay (days)</td><td>45</td></tr>
+<tr><td>B12</td><td>Market re-lease delay (days)</td><td>14</td></tr>
+<tr><td>B13</td><td>Annual turnover probability</td><td>20%</td></tr>
+<tr><td>B14</td><td>Market vacancy rate (annual)</td><td>7%</td></tr>
+<tr><td>B15</td><td>Section 8 vacancy rate (annual)</td><td>2%</td></tr>
+<tr><td>B16</td><td>Property tax + insurance (annual)</td><td>$3,400</td></tr>
+<tr><td>B17</td><td>Property management fee (% of rent)</td><td>8%</td></tr>
+<tr><td>B18</td><td>Annual maintenance reserve (% of rent)</td><td>10%</td></tr>
+</tbody>
+</table>
+
+<h3>Section 8 effective rent</h3>
+
+<p>The contract rent is the lower of the payment standard and the unit's reasonable rent as determined by the PHA. Most PHAs cap at payment standard, so use:</p>
+
+<p><code>=MIN(B5*B6, B7*1.15)</code></p>
+
+<p>That formula says: the PHA will pay no more than the payment standard, and no more than 115% of the comparable market rent (PHA "rent reasonableness" check). Put this in C5 as <strong>Effective Section 8 Contract Rent</strong>. With the example values: <code>MIN(1180*0.90, 1050*1.15) = MIN(1062, 1207.50) = $1,062</code>.</p>
+
+<h3>Annualized gross income with vacancy</h3>
+
+<p>For the Section 8 unit (cell C20):</p>
+
+<p><code>=C5*12*(1-B15) - (C5/30)*B8</code></p>
+
+<p>This takes 12 months of contract rent, applies the lower Section 8 vacancy rate, then subtracts the lost rent during initial inspection delay (only relevant in year 1, but most landlords model it in for honest underwriting). Result: <code>1062*12*(1-0.02) - (1062/30)*38 = 12489 - 1345 = $11,144</code>.</p>
+
+<p>For the market-rate scenario (cell C21):</p>
+
+<p><code>=B7*12*(1-B14)</code></p>
+
+<p>Result: <code>1050*12*(1-0.07) = $11,718</code>.</p>
+
+<p>Notice what happened. Even though Section 8 pays $12 per month more than market rent, the inspection delay in year 1 plus vacancy normalization makes market-rate the higher gross income in year 1. In stabilized year 2 onward, you would remove the initial inspection drag. Build a separate "stabilized" column to see both.</p>
+
+<h3>Section 8 specific expenses</h3>
+
+<p>HQS reinspection failures cost real money. Put the expected annual cost in C22:</p>
+
+<p><code>=B9*B10</code></p>
+
+<p>Result: <code>0.22 * 640 = $140.80</code>. Small, but real, and it compounds over a 10-year hold.</p>
+
+<p>Turnover cost with longer re-lease (C23):</p>
+
+<p><code>=B13*(B11/30)*C5</code></p>
+
+<p>This is the expected lost rent during voucher turnover. Result: <code>0.20*(45/30)*1062 = $318.60</code>. Compare to market: <code>=B13*(B12/30)*B7</code> = <code>0.20*(14/30)*1050 = $98</code>. The voucher unit loses about $220 more per year to turnover friction.</p>
+
+<h3>Net operating income comparison</h3>
+
+<p>For Section 8 NOI (C25):</p>
+
+<p><code>=C20 - B16 - (C5*12*B17) - (C5*12*B18) - C22 - C23</code></p>
+
+<p>For market NOI (C26):</p>
+
+<p><code>=C21 - B16 - (B7*12*B17) - (B7*12*B18) - (B13*(B12/30)*B7)</code></p>
+
+<p>Subtract management, maintenance reserve, property tax and insurance, and turnover friction. The delta between C25 and C26 is your honest answer about whether Section 8 wins in this specific ZIP for this specific property.</p>
+
+<h3>Decision rule cell</h3>
+
+<p>In C28, put a flag:</p>
+
+<p><code>=IF(C25&gt;C26*1.05, "GO Section 8", IF(C25&lt;C26*0.95, "GO Market", "Either, run more analysis"))</code></p>
+
+<p>The 5% buffer matters. If the two scenarios are within 5% of each other, the deal is not being made or broken by the Section 8 decision. It is being made or broken by something else (purchase price, financing, neighborhood trajectory). Do not let the voucher question dominate a marginal call.</p>
+
+<h2>The ZIP-level rule most investors ignore</h2>
+
+<p>Before SAFMRs were introduced in 2018, HUD set one FMR per metro area. This meant that a 2-bedroom in a low-rent ZIP got the same voucher amount as one in a high-rent ZIP within the same metro. Landlords in low-rent areas loved this because they could rent at 130% of market through Section 8. Tenants got stuck in concentrated poverty because their vouchers did not go far in better neighborhoods.</p>
+
+<p>HUD now publishes SAFMRs by ZIP for 24 metros (and growing). In SAFMR metros, the voucher amount in a "good" ZIP is 20% to 40% higher than the voucher amount in a "rough" ZIP. This flipped the investor math. Today, the deals that work for Section 8 are often in higher-quality ZIPs where the SAFMR is generous, not in low-rent ZIPs where Section 8 used to print money.</p>
+
+<p>Practical rule: pull the SAFMR for every ZIP within 20 minutes of your target market. Sort them. The top quartile by SAFMR-to-purchase-price ratio is where the Section 8 deals actually pencil. The bottom quartile is where everyone thinks Section 8 works but actually does not anymore.</p>
+
+<h2>Red flags that kill the deal regardless of rent</h2>
+
+<p>Run the model. If it says GO Section 8, you still have to check four things before you sign anything.</p>
+
+<ol>
+<li><strong>PHA payment timing.</strong> Some PHAs pay HAP on the 1st. Some on the 5th. Some on "approximately the 10th." If your mortgage is due on the 1st and HAP arrives on the 12th, you need 30 days of float reserves. Ask the PHA when they actually deposit.</li>
+<li><strong>Voucher utilization rate.</strong> If the PHA is using 95%+ of available vouchers, demand is high and re-lease is fast. If they are at 78%, you will sit empty between tenants. HUD publishes this in the Voucher Management System reports.</li>
+<li><strong>Local landlord rejection rate.</strong> Cities like Houston have legal protections requiring landlords to accept vouchers. Cities like Indianapolis do not. In source-of-income discrimination jurisdictions, voucher tenant pools are deeper. In non-protected jurisdictions, you have less competition for tenants but the tenant pool is narrower.</li>
+<li><strong>HQS vs your current property condition.</strong> Walk the unit with the HQS checklist. If your hot water heater is 14 years old, your GFCI outlets are not installed in the bathroom, and your handrail is loose, you are looking at $1,800 to pass initial inspection. Bake it into the deal as a closing-cost line item, not a "we will fix it later" promise.</li>
+</ol>
+
+<h2>What to do with the model output</h2>
+
+<p>When the GO Section 8 flag fires and the four red flags clear, lock in the deal mechanics:</p>
+
+<ul>
+<li>Request the PHA's payment standard schedule in writing. Payment standards reset annually, usually on October 1st. Plan rent escalation around that date.</li>
+<li>Get on the PHA's preferred landlord list. In many PHAs, this puts your unit in front of vouchered families before it hits the public listing.</li>
+<li>Set up direct deposit for HAP payments. Paper checks are still common and add 5 days of float.</li>
+<li>Use a lease addendum that mirrors the HAP contract language exactly. Discrepancies between your lease and the HAP contract create enforcement gaps later.</li>
+</ul>
+
+<p>The deals that work are the ones where the landlord treated Section 8 as a contract management exercise, not a moral position. Run the model, make the calls, walk the property with the HQS checklist, and decide based on the numbers in front of you.</p>
+
+<h2>Stop guessing on voucher deals</h2>
+
+<p>Section 8 analysis is not harder than market-rate analysis. It just has six more variables that most spreadsheets do not include. If you are underwriting voucher properties using a model that does not separate contract rent from market rent, does not account for inspection delay, and does not price HQS repair burden, you are going to misprice deals in both directions.</p>
+
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes a dedicated Section 8 tab with all six variables wired into the cash flow model, plus a side-by-side comparison view that flags whether the voucher scenario or the market scenario wins for that specific unit. SAFMR lookup is built in for the metros HUD publishes, and the payment standard, HQS reinspection, and re-lease friction variables are pre-formulated. If you are looking at a property today and trying to decide whether to chase the voucher, drop the numbers into the template and have a defensible answer in 10 minutes.</p>`,
+  },
+  {
     slug: 'lease-abstract-template-excel',
     title: 'Lease Abstract Template Excel: Distill a 50-Page Commercial Lease Into One Page',
     metaTitle: 'Lease Abstract Template Excel Guide | SheetCraft',
