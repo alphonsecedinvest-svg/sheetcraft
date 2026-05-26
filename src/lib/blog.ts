@@ -16,6 +16,176 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'certified-payroll-template-excel-wh-347',
+    title: 'Certified Payroll in Excel: How to Fill Out the WH-347 Without Penalties',
+    metaTitle: 'Certified Payroll Template Excel WH-347 | SheetCraft',
+    metaDescription: 'Build a certified payroll template in Excel for the WH-347. Prevailing wage, fringe, and CWHSSA overtime formulas that survive a Davis-Bacon audit.',
+    targetKeyword: 'certified payroll template Excel WH-347',
+    secondaryKeywords: ['Davis-Bacon prevailing wage', 'WH-347 form', 'CWHSSA overtime', 'prevailing wage fringe benefits', 'certified payroll report'],
+    excerpt: 'On a federally funded job, a WH-347 error freezes your payment and can trigger back wages or debarment. Here is how to build a certified payroll template in Excel that calculates prevailing wage, fringe, and Davis-Bacon overtime so the form fills itself and survives an audit.',
+    publishedAt: '2026-05-26',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/certified-payroll-template-excel-wh-347.png',
+    imageAlt: 'Flat illustration of a construction office desk with a laptop showing a blank payroll spreadsheet, a yellow hard hat, a clipboard, and a rolled blueprint',
+    content: `<p>If you run work on a federally funded job, the <strong>certified payroll template Excel WH-347</strong> is not paperwork. It is the document that decides whether your progress payment clears this week or sits frozen while a compliance officer asks why your concrete finisher was paid laborer scale. The WH-347 is the U.S. Department of Labor form that proves you paid prevailing wages under the Davis-Bacon Act. File it wrong, and the consequences are not a warning letter. They are withheld payments, back wages, liquidated damages, and in the bad cases, three years of debarment from federal work.</p>
+
+<p>The DOL publishes a blank WH-347 and a page of instructions. What it does not give you is a system that calculates prevailing wage, overtime, and fringe benefits across multiple classifications without arithmetic errors. That gap is where contractors get hurt. This article shows how to build that system in Excel so the form fills itself and the numbers survive an audit.</p>
+
+<h2>What a WH-347 mistake actually costs</h2>
+
+<p>Certified payroll applies to any federal or federally assisted construction contract over $2,000 covered by Davis-Bacon. That includes a huge share of school, road, water, and public housing work. Every week you have workers on site, you submit a WH-347 within seven days of the pay date, signed under a Statement of Compliance. That signature matters. Falsifying it is a federal crime under 18 U.S.C. 1001, not a clerical issue.</p>
+
+<p>Here is what a single recurring error costs a mid-size contractor on a nine-month job.</p>
+
+<table>
+<thead>
+<tr><th>Error</th><th>How it happens</th><th>Typical cost</th></tr>
+</thead>
+<tbody>
+<tr><td>Misclassification</td><td>Paying a worker laborer scale for carpenter work</td><td>Back wages on the rate gap, often $6 to $12/hr times all hours worked</td></tr>
+<tr><td>Fringe shortfall</td><td>Counting fringe you never actually paid into a plan</td><td>Back pay of the full fringe rate, plus interest</td></tr>
+<tr><td>Wrong overtime base</td><td>Computing OT at 1.5x base only, ignoring CWHSSA rules</td><td>$10/hr per OT hour times every OT hour on the job</td></tr>
+<tr><td>Late or missing reports</td><td>Manual process falls behind during a busy stretch</td><td>Contracting officer withholds progress payments until cured</td></tr>
+<tr><td>Repeated willful violations</td><td>Same error across months of reports</td><td>Debarment up to 3 years, loss of all federal bidding</td></tr>
+</tbody>
+</table>
+
+<p>Run the misclassification number. One worker paid $9/hr under scale for 1,400 hours on the job is $12,600 in back wages on a single person. The DOL finds it by comparing your classifications against the work descriptions in your daily reports, and they look back across every WH-347 you filed. A spreadsheet that catches the error in week one is the difference between a clean job and a settlement.</p>
+
+<h2>The four numbers the WH-347 actually requires</h2>
+
+<p>Most contractors treat the WH-347 as a transcription job, copying numbers off their regular payroll. That is the mistake. Regular payroll computes one rate. Davis-Bacon computes a wage package, and the package has parts that your standard payroll software does not separate. You need four numbers per worker, per week, per classification.</p>
+
+<h3>1. The correct classification and its wage determination</h3>
+
+<p>Every covered job has a wage determination, the DOL document listing the prevailing base rate and fringe rate for each labor classification in that county. A worker doing carpenter work gets carpenter scale even if you call him a "helper" on your books. If a worker splits time across two classifications in a week, the WH-347 needs a separate line for each, with hours allocated correctly.</p>
+
+<h3>2. The base hourly rate</h3>
+
+<p>This is the cash wage. It must meet or exceed the base rate in the wage determination for that classification.</p>
+
+<h3>3. The fringe rate, and where it went</h3>
+
+<p>Davis-Bacon wages are base plus fringe. You can pay the fringe in cash on the check, or pay it into a bona fide benefit plan (health, pension, approved training). What you cannot do is claim a fringe credit for benefits you did not fund. The WH-347 has you mark, on the Statement of Compliance, whether fringes are paid in cash or to plans. Track the dollars, not just the intention.</p>
+
+<h3>4. Overtime computed the Davis-Bacon way</h3>
+
+<p>Under the Contract Work Hours and Safety Standards Act (CWHSSA), overtime past 40 hours is paid at 1.5 times the <em>basic</em> rate. The fringe is added on top at straight time for every hour, including overtime hours, but the fringe itself is not multiplied by 1.5. Get this backwards and you either underpay the worker or overstate your cost. The correct overtime rate is <code>(base * 1.5) + fringe</code>.</p>
+
+<h2>Building the certified payroll calculator in Excel</h2>
+
+<p>Set up two areas. A wage determination table that holds your approved rates, and a weekly entry grid that pulls from it and computes gross pay. The point of the structure is that you enter hours once and every dependent number calculates, so the same fringe and overtime logic applies to every worker on every report.</p>
+
+<h3>Wage determination table (rows 4 to 7)</h3>
+
+<table>
+<thead>
+<tr><th>Row</th><th>Classification (col B)</th><th>Base rate (col C)</th><th>Fringe rate (col D)</th><th>Total package (col E)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>Laborer (Group 1)</td><td>$28.50</td><td>$12.75</td><td>$41.25</td></tr>
+<tr><td>5</td><td>Carpenter</td><td>$34.20</td><td>$15.40</td><td>$49.60</td></tr>
+<tr><td>6</td><td>Cement Mason</td><td>$33.80</td><td>$14.90</td><td>$48.70</td></tr>
+<tr><td>7</td><td>Operator (Group 2)</td><td>$39.10</td><td>$16.20</td><td>$55.30</td></tr>
+</tbody>
+</table>
+
+<p>The total package in column E is just <code>=C4+D4</code>, but it is worth showing because that total is the number that has to be met. You can pay $30 base and $11.25 fringe instead of $28.50 and $12.75, as long as the package equals or beats $41.25. Excel makes that flexibility safe to use because you watch the package total recalculate as you shift dollars between cash and fringe.</p>
+
+<h3>Weekly entry grid</h3>
+
+<p>For each worker line, lay out columns for the seven days, then total hours, then the pay math. Here is the layout for a worker starting in row 12.</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Field</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Worker name</td><td>R. Alvarez</td></tr>
+<tr><td>B</td><td>Last 4 of SSN</td><td>4821</td></tr>
+<tr><td>C</td><td>Classification</td><td>Carpenter</td></tr>
+<tr><td>D to J</td><td>Hours Sun through Sat</td><td>0, 9, 9, 9, 9, 8, 0</td></tr>
+<tr><td>K</td><td>Total hours</td><td>44</td></tr>
+<tr><td>L</td><td>Straight-time hours</td><td>40</td></tr>
+<tr><td>M</td><td>Overtime hours</td><td>4</td></tr>
+<tr><td>N</td><td>Base rate (looked up)</td><td>$34.20</td></tr>
+<tr><td>O</td><td>Fringe rate (looked up)</td><td>$15.40</td></tr>
+<tr><td>P</td><td>Gross earned</td><td>$2,250.80</td></tr>
+</tbody>
+</table>
+
+<h3>The formulas that do the work</h3>
+
+<p>Total hours in K12 sums the daily entries:</p>
+
+<p><code>=SUM(D12:J12)</code></p>
+
+<p>Straight-time hours in L12 caps at 40:</p>
+
+<p><code>=MIN(K12,40)</code></p>
+
+<p>Overtime hours in M12 is everything past 40:</p>
+
+<p><code>=MAX(K12-40,0)</code></p>
+
+<p>Now pull the rates from the wage determination table by classification, so you never hand-type a rate. Base rate in N12:</p>
+
+<p><code>=VLOOKUP(C12,$B$4:$E$7,2,FALSE)</code></p>
+
+<p>Fringe rate in O12:</p>
+
+<p><code>=VLOOKUP(C12,$B$4:$E$7,3,FALSE)</code></p>
+
+<p>This is the cell that prevents misclassification. The rate is tied to the classification you typed in column C, pulled from your approved determination table. Type "Carpenter" and you get carpenter scale. There is no way to quietly pay carpenter work at laborer rate without it showing on the line.</p>
+
+<p>Gross earned in P12 applies the Davis-Bacon overtime rule:</p>
+
+<p><code>=L12*(N12+O12) + M12*(N12*1.5+O12)</code></p>
+
+<p>Read it in business terms. Straight-time hours earn base plus fringe. Overtime hours earn time-and-a-half on the base, plus fringe at straight time. With the example values: <code>40*(34.20+15.40) + 4*(34.20*1.5+15.40) = 40*49.60 + 4*66.70 = 1984.00 + 266.80 = $2,250.80</code>. Note the difference from the naive method. If you wrongly compute overtime as 1.5x the full package, you get <code>4*49.60*1.5 = $297.60</code> for those 4 hours instead of $266.80, overstating cost by $30.80 on one worker for one week. Across a crew of 12 over nine months, that single formula error moves five figures.</p>
+
+<h2>The compliance checks that keep you out of trouble</h2>
+
+<p>The calculator computes pay. A certified payroll system also needs to flag problems before the report leaves your office. Add a compliance column that runs tests on each line.</p>
+
+<p>Check that the cash plus fringe actually meets the determination package. In a helper column Q12:</p>
+
+<p><code>=IF((N12+O12)>=VLOOKUP(C12,$B$4:$E$7,4,FALSE),"OK","UNDER SCALE")</code></p>
+
+<p>That compares what you are paying against the total package required for the classification. Any "UNDER SCALE" result is a back-wage liability sitting on the report. Catch it now, not in an audit.</p>
+
+<p>Flag suspicious overtime so you confirm it is real before signing:</p>
+
+<p><code>=IF(M12>20,"VERIFY OT","")</code></p>
+
+<p>And build a checklist you run before every submission. These are the items DOL investigators check first.</p>
+
+<ul>
+<li>Every worker is classified by the work performed, not the title on your books.</li>
+<li>Apprentices are registered in an approved program, and the apprentice-to-journeyman ratio matches the program standard.</li>
+<li>Fringe benefits claimed are actually funded into a bona fide plan, or paid in cash on the check.</li>
+<li>Overtime past 40 hours uses the CWHSSA formula, base times 1.5 plus straight-time fringe.</li>
+<li>Deductions are limited to those permitted (taxes, court orders, voluntary authorized items). No "tool rental" or unexplained cash-back deductions.</li>
+<li>The report is signed by an officer with authority and submitted within seven days of the pay date.</li>
+<li>The payroll number is sequential, and the last report for the job is marked "Final."</li>
+</ul>
+
+<h2>Apprentices and split classifications, where the form gets ugly</h2>
+
+<p>Two situations break a naive spreadsheet, and they are exactly the situations DOL flags most.</p>
+
+<p>First, apprentices. An apprentice can be paid below journeyman scale only if registered in a DOL-approved or state-approved program, and only at the percentage of journeyman rate their program step allows. If you run more apprentices than your ratio permits (say one apprentice per five journeymen), the extra apprentices must be paid full journeyman scale. Add a column for program step percentage and compute the apprentice rate as <code>=VLOOKUP(C12,$B$4:$E$7,2,FALSE)*R12</code> where R12 holds the step percentage. Then run a ratio check against your journeyman count for that classification. If the count of apprentice lines exceeds the allowed ratio, flag the overflow worker to journeyman scale.</p>
+
+<p>Second, split classifications. A worker who frames in the morning and digs in the afternoon is a carpenter for those hours and a laborer for the rest. The WH-347 wants two lines, one per classification, with hours and rates split. Do not blend them into one average rate. Build the grid so the same name can appear on two rows with different classifications in column C, and the VLOOKUP handles the rest automatically. The total hours across both lines should reconcile to the worker's timecard.</p>
+
+<h2>Where the spreadsheet ends and the system begins</h2>
+
+<p>You can build the WH-347 calculator from the formulas above in an afternoon, and for a single classification on a small job that is enough. The trouble starts when you have eight classifications, a few apprentices on a ratio, fringe paid partly in cash and partly into two different plans, and four federal jobs running at once. At that point the loose spreadsheet becomes its own risk, because every job needs the same logic and one broken formula propagates into every report.</p>
+
+<p>The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> includes a certified payroll module with the wage determination lookup, CWHSSA overtime formula, fringe tracking, and the under-scale and apprentice-ratio flags already wired in. It maps the weekly grid straight to WH-347 columns so the form output matches the DOL layout, and it ties labor cost back into your job budget so prevailing wage work shows its true burden on each project, not just on the payroll report. If your current process is one person copying numbers into the DOL PDF on Friday afternoon and hoping the fringe math holds, that is the spreadsheet you want open instead. The back wages on a single misclassified worker cost more than the template, and that is before the contracting officer freezes a payment.</p>`,
+  },
+  {
     slug: 'section-8-rental-property-analysis',
     title: 'Section 8 Rental Property Analysis: The Excel Model That Tells You When Vouchers Actually Win',
     metaTitle: 'Section 8 Rental Property Analysis in Excel | SheetCraft',
