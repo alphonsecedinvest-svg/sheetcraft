@@ -16,6 +16,163 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-wip-report-excel',
+    title: 'Construction WIP Report in Excel: Catch Over and Underbilling Before Your Banker Does',
+    metaTitle: 'Construction WIP Report Excel | SheetCraft',
+    metaDescription: 'Build a construction WIP report in Excel that tracks percentage of completion, earned revenue, and over/underbilling before your banker or surety asks.',
+    targetKeyword: 'construction WIP report Excel',
+    secondaryKeywords: ['work in progress schedule', 'percentage of completion', 'overbilling underbilling', 'construction job costing', 'WIP schedule template'],
+    excerpt: 'Your banker and surety read the WIP schedule before anything else: it shows whether you are billing ahead of the work or falling behind it. Here is how to build a construction WIP report in Excel that calculates percentage of completion, earned revenue, and over/underbilling so you catch the problem before they do.',
+    publishedAt: '2026-05-27',
+    readTime: 8,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-wip-report-excel.png',
+    imageAlt: 'Flat illustration of a laptop on a dark desk showing a financial dashboard with bar charts and a gauge, next to a yellow hard hat and a rolled blueprint',
+    content: `<p>The <strong>construction WIP report Excel</strong> schedule is the one document your banker, your surety, and your CPA all read before they read anything else. WIP stands for work in progress, and the report answers a single question that decides whether you get bonded for the next job: are you billing ahead of the work, or falling behind it? Get the answer wrong on paper and you look either overextended or undercapitalized, even when the company is healthy. Get it right and the same numbers that scare a lender become the numbers that grow your bonding line.</p>
+
+<p>Most contractors build this report once a year for the CPA, hate it, and forget it. That is the expensive mistake. The WIP schedule is a monthly cash-flow early warning system. It tells you which jobs are quietly funding your overhead with money you have not earned yet, and which jobs are bleeding working capital because you forgot to bill. This article shows how to build it in Excel so the math is right every month, not just at year end.</p>
+
+<h2>What over and underbilling actually mean for your cash</h2>
+
+<p>Every fixed-price contract has two numbers moving on different clocks. One is the cost you have put into the job. The other is the money you have billed the owner. They almost never match in a given month, and the gap between them is the heart of the WIP report.</p>
+
+<p>You recognize revenue based on how much of the work is done, not on how much you billed. That earned amount is your percentage of completion times the contract value. Compare earned revenue to what you actually billed and you get one of two conditions:</p>
+
+<ul>
+<li><strong>Overbilled</strong> (billings in excess of costs and earnings): you have billed more than you have earned. The extra cash is real, but it is not profit. It is a liability, because you still owe that work to the owner.</li>
+<li><strong>Underbilled</strong> (costs and earnings in excess of billings): you have earned more than you billed. You did the work and have not collected for it. That is your own cash funding someone else's project.</li>
+</ul>
+
+<p>A little overbilling is normal and healthy. You front-load mobilization and it smooths cash. Heavy overbilling across the whole portfolio is a red flag, because future months have to deliver work you already spent the money on. That is how a busy contractor goes broke while the income statement still shows a profit.</p>
+
+<h2>The five inputs every WIP line needs</h2>
+
+<p>One row per job. Pull these five numbers from your job-cost system and the rest of the schedule calculates itself. Lay them out in a clean table so a banker can scan it in thirty seconds.</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>What it is</th><th>Example (Job A)</th></tr>
+</thead>
+<tbody>
+<tr><td>B: Contract value</td><td>Original contract plus approved change orders</td><td>$1,200,000</td></tr>
+<tr><td>C: Estimated total cost</td><td>Your current best estimate of total cost at completion</td><td>$960,000</td></tr>
+<tr><td>D: Cost to date</td><td>Actual costs incurred through the report date</td><td>$624,000</td></tr>
+<tr><td>E: Billed to date</td><td>Total progress billings sent to the owner</td><td>$700,000</td></tr>
+<tr><td>F: Cash collected</td><td>Billings actually paid, net of retention held</td><td>$630,000</td></tr>
+</tbody>
+</table>
+
+<p>The single most important discipline here is column C. Estimated total cost is not your original bid. It is what you believe the job will cost now, including every cost overrun you can already see. Contractors who leave the original estimate in column C produce a WIP report that lies in their favor, and the lie unwinds violently at job close. Update C every month with field input. A change in C is the earliest signal that a job is going sideways.</p>
+
+<h2>The formulas that turn five inputs into a banker-ready schedule</h2>
+
+<p>Assume Job A sits on row 4, with the inputs in columns B through F as above. Here is the calculated half of the row.</p>
+
+<h3>Percentage of completion</h3>
+
+<p>The cost-to-cost method drives almost every commercial WIP schedule. Completion equals cost incurred divided by total estimated cost.</p>
+
+<p><code>=D4/C4</code></p>
+
+<p>For Job A that is 624,000 / 960,000 = 65%. Wrap it so a job that has not started does not throw a divide-by-zero error and blow up the whole sheet:</p>
+
+<p><code>=IF(C4=0,0,D4/C4)</code></p>
+
+<h3>Earned revenue</h3>
+
+<p>This is the number your billings get measured against. Percentage of completion (call it column G) times contract value.</p>
+
+<p><code>=G4*B4</code></p>
+
+<p>Job A: 65% times 1,200,000 = $780,000 earned. You have done $780,000 worth of the contract whether or not you billed for it.</p>
+
+<h3>Over or underbilling</h3>
+
+<p>Put earned revenue in column H. Subtract it from billings. Positive means overbilled, negative means underbilled.</p>
+
+<p><code>=E4-H4</code></p>
+
+<p>Job A: 700,000 billed minus 780,000 earned = negative 80,000. Job A is <strong>underbilled by $80,000</strong>. You have funded eighty grand of the owner's project out of your own pocket. That is a billing you should send this week.</p>
+
+<h3>Estimated gross profit and earned profit</h3>
+
+<p>Gross profit at completion is contract minus estimated cost. Earned profit is the slice you have recognized so far.</p>
+
+<p><code>=B4-C4</code> for total estimated profit, then <code>=G4*(B4-C4)</code> for profit earned to date.</p>
+
+<p>Job A expects $240,000 profit, a 20% margin, and has earned 65% of it, or $156,000.</p>
+
+<h2>Reading the whole portfolio at once</h2>
+
+<p>One job tells you nothing. The portfolio total tells you everything. Put a totals row at the bottom and watch two numbers: total overbilling and total underbilling across all open jobs. Here is a four-job snapshot.</p>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Contract</th><th>Est. cost</th><th>Cost to date</th><th>% complete</th><th>Earned</th><th>Billed</th><th>Over / (under)</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>$1,200,000</td><td>$960,000</td><td>$624,000</td><td>65%</td><td>$780,000</td><td>$700,000</td><td>($80,000)</td></tr>
+<tr><td>B</td><td>$640,000</td><td>$512,000</td><td>$128,000</td><td>25%</td><td>$160,000</td><td>$240,000</td><td>$80,000</td></tr>
+<tr><td>C</td><td>$2,100,000</td><td>$1,785,000</td><td>$1,517,000</td><td>85%</td><td>$1,785,000</td><td>$1,995,000</td><td>$210,000</td></tr>
+<tr><td>D</td><td>$430,000</td><td>$340,000</td><td>$51,000</td><td>15%</td><td>$64,500</td><td>$30,000</td><td>($34,500)</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$4,370,000</strong></td><td></td><td></td><td></td><td></td><td></td><td><strong>$175,500</strong></td></tr>
+</tbody>
+</table>
+
+<p>Sum overbilling and underbilling separately so the picture does not net out into a comforting average. With the over/under values in column J:</p>
+
+<p><code>=SUMIF(J4:J7,"&gt;0")</code> returns total overbilling of $290,000.</p>
+
+<p><code>=-SUMIF(J4:J7,"&lt;0")</code> returns total underbilling of $114,500.</p>
+
+<p>Now read the story. Job C is 85% done and overbilled $210,000. With only $268,000 of cost left to incur, you have already billed nearly the whole contract. The last 15% of that job is going to feel like working for free on your cash flow. Job D, barely started, is underbilled $34,500 because nobody sent the first real progress invoice. That is free money sitting on the table.</p>
+
+<h2>The flags that protect your bonding line</h2>
+
+<p>Sureties do not just look at the numbers. They look at the pattern. Two ratios get a job flagged, and a smart Excel WIP report flags them for you before the surety does.</p>
+
+<h3>Overbilling as a share of remaining work</h3>
+
+<p>An overbilled job is only dangerous if the overbilling is large relative to the cost left to spend. Compare the two, with overbilling in K4 and remaining cost as <code>C4-D4</code>:</p>
+
+<p><code>=IF(K4&gt;(C4-D4)*0.5,"REVIEW","OK")</code></p>
+
+<p>This flags any job where overbilling exceeds half the remaining estimated cost. Job C trips it. That is your cue to check whether the job is really as complete as the billing implies, or whether you front-loaded and now have a cash gap coming.</p>
+
+<h3>Profit fade</h3>
+
+<p>Save last month's estimated profit in a column and compare. A job whose gross profit estimate keeps dropping month over month is fading, and fade is the single thing sureties hate most.</p>
+
+<p><code>=IF(profit_now&lt;profit_prior,"FADE","")</code></p>
+
+<p>Catch fade in month three and you can still manage the job. Discover it at close and you have already told your banker a profit number you cannot deliver.</p>
+
+<h2>How the WIP ties to your financial statements</h2>
+
+<p>The reason the banker reads this report first is that over and underbilling are real line items on your balance sheet, not just management trivia. The total overbilling across the portfolio shows up as a liability called "billings in excess of costs and estimated earnings." The total underbilling shows up as an asset, "costs and estimated earnings in excess of billings." When those two numbers do not tie to the WIP schedule, your CPA stops trusting the financials, and so does the surety.</p>
+
+<p>That is why the SUMIF totals matter beyond the dashboard. The $290,000 overbilling total from the example becomes a current liability. The $114,500 underbilling becomes a current asset. A reviewer compares the change in those balances against the cash that moved during the period. If overbilling jumped $150,000 in a quarter, they want to know which jobs front-loaded and whether the cash is still on hand or already spent on overhead. Build the schedule so it carries prior-period columns next to the current ones, and you can answer that in the meeting instead of promising to email it later.</p>
+
+<p>Underbilling deserves the same scrutiny in the other direction. Large underbillings sometimes look like a working-capital problem, but they can also signal unapproved change orders. If you incurred cost for extra work the owner has not yet authorized, you cannot bill it, so it sits as underbilling. That is not a billing-discipline issue, it is a contract issue, and flagging it on the WIP forces the conversation before the cost gets stranded.</p>
+
+<h2>The four mistakes that make a WIP report lie</h2>
+
+<p>A WIP schedule with clean formulas can still mislead if the inputs are wrong. These four errors show up over and over, and each one has a tell you can catch in Excel.</p>
+
+<ul>
+<li><strong>Stale estimated cost.</strong> Column C never gets updated, so percentage of completion drifts away from reality. Tell: cost to date approaches or passes estimated total cost while percent complete still reads under 100%. Add a check, <code>=IF(D4&gt;C4,"COST OVERRUN","")</code>, so any job spending past its own estimate flags itself.</li>
+<li><strong>Front-loaded billing dressed up as progress.</strong> The job bills heavy early to fund cash, but the schedule treats those billings as if the work matched. The percentage-of-completion math protects you here only if cost to date is honest, because earned revenue is driven by cost, not by billings.</li>
+<li><strong>Change orders in the contract but not the cost.</strong> Someone adds an approved change order to contract value in column B and forgets to add its cost to column C. Profit looks inflated. Tie every change order entry to both columns and reconcile the count.</li>
+<li><strong>Retention confusion.</strong> Mixing retention held into billed-to-date or cash-collected distorts both. Keep billed (column E) as the full progress billing and track retention in its own column so cash collected (column F) reflects what actually hit the bank.</li>
+</ul>
+
+<h2>Build the report once, run it every month</h2>
+
+<p>The contractors who lose bonding capacity are rarely the ones losing money. They are the ones who cannot explain their own numbers. A WIP schedule that ties to your general ledger, updates estimated cost honestly, and flags over and underbilling turns a stressful annual scramble into a five-minute monthly read. You walk into the bank with the answer already in hand instead of waiting for the surety analyst to find the problem first.</p>
+
+<p>If you would rather not wire up the percentage-of-completion math, the divide-by-zero guards, the SUMIF totals, and the over/underbilling flags from a blank sheet, the <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with a WIP schedule already built. Drop in contract value, estimated cost, cost to date, and billings, and it returns percentage of completion, earned revenue, over and underbilling, and profit-fade flags across every open job, with a portfolio rollup your banker can read on the first try. Start there and your next WIP report is a deliverable, not a fire drill.</p>`,
+  },
+  {
     slug: 'certified-payroll-template-excel-wh-347',
     title: 'Certified Payroll in Excel: How to Fill Out the WH-347 Without Penalties',
     metaTitle: 'Certified Payroll Template Excel WH-347 | SheetCraft',
