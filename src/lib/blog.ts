@@ -16,6 +16,177 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'earned-value-management-excel-construction',
+    title: 'Earned Value Management in Excel for Construction: Catch Cost Overruns at Month Three',
+    metaTitle: 'Earned Value Management Excel for Construction | SheetCraft',
+    metaDescription: 'Earned value management Excel for construction: track CPI, SPI, EAC, and TCPI to catch cost overruns at month three. Formulas, layout, thresholds.',
+    targetKeyword: 'earned value management Excel construction',
+    secondaryKeywords: ['CPI SPI construction', 'earned value formulas Excel', 'TCPI to-complete performance index', 'estimate at completion EAC', 'construction cost forecast Excel'],
+    excerpt: 'Progress billing tells you what you invoiced. Earned value management tells you whether the job will finish at budget. Most construction PMs only learn the difference 3 weeks before substantial completion. Here is the Excel layout that catches it at month three.',
+    publishedAt: '2026-05-29',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/earned-value-management-excel-construction.png',
+    imageAlt: 'Top-down illustration of a construction project manager\'s desk with a laptop showing an Excel CPI and SPI chart, rolled blueprints, a yellow hardhat, a ruler, calculator, and coffee mug',
+    content: `<p>A general contractor is five months into a ten-month, $2.4 million commercial fit-out. The owner sees $1.2 million billed and assumes the job is half done. The PM walks the site and tells himself 50 percent is roughly right. The accounting team confirms costs are tracking to budget month over month. Everyone feels fine. Four weeks before substantial completion, the PM runs the numbers seriously for the first time and finds out the job is $410,000 underwater. Two weeks of margin evaporated overnight. A working <strong>earned value management Excel construction</strong> setup would have flagged this in month three, when there was still time to do something about it.</p>
+
+<p>This is the gap progress billing hides. Billed dollars are not earned dollars. Spent dollars are not finished work. The only reliable way to know whether a construction project will land at budget is to compare physical completion against planned completion and against actual cost, on the same date, in the same units. That is what earned value management does. The reason most contractors do not run it is not that the math is hard. The math is fifth grade. The reason is they confuse the four numbers that matter and end up with a dashboard that lies to them with more confidence than no dashboard at all.</p>
+
+<h2>The Four Numbers, and Why Three Are Not Enough</h2>
+
+<p>Every EVM setup runs on three measurements pulled on the same cutoff date. The fourth is the contract value itself. Mix any of them up and the rest of the analysis collapses.</p>
+
+<table>
+  <thead>
+    <tr><th>Term</th><th>Acronym</th><th>What It Actually Means in Construction</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Budget at Completion</td><td>BAC</td><td>Total contract value, or your internal cost budget if you are tracking margin. Pick one and stay consistent.</td></tr>
+    <tr><td>Planned Value</td><td>PV</td><td>How much work, in dollars, the baseline schedule said you would have completed by today.</td></tr>
+    <tr><td>Earned Value</td><td>EV</td><td>How much work, in dollars, you actually completed by today. This is BAC times physical percent complete, not billed percent.</td></tr>
+    <tr><td>Actual Cost</td><td>AC</td><td>How much money you actually spent to get to today. Labor, materials, equipment, subs, indirects. Real costs from the G/L.</td></tr>
+  </tbody>
+</table>
+
+<p>The single most common mistake is using billed percentage as earned value. Billing is a function of what your contract lets you draw, when you sent the invoice, and how generous you got with stored materials. Earned value is a function of what is physically installed. A drywall sub at 85 percent complete who already billed 95 percent has earned $85k of an $100k subcontract, not $95k. If you let billing stand in for earned value, your CPI looks healthy until the moment you run out of work to bill against, and then it crashes through the floor.</p>
+
+<h3>How to Measure Physical Percent Complete Without Lying to Yourself</h3>
+
+<p>Three methods work for construction, ranked by how hard they are to fudge.</p>
+
+<ol>
+  <li><strong>Units installed.</strong> For trades with countable output: linear feet of pipe, square feet of drywall hung, cubic yards poured. Divide installed by total. Hardest to game.</li>
+  <li><strong>Milestone weighting.</strong> Break a scope into stages with predefined percent values. Concrete forming 25 percent, rebar placement 20 percent, pour 30 percent, strip and cure 15 percent, patch and finish 10 percent. You only earn the next bucket when the milestone is signed off.</li>
+  <li><strong>Supervisor estimate.</strong> The superintendent eyeballs it. Use this only for soft scopes where units do not work, and require a second sign-off above 80 percent. This is the method that produces optimistic numbers if nobody checks it.</li>
+</ol>
+
+<h2>CPI and SPI: The Two Ratios That Diagnose the Job</h2>
+
+<p>Once you have BAC, PV, EV, and AC for the cutoff date, two ratios tell you what is happening. Cost Performance Index measures whether you are getting a dollar of work for each dollar spent. Schedule Performance Index measures whether you are completing work as fast as the baseline said you would.</p>
+
+<pre><code>CPI = EV / AC
+SPI = EV / PV</code></pre>
+
+<p>CPI above 1.0 means you are under budget. CPI below 1.0 means you are over. A CPI of 0.85 means every dollar you spent only bought 85 cents of finished work. SPI above 1.0 means you are ahead of schedule, below 1.0 means behind. The reason these are ratios and not differences is that they let you compare a job at month two against the same job at month six against a different job entirely. Variance dollars do not normalize. Indexes do.</p>
+
+<p>Construction-realistic thresholds, before you panic:</p>
+
+<table>
+  <thead>
+    <tr><th>CPI Range</th><th>What It Means</th><th>Action</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1.00 and above</td><td>On or under budget.</td><td>Hold the line. Do not get loose with change orders.</td></tr>
+    <tr><td>0.95 to 0.99</td><td>Slipping. Likely productivity or rework drag.</td><td>Pull the cost report by cost code. Find the leak.</td></tr>
+    <tr><td>0.90 to 0.94</td><td>Real problem. Trend will not reverse on its own.</td><td>Reforecast the remaining scope. Notify the PM and the estimator.</td></tr>
+    <tr><td>Below 0.90</td><td>Job is going underwater.</td><td>Stop work order on discretionary scope, executive review, formal recovery plan.</td></tr>
+  </tbody>
+</table>
+
+<p>For SPI the bands are similar but the action is different. SPI of 0.92 with CPI of 1.05 means you are slow but efficient, often a labor shortage problem. SPI of 0.92 with CPI of 0.89 means the work is taking longer and costing more, almost always rework or scope creep.</p>
+
+<h2>The Forecast Numbers That Decide Whether You Can Recover</h2>
+
+<p>CPI tells you where you are. The next three numbers tell you where you are going.</p>
+
+<table>
+  <thead>
+    <tr><th>Term</th><th>Formula</th><th>Decision It Drives</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Estimate at Completion (EAC)</td><td>BAC / CPI</td><td>What the job is on track to cost if current productivity continues.</td></tr>
+    <tr><td>Estimate to Complete (ETC)</td><td>EAC minus AC</td><td>How much more money you need to spend to finish.</td></tr>
+    <tr><td>Variance at Completion (VAC)</td><td>BAC minus EAC</td><td>Final overrun or underrun in dollars.</td></tr>
+    <tr><td>To-Complete Performance Index (TCPI)</td><td>(BAC minus EV) / (BAC minus AC)</td><td>The CPI you must achieve on the remaining work to land at budget.</td></tr>
+  </tbody>
+</table>
+
+<p>TCPI is the underrated one. If your TCPI says you need to run the remaining scope at 1.18 efficiency to finish at budget, and you have been running at 0.92 for five months, that is a quantitative way of saying the job will not come back. Anything above 1.10 is a flag that you should either negotiate a change order, pursue a constructive change claim, or accept the loss and stop pretending. Senior PMs talk about TCPI before they talk about anything else.</p>
+
+<h2>The Excel Layout That Does Not Break</h2>
+
+<p>Here is the column structure for a project-level EVM tracker. Each row is one cost code or WBS element. Headers in row 3, first data row at row 4.</p>
+
+<ol>
+  <li><strong>WBS / Cost Code</strong> (Column A)</li>
+  <li><strong>Description</strong> (Column B)</li>
+  <li><strong>BAC</strong> (Column C). Budget for this line.</li>
+  <li><strong>Planned % Complete</strong> (Column D). From the baseline schedule, as of cutoff date.</li>
+  <li><strong>Earned % Complete</strong> (Column E). Physical, as of cutoff date.</li>
+  <li><strong>PV</strong> (Column F). =C4*D4</li>
+  <li><strong>EV</strong> (Column G). =C4*E4</li>
+  <li><strong>AC</strong> (Column H). Pulled from the G/L for this cost code.</li>
+  <li><strong>CV</strong> (Column I). =G4-H4</li>
+  <li><strong>SV</strong> (Column J). =G4-F4</li>
+  <li><strong>CPI</strong> (Column K). =IF(H4=0,"",G4/H4)</li>
+  <li><strong>SPI</strong> (Column L). =IF(F4=0,"",G4/F4)</li>
+  <li><strong>EAC</strong> (Column M). =IF(K4="",C4,C4/K4)</li>
+  <li><strong>VAC</strong> (Column N). =C4-M4</li>
+  <li><strong>Flag</strong> (Column O). The diagnostic.</li>
+</ol>
+
+<p>The flag formula nests three thresholds.</p>
+
+<pre><code>=IF(K4="","",
+   IF(K4&lt;0.90,"FIRE",
+   IF(AND(K4&lt;0.95,L4&lt;0.95),"REVIEW",
+   IF(K4&lt;1,"WATCH","OK"))))</code></pre>
+
+<p>FIRE means cost performance has fallen below the threshold a recovery plan can realistically address. REVIEW means both cost and schedule are slipping together, classic productivity loss. WATCH means cost alone is sliding, often a leading indicator before SPI follows. Apply conditional formatting that turns the cell red for FIRE, orange for REVIEW, yellow for WATCH, green for OK.</p>
+
+<h3>Project-Level Rollup</h3>
+
+<p>Add a summary block above row 3 that aggregates across all rows. Assuming the data range goes from row 4 to row 100:</p>
+
+<pre><code>Total BAC:  =SUM(C4:C100)
+Total PV:   =SUM(F4:F100)
+Total EV:   =SUM(G4:G100)
+Total AC:   =SUM(H4:H100)
+Project CPI: =SUM(G4:G100)/SUM(H4:H100)
+Project SPI: =SUM(G4:G100)/SUM(F4:F100)
+Project EAC: =SUM(C4:C100)/(SUM(G4:G100)/SUM(H4:H100))
+Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></pre>
+
+<p>The TCPI formula at the project level is the number you walk into every weekly job review with. If it is 1.04 or below, you have a path. If it is 1.15 or above, you are explaining a loss to a principal sooner or later.</p>
+
+<h2>What the Numbers Look Like on a Real Job</h2>
+
+<p>Same $2.4 million fit-out, month five of ten. Baseline schedule has the job at 52 percent planned complete by the cutoff date. Physical walk plus milestone signoffs put earned at 41 percent. The cost report from accounting shows $1.32 million spent.</p>
+
+<table>
+  <thead>
+    <tr><th>Metric</th><th>Value</th><th>Read</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>BAC</td><td>$2,400,000</td><td>Contract value.</td></tr>
+    <tr><td>PV</td><td>$1,248,000</td><td>52% of BAC.</td></tr>
+    <tr><td>EV</td><td>$984,000</td><td>41% of BAC, from physical signoffs.</td></tr>
+    <tr><td>AC</td><td>$1,320,000</td><td>G/L through cutoff.</td></tr>
+    <tr><td>CV</td><td>-$336,000</td><td>Already $336k over for work done.</td></tr>
+    <tr><td>SV</td><td>-$264,000</td><td>$264k of work behind schedule.</td></tr>
+    <tr><td>CPI</td><td>0.745</td><td>Every dollar spent bought 74 cents of work.</td></tr>
+    <tr><td>SPI</td><td>0.789</td><td>Producing 79 cents per scheduled dollar.</td></tr>
+    <tr><td>EAC</td><td>$3,221,000</td><td>Job lands at $3.22M if nothing changes.</td></tr>
+    <tr><td>VAC</td><td>-$821,000</td><td>Projected overrun.</td></tr>
+    <tr><td>TCPI</td><td>1.31</td><td>Need 31% productivity gain on remaining work to land at budget. Not happening.</td></tr>
+  </tbody>
+</table>
+
+<p>The owner is still seeing 55 percent billed and thinks everything is fine. The PM, looking at this, has three honest choices. File a change order claim for the documented scope additions causing the productivity loss. Negotiate a revised completion date that recovers indirect cost. Or take the loss and protect the schedule so it does not get worse. EVM does not solve the problem. It makes it impossible to pretend the problem is not there.</p>
+
+<h2>Trend Matters More Than the Snapshot</h2>
+
+<p>A CPI of 0.93 in month three of an eight-month job is recoverable. A CPI of 0.93 that dropped from 1.02 in month one, 0.98 in month two, and 0.93 in month three is a job in free fall. The direction tells you more than the value. Track the indexes monthly and chart them. If the line is heading down for two consecutive periods, the underlying problem is structural and will not fix itself. Productivity does not spontaneously recover. Estimating gaps do not close on their own. Scope creep does not reverse. Whatever is causing the trend is still active.</p>
+
+<p>A simple sparkline next to each cost code in the Excel sheet, charting CPI over the last six periods, gives you the trend at the same glance as the current value. INDEX and OFFSET formulas can pull rolling periods. Or just add a small CPI history table on a second tab and reference it.</p>
+
+<h2>Start Tracking Before You Need It, Not After</h2>
+
+<p>EVM is worthless on a job that is already lost. Its only function is to spot the loss while there is still runway. That means setting up the tracker before kickoff, populating BAC from the contract value, freezing the planned percent complete curve from the baseline schedule, and updating EV and AC on the same cutoff date every month. Skip a month and the trend breaks. Pull numbers from different dates and the indexes lie. The discipline is consistency, not complexity.</p>
+
+<p>If you would rather skip the column setup, formula entry, and conditional formatting work, the <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with a built-in EVM tab that pulls BAC from your line-item budget, accepts physical percent complete entries by cost code, calculates CPI, SPI, EAC, VAC, and TCPI per line and at the project level, and flags rows above or below threshold automatically. Use it on the next job. Catch the slip in month three when you can still do something about it.</p>`,
+  },
+  {
     slug: 'construction-submittal-log-template-excel',
     title: 'Construction Submittal Log Template Excel: Stop Approvals From Stalling Your Schedule',
     metaTitle: 'Construction Submittal Log Excel Template | SheetCraft',
