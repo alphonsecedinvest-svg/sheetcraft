@@ -16,134 +16,148 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'construction-change-order-log-template',
-    title: 'Construction Change Order Log Template That Protects Your Margin',
-    metaTitle: 'Construction Change Order Log Template | SheetCraft',
-    metaDescription: 'Build a construction change order log template that sums every change and updates your contract sum live. Excel formulas, real numbers, no surprises.',
-    targetKeyword: 'construction change order log template',
-    secondaryKeywords: ['change order log', 'change order tracking', 'construction change orders', 'change order form excel', 'contract sum tracking'],
-    excerpt: 'Most change order templates capture paperwork but never sum it. Here is a running log that updates your contract sum live, flags unsigned work, and keeps your margin from leaking away one change at a time.',
+    slug: 'construction-bonding-capacity-calculator',
+    title: 'Construction Bonding Capacity Calculator: Know What You Can Bond',
+    metaTitle: 'Construction Bonding Capacity Calculator | SheetCraft',
+    metaDescription: 'A construction bonding capacity calculator turns your balance sheet into your real single and aggregate surety limits. Know what you can bid before you bid it.',
+    targetKeyword: 'construction bonding capacity calculator',
+    secondaryKeywords: ['surety bonding capacity', 'single job limit', 'aggregate bonding limit', 'working capital bonding', 'how to increase bonding capacity'],
+    excerpt: 'Bonding capacity is not about how good you are, it is about what your balance sheet supports. Here is the Excel calculator that turns your working capital and backlog into your real single and aggregate bonding limits, before a surety says no.',
     publishedAt: '2026-05-31',
     readTime: 9,
     relatedProduct: 'construction-budget-tracker',
-    image: '/images/blog/construction-change-order-log-template.png',
-    imageAlt: 'Construction change order log spreadsheet on a laptop beside a hard hat, blueprints, and calculator on a contractor desk',
-    content: `<p>A drywall and steel contractor wins a $1.8 million commercial shell in March. The bid was tight, 9 percent margin, and he is proud of it. He locks structural steel pricing in July, four months later, and the mill quote comes back 11 percent over what he carried. That single line item, $320,000 of steel that is now $355,000, eats $35,000. By the time concrete, copper, and HVAC equipment all come in hot, his 9 percent margin is 3 percent and he is working four months for almost nothing. None of this was a bad estimate. The takeoffs were right. The unit prices were right on bid day. The problem is he priced March materials into a job he would not buy until summer. A <strong>construction cost escalation calculator Excel</strong> model fixes exactly this, and it takes about an hour to build.</p>
+    image: '/images/blog/construction-bonding-capacity-calculator.png',
+    imageAlt: 'Flat illustration of a contractor desk with a laptop showing a financial balance sheet, a bond certificate, a hard hat, a calculator, and a balance scale',
+    content: `<p>A general contractor with a clean 12-year record loses a $2 million public school job before he sharpens a pencil. The reason has nothing to do with his crews, his safety record, or his price. His surety will not write the bond. He is already carrying $3.6 million of bonded work, and on paper that leaves no room for another large project. A <strong>construction bonding capacity calculator</strong> would have told him that in thirty seconds at his desk, weeks before he wasted a day chasing the bid. Bonding capacity is not a measure of how good you are. It is a measure of what your balance sheet can support, and most contractors discover the limit only when a surety says no.</p>
 
-<p>Escalation is the gap between the price of a material the day you bid and the price the day you actually buy it. On a fixed-price contract, that gap is yours to absorb. Most contractors either ignore it, which is gambling, or they pad every line by a flat 10 percent, which loses bids on the items that were not going to move and underprices the ones that were. The right answer is to escalate each material by its own rate over its own procurement lag, then carry the total as a visible contingency line. This article shows the exact spreadsheet layout and formulas to do that, plus how to write a real escalation clause when the owner will accept one.</p>
+<p>If you do public work, or commercial work over a few hundred thousand dollars, the bond is the gate. No bond, no bid. Yet most contractors treat bonding capacity as a black box their broker controls. It is not a black box. The surety uses two numbers off your financial statements and a couple of multipliers. You can model the exact same math in a spreadsheet and know your answer before you ever call your agent.</p>
 
-<h2>Why a Flat Contingency Loses Money Both Ways</h2>
+<h2>Bonding Capacity Is a Balance Sheet Question</h2>
 
-<p>Material prices do not move together. Over the same six months, copper can run up 14 percent while gypsum board sits flat and lumber actually drops. If you pad your whole bid by a flat 8 percent to cover escalation, two bad things happen at once. On the volatile items you are still underwater, because copper moved more than 8 percent. On the stable items you are 8 percent too high, which is the exact margin a competitor needs to beat you. A flat contingency is the worst of both worlds: it loses jobs and still loses money on the jobs it wins.</p>
+<p>A surety bond is not insurance for you. It is a guarantee to the project owner that the job gets finished if you fail. The surety is underwriting the risk that they have to step in and pay another contractor to complete your work. So they care about one thing above all: can this contractor absorb a bad job without going under, and do they have the cash to keep building while they wait to get paid.</p>
 
-<p>The fix is to treat escalation as a per-material calculation driven by two inputs you already know: how fast that specific commodity is moving, and how many months until you actually cut the purchase order. Steel bought in month 7 at 9 percent annual escalation is a very different number than gypsum bought in month 2 at 2 percent. Your spreadsheet should compute each one separately and sum them.</p>
-
-<h2>The Spreadsheet Layout</h2>
-
-<p>Build one row per major material or commodity group. You do not need 200 line items. The top 8 to 12 commodities usually cover 80 percent of the material dollars and all of the volatility. Here is the column structure.</p>
-
-<table>
-  <thead>
-    <tr><th>Column</th><th>Field</th><th>Example</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>A</td><td>Material / commodity</td><td>Structural steel</td></tr>
-    <tr><td>B</td><td>Base cost at bid (today's price)</td><td>$320,000</td></tr>
-    <tr><td>C</td><td>Months until purchase order</td><td>7</td></tr>
-    <tr><td>D</td><td>Annual escalation rate</td><td>9%</td></tr>
-    <tr><td>E</td><td>Escalated cost at purchase</td><td>formula</td></tr>
-    <tr><td>F</td><td>Escalation dollars to carry</td><td>formula</td></tr>
-    <tr><td>G</td><td>Escalation as % of line</td><td>formula</td></tr>
-  </tbody>
-</table>
-
-<p>The core formula lives in column E. It compounds the annual escalation rate over the fractional number of years until purchase:</p>
-
-<p><code>=B2*(1+D2)^(C2/12)</code></p>
-
-<p>This takes the base cost, applies the annual rate, and raises it to the power of months divided by 12 so a 7-month lag escalates by seven-twelfths of the annual compound. For structural steel at $320,000, 9 percent annual, 7 months out, that returns $336,776. Column F isolates the dollars you actually need to add to your bid:</p>
-
-<p><code>=E2-B2</code></p>
-
-<p>That is $16,776 on the steel line. Column G shows the percentage so you can sanity-check each line at a glance:</p>
-
-<p><code>=F2/B2</code></p>
-
-<p>Use a power function with months over 12 rather than a simple rate-times-months shortcut. Linear escalation undercounts on long lags and overcounts on short ones. The difference is small on a 3-month buy and meaningful on anything past a year, which matters on phased and multi-year work.</p>
-
-<h3>A Full Worked Example</h3>
-
-<p>Here is the same $1.8 million shell, broken into its real material basket. The escalation rates come from your own recent purchasing history and published producer price trends for each commodity, not a single blended guess.</p>
-
-<table>
-  <thead>
-    <tr><th>Material</th><th>Base cost</th><th>Months out</th><th>Annual rate</th><th>Escalated</th><th>Add to bid</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Structural steel</td><td>$320,000</td><td>7</td><td>9%</td><td>$336,776</td><td>$16,776</td></tr>
-    <tr><td>Concrete &amp; rebar</td><td>$180,000</td><td>2</td><td>5%</td><td>$181,485</td><td>$1,485</td></tr>
-    <tr><td>Copper &amp; wire</td><td>$145,000</td><td>6</td><td>13%</td><td>$154,094</td><td>$9,094</td></tr>
-    <tr><td>HVAC equipment</td><td>$130,000</td><td>8</td><td>8%</td><td>$136,756</td><td>$6,756</td></tr>
-    <tr><td>Lumber &amp; framing</td><td>$95,000</td><td>3</td><td>4%</td><td>$95,936</td><td>$936</td></tr>
-    <tr><td>Roofing membrane</td><td>$70,000</td><td>5</td><td>7%</td><td>$72,002</td><td>$2,002</td></tr>
-    <tr><td>Gypsum &amp; finishes</td><td>$60,000</td><td>9</td><td>2%</td><td>$60,899</td><td>$899</td></tr>
-  </tbody>
-</table>
-
-<p>Total escalation to carry: $37,948 on $1,000,000 of tracked materials. Notice how unequal it is. Steel and copper together account for $25,870, almost 68 percent of the total escalation, while gypsum and lumber barely register. A flat 8 percent pad on this same basket would have carried $80,000, pricing you $42,000 high and still leaving you exposed if copper ran past 13 percent. The per-line model carries the real number and tells you precisely which two commodities to lock first.</p>
-
-<p>Sum column F with a single cell at the bottom:</p>
-
-<p><code>=SUM(F2:F8)</code></p>
-
-<p>Then express it as a percent of your total bid so it becomes a line you can defend or trim in the bid review:</p>
-
-<p><code>=SUM(F2:F8)/Bid_Total</code></p>
-
-<h2>Turn the Worst Offenders Into Action</h2>
-
-<p>The point of the model is not a number. It is a decision about what to lock and when. Add a flag column that tells you which lines are big enough to chase a price lock or a not-to-exceed quote from your supplier. Anything over a dollar threshold, say $5,000 of escalation exposure, gets a hard lock before bid submission.</p>
-
-<p><code>=IF(F2&gt;5000,"LOCK NOW",IF(F2&gt;2000,"WATCH","CARRY"))</code></p>
-
-<p>On the example basket that flags steel, copper, and HVAC equipment as LOCK NOW, roofing as WATCH, and the rest as CARRY. Now you have a procurement priority list before you have even signed the contract. The three LOCK NOW items represent $32,626 of your $37,948 exposure. Get firm quotes or price-hold agreements on those three and you have neutralized 86 percent of your escalation risk with three phone calls.</p>
-
-<h3>Where to Get Real Escalation Rates</h3>
-
-<p>Do not guess the rates in column D. Three sources beat intuition:</p>
+<p>That risk gets expressed as two limits:</p>
 
 <ul>
-  <li><strong>Your own purchase orders.</strong> Pull what you paid for the same commodity 6 and 12 months ago versus today. Annualize the change. This is the most accurate source because it reflects your actual suppliers and volumes.</li>
-  <li><strong>Producer Price Index series.</strong> The Bureau of Labor Statistics publishes monthly PPI data for steel mill products, copper wire, gypsum, ready-mix concrete, and more. The year-over-year change is a clean annual rate for column D.</li>
-  <li><strong>Supplier forward guidance.</strong> Mills and distributors will often tell you where they expect pricing in two quarters if you ask the estimator, not the counter. Treat it as a check on the other two, not gospel.</li>
+<li><strong>Single job limit:</strong> the largest individual project they will bond for you.</li>
+<li><strong>Aggregate program limit:</strong> the total dollar value of bonded work you can have on the books at one time, across all jobs.</li>
 </ul>
 
-<h2>When the Owner Will Accept an Escalation Clause</h2>
+<p>The trap that caught the contractor above is the aggregate limit. His single job limit was fine. A $2 million job was well within it. But his existing $3.6 million backlog had already consumed most of his aggregate program, leaving no room. He was not too small to bond the job. He was too busy. That distinction is invisible until you do the math, and it is exactly what the calculator surfaces.</p>
 
-<p>Carrying escalation as contingency protects you but it also raises your bid. The cleaner option, when the owner will sign it, is an escalation clause that adjusts the contract price based on a published index. This moves the risk to where it belongs and lets you bid the bare material cost. The clause ties an adjustment to the movement in a specific PPI series between bid date and purchase date, usually with a threshold so small movements do not trigger paperwork.</p>
+<h2>The Two Numbers Every Surety Starts With</h2>
 
-<p>Model it the same way. Track the index value at bid and the index value at purchase, and compute the adjustment only on movement past the threshold:</p>
+<p>Underwriters build both limits off two figures from your balance sheet. Put them at the top of your spreadsheet because everything else keys off them.</p>
 
-<p><code>=IF(ABS(Idx_buy/Idx_bid-1)&gt;0.05,Base*(Idx_buy/Idx_bid-1),0)</code></p>
+<h3>Working capital</h3>
 
-<p>This says: if the index moved more than 5 percent in either direction, adjust the base material cost by the full percentage change, otherwise adjust nothing. A 5 percent deadband keeps both parties out of the spreadsheet over noise. The same formula handles deflation, so if steel drops the owner gets the credit, which is what makes the clause fair enough to sign. A two-way clause closes faster than a one-way clause that only ever costs the owner money.</p>
+<p>Working capital is your current assets minus your current liabilities. It is the cash and near-cash you can actually put to work funding payroll, materials, and subs before the owner pays you. With current assets in cell B3 and current liabilities in B4:</p>
+
+<p><code>=B3-B4</code></p>
+
+<p>Working capital is the number sureties weight most heavily, because a contractor can be profitable on paper and still fail by running out of cash mid-job. Bonded work consumes cash before it produces it. You buy material and make payroll in week one and bill at the end of the month, then wait 30 to 60 days to collect. Working capital is what carries you across that gap.</p>
+
+<h3>Net worth</h3>
+
+<p>Net worth, also called equity, is total assets minus total liabilities. With total assets in B6 and total liabilities in B7:</p>
+
+<p><code>=B6-B7</code></p>
+
+<p>Net worth is the cushion that absorbs a real loss. A surety wants to see that one ugly job will not wipe out the company. Working capital governs whether you can fund the work. Net worth governs whether you can survive a mistake.</p>
+
+<h2>Build the Calculator</h2>
+
+<p>The model takes those two numbers, applies the multipliers your surety uses, subtracts the work you already have, and tells you whether a specific job fits. Here is the layout.</p>
 
 <table>
-  <thead>
-    <tr><th>Scenario</th><th>Index at bid</th><th>Index at buy</th><th>Movement</th><th>Adjustment on $320k</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Steel runs up</td><td>248.0</td><td>271.0</td><td>+9.3%</td><td>+$29,677</td></tr>
-    <tr><td>Steel drifts</td><td>248.0</td><td>256.0</td><td>+3.2%</td><td>$0 (under 5% deadband)</td></tr>
-    <tr><td>Steel drops</td><td>248.0</td><td>233.0</td><td>-6.0%</td><td>-$19,355 credit to owner</td></tr>
-  </tbody>
+<thead>
+<tr><th>Cell</th><th>Item</th><th>Value or formula</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Current assets</td><td>$850,000</td></tr>
+<tr><td>B4</td><td>Current liabilities</td><td>$520,000</td></tr>
+<tr><td>B5</td><td>Working capital</td><td><code>=B3-B4</code></td></tr>
+<tr><td>B6</td><td>Total assets</td><td>$1,400,000</td></tr>
+<tr><td>B7</td><td>Total liabilities</td><td>$900,000</td></tr>
+<tr><td>B8</td><td>Net worth</td><td><code>=B6-B7</code></td></tr>
+<tr><td>B9</td><td>Current bonded backlog (cost to complete)</td><td>$3,600,000</td></tr>
+<tr><td>B10</td><td>Single job multiplier</td><td>10</td></tr>
+<tr><td>B11</td><td>Aggregate multiplier</td><td>15</td></tr>
+<tr><td>B12</td><td>Single job limit</td><td><code>=B5*B10</code></td></tr>
+<tr><td>B13</td><td>Aggregate program limit</td><td><code>=B5*B11</code></td></tr>
+<tr><td>B14</td><td>Available aggregate capacity</td><td><code>=B13-B9</code></td></tr>
+</tbody>
 </table>
 
-<h2>The Bottom Line</h2>
+<p>The multipliers in B10 and B11 are the part that varies. A common starting point is roughly 10 times working capital for a single job and 10 to 20 times for the total program, with stronger balance sheets and audited statements earning the higher end. Do not guess. Ask your surety agent for the exact multiples they apply to you and type those into B10 and B11. The calculator is only as honest as those two inputs.</p>
 
-<p>Escalation is not a market problem you have to accept. It is an estimating discipline you can systematize. Build one row per commodity, escalate each by its own rate over its own lag with <code>=B2*(1+D2)^(C2/12)</code>, flag the lines worth locking, and carry the true total instead of a flat pad that loses both ways. On a typical $1.8 million job that is the difference between protecting your full margin and watching a quarter of it disappear at the steel mill in month seven.</p>
+<p>The single job limit in B12 caps any one project. The aggregate limit in B13 caps everything at once. The number that actually decides your next bid is B14, available aggregate capacity, because it nets out the work you have already committed to.</p>
 
-<p>If you would rather not rebuild this from scratch every bid, the <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> has the escalation model, the per-commodity lock flags, and the index-clause adjustment already wired in alongside your budget, bids, change orders, and draw schedule. You enter base costs and procurement timing, and it tells you exactly how much escalation to carry and which three materials to lock before you sign. It is built to live in the same workbook where you already track the job, so the escalation contingency is never a separate number you forget to update.</p>`,
+<h3>The bid eligibility flag</h3>
+
+<p>Now make the spreadsheet answer the only question that matters: can I bid this job. Put the job size in B16 and let the formula check it against both limits:</p>
+
+<p><code>=IF(AND(B16&lt;=B12,B16&lt;=B14),"CAN BID","STOP")</code></p>
+
+<p>A job has to clear two hurdles. It cannot exceed your single job limit, and it cannot exceed what is left in your aggregate program after your current backlog. Fail either test and the answer is STOP, before you spend a day estimating work you cannot bond.</p>
+
+<h2>A Worked Example</h2>
+
+<p>Run the contractor from the opening through the model. He wants to bid a $2,000,000 job.</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>Working capital</td><td><code>=B3-B4</code></td><td>$330,000</td></tr>
+<tr><td>Net worth</td><td><code>=B6-B7</code></td><td>$500,000</td></tr>
+<tr><td>Single job limit</td><td><code>=B5*10</code></td><td>$3,300,000</td></tr>
+<tr><td>Aggregate program limit</td><td><code>=B5*15</code></td><td>$4,950,000</td></tr>
+<tr><td>Current backlog</td><td>Manual entry</td><td>$3,600,000</td></tr>
+<tr><td>Available aggregate</td><td><code>=B13-B9</code></td><td>$1,350,000</td></tr>
+<tr><td>Job he wants to bid</td><td>Manual entry</td><td>$2,000,000</td></tr>
+<tr><td>Can he bid it?</td><td><code>=IF(AND(B16&lt;=B12,B16&lt;=B14),"CAN BID","STOP")</code></td><td>STOP</td></tr>
+</tbody>
+</table>
+
+<p>The $2 million job is far under his $3.3 million single job limit. On size alone he qualifies. But he only has $1,350,000 of aggregate capacity left after his backlog, so the flag reads STOP. The constraint is not the size of the job. It is the work he is already carrying.</p>
+
+<p>That reframes the whole problem. To bond a $2 million job on top of a $3.6 million backlog, his aggregate program needs to cover $5.6 million, which at a 15 times multiplier requires working capital of:</p>
+
+<p><code>=(B9+B16)/B11</code></p>
+
+<p>That returns $373,333. He has $330,000. He is short by about $43,000 of working capital. Now he has a concrete target instead of a vague rejection. Find $43,000 in working capital, or wait for the backlog to burn down, and the job comes into reach.</p>
+
+<h2>When the Single Job Limit Is the Real Problem</h2>
+
+<p>The opposite case trips up growing contractors. Picture a firm with no backlog at all, $200,000 of working capital, and a shot at a $3 million job. Their aggregate program is wide open, so available capacity is not the issue. But at a 10 times single job multiplier, their single job limit is only $2 million:</p>
+
+<p><code>=B5*B10</code></p>
+
+<p>The $3 million job fails on size, not on volume. The flag reads STOP because the job in B16 exceeds the single job limit in B12, even with an empty book. This is the classic too-small-to-grow wall. You cannot bond the job that would build the balance sheet that would let you bond the job.</p>
+
+<p>The way through is rarely one giant leap. It is taking the largest job your single limit allows, finishing it clean, retaining the profit, and letting the higher working capital lift the limit for the next one. Sureties also offer single project add-ons and funds-control arrangements for a stretch job, where they monitor the money on that specific project in exchange for bonding above your normal limit. Ask about both before you assume the door is closed.</p>
+
+<h2>How to Actually Raise Your Limit</h2>
+
+<p>Once the calculator shows the gap, the moves to close it are specific. Bonding capacity grows when your balance sheet grows, so:</p>
+
+<ul>
+<li><strong>Leave profit in the company.</strong> Every dollar you pull out as a distribution is a dollar of working capital, and at a 15 times multiplier that dollar was supporting $15 of bonding capacity. Stripping cash out at year end quietly shrinks your program.</li>
+<li><strong>Term out short-term debt.</strong> Refinancing a line of credit or short-term note into a long-term loan moves it off your current liabilities. That raises working capital immediately, with no new cash, because the calculator only subtracts current liabilities.</li>
+<li><strong>Collect your receivables.</strong> Slow accounts receivable and large retainage are working capital trapped on other people's balance sheets. Chasing a $60,000 retainage release is a direct capacity increase.</li>
+<li><strong>Keep an accurate WIP schedule.</strong> Overbilling and underbilling distort working capital on your statements. A clean work-in-progress schedule that ties to your general ledger is the single document that earns a surety's trust and the higher multiplier.</li>
+<li><strong>Get reviewed or audited financials.</strong> Sureties extend more capacity on CPA-reviewed or audited statements than on internal or compiled ones, because the numbers carry independent verification. The upgrade often pays for itself in a single larger bond.</li>
+</ul>
+
+<p>None of these require a better crew or a sharper bid. They are balance sheet decisions, and the calculator turns each one into a number you can see move.</p>
+
+<h2>Know Your Limit Before the Surety Does</h2>
+
+<p>The contractors who get blindsided by a bonding rejection are not the weak ones. They are the ones flying blind on their own numbers, finding out their aggregate is tapped only after they have invested in a bid. The calculator above takes two figures off your balance sheet and a phone call to your agent for the multipliers, and it tells you the truth in advance.</p>
+
+<p>The hardest input to keep accurate is your current backlog, the real cost to complete every bonded job you are running. That number drives your available capacity, and it is the same work-in-progress figure your surety and CPA scrutinize. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> keeps cost-to-complete and committed costs accurate on every job, so the backlog number feeding your bonding calculator is real, not a guess. It rolls your active projects into one view, gives you the clean WIP picture sureties reward, and costs $49, a rounding error against a single bonded job you would otherwise leave on the table. Track your jobs properly, feed the calculator honest numbers, and walk into every bid knowing the answer before you ask.</p>`,
   },
   {
     slug: 'construction-cost-escalation-calculator-excel',
