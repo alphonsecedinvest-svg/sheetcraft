@@ -16,6 +16,124 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-backlog-report-template-excel',
+    title: 'Construction Backlog Report Template in Excel: Know Your Booked Work',
+    metaTitle: 'Construction Backlog Report Template | SheetCraft',
+    metaDescription: 'A construction backlog report template in Excel turns your signed contracts into months of booked work, so you see the revenue cliff before it hits.',
+    targetKeyword: 'construction backlog report template Excel',
+    secondaryKeywords: ['construction backlog report', 'construction backlog calculation', 'months of backlog', 'book to bill ratio construction', 'backlog to revenue ratio'],
+    excerpt: 'Revenue tells you about last month. Backlog tells you about next quarter. This Excel backlog report converts your signed contracts into months of booked work, so you stop getting surprised by the gap before it costs you a payroll.',
+    publishedAt: '2026-06-01',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-backlog-report-template-excel.png',
+    imageAlt: 'Flat illustration of a contractor desk with a laptop showing a bar chart of booked work, a hard hat, a calculator, a rolled blueprint, and a clipboard job list',
+    content: `<p>A drywall contractor doing $4.2 million a year gets slammed every spring. In March his calendar is packed, so he buys a second crew truck, hires two more hangers, and signs a shop lease with more room. Smart moves for a busy company. Then August arrives and the jobs run out. Two of his three big projects wrapped within the same three weeks, nothing replaced them, and now he is carrying nine guys and a truck payment against almost no booked revenue. A <strong>construction backlog report template in Excel</strong> would have shown him that cliff back in March, when he still had time to bid into it instead of staffing up right before it. The work was never there for August. He just never looked at the one number that would have told him.</p>
+
+<p>Revenue tells you what already happened. It is a rear-view mirror. Backlog is the windshield. It is the dollar value of work you have under contract but have not yet performed, and it is the only number on your books that points at the future. Most contractors track revenue to the penny and never calculate backlog at all, which is why so many of them get blindsided by a gap they signed up for months earlier.</p>
+
+<h2>Backlog Is the Only Number That Looks Forward</h2>
+
+<p>Backlog is simple to define and easy to ignore. For every signed job, it is the contract value minus the revenue you have already earned. Add that across all your active and awarded contracts and you have your total backlog: the work that is sold, not yet built, and waiting on your schedule.</p>
+
+<p>The reason this matters more than your bank balance is timing. Construction revenue arrives in lumps, 30 to 60 days after the work, and it stops the moment a job closes out. If three jobs finish in the same month and your backlog behind them is thin, your cash does not slowly taper. It falls off a shelf. By the time the bank account shows it, you are already two months into the hole and scrambling to bid anything that moves, usually at a price you will regret.</p>
+
+<p>Backlog gives you that warning while you can still act on it. A healthy commercial GC or specialty contractor typically wants six to twelve months of work booked. Drop under three months and you are in scramble territory. The point of the report is not to admire the number. It is to catch the slope early enough that you bid your way out instead of cutting price out of panic.</p>
+
+<h2>How to Build the Backlog Calculation</h2>
+
+<p>Start with one row per job. You only want contracts you have actually won, so include signed and awarded work and exclude anything still in bidding. The core columns are the contract value, the revenue earned to date, and a status field you can filter on.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Job</th><th>Status</th><th>Contract value</th><th>Earned to date</th><th>Remaining backlog</th><th>Gross margin</th></tr>
+</thead>
+<tbody>
+<tr><td>Row 5</td><td>Riverside retail TI</td><td>Signed</td><td>$620,000</td><td>$480,000</td><td>$140,000</td><td>16%</td></tr>
+<tr><td>Row 6</td><td>Maple St apartments</td><td>Signed</td><td>$1,450,000</td><td>$610,000</td><td>$840,000</td><td>12%</td></tr>
+<tr><td>Row 7</td><td>Dental office buildout</td><td>Awarded</td><td>$280,000</td><td>$0</td><td>$280,000</td><td>19%</td></tr>
+<tr><td>Row 8</td><td>School gym reroof</td><td>Signed</td><td>$540,000</td><td>$95,000</td><td>$445,000</td><td>14%</td></tr>
+<tr><td>Row 9</td><td>Warehouse slab</td><td>Closed</td><td>$310,000</td><td>$310,000</td><td>$0</td><td>15%</td></tr>
+</tbody>
+</table>
+
+<p>The remaining backlog in column F is the engine of the whole report. For the first job it is the contract value minus what you have already earned:</p>
+
+<p><code>=D5-E5</code></p>
+
+<p>Fill that down the column and every job tells you how much of its value is still ahead of you. The closed warehouse job returns $0, exactly right, because there is no future work left in it.</p>
+
+<p>Now total only the work you have actually won. A plain <code>=SUM(F5:F9)</code> would do it here, but the moment you start dropping bidding jobs into the same sheet you want the total to ignore them. Use SUMIFS keyed to the status column so pipeline work never inflates your real backlog:</p>
+
+<p><code>=SUMIFS(F5:F20,C5:C20,"Signed")+SUMIFS(F5:F20,C5:C20,"Awarded")</code></p>
+
+<p>That returns $1,705,000 of booked work across the four live jobs. This is the number to put at the top of the report, because everything downstream keys off it.</p>
+
+<h2>Months of Backlog: The Ratio That Runs Your Hiring</h2>
+
+<p>A backlog total in dollars is hard to feel. Is $1.7 million a lot? It depends entirely on how fast you burn through it. Convert it into time and it becomes a decision you can actually make. Divide total backlog by your average monthly revenue and you get months of work booked.</p>
+
+<p>With total backlog in F22 and trailing average monthly revenue in B25, say $350,000:</p>
+
+<p><code>=F22/B25</code></p>
+
+<p>That returns 4.9 months. Not a crisis, but not comfortable either. This contractor is below the six-month line, which means he needs to be signing new work now, not in two months. Make the spreadsheet say it out loud with a flag so nobody has to interpret the number:</p>
+
+<p><code>=IF(B26&lt;3,"DANGER",IF(B26&lt;6,"WATCH","HEALTHY"))</code></p>
+
+<p>With 4.9 months in B26 the cell reads WATCH. That one word, sitting at the top of a report you look at every Monday, is worth more than any dashboard. It changes how aggressively you chase the next three bids.</p>
+
+<h3>The book-to-bill ratio</h3>
+
+<p>Months of backlog is a snapshot. Book-to-bill tells you which direction it is moving. It compares the work you signed in a period against the revenue you billed in the same period. Sign more than you bill and your backlog is growing. Bill more than you sign and it is shrinking, no matter how busy the crews look.</p>
+
+<p>With new signed contracts this quarter in B30 and revenue billed this quarter in B31:</p>
+
+<p><code>=B30/B31</code></p>
+
+<p>If you signed $900,000 and billed $1,050,000, that returns 0.86. Below 1.0, which means you are drawing down the backlog faster than you are refilling it. A busy quarter with a book-to-bill under 1.0 is exactly the trap the drywall contractor fell into. The trucks were full and the number was telling him to sell.</p>
+
+<h2>The Runoff: See the Cliff Before You Hit It</h2>
+
+<p>The summary numbers tell you how much and how fast. The runoff tells you when. This is the part most backlog reports skip, and it is the part that actually prevents the August surprise. Spread each job's remaining backlog across the months it will be built, then total each month. Now you are looking at the shape of your revenue, not just its size.</p>
+
+<p>Give each job a start month, an end month, and the count of active months, then earn its backlog evenly across that window. With month headers running across row 4 and a job's window in columns J, K, and L, the amount that job contributes to any given month is:</p>
+
+<p><code>=IF(AND(M$4&gt;=$J5,M$4&lt;=$K5),$F5/$L5,0)</code></p>
+
+<p>Total each month column with a plain <code>=SUM()</code> and the runoff appears:</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Backlog scheduled</th><th>Cumulative remaining</th><th>Crews needed</th></tr>
+</thead>
+<tbody>
+<tr><td>June</td><td>$360,000</td><td>$1,345,000</td><td>3</td></tr>
+<tr><td>July</td><td>$340,000</td><td>$1,005,000</td><td>3</td></tr>
+<tr><td>August</td><td>$310,000</td><td>$695,000</td><td>3</td></tr>
+<tr><td>September</td><td>$240,000</td><td>$455,000</td><td>2</td></tr>
+<tr><td>October</td><td>$120,000</td><td>$335,000</td><td>1</td></tr>
+<tr><td>November</td><td>$45,000</td><td>$0</td><td>1</td></tr>
+</tbody>
+</table>
+
+<p>Read that table the way the contractor should have read it in March. The work holds at three crews through August, then drops to two in September and one by October. The cliff is real and it is dated. With this in front of him, hiring two more hangers in spring is obviously wrong. The right move is to keep the crews he has and put his estimator on filling September and beyond. The runoff turns a vague "we should probably bid more" into a specific target: about $700,000 of new work landing before September, or the crews go idle.</p>
+
+<h2>Backlog Gross Profit, Not Just Revenue</h2>
+
+<p>One more column separates contractors who survive from ones who just stay busy. A million dollars of backlog at 8 percent margin and a million at 18 percent are not the same company, and revenue-only backlog hides the difference. Weight each job's remaining backlog by its gross margin and total the profit, not the volume:</p>
+
+<p><code>=SUMPRODUCT(F5:F8,G5:G8)</code></p>
+
+<p>Across the four live jobs that returns $238,700 of gross profit sitting in $1,705,000 of backlog, a blended margin just under 14 percent. Now the warning sharpens. If the next wave of work you sign to fill September comes in at 6 or 7 percent because you bid scared, your backlog dollars will grow while your backlog profit shrinks. Busier and poorer at the same time. Tracking profit in the backlog, not just revenue, is what keeps a panic-bid quarter from quietly eating your whole year.</p>
+
+<h2>Put the Backlog Report to Work</h2>
+
+<p>The mechanics are not hard. Remaining backlog is one subtraction, months of work is one division, and the runoff is one IF formula filled across a month grid. The discipline is harder. The number only protects you if it is built on real cost-to-complete and earned-to-date figures, refreshed every month, the same data your banker and bonding agent already scrutinize. A backlog report fed by stale or guessed numbers is worse than none, because it hands you false confidence right before the cliff.</p>
+
+<p>That accuracy is exactly what the <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> is built to hold. It keeps contract value, billed-to-date, and cost-to-complete current on every active job, so the remaining backlog feeding this report is a fact, not a hopeful estimate. It rolls all your projects into one view, gives you the clean work-in-progress picture that drives both the runoff and your bonding conversations, and costs $49, less than an hour of the idle crew time one missed cliff will cost you. Build the report once, feed it honest numbers every month, and you will see your slow season coming while you can still sell your way out of it.</p>`,
+  },
+  {
     slug: 'construction-bonding-capacity-calculator',
     title: 'Construction Bonding Capacity Calculator: Know What You Can Bond',
     metaTitle: 'Construction Bonding Capacity Calculator | SheetCraft',
