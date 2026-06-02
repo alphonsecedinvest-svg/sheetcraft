@@ -16,6 +16,147 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'self-perform-vs-subcontract-cost-analysis-excel',
+    title: 'Self-Perform vs Subcontract Cost Analysis in Excel: Which One Actually Wins',
+    metaTitle: 'Self-Perform vs Subcontract Excel | SheetCraft',
+    metaDescription: 'Stop comparing a sub\'s bid to bare labor. This self-perform vs subcontract cost analysis in Excel loads burden, risk, and crew time to show which wins.',
+    targetKeyword: 'self-perform vs subcontract cost analysis Excel',
+    secondaryKeywords: ['self-perform vs subcontract', 'labor burden calculation', 'fully burdened labor cost', 'construction make or buy decision', 'subcontractor cost comparison'],
+    excerpt: 'Most contractors decide self-perform vs subcontract by comparing the sub\'s bid to bare labor and materials, then save tens of thousands that vanish once burden, equipment, supervision, and risk get costed in. This Excel cost model loads every real number on both sides, including the opportunity cost of tying up your only crew, so the winner is the option that protects your margin, not the one that looks cheaper on a napkin.',
+    publishedAt: '2026-06-02',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/self-perform-vs-subcontract-cost-analysis-excel.png',
+    imageAlt: 'Flat illustration of a balance scale weighing an in-house construction crew with a cement mixer against a subcontractor pickup truck, beside a laptop showing a cost comparison chart, a hard hat, a rolled blueprint, and a calculator',
+    content: `<p>A general contractor with one good concrete crew wins a job and gets a $158,000 sub bid on the foundations. He frowns at it and runs the math every builder runs in his head: his own guys can pour this for about $46,000 in labor and $52,000 in materials, call it $98,000. So self-performing saves him $60,000. He sends the sub a polite no, puts his crew on the pour, and feels smart. Four months later the job closes and that concrete scope barely broke even. The $60,000 was never real. It was a napkin number missing two-thirds of what self-performing actually costs. A real <strong>self-perform vs subcontract cost analysis in Excel</strong> would have shown him the true edge was closer to $9,000, and that once his crew was buried here instead of on the retail job he turned down the same month, he lost money making that call.</p>
+
+<p>The self-perform versus subcontract decision shows up on almost every project, on almost every scope, and most contractors make it on instinct or on a comparison that is rigged against the truth. The instinct says "my guys are cheaper than a sub." Sometimes they are. The only way to know is to put both options on the same fully loaded basis and let the numbers settle it. That is the entire job of this cost model.</p>
+
+<h2>The Napkin Math That Quietly Eats Your Margin</h2>
+
+<p>Here is why the gut comparison lies. The sub's $158,000 is a finished, fully loaded price. It already carries their labor burden, their equipment, their supervision, their overhead, their profit, their insurance, and their warranty on the work. Your $98,000 carries none of yours. You are comparing a retail price to a raw cost and then acting surprised when the gap closes on you in the field.</p>
+
+<p>When you self-perform, you become the sub. Every cost the sub buried in that $158,000 is now yours to carry, and the ones contractors forget are the expensive ones: the payroll taxes and workers' comp on a high-risk trade, the pump and power trowels and fuel, the small tools that walk off, the superintendent's time babysitting the pour, and the rework you eat when a wall comes out of plumb. None of that lives in "$46,000 labor and $52,000 materials." Until you load it, you are not comparing two prices. You are comparing a price to a wish.</p>
+
+<h2>Load Both Sides on the Same Basis</h2>
+
+<p>The only fair comparison puts your self-perform cost and the sub bid on the same fully loaded footing. Build each side from the bottom up, then read the gap. Start with the side that hides the most cost.</p>
+
+<h3>The Self-Perform Cost, Fully Burdened</h3>
+
+<p>Start with labor, because that is where the biggest hidden cost hides. The wage you pay a worker is not what that worker costs you. Build the burden once, per hour, so you stop guessing at it.</p>
+
+<table>
+<thead>
+<tr><th>Component</th><th>Basis</th><th>Per hour</th></tr>
+</thead>
+<tbody>
+<tr><td>Base wage</td><td>blended crew rate</td><td>$32.00</td></tr>
+<tr><td>FICA + Medicare</td><td>7.65%</td><td>$2.45</td></tr>
+<tr><td>FUTA + SUTA</td><td>2.70%</td><td>$0.86</td></tr>
+<tr><td>Workers' comp (concrete class)</td><td>16.0%</td><td>$5.12</td></tr>
+<tr><td>General liability</td><td>2.5%</td><td>$0.80</td></tr>
+<tr><td>Health + benefits</td><td>flat</td><td>$4.20</td></tr>
+<tr><td>PTO + holidays</td><td>4.0%</td><td>$1.28</td></tr>
+<tr><td><strong>Burdened hourly cost</strong></td><td></td><td><strong>$46.71</strong></td></tr>
+</tbody>
+</table>
+
+<p>The burdened hourly cost is just the column added up:</p>
+
+<p><code>=SUM(C5:C11)</code></p>
+
+<p>Divide it by the base wage and you get the number that should sit at the top of every self-perform estimate you ever build, your burden multiplier:</p>
+
+<p><code>=C12/C5</code></p>
+
+<p>That returns 1.46. Every dollar of raw wage actually costs you $1.46 once the government, the insurance carrier, and your benefits package take their cut. Workers' comp alone adds five dollars an hour on concrete, and it climbs higher on roofing, steel, and demo. Skip the burden and your "cheap" crew is already 46 percent more expensive than you think before a single yard is poured.</p>
+
+<p>Now stack the whole self-perform cost. Lay it out in one column so the total is a formula, not a memory.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Self-perform line</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>B5</td><td>Bare wages</td><td>$46,000</td></tr>
+<tr><td>B6</td><td>Burden multiplier</td><td>1.46</td></tr>
+<tr><td>B7</td><td>Burdened labor <code>=B5*B6</code></td><td>$67,160</td></tr>
+<tr><td>B8</td><td>Materials</td><td>$52,000</td></tr>
+<tr><td>B9</td><td>Equipment (pump, trowels, fuel)</td><td>$13,500</td></tr>
+<tr><td>B10</td><td>Small tools + consumables</td><td>$2,800</td></tr>
+<tr><td>B11</td><td>Supervision + PM time</td><td>$8,200</td></tr>
+<tr><td>B12</td><td>Direct subtotal <code>=B7+SUM(B8:B11)</code></td><td>$143,660</td></tr>
+<tr><td>B13</td><td>Risk reserve %</td><td>7%</td></tr>
+<tr><td>B14</td><td>Risk reserve <code>=B12*B13</code></td><td>$10,056</td></tr>
+<tr><td>B15</td><td><strong>Total self-perform cost</strong> <code>=B12+B14</code></td><td><strong>$153,716</strong></td></tr>
+</tbody>
+</table>
+
+<p>The risk reserve in B14 is the line most contractors refuse to write down, and it is the one that makes the model honest. When you self-perform, you own every overrun, every failed inspection, every rework day. A sub eats those on a lump sum. Pricing that risk at even 7 percent is conservative for concrete, and it turns a fuzzy "we should be fine" into a number you can defend. Your raw $98,000 just became $153,716. That is not the model being pessimistic. That is the model being correct.</p>
+
+<h3>The Subcontract Cost, Fully Counted</h3>
+
+<p>The sub bid is not a free, finished number either. Handing a scope to a sub still costs you time: writing the subcontract, buying out the scope, coordinating their schedule, walking their work, and chasing the punch list. Add it, because it is real, but keep it honest. It is small next to self-performing the whole thing.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>B18</td><td>Sub lump-sum bid</td><td>$158,000</td></tr>
+<tr><td>B19</td><td>Buyout + coordination + QA</td><td>$4,800</td></tr>
+<tr><td>B20</td><td><strong>Total subcontract cost</strong> <code>=B18+B19</code></td><td><strong>$162,800</strong></td></tr>
+<tr><td>B22</td><td>Cost edge, self vs sub <code>=B20-B15</code></td><td>$9,084</td></tr>
+<tr><td>B23</td><td>Edge as % of scope <code>=B22/B20</code></td><td>5.6%</td></tr>
+<tr><td>B24</td><td>Thin-edge flag <code>=IF(B23&lt;0.06,"THIN, lean to sub","REAL EDGE")</code></td><td>THIN, lean to sub</td></tr>
+</tbody>
+</table>
+
+<p>There it is. The real gap between doing it yourself and buying it is not $60,000. It is $9,084, about 5.6 percent of the scope. The flag in B24 exists to stop the gut from overriding the math. When the edge is under six percent, you are taking on a crew's worth of schedule risk, quality risk, and warranty exposure to save loose change. On a thin edge, the smart default is to subcontract and let someone else carry the risk for almost the same money. The few thousand dollars is rarely worth being the one holding the bag if the pour goes sideways.</p>
+
+<h2>The Number That Flips the Decision: Crew Opportunity Cost</h2>
+
+<p>Even a $9,084 edge can be the wrong choice, and this is the part the napkin never includes. Your crew is not infinite. The six weeks they spend on these foundations are six weeks they are not on another job. If a different scope would have earned them more margin in that same window, self-performing here is a loss even when it looks like a win on paper.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>B26</td><td>Crew-weeks tied up</td><td>6</td></tr>
+<tr><td>B27</td><td>Margin per crew-week elsewhere</td><td>$2,500</td></tr>
+<tr><td>B28</td><td>Opportunity cost <code>=B26*B27</code></td><td>$15,000</td></tr>
+<tr><td>B29</td><td>Net advantage of self-perform <code>=B22-B28</code></td><td>-$5,916</td></tr>
+<tr><td>B30</td><td><strong>Decision</strong> <code>=IF(B29&gt;0,"SELF-PERFORM","SUBCONTRACT")</code></td><td><strong>SUBCONTRACT</strong></td></tr>
+</tbody>
+</table>
+
+<p>The crew has a better home. Putting them on a scope where they generate $2,500 a week of margin makes their six weeks worth $15,000. Self-performing the foundations only saved $9,084, so doing it yourself quietly costs you $5,916 against the alternative. The decision formula in B30 reads the net advantage in B29 and flips to SUBCONTRACT, the opposite of what the gut said at the start. Sub the concrete, free the crew for the better job, and you are ahead by almost six grand. That single cell is the difference between staying busy and making money, two things contractors confuse constantly.</p>
+
+<p>When your crew has no better job lined up, the opportunity cost in B27 drops toward zero and the model swings the other way. Idle hands change everything. A crew that would otherwise sit on the bench costs you almost nothing to deploy, so self-performing even a thin scope keeps your people paid and your overhead absorbed. That is exactly why the same scope can be a self-perform on a slow month and a subcontract on a busy one. The right answer is not fixed. It moves with your backlog, which is why you run the model on every bid instead of deciding once and calling it a policy.</p>
+
+<h2>A Decision Rule You Can Run on Every Bid</h2>
+
+<p>The whole model collapses into one rule: self-perform only when the fully burdened cost plus what your crew gives up elsewhere still beats the sub. Everything above just feeds that one comparison. Before you commit a crew to a scope, run this check.</p>
+
+<ol>
+<li>Did you load labor with the burden multiplier, not the bare wage? If you compared raw wages to a sub bid, start over.</li>
+<li>Did you include equipment, small tools, and supervision as their own lines? These hide in self-perform and vanish from the napkin.</li>
+<li>Did you book a risk reserve for the overruns the sub would have eaten? No reserve means you are pricing yourself as risk-free, which no contractor is.</li>
+<li>Is the cost edge above your thin-edge threshold? Under six percent, the risk transfer alone usually justifies subbing it.</li>
+<li>Does your crew have a more profitable place to be in that window? If yes, subtract that margin before you decide.</li>
+</ol>
+
+<p>Run honestly, this rule kills the two mistakes that cost contractors the most. It stops you from self-performing a scope you should have bought, where the paper savings evaporate into burden and rework. And it stops you from reflexively subbing everything when your crew is idle and overhead is bleeding, the slow-season trap where you pay a sub to do work your own people could have absorbed for free. The number is not loyal to either answer. It is loyal to your margin.</p>
+
+<h2>Stop Deciding This One in Your Head</h2>
+
+<p>Every contractor already knows self-perform versus subcontract is a money decision. The problem is that the comparison is almost always made on an envelope, with bare costs on one side and a fully loaded price on the other, and that mismatch is exactly engineered to push you into self-performing scopes that lose money. Loading both sides correctly is not hard arithmetic. It is one burden multiplier, one honest cost stack, one risk reserve, and one opportunity-cost line. The discipline is doing it every time, on real numbers, before the crew is already committed.</p>
+
+<p>That is the work the <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already does for you. It keeps your burden multiplier, equipment rates, and crew costs current, so the self-perform side of this analysis is a fact instead of a guess, and it tracks the live margin on every active job, which is the exact number you need for the opportunity-cost line when you decide where the crew should go next. Instead of rebuilding a comparison from scratch on every bid, you drop in the sub price and read the answer. It costs $49, less than the margin you lose on a single scope you self-performed because the napkin said it was cheap. Run the model before you commit the crew, and let the only number that matters, the fully loaded one, make the call.</p>`,
+  },
+  {
     slug: 'construction-backlog-report-template-excel',
     title: 'Construction Backlog Report Template in Excel: Know Your Booked Work',
     metaTitle: 'Construction Backlog Report Template | SheetCraft',
