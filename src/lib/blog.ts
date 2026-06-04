@@ -16,6 +16,155 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-hacking-calculator-excel',
+    title: 'House Hacking Calculator in Excel: Run the Move-Out Test First',
+    metaTitle: 'House Hacking Calculator Excel | SheetCraft',
+    metaDescription: 'A house hacking calculator in Excel that runs the move-out test, so you know if the duplex still cash flows after you move out, not just while tenants pay.',
+    targetKeyword: 'house hacking calculator Excel',
+    secondaryKeywords: ['house hacking spreadsheet', 'owner occupied duplex calculator', 'FHA house hack analysis', 'house hacking cash flow', 'move-out test'],
+    excerpt: 'Most house hacking calculators stop at one number: how cheaply you live while a tenant covers your mortgage. They stay silent on the question that decides whether you bought an asset or a liability, what the property does the day you move out. This Excel model runs both phases, the live-in cost and the pure-rental move-out test, so the duplex that lets you live for free does not quietly cost you $11,760 a year once you leave.',
+    publishedAt: '2026-06-04',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/house-hacking-calculator-excel.png',
+    imageAlt: 'Flat illustration of a duplex with two front doors, an owner holding keys at one and a tenant handing over rent cash at the other, beside a laptop showing a green and red cash flow comparison, a calculator, and a for-rent sign',
+    content: `<p>A house hacker buys a $420,000 duplex with an FHA loan, moves into one unit, rents the other for $1,800, and tells everyone he lives for free. The math on his phone says so: his all-in payment is about $3,464 a month, the tenant covers $1,800, and his cost to live drops to roughly $1,664, basically what a one-bedroom would have cost him anyway. Two years later he gets a job offer in another city, moves out, rents his old unit too, and watches the property bleed almost $1,000 a month as a straight rental. The "free living" was real. The asset underneath it was a loss the whole time. A proper <strong>house hacking calculator in Excel</strong> would have shown him that before he wired the down payment, because it would have run the one test his phone math skipped: what happens the day you move out.</p>
+
+<p>House hacking works. Living in one unit of a small multifamily and letting tenants pay down your mortgage is one of the few legal ways a normal person buys a $400,000 asset with $15,000 down. But the calculators most people use measure the wrong thing. They optimize how cheaply you live today and stay completely silent on whether you bought something worth owning. Those two numbers do not always agree. Sometimes they point in opposite directions, and the property that lets you live for free is the exact one you should have walked away from.</p>
+
+<h2>Why "Living for Free" Is the Wrong Scoreboard</h2>
+
+<p>The headline number every house hacker chases is cost to live: the monthly payment minus the rent you collect while you occupy the building. It feels like the whole game. It is not even half of it.</p>
+
+<p>Cost to live rewards you for buying the most expensive property in the most expensive neighborhood, because that is where your owner-occupied unit is worth the most rent to offset against your payment. But expensive neighborhoods have low rent-to-price ratios. The building costs $420,000 and the two units together rent for $3,450, which is 0.82% of the price per month. That ratio is what determines whether the property survives as a rental, and it is terrible. You are subsidizing the deal with your own presence and calling the subsidy a win.</p>
+
+<p>The day you move out, your presence stops subsidizing anything. The owner unit becomes a rental with its own vacancy, its own management cost, its own turnover. The property has to stand on the rents alone. If it cannot, you did not buy an investment. You bought a two-year discount on housing attached to a liability you now have to feed, sell, or refinance your way out of.</p>
+
+<h2>Build the Calculator in Two Phases</h2>
+
+<p>A house hacking spreadsheet that actually protects you has two phases, not one. Phase 1 is the cost-to-live number everyone computes. Phase 2 is the move-out test almost nobody computes. Same property, two completely different questions, and you need both answers before you buy.</p>
+
+<p>Lay the inputs down column B so every formula has a clean reference. Here is the financing block for the $420,000 FHA duplex.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Purchase price</td><td>$420,000</td></tr>
+<tr><td>B3</td><td>Down payment %</td><td>3.5%</td></tr>
+<tr><td>B4</td><td>Down payment $ <code>=B2*B3</code></td><td>$14,700</td></tr>
+<tr><td>B5</td><td>Base loan <code>=B2-B4</code></td><td>$405,300</td></tr>
+<tr><td>B6</td><td>FHA upfront MIP <code>=B5*1.75%</code></td><td>$7,093</td></tr>
+<tr><td>B7</td><td>Financed loan <code>=B5+B6</code></td><td>$412,393</td></tr>
+<tr><td>B8</td><td>Interest rate</td><td>6.75%</td></tr>
+<tr><td>B9</td><td>Term (months)</td><td>360</td></tr>
+<tr><td>B10</td><td>Monthly P&amp;I <code>=-PMT(B8/12,B9,B7)</code></td><td>$2,675</td></tr>
+<tr><td>B11</td><td>Annual MIP rate</td><td>0.55%</td></tr>
+<tr><td>B12</td><td>Monthly MIP <code>=B7*B11/12</code></td><td>$189</td></tr>
+<tr><td>B13</td><td>Property tax / yr</td><td>$5,400</td></tr>
+<tr><td>B14</td><td>Insurance / yr</td><td>$1,800</td></tr>
+<tr><td>B15</td><td>Total monthly payment <code>=B10+B12+(B13+B14)/12</code></td><td>$3,464</td></tr>
+</tbody>
+</table>
+
+<p>The two FHA lines people forget are B6 and B12. FHA charges 1.75% of the loan up front, financed into the balance, plus an annual mortgage insurance premium of 0.55% that rides on every payment for the life of most FHA loans. That MIP is $189 a month here, and it does not disappear when you build equity the way conventional PMI does. Leave it out and your whole model is light by about $2,300 a year.</p>
+
+<h3>Phase 1: Your Cost to Live</h3>
+
+<p>This is the number that sells house hacking, and you should still compute it, because the lifestyle win is real money. You just stop here at your own risk.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B17</td><td>Your unit market rent</td><td>input</td><td>$1,650</td></tr>
+<tr><td>B18</td><td>Other unit rent</td><td>input</td><td>$1,800</td></tr>
+<tr><td>B19</td><td>Total market rent</td><td><code>=B17+B18</code></td><td>$3,450</td></tr>
+<tr><td>B21</td><td>Rent collected while you live there</td><td><code>=B18</code></td><td>$1,800</td></tr>
+<tr><td>B22</td><td>Your cost to live</td><td><code>=B15-B21</code></td><td>$1,664</td></tr>
+<tr><td>B23</td><td>Comparable apartment rent</td><td>input</td><td>$1,650</td></tr>
+<tr><td>B24</td><td>Monthly housing edge</td><td><code>=B23-B22</code></td><td>-$14</td></tr>
+</tbody>
+</table>
+
+<p>So Phase 1 says you live in a building you own for $1,664 a month, almost exactly what the comparable rental down the street costs, and a chunk of that payment is principal you keep. On the live-in scoreboard this looks like a clean win. Hold that thought.</p>
+
+<h3>Phase 2: The Move-Out Test</h3>
+
+<p>Now strip yourself out of the building and ask the only question that decides whether you own an asset: does this thing cash flow as a pure rental, with both units leased at market and full operating costs loaded? This is where you bring in vacancy, maintenance, capital reserves, and management, the costs your own labor and occupancy were quietly absorbing.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B26</td><td>Annual gross rent</td><td><code>=B19*12</code></td><td>$41,400</td></tr>
+<tr><td>B27</td><td>Vacancy (6%)</td><td><code>=B26*6%</code></td><td>$2,484</td></tr>
+<tr><td>B28</td><td>Maintenance (8%)</td><td><code>=B26*8%</code></td><td>$3,312</td></tr>
+<tr><td>B29</td><td>CapEx reserve (6%)</td><td><code>=B26*6%</code></td><td>$2,484</td></tr>
+<tr><td>B30</td><td>Management (8%)</td><td><code>=B26*8%</code></td><td>$3,312</td></tr>
+<tr><td>B31</td><td>Taxes + insurance</td><td><code>=B13+B14</code></td><td>$7,200</td></tr>
+<tr><td>B32</td><td>Net operating income</td><td><code>=B26-SUM(B27:B31)</code></td><td>$22,608</td></tr>
+<tr><td>B33</td><td>Annual debt service</td><td><code>=(B10+B12)*12</code></td><td>$34,368</td></tr>
+<tr><td>B34</td><td>Annual cash flow</td><td><code>=B32-B33</code></td><td>-$11,760</td></tr>
+<tr><td>B35</td><td>Monthly cash flow</td><td><code>=B34/12</code></td><td>-$980</td></tr>
+<tr><td>B36</td><td>DSCR</td><td><code>=B32/B33</code></td><td>0.66</td></tr>
+</tbody>
+</table>
+
+<p>There it is. The duplex that let you live for nothing loses $980 every month the moment you stop living in it. The debt service coverage ratio in B36 is 0.66, which means the property's net income covers only two-thirds of its mortgage. No lender will refinance that into an investment loan, so you cannot even buy your way out of the FHA mortgage insurance. You are stuck feeding it or selling it.</p>
+
+<p>Put a verdict cell next to the result so the answer is impossible to ignore: <code>=IF(B35&gt;=0,"KEEPS YOU","YOU FEED IT")</code>. This duplex returns "YOU FEED IT." The phone math never showed that line, because the phone math stopped at Phase 1.</p>
+
+<h2>Run Two Real Deals Through It</h2>
+
+<p>Here is the part that breaks most people's intuition. Take the $420,000 duplex above and put it next to a cheaper, less glamorous $255,000 duplex in a working-class neighborhood where rents are strong relative to price. Same FHA structure, same 3.5% down. Run both through the two-phase model.</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Deal A: $420k</th><th>Deal B: $255k</th></tr>
+</thead>
+<tbody>
+<tr><td>Down payment (3.5% FHA)</td><td>$14,700</td><td>$8,925</td></tr>
+<tr><td>Total market rent (both units)</td><td>$3,450</td><td>$3,125</td></tr>
+<tr><td>Rent-to-price ratio</td><td>0.82%</td><td>1.23%</td></tr>
+<tr><td>Phase 1: your cost to live</td><td>$1,664</td><td>$530</td></tr>
+<tr><td>Phase 2: monthly cash flow after move-out</td><td>-$980</td><td>+$120</td></tr>
+<tr><td>DSCR after move-out</td><td>0.66</td><td>1.07</td></tr>
+<tr><td>Move-out verdict</td><td>YOU FEED IT</td><td>KEEPS YOU</td></tr>
+</tbody>
+</table>
+
+<p>Deal A wins the live-in scoreboard in a landslide. It costs you $1,664 a month to live, but against a $1,650 comparable that feels free, and it is the nicer building in the nicer area. Deal B actually costs you $530 a month out of pocket while you live there, which sounds worse. On the live-only calculator most people use, Deal A is the obvious pick.</p>
+
+<p>The move-out test flips the entire decision. Deal B pays you $120 a month after you leave and carries a DSCR above 1.0, which means a lender will refinance it and it stands on its own as a rental for as long as you own it. Deal A turns into an $11,760-a-year hole. The cheaper, uglier property is the real asset. The expensive one that let you live for free was a liability wearing a discount. A house hacking calculator that only shows Phase 1 would have steered you straight into the worse deal with full confidence.</p>
+
+<h2>The Four Numbers That Actually Screen a House Hack</h2>
+
+<p>Before you tour a single owner-occupied duplex, build a one-row screen at the top of your spreadsheet that forces every candidate to answer four questions. If a deal fails the bottom two, the lifestyle win on top does not save it.</p>
+
+<ol>
+<li><strong>Cost to live (B22).</strong> What you actually pay to occupy the building each month. Lower is nice, but it is the least important of the four.</li>
+<li><strong>Housing edge (B24).</strong> Cost to live minus what comparable rent would cost you. This is your real monthly lifestyle savings, principal paydown excluded.</li>
+<li><strong>Move-out cash flow (B35).</strong> Monthly cash flow with both units at market and full operating costs loaded. This is the number that says whether you own an asset or a future bill.</li>
+<li><strong>Move-out DSCR (B36).</strong> Net operating income divided by debt service. Below 1.0 and no lender will treat the property as self-supporting, which traps you in the FHA loan and its permanent mortgage insurance.</li>
+</ol>
+
+<p>Then compute the break-even rent so you know exactly how far a deal is from working. The total monthly rent the property needs to cash flow as a rental is:</p>
+
+<p><code>=((B33+B31)/(1-B27%-B28%-B29%-B30%))/12</code></p>
+
+<p>For Deal A, that break-even is about $4,811 a month in total rent against the $3,450 the units actually command, a $1,361 monthly gap. No rent increase you can plausibly push closes that. The deal is not underpriced rent, it is overpriced building. Wrap the whole screen in one flag so the spreadsheet makes the call for you: <code>=IF(AND(B36&gt;=1,B35&gt;=0),"REAL ASSET","LIVE-IN ONLY")</code>. Buy "REAL ASSET" properties. Walk away from "LIVE-IN ONLY" properties no matter how cheap they let you live, because the day you move out, that cheap living turns into an expensive problem.</p>
+
+<h2>Stop Optimizing the Wrong Number</h2>
+
+<p>House hacking is a wealth strategy, not a rent hack. The point was never to live cheaply for two years. It was to acquire a cash-flowing asset with almost no money down and let tenants buy it for you over a decade. The calculator you use has to measure that, which means it has to run the move-out test, load real operating costs, and check DSCR before you ever celebrate a low cost to live. The property that lets you live for free and the property that builds you wealth are not always the same building, and the only way to tell them apart is to put both phases on the same screen.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> is built for exactly this two-phase math. It models the live-in phase and the pure-rental phase side by side, carries FHA upfront and annual MIP correctly so your owner-occupied numbers are honest, and runs DSCR, break-even rent, and 10-year projections on the move-out scenario so you see what the building does after you leave, not just while you are in it. You drop in the purchase price, the unit rents, and your loan terms, and it tells you whether you are buying an asset or a discount with a liability attached. It costs $49, which is a rounding error against the $11,760 a year a failed house hack quietly costs you. Run the move-out test before you sign, and let the only number that matters, the one for the day you move out, decide whether you buy.</p>`,
+  },
+  {
     slug: 'self-perform-vs-subcontract-cost-analysis-excel',
     title: 'Self-Perform vs Subcontract Cost Analysis in Excel: Which One Actually Wins',
     metaTitle: 'Self-Perform vs Subcontract Excel | SheetCraft',
