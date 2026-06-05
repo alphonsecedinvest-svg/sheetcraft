@@ -16,6 +16,121 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: '1-percent-rule-rental-property-calculator',
+    title: '1 Percent Rule Rental Property Calculator: The 10-Second Screen That Lies Half the Time',
+    metaTitle: '1 Percent Rule Rental Property Calculator | SheetCraft',
+    metaDescription: 'A 1 percent rule rental property calculator screens deals in seconds. Build one in Excel that adjusts for taxes and insurance so it stops lying to you.',
+    targetKeyword: '1 percent rule rental property calculator',
+    secondaryKeywords: ['1% rule real estate', 'gross rent multiplier', 'rental property screening', 'rent to price ratio', '1 percent rule Excel'],
+    excerpt: 'The 1% rule screens a rental deal in ten seconds: monthly rent divided by purchase price. It is right often enough to feel like a law and wrong often enough to cost you good deals and hand you bad ones. This Excel calculator runs the fast screen, then flags the three cases where the rule lies (carrying costs, financing, and the rehab denominator), so a Tampa condo that passes the rule but bleeds $327 a month never reaches your drive-and-see list.',
+    publishedAt: '2026-06-05',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/1-percent-rule-rental-property-calculator.png',
+    imageAlt: 'Flat illustration of a real estate investor at a desk screening house listing cards, a laptop showing a spreadsheet with green and red pass and fail flags beside small house icons, a percent symbol and magnifying glass over one house, and a calculator',
+    content: `<p>An investor in Cleveland finds a $95,000 single-family rental that brings in $1,150 a month and walks away from it, because the $200,000 listing he likes better in a nicer suburb rents for $1,500 and "does not hit the 1% rule." Six months later a different investor buys that same $200,000 house, watches it bleed $400 a month once the taxes and insurance land, while the Cleveland house quietly cash flows for whoever finally bought it. Both decisions ran through the same ten-second filter. A <strong>1 percent rule rental property calculator</strong> is the fastest screen in real estate, monthly rent divided by purchase price, and the math takes seconds. The trouble is that the rule is right often enough to feel like a law and wrong often enough to cost you good deals and hand you bad ones.</p>
+
+<p>The 1% rule is not useless. It is a proxy, and like every proxy it holds until the thing it stands in for moves. Built in Excel the right way, a 1% calculator does two jobs at once. It screens a stack of listings in seconds so you stop burning Saturdays on losers, and it flags the exact conditions where the rule lies so you never act on the screen alone. Here is how to build that calculator, and where to stop trusting it.</p>
+
+<h2>What the 1 Percent Rule Actually Measures</h2>
+
+<p>The rule says a rental should collect monthly rent equal to at least 1% of its purchase price. A $150,000 property should rent for $1,500 or more. That is the entire formula: <code>=Rent/Price</code>. It is the inverse cousin of the gross rent multiplier, and both are shorthand for the one number that genuinely matters, the rent to price ratio. A high ratio means the property earns a lot of rent per dollar of capital, which is the raw material that cash flow is made from.</p>
+
+<p>Here is what the rule does not see. It does not see your property tax rate, which runs near 0.5% of value in Colorado and over 2.2% in parts of New Jersey. It does not see insurance, which is $70 a month in Ohio and $300 or more on a coastal Florida condo. It does not see HOA dues, your interest rate, or how much you put down. The 1% rule earned its reputation when mortgages sat near 5%. At 7.5%, the same ratio carries a much heavier payment, so a deal that screened fine in 2021 screens as a loss today at the identical rent and price. The rule did not change. The world under it did.</p>
+
+<h2>Build the 10-Second Screen in Excel</h2>
+
+<p>Put your inputs down column B so every formula has a clean reference. This is the fast cut, the part the rule gets right: deleting deals where the rent is simply too low for the price to ever work.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Purchase price</td><td>input</td><td>$150,000</td></tr>
+<tr><td>B3</td><td>Monthly rent</td><td>input</td><td>$1,650</td></tr>
+<tr><td>B4</td><td>1% ratio</td><td><code>=B3/B2</code></td><td>1.10%</td></tr>
+<tr><td>B5</td><td>Rule verdict</td><td><code>=IF(B4&gt;=0.01,"PASS","FAIL")</code></td><td>PASS</td></tr>
+<tr><td>B6</td><td>Gross rent multiplier</td><td><code>=B2/(B3*12)</code></td><td>7.6</td></tr>
+<tr><td>B7</td><td>Rent needed to pass</td><td><code>=B2*0.01</code></td><td>$1,500</td></tr>
+</tbody>
+</table>
+
+<p>Cell B5 is the screen. <code>=IF(B4&gt;=0.01,"PASS","FAIL")</code> returns one word, and one word is all you want when you are working through 40 listings before lunch. B7 is the quiet workhorse: <code>=B2*0.01</code> tells you the exact rent a property needs to clear the bar, so the moment an agent quotes a price you already know in your head what rent makes it worth a second look. Drag those formulas down a table and you can screen an entire market in the time it takes to paste in the prices. That is the legitimate use of a 1 percent rule rental property calculator, and for rental property screening at volume, nothing is faster.</p>
+
+<p>That batch view is where the rule earns its keep. A column of PASS and FAIL cuts your reading pile in half before you open a single set of photos. But the rule has a second column it never shows you, and that column is where it starts to lie.</p>
+
+<h2>Where the 1 Percent Rule Lies</h2>
+
+<p>The rule fails in three specific ways. Each one is predictable enough to build a guard against.</p>
+
+<h3>Lie 1: It ignores what the property costs to carry</h3>
+
+<p>Two properties both rent for 1.1% of price. One sits in Indianapolis with a 1% tax rate and a $90 insurance bill. The other is a Tampa condo carrying $300 a month in wind insurance and $350 in HOA dues. The bare ratio scores them identically. One cash flows $343 a month, the other bleeds $327. Same screen, opposite outcome, and the entire difference lives in the carrying costs the rule never looks at.</p>
+
+<h3>Lie 2: It ignores your financing</h3>
+
+<p>The rule uses price, not your loan. A 0.9% deal that fails the screen on 20% down can cash flow comfortably with 35% down or an assumed 4% mortgage. A 1.1% deal that passes can lose money at 7.5% on 20% down. Rent to price tells you nothing about the payment, and the payment is usually the largest line on the page.</p>
+
+<h3>Lie 3: It uses the sticker price, not your all-in cost</h3>
+
+<p>Buy a $90,000 house, put $45,000 into it, and rent it for $1,500. Measured against the purchase price the ratio is a dazzling 1.67%. Measured against your real all-in cost of $135,000 it is 1.11%. Run the rule on the wrong denominator and a heavy rehab looks like a grand slam when it is a single. On a BRRRR or any deal with real rehab, the only honest denominator is total cash in.</p>
+
+<p>Put numbers on it. Here are five real-shaped deals run through the naive 1% screen and then through an honest monthly cash flow estimate.</p>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Price</th><th>Rent</th><th>1% ratio</th><th>Rule verdict</th><th>Est. monthly cash flow</th><th>Reality</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Cleveland SFR</td><td>$95,000</td><td>$1,150</td><td>1.21%</td><td>PASS</td><td>+$169</td><td>Cash flows</td></tr>
+<tr><td>B. Tampa condo</td><td>$150,000</td><td>$1,650</td><td>1.10%</td><td>PASS</td><td>-$327</td><td>Bleeds</td></tr>
+<tr><td>C. Austin SFR</td><td>$320,000</td><td>$2,400</td><td>0.75%</td><td>FAIL</td><td>-$575</td><td>Rule was right</td></tr>
+<tr><td>D. Indianapolis duplex</td><td>$145,000</td><td>$1,750</td><td>1.21%</td><td>PASS</td><td>+$343</td><td>Cash flows</td></tr>
+<tr><td>E. Newark 3-family</td><td>$300,000</td><td>$3,100</td><td>1.03%</td><td>PASS</td><td>-$60</td><td>Bleeds</td></tr>
+</tbody>
+</table>
+
+<p>Four of these five passed the 1% rule. Only two of those four actually make money. The rule handed you a 50% false-positive rate on its own approvals, and the two losers, Tampa and Newark, are not close calls hiding behind rounding. They are deals you would have driven across town to see on the strength of a number that was lying to you the whole way there.</p>
+
+<h2>The Adjusted Screen That Stops Lying</h2>
+
+<p>The fix is not to throw the rule out. It is to add a second screen that takes ten more seconds and looks at the costs the bare ratio skips. Keep the 1% test as your first cut, then run the survivors through this block. The numbers below are the Tampa condo, the deal that passed and bled.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B8</td><td>Rehab + closing</td><td>input</td><td>$0</td></tr>
+<tr><td>B9</td><td>All-in cost</td><td><code>=B2+B8</code></td><td>$150,000</td></tr>
+<tr><td>B10</td><td>True ratio</td><td><code>=B3/B9</code></td><td>1.10%</td></tr>
+<tr><td>B11</td><td>Property tax rate</td><td>input</td><td>1.0%</td></tr>
+<tr><td>B12</td><td>Insurance / mo</td><td>input</td><td>$300</td></tr>
+<tr><td>B13</td><td>HOA / mo</td><td>input</td><td>$350</td></tr>
+<tr><td>B14</td><td>Vacancy + maint + mgmt %</td><td>input</td><td>22%</td></tr>
+<tr><td>B15</td><td>Down payment %</td><td>input</td><td>20%</td></tr>
+<tr><td>B16</td><td>Loan amount</td><td><code>=B9*(1-B15)</code></td><td>$120,000</td></tr>
+<tr><td>B17</td><td>Interest rate</td><td>input</td><td>7.5%</td></tr>
+<tr><td>B18</td><td>Monthly P and I</td><td><code>=-PMT(B17/12,360,B16)</code></td><td>$839</td></tr>
+<tr><td>B19</td><td>Monthly cash flow</td><td><code>=B3-(B3*B14)-(B9*B11/12)-B12-B13-B18</code></td><td>-$327</td></tr>
+<tr><td>B20</td><td>Verdict</td><td><code>=IF(B19&gt;0,"CASH FLOWS","BLEEDS")</code></td><td>BLEEDS</td></tr>
+</tbody>
+</table>
+
+<p>The engine is B19. <code>=B3-(B3*B14)-(B9*B11/12)-B12-B13-B18</code> takes the rent, strips out the percentage costs that scale with it (vacancy, maintenance, and management rolled into B14), subtracts the monthly property tax computed off real value, then the fixed insurance and HOA dollars, then the loan payment. What is left is roughly what hits your bank account each month. B20 turns that into the single word you actually wanted from the 1% rule and never got: does this thing make money or not.</p>
+
+<p>Two details carry the whole fix. B9 uses all-in cost, not list price, so the rehab lie from earlier cannot slip through, and the BRRRR house gets judged on its real $135,000 basis instead of its flattering $90,000 sticker. And B11 is a tax rate you pull per property, not a national guess, because that one input is what separates a Newark deal from a Denver one. The PMT function in B18 carries your actual rate and down payment, which kills the financing lie. You now have a screen that is still fast, still one verdict, and no longer fooled by the three things the bare ratio cannot see.</p>
+
+<h2>When to Trust the Screen and When to Build the Full Model</h2>
+
+<p>Use the 1% rule for exactly one job: screening out. It is a fast, cheap way to delete the deals where the rent is too low to ever work, and for that it is excellent. Never use it to screen in. A PASS means "worth ten more seconds in the adjusted block," not "buy." That is the entire discipline, and the investors who get burned are the ones who treat a green PASS as a decision instead of a filter.</p>
+
+<p>The adjusted screen gets you to a defensible monthly cash flow in about 20 seconds per deal. What it does not do is tell you total return over a hold. It ignores rent growth, appreciation, mortgage paydown, the tax shelter of depreciation, and your eventual sale. A deal that bleeds $60 a month today can still be the best buy on your list if it sits in a path-of-growth market where rents climb 5% a year and every payment builds equity. The screen cannot see that. Only a full model can.</p>
+
+<p>That is the line between a screen and an analysis, and it is where the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> takes over. The screen tells you which five deals out of fifty deserve real work. The Analyzer runs those five all the way down: monthly cash flow with every operating line itemized, cash-on-cash return, cap rate, and a 10-year projection that prices in rent growth, expense growth, appreciation, and paydown, so the thin-cash-flow deal the 1% rule rejected finally gets judged on its total return instead of one ratio. It carries the property tax rate, insurance, and HOA as their own inputs, so a Tampa condo and an Indianapolis duplex never score the same again. It costs $49, less than one month of the $327 that Tampa condo would have quietly drained from you. Screen fast with the 1% rule, screen honestly with the adjusted block, then run the survivors through the full model before you wire a dime.</p>`,
+  },
+  {
     slug: 'house-hacking-calculator-excel',
     title: 'House Hacking Calculator in Excel: Run the Move-Out Test First',
     metaTitle: 'House Hacking Calculator Excel | SheetCraft',
