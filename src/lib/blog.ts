@@ -16,6 +16,131 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: '50-percent-rule-rental-property-calculator',
+    title: '50 Percent Rule Rental Property Calculator: Right for the Market, Wrong for Your Deal',
+    metaTitle: '50 Percent Rule Rental Property Calculator | SheetCraft',
+    metaDescription: 'The 50 percent rule rental property calculator estimates expenses fast at half your rent. Build the Excel version that shows where a deal really lands.',
+    targetKeyword: '50 percent rule rental property calculator',
+    secondaryKeywords: ['50% rule real estate', 'rental property operating expenses', 'estimate rental expenses', 'net operating income Excel', '50 percent rule calculator'],
+    excerpt: 'The 50 percent rule estimates rental expenses in seconds: half your gross rent. It is right across a thousand properties and frequently wrong about the one you are buying, because it averages a low-tax new build with a high-tax 1962 duplex. This Excel calculator runs the fast 50 percent screen, then itemizes taxes, insurance, age, and management so the deal that pencils at break-even does not quietly bleed $410 a month.',
+    publishedAt: '2026-06-06',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/50-percent-rule-rental-property-calculator.png',
+    imageAlt: 'Flat illustration of a real estate investor at a desk comparing house listing cards, a laptop showing a spreadsheet pie chart split between rent and expenses with a 50 percent badge and icons for taxes and repairs, beside a calculator and coffee cup',
+    content: `<p>An investor in New Jersey buys a $260,000 two-family that rents for $2,900 a month. He runs the fast math everyone runs: the 50 percent rule says expenses eat half the rent, so he pencils $1,450 a month in operating costs, $1,450 in net operating income, subtracts his $1,420 mortgage, and calls it a $30-a-month winner that builds equity for free. Fourteen months later he tallies the real receipts. Property taxes alone ran $1,180 a month. Add insurance, two turnovers, a failed boiler, and a leasing fee, and his actual operating expenses averaged $1,890 a month, not $1,450. The deal did not make $30. It lost about $410 every month from the day he closed. A working <strong>50 percent rule rental property calculator</strong> would have caught that in Excel before he wired the down payment, because it would have done the one thing the rule itself refuses to do: look at his actual property instead of the market average.</p>
+
+<p>The 50 percent rule is the fastest expense estimate in real estate. It says that over time, operating expenses on a rental run about half of gross rent, everything except the mortgage. It is genuinely useful, and it is genuinely dangerous, for the same reason: it is an average. It is roughly true across a thousand properties and frequently wrong about the one you are trying to buy. Here is how to build the rule into Excel as a ten-second screen, and then how to build the second screen that tells you where your specific deal actually lands.</p>
+
+<h2>What the 50 Percent Rule Actually Claims</h2>
+
+<p>The rule makes one assertion: for a typical rental, the sum of operating expenses equals roughly 50 percent of gross rent. Operating expenses means taxes, insurance, vacancy, repairs, capital reserves, property management, and the small stuff like turnover and lawn care. It deliberately excludes your mortgage payment, because debt is a financing choice, not a property cost. So the rule is really a shortcut to net operating income: <code>=Rent*0.5</code> is your NOI, and whatever is left after the mortgage is your cash flow.</p>
+
+<p>That is the appeal. You can estimate NOI on a listing in the time it takes to read the rent. No itemizing, no per-property tax lookup, no guessing the insurance bill. For screening a stack of deals it is fast, and fast has real value when you are working through forty listings before lunch. The problem is what the 50 percent gets averaged over. It blends a new build in low-tax Idaho with a 1962 triple-decker in New Jersey, a no-HOA single-family with a coastal Florida condo carrying $400 a month in wind insurance. Those properties do not have the same expense ratio. They are not close. The rule hands all of them the same number anyway.</p>
+
+<h2>Build the 10-Second Screen in Excel</h2>
+
+<p>Put your inputs down column B so every formula has a clean reference. This is the fast cut, the version of the rule that is fine for deleting obvious losers off a list.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Purchase price</td><td>input</td><td>$260,000</td></tr>
+<tr><td>B3</td><td>Monthly rent</td><td>input</td><td>$2,900</td></tr>
+<tr><td>B4</td><td>Rule expenses</td><td><code>=B3*0.5</code></td><td>$1,450</td></tr>
+<tr><td>B5</td><td>Rule NOI</td><td><code>=B3-B4</code></td><td>$1,450</td></tr>
+<tr><td>B6</td><td>Monthly P and I</td><td><code>=-PMT(0.075/12,360,B2*0.8)</code></td><td>$1,454</td></tr>
+<tr><td>B7</td><td>Rule cash flow</td><td><code>=B5-B6</code></td><td>-$4</td></tr>
+<tr><td>B8</td><td>Verdict</td><td><code>=IF(B7&gt;0,"LOOK CLOSER","SKIP")</code></td><td>SKIP</td></tr>
+</tbody>
+</table>
+
+<p>Cell B5 is the rule in one line. <code>=B3-B4</code> gives you net operating income on the 50 percent assumption, and B7 carries it down to cash flow after the mortgage. B8 turns that into a single word, which is all you want when you are screening volume. In this example the rule actually flags the New Jersey deal as a near-break-even, a SKIP by a hair. That is the rule working. But notice it landed within $34 of zero by accident, not insight. It got close to the right verdict on a deal whose real expenses were $440 a month higher than it assumed, because the price was low enough to mask the error. Change the property and that luck runs out fast.</p>
+
+<h2>Where the 50 Percent Rule Drifts</h2>
+
+<p>The rule fails in three predictable ways. Each one is a category of cost that does not scale with rent the way the average pretends it does.</p>
+
+<h3>Drift 1: Taxes and insurance are not national</h3>
+
+<p>Property tax is the single line most likely to break the rule, because it is set off assessed value, not rent. A $260,000 house pays about $130 a month in tax in Colorado at a 0.6 percent rate and over $1,180 a month in parts of New Jersey at 2.2 percent. That is a $1,050 monthly swing on identical rent. Insurance does the same thing on a smaller scale: $70 a month inland, $300 or more on a coastal condo. The 50 percent rule cannot see either number, so it scores a low-tax, low-insurance property and a high-tax, high-insurance one as twins. They are not twins. One clears 35 percent expenses, the other blows past 60.</p>
+
+<h3>Drift 2: Building age rewrites the repair and capex lines</h3>
+
+<p>A new build under warranty might spend 4 percent of rent on repairs and reserves combined for its first decade. A 1960s building with original galvanized plumbing, a 22-year-old roof, and a furnace on borrowed time will spend three to four times that once you average a roof, a heating system, and a sewer line across the hold. The 50 percent rule treats these as the same property. Age is the input that decides whether your capex reserve is a rounding error or the largest variable cost on the page, and the rule ignores it entirely.</p>
+
+<h3>Drift 3: It quietly buries the costs you can choose</h3>
+
+<p>Property management runs 8 to 10 percent of rent. Self-manage and that line goes to zero, which can swing a deal by 10 points of expense ratio on its own. The same is true of the down payment, which is not an operating cost but determines whether the leftover NOI actually covers the mortgage. The rule rolls management into the blob and stays silent on financing, so two investors looking at the identical property, one self-managing with 35 percent down and one hiring out with 20 percent down, get handed the same cash flow estimate for two completely different outcomes.</p>
+
+<p>Put numbers on it. Here are four real-shaped deals run through the flat 50 percent rule and then through an honest itemized expense ratio.</p>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Rent</th><th>Rule expenses (50%)</th><th>Real expenses</th><th>Real ratio</th><th>Rule error</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Idaho new SFR</td><td>$1,900</td><td>$950</td><td>$675</td><td>36%</td><td>Rule too harsh</td></tr>
+<tr><td>B. Ohio 1962 duplex</td><td>$1,750</td><td>$875</td><td>$945</td><td>54%</td><td>Roughly right</td></tr>
+<tr><td>C. Florida coastal condo</td><td>$2,400</td><td>$1,200</td><td>$1,656</td><td>69%</td><td>Rule far too kind</td></tr>
+<tr><td>D. New Jersey two-family</td><td>$2,900</td><td>$1,450</td><td>$1,890</td><td>65%</td><td>Rule far too kind</td></tr>
+</tbody>
+</table>
+
+<p>The rule was honestly accurate on exactly one of four. It made the Idaho new build look worse than it is, which costs you a good deal you would have skipped. It made the Florida and New Jersey deals look far better than they are, which is how you buy a property that bleeds. A tool that is right one time in four is not a screen, it is a coin flip with a reputation.</p>
+
+<h2>The Itemized Screen That Replaces the Guess</h2>
+
+<p>The fix is not to throw the rule out. Keep it as the first cut, then run survivors through a block that takes thirty more seconds and looks at the costs the average hides. The numbers below are the New Jersey two-family from the opening, the deal the flat rule nearly waved through.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B10</td><td>Property tax rate</td><td>input</td><td>2.2%</td></tr>
+<tr><td>B11</td><td>Monthly tax</td><td><code>=B2*B10/12</code></td><td>$477</td></tr>
+<tr><td>B12</td><td>Insurance / mo</td><td>input</td><td>$165</td></tr>
+<tr><td>B13</td><td>Vacancy %</td><td>input</td><td>7%</td></tr>
+<tr><td>B14</td><td>Repairs %</td><td>input</td><td>8%</td></tr>
+<tr><td>B15</td><td>CapEx reserve %</td><td>input</td><td>9%</td></tr>
+<tr><td>B16</td><td>Management %</td><td>input</td><td>9%</td></tr>
+<tr><td>B17</td><td>Percentage costs</td><td><code>=B3*(B13+B14+B15+B16)</code></td><td>$957</td></tr>
+<tr><td>B18</td><td>Real monthly expenses</td><td><code>=B11+B12+B17</code></td><td>$1,599</td></tr>
+<tr><td>B19</td><td>Real expense ratio</td><td><code>=B18/B3</code></td><td>55%</td></tr>
+<tr><td>B20</td><td>Real NOI</td><td><code>=B3-B18</code></td><td>$1,301</td></tr>
+<tr><td>B21</td><td>Real cash flow</td><td><code>=B20-B6</code></td><td>-$153</td></tr>
+<tr><td>B22</td><td>Verdict</td><td><code>=IF(B21&gt;0,"CASH FLOWS","BLEEDS")</code></td><td>BLEEDS</td></tr>
+</tbody>
+</table>
+
+<p>The engine is B18. <code>=B11+B12+B17</code> adds the two dollar costs the rule cannot see, real property tax computed off value and the actual insurance bill, to the percentage costs in B17 that genuinely do scale with rent. B17 itself, <code>=B3*(B13+B14+B15+B16)</code>, is where you set vacancy, repairs, reserves, and management per property instead of accepting a national blend. B19 then tells you the truth the 50 percent rule was guessing at: this property runs a 55 percent expense ratio, not 50, and on a deal this thin those five points are the difference between a verdict of CASH FLOWS and BLEEDS in B22.</p>
+
+<p>Two inputs carry the whole fix. B11 pulls the real tax dollar from value and rate, so a New Jersey deal and a Colorado one stop scoring the same. And B14 through B16 let you raise the repair and reserve lines on an old building, so a 1962 duplex is not handed the same maintenance budget as a house built last year. Notice this stays fast. It is still one verdict, still under a minute, and it is no longer fooled by the three things the flat average cannot account for.</p>
+
+<h3>A Quick Checklist Before You Trust Either Number</h3>
+
+<p>Run this before any 50 percent estimate goes into a decision:</p>
+
+<ul>
+<li>Did you pull the actual property tax rate for the parcel, not a state average? This is the line most likely to break the rule.</li>
+<li>Is the building over 30 years old? If so, raise repairs and capex toward 18 to 20 percent combined.</li>
+<li>Coastal, flood zone, or HOA? Insurance and dues are fixed dollars the rule ignores. Look them up.</li>
+<li>Are you self-managing or hiring out? That is 8 to 10 points of expense ratio you control.</li>
+<li>Is your verdict within $100 of break-even? If so, the 50 percent rule is too blunt to trust. Itemize before you offer.</li>
+</ul>
+
+<h2>When to Use the Rule and When to Itemize</h2>
+
+<p>Use the 50 percent rule for exactly one job: a first-pass NOI estimate to delete deals where the rent is obviously too low for the price to ever work. For that screening pass it is fast and good enough. Never use it to underwrite the property you actually intend to buy. The moment a deal moves from a list to an offer, the flat 50 percent is replaced by the itemized block, because the entire gap between a winner and a money pit lives in the taxes, age, and insurance the average smooths over.</p>
+
+<p>The itemized screen gets you to a defensible expense ratio in under a minute per deal. What it still does not do is tell you total return over a hold. It ignores rent growth, the way a high-tax New Jersey deal can still win on appreciation and paydown, the depreciation shelter, and your eventual sale. A property that bleeds $153 a month today can still be the best buy on your list if it sits where rents climb 5 percent a year and every payment builds equity. The screen cannot see that. Only a full model can.</p>
+
+<p>That is the line between a screen and an analysis, and it is where the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> takes over. The 50 percent rule tells you which deals deserve thirty more seconds. The itemized block tells you which deserve a real model. The Analyzer runs that model: every operating line carried as its own input so a Florida condo and an Idaho new build never score the same, real property tax off value, separate repair and capex reserves you can age up for an old building, plus cash-on-cash return, cap rate, and a 10-year projection that prices in rent growth, expense growth, appreciation, and paydown. It carries the property management line as a switch, so the self-manage versus hire-out decision shows up in the cash flow instead of hiding in a blob. It costs $49, less than one month of the $410 the New Jersey deal would have quietly drained. Screen fast with the 50 percent rule, screen honestly with the itemized block, then run the survivors through the full model before you wire a dime.</p>`,
+  },
+  {
     slug: '1-percent-rule-rental-property-calculator',
     title: '1 Percent Rule Rental Property Calculator: The 10-Second Screen That Lies Half the Time',
     metaTitle: '1 Percent Rule Rental Property Calculator | SheetCraft',
