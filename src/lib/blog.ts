@@ -16,6 +16,130 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'cash-out-refinance-calculator-rental-property',
+    title: 'Cash-Out Refinance Calculator for Rental Property: Pull Equity, Keep Cash Flow',
+    metaTitle: 'Cash-Out Refinance Calculator Rental Property | SheetCraft',
+    metaDescription: 'A cash out refinance calculator for rental property in Excel shows the cash you can really pull before the new rate sinks your DSCR and cash flow.',
+    targetKeyword: 'cash out refinance calculator rental property Excel',
+    secondaryKeywords: ['cash out refinance rental property', 'DSCR loan calculator', 'BRRRR refinance Excel', 'pull equity from rental', 'investment property cash out refinance'],
+    excerpt: 'Your rental shows $190,000 of equity, but at today\'s rate you can responsibly pull about $10,000 of it. A cash out refinance calculator for rental property in Excel separates the equity you can see from the cash you can actually borrow, because a cash-out re-prices your whole loan at the new rate. Build the LTV, DSCR, and cash-flow tests that show what pulling equity really costs before you give up your cheapest loan.',
+    publishedAt: '2026-06-09',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/cash-out-refinance-calculator-rental-property.png',
+    imageAlt: 'Flat illustration of a real estate investor at a desk reviewing a rental house cash-out refinance, with stacked coins for equity, a laptop showing a spreadsheet with a gauge dial and a rising line chart, and a curved arrow from the house to the laptop screen',
+    content: `<p>An investor in Ohio owns a rental worth $400,000 with $210,000 left on a 4.0 percent mortgage. He does the math everyone does: $400,000 minus $210,000 is $190,000 of equity, and a lender will let him pull most of it out tax-free. He calls a broker, gets approved for a 75 percent cash-out at $300,000, and walks away with $82,500 to fund the next deal. It feels like free money, because the IRS does not tax loan proceeds. Eight weeks later the new payment hits and the property that paid him $790 a month now costs him $107 a month to own. He did not unlock $82,500 of free money. He converted a cash-flowing asset into a liability he has to feed, and he did it at the worst possible time. A working <strong>cash out refinance calculator for rental property</strong> built in Excel would have shown him that before he signed, because it answers the question the equity number never does: how much cash can you actually pull before the new rate breaks the deal.</p>
+
+<p>Equity is what you could sell for. Cash-out capacity is what you can borrow against today, at today's rate, while keeping the property bankable and cash-flowing. Those are two different numbers, and in a higher-rate market they are not close. This is how to build the calculator that tells them apart.</p>
+
+<h2>Tax-Free Is Not Free</h2>
+
+<p>The pitch for a cash-out refinance leans hard on one true fact: the money you receive is not taxable. It is debt, not income, so there is no capital gains hit and no ordinary income tax. That part is real. The part the pitch skips is that a cash-out refinance does not just add new debt. It replaces your entire existing loan with a bigger one at the current rate. You are not borrowing $90,000 extra at 7.25 percent. You are re-pricing your whole $210,000 balance from 4.0 percent up to 7.25 percent, and then adding the new money on top.</p>
+
+<p>That re-pricing is the hidden cost. The investor above was paying $1,150 a month on his old $210,000 loan. At 7.25 percent, that same $210,000 balance would cost $1,433 a month. So before he receives a single dollar of cash, the decision to touch the loan at all costs him $283 a month, $3,396 a year, in extra interest on money he already had. The headline says tax-free. The fine print says you just gave up the cheapest loan you will ever have.</p>
+
+<h2>Build the Cash-Out Calculator in Excel</h2>
+
+<p>Put every input down column B so the formulas read cleanly. The goal is three outputs: the most a lender will lend, the cash that actually reaches your account, and what the new payment does to your monthly cash flow.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Appraised value</td><td>$400,000</td></tr>
+<tr><td>B3</td><td>Current loan balance</td><td>$210,000</td></tr>
+<tr><td>B4</td><td>Current P and I (monthly)</td><td>$1,150</td></tr>
+<tr><td>B5</td><td>Monthly rent</td><td>$3,200</td></tr>
+<tr><td>B6</td><td>Operating expenses (monthly)</td><td>$1,260</td></tr>
+<tr><td>B7</td><td>Monthly NOI</td><td><code>=B5-B6</code> &rarr; $1,940</td></tr>
+<tr><td>B8</td><td>Lender max LTV</td><td>75%</td></tr>
+<tr><td>B9</td><td>New loan rate</td><td>7.25%</td></tr>
+<tr><td>B10</td><td>Closing costs</td><td>$7,500</td></tr>
+<tr><td>B11</td><td>Lender min DSCR</td><td>1.25</td></tr>
+</tbody>
+</table>
+
+<p>Cell B7 is your net operating income, rent minus everything except the mortgage. Itemize B6 properly: taxes, insurance, vacancy at 5 percent, repairs, capital reserves, and management. Do not use a flat percentage of rent here, because the whole point of the calculator is to catch the property that does not behave like the average.</p>
+
+<p>Now the outputs. The maximum loan a lender will write is the appraised value times the loan-to-value ceiling. Cash-out refinances on investment property almost always cap lower than a primary residence, usually 70 to 75 percent, and most lenders require six to twelve months of seasoning before they will count a higher appraised value.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Output</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B13</td><td>Max loan (LTV)</td><td><code>=B2*B8</code></td><td>$300,000</td></tr>
+<tr><td>B14</td><td>New P and I</td><td><code>=-PMT(B9/12,360,B13)</code></td><td>$2,047</td></tr>
+<tr><td>B15</td><td>Cash to you</td><td><code>=B13-B3-B10</code></td><td>$82,500</td></tr>
+<tr><td>B16</td><td>New cash flow</td><td><code>=B7-B14</code></td><td>-$107</td></tr>
+<tr><td>B17</td><td>New DSCR</td><td><code>=B7/B14</code></td><td>0.95</td></tr>
+<tr><td>B18</td><td>Lender verdict</td><td><code>=IF(B17&gt;=B11,"APPROVE","DECLINE")</code></td><td>DECLINE</td></tr>
+</tbody>
+</table>
+
+<p>Two things break at once. B16 shows the property now loses $107 a month. And B17 shows the debt service coverage ratio fell to 0.95, which means the rent covers only 95 percent of the new mortgage. No investment lender writes a 0.95 DSCR loan. The minimum is usually 1.25. So the $82,500 the broker quoted is not actually available. The lender will decline the loan at that amount, and even if they did not, you would be feeding the property out of pocket to own it.</p>
+
+<h2>The Three Numbers That Cap Your Cash-Out</h2>
+
+<p>Your real cash-out is the lowest of three ceilings: the LTV the lender allows, the loan size that keeps DSCR at or above the lender minimum, and the loan size that keeps your own cash flow above zero. Build all three and take the smallest. The DSCR ceiling is the loan amount whose payment equals your NOI divided by the required ratio. In Excel that is the present value of that payment stream.</p>
+
+<table>
+<thead>
+<tr><th>Constraint</th><th>Formula</th><th>Max loan</th><th>Cash to you</th><th>New cash flow</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Pull max LTV (75%)</td><td><code>=B2*0.75</code></td><td>$300,000</td><td>$82,500</td><td>-$107</td></tr>
+<tr><td>B. Hold DSCR at 1.25</td><td><code>=-PV(B9/12,360,B7/1.25)</code></td><td>$227,500</td><td>$10,000</td><td>$388</td></tr>
+<tr><td>C. Keep cash flow at $400</td><td><code>=-PV(B9/12,360,B7-400)</code></td><td>$225,700</td><td>$8,200</td><td>$400</td></tr>
+</tbody>
+</table>
+
+<p>The binding constraint is not the equity. It is the rate. This investor has $190,000 of equity on paper, and he can responsibly pull about $10,000 of it. Option A looks like the deal until the DSCR test kills it. Option B is the most a lender will actually fund without forcing the payment past what the rent supports. Option C, your personal floor, lands a hair tighter. The honest answer to "how much can I pull" is $8,000 to $10,000, not $82,500. The other $72,000 of equity is real, but you can only reach it by selling, not by borrowing at 7.25 percent.</p>
+
+<h2>The Re-Pricing Penalty Nobody Mentions</h2>
+
+<p>Go back to Option A and split the new payment into its two parts. The new P and I is $2,047. The old was $1,150. That is $897 more a month, $10,764 a year. Decompose it.</p>
+
+<table>
+<thead>
+<tr><th>Component</th><th>Calculation</th><th>Monthly</th><th>Annual</th></tr>
+</thead>
+<tbody>
+<tr><td>Re-pricing the old $210,000 to 7.25%</td><td><code>=-PMT(7.25%/12,360,210000)-1150</code></td><td>$283</td><td>$3,396</td></tr>
+<tr><td>The new $90,000 of debt</td><td><code>=-PMT(7.25%/12,360,90000)</code></td><td>$614</td><td>$7,368</td></tr>
+<tr><td>Total extra debt service</td><td>sum</td><td>$897</td><td>$10,764</td></tr>
+</tbody>
+</table>
+
+<p>The $283 a month is pure penalty. You pay it for the privilege of touching a loan that was cheaper than anything on the market, and you get nothing for it. It is the cost of unlearning a 4.0 percent rate. Any cash-out calculator that does not show this line is hiding the worst part of the trade. When rates are below your existing note, a cash-out refinance is close to free. When they are above it, the first few thousand dollars you pull cost you the entire rate spread on your existing balance.</p>
+
+<h2>The Redeployment Test</h2>
+
+<p>Suppose you take Option A anyway, because you have a deal that needs the cash. The honest cost of that $82,500 is the full $10,764 a year in extra debt service, because you only triggered the re-pricing by doing the refinance. That is a true cost of capital of 13.0 percent (<code>=10764/82500</code>) on the cash you receive, and that is before you account for the property flipping to negative cash flow. So the test is simple and brutal: the next deal has to return more than 13 percent cash on cash just to break even against what the refinance costs you.</p>
+
+<p>Run it as a single flag. Put your expected return on the redeployed cash in B20 and compare:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B20</td><td>True cost of pulled cash</td><td><code>=(B14-B4)*12/B15</code></td><td>13.0%</td></tr>
+<tr><td>B21</td><td>Expected return on new deal</td><td>input</td><td>11.0%</td></tr>
+<tr><td>B22</td><td>Worth it?</td><td><code>=IF(B21&gt;B20,"PULL","KEEP THE LOW RATE")</code></td><td>KEEP THE LOW RATE</td></tr>
+</tbody>
+</table>
+
+<p>At an 11 percent expected return, the next deal loses to the refinance. You would be borrowing at a 13 percent true cost to chase an 11 percent return, while turning a $790-a-month winner into a property that bleeds. The spreadsheet says keep the low rate. Most of the time, in a market where new rates sit above your existing note, that is the right answer. The cash-out makes sense when your existing rate is already high, when the next deal clears the true cost with room to spare, or when you genuinely need liquidity and have priced the cost honestly. It rarely makes sense just because the equity is sitting there.</p>
+
+<h2>Run Every Refinance Through the Model First</h2>
+
+<p>The reason investors over-pull is that the equity number is easy and the cash-out number is hard. Equity is one subtraction. Real cash-out capacity requires an LTV ceiling, a DSCR test, a cash-flow floor, a re-pricing decomposition, and a redeployment hurdle, all moving together when you change the rate by half a point. Do it by hand once and you will accept the broker's number forever, because the broker's number is the one that gets the loan funded, not the one that keeps your portfolio solvent.</p>
+
+<p>If you want the cash-out model already wired up, the <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> has the full refinance leg built in: LTV and seasoning caps, DSCR at the lender minimum, the re-pricing penalty split out as its own line, and a redeployment test that compares the true cost of your cash against the deal you want to fund. It is the same engine BRRRR investors use to decide whether the refinance pulls all their capital back out or leaves some trapped. Drop in your appraised value, your existing balance and rate, and today's quote, and let the sheet tell you the difference between the equity you can see and the cash you can actually pull. Stop refinancing on the headline number. Run the deal through the model first and let it kill the cash-out that would have cost you the cheapest loan you own.</p>`,
+  },
+  {
     slug: '50-percent-rule-rental-property-calculator',
     title: '50 Percent Rule Rental Property Calculator: Right for the Market, Wrong for Your Deal',
     metaTitle: '50 Percent Rule Rental Property Calculator | SheetCraft',
