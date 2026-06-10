@@ -16,6 +16,122 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'brrrr-refinance-calculator-excel',
+    title: 'BRRRR Refinance Calculator in Excel: Will the Appraisal Let You Pull All Your Cash Out?',
+    metaTitle: 'BRRRR Refinance Calculator Excel | SheetCraft',
+    metaDescription: 'A BRRRR refinance calculator in Excel shows if the appraisal lets you pull all your cash back out, or leaves capital trapped at a payment rent cannot cover.',
+    targetKeyword: 'BRRRR refinance calculator Excel',
+    secondaryKeywords: ['BRRRR refinance calculator', 'BRRRR cash left in deal', 'seasoned refinance LTV', 'BRRRR ARV appraisal', 'DSCR cap refinance'],
+    excerpt: 'A Kansas City investor goes all-in at $148,000 on a BRRRR and expects the refinance to hand it all back, then the appraisal comes in $20,000 light and traps $17,000 in the house. A BRRRR refinance calculator in Excel measures the two caps that decide your cash, the LTV cap and the DSCR cap, and shows how much capital the refinance really returns before you commit. Underwrite to the appraisal you fear, not the one you hope for.',
+    publishedAt: '2026-06-10',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/brrrr-refinance-calculator-excel.png',
+    imageAlt: 'Flat illustration of a real estate investor at a desk reviewing a BRRRR refinance, with a renovated house inside a refresh-cycle arrow, coins flowing to a laptop showing a spreadsheet with two gauge dials and a bar chart, and an appraisal document under a magnifying glass',
+    content: `<p>An investor in Kansas City runs the BRRRR playbook by the book. He buys a beat-up 3-bed for $95,000, puts $45,000 of rehab into it, and carries $8,000 in holding and acquisition costs while the crew works. He is all in at $148,000. Comps say the finished house is worth $200,000, so he does the math every BRRRR course teaches: refinance at 75 percent of $200,000 is a $150,000 loan, which pulls his entire $148,000 back out and lets him do it all again with house money. Then the appraiser walks the property and writes $180,000. Suddenly his 75 percent loan is $135,000, not $150,000, and after refinance closing costs he gets $131,000 back. He just left $17,000 trapped in a single house. That is not a rounding error. That is the down payment on his next deal, frozen in this one, and the BRRRR engine that was supposed to recycle his capital just stalled. A <strong>BRRRR refinance calculator</strong> built in Excel exists to catch exactly this before the appraiser does, because the question that decides whether BRRRR works is not what you paid. It is how much cash the refinance actually returns.</p>
+
+<p>BRRRR stands for buy, rehab, rent, refinance, repeat, and the repeat only happens if the refinance gives your capital back. Most investors model the buy and the rehab to the dollar and treat the refinance as a sure thing. It is the least certain leg of the five, because it depends on two numbers a spreadsheet can pin down but a pep talk never will: the appraised value, and the payment the rent can carry. Here is how to build the model that tells you what you will really pull out, and what gets left behind.</p>
+
+<h2>The Refinance Leg Is the Whole Deal</h2>
+
+<p>Buy, rehab, and rent are work you control. You negotiate the purchase, you manage the scope, you place the tenant. The refinance is the one leg where someone else holds the pen, and it is the leg that determines your return. If the refinance returns all your cash, your cash-on-cash return is effectively infinite, because you have zero of your own money left in a property that still pays you every month. If the refinance leaves $20,000 behind, you now own a fine rental with a mediocre return on trapped capital, and you cannot start the next project until you save that $20,000 back. Same house, same rehab, two completely different businesses, and the only variable that moved was the cash the refinance handed back.</p>
+
+<p>This is why a cash-out refinance on a stabilized rental and a BRRRR refinance are not the same calculation. On a seasoned rental you are deciding whether to tap equity you already earned. On a BRRRR you are trying to recover the capital you just injected, fast, so it can go to work again. The BRRRR model has to measure one thing the equity-tap model does not care about: cash left in the deal. That single output is the difference between a repeatable machine and a one-off purchase.</p>
+
+<h2>Two Caps Decide Your Cash, Not One</h2>
+
+<p>Every BRRRR investor knows the loan-to-value cap. The lender will lend up to some percentage, usually 75 percent, of the appraised value. What kills more refinances than a low appraisal is the second cap nobody models: the debt-service-coverage cap. A DSCR lender will not write a loan whose payment the rent cannot cover by their minimum ratio, no matter how much equity the appraisal shows. Your approved loan is the <em>lesser</em> of the two caps, and which one binds changes with every deal.</p>
+
+<p>Build the model so both caps are explicit and the smaller one wins. Lay the inputs out on a clean sheet:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Purchase price</td><td>$95,000</td></tr>
+<tr><td>B3</td><td>Rehab budget</td><td>$45,000</td></tr>
+<tr><td>B4</td><td>Holding and acquisition costs</td><td>$8,000</td></tr>
+<tr><td>B5</td><td>All-in cost basis</td><td><code>=B2+B3+B4</code> &rarr; $148,000</td></tr>
+<tr><td>B7</td><td>Appraised after-repair value</td><td>$200,000</td></tr>
+<tr><td>B8</td><td>Lender max LTV</td><td>75%</td></tr>
+<tr><td>B9</td><td>Refinance rate</td><td>7.5%</td></tr>
+<tr><td>B10</td><td>Monthly rent</td><td>$1,750</td></tr>
+<tr><td>B11</td><td>Monthly operating expenses</td><td>$525</td></tr>
+<tr><td>B12</td><td>Lender min DSCR</td><td>1.20</td></tr>
+<tr><td>B13</td><td>Refinance closing costs</td><td>$4,000</td></tr>
+<tr><td>B14</td><td>Loan term (years)</td><td>30</td></tr>
+</tbody>
+</table>
+
+<p>Now compute both caps and take the minimum. The math is short, but every line answers a real lender question:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Output</th><th>Formula and result</th></tr>
+</thead>
+<tbody>
+<tr><td>B16</td><td>Monthly NOI</td><td><code>=B10-B11</code> &rarr; $1,225</td></tr>
+<tr><td>B17</td><td>LTV-capped loan</td><td><code>=B7*B8</code> &rarr; $150,000</td></tr>
+<tr><td>B18</td><td>Max payment at min DSCR</td><td><code>=B16/B12</code> &rarr; $1,021</td></tr>
+<tr><td>B19</td><td>DSCR-capped loan</td><td><code>=-PV(B9/12,B14*12,B18)</code> &rarr; $146,000</td></tr>
+<tr><td>B20</td><td>Approved loan</td><td><code>=MIN(B17,B19)</code> &rarr; $146,000</td></tr>
+<tr><td>B21</td><td>New monthly P and I</td><td><code>=-PMT(B9/12,B14*12,B20)</code> &rarr; $1,021</td></tr>
+<tr><td>B22</td><td>Net cash returned</td><td><code>=B20-B13</code> &rarr; $142,000</td></tr>
+<tr><td>B23</td><td>Cash left in deal</td><td><code>=B5-B22</code> &rarr; $6,000</td></tr>
+<tr><td>B24</td><td>Monthly cash flow</td><td><code>=B16-B21</code> &rarr; $204</td></tr>
+<tr><td>B25</td><td>Cash-on-cash return</td><td><code>=IF(B23&lt;=0,"INFINITE",B24*12/B23)</code> &rarr; 40.8%</td></tr>
+</tbody>
+</table>
+
+<p>Read what the formulas are actually telling you. <code>=-PV(B9/12,B14*12,B18)</code> in B19 reverse-engineers the largest loan whose payment stays inside the lender's coverage rule. It asks, if the most this rent can support is a $1,021 monthly payment at 7.5 percent over 30 years, how big a loan is that? The answer is $146,000. Then <code>=MIN(B17,B19)</code> in B20 is the entire point of the model: even though the appraisal supports a $150,000 loan, the rent only supports $146,000, so the DSCR cap binds and your real loan is $146,000. The lender lends the smaller of what the building is worth and what the rent can carry, and most BRRRR spreadsheets only ever check the first one.</p>
+
+<p>The output that runs your business is B23, cash left in deal. At a full $200,000 appraisal you leave $6,000 in and earn 40.8 percent cash-on-cash, which is excellent, and you have $142,000 back to deploy. Add a flag so the sheet judges the result for you instead of making you eyeball it: <code>=IF(B23&gt;15000,"CAPITAL TRAPPED",IF(B23&gt;0,"MOSTLY RECYCLED","FULL PULL"))</code>. When that cell turns to TRAPPED, the deal stopped being a BRRRR and became a rental you happened to rehab.</p>
+
+<h2>The Appraisal Gap Is the Number That Traps Your Capital</h2>
+
+<p>The single input the whole model swings on is B7, the appraised value, and it is the one input you do not control. So the only honest way to use a BRRRR refinance calculator is to stop entering your hoped-for ARV and start running a range. Copy B7 into three columns and let the sheet show you what each appraisal does to your trapped capital. Same house, same rents, three opinions of value:</p>
+
+<table>
+<thead>
+<tr><th>Outcome</th><th>ARV $200,000 (target)</th><th>ARV $185,000 (light)</th><th>ARV $170,000 (low)</th></tr>
+</thead>
+<tbody>
+<tr><td>LTV cap (75%)</td><td>$150,000</td><td>$138,750</td><td>$127,500</td></tr>
+<tr><td>DSCR cap (1.20)</td><td>$146,000</td><td>$146,000</td><td>$146,000</td></tr>
+<tr><td>Approved loan (lesser)</td><td>$146,000</td><td>$138,750</td><td>$127,500</td></tr>
+<tr><td>Binding constraint</td><td>DSCR</td><td>LTV</td><td>LTV</td></tr>
+<tr><td>Net cash returned</td><td>$142,000</td><td>$134,750</td><td>$123,500</td></tr>
+<tr><td>Cash left in deal</td><td>$6,000</td><td>$13,250</td><td>$24,500</td></tr>
+<tr><td>Cash-on-cash return</td><td>40.8%</td><td>23.1%</td><td>16.3%</td></tr>
+</tbody>
+</table>
+
+<p>The table tells a story no single-number model can. At your target appraisal, the DSCR cap is what holds you back, not the value, so chasing a higher appraisal would not have helped. At a light appraisal, the LTV cap takes over and starts trapping cash, $13,250 of it. At a low appraisal, you leave $24,500 in the deal, your return drops to 16.3 percent, and you cannot start your next project until you rebuild that down payment from somewhere else. None of these are bad rentals. The 16.3 percent deal is one most landlords would take all day. But BRRRR is not a buy-and-hold strategy, it is a capital-recycling strategy, and the low appraisal quietly converted it back into buy-and-hold. The calculator's job is to show you that conversion before you commit, while you can still negotiate the purchase price down, trim the rehab scope, or walk.</p>
+
+<p>There is a discipline this enforces that matters more than any formula. When you underwrite the buy, you do not get to plug in the ARV you want. You plug in the appraisal you are afraid of, the light one, and you make the deal work at that number. If $13,250 trapped at a light appraisal still clears your hurdle, you have a real BRRRR. If the deal only works when the appraiser agrees with your most optimistic comp, you do not have a BRRRR, you have a bet on a stranger's opinion.</p>
+
+<h2>The Refinance Leg Checklist</h2>
+
+<p>The model is only as good as the inputs, and a few BRRRR-specific traps will wreck the refinance even when the spreadsheet looks clean. Run this list before you count on the cash coming back:</p>
+
+<ul>
+<li><strong>Confirm the seasoning rule first.</strong> Many lenders will only lend against appraised value after you have owned the property 6 to 12 months. Refinance before that, and they lend against your purchase price plus documented rehab, not the ARV, which collapses your cash out. Put the seasoning months in the sheet and do not model an ARV-based loan you are not yet eligible for.</li>
+<li><strong>Underwrite to the light appraisal, not the target.</strong> Build the buy on the middle column of the stress table. The target appraisal is the upside, not the plan.</li>
+<li><strong>Carry every refinance cost, including the rate.</strong> A higher refinance rate shrinks the DSCR-capped loan in B19, because the rent supports a smaller balance at a bigger payment. When rates move, rerun the model, do not reuse last quarter's number.</li>
+<li><strong>Check cash flow at the approved loan, not the loan you wanted.</strong> B24 has to stay comfortably positive after the new payment. A refinance that returns all your cash but leaves the property cash-flow negative is not a win, it is a slow leak you funded yourself.</li>
+<li><strong>Document the rehab for the appraiser.</strong> A line-item scope, before-and-after photos, and permits give the appraiser reasons to support your value. The appraisal is not fully out of your hands. You influence it with evidence.</li>
+</ul>
+
+<p>Work the list, and the refinance stops being the leg you cross your fingers on and becomes the leg you can predict within a few thousand dollars.</p>
+
+<h2>Run the Refinance Before You Run the Rehab</h2>
+
+<p>The reason BRRRR investors get trapped is sequencing. They model the buy and the rehab in detail, start the project, and only build the refinance math when the work is done and the appraiser is on the way. By then the purchase price is fixed, the rehab money is spent, and the only thing left to discover is how much cash is stuck. The fix is to build the refinance leg first, before you make an offer, and let the cash-left-in number set your maximum purchase price. That is the discipline a BRRRR refinance calculator enforces: it works backward from the cash you need to recover to the price you are allowed to pay.</p>
+
+<p>If you would rather not rebuild the two-cap math, the appraisal stress table, and the seasoning checks on every deal, the <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> has the entire refinance leg wired in: the LTV cap and DSCR cap side by side with the lesser one driving your loan, cash left in deal as a headline output, a three-column appraisal stress test, and a maximum-offer solver that backs your purchase price out of the capital you need to pull. You enter your rehab budget, your rents, and the appraisal you are willing to bet on, and the sheet tells you whether the refinance recycles your money or strands it. It costs $49, less than a tenth of the $6,000 you would leave behind on even a clean deal, and a rounding error against the $24,500 a low appraisal can trap. Build the refinance leg before you write the offer, and let the only number that matters, the cash that comes back out, decide whether the deal is a BRRRR at all.</p>`,
+  },
+  {
     slug: 'cash-out-refinance-calculator-rental-property',
     title: 'Cash-Out Refinance Calculator for Rental Property: Pull Equity, Keep Cash Flow',
     metaTitle: 'Cash-Out Refinance Calculator Rental Property | SheetCraft',
