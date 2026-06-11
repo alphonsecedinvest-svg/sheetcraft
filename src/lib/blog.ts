@@ -16,6 +16,147 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-sensitivity-analysis-excel',
+    title: 'Real Estate Sensitivity Analysis in Excel: Stress-Test Any Deal With Data Tables',
+    metaTitle: 'Real Estate Sensitivity Analysis Excel | SheetCraft',
+    metaDescription: 'A real estate sensitivity analysis in Excel uses data tables to stress-test ARV, rehab, and rate, so you see how wrong you can be before a deal loses money.',
+    targetKeyword: 'real estate sensitivity analysis Excel',
+    secondaryKeywords: ['Excel data table', 'two-variable data table', 'real estate stress test', 'cap rate sensitivity', 'deal break-even analysis'],
+    excerpt: 'A Columbus flip pencils out to $38,550 of profit, then a soft appraisal and a rehab overrun cut it to under $5,000. A real estate sensitivity analysis in Excel uses one- and two-variable data tables to map every plausible outcome, so you see how wrong your assumptions can be before a deal loses money. Build the heat map once and underwrite the next deal in 30 seconds.',
+    publishedAt: '2026-06-11',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-sensitivity-analysis-excel.png',
+    imageAlt: 'Flat illustration of a real estate investor at a desk stress-testing a flip deal, with a laptop showing a spreadsheet data table heat map shading from green to red, two gauge dials, and what-if scenario labels',
+    content: `<p>An investor in Columbus runs the numbers on a flip and gets one beautiful number at the bottom of the sheet: $38,550 net profit, a 14 percent margin on cost. The purchase is $205,000, the rehab budget is $50,000, holding and financing run $13,000, and the after-repair value is $335,000. That single figure feels like a fact. It is not. It is one guess stacked on five other guesses, and the moment the ARV comes in $20,000 light and the rehab runs $15,000 long, that $38,550 collapses to under $5,000. Same house, same plan, two assumptions moved a normal amount, and the deal went from solid to barely breathing. A <strong>real estate sensitivity analysis in Excel</strong> exists to show you that fragility before you sign, not after the contractor finds the rotted subfloor. It answers the only question that actually decides whether a deal is safe: how wrong can I be before this loses money?</p>
+
+<p>Most investors model the base case to the dollar and never test it. They fall in love with the bottom-right cell. The discipline that separates people who keep their capital from people who donate it to bad deals is the data table, a native Excel feature built for exactly this. It lets you take one finished pro forma and instantly recompute the outcome across dozens of scenarios without copying the model 30 times. Here is how to build it and how to read it.</p>
+
+<h2>Why a Single Pro Forma Number Lies to You</h2>
+
+<p>Every output in a real estate model is the end of a chain of inputs, and every input is a range, not a point. ARV is "somewhere between $315,000 and $345,000 depending on what the appraiser pulls." Rehab is "$50,000 if nothing surprises us, $65,000 if it does." Holding time is "four months if the market cooperates, seven if it does not." When you collapse all of those ranges into one number, you have not removed the uncertainty. You have just hidden it. The number looks precise, which makes it more dangerous, not less.</p>
+
+<p>The cost of skipping this step is concrete. Look at the same flip under two honest scenarios:</p>
+
+<table>
+<thead>
+<tr><th>Input</th><th>Base case</th><th>Mild adverse case</th></tr>
+</thead>
+<tbody>
+<tr><td>After-repair value</td><td>$335,000</td><td>$315,000</td></tr>
+<tr><td>Rehab budget</td><td>$50,000</td><td>$65,000</td></tr>
+<tr><td>All-in cost basis</td><td>$273,000</td><td>$288,000</td></tr>
+<tr><td>Selling costs (7%)</td><td>$23,450</td><td>$22,050</td></tr>
+<tr><td><strong>Net profit</strong></td><td><strong>$38,550</strong></td><td><strong>$4,950</strong></td></tr>
+<tr><td>Margin on cost</td><td>14.1%</td><td>1.7%</td></tr>
+</tbody>
+</table>
+
+<p>Neither adverse number is a disaster on its own. A $20,000 miss on ARV is one cautious appraisal. A $15,000 rehab overrun is one bad inspection week. But stacked together, two ordinary misses turn a 14 percent margin into a rounding error that does not pay you for four months of risk. If you only ever saw the base case, you would compete hard to win a deal that has almost no room to be wrong. The point of a real estate sensitivity analysis in Excel is to make that fragility visible in 30 seconds instead of discovering it at closing.</p>
+
+<h2>Build the Engine First, Then the Sensitivity</h2>
+
+<p>A data table needs one thing to work: a single, clean output cell that recalculates when you change an input. So before you touch the sensitivity tools, lay out the model so every assumption lives in its own labeled cell and the profit formula references those cells, never hardcoded numbers. If "ARV" is typed inside a formula somewhere, the data table cannot move it.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Purchase price</td><td>$205,000</td></tr>
+<tr><td>B3</td><td>Rehab budget</td><td>$50,000</td></tr>
+<tr><td>B4</td><td>Holding and financing</td><td>$13,000</td></tr>
+<tr><td>B5</td><td>Acquisition and closing costs</td><td>$5,000</td></tr>
+<tr><td>B6</td><td>After-repair value (ARV)</td><td>$335,000</td></tr>
+<tr><td>B7</td><td>Selling cost percentage</td><td>7%</td></tr>
+<tr><td>B9</td><td>All-in cost basis</td><td><code>=B2+B3+B4+B5</code> &rarr; $273,000</td></tr>
+<tr><td>B10</td><td>Net profit</td><td><code>=B6-(B6*B7)-B9</code> &rarr; $38,550</td></tr>
+</tbody>
+</table>
+
+<p>Cell <code>B10</code> is the output the entire analysis hangs on. Everything below points at it. Add a break-even flag right next to it so the model talks back when a scenario goes underwater: <code>=IF(B10&lt;8000,"TOO THIN","OK")</code>. That $8,000 floor is your minimum acceptable profit for the risk, and any scenario that drops below it should stop you cold.</p>
+
+<h2>The One-Variable Data Table: Stress One Assumption</h2>
+
+<p>Start by stress-testing the assumption that scares you most, usually ARV, because it is the number you control the least. A one-variable Excel data table recomputes net profit across a column of ARV values in a single command.</p>
+
+<p>Set it up like this:</p>
+
+<ol>
+<li>In a clean column, say <code>D4:D10</code>, type the ARV values you want to test: $305,000, $315,000, $325,000, $335,000, $345,000, $355,000, $365,000.</li>
+<li>In the cell one row up and one column to the right of that list, cell <code>E3</code>, put a reference to your output: <code>=B10</code>. Do not retype the profit formula, just point at the cell.</li>
+<li>Select the rectangle <code>D3:E10</code>, which includes the empty corner, the ARV column, and the output reference.</li>
+<li>Go to Data, What-If Analysis, Data Table. Leave "Row input cell" blank and set "Column input cell" to <code>$B$6</code>, your ARV input.</li>
+<li>Excel fills <code>E4:E10</code> with the net profit at each ARV.</li>
+</ol>
+
+<p>What you get is a clean picture of where the deal dies:</p>
+
+<table>
+<thead>
+<tr><th>ARV tested</th><th>Net profit</th><th>Verdict</th></tr>
+</thead>
+<tbody>
+<tr><td>$305,000</td><td>$10,650</td><td>Thin</td></tr>
+<tr><td>$315,000</td><td>$19,950</td><td>OK</td></tr>
+<tr><td>$325,000</td><td>$29,250</td><td>Good</td></tr>
+<tr><td>$335,000</td><td>$38,550</td><td>Base case</td></tr>
+<tr><td>$345,000</td><td>$47,850</td><td>Upside</td></tr>
+</tbody>
+</table>
+
+<p>Now you know the deal stays above your $8,000 floor down to roughly a $302,000 ARV. That is your margin of safety on the value side: the comps can come in about $33,000 under your target and you still clear the floor. If your worst honest comp is $295,000, this deal is too tight. The same one-variable table works for rentals when you swap the output to cash flow or cap rate, which is how a cap rate sensitivity check tells a landlord how much NOI can slip before the loan stops covering itself.</p>
+
+<h2>The Two-Variable Data Table: The Deal Heat Map</h2>
+
+<p>Real deals do not break one input at a time. ARV and rehab move together, because a soft market and a rough house tend to show up in the same deal. A two-variable data table is the tool that shows both at once, and it is the single most useful view in real estate underwriting because it draws a map of every combination of two assumptions.</p>
+
+<p>The setup is almost the same, with one twist on the corner cell:</p>
+
+<ol>
+<li>Pick the top-left corner of your table block, say <code>D14</code>, and put the output reference there: <code>=B10</code>. In a two-variable table the formula lives in the corner, not off to the side.</li>
+<li>Down the left column under the corner, list your ARV values: <code>D15:D21</code>.</li>
+<li>Across the top row to the right of the corner, list your rehab budgets: <code>E14:I14</code>, for example $40,000, $50,000, $60,000, $70,000, $80,000.</li>
+<li>Select the whole block <code>D14:I21</code>.</li>
+<li>Data, What-If Analysis, Data Table. Set "Row input cell" to <code>$B$3</code> (rehab, because it runs across the top row) and "Column input cell" to <code>$B$6</code> (ARV, because it runs down the column).</li>
+</ol>
+
+<p>Excel fills the grid with net profit for every ARV and rehab pair. Read across a row and you see how a rehab overrun eats the deal at a fixed sale price. Read down a column and you see how a soft appraisal eats the deal at a fixed scope. The corner where both go wrong is the bottom-left:</p>
+
+<table>
+<thead>
+<tr><th>ARV down / Rehab across</th><th>$40k</th><th>$60k</th><th>$80k</th></tr>
+</thead>
+<tbody>
+<tr><td>$355,000</td><td>$67,150</td><td>$47,150</td><td>$27,150</td></tr>
+<tr><td>$335,000</td><td>$48,550</td><td>$28,550</td><td>$8,550</td></tr>
+<tr><td>$315,000</td><td>$29,950</td><td>$9,950</td><td>-$10,050</td></tr>
+</tbody>
+</table>
+
+<p>That bottom-right cell, a $315,000 sale with an $80,000 rehab, is a $10,050 loss. It is not a far-fetched scenario. It is a slightly soft market plus a rehab that ran 60 percent over budget, which happens on older housing stock all the time. Select the grid, apply a conditional formatting color scale, and the spreadsheet paints a green-to-red heat map of your deal. Every red cell is a combination that costs you money. If too many plausible combinations are red, you are not looking at a deal, you are looking at a coin flip with your capital on the table.</p>
+
+<h2>Where Data Tables Bite You, and How to Not Get Bitten</h2>
+
+<p>Data tables are powerful and quietly finicky. These are the failures that send investors back to copying the model 30 times by hand, all of them avoidable:</p>
+
+<ul>
+<li><strong>The inputs must be on the same worksheet.</strong> A data table can only point its row and column input cells at cells on the same sheet as the table. If your model lives on a "Pro Forma" tab and you build the table on an "Analysis" tab, it returns errors. Keep the table next to the model.</li>
+<li><strong>The corner cell references the output, it does not repeat the formula.</strong> Put <code>=B10</code> in the corner, not <code>=B6-(B6*B7)-B9</code>. Retyping the formula is the most common reason a table fills with identical numbers in every cell.</li>
+<li><strong>Recalculation can go stale.</strong> Data tables are heavy, so Excel often sets calculation to "Automatic except for data tables." If your table shows old values after you change an input, that is why. Press <code>F9</code> to force a full recalc, or set calculation back to Automatic under Formulas, Calculation Options.</li>
+<li><strong>You cannot edit one cell of the result.</strong> The filled cells are a single array, shown as <code>{=TABLE(B3,B6)}</code>. To change the table you delete the whole result block and rebuild it. Trying to clear one cell throws an error.</li>
+<li><strong>Lock your input references.</strong> Always use absolute references like <code>$B$6</code> for the input cells so the table does not drift if you move it.</li>
+</ul>
+
+<p>Run this checklist before you trust any deal: build the model with every assumption in its own cell, add a break-even flag, run a one-variable table on ARV to find the value floor, run a two-variable table on ARV and rehab to find the heat map, color-scale the grid, and count the red cells inside your range of plausible outcomes. If the count is more than a couple, walk.</p>
+
+<h2>From One Lucky Number to a Tested Decision</h2>
+
+<p>The difference between a single pro forma number and a real estate sensitivity analysis in Excel is the difference between hope and a plan. The base case tells you what happens if you are right about everything. The data table tells you what happens when you are normal, which means wrong about a thing or two. Deals do not fail because investors are stupid. They fail because investors underwrite to the outcome they want and never measure how much room they have to be wrong. A two-variable data table measures exactly that, in 30 seconds, every time.</p>
+
+<p>If you would rather not rebuild the input block, the net-profit formula, the break-even flags, and the ARV-by-rehab data table from scratch for every property, SheetCraft's <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> ships with the full engine already wired: clean assumption cells, the all-in basis and profit math, and pre-built sensitivity tables that stress-test ARV, rehab, holding time, and rate the moment you type your numbers in. It is built so the next deal you look at gets the same honest stress test as the last one, which is how you stop competing for the deals that only work if nothing goes wrong.</p>`,
+  },
+  {
     slug: 'brrrr-refinance-calculator-excel',
     title: 'BRRRR Refinance Calculator in Excel: Will the Appraisal Let You Pull All Your Cash Out?',
     metaTitle: 'BRRRR Refinance Calculator Excel | SheetCraft',
