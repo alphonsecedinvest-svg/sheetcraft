@@ -16,6 +16,144 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'mortgage-amortization-extra-payments-excel',
+    title: 'Mortgage Amortization With Extra Payments in Excel: What a Prepayment Really Buys',
+    metaTitle: 'Mortgage Amortization Extra Payments Excel | SheetCraft',
+    metaDescription: 'See exactly how many years and dollars an extra payment cuts. Build a mortgage amortization with extra payments Excel sheet and decide: prepay or redeploy.',
+    targetKeyword: 'mortgage amortization with extra payments Excel',
+    secondaryKeywords: ['mortgage payoff calculator Excel', 'extra principal payment spreadsheet', 'amortization schedule Excel', 'pay off rental mortgage early', 'PMT and NPER formulas'],
+    excerpt: 'A landlord has $300 a month doing nothing and a $240,000 rental loan at 6.5 percent. A mortgage amortization with extra payments Excel sheet shows the exact payoff date and the $123,300 of interest that extra buys, then forces the real question: is prepaying better than the next deal? Build the schedule once and decide with numbers, not faith.',
+    publishedAt: '2026-06-12',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/mortgage-amortization-extra-payments-excel.png',
+    imageAlt: 'Flat illustration of a real estate investor at a desk reviewing a laptop chart with a calendar marking years saved, representing a mortgage amortization schedule with extra payments',
+    content: `<p>A landlord in Tampa finally has a rental that cash flows. The tenant is solid, the $240,000 loan at 6.5 percent has 27 years left, and there is an extra $300 a month sitting in the account doing nothing. The obvious move, the one every personal finance blog screams about, is to throw that $300 at the mortgage and "save a fortune in interest." Maybe. But how much exactly, and is it actually the best home for that money when you own rentals? Most owners never find out. They either prepay on faith or sit on the cash out of inertia. Both are guesses, and guesses with five figures attached are expensive.</p>
+
+<p>A <strong>mortgage amortization with extra payments Excel</strong> model turns the guess into a number. It shows the exact payoff date, the precise interest you avoid, and what the same dollars would buy somewhere else, all on one screen you control. Free online payoff calculators hand you a headline and hide the schedule. When you own property, the schedule is the whole point, because the real decision is not "is paying down debt good," it is "is paying down this particular debt better than the next thing I could do with the cash." Here is how to build the sheet, and how to use it to make that call instead of guessing.</p>
+
+<h2>The Question Online Payoff Calculators Refuse to Answer</h2>
+
+<p>Drop your loan into any free payoff calculator and it returns something like "pay $300 extra and save $123,000." That number is true and almost useless on its own, for three reasons.</p>
+
+<ul>
+<li><strong>It hides the amortization schedule.</strong> You see a total, not the month-by-month balance, so you cannot test a one-time lump sum in March, a higher payment for two years then back to normal, or what your balance will be if you sell in year seven.</li>
+<li><strong>It ignores the tax treatment.</strong> On a rental, mortgage interest is a deductible operating expense. Cutting $123,000 of interest over the life of the loan also cuts $123,000 of deductions, so the real after-tax return on prepaying is lower than the rate printed on your note.</li>
+<li><strong>It pretends the money has no other job.</strong> Every dollar you bury in principal is a dollar not in reserves, not in the next down payment, and not earning anything you can reach without a cash-out refinance that costs 2 to 3 percent to execute.</li>
+</ul>
+
+<p>Excel fixes all three because you own every cell. Build the model once and you can underwrite the prepay decision on every door you hold in about a minute each.</p>
+
+<h2>Build the Amortization Schedule So Excel Shows the Whole Story</h2>
+
+<p>The engine is a standard amortization schedule with one extra column for additional principal. Start with a clean inputs block so every assumption lives in a labeled cell and nothing is buried inside a formula.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Loan amount</td><td>$240,000</td></tr>
+<tr><td>B3</td><td>Annual interest rate</td><td>6.5%</td></tr>
+<tr><td>B4</td><td>Term (months)</td><td>360</td></tr>
+<tr><td>B5</td><td>Extra principal per month</td><td>$300</td></tr>
+<tr><td>B6</td><td>Scheduled P&amp;I payment</td><td><code>=PMT(B3/12,B4,-B2)</code> &rarr; $1,516.94</td></tr>
+</tbody>
+</table>
+
+<p>The <code>PMT</code> in B6 returns the normal principal-and-interest payment, $1,516.94 a month. Entering the loan amount as <code>-B2</code> flips the sign so the payment comes back positive and stays easy to read. That $1,516.94 is the contractual minimum. The extra $300 in B5 is the lever you are testing.</p>
+
+<h3>The Four Formulas That Drive the Schedule</h3>
+
+<p>Lay the schedule out starting in row 11 with five columns: period, beginning balance, interest, principal paid including extra, and ending balance. Four formulas run the entire thing, dragged down for 360 rows.</p>
+
+<ul>
+<li><strong>Beginning balance</strong> (B11): <code>=B2</code> for the first row, then <code>=E11</code> in B12 to carry last month's ending balance forward.</li>
+<li><strong>Interest for the period</strong> (C11): <code>=B11*$B$3/12</code>. The lender charges interest on the current balance, not the original loan, which is why early payments are almost all interest.</li>
+<li><strong>Principal paid including extra</strong> (D11): <code>=MIN($B$6-C11+$B$5,B11)</code>. Scheduled principal is the payment minus interest, then you add the extra $300. The <code>MIN</code> against the balance stops the final payment from overshooting into a negative balance.</li>
+<li><strong>Ending balance</strong> (E11): <code>=B11-D11</code>.</li>
+</ul>
+
+<p>The first three months of the $240,000 loan with $300 extra look like this:</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Beginning</th><th>Interest</th><th>Principal + extra</th><th>Ending</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>$240,000.00</td><td>$1,300.00</td><td>$516.94</td><td>$239,483.06</td></tr>
+<tr><td>2</td><td>$239,483.06</td><td>$1,297.20</td><td>$519.74</td><td>$238,963.32</td></tr>
+<tr><td>3</td><td>$238,963.32</td><td>$1,294.39</td><td>$522.55</td><td>$238,440.77</td></tr>
+</tbody>
+</table>
+
+<p>Notice that the interest column shrinks every month and the principal column grows, even though your total outlay is fixed at $1,816.94. That is the snowball: the more principal you knock down, the less interest accrues, the more of next month's payment attacks principal. Add a payoff flag in column F so the sheet tells you when it is done: <code>=IF(E11&lt;=0,"PAID OFF","")</code>.</p>
+
+<h3>Two Formulas for the Headline in Five Seconds</h3>
+
+<p>If you do not want to drag 360 rows just to see the result, two functions give the answer instantly. The new payoff length in months:</p>
+
+<p><code>=NPER(B3/12,-(B6+B5),B2)</code> &rarr; 232.7 months</p>
+
+<p>And the months you cut off the loan:</p>
+
+<p><code>=B4-NPER(B3/12,-(B6+B5),B2)</code> &rarr; 127 months, about 10.6 years</p>
+
+<p>The loan that was supposed to run 30 years now retires in 19.4. That is the number worth staring at, because a paid-off rental throws off roughly $1,500 a month in fresh cash flow more than ten years earlier than the bank planned.</p>
+
+<h2>What $300 a Month Actually Buys</h2>
+
+<p>Put the base case and the extra-payment case side by side and the trade becomes concrete.</p>
+
+<table>
+<thead>
+<tr><th>Outcome</th><th>No extra payment</th><th>$300 extra per month</th></tr>
+</thead>
+<tbody>
+<tr><td>Monthly outlay</td><td>$1,516.94</td><td>$1,816.94</td></tr>
+<tr><td>Payoff time</td><td>360 months (30 yr)</td><td>233 months (19.4 yr)</td></tr>
+<tr><td>Total interest paid</td><td>$306,098</td><td>$182,800</td></tr>
+<tr><td><strong>Interest saved</strong></td><td>$0</td><td><strong>$123,300</strong></td></tr>
+<tr><td>Total extra principal sent</td><td>$0</td><td>~$69,800</td></tr>
+</tbody>
+</table>
+
+<p>You spend roughly $69,800 of extra principal over those 19 years and avoid about $123,300 of interest. On the surface that is a fat, guaranteed win. But read it the way an investor has to. The interest you avoid is a 6.5 percent return, and on a rental that interest was deductible, so the after-tax yield on prepaying is closer to <code>=B3*(1-0.24)</code>, or about 4.9 percent in a 24 percent bracket. Safe, guaranteed, and completely illiquid. That last word is the catch, and it is why the calculator alone cannot make this decision for you.</p>
+
+<h2>Prepay or Redeploy: The Decision the Sheet Hands Back to You</h2>
+
+<p>The honest framing is that prepaying a mortgage is a risk-free investment that pays your interest rate, less the tax shield. So the only question is whether $300 a month earns more, on a risk-adjusted basis, somewhere else. Model the three realistic homes for that cash on one tab and compare them directly.</p>
+
+<table>
+<thead>
+<tr><th>Use of the $300/mo</th><th>Expected return</th><th>Liquidity</th><th>Best when</th></tr>
+</thead>
+<tbody>
+<tr><td>Prepay the 6.5% loan</td><td>~4.9% after tax, guaranteed</td><td>Locked until sale or refi</td><td>Rate is high, no better deal, you want a paid-off door</td></tr>
+<tr><td>Save toward next down payment</td><td>10 to 15% if the next deal pencils</td><td>Deployable in months</td><td>You have a real pipeline and reserves already</td></tr>
+<tr><td>Hold as reserves (4.5% money market)</td><td>~4.5%, liquid</td><td>Available same day</td><td>You are under-reserved, period</td></tr>
+</tbody>
+</table>
+
+<p>Run the comparison and the rule of thumb falls out. If your next rental genuinely clears a 10 percent cash-on-cash hurdle and you already hold reserves, redeploying beats prepaying a 6.5 percent note by a wide margin, and your tenant is already paying that loan down for you anyway. If you have no deal in the pipeline, the loan rate is 7 percent or higher, or you simply value a free-and-clear property as you approach the point where you stop buying, prepaying is a clean guaranteed return that also lifts monthly cash flow once the loan dies. There is no universally right answer. There is only the right answer for your numbers, which is exactly what the sheet exposes.</p>
+
+<h3>Reserves Come First, Every Time</h3>
+
+<p>Before a single extra dollar goes to principal, fund reserves. Equity you prepaid into a rental cannot fix a $9,000 HVAC failure or cover a two-month vacancy. You cannot call the bank and ask for last year's extra payments back when the water heater floods the unit. Carry at least six months of PITI per door in cash first. Prepaying while under-reserved is how owners end up force-selling a good property at a bad time to raise money they had already buried in the walls.</p>
+
+<h2>Test a Lump Sum Before You Send the Check</h2>
+
+<p>The schedule earns its keep when the extra payment is not a tidy $300 every month. Say a flip closes or a tax refund lands and you are weighing a one-time $20,000 against the loan. Drop that $20,000 into the extra-principal cell for a single month, month 12, and leave the rest of the column at $300. The ending-balance column instantly recomputes the new payoff date down the entire schedule.</p>
+
+<p>A $20,000 lump sum applied early in the loan cuts roughly three years off the term and saves close to $50,000 in interest, more than double the cash you put in, because you are killing principal while the balance is still huge and interest-heavy. Send that same $20,000 in year 22 and the saving is a fraction of that, since most of the interest has already been paid. The sheet shows you the exact figure for your loan and your timing, and it shows why early dollars are worth far more than late ones. That is a decision no static online calculator will model for you, and it is the difference between a guess and a plan.</p>
+
+<h2>Stop Guessing and Build the Model</h2>
+
+<p>Prepaying a rental mortgage is not a math problem you solve once. It is a recurring portfolio decision: every time you have spare cash, you are choosing between a guaranteed 5 percent and whatever your next deal returns. A <strong>mortgage amortization with extra payments Excel</strong> schedule gives you the guaranteed side of that comparison to the dollar, but you still need the other side, the real cash flow and cash-on-cash return of the property and the next one you would buy.</p>
+
+<p>That is what the SheetCraft <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> handles out of the box. It already models each door's cash flow, cap rate, depreciation, and loan, so you can see what a paid-off mortgage does to your whole portfolio's monthly income and what the next acquisition would return, side by side, with the amortization built in. Drop in your loan, set the extra payment, and the prepay-or-redeploy answer stops being a gut call and becomes a number you can defend. Build the schedule once, and you will never again wonder whether that extra $300 is working as hard as it could be.</p>`,
+  },
+  {
     slug: 'real-estate-sensitivity-analysis-excel',
     title: 'Real Estate Sensitivity Analysis in Excel: Stress-Test Any Deal With Data Tables',
     metaTitle: 'Real Estate Sensitivity Analysis Excel | SheetCraft',
