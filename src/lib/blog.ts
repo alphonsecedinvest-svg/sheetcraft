@@ -16,6 +16,143 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'arv-comps-spreadsheet-excel',
+    title: 'ARV Comps Spreadsheet in Excel: Adjust for Beds, Baths, and Square Footage Like an Appraiser',
+    metaTitle: 'ARV Comps Spreadsheet Excel | SheetCraft',
+    metaDescription: 'Stop slapping neighborhood price per square foot on your flip. Build an ARV comps spreadsheet in Excel that adjusts each comp for beds, baths, and size.',
+    targetKeyword: 'ARV comps spreadsheet Excel',
+    secondaryKeywords: ['how to calculate ARV', 'real estate comps adjustment grid', 'after repair value Excel', 'price per square foot adjustment', 'sales comparison approach'],
+    excerpt: 'A Charlotte flipper pulls the neighborhood price per square foot, multiplies by his square footage, and pencils an ARV that is wrong by enough to lose the deal. An ARV comps spreadsheet in Excel does what an appraiser does: adjust each comp for beds, baths, square footage, garage, and condition until every sale is restated as your house. Build the grid once and your max offer stops being a guess.',
+    publishedAt: '2026-06-16',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/arv-comps-spreadsheet-excel.png',
+    imageAlt: 'Flat illustration of a real estate investor comparing three house comp cards with bedroom and bathroom icons over a spreadsheet grid and calculator, representing an ARV comps adjustment grid in Excel',
+    content: `<p>A flipper in Charlotte finds a tired 3-bed, 2-bath ranch at 1,500 square feet and needs one number before he writes an offer: the after-repair value. He does what almost every investor does. He pulls the neighborhood average from Zillow, sees "$205 a square foot," multiplies by 1,500, and pencils an ARV of $307,500. Clean, fast, and wrong by enough to matter. The comp down the street that sold for $335,000 was a 4-bed with a half bath, fresh kitchen, and 1,720 feet. The one at $295,000 had one bathroom, a one-car garage, and 1,420 feet. Slapping a single price per foot on his house quietly averaged those differences away. An appraiser would never do that. An appraiser adjusts each comp, line by line, for beds, baths, square footage, garage, and condition until every sale is restated as if it were the subject house. That is what an <strong>ARV comps spreadsheet in Excel</strong> does, and the gap between the appraiser's number and the price-per-foot guess is usually $10,000 to $30,000, in whichever direction hurts most.</p>
+
+<p>That gap is not academic. In a flip, ARV drives your maximum offer through the 70 percent rule, so an ARV that is $20,000 too high pushes your offer $14,000 too high and eats the margin before you own the property. In a BRRRR, the refinance pays out a percentage of appraised value, so an inflated ARV estimate means the appraisal comes in light and you leave cash trapped in the deal. The price-per-foot shortcut feels like analysis. It is really a coin flip with five figures riding on it. Here is how to build the grid an appraiser actually uses, in a spreadsheet you control.</p>
+
+<h2>Why "Neighborhood Price Per Square Foot" Wrecks Your ARV</h2>
+
+<p>Price per square foot is a result, not an input. It falls out of a sale after the fact, blending the lot, the finishes, the bathroom count, and the size into one ratio. When you run that ratio backward onto your house, you smear all of those factors into a single number and lose the one thing that decides value: how your specific house differs from the ones that sold.</p>
+
+<p>Two failures show up every time. First, the math double-counts size and ignores everything else. The full market price per foot includes the value of the kitchen, the baths, and the garage, not just the drywall and slab. Apply $205 a foot to a 200-square-foot difference and you are crediting $41,000 for space that, on its own, contributes maybe $8,000. Appraisers know the contributory value of extra living area is far below the headline price per foot, usually $30 to $60 a foot in most markets. Second, the average hides the spread. Three comps at $295,000, $312,000, and $335,000 average to $314,000, but those houses are not the same house, and neither is yours. The average is only correct for a property that happens to sit at the dead center of all of them, which yours never does.</p>
+
+<p>The fix is the sales comparison approach, the same method on every appraisal that funds a mortgage. You take three to five recent, nearby, similar sales and adjust each one toward your subject, feature by feature, until you are comparing like to like. Excel is the right tool because you own every cell, you can see each adjustment, and you can re-run the whole grid in seconds when a new comp closes.</p>
+
+<h2>The One Rule That Trips Up Every Beginner: Adjust the Comp, Not the Subject</h2>
+
+<p>Here is the rule appraisers drill into trainees, and the one investors get backwards constantly. You always adjust the comparable sale, never the subject. If the comp is <em>superior</em> to your house in some feature, you <em>subtract</em> from the comp's sale price, because the buyer paid extra for something your house does not have. If the comp is <em>inferior</em>, you <em>add</em>, because the buyer would have paid more had it matched your house. The shorthand is CIA: Comp Inferior, Add.</p>
+
+<p>In a spreadsheet this becomes a clean signed formula. Put your subject's value for a feature in one cell and the comp's in another, and the adjustment is always the difference times the dollar rate. For square footage, with the subject's living area in <code>$B$4</code>, a comp's in <code>C4</code>, and your contributory rate per foot in <code>$B$13</code>:</p>
+
+<p><code>=($B$4-C4)*$B$13</code></p>
+
+<p>If your house is bigger, the subject-minus-comp difference is positive, the comp is inferior on size, and the formula adds. If the comp is bigger, the difference goes negative and it subtracts. The sign takes care of itself, which is exactly why a spreadsheet beats doing this in your head, where the direction is easy to flip and a flipped sign is a $9,000 error.</p>
+
+<h2>Build the ARV Comps Grid in Excel</h2>
+
+<p>Start with an adjustment-rate block so every dollar figure lives in a labeled cell, not buried inside a formula. These are the contributory values, what each feature actually adds in your market, not the price-per-foot or the cost to build.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Adjustment factor</th><th>Rate</th></tr>
+</thead>
+<tbody>
+<tr><td>B13</td><td>Living area, per sq ft</td><td>$40</td></tr>
+<tr><td>B14</td><td>Full bathroom</td><td>$5,000</td></tr>
+<tr><td>B15</td><td>Half bathroom</td><td>$2,500</td></tr>
+<tr><td>B16</td><td>Garage bay</td><td>$4,000</td></tr>
+<tr><td>B17</td><td>Condition tier</td><td>$10,000</td></tr>
+<tr><td>B18</td><td>Bedroom (only if not in GLA)</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Now lay the subject in column B and each comp in its own column. The top rows hold the raw facts, the middle rows hold the per-feature adjustments, and the bottom rows reconcile. With the subject 3-bed, 2-bath, 1,500 feet, 2-car garage, average condition, the grid looks like this.</p>
+
+<table>
+<thead>
+<tr><th>Feature</th><th>Subject (B)</th><th>Comp 1 (C)</th><th>Comp 2 (D)</th><th>Comp 3 (E)</th></tr>
+</thead>
+<tbody>
+<tr><td>Sale price</td><td>(target)</td><td>$312,000</td><td>$335,000</td><td>$295,000</td></tr>
+<tr><td>Living area (sq ft)</td><td>1,500</td><td>1,560</td><td>1,720</td><td>1,420</td></tr>
+<tr><td>Full baths</td><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+<tr><td>Half baths</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>Garage bays</td><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+<tr><td>Condition tier</td><td>0</td><td>0</td><td>+1</td><td>0</td></tr>
+</tbody>
+</table>
+
+<p>Below the facts, build the adjustment rows. Each cell restates the difference between the subject and that comp in dollars. For Comp 1 in column C, with the sale price in <code>C7</code> and the feature rows running down:</p>
+
+<ul>
+<li><strong>Living area</strong> in <code>C20</code>: <code>=($B$8-C8)*$B$13</code> gives (1,500 - 1,560) x $40 = <strong>-$2,400</strong>.</li>
+<li><strong>Full baths</strong> in <code>C21</code>: <code>=($B$9-C9)*$B$14</code> gives (2 - 2) x $5,000 = <strong>$0</strong>.</li>
+<li><strong>Half baths</strong> in <code>C22</code>: <code>=($B$10-C10)*$B$15</code>.</li>
+<li><strong>Garage</strong> in <code>C23</code>: <code>=($B$11-C11)*$B$16</code>.</li>
+<li><strong>Condition</strong> in <code>C24</code>: <code>=($B$12-C12)*$B$17</code>.</li>
+</ul>
+
+<p>Then three summary rows do the work. Net adjustment in <code>C25</code> sums the signed adjustments: <code>=SUM(C20:C24)</code>. The adjusted value in <code>C26</code> is the comp's sale price plus that net: <code>=C7+C25</code>. The gross adjustment in <code>C27</code> sums the absolute values, which you need for the quality check: <code>=SUMPRODUCT(ABS(C20:C24))</code>. Copy the C column across to D and E and the whole grid recalculates. Here is what the three comps produce.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Comp 1</th><th>Comp 2</th><th>Comp 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Sale price</td><td>$312,000</td><td>$335,000</td><td>$295,000</td></tr>
+<tr><td>Living area adj</td><td>-$2,400</td><td>-$8,800</td><td>+$3,200</td></tr>
+<tr><td>Full bath adj</td><td>$0</td><td>$0</td><td>+$5,000</td></tr>
+<tr><td>Half bath adj</td><td>$0</td><td>-$2,500</td><td>$0</td></tr>
+<tr><td>Garage adj</td><td>$0</td><td>$0</td><td>+$4,000</td></tr>
+<tr><td>Condition adj</td><td>$0</td><td>-$10,000</td><td>$0</td></tr>
+<tr><td><strong>Net adjustment</strong></td><td>-$2,400</td><td>-$21,300</td><td>+$12,200</td></tr>
+<tr><td><strong>Adjusted value</strong></td><td>$309,600</td><td>$313,700</td><td>$307,200</td></tr>
+<tr><td>Gross adjustment</td><td>$2,400</td><td>$21,300</td><td>$12,200</td></tr>
+</tbody>
+</table>
+
+<p>Look at what happened. Three sales that ranged $40,000 apart on the raw price line, from $295,000 to $335,000, land in a tight $6,500 band once they are adjusted: $309,600, $313,700, and $307,200. That tight cluster is the signal that your adjustments are sane and your comps are real. When adjusted values stay $40,000 apart, your rates are wrong or your comps are not actually comparable, and the grid is telling you to go find better ones.</p>
+
+<h3>Do Not Adjust Bedrooms and Square Footage at the Same Time</h3>
+
+<p>Notice Comp 2 is a 4-bedroom and the grid never charged for the extra bedroom. That is deliberate. An extra bedroom almost always comes with extra square footage, and the living-area adjustment already captured it. Add a separate bedroom adjustment on top and you double-count, inflating your ARV by a few thousand dollars on every comp. Appraisers leave the bedroom rate at zero unless the count crosses a buyer-pool line, like a 2-bed versus a 3-bed where whole categories of buyers screen out. That is why the bedroom rate sits in <code>B18</code> at $0, ready to switch on for the rare case, off the rest of the time.</p>
+
+<h2>Derive Your Adjustment Rates With Paired Sales, Not a Guess</h2>
+
+<p>The grid is only as honest as the rates in B13 through B17, and pulling them from a forum post defeats the purpose. Appraisers extract them from paired sales: find two sales that are alike in everything except one feature, and the price difference divided by the feature difference is the contributory value. If a 1,400-foot house and a 1,600-foot house on the same block, same age, same condition, sold $8,000 apart, your living-area rate is $8,000 / 200 = <strong>$40 a foot</strong>, which is exactly where the $40 in this example comes from. The Excel for it is a one-liner: with the price gap in <code>H2</code> and the square-foot gap in <code>H3</code>, <code>=H2/H3</code>.</p>
+
+<p>Do the same for bathrooms and garages where the data lets you, and fall back to market norms only when you cannot find a clean pair: roughly $3,000 to $8,000 a full bath, $2,000 to $4,000 a half, $3,000 to $10,000 a garage bay depending on price tier. The point is that every rate is defensible, because when your appraisal comes in low and your lender asks how you got to your number, "I used the neighborhood average" is not an answer. "Here are my paired-sale adjustments" is.</p>
+
+<h2>Reconcile to One Number and Flag the Weak Comps</h2>
+
+<p>You do not average the adjusted values. You weight them, giving more trust to the comps that needed the least surgery. The cleanest measure of trust is the gross adjustment percentage, the gross adjustment divided by the sale price. Fannie Mae's appraisal guidelines say a comp's net adjustments should generally stay within 15 percent of its sale price and gross within 25 percent. Cross those and the comp is telling you it was never really comparable. Build the flag right into the sheet. With the net percentage in <code>C28</code> as <code>=C25/C7</code> and the gross percentage in <code>C29</code> as <code>=C27/C7</code>:</p>
+
+<p><code>=IF(OR(ABS(C28)>0.15,C29>0.25),"WEAK COMP","USE")</code></p>
+
+<p>In this example Comp 1 needed a 0.8 percent gross adjustment, Comp 3 needed 4.1 percent, and Comp 2 needed 6.4 percent, so all three pass and Comp 1 is clearly the strongest. To reconcile, weight each comp by the inverse of its gross adjustment so the cleanest comp counts most, and zero out anything flagged weak. Put a weight in <code>C30</code> with <code>=IF(C29>0.25,0,1/C29)</code>, copy across, and the final ARV is one SUMPRODUCT:</p>
+
+<p><code>=SUMPRODUCT(C26:E26,C30:E30)/SUM(C30:E30)</code></p>
+
+<p>That returns about <strong>$310,000</strong>, weighted toward the comp that barely needed adjusting. Compare it to the price-per-foot guess this article opened with, $307,500, and to a naive average of the three raw sales, $314,000. The spread between the lazy methods is more than $6,000, and neither tells you which end is right. The grid does.</p>
+
+<p>Now make the number do work. Wire your maximum allowable offer straight off the reconciled ARV with the 70 percent rule and your rehab budget in <code>B32</code>: <code>=ROUND(0.7*ARV-B32,-3)</code>. With a $50,000 rehab, that is 0.70 x $310,000 - $50,000 = <strong>$167,000</strong>. Move the ARV to the $307,500 guess and the offer drops to $165,000. Inflate it to $325,000 and the offer jumps to $178,000, which is the exact $11,000 overpay that turns a 14 percent margin into a break-even. The whole point of the grid is that this number stops being a feeling.</p>
+
+<table>
+<thead>
+<tr><th>ARV method</th><th>ARV</th><th>70% rule max offer (rehab $50k)</th></tr>
+</thead>
+<tbody>
+<tr><td>Neighborhood price per foot</td><td>$307,500</td><td>$165,000</td></tr>
+<tr><td>Naive average of raw sales</td><td>$314,000</td><td>$170,000</td></tr>
+<tr><td>Adjusted comps grid (reconciled)</td><td>$310,000</td><td>$167,000</td></tr>
+</tbody>
+</table>
+
+<p>If you would rather not rebuild the rate block, the signed adjustment formulas, the net-and-gross quality flags, and the weighted reconciliation from scratch on every deal, the SheetCraft <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> ships with the comps grid already wired: labeled adjustment-rate cells, the CIA-direction math handled by formula, automatic net 15 percent and gross 25 percent flags on every comp, inverse-gross weighting that drops weak comps to zero, and the reconciled ARV feeding straight into your maximum offer and your full flip and BRRRR numbers. You drop in three to five sold comps and your subject's beds, baths, and square footage, and the sheet hands back an ARV you can defend to a lender, not a price-per-foot guess you have to hope holds. Build the grid once, and let the only number that decides the deal stop being the one you guessed.</p>`,
+  },
+  {
     slug: 'mortgage-amortization-extra-payments-excel',
     title: 'Mortgage Amortization With Extra Payments in Excel: What a Prepayment Really Buys',
     metaTitle: 'Mortgage Amortization Extra Payments Excel | SheetCraft',
