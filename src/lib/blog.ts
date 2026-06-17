@@ -16,6 +16,142 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-vacancy-rate-calculator-excel',
+    title: 'Rental Property Vacancy Rate Calculator in Excel: The Assumption That Quietly Breaks Deals',
+    metaTitle: 'Rental Vacancy Rate Calculator Excel | SheetCraft',
+    metaDescription: 'A flat 5% vacancy assumption quietly breaks thin deals. Build a rental property vacancy rate calculator in Excel for real turnover, bad debt, and concessions.',
+    targetKeyword: 'rental property vacancy rate calculator Excel',
+    secondaryKeywords: ['economic vacancy rate', 'physical vacancy rate', 'how to calculate vacancy rate rental', 'vacancy rate formula Excel', 'rental cash flow projection'],
+    excerpt: 'A Columbus landlord pencils a rental at 5 percent vacancy, then loses two and a half years of that allowance on one turnover. A rental property vacancy rate calculator in Excel separates physical from economic vacancy, models the loss off your own turnover frequency, and reconciles it against the rent roll, so the assumption that usually destroys cash flow projections becomes the number you control.',
+    publishedAt: '2026-06-17',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-vacancy-rate-calculator-excel.png',
+    imageAlt: 'Flat minimalist illustration of a house icon beside a short bar and a taller bar with a magnifying glass, representing the gap between budgeted and actual rental property vacancy rate calculated in Excel',
+    content: `<p>A landlord in Columbus buys a single-family rental at $1,450 a month and pencils the deal the way almost everyone does. Rent of $17,400 a year, minus taxes, insurance, repairs, and a tidy 5 percent vacancy allowance of $870, then the mortgage. The spreadsheet says $180 a month in cash flow, so he buys. Two years later the tenant gives notice. The unit sits empty for five weeks while he paints, replaces carpet, and waits for a qualified applicant. To get that applicant signed before the holidays he throws in two weeks free. One turnover just cost him roughly $2,200 in lost and discounted rent, and that single event is more than two and a half years of his 5 percent allowance. His pro forma was not slightly off. The number that was supposed to protect him was a guess wearing a percentage sign, and a <strong>rental property vacancy rate calculator in Excel</strong> is what separates the guess from the actual exposure.</p>
+
+<p>Vacancy is the assumption that quietly destroys cash flow projections because it is the one line investors copy without thinking. Everyone writes 5 percent. Few can tell you whether 5 percent matches their market, their tenant class, their turnover frequency, or their own discipline at filling a unit. On a fat deal the error hides. On the thin deals most people actually buy, the gap between the 5 percent you assumed and the 8 or 9 percent you live is the entire difference between a property that pays you and one that asks you for money every month.</p>
+
+<h2>Why a Flat 5 Percent Vacancy Is a Number With Nothing Behind It</h2>
+
+<p>Five percent means the property sits empty about 18 days a year, every year, smoothly. Real vacancy does not behave like that. It arrives in lumps tied to turnover. A single-family rental with a two-year average tenancy turns over once every 24 months, and each turn carries make-ready time, marketing time, and lease-up time that has nothing to do with a national average. If your make-ready plus lease-up runs 38 days and you turn every 26 months, your physical vacancy is already pushing 5 percent before a single tenant pays late or a single concession gets handed out.</p>
+
+<p>There are two specific ways the flat number lies. First, it is borrowed, not measured. A 5 percent figure pulled from a market report describes a blend of professionally managed apartment complexes, not your one house with a 38-day turnaround and a part-time landlord screening applicants on weekends. Second, it only counts empty days. It ignores the rent you lose while the unit is occupied: the bad debt when a tenant stops paying for two months before you can remove them, the concessions you offer to fill a slow month, and the gap between the rent on paper and the rent you actually collect. Those losses are real dollars that never reach your account, and a single vacancy percentage was never built to capture them.</p>
+
+<h2>Physical Vacancy and Economic Vacancy Are Not the Same Number</h2>
+
+<p>Professionals separate two ideas that amateurs collapse into one. <strong>Physical vacancy</strong> is the share of available days the unit sat empty. <strong>Economic vacancy</strong> is the share of potential rent you never collected, for any reason. Economic vacancy is always the larger and more honest number, and it is the one your cash flow actually feels.</p>
+
+<p>Physical vacancy answers "how many days was nobody living here." Economic vacancy answers "how many dollars of rent did this property fail to produce against its full potential." The second includes the first, then adds bad debt, concessions, and loss to lease. When you budget 5 percent and you meant physical vacancy, you have silently set your bad-debt and concession reserve to zero. That is the hidden bet inside the lazy number, and it is the bet that breaks thin deals.</p>
+
+<p>The clean way to hold both is to start from gross potential rent, the rent the property would produce fully leased at market with everyone paying, then subtract each loss as its own line. That structure forces every dollar of leakage into the open instead of hiding it inside one rounded percentage.</p>
+
+<h2>Build the Vacancy Calculator in Excel</h2>
+
+<p>The goal is a forward-looking model that turns turnover behavior into a defensible economic vacancy rate, not a number you typed because it looked reasonable. Put your assumptions in a labeled input block so every figure is visible and adjustable.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Monthly market rent</td><td>$1,450</td></tr>
+<tr><td>B4</td><td>Average tenancy (months)</td><td>26</td></tr>
+<tr><td>B5</td><td>Make-ready + lease-up days per turnover</td><td>38</td></tr>
+<tr><td>B6</td><td>Move-in concession (weeks free)</td><td>2</td></tr>
+<tr><td>B7</td><td>Bad debt / non-payment (% of potential rent)</td><td>1.5%</td></tr>
+</tbody>
+</table>
+
+<p>Now build the engine below the inputs. Start with the denominator everything is measured against, gross potential rent for the year:</p>
+
+<p><code>=B3*12</code></p>
+
+<p>That puts $17,400 in B10. Next, convert tenancy length into a turnover frequency, because vacancy is a function of how often you turn, not just how long each turn takes. Turnovers per year in B11:</p>
+
+<p><code>=12/B4</code></p>
+
+<p>A 26-month tenancy gives 0.46 turns a year. Multiply that by the days each turn costs you to get annual vacant days in B12, then divide by 365 for the physical vacancy rate in B13:</p>
+
+<p><code>=B5*B11</code> gives 17.5 vacant days, and <code>=B12/365</code> gives a 4.8 percent physical vacancy rate. The dollar loss in B14 is <code>=B10*B13</code>, or $835. So far this looks like the 5 percent everyone assumes, which is exactly why people stop here. They should not.</p>
+
+<p>Now add the losses the percentage forgets. Concessions in B15 cost you the free weeks times the weekly rent times how often you re-lease:</p>
+
+<p><code>=(B6/4.33)*B3*B11</code></p>
+
+<p>Two free weeks per turn works out to $309 a year. Bad debt in B16 is the simplest line, a percentage of potential rent for the months a non-paying tenant occupies before you regain the unit:</p>
+
+<p><code>=B10*B7</code></p>
+
+<p>That is $261. Total economic vacancy loss lands in B17 as <code>=B14+B15+B16</code>, or $1,405, and the rate that actually belongs in your pro forma sits in B18:</p>
+
+<p><code>=B17/B10</code></p>
+
+<p>The answer is 8.1 percent, not 5. Here is the comparison that should change how you underwrite, with the same property run both ways.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Lazy 5% assumption</th><th>Modeled economic vacancy</th></tr>
+</thead>
+<tbody>
+<tr><td>Physical vacancy</td><td>included, unstated</td><td>$835 (4.8%)</td></tr>
+<tr><td>Concessions</td><td>$0</td><td>$309</td></tr>
+<tr><td>Bad debt</td><td>$0</td><td>$261</td></tr>
+<tr><td>Total annual loss</td><td>$870</td><td>$1,405</td></tr>
+<tr><td>Effective rate</td><td>5.0%</td><td>8.1%</td></tr>
+</tbody>
+</table>
+
+<p>The $535 difference is not rounding. On the Columbus deal that penciled at $180 a month, $535 a year is roughly a quarter of the entire annual cash flow, erased by an assumption nobody questioned. That is the mechanism by which vacancy destroys projections. It does not blow up loudly. It bleeds.</p>
+
+<h2>Measure Your Actual Vacancy From the Rent Roll</h2>
+
+<p>The forward model tells you what to budget. The rent roll tells you the truth about what already happened, and you should reconcile the two every year. For a multifamily property, list each unit with its market rent and the days it sat empty over the trailing twelve months.</p>
+
+<table>
+<thead>
+<tr><th>Unit (row)</th><th>Monthly rent (B)</th><th>Days vacant, 12 mo (C)</th><th>Available days (D)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>$1,100</td><td>0</td><td>365</td></tr>
+<tr><td>3</td><td>$1,150</td><td>21</td><td>365</td></tr>
+<tr><td>4</td><td>$1,050</td><td>45</td><td>365</td></tr>
+<tr><td>5</td><td>$1,200</td><td>0</td><td>365</td></tr>
+</tbody>
+</table>
+
+<p>The naive physical vacancy is just total empty days over total available days, <code>=SUM(C2:C5)/SUM(D2:D5)</code>, which returns 4.5 percent. But that treats a vacant day in your cheapest unit the same as one in your most expensive, and they are not worth the same. The number that matters is dollar-weighted, because losing a high-rent unit for three weeks hurts more than losing a low-rent unit for the same span. Compute the actual rent lost with one formula:</p>
+
+<p><code>=SUMPRODUCT(C2:C5,(B2:B5*12)/365)</code></p>
+
+<p>That multiplies each unit's vacant days by its own daily rent and sums the result, returning $2,347 of lost rent. Divide by gross potential rent for the building, <code>=SUMPRODUCT(B2:B5,12)</code> or $54,000, and your true economic vacancy from operations is 4.3 percent for the year. If that comes in well under your 8.1 percent forward budget, good, you are reserving enough. If it comes in higher, your turnover or screening is the problem and the spreadsheet just told you before your bank account did.</p>
+
+<h2>Turn the Number Into a Verdict and a Reserve</h2>
+
+<p>A vacancy rate you calculate and then ignore is worthless. Two more cells make it operational. First, a flag that compares your modeled economic vacancy against whatever you actually put in your pro forma, so an underfunded deal announces itself:</p>
+
+<p><code>=IF(B18>B20,"UNDERFUNDED","OK")</code></p>
+
+<p>With B20 holding your 5 percent assumption and B18 showing the modeled 8.1 percent, this returns UNDERFUNDED in red, which is the warning the original spreadsheet never gave the Columbus landlord. Second, stop treating vacancy as an annual surprise and fund it monthly. Set aside one twelfth of the economic vacancy loss every month into a reserve:</p>
+
+<p><code>=B17/12</code></p>
+
+<p>That is $117 a month. When the tenant gives notice and the unit sits for five weeks, the reserve absorbs it and your cash flow does not crater the way it does when you were quietly counting on 5 percent. The discipline is simple:</p>
+
+<ul>
+<li>Budget economic vacancy, not physical vacancy, so bad debt and concessions are actually funded.</li>
+<li>Pull the forward rate from your own turnover frequency and lease-up time, never from a market average.</li>
+<li>Reconcile against the rent roll every year and let the dollar-weighted number correct your assumptions.</li>
+<li>Fund the reserve monthly so a lumpy event meets a smooth account.</li>
+</ul>
+
+<h2>Stop Letting One Assumption Decide the Deal</h2>
+
+<p>Every other line in a rental pro forma gets scrutiny. Investors argue over cap rates, shop interest rates to a quarter point, and call three insurance agents. Then they accept a vacancy number they made up in two seconds, and that number quietly decides whether the deal was ever real. Build the calculator once, separate physical from economic vacancy, model it off your own turnover behavior, and reconcile it against the rent roll, and vacancy stops being the assumption that ambushes you.</p>
+
+<p>If you would rather not wire the turnover math, concession logic, bad-debt lines, and the reserve schedule together by hand on every property you analyze, the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> has the economic vacancy engine already built in. You enter rent, tenancy length, and turnover time, and it returns the dollar-weighted vacancy rate, the underfunded flag, and the monthly reserve alongside the full cash flow and cap rate, so the assumption that usually destroys projections becomes the one you control before you ever sign.</p>`,
+  },
+  {
     slug: 'arv-comps-spreadsheet-excel',
     title: 'ARV Comps Spreadsheet in Excel: Adjust for Beds, Baths, and Square Footage Like an Appraiser',
     metaTitle: 'ARV Comps Spreadsheet Excel | SheetCraft',
