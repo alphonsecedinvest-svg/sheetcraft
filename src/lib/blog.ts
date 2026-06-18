@@ -16,6 +16,133 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-stored-materials-tracking-spreadsheet',
+    title: 'Construction Stored Materials Tracking Spreadsheet: Bill On-Site Materials Without a Dispute',
+    metaTitle: 'Stored Materials Tracking Spreadsheet | SheetCraft',
+    metaDescription: 'Bill materials on-site without getting pay apps rejected. A construction stored materials tracking spreadsheet reconciles stored, billed, and installed values.',
+    targetKeyword: 'construction stored materials tracking spreadsheet',
+    secondaryKeywords: ['materials presently stored', 'AIA G703 stored materials', 'billing for stored materials', 'off-site materials storage agreement', 'schedule of values'],
+    excerpt: 'A sub bills $90,000 of stored switchgear, installs it two months later, and forgets to back the stored value out of the pay app. The whole application gets rejected and $70,000 of billing freezes for 30 days. A construction stored materials tracking spreadsheet reconciles stored, installed, and billed values so you collect early on materials without ever double-counting them.',
+    publishedAt: '2026-06-18',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-stored-materials-tracking-spreadsheet.png',
+    imageAlt: 'Flat minimalist illustration of labeled material pallets and crates beside a clipboard checklist and a small bar chart with a verified check-mark badge, representing a construction stored materials tracking spreadsheet',
+    content: `<p>An electrical sub on a $480,000 job buys his switchgear early to beat a 16-week lead time. The gear shows up in June, $90,000 of it, and sits wrapped on the slab while the building catches up. He bills it as stored material on Pay Application 3 and gets paid, which is exactly right. Two months later his crew sets and terminates the gear, and on Pay Application 5 he marks the switchgear line 100 percent complete for its full $128,000 scheduled value. He does not touch the stored-materials column. The reviewer adds it up, sees $128,000 of completed work plus $90,000 still sitting in stored materials against a line worth $128,000, and rejects the entire application. Not the line. The application. Seventy thousand dollars of billing freezes for a full 30-day cycle over one column he forgot to zero out. A <strong>construction stored materials tracking spreadsheet</strong> exists to make that mistake impossible, because the dollars are too big to leave to memory.</p>
+
+<p>Stored materials are one of the few places in construction billing where you are allowed to collect money before you have installed anything, and that privilege comes with a tripwire. Bill it wrong and you do not just lose the disputed amount. You lose the cash flow on the whole pay app, you burn a cycle, and you teach the owner's rep to read your numbers with a red pen. The fix is not working harder on the pay app. It is keeping a register that always knows what you stored, what you billed for it, what got installed, and what is still parked, so the number on your application reconciles before it ever leaves your desk.</p>
+
+<h2>Why Billing for Stored Materials Gets the Whole Pay App Rejected</h2>
+
+<p>The standard pay application, the AIA G702 with its G703 continuation sheet, has a specific column for this. Column F is materials presently stored, and the header spells out the rule: materials not yet in the completed-work columns. The total completed and stored to date is the sum of work completed plus that stored column. The owner pays on the total, less retainage.</p>
+
+<p>The mechanic that trips people is movement. When you bill a material as stored, its value sits in column F. When you actually install it, that value has to move out of F and into the completed-work column. It does not get added a second time. The completed column goes up by the full line value, the stored column drops by the amount you parked there, and the net increase in your total billing that period is only the labor and markup that was never stored in the first place. The material itself was already counted when you stored it. Installing it does not let you count it twice.</p>
+
+<p>Here is the failure in plain terms. You bill $90,000 of switchgear as stored. Later you install it and push the line to its full $128,000 completed value. If you leave the $90,000 sitting in the stored column, your total completed and stored for that line reads $218,000 against a scheduled value of $128,000. That is 170 percent complete on a single line, which is mathematically impossible and instantly visible. A competent reviewer does not negotiate it. They bounce the application and ask for a corrected one, and now your entire month of billing waits for the next cycle.</p>
+
+<p>The reverse error is just as expensive in slow motion. If you install material and never billed it as stored, then forget that the material cost is already inside the completed line, you can end up under-collecting and financing the owner's materials for free. Both errors come from the same root cause: nobody is tracking the stored balance separately from the completed work.</p>
+
+<h2>What the Owner Needs Before Paying for Materials On-Site</h2>
+
+<p>Getting paid for stored materials is not automatic, and the requirements get stricter the farther the material is from the job. The reviewer is protecting the owner against paying for something that could disappear, get double-pledged to a lender, or never show up. Before you bill a single dollar of stored material, your register should confirm you can produce the backup. Off-site storage in particular is where applications die, because most contracts require extra protection that subs forget to set up until the reviewer asks.</p>
+
+<p>The documentation that turns a stored-materials claim from a fight into a routine approval:</p>
+
+<ul>
+<li><strong>Paid invoice or bill of sale</strong> showing you actually own the material, not just ordered it.</li>
+<li><strong>Proof of delivery</strong> tying the material to this project and this site.</li>
+<li><strong>Insurance covering the stored value</strong> with the owner named as an additional insured, so a fire in the storage yard is not your uninsured loss.</li>
+<li><strong>An off-site storage agreement</strong> when the material is in a warehouse, including the address, the right for the owner to inspect, and protection against the warehouse's other creditors.</li>
+<li><strong>A conditional lien waiver</strong> for the amount being billed, matching the stored value on the application.</li>
+</ul>
+
+<p>The point of listing these inside the spreadsheet is that an unbillable lot should never reach the pay application. If the insurance box is empty for an off-site lot, the register flags it and you hold that line until the paperwork exists, rather than billing it, getting rejected, and losing the cycle.</p>
+
+<h2>Build the Stored Materials Tracking Spreadsheet in Excel</h2>
+
+<p>The register is one row per stored lot. A lot is a delivery you intend to bill before installation: the switchgear, a pallet of fixtures, the structural steel waiting on the laydown yard. Each row carries the billing value, where it lives, whether the backup exists, and how much of it has since been installed. Everything the pay app needs flows from these columns.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Field</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Lot ID</td><td>SG-01</td></tr>
+<tr><td>C4</td><td>Schedule of values line</td><td>16-Switchgear</td></tr>
+<tr><td>D4</td><td>Description</td><td>1200A main switchgear</td></tr>
+<tr><td>E4</td><td>Stored value billed</td><td>$90,000</td></tr>
+<tr><td>F4</td><td>Pay app stored on</td><td>3</td></tr>
+<tr><td>G4</td><td>Location (On-site / Off-site)</td><td>On-site</td></tr>
+<tr><td>H4</td><td>Insured, owner additional insured (Y/N)</td><td>Y</td></tr>
+<tr><td>I4</td><td>Paid invoice / bill of sale on file (Y/N)</td><td>Y</td></tr>
+<tr><td>J4</td><td>Value installed to date</td><td>$0</td></tr>
+<tr><td>K4</td><td>Date received</td><td>2026-06-02</td></tr>
+</tbody>
+</table>
+
+<h3>The one formula that catches the double-count</h3>
+
+<p>The column that does the real work is the currently stored balance. It is the stored value you billed minus the value that has since been installed and moved into completed work. Put it in L4:</p>
+
+<p><code>=E4-J4</code></p>
+
+<p>While the switchgear sits on the slab, J4 is zero and the stored balance is the full $90,000. The day you install it, you record $90,000 in J4 (the material value moving into completed work) and L4 drops to $0. That single subtraction is the entire discipline. The number in column F of your pay application, materials presently stored, has to equal the sum of every currently stored balance in the register:</p>
+
+<p><code>=SUM(L4:L60)</code></p>
+
+<p>Now build the reconciliation check. Put the stored total your pay app software or template is reporting in one cell, the register total in another, and compare them so a mismatch is loud:</p>
+
+<p><code>=IF(ROUND(SUM(L4:L60),2)=ROUND(PayApp_StoredTotal,2),"RECONCILED","MISMATCH - fix before submitting")</code></p>
+
+<p>If you install the switchgear and forget to update J4, the register still shows $90,000 stored, but your pay app shows $0 because you moved it to completed. The check screams MISMATCH and you catch it at your desk instead of in the reviewer's inbox. That is the whole game: the rejection that costs you a cycle becomes a red cell that costs you 30 seconds.</p>
+
+<h3>Guard the line so it can never exceed 100 percent</h3>
+
+<p>The reviewer's instant-rejection trigger is a line where completed work plus stored materials beats the scheduled value. Catch it yourself. With the scheduled value in M4, work completed to date in N4, and the stored balance in L4:</p>
+
+<p><code>=IF(ROUND(N4+L4,2)>ROUND(M4,2),"OVERBILLED - reduce stored","OK")</code></p>
+
+<p>This is the formula that would have saved the electrical sub. The moment he marked the line $128,000 complete while $90,000 still sat in stored, N4 plus L4 hit $218,000 against an M4 of $128,000 and the cell flips to OVERBILLED before he ever exports the application.</p>
+
+<h3>Flag aging and missing paperwork</h3>
+
+<p>Owners get nervous about material they paid for that never gets installed, and contracts often cap how long you can carry it. Flag any lot that has been sitting too long with a real balance:</p>
+
+<p><code>=IF(AND(L4>0,TODAY()-K4>90),"AGING - explain to owner","OK")</code></p>
+
+<p>And block any off-site lot that is missing its required backup, so it never reaches a pay app:</p>
+
+<p><code>=IF(AND(G4="Off-site",OR(H4<>"Y",I4<>"Y")),"HOLD - get docs first","BILLABLE")</code></p>
+
+<p>These two flags are cheap insurance. The aging flag keeps a forgotten pallet from becoming an awkward question in a project meeting. The documentation flag keeps you from billing an off-site lot you cannot back up, which is the single most common reason a stored-materials claim gets struck.</p>
+
+<h2>A Worked Example: $90,000 of Switchgear From Storage to Install</h2>
+
+<p>Walk the switchgear line, scheduled at $128,000 with $90,000 of material and $38,000 of labor and markup, across three applications. The first two columns are what your register feeds the pay app. The last column is what you actually collect that period before retainage.</p>
+
+<table>
+<thead>
+<tr><th>Pay app</th><th>Completed work to date</th><th>Materials stored (col F)</th><th>Total completed + stored</th><th>% of line</th><th>Billed this period</th></tr>
+</thead>
+<tbody>
+<tr><td>App 3 (stored)</td><td>$0</td><td>$90,000</td><td>$90,000</td><td>70%</td><td>$90,000</td></tr>
+<tr><td>App 4 (waiting)</td><td>$0</td><td>$90,000</td><td>$90,000</td><td>70%</td><td>$0</td></tr>
+<tr><td>App 5 (installed, correct)</td><td>$128,000</td><td>$0</td><td>$128,000</td><td>100%</td><td>$38,000</td></tr>
+<tr><td>App 5 (the error)</td><td>$128,000</td><td>$90,000</td><td>$218,000</td><td>170%</td><td>REJECTED</td></tr>
+</tbody>
+</table>
+
+<p>The correct row collects exactly $128,000 across the job: $90,000 early when the material was stored, then $38,000 of labor and markup at install. The material is never billed twice. The error row tries to collect the material a second time, posts an impossible 170 percent, and gives the reviewer a reason to reject everything attached to that application. The difference between the two rows is one number, the $90,000 in column F at install, and your register is what holds that number to zero on the right day.</p>
+
+<p>Run the math on what the error costs. A sub on a $480,000 contract billing in monthly chunks might have $65,000 to $75,000 on a single application. A rejection does not slow down one line, it parks the whole application until the next cycle. Thirty days of frozen cash on $70,000, financed on a line of credit at 11 percent, is roughly $640 in interest, plus the payroll and supplier checks that were counting on that money landing on schedule. For a small electrical sub running tight, the missed cycle is the thing that turns a profitable job into a scramble.</p>
+
+<h2>Stop Tracking Stored Materials in Your Head</h2>
+
+<p>Stored materials are free money in the sense that they fund themselves: you collect the cost before you install, so you are not floating the owner's materials on your own credit. They become expensive only when the tracking lives in your memory and your memory drops the stored column at install. A register that ties every stored lot to its schedule of values line, its backup paperwork, and its currently stored balance turns the riskiest column on your pay application into the most boring one.</p>
+
+<p>The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> builds the stored-materials register straight into the schedule of values, so the materials-presently-stored total on your pay application is calculated, not typed, and the overbilling and reconciliation flags fire before you export. You record an install once, the stored balance drops itself, and the line can never read more than 100 percent. If you are billing for materials on-site and tracking it by hand, the next switchgear delivery is the one that catches you. Set the register up before it arrives, and collect early on your materials without ever handing a reviewer a reason to say no.</p>`,
+  },
+  {
     slug: 'rental-property-vacancy-rate-calculator-excel',
     title: 'Rental Property Vacancy Rate Calculator in Excel: The Assumption That Quietly Breaks Deals',
     metaTitle: 'Rental Vacancy Rate Calculator Excel | SheetCraft',
