@@ -16,6 +16,151 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'subcontractor-prequalification-scorecard-excel',
+    title: 'Subcontractor Prequalification Scorecard in Excel: Score Subs Before You Award',
+    metaTitle: 'Subcontractor Prequalification Scorecard | SheetCraft',
+    metaDescription: 'A subcontractor prequalification scorecard in Excel scores bonding, EMR, backlog, and references before you award, so the low bid is not your costliest sub.',
+    targetKeyword: 'subcontractor prequalification scorecard Excel',
+    secondaryKeywords: ['subcontractor prequalification form', 'EMR experience modification rate', 'contractor bonding capacity', 'subcontractor evaluation criteria', 'construction subcontractor vetting'],
+    excerpt: 'A GC awards framing to the low bidder at $340,000 to save $32,000, then watches the sub walk off at 55 percent complete, turning that saving into a $118,000 loss. A subcontractor prequalification scorecard in Excel scores bonding capacity, EMR, backlog, and references before the award, so the cheapest bid never becomes your most expensive sub.',
+    publishedAt: '2026-06-19',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/subcontractor-prequalification-scorecard-excel.png',
+    imageAlt: 'Flat minimalist illustration of a subcontractor prequalification scorecard clipboard with star ratings and green checkmarks beside three hard hats, a comparison bar chart, and a magnifying glass',
+    content: `<p>A general contractor opens framing bids on a $4.1 million apartment build and the spread is ugly. Low bidder is at $340,000. The next sub up is $372,000. The estimator does the obvious thing and awards the low number, because $32,000 is real money and the scopes look identical. What the bid sheet does not show is that the low sub is already carrying $440,000 of work against a $500,000 aggregate bond, runs one and a half framing crews, and has an experience modification rate of 1.28. He takes the job because he needs the cash flow, staffs it with whoever he can find, falls three weeks behind by the second floor, and walks off at 55 percent complete when his own back-charges catch up to him. The GC brings in a replacement at premium pricing, eats the rework on the first sub's bad nailing, and pays liquidated damages on a 24-day schedule slip. The $32,000 he saved on the award turns into a $118,000 hole. A <strong>subcontractor prequalification scorecard in Excel</strong> exists to catch that sub before he signs, because the bid number is the one piece of information that tells you nothing about whether he can finish.</p>
+
+<p>Prequalification is not paperwork. It is the single highest-leverage filter a GC or developer has, because every dollar of risk on a project funnels through the subs who actually swing the hammers. The lowest bid from a sub who cannot perform is the most expensive number on the page, and you only find that out after you are committed. The fix is to score every sub on the four signals that actually predict failure, before the award, on a sheet that gives you the same answer every time instead of relying on whoever ran the bid that day.</p>
+
+<h2>Why the Low Bid Is the Most Expensive Number on the Page</h2>
+
+<p>When a sub fails mid-job, the bid savings disappear in the first week and the losses keep stacking. There is no insurance for picking the wrong sub. There is only the cost of replacing him, and that cost is never close to the gap you thought you were saving.</p>
+
+<p>Walk the damage from the framing example above. The replacement sub knows you are stuck and prices accordingly. The work already in place has to be inspected and partially torn out. Your superintendent spends two weeks managing the transition instead of running the rest of the building. The owner's schedule is blown, and your contract has teeth.</p>
+
+<table>
+<thead>
+<tr><th>Cost driver</th><th>Original plan</th><th>After the sub folds</th></tr>
+</thead>
+<tbody>
+<tr><td>Framing contract</td><td>$340,000</td><td>$340,000 (partially paid, partially lost)</td></tr>
+<tr><td>Replacement sub premium</td><td>$0</td><td>$58,000</td></tr>
+<tr><td>Rework on defective framing</td><td>$0</td><td>$24,000</td></tr>
+<tr><td>Liquidated damages, 24 days at $1,500</td><td>$0</td><td>$36,000</td></tr>
+<tr><td>Supervision and re-bid overhead</td><td>$0</td><td>$12,000</td></tr>
+<tr><td><strong>Net hit versus the second bidder</strong></td><td><strong>save $32,000</strong></td><td><strong>lose $118,000</strong></td></tr>
+</tbody>
+</table>
+
+<p>The math is brutal and it is typical. Industry data on contractor defaults puts the cost of completing a failed subcontract at two to three times the original value once you count rework, delay, and management drag. That is why prequalification is worth real effort. You are not trying to find the best sub. You are trying to never sign the one who blows up the job, and the bid sheet is silent on exactly that question.</p>
+
+<h2>The Four Signals That Predict a Subcontractor Failure</h2>
+
+<p>Subs do not fail randomly. They fail for reasons that are visible weeks or months in advance if you ask for the right four numbers. A useful <strong>subcontractor prequalification form</strong> collects each one and a scorecard turns them into a decision.</p>
+
+<h3>1. Bonding Capacity and Headroom</h3>
+
+<p>A surety underwrites the sub's financials and sets two limits: a single-job limit and an aggregate limit across all open work. These numbers are the closest thing you get to an outside party's audit of whether the sub can carry the job. The trap is headroom. A sub bonded for $500,000 aggregate who already has $440,000 of work in progress has $60,000 of real capacity left, no matter what his bid says. Award him a $340,000 job and he is financing it out of next month's draws on other projects, which is precisely how subs end up robbing one job to pay another and then walking off both.</p>
+
+<h3>2. Experience Modification Rate</h3>
+
+<p>The EMR is a workers' compensation multiplier that compares a sub's actual claim history to the expected average for his trade. An EMR of 1.0 is dead average. Below 1.0 means fewer losses than expected, which signals a real safety program and disciplined supervision. Above 1.0 means more, and an EMR of 1.25 or higher is a flashing light: it means injuries, which means turnover, schedule disruption, and a culture that cuts corners. Many owners contractually bar subs above 1.0 from even bidding. Treat the EMR as a proxy for whether the crew is run by adults.</p>
+
+<h3>3. Backlog Versus Manpower Capacity</h3>
+
+<p>Bonding tells you the financial ceiling. Backlog-to-manpower tells you the physical one. A sub can be bonded for plenty and still be unable to staff your job because every crew he has is already committed. Ask for current backlog in dollars and the number of crews he actually fields, then compare your scope's manpower demand against what is left. A sub running at 90 percent of capacity has no slack to absorb a bad week, and your job is where that catches up with him.</p>
+
+<h3>4. References and Payment History, Both Directions</h3>
+
+<p>Call the GCs he worked for, and call the suppliers and second-tier subs he hired. The first group tells you if he finishes. The second tells you if he pays, and a sub who does not pay his own people is a sub whose vendors will stop showing up on your site. Ask three specific questions: did he complete on schedule, were there back-charges or claims, and would you hire him again. A sub with a lien filed against him by his own drywall supplier is telling you exactly how your job ends.</p>
+
+<h2>Build the Subcontractor Prequalification Scorecard in Excel</h2>
+
+<p>The scorecard has two parts and the order matters. First, knockout gates that disqualify a sub outright no matter how good the rest looks. Second, a weighted score for everyone who clears the gates. A sub who fails a gate never gets a score, because no amount of good references offsets an EMR that means people are getting hurt or a bond that cannot cover the work.</p>
+
+<h3>Part one: the knockout gates</h3>
+
+<p>Each gate is pass or fail. One failure disqualifies. Lay them out one per row with the threshold built into the formula so the answer is not a judgment call.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Gate</th><th>Input</th><th>Formula in result cell</th></tr>
+</thead>
+<tbody>
+<tr><td>C4</td><td>Bid amount</td><td>$340,000</td><td>input</td></tr>
+<tr><td>C5</td><td>Single-job bond limit</td><td>$400,000</td><td>input</td></tr>
+<tr><td>C6</td><td>Aggregate bond limit</td><td>$500,000</td><td>input</td></tr>
+<tr><td>C7</td><td>Current bonded backlog</td><td>$440,000</td><td>input</td></tr>
+<tr><td>D5</td><td>Single-job gate</td><td></td><td><code>=IF(C5&lt;C4,"FAIL","PASS")</code></td></tr>
+<tr><td>D6</td><td>Aggregate headroom gate</td><td></td><td><code>=IF((C6-C7)&lt;C4,"FAIL","PASS")</code></td></tr>
+<tr><td>D8</td><td>EMR gate (EMR in C8)</td><td>1.28</td><td><code>=IF(C8&gt;1.0,"FAIL","PASS")</code></td></tr>
+<tr><td>D9</td><td>Insurance limits met (Y/N in C9)</td><td>Y</td><td><code>=IF(C9="Y","PASS","FAIL")</code></td></tr>
+<tr><td>D10</td><td>Active liens or litigation (Y/N in C10)</td><td>Y</td><td><code>=IF(C10="Y","FAIL","PASS")</code></td></tr>
+</tbody>
+</table>
+
+<p>Then a single cell that reads every gate at once. Put this in D12:</p>
+
+<p><code>=IF(COUNTIF(D5:D10,"FAIL")&gt;0,"DISQUALIFIED","CLEARED TO SCORE")</code></p>
+
+<p>For the framing sub in the example, three gates fail at once. His aggregate headroom is only $60,000 against a $340,000 bid, his EMR is 1.28, and his drywall supplier has a lien on file. The cell reads DISQUALIFIED and you never get to the part where his price looks attractive. That is the whole point: the sheet stops you before the discount seduces you.</p>
+
+<h3>Part two: the weighted score</h3>
+
+<p>For subs who clear the gates, score five categories on a 1-to-5 scale and weight them by how much each one predicts failure. The weights matter. Safety and financial strength carry more than relevant experience, because a strong sub in an unfamiliar scope is a manageable risk, while a weak sub in a familiar scope is the one who walks.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Category</th><th>Weight</th><th>Raw (1-5)</th><th>Weighted</th></tr>
+</thead>
+<tbody>
+<tr><td>Row 16</td><td>Financial strength and bond headroom</td><td>0.25</td><td>4</td><td><code>=C16*D16</code> = 1.00</td></tr>
+<tr><td>Row 17</td><td>Safety (EMR, recordables, written program)</td><td>0.20</td><td>5</td><td><code>=C17*D17</code> = 1.00</td></tr>
+<tr><td>Row 18</td><td>Relevant experience, last 3 years</td><td>0.20</td><td>4</td><td><code>=C18*D18</code> = 0.80</td></tr>
+<tr><td>Row 19</td><td>Manpower capacity versus backlog</td><td>0.15</td><td>3</td><td><code>=C19*D19</code> = 0.45</td></tr>
+<tr><td>Row 20</td><td>References and payment history</td><td>0.20</td><td>5</td><td><code>=C20*D20</code> = 1.00</td></tr>
+</tbody>
+</table>
+
+<p>Total the weighted column and put it on a 100 scale so it reads like a grade. In E22:</p>
+
+<p><code>=SUMPRODUCT(C16:C20,D16:D20)/5*100</code></p>
+
+<p>This sub scores 85. Now turn the number into the actual award decision in E23 so nobody has to argue about what 85 means:</p>
+
+<p><code>=IF(E22&gt;=75,"QUALIFIED",IF(E22&gt;=60,"CONDITIONAL - REQUIRE CONTROLS","DO NOT AWARD"))</code></p>
+
+<p>CONDITIONAL is not a soft pass. It means you can award but you write controls into the contract: joint checks to his suppliers, a tighter schedule of values, or a requirement that he subordinate other backlog. The scorecard does not just rank subs, it tells you what protection to build into the deal for the borderline ones.</p>
+
+<h2>Run Both Bidders Through the Same Sheet</h2>
+
+<p>The reason to score is that it makes the comparison honest. Put the low bidder and the second bidder side by side and the $32,000 gap stops being the headline.</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Low bidder</th><th>Second bidder</th></tr>
+</thead>
+<tbody>
+<tr><td>Bid amount</td><td>$340,000</td><td>$372,000</td></tr>
+<tr><td>Aggregate bond headroom</td><td>$60,000</td><td>$610,000</td></tr>
+<tr><td>EMR</td><td>1.28</td><td>0.84</td></tr>
+<tr><td>Backlog versus capacity</td><td>90%</td><td>62%</td></tr>
+<tr><td>Supplier lien on file</td><td>Yes</td><td>No</td></tr>
+<tr><td>Gate result</td><td>DISQUALIFIED</td><td>CLEARED</td></tr>
+<tr><td>Weighted score</td><td>not scored</td><td>85</td></tr>
+<tr><td>Decision</td><td>DO NOT AWARD</td><td>QUALIFIED</td></tr>
+</tbody>
+</table>
+
+<p>The $32,000 premium buys a sub with real bonding headroom, a crew that does not get hurt, slack in his schedule, and a payment record that means his suppliers keep showing up. Priced against a $118,000 blowout, it is the cheapest insurance on the project. The scorecard is what lets you make that argument to an owner who is staring at the low number and asking why you walked past it.</p>
+
+<h2>Make Prequalification a Standing Process, Not a Fire Drill</h2>
+
+<p>The teams that get burned are the ones who prequalify only when something already smells wrong. By then you are emotionally committed to a bid and looking for reasons to say yes. The fix is to run every sub over a threshold dollar value through the same sheet, every time, before the award meeting. Keep the completed scorecards in the same workbook where you track the rest of the job's budget, bids, and exposure, so a sub's score lives next to the dollars it protects and you can see at a glance which awards were made against a clean sheet and which were made on faith.</p>
+
+<p>That is exactly what the SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> is built to do. The prequalification scorecard is wired in alongside the bid log, budget, and change-order register, with the knockout gates and weighted scoring already formula-driven, so you drop in a sub's bond limits, EMR, backlog, and references and get a CLEARED-or-DISQUALIFIED and a 0-to-100 score before you ever sign. Stop letting the low bid decide for you. Score the sub first, then award, and keep the $118,000 surprise off your next job.</p>`,
+  },
+  {
     slug: 'construction-stored-materials-tracking-spreadsheet',
     title: 'Construction Stored Materials Tracking Spreadsheet: Bill On-Site Materials Without a Dispute',
     metaTitle: 'Stored Materials Tracking Spreadsheet | SheetCraft',
