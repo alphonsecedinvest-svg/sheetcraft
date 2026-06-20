@@ -16,6 +16,134 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-labor-burden-rate-calculator-excel',
+    title: 'Construction Labor Burden Rate Calculator in Excel: Bid the True Cost of an Hour',
+    metaTitle: 'Labor Burden Rate Calculator Excel | SheetCraft',
+    metaDescription: 'A construction labor burden rate calculator in Excel turns a $25 wage into its true $40 loaded cost, so bids cover taxes, comp insurance, and downtime.',
+    targetKeyword: 'construction labor burden rate calculator Excel',
+    secondaryKeywords: ['labor burden rate formula', 'fully burdened labor rate', 'construction payroll burden', 'workers comp class code rate', 'productive labor hours'],
+    excerpt: 'A $25 carpenter does not cost $25. Load payroll taxes, workers comp by class code, benefits, and the hours you pay but never bill, and he costs about $40. A construction labor burden rate calculator in Excel builds that true rate per trade, so your bids cover real cost instead of a hopeful 30 percent markup.',
+    publishedAt: '2026-06-20',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-labor-burden-rate-calculator-excel.png',
+    imageAlt: 'Flat minimalist illustration of a construction labor burden concept: an orange hard hat beside dollar-sign blocks, a rising stacked bar chart, a calculator, and a spreadsheet grid',
+    content: `<p>A framing contractor wins a $4.2 million apartment job and staffs it with carpenters at $25 an hour. The estimate carried labor at $25 an hour, because that is the number on the timecard and the number in the checkbook. Eight months in, the job is 9 percent over on labor and nobody can find the leak. The leak is not theft and it is not slow crews. It is that a $25 carpenter does not cost $25. He costs closer to $40 once you load payroll taxes, workers comp, general liability, benefits, and the hours you pay him for but never bill. A <strong>construction labor burden rate calculator in Excel</strong> exists to put that real number in front of you before you sign the contract, instead of finding it in the closeout meeting.</p>
+
+<p>Most contractors handle burden with a guess. They tack 30 percent onto the wage, call it loaded, and move on. The guess is wrong in both directions. On a high-comp trade like roofing or steel it is far too low and you bleed margin on every hour. On a clean office crew it can be too high and you lose bids you should have won. Burden is not one number. It is a rate you build per trade, from real components, divided by the hours you actually get out of a worker. Get the denominator wrong and the whole thing collapses, which is exactly where most spreadsheets break.</p>
+
+<h2>What a Labor Burden Rate Actually Is</h2>
+
+<p>The labor burden rate is the percentage you add to a worker's bare wage to get the true cost of one hour of his labor on your job. Bare wage is what hits his paycheck. The burdened rate is what hits your bank account. The gap is everything you are legally and practically required to spend to keep that person on the payroll and on the site.</p>
+
+<p>Two contractors bidding the same scope with the same $25 wage can have a fully burdened cost that differs by $8 an hour, and both are correct. One runs a 1.45 experience modification rate and pays a $14 per $100 comp premium. The other runs 0.78 and pays $6. One offers family health coverage, the other offers none. The burden rate is where your actual business shows up in your bid, and a flat 30 percent erases all of it. The point of a <strong>labor burden rate formula</strong> is to stop pretending every worker and every trade carries the same overhead.</p>
+
+<h2>The Burden Components Most Contractors Forget</h2>
+
+<p>Start with the statutory costs, the ones you cannot opt out of. Then layer the discretionary costs, the ones that are real money even though a competitor might skip them. Here is the full build-up on a $25 carpenter working 2,080 paid hours a year, $52,000 in gross wage.</p>
+
+<table>
+<thead>
+<tr><th>Burden component</th><th>Basis</th><th>Annual cost</th></tr>
+</thead>
+<tbody>
+<tr><td>Gross wage</td><td>$25.00 x 2,080 hrs</td><td>$52,000</td></tr>
+<tr><td>FICA (Social Security + Medicare)</td><td>7.65% of wage</td><td>$3,978</td></tr>
+<tr><td>FUTA (federal unemployment)</td><td>0.6% on first $7,000</td><td>$42</td></tr>
+<tr><td>SUTA (state unemployment)</td><td>3.5% on first $14,000</td><td>$490</td></tr>
+<tr><td>Workers comp (carpentry, $9.50 per $100)</td><td>9.5% of wage</td><td>$4,940</td></tr>
+<tr><td>General liability allocated to labor</td><td>1.2% of wage</td><td>$624</td></tr>
+<tr><td>Health insurance</td><td>$650 per month</td><td>$7,800</td></tr>
+<tr><td>Retirement match</td><td>3% of wage</td><td>$1,560</td></tr>
+<tr><td>Small tools, PPE, training, vehicle</td><td>flat allocation</td><td>$1,200</td></tr>
+<tr><td><strong>Total annual cost</strong></td><td></td><td><strong>$72,634</strong></td></tr>
+</tbody>
+</table>
+
+<p>The two components that get dropped most often are the unemployment taxes and the comp class code. FUTA and SUTA look trivial because they are capped on a low wage base, and they are small, but the bigger trap is treating comp as a single company number. Workers comp is priced by class code, and the codes are not close. Clerical work might run under $1 per $100 of payroll. Carpentry sits near $9 to $11. Roofing and structural steel can clear $25 to $40 per $100 in some states. If you load every trade at one blended comp rate, you underbid the dangerous trades and overbid the safe ones, and the dangerous trades are exactly where a bad job hurts most.</p>
+
+<h2>The Denominator That Wrecks the Number</h2>
+
+<p>Here is the mistake that turns a careful burden build-up into a wrong answer. You add up $72,634 of annual cost and you divide by 2,080 hours, because 2,080 is the standard work year. That gives $34.92 an hour and a burden rate of 39.7 percent. It feels right. It is still too low, because you do not get 2,080 productive hours out of that carpenter. You get closer to 1,800.</p>
+
+<p>You pay for a full year. You bill for the hours a crew is actually moving work, and the difference is large. Holidays, vacation, sick days, safety meetings, rained-out mornings, and the unbillable hour spent driving between two jobs all come out of the same 2,080 you paid for.</p>
+
+<table>
+<thead>
+<tr><th>Paid hours</th><th>Hours</th></tr>
+</thead>
+<tbody>
+<tr><td>Total paid hours</td><td>2,080</td></tr>
+<tr><td>Holidays (6 days)</td><td>-48</td></tr>
+<tr><td>Vacation (10 days)</td><td>-80</td></tr>
+<tr><td>Sick and personal (5 days)</td><td>-40</td></tr>
+<tr><td>Training and safety meetings</td><td>-40</td></tr>
+<tr><td>Weather, travel, and downtime</td><td>-72</td></tr>
+<tr><td><strong>Productive billable hours</strong></td><td><strong>1,800</strong></td></tr>
+</tbody>
+</table>
+
+<p>Now divide the same $72,634 by 1,800 productive hours and the true cost to put one billable hour of carpentry in place is $40.35. That is a 61 percent burden over the bare $25 wage, not 39.7 percent. The 2,080 method understates your cost by $5.43 on every hour you bill. On a job with 4,000 productive labor hours, that is $21,720 you forgot to charge for, sitting on top of whatever margin you thought you had. The components are the easy part. The denominator is what separates a real <strong>fully burdened labor rate</strong> from a comforting one.</p>
+
+<h2>Build the Construction Labor Burden Rate Calculator in Excel</h2>
+
+<p>Set up one input column you can change per trade, and let the formulas produce the burdened rate and the burden percentage automatically. Use this layout in column B, with labels in column A.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Base hourly wage</td><td>25.00</td></tr>
+<tr><td>B3</td><td>Annual paid hours</td><td>2,080</td></tr>
+<tr><td>B4</td><td>Annual non-productive hours</td><td>280</td></tr>
+<tr><td>B5</td><td>Workers comp rate per $1 of payroll</td><td>0.095</td></tr>
+<tr><td>B6</td><td>GL allocation rate</td><td>0.012</td></tr>
+<tr><td>B7</td><td>Annual benefits (health + retirement + tools)</td><td>10,560</td></tr>
+</tbody>
+</table>
+
+<h3>The core formulas</h3>
+
+<p>Annual gross wage in B8 multiplies wage by paid hours: <code>=B2*B3</code>. This is the $52,000 base everything else loads onto.</p>
+
+<p>Statutory taxes in B9 stack FICA, federal unemployment, and state unemployment, each on its correct base: <code>=B8*0.0765+MIN(7000,B8)*0.006+MIN(14000,B8)*0.035</code>. The <code>MIN</code> functions stop the unemployment taxes from running on the full wage, which is the cap most quick formulas get wrong.</p>
+
+<p>Insurance in B10 combines comp and general liability against gross wage: <code>=B8*(B5+B6)</code>. Because B5 is the comp rate, you change one cell to reprice the entire sheet for roofing, steel, or clerical work instead of rebuilding it per trade.</p>
+
+<p>Total annual cost in B11 adds wage, taxes, insurance, and benefits: <code>=B8+B9+B10+B7</code>. With the example inputs this returns $72,634.</p>
+
+<p>Now the part that matters. Productive hours in B12 strip non-productive time from paid hours: <code>=B3-B4</code>, which returns 1,800. The fully burdened rate in B13 divides total cost by productive hours, not paid hours: <code>=B11/B12</code>, returning $40.35. The burden percentage in B14 shows how far over bare wage you actually run: <code>=B13/B2-1</code>, returning 0.61, or 61 percent.</p>
+
+<h3>The sanity check that catches a broken sheet</h3>
+
+<p>Add a flag in B15 so a wrong number announces itself instead of flowing into a bid: <code>=IF(B14&lt;0.35,"CHECK - burden too low to be real",IF(B14&gt;0.90,"CHECK - verify comp and benefits","OK"))</code>. A real construction burden rate almost never lands under 35 percent. If your sheet spits out 28 percent, you either dropped a component or you divided by 2,080. The flag turns a silent error into a visible one before it reaches a client.</p>
+
+<h3>One rate per trade, not one rate per company</h3>
+
+<p>Copy the input column across for every trade you carry and let the comp rate and wage drive the spread. The same structure produces a very different burdened cost once the real <strong>workers comp class code rate</strong> is in play.</p>
+
+<table>
+<thead>
+<tr><th>Trade</th><th>Bare wage</th><th>Comp per $100</th><th>Burdened rate</th><th>Burden %</th></tr>
+</thead>
+<tbody>
+<tr><td>Laborer</td><td>$22.00</td><td>$7.20</td><td>$34.10</td><td>55%</td></tr>
+<tr><td>Carpenter</td><td>$25.00</td><td>$9.50</td><td>$40.35</td><td>61%</td></tr>
+<tr><td>Roofer</td><td>$28.00</td><td>$28.00</td><td>$54.90</td><td>96%</td></tr>
+<tr><td>Ironworker</td><td>$34.00</td><td>$24.00</td><td>$62.70</td><td>84%</td></tr>
+</tbody>
+</table>
+
+<p>Look at the roofer. A 96 percent burden means that $28 wage costs you nearly $55 a billing hour, almost double. A contractor who loads all four trades at a flat 35 percent would bid the roofer at $37.80 and lose $17 an hour on every roofing hour in the job. That is not a rounding error. That is the difference between a profitable quarter and explaining to your bank why the line of credit is maxed.</p>
+
+<h2>Put the Real Number in Every Bid</h2>
+
+<p>Labor burden is the single most underbid line in construction, and it is underbid for a boring reason: the true rate is annoying to calculate and easy to fake. A flat markup is fast, it feels conservative, and it is wrong on exactly the trades that can sink you. The fix is not complicated math. It is a build-up of the components you actually pay, divided by the hours you actually bill, with a flag that yells when the answer is too clean to be true.</p>
+
+<p>If you would rather not wire the comp class codes, unemployment caps, and productive-hour logic by hand, the <a href="/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with a labor burden calculator already built per trade, feeding straight into job costing and bid pricing. You enter the wage, the comp rate, and the benefits, and it returns the fully burdened rate and the burden percentage with the sanity flags in place. Plug your trades in once, and every bid you write after that carries the real cost of an hour instead of a hopeful one.</p>`,
+  },
+  {
     slug: 'subcontractor-prequalification-scorecard-excel',
     title: 'Subcontractor Prequalification Scorecard in Excel: Score Subs Before You Award',
     metaTitle: 'Subcontractor Prequalification Scorecard | SheetCraft',
