@@ -16,6 +16,106 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-change-order-markup-calculator-excel',
+    title: 'Construction Change Order Markup Calculator in Excel: Price Scope an Owner Cannot Argue With',
+    metaTitle: 'Change Order Markup Calculator Excel | SheetCraft',
+    metaDescription: 'A construction change order markup calculator in Excel prices material, burdened labor, schedule impact, and profit so change orders stop losing money.',
+    targetKeyword: 'construction change order markup calculator Excel',
+    secondaryKeywords: ['change order pricing', 'change order markup percentage', 'extended general conditions', 'contractor change order', 'schedule impact construction'],
+    excerpt: 'Most contractors price a change order as material plus labor plus a flat percent, then eat the burden, equipment, schedule impact, and bond they forgot. A construction change order markup calculator in Excel builds the price in five layers, so you hand the owner a number he cannot argue with and keep the margin you earned.',
+    publishedAt: '2026-06-21',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-change-order-markup-calculator-excel.png',
+    imageAlt: 'Flat minimalist illustration of a construction change order concept: an orange hard hat, a clipboard document with an upward cost arrow, dollar-sign blocks, a calculator, and a faint spreadsheet grid',
+    content: `<p>A commercial GC is three months into a $2.1 million tenant build-out when the owner's architect adds a structural beam to open up a conference wall. The superintendent eyeballs it, scribbles "material plus labor plus 15" on a sticky note, and the project manager turns that into a $11,800 change order by Friday. The owner signs without a fight. Everyone moves on. At closeout, accounting finds that this one change, and a dozen like it, ran the job 4 percent under on margin. The change orders were not the profit center everyone assumed. They were the leak. A <strong>construction change order markup calculator in Excel</strong> exists to stop exactly this, because the number on the sticky note ignored four real costs that the contractor paid anyway.</p>
+
+<p>Change orders are where contractors think they make money and usually give it away. The base bid gets weeks of estimating, three sets of eyes, and a hard look at burden and overhead. The change order gets a guess on a Friday afternoon while the crew waits. Then the owner negotiates the guess down, and the contractor eats the difference between the bare cost he priced and the loaded cost he actually spent. Pricing change orders the same loose way you would price a handshake favor is how a busy year ends with a thin year's profit.</p>
+
+<h2>Why Change Order Pricing Is Not Base Bid Pricing</h2>
+
+<p>The base bid prices planned work done in a planned sequence at planned crew sizes. A change order prices unplanned work jammed into a sequence that was already set. That difference is not philosophical, it is money. The same beam installed during original framing costs less than the same beam installed after the deck is poured and the crew has to demobilize, reset, and work around finished conditions. The work is identical. The cost is not, because the conditions changed.</p>
+
+<p>This is why a flat percentage on bare material and labor underprices most change orders. Bare cost captures the beam and the hours to hang it. It misses the burden on those hours, the equipment you mobilized for half a day, the days the change pushed the schedule, and the bond and insurance you carry on every dollar of contract value. A real <strong>change order markup</strong> is a build-up of five layers, not a single number, and the calculator's job is to force all five onto the page before the owner sees a price.</p>
+
+<h2>The Five Layers of a Defensible Change Order Price</h2>
+
+<p>Lay the calculator out so every change order walks through the same five layers in the same order. Inputs go in column B, formulas read from them, and nothing gets priced until all five layers have a value, even if that value is zero. Here is the full build-up on the conference-wall beam, a self-performed change with one specialty sub.</p>
+
+<table>
+<thead>
+<tr><th>Layer</th><th>Component</th><th>Basis</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>1. Direct material</td><td>Beam, hardware, connectors</td><td>quoted</td><td>$6,200</td></tr>
+<tr><td>2. Direct labor (burdened)</td><td>40 hrs x $32 x 1.38 burden</td><td>=B4*B5*(1+B6)</td><td>$1,766</td></tr>
+<tr><td>2. Equipment</td><td>Crane, half day</td><td>quoted</td><td>$1,400</td></tr>
+<tr><td>3. Overhead and profit</td><td>20% on self-performed</td><td>=B9*(B12+B13)</td><td>$1,873</td></tr>
+<tr><td>3. Subcontractor</td><td>Welding and inspection</td><td>quoted</td><td>$2,800</td></tr>
+<tr><td>3. Markup on sub</td><td>10% on sub cost</td><td>=B10*B14</td><td>$280</td></tr>
+<tr><td>4. Schedule impact</td><td>3 added days x $480/day general conditions</td><td>=B15*B16</td><td>$1,440</td></tr>
+<tr><td>5. Bond and insurance</td><td>1.5% of subtotal</td><td>=B18*B17</td><td>$236</td></tr>
+<tr><td><strong>Total change order price</strong></td><td></td><td></td><td><strong>$15,995</strong></td></tr>
+</tbody>
+</table>
+
+<p>The sticky-note version of this change was material plus unburdened labor plus the sub, times 1.15. That math is <code>=(6200+40*32+2800)*1.15</code>, which lands at $11,822. The defensible version is $15,995. The gap is $4,173, and that gap is not padding. It is the labor burden the contractor pays to the IRS and the comp carrier, the crane that showed up, the three days the job ran long, and the bond premium on the added value. Price the sticky note and you do not lose the change order. You win it and pay $4,173 for the privilege.</p>
+
+<h3>Layer 2 is where the burden hides</h3>
+
+<p>The most common error is pricing change order labor at the bare wage. A carpenter at $32 does not cost $32 when he hangs your beam. Load payroll taxes, workers comp, liability, and benefits and he costs closer to $44. The formula <code>=B4*B5*(1+B6)</code> turns 40 hours at $32 into $1,766 instead of $1,280 by applying a 38 percent burden in cell B6. If your calculator prices change order hours at the raw wage, every change order quietly donates the burden to the owner. Build the burden rate once, per trade, and reference it on every change.</p>
+
+<h2>The Schedule Impact Line Everyone Skips</h2>
+
+<p>Layer 4 is the line that separates contractors who understand change orders from contractors who get surprised by them. When the owner adds scope, two things happen. You do the added work, and the job takes longer. The added work is obvious and gets priced. The added time is invisible and gets eaten, because your general conditions, the superintendent, the trailer, the dumpsters, the temporary power, keep running for every day the change pushes substantial completion.</p>
+
+<p>Put a dollar figure on a day. Add the superintendent's daily cost, the trailer and storage, temporary utilities, and equipment rentals on site, and a typical mid-size commercial job carries $400 to $700 a day in general conditions. The calculator holds that daily rate in B15 and multiplies by the added calendar days in B16. Three days of delay on the beam at $480 a day is $1,440 of cost that the sticky note never saw. Over a job with twenty change orders, the unpriced schedule impact alone can erase your fee.</p>
+
+<p>One warning the calculator should make visible. Track added days as a running total, because a contract that lets the owner add scope without adjusting the completion date is a contract that bills you liquidated damages for a delay the owner caused. A flag formula like <code>=IF(SUM(DaysColumn)>ContractFloat,"REQUEST TIME EXTENSION","OK")</code> turns a silent schedule problem into a written notice while you still have the leverage to ask.</p>
+
+<h2>Build the Calculator So the Owner Cannot Argue</h2>
+
+<p>An owner argues a change order price for one of two reasons. The number looks arbitrary, or the markup feels like a penalty. A calculator that shows the build-up defuses both. When the change order is a one-page printout that lists material at cost, labor at a stated burden, equipment at a quoted rate, a contract-defined overhead and profit percentage, and a schedule line tied to a daily rate, there is nothing to negotiate except the quantities, and quantities are facts.</p>
+
+<p>Set the markup rates in named, locked cells that match your contract. Most owner contracts and the AIA documents cap change order markup, often around 15 percent on self-performed work and 10 percent on subcontracted work, with a lower cap on markup applied to a sub's own markup. Read your contract and hardcode those caps into B12 through B14 so no PM ever prices a change above what the contract allows or, just as costly, below it.</p>
+
+<table>
+<thead>
+<tr><th>Markup type</th><th>Applies to</th><th>Typical cap</th><th>Cell</th></tr>
+</thead>
+<tbody>
+<tr><td>Overhead</td><td>Self-performed direct cost</td><td>10%</td><td>B12</td></tr>
+<tr><td>Profit</td><td>Self-performed direct cost</td><td>10%</td><td>B13</td></tr>
+<tr><td>Markup on subcontractors</td><td>Sub contract amount</td><td>10%</td><td>B14</td></tr>
+<tr><td>Markup on sub's markup</td><td>Lower-tier sub work</td><td>5%</td><td>B14b</td></tr>
+</tbody>
+</table>
+
+<p>Then add the one formula that protects you from your own optimism. Effective margin on the change is <code>=(B_total-B_cost)/B_total</code>, and a check cell flags anything thin: <code>=IF((B_total-B_cost)/B_total<0.08,"THIN, REVIEW","OK")</code>. Change orders priced in a hurry drift below breakeven without anyone noticing. The flag catches the change that is all cost and no margin before it goes out the door, usually a change loaded with sub work where the capped 10 percent markup does not cover your real overhead on managing that sub.</p>
+
+<h3>The documentation that makes the price stick</h3>
+
+<p>A defensible price needs a paper trail attached to the calculator output. Keep three things with every change order: the quote or invoice backing each cost line, the dated notice that the change affects schedule, and the calculation page itself. When an owner disputes a change six months later, the contractor with the build-up and the backup gets paid. The contractor with a sticky note gets a negotiation he will lose. The calculator is not just a pricing tool. It is the first page of your claim.</p>
+
+<h3>The five-layer change order checklist</h3>
+
+<p>Before any change order leaves your desk, confirm all five layers carry a real number. Print this next to the calculator and run it every time.</p>
+
+<ul>
+<li><strong>Material at cost.</strong> Attach the supplier quote. No quote, no line.</li>
+<li><strong>Labor at the burdened rate, not the wage.</strong> Apply the burden in B6 so the IRS and the comp carrier are paid out of the change, not your fee.</li>
+<li><strong>Equipment that the change mobilized.</strong> A half-day crane is real money even if it was already on site.</li>
+<li><strong>Schedule impact in days times your general conditions rate.</strong> Zero is an answer, but it has to be a deliberate one, with a dated notice on file.</li>
+<li><strong>Bond and insurance on the added contract value.</strong> Small per change, real across twenty of them.</li>
+</ul>
+
+<h2>Run the Numbers Before You Sign Anything</h2>
+
+<p>Change orders are not bonus revenue. They are a second, faster, riskier estimating process that most contractors run on instinct. The contractor who prices the beam at $11,822 and the contractor who prices it at $15,995 are bidding the same work. One of them is going to closeout to find the margin he thought he had. The difference is four cost layers and ten minutes in a spreadsheet that already knows his burden rate, his general conditions per day, and his contract caps.</p>
+
+<p>Build the five-layer calculator once and every change order after it gets priced the same defensible way, fast enough to hand the crew an answer before they lose the afternoon. SheetCraft's Construction Budget Tracker has the change order pricing sheet built in, wired to a labor burden rate you set per trade, a general conditions daily rate that drives the schedule-impact line automatically, and contract markup caps that flag any change priced below breakeven. Stop pricing your change orders on a sticky note. Drop your costs into the tracker, hand the owner a build-up he cannot argue with, and keep the margin you actually earned.</p>`,
+  },
+  {
     slug: 'construction-labor-burden-rate-calculator-excel',
     title: 'Construction Labor Burden Rate Calculator in Excel: Bid the True Cost of an Hour',
     metaTitle: 'Labor Burden Rate Calculator Excel | SheetCraft',
