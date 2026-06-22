@@ -16,6 +16,134 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-allowance-tracking-spreadsheet-excel',
+    title: 'Construction Allowance Tracking Spreadsheet in Excel: Stop Eating Owner Overages',
+    metaTitle: 'Allowance Tracking Spreadsheet Excel | SheetCraft',
+    metaDescription: 'A construction allowance tracking spreadsheet in Excel reconciles budgeted vs actual selections so finish overages get billed to the owner, not your margin.',
+    targetKeyword: 'construction allowance tracking spreadsheet Excel',
+    secondaryKeywords: ['allowance reconciliation', 'construction allowance overage', 'fixed price contract allowances', 'selection tracking construction', 'allowance vs actual cost'],
+    excerpt: 'On a fixed-price job, owners overspend finish allowances by 20 to 40 percent, and every overage nobody logs comes straight off your margin. A construction allowance tracking spreadsheet in Excel reconciles budgeted allowances against actual selections, applies markup only to upgrades, and flags late selections, so the overage hits the owner instead of your bottom line.',
+    publishedAt: '2026-06-22',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-allowance-tracking-spreadsheet-excel.png',
+    imageAlt: 'Flat minimalist illustration of construction allowance tracking: an orange hard hat, a clipboard with a budget versus actual comparison chart, wood flooring and tile finish swatches, dollar coins, and a calculator over a faint spreadsheet grid',
+    content: `<p>A custom home builder signs a $720,000 lump-sum contract with eight finish allowances baked in. The kitchen cabinet allowance is $18,000. Five months later the owner walks into the showroom, falls for an inset door with soft-close everything, and the cabinet shop quotes $24,500. The builder's project manager approves the order so the schedule does not slip, and nobody writes it down anywhere the accounting team can see. At closeout the builder reconciles the job and finds it ran almost $20,000 light on margin across the finish package. The owner did not cheat anybody. The builder simply paid the upgrade and forgot to bill it. A <strong>construction allowance tracking spreadsheet in Excel</strong> exists to stop exactly this, because an allowance overage that nobody logs is a check the contractor writes to the owner for free.</p>
+
+<p>Allowances are the single most reliable way a fixed-price job bleeds. The hard bid gets estimated to the dollar. The allowance line gets a round number picked to keep the contract price competitive, and then the owner spends against it over six months while selections trickle in one email at a time. By the time the granite invoice lands, the person who knows the allowance was $7,500 is not the person approving the $11,200 slab. That gap between budgeted and actual, multiplied across flooring, cabinets, tile, fixtures, and appliances, is where a 12 percent job quietly becomes a 9 percent job.</p>
+
+<h2>What an Allowance Actually Covers (And the Trap in the Fine Print)</h2>
+
+<p>An allowance is a placeholder dollar amount inside the contract sum for work the owner has not selected yet. The contract price is real and fixed, but a piece of it, say $67,500 across eight categories, is a budget the owner will spend later. When the actual selection costs more than the allowance, the owner owes the difference. When it costs less, the owner gets a credit. Simple in theory, and a margin killer in practice for one reason: most contractors never define, in writing or in their tracking, what the allowance includes.</p>
+
+<p>Under AIA A201 section 3.8, unless the contract says otherwise, an allowance covers the cost of materials and equipment delivered to the site plus applicable taxes. The contractor's costs for unloading, handling, installation labor, overhead, and profit are already in the base contract sum, not in the allowance. That single distinction decides whether you can bill the owner for the install labor on a pricier selection or whether you already own it. If your flooring allowance is "material delivered" and the owner upgrades from vinyl plank to hardwood, the extra material is billable. The extra labor to install hardwood is yours unless your contract wrote the allowance to include installation.</p>
+
+<p>So the first column in any real tracker is not a number. It is the coverage basis: material only, or material plus installation. Get that wrong and you will either eat install costs you could have billed, or bill an owner for labor your contract already absorbed and lose the fight at reconciliation.</p>
+
+<h2>The Cost of Not Tracking Allowances</h2>
+
+<p>Run the math on a single home. Eight allowance categories, $67,500 budgeted. Owners overspend finish allowances by 20 to 40 percent almost every time, partly because allowances get set low to land the contract and partly because showrooms exist to sell up. Say the actual selections land at $87,300. That is a $19,800 gap between what the contract sum funded and what you paid the vendors.</p>
+
+<p>If you track and bill every overage, the owner reimburses that $19,800 plus your contract markup on the upgrades, and the job lands on margin. If you do not, that $19,800 comes straight off net profit. On a $720,000 home running a 12 percent margin, net profit is about $86,000. Losing $19,800 of it is losing 23 percent of the money you make on the entire project, to paperwork you did not do. The selections were not the problem. The silence was.</p>
+
+<table>
+<thead>
+<tr><th>Outcome</th><th>Untracked allowances</th><th>Tracked and billed</th></tr>
+</thead>
+<tbody>
+<tr><td>Budgeted allowances (in contract sum)</td><td>$67,500</td><td>$67,500</td></tr>
+<tr><td>Actual selection cost paid</td><td>$87,300</td><td>$87,300</td></tr>
+<tr><td>Overage recovered from owner</td><td>$0</td><td>$20,900</td></tr>
+<tr><td>Markup on overages (10%)</td><td>$0</td><td>$2,090</td></tr>
+<tr><td>Credits returned to owner</td><td>$0</td><td>($1,100)</td></tr>
+<tr><td><strong>Hit to contractor net profit</strong></td><td><strong>($19,800)</strong></td><td><strong>+$2,090</strong></td></tr>
+</tbody>
+</table>
+
+<h2>Building the Allowance Tracking Spreadsheet in Excel</h2>
+
+<p>The tracker is a reconciliation log, one row per allowance category, that holds the budgeted number next to the actual number and computes the variance you bill or credit. Inputs live in their own columns so nothing gets priced by memory. Here is the column layout, with the first data row on row 5.</p>
+
+<h3>The Core Reconciliation Columns</h3>
+
+<p>Lay the sheet out left to right so a category cannot be closed until every field has a value:</p>
+
+<ul>
+<li><strong>A. Allowance item</strong>: Flooring, Cabinets, Countertops, Appliances, Plumbing fixtures, Lighting, Tile, Hardware.</li>
+<li><strong>B. Contract allowance</strong>: the dollar amount in the signed contract.</li>
+<li><strong>C. Coverage basis</strong>: "Material" or "Material + Install". This drives whether install belongs in the actual cost.</li>
+<li><strong>D. Selected product / vendor</strong>: what the owner actually picked, with the quote source.</li>
+<li><strong>E. Actual material cost</strong>: the vendor quote for the selected item.</li>
+<li><strong>F. Freight and tax</strong>: delivery and sales tax on the material.</li>
+<li><strong>G. Install labor</strong>: only filled when coverage basis is "Material + Install".</li>
+<li><strong>H. Actual allowance cost</strong>: the total to compare against the budget.</li>
+<li><strong>I. Variance</strong>: actual minus budgeted.</li>
+<li><strong>J. Markup on overage</strong>: the percent your contract lets you add to upgrades, often 10 to 15.</li>
+<li><strong>K. Owner adjustment</strong>: what you bill or credit.</li>
+</ul>
+
+<p>Column H sums the real cost: <code>=E5+F5+G5</code>. Because install only carries a value when the contract says the allowance includes it, this one formula handles both coverage types without a separate sheet. Column I is the number the whole spreadsheet exists to surface: <code>=H5-B5</code>. A positive variance means the owner owes you. A negative variance is a credit you owe back.</p>
+
+<h3>The Overage and Markup Formula</h3>
+
+<p>You do not bill the raw variance. Most contracts let you mark up an owner's upgrade, but credits go back at cost with no markup taken off. That asymmetry has to live in the formula or you will hand back margin you were entitled to keep. Column K:</p>
+
+<p><code>=IF(I5&gt;0, I5*(1+J5), I5)</code></p>
+
+<p>When the variance is positive, it multiplies the overage by one plus your markup percent in J5, so a $4,800 flooring overage at 10 percent becomes a $5,280 charge. When the variance is negative, it passes the credit straight through at cost. Add a plain-language flag in the next column so a field PM reads it without parsing the math: <code>=IF(I5&gt;0,"BILL OWNER","CREDIT")</code>.</p>
+
+<p>At the bottom of the sheet, three totals tell you the whole story of the finish package. Total budgeted with <code>=SUM(B5:B19)</code>, total actual with <code>=SUM(H5:H19)</code>, and the net owner adjustment with <code>=SUM(K5:K19)</code>. To see how much you can actually invoice the owner this month versus what you owe back, split the variance column: <code>=SUMIF(I5:I19,"&gt;0")</code> totals the billable overages and <code>=SUMIF(I5:I19,"&lt;0")</code> totals the credits.</p>
+
+<h3>The Selection Deadline Tracker That Protects Your Schedule</h3>
+
+<p>Allowance overages cost money. Late allowance selections cost time, which is also money on a job with liquidated damages. Add a deadline column M and a status column N ("Open", "Selected", "Installed"), then flag the laggards:</p>
+
+<p><code>=IF(AND(N5&lt;&gt;"Installed", M5&lt;TODAY()), "LATE", IF(M5-TODAY()&lt;=14, "DUE SOON", ""))</code></p>
+
+<p>This reads the deadline against today's date and the install status. Anything past due and not installed reads "LATE", anything inside two weeks reads "DUE SOON", and the rest stays quiet. Now the same sheet that protects your margin also tells you which owner to call before the tile selection holds up the bathroom rough-in.</p>
+
+<h2>A Worked Reconciliation</h2>
+
+<p>Here is the full eight-line finish package on the $720,000 home, with a 10 percent markup on overages. This is what column K returns row by row.</p>
+
+<table>
+<thead>
+<tr><th>Allowance item</th><th>Contract (B)</th><th>Coverage (C)</th><th>Actual (H)</th><th>Variance (I)</th><th>Owner adjustment (K)</th></tr>
+</thead>
+<tbody>
+<tr><td>Flooring</td><td>$12,000</td><td>Material + Install</td><td>$16,800</td><td>+$4,800</td><td>$5,280</td></tr>
+<tr><td>Kitchen cabinets</td><td>$18,000</td><td>Material + Install</td><td>$24,500</td><td>+$6,500</td><td>$7,150</td></tr>
+<tr><td>Countertops</td><td>$7,500</td><td>Material + Install</td><td>$11,200</td><td>+$3,700</td><td>$4,070</td></tr>
+<tr><td>Appliances</td><td>$9,000</td><td>Material</td><td>$9,400</td><td>+$400</td><td>$440</td></tr>
+<tr><td>Plumbing fixtures</td><td>$6,000</td><td>Material</td><td>$8,900</td><td>+$2,900</td><td>$3,190</td></tr>
+<tr><td>Lighting</td><td>$4,500</td><td>Material</td><td>$3,800</td><td>($700)</td><td>($700)</td></tr>
+<tr><td>Tile</td><td>$8,000</td><td>Material + Install</td><td>$10,600</td><td>+$2,600</td><td>$2,860</td></tr>
+<tr><td>Hardware</td><td>$2,500</td><td>Material</td><td>$2,100</td><td>($400)</td><td>($400)</td></tr>
+<tr><td><strong>Totals</strong></td><td><strong>$67,500</strong></td><td></td><td><strong>$87,300</strong></td><td><strong>+$19,800</strong></td><td><strong>$21,890</strong></td></tr>
+</tbody>
+</table>
+
+<p>The owner picked roughly $19,800 over budget. Billed correctly with markup on the overages and credits returned on lighting and hardware, the net owner adjustment is $21,890. That number is not a windfall. It is the contractor refusing to subsidize someone else's hardwood and inset cabinets. Without the sheet, every one of those positive variances rounds to zero and the builder writes a $19,800 check nobody asked him to write.</p>
+
+<h2>Five Rules to Stop Allowances From Eating Your Margin</h2>
+
+<ol>
+<li><strong>Set allowances honestly, not to win the bid.</strong> A lowball flooring allowance wins the contract and loses the relationship at reconciliation, when the owner sees a $4,800 surprise. A realistic allowance turns a fight into a routine change order.</li>
+<li><strong>Write the coverage basis into the contract and the sheet.</strong> "Material delivered" versus "material plus installation" decides who owns the upgrade labor. Decide it once, in writing, not in an argument over an invoice.</li>
+<li><strong>Reconcile monthly, not at closeout.</strong> An overage caught the week the slab is quoted becomes a signed change order. The same overage found at closeout becomes a collection problem with a homeowner who already moved in.</li>
+<li><strong>Require an owner signature on every overage before you order.</strong> Column K gives you the number. A signed selection sheet with that number on it is what makes it collectible.</li>
+<li><strong>Track the selection deadline next to the dollars.</strong> Late selections stall the schedule. The deadline flag turns a vague "the owner still has not picked tile" into a dated, visible risk.</li>
+</ol>
+
+<p>None of this is exotic Excel. It is a budget column, an actual column, one subtraction, and one IF statement that respects the difference between an overage you mark up and a credit you return at cost. The skill is not the formula. It is making sure every selection passes through the same row before a purchase order goes out, so no upgrade reaches a vendor without a number attached to the owner's name.</p>
+
+<h2>Stop Reconciling Allowances From Memory</h2>
+
+<p>The reason allowances eat margin is not that builders cannot subtract. It is that selections arrive over months, across email and showroom visits and field decisions, and the budgeted number lives in a contract nobody reopens until it is too late to bill. A live tracker that sits between the selection and the purchase order fixes the timing problem, which is the real problem.</p>
+
+<p>The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with an allowance reconciliation tab already wired the way described here: coverage basis, budgeted versus actual, automatic overage and credit math with markup applied only to upgrades, and a selection deadline flag that ties allowance tracking to your schedule. It rolls every allowance variance up into the same budget that holds your bids, change orders, and draw schedule, so the finish package stops being the part of the job you reconcile with your fingers crossed. Set your allowances once, log each selection as it comes in, and bill the overage the week it happens instead of discovering it the month you close the job.</p>`,
+  },
+  {
     slug: 'construction-change-order-markup-calculator-excel',
     title: 'Construction Change Order Markup Calculator in Excel: Price Scope an Owner Cannot Argue With',
     metaTitle: 'Change Order Markup Calculator Excel | SheetCraft',
