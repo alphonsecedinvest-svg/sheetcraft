@@ -16,6 +16,126 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-general-conditions-cost-estimate-excel',
+    title: 'Construction General Conditions Cost Estimate in Excel: Price the Line Items, Not a Percentage',
+    metaTitle: 'General Conditions Cost Estimate Excel | SheetCraft',
+    metaDescription: 'Build a construction general conditions cost estimate in Excel. Price supervision, temp power, and dumpsters as time-driven line items, not a percentage.',
+    targetKeyword: 'construction general conditions cost estimate Excel',
+    secondaryKeywords: ['general conditions construction estimating', 'general conditions cost breakdown', 'general conditions percentage markup', 'jobsite general conditions checklist', 'construction general conditions line items'],
+    excerpt: 'Most estimators price general conditions as a flat percentage of direct cost, then watch supervision, the trailer, and the dumpsters bleed the fee when the schedule slips. Build the estimate as line items in Excel, split time-driven from fixed, and put a real monthly burn rate on every week the job runs long.',
+    publishedAt: '2026-06-24',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-general-conditions-cost-estimate-excel.png',
+    imageAlt: 'Construction estimator\'s jobsite trailer desk with a laptop showing a color-coded general conditions estimate spreadsheet, yellow hard hat, rolled blueprints, and a calculator',
+    content: `<h1>Construction General Conditions Cost Estimate in Excel: Price the Line Items, Not a Percentage</h1>
+
+<p>A commercial contractor in Texas bid an eight-month tenant build-out at a 10% general conditions markup. The number looked clean on the bid form: $100,000 on a million dollars of direct work. Then the schedule slipped six weeks because the owner kept changing the lobby finishes. The superintendent stayed on the job. The trailer stayed rented. The dumpsters kept getting hauled. By closeout, the real general conditions spend was $158,000. That extra $58,000 came straight off the fee, and a job that was supposed to clear $90,000 in profit cleared $32,000. The estimate was not wrong because the contractor was careless. It was wrong because a construction general conditions cost estimate in Excel built as a percentage cannot see time. And general conditions are mostly time.</p>
+
+<p>General conditions are the indirect costs of running the jobsite: supervision, the field office, temporary power and water, dumpsters, fencing, small tools, cleanup, and closeout. They are not part of any trade's scope and they do not show up in a subcontractor bid. Most estimators handle them with a single percentage applied to direct cost, somewhere between 8% and 15% depending on the company and the gut feel of the day. That shortcut is the single most common way a bid that looks profitable turns into a job that is not.</p>
+
+<h2>Why the Percentage Method Quietly Underbids General Conditions</h2>
+
+<p>A percentage markup ties your general conditions to the size of the job. But general conditions are not driven by size. They are driven by duration. A superintendent costs the same per month whether the building costs $800,000 or $1.2 million. A jobsite trailer rents by the month, not by the square foot. When you price these as a percentage of direct cost, you are answering the wrong question.</p>
+
+<p>Two jobs make the problem obvious. Job A is a fast $1.2 million warehouse shell that finishes in five months. Job B is a fussy $1.2 million medical office with long lead items and inspection-heavy work that takes ten months. A 10% percentage method gives both jobs the same $120,000 general conditions budget. But Job B runs the superintendent, the trailer, the power, and the dumpsters for twice as long. Its real general conditions cost is closer to $190,000. The percentage method overbids the fast job and underbids the slow one, and the slow one is exactly the job where you needed the money.</p>
+
+<p>The fix is not a better percentage. It is to stop guessing and build the estimate from line items, separating what accrues by the month from what you pay once.</p>
+
+<h2>Build the General Conditions Estimate as Line Items in Excel</h2>
+
+<p>Lay out one row per cost. The columns that matter are the line item, its type, the rate, the duration or quantity, and the extended cost. Here is the grid for the eight-month, $1 million direct-cost commercial job from the opening.</p>
+
+<table>
+<thead>
+<tr><th>Line Item</th><th>Type</th><th>Rate</th><th>Months / Qty</th><th>Extended</th></tr>
+</thead>
+<tbody>
+<tr><td>Project superintendent (70% allocation)</td><td>Time</td><td>$6,800/mo</td><td>8</td><td>$54,400</td></tr>
+<tr><td>Project manager (25% allocation)</td><td>Time</td><td>$3,200/mo</td><td>8</td><td>$25,600</td></tr>
+<tr><td>Equipment and small tools rental</td><td>Time</td><td>$1,800/mo</td><td>8</td><td>$14,400</td></tr>
+<tr><td>Dumpsters and waste hauling</td><td>Time</td><td>$1,400/mo</td><td>8</td><td>$11,200</td></tr>
+<tr><td>Temporary power</td><td>Time</td><td>$900/mo</td><td>8</td><td>$7,200</td></tr>
+<tr><td>Jobsite trailer and setup</td><td>Time</td><td>$650/mo</td><td>8</td><td>$5,200</td></tr>
+<tr><td>Temporary fencing</td><td>Time</td><td>$350/mo</td><td>8</td><td>$2,800</td></tr>
+<tr><td>Portable toilets</td><td>Time</td><td>$220/mo</td><td>8</td><td>$1,760</td></tr>
+<tr><td>Mobilization and demobilization</td><td>Fixed</td><td>$4,500</td><td>1</td><td>$4,500</td></tr>
+<tr><td>Final cleaning</td><td>Qty</td><td>$3,800</td><td>1</td><td>$3,800</td></tr>
+<tr><td>Project closeout (as-builts, O&amp;M)</td><td>Fixed</td><td>$2,500</td><td>1</td><td>$2,500</td></tr>
+<tr><td>Safety setup and signage</td><td>Fixed</td><td>$1,900</td><td>1</td><td>$1,900</td></tr>
+</tbody>
+</table>
+
+<p>The extended cost in column E is the rate times the duration. For a time-driven row, that is the monthly rate times the number of months on the job: <code>=C2*D2</code>. Fill that single formula down the whole column and every line item, monthly or one-time, calculates the same way. The total general conditions is one more cell: <code>=SUM(E2:E13)</code>, which lands at $135,260.</p>
+
+<p>That is the first lesson the line-item method teaches. The honest general conditions number for this job is $135,260, not the $100,000 a 10% markup would have produced. The percentage method was underbidding by $35,260 before the schedule ever slipped.</p>
+
+<h3>Separate Time-Driven Costs From Fixed Costs</h3>
+
+<p>The Type column is not decoration. It is what lets Excel answer the question the percentage method cannot: how much of this budget bleeds every month the job runs long. Total the two types with <code>SUMIFS</code>:</p>
+
+<p><code>=SUMIFS(E:E,B:B,"Time")</code> returns $122,560, the duration-driven spend.<br>
+<code>=SUMIFS(E:E,B:B,"Fixed")+SUMIFS(E:E,B:B,"Qty")</code> returns $12,700, the costs you pay once no matter how long the job takes.</p>
+
+<p>Now you can see the shape of your own risk. On this job, 91% of general conditions is time-driven. That means almost every dollar of your indirect budget is exposed to schedule. A percentage method hides that completely. It shows you one number and tells you nothing about how that number behaves when the job goes sideways.</p>
+
+<h2>The Number That Changes How You Bid: Monthly Burn Rate</h2>
+
+<p>Once time-driven costs sit in their own bucket, you can calculate the single most useful number in general conditions estimating: your monthly burn rate. It is the sum of every time-driven monthly rate.</p>
+
+<p><code>=SUMIFS(C:C,B:B,"Time")</code> gives $15,320 per month.</p>
+
+<p>That is what the jobsite costs to keep open for thirty days with no production at all. Now the cost of a schedule slip stops being a surprise and becomes a calculation. A six-week overrun is 1.5 months: <code>=15320*1.5</code> equals $22,980 of general conditions that the percentage method never budgeted, because a percentage of direct cost does not move when the calendar does.</p>
+
+<p>This number changes how you bid. If your superintendent is splitting time across two jobs and one of them always runs long, you know exactly what that habit costs. If an owner wants a phased schedule that stretches the job by two months for their convenience, you can put a real price on it: <code>=15320*2</code>, or $30,640, instead of waving it through. The monthly burn rate turns "the schedule slipped" from a vague excuse into a line on the change order.</p>
+
+<p>Add one guardrail so a bad estimate cannot leave the spreadsheet. Put the general conditions total over direct cost in a ratio cell, then flag it:</p>
+
+<p><code>=IF(E14/DirectCost&gt;0.15,"REVIEW","OK")</code></p>
+
+<p>At $135,260 on $1 million direct, this reads 13.5% and returns OK. If a longer or more supervision-heavy job pushes the ratio past 15%, the cell turns to REVIEW and forces a second look before the number goes on a bid form. That is not a hard rule that 15% is wrong. It is a tripwire that makes you justify a high number on purpose instead of by accident.</p>
+
+<h2>The General Conditions Line Items Estimators Skip</h2>
+
+<p>The percentage method does not just misprice general conditions. It hides them, because you never write the list. When you build the estimate as line items, the gaps become obvious. These are the costs that fall out of bids most often, and what each one tends to run on a mid-size commercial job:</p>
+
+<ul>
+<li>Temporary power and the utility company connection fee, not just the monthly draw</li>
+<li>Winter conditions: temporary heat, ground thaw, and snow removal on cold-climate jobs</li>
+<li>Progress cleaning every week, separate from the one-time final clean</li>
+<li>Survey and layout control, including re-staking after grading</li>
+<li>Project closeout labor: as-builts, O&amp;M manuals, warranty collection, and punch list management</li>
+<li>Builder's risk insurance and the general liability allocation for the job</li>
+<li>Small tools and consumables: blades, bits, fasteners, layout paint, the things nobody bids</li>
+<li>Temporary protection of finished work, which on a finish-heavy job is real money</li>
+</ul>
+
+<p>Every item on that list is a dollar amount a competitor who priced general conditions at a flat percentage either buried or forgot. When you carry them as named line items, two things happen. You stop eating these costs out of fee, and you can defend your number in a bid review because every dollar has a name and a basis.</p>
+
+<h2>Percentage Method vs Line-Item Method</h2>
+
+<p>Here is the same eight-month job priced both ways, including what happens when the schedule slips six weeks.</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Percentage Method (10%)</th><th>Line-Item Method</th></tr>
+</thead>
+<tbody>
+<tr><td>General conditions budgeted</td><td>$100,000</td><td>$135,260</td></tr>
+<tr><td>Visible monthly burn rate</td><td>Unknown</td><td>$15,320</td></tr>
+<tr><td>Cost of a 6-week slip</td><td>Not budgeted, eats fee</td><td>$22,980, priced and trackable</td></tr>
+<tr><td>Actual GC spend at closeout</td><td>$158,000</td><td>$158,000</td></tr>
+<tr><td>Budget vs actual gap</td><td>$58,000 over</td><td>$22,740 over, all from the slip</td></tr>
+</tbody>
+</table>
+
+<p>Both jobs cost the same to build. The difference is that the line-item contractor saw $135,260 coming, knew the slip would add about $23,000, and could have priced the schedule risk into the bid or pushed it back onto the owner through the change order. The percentage contractor found out at closeout. The estimate did not cost them the money. Not knowing what the estimate contained did.</p>
+
+<p>Stop pricing general conditions as a percentage of direct cost. A percentage answers how big the job is. General conditions answer how long the job runs and who is standing on it every day, and those are different questions with different math. Build the estimate as line items, split time-driven from fixed, and calculate your monthly burn rate. Once you can see what the jobsite costs per month to keep open, every schedule decision on the project gets a price tag, and you stop funding overruns out of your own fee.</p>
+
+<p>If you would rather not rebuild this grid from a blank workbook on every bid, SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with a general conditions estimate already structured the line-item way. The time-driven and fixed buckets are pre-built, the <code>SUMIFS</code> totals and the monthly burn rate calculate themselves, and the same workbook carries your general conditions straight through to budget tracking, so the number you bid is the number you watch every week. Bid the duration, not a percentage, and keep the slip off your fee.</p>`,
+  },
+  {
     slug: 'construction-look-ahead-schedule-template-excel',
     title: 'Construction Look Ahead Schedule Template in Excel: The 3-Week Plan That Keeps Trades Moving',
     metaTitle: 'Construction Look Ahead Schedule Excel | SheetCraft',
