@@ -16,6 +16,129 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rent-vs-buy-calculator-excel',
+    title: 'Rent vs Buy Calculator in Excel: Model the Opportunity Cost, Not the Monthly Payment',
+    metaTitle: 'Rent vs Buy Calculator Excel | SheetCraft',
+    metaDescription: 'Build a rent vs buy calculator in Excel that models the opportunity cost of your down payment and finds the breakeven year before you sign anything.',
+    targetKeyword: 'rent vs buy calculator Excel',
+    secondaryKeywords: ['rent vs buy analysis', 'breakeven year rent vs buy', 'opportunity cost of down payment', 'cost of homeownership spreadsheet', 'rent or buy a house calculator'],
+    excerpt: 'Most rent vs buy calculators just compare your rent to your mortgage payment, which is the wrong math. Build one in Excel that prices in the opportunity cost of your down payment, the real carrying costs, and the selling-cost drag, then find the breakeven year that actually decides whether to buy.',
+    publishedAt: '2026-06-25',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rent-vs-buy-calculator-excel.png',
+    imageAlt: 'A seesaw balance with a house and keys on one side and a rising investment growth chart with stacked coins on the other, illustrating the rent versus buy financial decision',
+    content: `<h1>Rent vs Buy Calculator in Excel: Model the Opportunity Cost, Not the Monthly Payment</h1>
+
+<p>A couple in Denver spent a weekend arguing about whether to keep renting their $2,200 apartment or buy a $400,000 house. They opened a rent vs buy calculator online, typed in the mortgage payment, saw $2,076 a month, and decided buying was basically a wash with rent. So they bought. Eighteen months later they were transferred for work and had to sell. Between the 6 percent in selling costs, the closing costs they had paid going in, and a market that had barely moved, they walked away roughly $34,000 poorer than if they had stayed renters and left their down payment in an index fund. The calculator did not lie to them. They just used one that compared the wrong two numbers. A real rent vs buy calculator in Excel does not compare your rent to your mortgage payment. It compares your total net worth in each scenario, year by year, and tells you the one number that decides everything: the breakeven year.</p>
+
+<p>Owning a home is not automatically smart and renting is not throwing money away. Both statements are marketing. The honest answer depends on how long you stay, what your down payment would have earned somewhere else, and how much the property quietly costs you every month in things that build no equity. You can model all of it in a spreadsheet in about twenty minutes, and once you do, the decision stops being emotional.</p>
+
+<h2>Why Comparing Rent to the Mortgage Payment Is the Wrong Math</h2>
+
+<p>The standard mistake is to line up the monthly rent against the monthly principal and interest and call it a fair fight. It is not, for two reasons that pull in opposite directions.</p>
+
+<p>First, the mortgage payment is not the cost of owning. Property tax, insurance, and maintenance are real cash that leaves your account every month and builds zero equity. On a $400,000 house, that is roughly another $850 a month on top of the loan. Your true cost to own in year one is closer to $2,926, not $2,076. Compared to $2,215 to rent, owning costs you $711 more every month out of pocket. The naive monthly comparison hides this entirely.</p>
+
+<p>Second, and cutting the other way, your $80,000 down payment is not free to deploy. If you rent, that money stays invested. At a 7 percent return, $80,000 plus the $12,000 you would have spent on closing costs grows to about $98,000 in a single year. That foregone growth is the opportunity cost of buying, and almost no online calculator shows it. The two effects fight each other, and the only way to see who wins is to model both across time. Here is the year-one snapshot that starts the whole analysis.</p>
+
+<table>
+<thead>
+<tr><th>Monthly Cost, Year One</th><th>Own a $400,000 House</th><th>Rent at $2,200</th></tr>
+</thead>
+<tbody>
+<tr><td>Principal and interest</td><td>$2,076</td><td>$0</td></tr>
+<tr><td>Property tax (1.1% of value)</td><td>$367</td><td>$0</td></tr>
+<tr><td>Insurance</td><td>$150</td><td>$15</td></tr>
+<tr><td>Maintenance (1% of value/yr)</td><td>$333</td><td>$0</td></tr>
+<tr><td>Total out of pocket</td><td>$2,926</td><td>$2,215</td></tr>
+</tbody>
+</table>
+
+<p>If you stopped here, you would conclude renting wins by $711 a month and move on. That conclusion is wrong, because it ignores equity, appreciation, the tax deduction, and the opportunity cost on both sides. You need the full model.</p>
+
+<h2>Build the Rent vs Buy Calculator in Excel</h2>
+
+<p>Set up an inputs block first so you can change one assumption and watch the whole answer move. Put the buy inputs in column B and the rent inputs in column E. Realistic values for a mid-priced market look like this.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Buy input</th><th>Value</th><th>Cell</th><th>Rent input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Home price</td><td>$400,000</td><td>E2</td><td>Rent per month</td><td>$2,200</td></tr>
+<tr><td>B3</td><td>Down payment %</td><td>20%</td><td>E3</td><td>Rent growth/yr</td><td>3%</td></tr>
+<tr><td>B5</td><td>Mortgage rate</td><td>6.75%</td><td>E4</td><td>Renters insurance/mo</td><td>$15</td></tr>
+<tr><td>B6</td><td>Loan term (yrs)</td><td>30</td><td>E5</td><td>Investment return/yr</td><td>7%</td></tr>
+<tr><td>B8</td><td>Property tax rate</td><td>1.1%</td><td></td><td></td><td></td></tr>
+<tr><td>B9</td><td>Insurance/yr</td><td>$1,800</td><td></td><td></td><td></td></tr>
+<tr><td>B10</td><td>Maintenance % of price</td><td>1%</td><td></td><td></td><td></td></tr>
+<tr><td>B12</td><td>Closing cost % (buy)</td><td>3%</td><td></td><td></td><td></td></tr>
+<tr><td>B13</td><td>Selling cost %</td><td>6%</td><td></td><td></td><td></td></tr>
+<tr><td>B14</td><td>Appreciation/yr</td><td>3.5%</td><td></td><td></td><td></td></tr>
+<tr><td>B15</td><td>Marginal tax rate</td><td>24%</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<h3>The buy side: equity, tax, and the cost of selling</h3>
+
+<p>Compute the down payment, the loan, and the monthly payment first. The down payment is <code>=B2*B3</code>, the loan amount is <code>=B2-(B2*B3)</code>, and the monthly principal and interest comes from <code>=PMT(B5/12, B6*12, -(B2-(B2*B3)))</code>. PMT returns the level payment that retires the loan over the term. The loan goes in negative so the result comes back as a positive number you can read.</p>
+
+<p>The reason most homemade calculators fall apart is the equity math. You do not need a 360-row amortization schedule. Excel ships two functions that do it in one cell. Cumulative principal paid from month 1 through the end of year N is <code>=-CUMPRINC(B5/12, B6*12, B2-(B2*B3), 1, N*12, 0)</code>, and your remaining loan balance is just the original loan minus that. Cumulative interest, which is the part of your payments that builds nothing, is <code>=-CUMIPMT(B5/12, B6*12, B2-(B2*B3), 1, N*12, 0)</code>. Both come back negative by convention, so the minus sign flips them positive.</p>
+
+<p>The home value in year N is <code>=B2*(1+B14)^N</code>. When you sell, you net the value minus selling costs minus whatever loan is left: <code>=(B2*(1+B14)^N)*(1-B13)-(loan_balance)</code>. That selling cost line is exactly what bit the Denver couple. On a $414,000 sale, 6 percent is almost $25,000 gone before the loan is even paid off.</p>
+
+<p>One more line in your favor: the tax deduction. If you itemize, the mortgage interest and property tax are deductible, so your real cost is lower by your marginal rate. Cumulative tax savings through year N is <code>=(cumulative_interest + B2*B8*N)*B15</code>. Many filers take the standard deduction and get none of this, so make it a switch you can turn off.</p>
+
+<h3>The rent side: total rent paid minus what the down payment earned</h3>
+
+<p>Rent is simpler but has its own trap. Rent grows, so do not just multiply by twelve. Total rent paid through year N with annual increases is <code>=E2*12*((1+E3)^N-1)/E3</code>, which is the closed form for a growing payment stream. Add renters insurance with <code>=E4*12*N</code>.</p>
+
+<p>Now the part that almost no free calculator includes. The renter never spent the $80,000 down payment or the $12,000 in closing costs, so that $92,000 stays invested. Its value in year N is <code>=(B2*B3+B2*B12)*(1+E5)^N</code>. The investment gain, which offsets the rent, is that value minus the original $92,000. This is the opportunity cost of buying, and it is the single biggest reason a short stay favors renting.</p>
+
+<h2>Find the Breakeven Year, the One Number That Decides</h2>
+
+<p>Now you combine both sides into a net cost for each path, assuming you sold or moved at the end of each year.</p>
+
+<p>Net cost to own through year N is every dollar that left your pocket (down payment, closing costs, and all the payments, tax, insurance, and maintenance) minus what you get back when you sell minus your tax savings: <code>=(B2*B3+B2*B12) + cumulative_carrying_costs - net_sale_proceeds - cumulative_tax_savings</code>. Net cost to rent through year N is total rent and renters insurance paid minus the investment gain on the money you kept: <code>=cumulative_rent - investment_gain</code>. The own advantage is simply <code>=net_rent_cost - net_own_cost</code>. When that flips from negative to positive, owning has won. Find the first year it crosses with <code>=MATCH(TRUE, own_advantage_range>0, 0)</code>.</p>
+
+<p>Run the numbers above and the table tells a clear story.</p>
+
+<table>
+<thead>
+<tr><th>Sell at end of year</th><th>Net cost to own</th><th>Net cost to rent</th><th>Own advantage</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>$48,300</td><td>$20,100</td><td>-$28,200</td></tr>
+<tr><td>2</td><td>$60,000</td><td>$40,600</td><td>-$19,400</td></tr>
+<tr><td>3</td><td>$71,000</td><td>$61,400</td><td>-$9,600</td></tr>
+<tr><td>4</td><td>$81,300</td><td>$82,600</td><td>+$1,300</td></tr>
+<tr><td>5</td><td>$90,900</td><td>$104,000</td><td>+$13,100</td></tr>
+<tr><td>7</td><td>$107,700</td><td>$147,800</td><td>+$40,100</td></tr>
+</tbody>
+</table>
+
+<p>The breakeven year is 4. Sell before then and renting and investing the difference leaves you wealthier. Stay past it and ownership pulls ahead and keeps widening. The Denver couple sold at year 1.5, deep in the red zone, which is exactly why they lost $34,000. The house was never the mistake. The timeline was.</p>
+
+<h3>Stress test the assumptions, because the breakeven moves</h3>
+
+<p>The breakeven year is not fixed. It swings hard on three inputs, and you should drag each one to see your own answer.</p>
+
+<ul>
+<li><strong>Appreciation.</strong> Drop it from 3.5% to 1.5% and breakeven slides out past year 6. Real estate is not guaranteed to rise faster than rent.</li>
+<li><strong>Investment return.</strong> Raise it from 7% to 9% and the opportunity cost of your down payment grows, pushing breakeven later. A strong investor is a better renter.</li>
+<li><strong>The rent gap.</strong> If buying costs far more per month than renting, you bleed cash every month and breakeven stretches out. If rent is nearly as expensive as owning, breakeven arrives fast.</li>
+</ul>
+
+<p>This is why the rule of thumb you hear, that you should own if you will stay five years, is only accidentally right. Five years is a decent guess for typical inputs, but your inputs are not typical. Model yours.</p>
+
+<h2>Make the Call</h2>
+
+<p>The decision rule is blunt once the model is built. Compare your honest expected stay to the breakeven year. If you are confident you will be in the house well past breakeven, buy. If your horizon is shorter or genuinely uncertain, rent and invest the gap, because the downside of selling early is large and immediate while the upside of buying takes years to show up. A house is a leveraged, illiquid, transaction-heavy asset. It rewards patience and punishes a quick exit.</p>
+
+<p>If you would rather not wire the amortization, the growing-rent stream, the tax deduction switch, the selling-cost drag, and the opportunity-cost engine together by hand every time your price, rate, or city changes, the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> already has this machinery built in. It runs the full cash flow, equity buildup, and after-sale net worth on any property you point it at, so you can change the home price, the rate, or your expected stay and watch the breakeven year recalculate instantly. Build the rent vs buy model once with the formulas above to understand exactly what is moving, then use the Analyzer to run every real deal in seconds instead of rebuilding the spreadsheet for each one. Decide on the breakeven year, not on a monthly payment that was never telling you the truth.</p>`,
+  },
+  {
     slug: 'construction-general-conditions-cost-estimate-excel',
     title: 'Construction General Conditions Cost Estimate in Excel: Price the Line Items, Not a Percentage',
     metaTitle: 'General Conditions Cost Estimate Excel | SheetCraft',
