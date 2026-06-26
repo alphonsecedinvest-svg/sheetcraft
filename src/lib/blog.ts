@@ -16,6 +16,115 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-capital-reserve-calculator-excel',
+    title: 'Rental Property Capital Reserve Calculator in Excel: Fund CapEx by Component, Not by Percentage',
+    metaTitle: 'Capital Reserve Calculator Excel | SheetCraft',
+    metaDescription: 'Build a rental property capital reserve calculator in Excel that funds CapEx by component, so one $6,000 furnace never wipes out your year of cash flow.',
+    targetKeyword: 'rental property capital reserve calculator Excel',
+    secondaryKeywords: ['CapEx reserves rental property', 'capital expenditure budget rental', 'rental property replacement reserves', 'how much to reserve for CapEx', 'reserve study spreadsheet'],
+    excerpt: 'Most rental cash flow numbers skip capital reserves, then one $6,000 furnace turns a year of profit into a loss. Build a capital reserve calculator in Excel that prices every major system by component and remaining life, so the roof, the furnace, and the water heater are funded line items instead of surprises that wipe out your year.',
+    publishedAt: '2026-06-26',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-capital-reserve-calculator-excel.png',
+    imageAlt: 'Flat illustration of a two-unit house with its roof, furnace, air conditioner, and water heater each linked to a glass jar filling with gold coins, representing a capital reserve fund for rental property CapEx',
+    content: `<h1>Rental Property Capital Reserve Calculator in Excel: Fund CapEx by Component, Not by Percentage</h1>
+
+<p>A landlord in Ohio bought a duplex that penciled out beautifully. Rent was $2,400 a month, the mortgage and operating costs ran about $1,800, and he told everyone the property cleared $600 a month, $300 per unit. For fourteen months it did exactly that. Then in February the furnace in unit B quit, and replacing it ran $6,000. Three months later the water heater in unit A went, another $1,400. By the end of that year his $7,200 of "profit" was actually a $1,200 loss, and he had not even touched the roof, which a contractor told him had maybe five years left. He did not have a bad property. He had a cash flow number that was a lie, because it never reserved a dollar for capital expenditures. A rental property capital reserve calculator in Excel fixes this in one afternoon, and it does it by pricing every major system on the building, not by sprinkling a percentage on top of rent and hoping.</p>
+
+<p>Capital reserves, also called CapEx reserves or replacement reserves, are the money you set aside every month so that the big, predictable, expensive failures do not come out of a single year's cash flow. The roof, the furnaces, the air conditioning, the water heaters, the flooring, the appliances: none of these last forever, all of them cost thousands, and every one of them has a known useful life. Reserving for them is not pessimism. It is arithmetic. The problem is that almost nobody does the arithmetic. They use a percentage, and a percentage cannot see how old your building is.</p>
+
+<h2>Why Cash Flow That Skips Capital Reserves Is a Fantasy</h2>
+
+<p>There are two kinds of money that leave a rental: operating expenses and capital expenditures. Operating expenses are the small, recurring stuff, a leaky faucet, a clogged disposal, a $180 service call. You pay them out of this month's rent and move on. Capital expenditures are different. They are large, they are infrequent, and they are certain. You do not know if the furnace fails this winter or in three winters, but you know it fails, and you know it costs roughly $6,000 when it does. Treating that $6,000 as a surprise is the single most common reason a "cash flowing" rental quietly loses money.</p>
+
+<p>Here is the cost of skipping it, using the Ohio duplex. The owner believed his unit economics looked like the left column. They actually looked like the right column once a real reserve was loaded.</p>
+
+<table>
+<thead>
+<tr><th>Monthly, per property</th><th>Cash flow without reserves</th><th>Cash flow with real CapEx reserve</th></tr>
+</thead>
+<tbody>
+<tr><td>Gross rent</td><td>$2,400</td><td>$2,400</td></tr>
+<tr><td>Mortgage, taxes, insurance, repairs, management</td><td>$1,800</td><td>$1,800</td></tr>
+<tr><td>Capital reserve contribution</td><td>$0</td><td>$387</td></tr>
+<tr><td>True monthly cash flow</td><td>$600</td><td>$213</td></tr>
+</tbody>
+</table>
+
+<p>The property still cash flows. It just cash flows $213 a month, not $600. That is not a small difference, it is the difference between a deal you would buy and a deal you would pass on. And the $387 reserve is not a number pulled from the air. It is the sum of what every major system on the building costs you per month as it marches toward failure. The next section builds that number.</p>
+
+<h2>Build the Capital Reserve Calculator in Excel</h2>
+
+<p>The method that actually works is the same one professional reserve studies use for condo associations: price each component, divide its replacement cost by its useful life, and add up the annual reserves. This is the component method, and it is the opposite of guessing a percentage. Lay out one row per system. The columns are the component, its replacement cost today, its useful life in years, its current age, and the annual reserve.</p>
+
+<table>
+<thead>
+<tr><th>Component</th><th>Replacement cost</th><th>Useful life (yrs)</th><th>Annual reserve</th></tr>
+</thead>
+<tbody>
+<tr><td>Roof</td><td>$14,000</td><td>25</td><td>$560</td></tr>
+<tr><td>Furnaces (2)</td><td>$12,000</td><td>18</td><td>$667</td></tr>
+<tr><td>Central AC (2)</td><td>$11,000</td><td>15</td><td>$733</td></tr>
+<tr><td>Water heaters (2)</td><td>$2,800</td><td>10</td><td>$280</td></tr>
+<tr><td>Flooring (both units)</td><td>$9,000</td><td>12</td><td>$750</td></tr>
+<tr><td>Exterior paint</td><td>$6,000</td><td>8</td><td>$750</td></tr>
+<tr><td>Kitchen appliances (2 sets)</td><td>$4,000</td><td>12</td><td>$333</td></tr>
+<tr><td>Windows</td><td>$10,000</td><td>30</td><td>$333</td></tr>
+<tr><td>Driveway and parking</td><td>$6,000</td><td>25</td><td>$240</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$74,800</strong></td><td></td><td><strong>$4,646</strong></td></tr>
+</tbody>
+</table>
+
+<h3>The straight-line reserve formula</h3>
+
+<p>Put the replacement cost in column B and the useful life in column C. The annual reserve in column F is just <code>=B2/C2</code>. That is the straight-line method: a $14,000 roof that lasts 25 years costs you $560 every year whether you write the check or not, so you reserve $560 every year. Drag it down the column and total it with <code>=SUM(F2:F10)</code>, which gives $4,646 for this building.</p>
+
+<p>Now convert that to the numbers you actually manage by. Monthly reserve for the whole property is <code>=SUM(F2:F10)/12</code>, which is the $387 from the table above. Put your unit count in a cell, say B13, and the per-unit monthly reserve is <code>=SUM(F2:F10)/12/B13</code>, or about $194 per door per month. That per-door number is the one to carry into every deal you underwrite, because it is comparable across properties of different sizes.</p>
+
+<h3>The part everyone skips: the age of each component</h3>
+
+<p>The straight-line formula quietly assumes every system is brand new. It almost never is. A roof with 20 years already on a 25-year life does not give you 25 years to save $14,000. It gives you five. So the honest reserve is not cost divided by useful life, it is cost divided by remaining life. Add a current-age column D and compute remaining life in column E with <code>=MAX(C2-D2,1)</code>. The MAX guard keeps you from dividing by zero or going negative on a system that is already past due.</p>
+
+<p>Then the age-aware annual reserve becomes <code>=B2/MAX(C2-D2,1)</code>. Watch what this does to the roof. Straight-line said $560 a year. But at age 20 with five years left, the real reserve is <code>=14000/5</code>, or $2,800 a year. That is a five-fold jump, and it is invisible to any percentage of rent. A building full of aging systems can easily need double the reserve of an identical building that was just renovated, and only the component method with remaining life shows it.</p>
+
+<p>Add a status flag so the spreadsheet tells you where the fires are. In column G, use <code>=IF(C2-D2&lt;=0,"OVERDUE",IF(C2-D2&lt;=2,"DUE SOON","OK"))</code>. Anything that reads OVERDUE or DUE SOON is a check you are about to write, and it should change how much cash you keep on hand right now, not just how much you reserve each month.</p>
+
+<h2>The 5 Percent Rule Against the Component Method</h2>
+
+<p>Most investors never build any of this. They reserve a flat percentage of rent, usually 5 percent, or they fold reserves into the 50 percent rule and never separate them. Here is what that shortcut does to the Ohio duplex, which collects $28,800 a year in rent.</p>
+
+<table>
+<thead>
+<tr><th>Method</th><th>Annual reserve</th><th>Monthly reserve</th><th>Covers the real CapEx?</th></tr>
+</thead>
+<tbody>
+<tr><td>5% of gross rent</td><td>$1,440</td><td>$120</td><td>No, short by $3,200/yr</td></tr>
+<tr><td>1% of property value ($360k)</td><td>$3,600</td><td>$300</td><td>Close by luck, still short</td></tr>
+<tr><td>Component method, straight-line</td><td>$4,646</td><td>$387</td><td>Yes, for an average-age building</td></tr>
+<tr><td>Component method, age-aware</td><td>$6,900</td><td>$575</td><td>Yes, for this aging building</td></tr>
+</tbody>
+</table>
+
+<p>The 5 percent rule reserves $120 a month and the building actually consumes $387 to $575. That gap of $267 to $455 every month is precisely the money the Ohio owner thought was profit. He was not earning $600 a month. He was earning $213, or in a bad year, less than zero, and spending the difference as if it were income. A percentage is a guess that happens to be expressed as a number. The component method is the number.</p>
+
+<h2>Turn the Reserve Into a Funding Decision</h2>
+
+<p>Knowing the monthly reserve tells you what to set aside going forward. It does not tell you whether you are already behind, and on an older property you usually are. Reserve studies answer this with the fully funded balance: the amount that should already be sitting in your reserve account today, given how much life each component has already used up.</p>
+
+<p>For each component, the fully funded balance is its replacement cost times the fraction of its life already spent. In column H, use <code>=B2*MIN(D2/C2,1)</code>. The MIN caps it at 100 percent so a component past its life does not overstate the balance. For the roof at age 12 of 25, that is <code>=14000*MIN(12/25,1)</code>, or $6,720 that should already be earmarked for the roof alone. Total the column with <code>=SUM(H2:H10)</code> to get what the whole building should have in reserve right now.</p>
+
+<p>Then compute your funded ratio, the single number that tells you if you are exposed. If your actual reserve balance is in B14, the ratio is <code>=B14/SUM(H2:H10)</code> formatted as a percentage. Below 70 percent is the danger zone, where one normal failure forces money out of your own pocket or out of next month's rent. A landlord who bought this duplex with $3,000 in the bank against a fully funded balance near $38,000 is sitting at 8 percent funded, which is exactly why a single furnace blew up his year.</p>
+
+<p>One refinement worth adding once the base model works: replacement costs rise. The $6,000 furnace you replace in five years will not cost $6,000. Inflate the future cost with <code>=B2*(1+0.04)^MAX(C2-D2,1)</code> using a 4 percent construction inflation assumption, and reserve against that larger number. It nudges every reserve up by 10 to 20 percent depending on the timeline, and it keeps you from being right on paper and short in cash.</p>
+
+<h2>Make the Call</h2>
+
+<p>Run this calculator before you buy, not after. When a seller or a wholesaler hands you a pro forma showing 5 percent for reserves, replace it with your component number and watch the cap rate drop. Half the time the deal still works and you buy it with your eyes open. The other half, the deal only ever looked good because it was borrowing from a roof that had not failed yet. Either way you are making a decision on real numbers instead of a percentage that was designed to make the listing look better.</p>
+
+<p>If you would rather not wire the component grid, the remaining-life math, the funded-ratio check, and the inflation adjustment together by hand for every property you look at, the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> has the capital reserve engine built in alongside the full cash flow, cap rate, and cash-on-cash analysis. You enter the building's systems and their ages once, and it folds a real per-unit reserve into the cash flow automatically, so the return you see is the return after the roof and the furnaces are paid for. Build the reserve calculator yourself once with the formulas above so you understand exactly what is moving, then run every deal through the Analyzer so a $6,000 furnace is a line item you already funded, not the surprise that wipes out your year.</p>`,
+  },
+  {
     slug: 'rent-vs-buy-calculator-excel',
     title: 'Rent vs Buy Calculator in Excel: Model the Opportunity Cost, Not the Monthly Payment',
     metaTitle: 'Rent vs Buy Calculator Excel | SheetCraft',
