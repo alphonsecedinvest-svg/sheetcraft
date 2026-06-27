@@ -16,6 +16,129 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-turnover-cost-calculator-excel',
+    title: 'Rental Property Turnover Cost Calculator in Excel: Why a $50 Rent Bump Can Cost You $3,000',
+    metaTitle: 'Rental Turnover Cost Calculator Excel | SheetCraft',
+    metaDescription: 'Build a rental property turnover cost calculator in Excel that adds make-ready, leasing fees, and lost rent so a $50 rent bump never costs a good tenant.',
+    targetKeyword: 'rental property turnover cost calculator Excel',
+    secondaryKeywords: ['cost of tenant turnover', 'rental make-ready cost', 'rent increase break-even', 'landlord vacancy cost', 'tenant retention value'],
+    excerpt: 'Most landlords price a tenant by the rent on the lease and miss the cost of turnover entirely. A $50 rent increase that loses a good tenant can trigger $3,000 to $5,000 in make-ready, leasing fees, and lost rent. Build a turnover cost calculator in Excel that adds the full stack, then compares it against what the rent increase actually earns, so you stop paying to replace tenants who already pay on time.',
+    publishedAt: '2026-06-27',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-turnover-cost-calculator-excel.png',
+    imageAlt: 'Flat illustration of a single-family rental house with its front door open, moving boxes on a dolly, floating dollar bills, a paint roller and bucket, a calendar of vacant days, and a magnifying glass over an application, representing the hidden cost of tenant turnover',
+    content: `<h1>Rental Property Turnover Cost Calculator in Excel: Why a $50 Rent Bump Can Cost You $3,000</h1>
+
+<p>A landlord in Charlotte had a good tenant in a single-family rental at $1,500 a month. She paid on the first, never called, and kept the yard better than he did. At renewal he decided the unit was "under market" and pushed the rent to $1,550. The tenant did the math on moving versus staying, found a comparable place for $1,490, and gave notice. He told himself the $50 was worth it. Then the unit sat empty for five weeks, the make-ready ran $2,200, the property manager charged a full month to find a new tenant, and the new tenant turned out to be a slow payer. That $50 increase, worth $600 a year, triggered roughly $3,400 in turnover costs. A rental property turnover cost calculator in Excel would have shown him the trade before he made it, in about ten minutes. This article builds that calculator and shows you how to use it.</p>
+
+<p>Most landlords track vacancy and stop there. They count the days the unit is empty, multiply by the daily rent, and call that the cost of a tenant leaving. That number is real, but it is the smallest piece of the stack. The cost of tenant turnover also includes make-ready, leasing and marketing fees, screening, turn utilities, and the lost rent that keeps running while a new lease gets signed and the new tenant moves in. Add it all up and a single turnover on an average rental lands between $2,500 and $4,500. Once you can see that number, the decision to chase a small rent increase against a good tenant looks very different.</p>
+
+<h2>The Full Turnover Cost Stack, Not Just Vacancy</h2>
+
+<p>Vacancy is the line everyone sees because it shows up as zero dollars hitting the bank account. The other lines are quieter, they leave as expenses or as rent you never collected, and that is exactly why they get ignored. Here is the full stack for one turnover on a $1,500 single-family rental, using middle-of-the-road numbers.</p>
+
+<table>
+<thead>
+<tr><th>Turnover cost component</th><th>Example amount</th><th>Why it hits</th></tr>
+</thead>
+<tbody>
+<tr><td>Lost rent during vacancy</td><td>$1,750</td><td>35 days empty at $50/day</td></tr>
+<tr><td>Make-ready (paint, clean, repairs)</td><td>$2,200</td><td>Patch, paint, carpet clean, minor fixes</td></tr>
+<tr><td>Leasing and marketing fee</td><td>$750</td><td>Half month to a PM, or your own time and listing spend</td></tr>
+<tr><td>Tenant screening and application</td><td>$60</td><td>Background, credit, income verification</td></tr>
+<tr><td>Turn utilities and lawn during vacancy</td><td>$140</td><td>You pay power, water, and yard while it sits</td></tr>
+<tr><td><strong>Total turnover cost</strong></td><td><strong>$4,900</strong></td><td>One tenant leaving, one tenant found</td></tr>
+</tbody>
+</table>
+
+<p>The vacancy line is $1,750. The full cost is $4,900. If you only counted the empty days, you would underprice the cost of turnover by almost three times. That is the entire problem. A $50 rent increase produces $600 over a year. A turnover this size takes more than eight years of that increase just to break even, and only if the new tenant pays the higher rent and stays the whole time. Said plainly, trading a reliable tenant for $50 a month is usually a losing bet, and the calculator proves it with your own numbers instead of a feeling.</p>
+
+<h2>Build the Turnover Cost Calculator in Excel</h2>
+
+<p>The layout is one input block and one output block. Put your assumptions in column B so every number is visible and editable, then let the formulas roll up the total. This keeps the model honest, because when you change the make-ready estimate or the vacancy days, the decision flag updates instantly.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Current monthly rent</td><td>$1,500</td></tr>
+<tr><td>B3</td><td>Proposed rent increase per month</td><td>$50</td></tr>
+<tr><td>B4</td><td>Expected vacancy during turnover (days)</td><td>35</td></tr>
+<tr><td>B5</td><td>Make-ready cost</td><td>$2,200</td></tr>
+<tr><td>B6</td><td>Leasing and marketing fee</td><td>$750</td></tr>
+<tr><td>B7</td><td>Screening and application cost</td><td>$60</td></tr>
+<tr><td>B8</td><td>Turn utilities and lawn</td><td>$140</td></tr>
+</tbody>
+</table>
+
+<p>Now build the outputs underneath. The first formula converts monthly rent to a daily figure and multiplies by vacancy days, because lost rent is a daily problem, not a monthly one:</p>
+
+<p><code>B10 =ROUND(B2/30.4*B4,0)</code></p>
+
+<p>That gives you lost rent during vacancy. Using 30.4 as the average days in a month keeps the daily rate accurate across the year instead of overstating it with a flat 30. Next, total the entire turnover cost by adding lost rent to the hard costs:</p>
+
+<p><code>B11 =B10+B5+B6+B7+B8</code></p>
+
+<p>With the example inputs, B11 returns $4,900. This is the number that should drive the renewal decision, not the rent figure on the lease. Now compare it against what the rent increase actually earns. The annual gain is the increase times twelve:</p>
+
+<p><code>B12 =B3*12</code></p>
+
+<p>That is $600. The most important output is the break-even, the number of months the rent increase needs to run just to pay back the turnover it caused:</p>
+
+<p><code>B13 =ROUND(B11/B3,1)</code></p>
+
+<p>$4,900 divided by $50 is 98 months, a little over eight years. Now make the spreadsheet tell you what to do with a plain-English flag instead of a raw number:</p>
+
+<p><code>B14 =IF(B13>24,"BAD TRADE: keep the good tenant",IF(B13>12,"MARGINAL: only if tenant is leaving anyway","OK: increase is justified"))</code></p>
+
+<p>The 24-month and 12-month thresholds are judgment calls you can tune, but the logic is sound. If it takes more than two years of the higher rent just to recover the cost of one turnover, you are not raising rent, you are paying to replace a tenant who was already paying you.</p>
+
+<h3>Add a renewal-versus-turnover comparison</h3>
+
+<p>The calculator gets sharper when you put both paths side by side over a two-year window. Renewing the current tenant at the current rent costs nothing in turnover. Pushing the increase and losing the tenant costs the full stack now, plus the risk that the next tenant is worse. Model both columns so the gap is undeniable.</p>
+
+<table>
+<thead>
+<tr><th>Two-year outcome</th><th>Renew at $1,500</th><th>Push to $1,550, tenant leaves</th></tr>
+</thead>
+<tbody>
+<tr><td>Rent collected</td><td>$36,000</td><td>$34,250</td></tr>
+<tr><td>Turnover costs</td><td>$0</td><td>$4,900</td></tr>
+<tr><td>Extra rent from the increase</td><td>$0</td><td>$1,200</td></tr>
+<tr><td><strong>Net to you over 24 months</strong></td><td><strong>$36,000</strong></td><td><strong>$30,550</strong></td></tr>
+</tbody>
+</table>
+
+<p>The "push" column collects less rent because the unit sat empty for five weeks, and it carries $4,900 of cost the renewal never had. Even with the higher rent, the tenant who left puts you $5,450 behind over two years. The $1,200 of extra rent is real, but it never catches the hole the turnover dug. The renewal wins, and it is not close.</p>
+
+<h2>How to Use the Number When You Set Rent</h2>
+
+<p>The calculator does not tell you to never raise rent. It tells you to size the increase against the cost of being wrong about your tenant. A few rules fall out of it naturally.</p>
+
+<ol>
+<li><strong>Reserve the biggest increases for turnover you cannot avoid.</strong> When a tenant gives notice for their own reasons, you are eating the turnover cost no matter what, so reprice the unit fully to market. The cost is already sunk.</li>
+<li><strong>Offer your best tenants a small, predictable bump.</strong> A 2 to 3 percent increase on a tenant who pays on time and stays is almost always cheaper than market-rate repricing through a vacancy. The calculator shows you the break-even so you can pick a number they will accept.</li>
+<li><strong>Price the make-ready before you decide.</strong> A unit that needs $4,000 of make-ready raises the cost of turnover and lowers the rent increase you should risk. A unit a tenant has kept immaculate is cheaper to turn, which changes the math in the landlord's favor, not the tenant's.</li>
+<li><strong>Track your actual vacancy days.</strong> If your real turnovers run 45 days, not 21, your break-even is far longer than the optimistic version in your head. Use your own history in B4.</li>
+</ol>
+
+<p>The point is not to be soft on rent. The point is to stop treating a good tenant as a free input. Retention has a dollar value, and the turnover cost calculator is how you put that value on the table next to the rent number, where it belongs.</p>
+
+<h2>Where the Turnover Cost Fits the Bigger Picture</h2>
+
+<p>Turnover is one expense line, but it connects to everything else in the property's economics. The lost rent during vacancy hits your annual cash flow. The make-ready spend competes with your capital reserves. A higher turnover rate quietly drags your real cap rate below the one you underwrote at purchase. If you only model turnover in a one-off spreadsheet, you see the single decision but miss how a pattern of needless turnovers erodes the whole investment over a holding period.</p>
+
+<p>That is the case for keeping turnover inside a full rental model rather than a standalone tab. When your vacancy assumption, your make-ready budget, your rent roll, and your cash flow live in one connected workbook, a change to your turnover rate flows straight through to cash-on-cash return and shows you the real cost of a high-churn property versus a stable one.</p>
+
+<h2>Stop Guessing What a Tenant Is Worth</h2>
+
+<p>The Charlotte landlord did not have a rent problem. He had a measurement problem. He could see $50 a month clearly and could not see $4,900 of turnover at all, so he made a trade that looked smart and cost him thousands. The fix is not complicated. It is one Excel tab that adds the make-ready, the leasing fee, the turn utilities, and the lost rent on top of the vacancy, then compares the total against what the rent increase actually earns. Build it once and you will never again confuse a small rent bump with a good decision.</p>
+
+<p>If you would rather not build the rent roll, vacancy, make-ready, and cash flow logic from scratch, the SheetCraft <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> has the turnover cost stack wired into a full rental model. Enter your rent, vacancy days, and make-ready estimate, and it rolls the true cost of turnover into cash flow, cap rate, and cash-on-cash return automatically, so the next time you are tempted to chase $50 against a tenant who pays on the first, the spreadsheet shows you the $3,000 before you send the renewal letter.</p>`,
+  },
+  {
     slug: 'rental-property-capital-reserve-calculator-excel',
     title: 'Rental Property Capital Reserve Calculator in Excel: Fund CapEx by Component, Not by Percentage',
     metaTitle: 'Capital Reserve Calculator Excel | SheetCraft',
