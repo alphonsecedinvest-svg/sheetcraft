@@ -16,6 +16,137 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-lease-renewal-rent-increase-calculator-excel',
+    title: 'Rental Lease Renewal Rent Increase Calculator in Excel: Find the Raise That Keeps the Unit Full',
+    metaTitle: 'Lease Renewal Rent Increase Calculator | SheetCraft',
+    metaDescription: 'Build a rental lease renewal rent increase calculator in Excel that weighs turnover risk against the raise to find the rent that keeps the unit full.',
+    targetKeyword: 'rental lease renewal rent increase calculator Excel',
+    secondaryKeywords: ['rent increase at lease renewal', 'how much to raise rent', 'tenant retention vs rent increase', 'lease renewal calculator', 'optimal rent increase'],
+    excerpt: 'Most landlords raise rent to market at every renewal and lose money when a good tenant walks. The renewal increase is an expected value bet: every dollar you add raises the odds of a turnover that can cost $4,000. Build a rental lease renewal rent increase calculator in Excel that weighs the gain from a higher rent against the turnover risk, so you land on the raise that keeps the unit full and the cash flow climbing.',
+    publishedAt: '2026-06-28',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-lease-renewal-rent-increase-calculator-excel.png',
+    imageAlt: 'Flat illustration of a balance scale weighing a rising rent arrow with a dollar coin against a tenant carrying a moving box, beside a lease renewal document, a calculator, and a single-family rental house with a for-rent sign, representing the trade-off between raising rent at renewal and tenant turnover risk',
+    content: `<h1>Rental Lease Renewal Rent Increase Calculator in Excel: Find the Raise That Keeps the Unit Full</h1>
+
+<p>A landlord in Tampa had a tenant paying $1,500 on a single-family rental. The market had moved, comparable units were listing at $1,650, and his property manager told him to "raise it to market" at renewal. He sent the notice for $1,650, a clean $150 jump. The tenant, who had paid on the first for three years and never filed a maintenance request, found a comparable place at $1,580 and gave notice. The unit sat empty for six weeks, the make-ready ran $2,400, the PM charged a full month to fill it, and the replacement tenant negotiated $1,600. He raised the rent $100 above where he started and netted less money for the year than if he had done nothing. A rental lease renewal rent increase calculator in Excel would have told him the $150 jump was a losing bet before he mailed it. This article builds that calculator and shows you how to read it.</p>
+
+<p>The renewal increase is not a pricing decision. It is a probability bet. Every dollar you add to the rent raises the odds the tenant walks, and a tenant walking is one of the most expensive events in a small rental portfolio. The question is never "what is market rent." Market rent is a ceiling, not a target. The real question is which increase maximizes your expected cash flow once you weigh the gain from a higher rent against the cost of the turnover that higher rent might trigger. That is an expected value problem, and Excel solves it in about fifteen minutes.</p>
+
+<h2>Why "Raise to Market Every Year" Quietly Loses Money</h2>
+
+<p>The advice to push rent to market at every renewal treats the tenant as if they will pay anything. They will not. A good tenant has a switching cost, the hassle and expense of moving, and they will tolerate a below-market rent up to a point because staying is easier than leaving. Cross that point and they go. When they go, you do not just lose the rent difference, you eat the entire turnover stack: lost rent during vacancy, make-ready, leasing fees, screening, and the risk that the next tenant pays worse and stays shorter.</p>
+
+<p>Run the numbers on the Tampa example. The $150 increase, if it had stuck, was worth $1,800 over the year. The turnover it caused cost roughly $4,000 all in, and the replacement tenant came in $50 under the target anyway. The expected value of that aggressive raise, once you account for how likely it was to trigger a move, was negative. A smaller increase that the tenant would have accepted, say $50 to $75, would have captured real money with almost no flight risk. The point is not to avoid raising rent. The point is to raise it to the number that survives the renewal, not the number on a comp sheet.</p>
+
+<h2>Build the Renewal Rent Increase Calculator in Excel</h2>
+
+<p>The model has two parts. An input block holds the four numbers that drive every renewal, and a scenario table runs several possible increases through the same expected value formula so you can see which one wins. Put the inputs in column B so they are visible and editable.</p>
+
+<h3>The Inputs That Drive It</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Current monthly rent</td><td>$1,500</td></tr>
+<tr><td>B3</td><td>Estimated market rent</td><td>$1,650</td></tr>
+<tr><td>B4</td><td>Full turnover cost</td><td>$4,000</td></tr>
+<tr><td>B5</td><td>Expected vacancy if they leave (months)</td><td>1.2</td></tr>
+</tbody>
+</table>
+
+<p>The turnover cost in B4 is the full stack, not just lost rent. If you have not built a turnover number yet, use $3,000 to $4,500 for an average single-family rental and refine it later. B5 is how long the unit realistically sits if the tenant leaves, expressed in months, because a re-rent at market only earns for the months the unit is actually occupied.</p>
+
+<h3>The Expected Value Formula</h3>
+
+<p>Now the scenario table. Lay out a row for each increase you might propose, from zero up to a full market match. The columns walk from the proposed increase to the expected net annual value, measured against the baseline of renewing flat at the current rent.</p>
+
+<p>Start with the new rent and your estimated probability the tenant leaves at that increase. The new rent is simple:</p>
+
+<p><code>B9 =$B$2+A9</code></p>
+
+<p>The probability in column C is the one number you supply by judgment, and the next section gives you a method for it. With those two in place, column D computes the expected gain if the tenant stays, which is the extra rent collected over twelve months weighted by the odds they accept:</p>
+
+<p><code>D9 =(1-C9)*A9*12</code></p>
+
+<p>Column E captures what happens if they leave. This is the part every simple calculator skips. When a tenant leaves you pay the turnover cost, but you also re-rent at market, so the new tenant pays the market gap for the months they occupy. The expected value of leaving is the recaptured market gap minus the turnover cost, weighted by the odds they go:</p>
+
+<p><code>E9 =C9*(($B$3-$B$2)*(12-$B$5)-$B$4)</code></p>
+
+<p>Add the two outcomes and you have the expected net annual value of that increase compared to doing nothing:</p>
+
+<p><code>F9 =D9+E9</code></p>
+
+<p>Copy the row down for every increase you want to test. The winner is whichever row produces the highest F. Pull it out with one formula so you do not eyeball it:</p>
+
+<p><code>B16 =INDEX(A9:A14,MATCH(MAX(F9:F14),F9:F14,0))</code></p>
+
+<p>And the value that increase is worth over a flat renewal:</p>
+
+<p><code>B17 =MAX(F9:F14)</code></p>
+
+<h2>Read the Table: The Optimal Increase Is Usually Below Market</h2>
+
+<p>Here is the scenario table filled out with the example inputs above. The probabilities reflect a solid tenant in a normal market, where small increases barely move the flight risk and large ones spike it.</p>
+
+<table>
+<thead>
+<tr><th>Increase (A)</th><th>New rent (B)</th><th>P(leave) (C)</th><th>Exp. value if stays (D)</th><th>Exp. value if leaves (E)</th><th>Expected net (F)</th></tr>
+</thead>
+<tbody>
+<tr><td>$0</td><td>$1,500</td><td>4%</td><td>$0</td><td>-$95</td><td>-$95</td></tr>
+<tr><td>$25</td><td>$1,525</td><td>7%</td><td>$279</td><td>-$167</td><td>$112</td></tr>
+<tr><td>$50</td><td>$1,550</td><td>12%</td><td>$528</td><td>-$286</td><td>$242</td></tr>
+<tr><td>$75</td><td>$1,575</td><td>20%</td><td>$720</td><td>-$476</td><td>$244</td></tr>
+<tr><td>$100</td><td>$1,600</td><td>32%</td><td>$816</td><td>-$762</td><td>$54</td></tr>
+<tr><td>$150</td><td>$1,650</td><td>55%</td><td>$810</td><td>-$1,309</td><td>-$499</td></tr>
+</tbody>
+</table>
+
+<p>Read the F column. The expected net peaks in a band between $50 and $75, at roughly $244. Push to a $100 increase and the expected value collapses to $54, because the one-in-three chance of turnover wipes out most of the rent gain. Go all the way to market at $150 and the expected value turns negative, minus $499, which means raising rent to the comp number is expected to lose you about $500 versus simply renewing flat. The aggressive raise looks great on paper and bleeds money in practice. That is the entire lesson, and it is invisible without the probability column.</p>
+
+<p>Notice the $0 row is also slightly negative at minus $95. Even a flat renewal carries a small turnover risk, because tenants leave for reasons that have nothing to do with rent. This is why doing nothing is not free, and why a modest, well-targeted increase that the tenant accepts is the genuine optimum. The calculator does not tell you to avoid raising rent. It tells you to raise it to the number with the best risk-adjusted payoff, which in this case is half the market gap, not the full thing.</p>
+
+<h2>How to Estimate the One Number Everyone Fudges</h2>
+
+<p>The probability of leaving in column C decides the whole model, so estimate it with a method instead of a feeling. The strongest predictor is how the new rent sits relative to market. A tenant who is still paying under market after the increase has little reason to move, while a tenant pushed above market has every reason. Start from this table and adjust.</p>
+
+<table>
+<thead>
+<tr><th>Where the new rent lands</th><th>Suggested P(leave)</th><th>Why</th></tr>
+</thead>
+<tbody>
+<tr><td>10% or more below market</td><td>3% to 6%</td><td>Moving costs more than the increase, easy stay</td></tr>
+<tr><td>5% to 10% below market</td><td>7% to 14%</td><td>Still a deal, most tenants renew</td></tr>
+<tr><td>At market</td><td>15% to 28%</td><td>No reason to stay or go, coin flip leans stay</td></tr>
+<tr><td>Above market</td><td>35% to 60%</td><td>Tenant can match or beat the rent elsewhere</td></tr>
+</tbody>
+</table>
+
+<p>Then nudge the number for the things the gap alone does not capture. A tenant in year three or four has roots and a higher switching cost, so shave a few points off. A high local vacancy rate gives them options and easy comps, so add points. Winter renewals see less movement than summer ones, so a December lease end leans toward staying. If the tenant has already grumbled about price or mentioned a job change, raise the probability regardless of the math. You can encode the tenure adjustment directly so you do not forget it:</p>
+
+<p><code>=MAX(0.02,C9-MIN(0.08,(TenureYears-1)*0.02))</code></p>
+
+<p>That formula trims up to eight points off the base probability for a long-tenured tenant and never lets it fall below 2%, because no tenant is a guaranteed renewal. The goal is not a perfect number. The goal is a number you can defend, because even a rough probability beats the silent assumption of zero that aggressive renewal advice depends on.</p>
+
+<h2>When You Actually Want the Tenant to Leave</h2>
+
+<p>The model has a second use that flips the usual instinct. Look at the expected value of leaving in column E. It is negative in the example because the market gap, $150 a month, does not earn back the $4,000 turnover cost within the year. But widen the gap and the sign flips. If your current rent is $1,500 and market is genuinely $1,900, the recaptured gap is $400 times the occupied months, which can exceed the turnover cost. At that point turnover is net positive, and pushing the rent toward market is the correct move even though it raises flight risk. A single flag tells you which regime you are in:</p>
+
+<p><code>=IF(($B$3-$B$2)*(12-$B$5)>$B$4,"Gap exceeds turnover cost: push toward market","Turnover costs more than the gap: protect the tenant")</code></p>
+
+<p>When that flag says protect the tenant, a small increase or even a flat renewal is the disciplined choice, and you should be grateful for a payer who stays. When it says push toward market, you have been under-renting badly enough that the turnover is worth eating, and the renewal increase becomes a tool to reset the rent to where it should have been all along. Most renewals fall in the first camp, which is exactly why the blanket advice to raise to market every year costs landlords money.</p>
+
+<h2>Build It Once, Run It on Every Renewal</h2>
+
+<p>The renewal rent increase calculator turns a gut call into a fifteen-minute decision with a number behind it. Set the four inputs, fill the probability column with the guidance above, and read the increase that maximizes expected net value. In a normal market that number lands below market rent, often at half the gap, because turnover risk is real and expensive and the comp sheet ignores it entirely. Raise rent to that number, keep the good tenant, and pocket a gain that survives the renewal instead of evaporating in a six-week vacancy.</p>
+
+<p>If you would rather not rebuild this model from scratch every leasing season, the <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> has the renewal increase logic, the turnover cost stack, and the probability guidance wired together across your whole portfolio. Enter the current rent, your market comp, and a turnover estimate, and it returns the risk-adjusted increase for each unit, flags the tenants you should protect, and rolls the expected cash flow impact up to the portfolio level. It is the same math this article walks through, ready on every renewal so you price the raise that keeps the unit full and the cash flow climbing.</p>`,
+  },
+  {
     slug: 'rental-property-turnover-cost-calculator-excel',
     title: 'Rental Property Turnover Cost Calculator in Excel: Why a $50 Rent Bump Can Cost You $3,000',
     metaTitle: 'Rental Turnover Cost Calculator Excel | SheetCraft',
