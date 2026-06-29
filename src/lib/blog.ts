@@ -16,6 +16,144 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-insurance-cost-tracker-excel',
+    title: 'Rental Property Insurance Cost Tracker in Excel: Catch the Premium Quietly Eating Your Cash Flow',
+    metaTitle: 'Rental Insurance Cost Tracker | SheetCraft',
+    metaDescription: 'Build a rental property insurance cost tracker in Excel that flags premium creep, scores quotes per $1,000 of coverage, and protects your cash flow.',
+    targetKeyword: 'rental property insurance cost tracker Excel',
+    secondaryKeywords: ['landlord insurance cost', 'premium per door', 'insurance cost per coverage', 'rental property operating expenses', 're-shop landlord policy'],
+    excerpt: 'A Houston landlord\'s portfolio insurance crept from $7,200 to $9,400 over two years, one auto-renewal at a time, and he never noticed until tax season. Insurance is the line item most landlords stop watching, and carriers count on it. Build a rental property insurance cost tracker in Excel that scores every policy by cost per $1,000 of coverage and premium-to-rent ratio, flags the ones creeping past fair, and shows you the number the day you can still act on it.',
+    publishedAt: '2026-06-29',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-insurance-cost-tracker-excel.png',
+    imageAlt: 'Flat illustration of a single-family rental house behind an insurance shield, a rising line chart of climbing premiums, and a spreadsheet grid with a magnifying glass over one highlighted dollar row, representing tracking rental property insurance costs in Excel',
+    content: `<h1>Rental Property Insurance Cost Tracker in Excel: Catch the Premium Quietly Eating Your Cash Flow</h1>
+
+<p>A landlord in Houston owns six doors. Two years ago his insurance ran $7,200 across the portfolio. This spring it renewed at $9,400. He never decided to spend an extra $2,200 a year. It happened in pieces, one auto-renewal at a time, each policy on its own date, each bill paid by autopay before he ever looked at it. On a portfolio that nets around $31,000 a year, that quiet $2,200 is a 7 percent haircut nobody approved. He found it only when his accountant flagged the insurance line at tax time, eleven months too late to do anything about it. A rental property insurance cost tracker in Excel would have shown him the creep the week each policy renewed, while he still had time to re-shop, raise a deductible, or bundle. This article builds that tracker and shows you which numbers tell you a policy has turned into a problem.</p>
+
+<p>Insurance is the expense most landlords stop watching. The mortgage is fixed. Property taxes you fight with an appeal. But the insurance policy renews itself, the carrier nudges the premium up every cycle, and unless you are forcing the numbers onto a page, you will not see the trend until it has cost you thousands. Between 2022 and 2025, landlord premiums in many states climbed 30 to 40 percent on the back of reinsurance costs and rising replacement values. The carriers are counting on you not noticing. A tracker is how you notice.</p>
+
+<h2>Why Insurance Is the Line Item You Stop Defending</h2>
+
+<p>Every other major expense on a rental has a moment that forces you to look at it. The mortgage payment hits a refinance decision. The tax bill arrives with an appeal deadline. The property manager sends a statement you scan for errors. Insurance has no such moment. It renews on a date you forgot, the premium lands inside an escrow account or on an autopay card, and the only signal you get is a slightly larger number you never compare to last year's.</p>
+
+<p>That is exactly why it drifts. Carriers raise renewal premiums knowing that re-shopping is a chore and most owners will not bother. The "loyalty penalty" is real: the customer who stays put often pays more than a new applicant for the identical policy. Add three years of compounding increases and the gap between what you pay and what the market would charge a fresh quote can hit 20 percent or more.</p>
+
+<p>Run the cost of ignoring it. Say your portfolio premium is $9,400 and a clean re-shop with a higher deductible would land you at $8,000, a 15 percent cut. That is $1,400 a year, $7,000 over five years, and it drops straight to net operating income. At a 6.5 percent cap rate, cutting $1,400 of annual expense adds roughly $21,500 to the value of the portfolio. The work to capture it is two hours of tracking and one phone call to an independent agent. There are very few places in a rental business where two hours buys a $21,000 swing in value.</p>
+
+<h2>The Metrics That Actually Tell You a Policy Is Expensive</h2>
+
+<p>The raw premium dollar figure tells you almost nothing. A $1,650 policy on a $260,000 house is cheap. The same $1,650 on a $140,000 house is robbery. To judge whether a policy is fair, and to compare quotes head to head, you need to normalize the premium against what it is actually covering and what the property earns. Four metrics do the job.</p>
+
+<h3>Cost per $1,000 of Coverage</h3>
+
+<p>This is the apples-to-apples number. Divide the annual premium by the dwelling coverage limit in thousands and you get the price you are paying per $1,000 of protection. It strips out the fact that a bigger house costs more to insure and lets you line up policies on wildly different properties on the same scale. For most landlord dwelling policies the figure runs somewhere between $4 and $9 per $1,000 of coverage depending on state, age, and roof. When one property suddenly prices at $11 while the rest of your portfolio sits at $6, you have found the policy to challenge.</p>
+
+<h3>Premium as a Percentage of Gross Rent</h3>
+
+<p>Insurance should be a small, stable slice of what the property collects. As a rule of thumb, a healthy landlord policy runs 3 to 6 percent of gross annual rent. Cross 6 percent and either the property is in a high-risk zone, the coverage is bloated, or the premium has crept past the point where it is quietly draining your margin. This ratio is the fastest red flag in the whole tracker because it ties the cost directly to the only thing that funds it, the rent.</p>
+
+<h3>Year-Over-Year Change and the Deductible Trap</h3>
+
+<p>Track this year's premium against last year's for every policy. A 5 percent bump is the market. A 25 percent bump is a renegotiation trigger. And never read a premium without reading the deductible next to it. A carrier can hold your premium flat while quietly moving your wind or hail deductible from a flat $2,500 to 2 percent of the dwelling value. On a $300,000 house, that "savings" just shifted $6,000 of risk onto you for the first dollar of a storm claim. The tracker holds the deductible in plain sight so a flat premium never fools you.</p>
+
+<h2>Build the Insurance Cost Tracker in Excel</h2>
+
+<p>The tracker is one row per policy. You enter five facts about each policy and the sheet computes the four diagnostic metrics and flags the policies that need attention. Lay the input columns out left to right so a renewal notice can be entered in under a minute.</p>
+
+<h3>The Input Columns</h3>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Input</th><th>Example (123 Oak St)</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Property</td><td>123 Oak St</td></tr>
+<tr><td>B</td><td>Annual premium</td><td>$1,650</td></tr>
+<tr><td>C</td><td>Dwelling coverage limit</td><td>$260,000</td></tr>
+<tr><td>D</td><td>Gross annual rent</td><td>$21,600</td></tr>
+<tr><td>E</td><td>Last year's premium</td><td>$1,280</td></tr>
+<tr><td>F</td><td>Deductible</td><td>$2,500</td></tr>
+</tbody>
+</table>
+
+<p>Five numbers per property, and four of them sit right on the declarations page of the policy. The fifth, gross annual rent, you already track. Enter every door, including the ones bundled on a single landlord policy, as their own row so the per-property metrics stay honest.</p>
+
+<h3>The Calculated Columns</h3>
+
+<p>Now the formulas. Each one turns the raw inputs into a number you can act on. Start with cost per $1,000 of coverage in column G, the premium divided by coverage expressed in thousands:</p>
+
+<p><code>G2 =B2/(C2/1000)</code></p>
+
+<p>This is your comparison metric. Sort the column and the most expensive coverage in the portfolio floats to the top regardless of house size. Next, premium as a percentage of rent in column H, which ties the cost to the income that pays for it:</p>
+
+<p><code>H2 =B2/D2</code></p>
+
+<p>Format H as a percentage. Anything north of 6 percent is a policy to question. Column I gives you the year-over-year move, the single fastest way to spot a carrier pushing its luck at renewal:</p>
+
+<p><code>I2 =(B2-E2)/E2</code></p>
+
+<p>Now the flag. You do not want to eyeball forty rows looking for trouble. Let the sheet tell you. Column J fires a warning when any one of the three diagnostics crosses a line, the premium-to-rent ratio above 6 percent, the year-over-year jump above 15 percent, or the cost per $1,000 above $9:</p>
+
+<p><code>J2 =IF(OR(H2>0.06,I2>0.15,G2>9),"RE-SHOP","OK")</code></p>
+
+<p>That single formula is the engine of the tracker. It scans every policy against three independent tests and surfaces the ones that fail. Last, build a portfolio summary row so you can see the whole book at a glance. Total premium is a plain sum, but the blended cost per $1,000 must be weighted by coverage, not averaged, or the small policies distort it:</p>
+
+<p><code>=SUM(B2:B7)</code> for total premium, and <code>=SUM(B2:B7)/(SUM(C2:C7)/1000)</code> for the true blended rate across the portfolio.</p>
+
+<h3>What the Filled-In Sheet Looks Like</h3>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Premium</th><th>Coverage</th><th>Rent</th><th>$/1k (G)</th><th>% rent (H)</th><th>YoY (I)</th><th>Flag (J)</th></tr>
+</thead>
+<tbody>
+<tr><td>123 Oak St</td><td>$1,650</td><td>$260,000</td><td>$21,600</td><td>$6.35</td><td>7.6%</td><td>+28.9%</td><td>RE-SHOP</td></tr>
+<tr><td>45 Pine Ave</td><td>$1,420</td><td>$240,000</td><td>$23,400</td><td>$5.92</td><td>6.1%</td><td>+6.0%</td><td>RE-SHOP</td></tr>
+<tr><td>88 Elm Ct</td><td>$1,180</td><td>$215,000</td><td>$22,800</td><td>$5.49</td><td>5.2%</td><td>+4.4%</td><td>OK</td></tr>
+<tr><td>12 Birch Ln</td><td>$2,310</td><td>$205,000</td><td>$20,400</td><td>$11.27</td><td>11.3%</td><td>+41.0%</td><td>RE-SHOP</td></tr>
+<tr><td>Portfolio</td><td>$6,560</td><td>$920,000</td><td>$88,200</td><td>$7.13</td><td>7.4%</td><td>+21.7%</td><td>3 of 4</td></tr>
+</tbody>
+</table>
+
+<p>The flag column does the thinking. The four-door book above looks fine at a glance, but the tracker says three of four policies need a phone call. The 12 Birch Ln line is the headline: $11.27 per $1,000 of coverage and a 41 percent jump in one year. That property is carrying the portfolio's premium increase almost by itself, and you would never have isolated it by staring at total dollars.</p>
+
+<h2>Read the Flags and Take Action Before Renewal</h2>
+
+<p>A flag is not a verdict, it is a prompt to investigate. Each diagnostic points at a different fix, and matching the flag to the right move is where the tracker earns its keep.</p>
+
+<table>
+<thead>
+<tr><th>What the tracker shows</th><th>Likely cause</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>Cost per $1,000 well above portfolio average</td><td>Carrier overpriced this property or coverage limit is inflated</td><td>Get two independent quotes, verify replacement cost is not padded</td></tr>
+<tr><td>Premium-to-rent above 6%</td><td>High-risk location or premium creep</td><td>Re-shop, consider a higher deductible to cut premium</td></tr>
+<tr><td>Year-over-year jump above 15%</td><td>Loyalty penalty or market hardening</td><td>Call an independent agent, ask the current carrier to match a quote</td></tr>
+<tr><td>Flat premium, deductible climbed</td><td>Carrier shifted risk to you to hold the price</td><td>Decide if you can self-insure the gap, or pay up for the lower deductible</td></tr>
+</tbody>
+</table>
+
+<p>Work the highest-dollar flags first. Cutting 12 Birch Ln from $11.27 to the portfolio's $7 per $1,000 of coverage would drop that premium from $2,310 to about $1,435, a $875 annual saving from one policy. Add the smaller wins on the other two flagged doors and the re-shop pays for a year of the tracker many times over.</p>
+
+<p>Run this checklist at every renewal, not just when a flag fires:</p>
+
+<ul>
+<li>Update the row with the new premium and deductible the day the renewal notice arrives, before autopay runs.</li>
+<li>Confirm the dwelling coverage limit still matches replacement cost, not market value. Insuring land you cannot rebuild wastes premium.</li>
+<li>Re-shop any policy 45 to 60 days before its renewal date, the window carriers reward with the best new-customer pricing.</li>
+<li>Check whether bundling several doors with one carrier beats the sum of the standalone premiums in the tracker.</li>
+<li>Log the date you last re-shopped each policy so nothing goes three years without a fresh quote.</li>
+</ul>
+
+<h2>Stop Letting the Premium Decide for You</h2>
+
+<p>Insurance creep is not a market force you have to accept. It is a number that grows because nobody is watching it. The Houston landlord lost $2,200 a year to a trend he could have caught in fifteen minutes a quarter. The tracker does not save you money by itself. It does something more useful: it puts the expensive policy in front of you, on the date you can still act, with the exact dollar figure that tells you the call is worth making.</p>
+
+<p>If you would rather not wire the formulas, the flags, and the portfolio summary together by hand, the SheetCraft <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> already has the insurance cost tracking built into a full per-property cash flow model. Drop in each policy's premium, coverage, and rent, and it computes cost per door, premium-to-rent, and year-over-year change alongside your cap rate and cash-on-cash return, so a creeping premium shows up as a dent in your returns the moment it happens. Track the insurance the way you track the rent, and stop handing your carrier a raise you never agreed to.</p>`,
+  },
+  {
     slug: 'rental-lease-renewal-rent-increase-calculator-excel',
     title: 'Rental Lease Renewal Rent Increase Calculator in Excel: Find the Raise That Keeps the Unit Full',
     metaTitle: 'Lease Renewal Rent Increase Calculator | SheetCraft',
