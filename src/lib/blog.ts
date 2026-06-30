@@ -16,6 +16,108 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'wholesale-assignment-fee-calculator',
+    title: 'Wholesale Assignment Fee Calculator in Excel: Back Into the Fee, Don\'t Guess It',
+    metaTitle: 'Wholesale Assignment Fee Calculator | SheetCraft',
+    metaDescription: 'A wholesale assignment fee calculator in Excel shows the fee you can actually collect. Back into it from the cash buyer\'s ceiling so the deal still closes.',
+    targetKeyword: 'wholesale assignment fee calculator Excel',
+    secondaryKeywords: ['assignment fee formula', 'wholesale real estate spread', 'maximum allowable offer', 'cash buyer margin', 'real estate wholesaling Excel'],
+    excerpt: 'New wholesalers pick a fee out of thin air, lock the property too high, and the deal dies unsold. Your assignment fee is not a number you choose, it is a residual you back into from the cash buyer\'s ceiling. This wholesale assignment fee calculator in Excel computes the real fee a deal can hold and the maximum price you can offer the seller while protecting it.',
+    publishedAt: '2026-06-30',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/wholesale-assignment-fee-calculator.png',
+    imageAlt: 'Flat illustration of a house connected by an arrow to a spreadsheet grid with one highlighted dollar cell and a stack of cash, representing a wholesale real estate assignment fee calculator in Excel',
+    content: `<h1>Wholesale Assignment Fee Calculator in Excel: Back Into the Fee, Don't Guess It</h1>
+
+<p>Most new wholesalers treat their assignment fee like a price tag they get to write. They decide they "want $10,000" on a deal, lock the property at whatever the seller agrees to, then start blasting the contract to their buyers list. Two weeks later the property is still under contract, the inspection period is bleeding out, and not one cash buyer has called back. A wholesale assignment fee calculator in Excel fixes the root cause: your fee is not a number you pick, it is a residual. It is whatever room is left after the end buyer takes the deal at a price that still pays them. Pick the fee first and you are guessing. Back into it from the buyer's ceiling and you know, before you ever sign with the seller, exactly how much spread the deal can carry and what you can offer to capture it.</p>
+
+<p>This article builds the calculator, walks the exact formulas, and shows you the two ways every wholesaler uses it: to find the maximum fee a locked-up deal can hold, and to find the maximum price you can offer a seller while still protecting the fee you need. The numbers are the whole job. Get them on a page and the deal either has a fee in it or it does not, and you find out in five minutes instead of two dead weeks.</p>
+
+<h2>Why "I Want $10K" Kills Deals Before They Start</h2>
+
+<p>The assignment fee is the gap between two prices: the price you agreed to pay the seller, and the price your cash buyer is willing to pay for the contract. You control the first number through negotiation. You do not control the second one at all. The buyer's ceiling is set by the property's after repair value, the rehab it needs, and the profit that buyer has to clear to bother showing up. When you pick your fee out of thin air and work backward into a seller offer, you are assuming a buyer ceiling you never calculated. Half the time it is not there.</p>
+
+<p>Run the cost. Say you lock a house at $158,000 because the seller would not budge and you "needed" a $12,000 fee, so you figured a buyer would pay $170,000. The real numbers: ARV is $300,000 and the house needs $45,000 of work. A disciplined cash buyer using a 70 percent rule will pay at most $210,000 minus $45,000, which is $165,000, for the whole deal. Your contract is already at $158,000. The actual fee the market will pay is $165,000 minus $158,000, which is $7,000, not $12,000. So either the deal sits unsold until your inspection period expires and you walk away from your earnest money and two weeks of marketing, or a buyer offers $163,000 at the closing table and you eat the cut down to $5,000 with no leverage because the clock is against you. The $12,000 was never real. It was a wish you signed a contract around.</p>
+
+<p>The wholesaler who runs the fee as a residual offers the seller a price that leaves the fee inside the buyer's ceiling from the start. Same house, that wholesaler offers $150,000, keeps the $15,000 of room, and assigns at $165,000 with a buyer who closes because the deal pays them. Same property, same buyers, $10,000 difference in outcome, decided entirely by which number you calculated first.</p>
+
+<h2>Back Into the Fee: The Spreadsheet and the Formulas</h2>
+
+<p>The calculator is one screen. You enter four facts about the deal, the sheet computes the buyer's ceiling, and from that ceiling it gives you both the maximum fee and the maximum seller offer. Lay it out so you can fill it in while you are still on the phone with the seller.</p>
+
+<h3>The Input Block</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>After repair value (ARV)</td><td>$300,000</td></tr>
+<tr><td>B3</td><td>Estimated rehab</td><td>$45,000</td></tr>
+<tr><td>B4</td><td>Buyer's rule (% of ARV they pay all-in, before rehab)</td><td>70%</td></tr>
+<tr><td>B5</td><td>Your contract price with the seller</td><td>$150,000</td></tr>
+</tbody>
+</table>
+
+<p>Three of those four numbers come from your deal analysis, not from hope. ARV is comps, not the seller's opinion. Rehab is a walk-through or a per-square-foot estimate, not "it needs paint." The buyer's rule is the discipline your actual buyers apply, and it is the number most wholesalers never pin down. In a hot market your best buyers may stretch to 75 percent. In a slow or high-rate market they tighten to 65 percent. You enter the one that matches the buyers who will actually take this deal, in this neighborhood, this month.</p>
+
+<h3>The Buyer's Ceiling and the Fee</h3>
+
+<p>The buyer's ceiling is the most they will pay for the whole deal, your contract price plus your fee combined. With the 70 percent rule it is the after repair value times the rule, minus the rehab the buyer has to fund:</p>
+
+<p><code>B7 =B2*B4-B3</code></p>
+
+<p>That returns $300,000 times 0.70 minus $45,000, which is $165,000. That is the wall. No disciplined buyer pays more, because above it their profit and costs stop adding up. Your assignment fee is simply the space between that wall and what you owe the seller:</p>
+
+<p><code>B8 =B7-B5</code></p>
+
+<p>$165,000 minus $150,000 returns a $15,000 fee. Now flag it, because a fee on paper is not a fee in the bank. Small spreads die at the closing table once title delays, a buyer's nitpick, or a double earnest deposit eat into them:</p>
+
+<p><code>B9 =IF(B8&lt;5000,"KILL",IF(B8&lt;10000,"THIN","GO"))</code></p>
+
+<p>Under $5,000 the deal usually costs more in time and risk than it pays, so the sheet says KILL. Between $5,000 and $10,000 it is THIN, meaning it works only with a tight contract and a buyer you trust. At $15,000 the sheet says GO, and you market it knowing the spread can absorb a closing table that does not go perfectly.</p>
+
+<h3>Flip It to Set Your Seller Offer</h3>
+
+<p>The same engine runs in reverse, and this is the version that actually makes you money, because it tells you what to offer before you negotiate. Decide the fee you need to make the deal worth your effort, then subtract it from the buyer's ceiling to get the most you can pay the seller:</p>
+
+<p><code>B11 =B7-Target_Fee</code></p>
+
+<p>If your target fee is $12,000, the formula returns $165,000 minus $12,000, which is $153,000. That is your maximum allowable offer to the seller as a wholesaler. Walk into the negotiation anchored below it and every dollar you talk the seller down is a dollar that lands in your fee, not the buyer's pocket. This is the number you should have in front of you on every seller call. It turns "let me get back to you" into a defensible offer you can make on the spot.</p>
+
+<h2>Stress-Test the Fee Against Buyer Discipline</h2>
+
+<p>The single input that swings your fee the most is the buyer's rule, and it is the one outside your control. So do not trust a fee that only works at one assumption. Build a small sensitivity table that recomputes the fee across the range of discipline your buyers actually use, holding your contract price at $150,000.</p>
+
+<table>
+<thead>
+<tr><th>Buyer's rule</th><th>Buyer ceiling <code>=B2*rule-B3</code></th><th>Your fee <code>=ceiling-150,000</code></th><th>Verdict</th></tr>
+</thead>
+<tbody>
+<tr><td>65% (tight market)</td><td>$150,000</td><td>$0</td><td>KILL</td></tr>
+<tr><td>70% (normal)</td><td>$165,000</td><td>$15,000</td><td>GO</td></tr>
+<tr><td>75% (hot market)</td><td>$180,000</td><td>$30,000</td><td>GO</td></tr>
+</tbody>
+</table>
+
+<p>That table is the difference between a real wholesaler and someone forwarding contracts. The same house and the same contract price produce a $0 fee or a $30,000 fee depending purely on how hungry buyers are right now. If your local buyers have tightened to 65 percent because rates are high and inventory is sitting, this deal at $150,000 has no fee in it, and the sensitivity table tells you that before you waste your marketing on it. Sort your pipeline by the fee at your most likely buyer rule and you stop spending time on contracts the market cannot pay.</p>
+
+<h3>The Costs That Quietly Eat the Fee</h3>
+
+<p>The 70 percent rule is shorthand. That 30 percent of ARV the buyer holds back is not all profit, it covers their holding cost, closing on both ends, agent commissions, and concessions on the resale. If you want to pressure-test a thin deal instead of trusting the rule of thumb, unpack it. Subtract the buyer's real costs and required profit from ARV and rehab directly:</p>
+
+<p><code>B13 =B2-B3-Buyer_Costs-Buyer_Profit</code></p>
+
+<p>On the example, buyer holding plus closing plus selling costs of $26,000 and a required profit of $40,000 give $300,000 minus $45,000 minus $26,000 minus $40,000, which is $189,000. That is higher than the 70 percent rule's $165,000, which tells you this particular buyer has more room than the rule of thumb assumes, and you may be leaving fee on the table by anchoring to 70 percent. When the unpacked number and the rule disagree by this much, you negotiate toward the higher ceiling and let the buyer's own math, not a generic multiplier, set your fee.</p>
+
+<h2>From Spreadsheet to Signed Assignment</h2>
+
+<p>Build the four input cells, the buyer ceiling formula, the fee formula, the KILL/THIN/GO flag, and the reverse formula that sets your seller offer, and you have a tool that ends the most expensive habit in wholesaling: locking a property around a fee you imagined. Run every lead through it before you sign anything. If the fee at your likely buyer rule comes back THIN or KILL, you either renegotiate the seller down to your maximum allowable offer or you pass, and either way you protected your earnest money and your reputation with your buyers list. The wholesalers who last are not the ones who chase the biggest fee. They are the ones who know the real fee before they commit, every time.</p>
+
+<p>If you are running more than a deal or two a month, or wholesaling alongside flips and BRRRR projects, a single-sheet calculator stops being enough. The <a href="/products/flip-brrrr-calculator">SheetCraft Flip &amp; BRRRR Calculator</a> backs into your assignment fee, maximum allowable offer, and end buyer profit in one workbook, then carries the same ARV and rehab numbers straight into a full flip or BRRRR analysis when you decide to keep a deal instead of assign it. It is built for investors who set their offer from the buyer's ceiling, not from a fee they wish for. Plug in your next lead and know the fee that is actually in it before you pick up the phone.</p>`,
+  },
+  {
     slug: 'rental-property-insurance-cost-tracker-excel',
     title: 'Rental Property Insurance Cost Tracker in Excel: Catch the Premium Quietly Eating Your Cash Flow',
     metaTitle: 'Rental Insurance Cost Tracker | SheetCraft',
