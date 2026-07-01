@@ -16,6 +16,133 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-seller-net-sheet-excel',
+    title: 'Real Estate Seller Net Sheet in Excel: The Check You Actually Walk Away With',
+    metaTitle: 'Real Estate Seller Net Sheet Excel | SheetCraft',
+    metaDescription: 'A real estate seller net sheet in Excel shows the check you walk away with. Put commissions, transfer tax, and prorations in the number before you list.',
+    targetKeyword: 'real estate seller net sheet Excel',
+    secondaryKeywords: ['seller net sheet template', 'seller closing costs Excel', 'net proceeds calculator', 'estimated seller proceeds', 'flip profit after closing costs'],
+    excerpt: 'Flippers project profit off the sale price and forget that eight to ten percent of it never reaches their check. A real estate seller net sheet in Excel puts commissions, transfer tax, title, concessions, and prorations into the number before you list, so your projected profit is the money you actually pocket. Build it once and it hands you your list floor and your concession headroom on every deal.',
+    publishedAt: '2026-07-01',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-seller-net-sheet-excel.png',
+    imageAlt: 'Flat illustration of a house feeding into a spreadsheet with one gold cell for net proceeds, small tags branching off for deductions like commission and transfer tax, and a bank check at the bottom, representing a real estate seller net sheet in Excel',
+    content: `<h1>Real Estate Seller Net Sheet in Excel: The Check You Actually Walk Away With</h1>
+
+<p>Ask a flipper what they made on a deal and most do the same subtraction in their head: sale price minus purchase price minus rehab. Sold for $340,000, bought at $220,000, put in $55,000, so that is $65,000, right? Wrong, and the gap is not small. Somewhere between eight and ten percent of that sale price never reaches your bank account. It gets peeled off at the closing table by commissions, transfer tax, title fees, prorations, and the concession you handed the buyer to keep the deal together. A real estate seller net sheet in Excel is the one document that turns the sale price into the actual check you walk away with, and if you build it before you list instead of reading it off the settlement statement after, you stop being surprised by your own profit.</p>
+
+<p>This article builds the net sheet line by line, gives you the exact formulas, then shows you the two numbers it produces that nothing else on your desk will: the lowest price you can list at and still hit your required profit, and how much room you have to give a buyer a credit at the table before the deal goes thin. The point is not to admire a spreadsheet. It is to know your walk-away number cold, while you can still do something about it.</p>
+
+<h2>Why "Sale Price Minus Costs" Is a Lie Your Profit Believes</h2>
+
+<p>The naive profit number treats the sale price as if it were cash in hand. It is not. The sale price is the top of a waterfall, and by the time the water reaches you, a chunk is gone. Here is the same flip run honestly. You paid $220,000 in cash, spent $3,500 on the purchase side closing, put $55,000 into the rehab, and carried the property for six months at $6,500 in taxes, insurance, and utilities. Your real cash in the deal is $285,000, not $275,000. Now you sell at $340,000 and the sale side takes its cut before you touch a dollar.</p>
+
+<table>
+<thead>
+<tr><th>Line item</th><th>How it is set</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Agent commission (6%)</td><td>Percent of sale price</td><td>$20,400</td></tr>
+<tr><td>Transfer / excise tax (0.75%)</td><td>Percent of sale price</td><td>$2,550</td></tr>
+<tr><td>Title insurance and escrow</td><td>Quoted flat</td><td>$2,500</td></tr>
+<tr><td>Buyer concession / credit</td><td>Negotiated</td><td>$5,000</td></tr>
+<tr><td>Property tax proration</td><td>Days you owe times daily rate</td><td>$2,105</td></tr>
+<tr><td>Recording, home warranty, misc</td><td>Flat</td><td>$1,100</td></tr>
+<tr><td><strong>Total selling costs</strong></td><td></td><td><strong>$33,655</strong></td></tr>
+</tbody>
+</table>
+
+<p>Net proceeds are $340,000 minus $33,655, which is $306,345. Subtract your real cash in of $285,000 and the profit is $21,345, not $65,000. The $43,655 that evaporated is not a rounding error, it is two thirds of the profit you thought you had. The flipper who quotes $65k at the bar is describing a number that never existed. The one who runs a net sheet knows the deal clears about $21k and prices, negotiates, and celebrates accordingly.</p>
+
+<p>It gets worse if you shade the price down to move the property. Say you get nervous and take a $325,000 offer thinking you are still up around $50,000. The net sheet says otherwise. At $325,000 your percentage costs shrink slightly, selling costs land near $32,650, net proceeds are $292,350, and your profit is $7,350. A $15,000 haircut on price cost you $14,000 of profit, because you were already close to the bone and did not know it. Without the net sheet, that decision feels like leaving a little on the table. With it, you can see it nearly wiped you out.</p>
+
+<h2>The Net Sheet: Every Line That Comes Out of Your Check</h2>
+
+<p>Build the sheet in two blocks. The top block is what you enter, four deal facts and two rates. The bottom block is what Excel computes. Lay it out so you can change the sale price and watch every downstream number move, because you will run this at three different prices before you settle on a list price.</p>
+
+<h3>The Input Block</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Sale price</td><td>$340,000</td></tr>
+<tr><td>B3</td><td>Purchase price</td><td>$220,000</td></tr>
+<tr><td>B4</td><td>Rehab spent</td><td>$55,000</td></tr>
+<tr><td>B5</td><td>Holding plus buy-side closing</td><td>$10,000</td></tr>
+<tr><td>B6</td><td>Commission rate</td><td>6%</td></tr>
+<tr><td>B7</td><td>Transfer tax rate</td><td>0.75%</td></tr>
+<tr><td>B8</td><td>Annual property tax</td><td>$4,200</td></tr>
+<tr><td>B9</td><td>Unpaid days you owe at closing</td><td>183</td></tr>
+</tbody>
+</table>
+
+<p>Two of these deserve a note. The commission rate is total, both sides, and even in a market where buyers negotiate their agent's fee separately, plan for what you will actually pay to get the property sold. The transfer tax rate is the one flippers get burned on, because it swings wildly by state. Texas charges nothing. Washington, Delaware, and parts of New York and New Jersey can take well over one percent, and some cities stack their own tax on top. Look up your county's rate once and hard-code it, because on a $340,000 sale the difference between zero and 1.5 percent is $5,100 of profit.</p>
+
+<h3>The Deductions and the Formulas</h3>
+
+<p>Now the sheet does the arithmetic. The two percentage lines key off the sale price, so they update the moment you test a new price:</p>
+
+<p><code>B11 =B2*B6</code> commission, returns $20,400</p>
+<p><code>B12 =B2*B7</code> transfer tax, returns $2,550</p>
+
+<p>Title and escrow, the buyer concession, and the recording and warranty bucket are flat numbers you enter from your title company quote and the purchase contract. The one line people fumble is the property tax proration. In most states the seller owes property tax for the part of the year they owned the home but has not paid yet, and that balance is deducted at closing. Compute it as the annual tax divided by 365, times the days you are on the hook for:</p>
+
+<p><code>B15 =B8/365*B9</code></p>
+
+<p>That returns $4,200 divided by 365, times 183 days, which is $2,105. Direction matters. In some states taxes are paid in arrears and this is a credit to the buyer that comes out of your side, in others they are prepaid and the buyer reimburses you, which flips the sign. Match your state, but never leave the line at zero, because a full year of taxes is real money. Then total the deductions:</p>
+
+<p><code>B17 =SUM(B11:B16)</code></p>
+
+<h2>Build It Once, Reuse It on Every Deal</h2>
+
+<p>The results block is four formulas that turn the deductions into the only numbers you care about: what hits your account, and what you actually made.</p>
+
+<table>
+<thead>
+<tr><th>Result</th><th>Formula</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Net proceeds at closing</td><td><code>=B2-B17</code></td><td>$306,345</td></tr>
+<tr><td>Total cash in deal</td><td><code>=B3+B4+B5</code></td><td>$285,000</td></tr>
+<tr><td>Net profit</td><td><code>=B19-B20</code></td><td>$21,345</td></tr>
+<tr><td>Return on cash</td><td><code>=B21/B20</code></td><td>7.5%</td></tr>
+<tr><td>Verdict</td><td><code>=IF(B22&lt;0.08,"THIN",...)</code></td><td>THIN</td></tr>
+</tbody>
+</table>
+
+<p>The last row is the flag, and it is the whole reason to build this instead of eyeballing it. Have a thin deal announce itself instead of hiding behind a big sale price:</p>
+
+<p><code>B23 =IF(B22&lt;0.08,"THIN",IF(B22&lt;0.15,"OK","STRONG"))</code></p>
+
+<p>At a 7.5 percent return the flag reads THIN, which is the honest verdict on a flip that grosses $65k on paper but risks $285,000 to clear $21k over six months. Under eight percent, the deal is barely paying you for the risk and the time. Between eight and fifteen it is a working flip. Above fifteen you have a strong one. The flag is not there to be pessimistic. It is there so you never again confuse a large sale price with a large profit.</p>
+
+<h2>Two Numbers the Net Sheet Gives You That Nothing Else Does</h2>
+
+<p>Anyone can subtract costs after the fact. The reason to build this before you list is that the same formulas run backward, and backward is where the money is.</p>
+
+<h3>Your List Floor</h3>
+
+<p>You do not want to know your profit at a given price. You want to know the lowest price you can accept and still hit the profit the deal has to make. Because commission and transfer tax scale with the price, you cannot just add your target profit to your costs, you have to solve for it. Set your required profit, then divide your fixed obligations by one minus the percentage costs:</p>
+
+<p><code>B25</code> target profit, say $40,000</p>
+<p><code>B26 =(B25+B20+SUM(B13:B16))/(1-B6-B7)</code></p>
+
+<p>That takes your $40,000 target plus $285,000 cash in plus the $10,705 of flat selling costs, and divides by 0.9325 to gross up for the 6.75 percent that comes off the top. The answer is $359,984. That is your list floor. It says in plain numbers that if clearing $40,000 matters, $340,000 was never going to do it, you needed to be closer to $360,000, and you should have known that the day you bought. Drop below the floor in a negotiation and you are working for less than you planned, on purpose, with your eyes open instead of shut.</p>
+
+<h3>Your Concession Headroom</h3>
+
+<p>The other number shows up at the table. A buyer's inspection turns up a roof at end of life and they ask for an $8,000 credit. What does that do to you? Because a concession is a dollar-for-dollar line in the net sheet, the math is brutal and clean: every dollar of credit is a dollar off your profit. Your $21,345 becomes $13,345 the instant you agree. Change B14 from $5,000 to $13,000 and the profit cell tells you exactly where you land, and whether you are still above your walk-away line or should counter with a price reduction, a repair, or a firm no. You negotiate from a number, not from the fear of losing the deal.</p>
+
+<h2>From Sale Price to Signed Settlement</h2>
+
+<p>The net sheet is the discipline that separates flippers who compound from flippers who churn. Build the input block, the six deduction lines, the four result formulas, the flag, and the two reverse formulas for your list floor and concession headroom, and you have turned the most dangerous number in the business, the sale price you assume is profit, into the net proceeds you can actually count on. Run it before you list every single time. Run it again the moment a buyer asks for a credit. The five minutes it takes is the cheapest insurance you will ever buy against walking out of a closing with a check tens of thousands smaller than the one you spent.</p>
+
+<p>If you are underwriting a flip or a BRRRR before you buy, the net sheet is only the exit half of the picture, and you want both halves in one place. The <a href="/products/flip-brrrr-calculator">SheetCraft Flip &amp; BRRRR Calculator</a> carries your purchase price, rehab, holding, and financing straight through to a built-in seller net sheet, so your projected profit already has commissions, transfer tax, prorations, and concessions subtracted from day one. It gives you the same list floor and walk-away number this article builds, plus the buy-side analysis that tells you whether the deal was worth chasing in the first place. Put your next deal in it and let the net proceeds, not the sale price, decide whether you make the offer.</p>`,
+  },
+  {
     slug: 'wholesale-assignment-fee-calculator',
     title: 'Wholesale Assignment Fee Calculator in Excel: Back Into the Fee, Don\'t Guess It',
     metaTitle: 'Wholesale Assignment Fee Calculator | SheetCraft',
