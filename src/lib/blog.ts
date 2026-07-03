@@ -16,6 +16,140 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'flip-vs-wholesale-profit-comparison-excel',
+    title: 'Flip vs Wholesale Profit Comparison in Excel: Same House, Two Exits',
+    metaTitle: 'Flip vs Wholesale Profit Comparison Excel | SheetCraft',
+    metaDescription: 'Flip vs wholesale profit comparison in Excel: model a $15,000 assignment against a $51,000 flip on the same house and pick on numbers, not adrenaline.',
+    targetKeyword: 'flip vs wholesale profit comparison Excel',
+    secondaryKeywords: ['flip vs wholesale', 'assignment fee vs flip profit', 'real estate exit strategy spreadsheet', 'house flip net profit calculator', 'wholesale real estate profit'],
+    excerpt: 'You have one house under contract and two ways out: assign it today for a $15,000 wholesale fee with almost no capital at risk, or flip it over five months for a net that looks like $90,000 on the napkin and lands near $51,000 after real costs. Those are not the same bet, and the bigger headline number is not automatically the better one. This Excel model puts both exits side by side, strips the flip down to true net profit, and scores them on dollars per day and cash at risk so you pick on math instead of the high number.',
+    publishedAt: '2026-07-03',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/flip-vs-wholesale-profit-comparison-excel.png',
+    imageAlt: 'Flat illustration of a house connected by two arrows to two panels, a handshake with a single gold coin on the left for the wholesale assignment fee and hammer tools with a tall stack of gold coins on the right for the flip, with a gold highlight bar, representing a flip vs wholesale profit comparison in Excel',
+    content: `<h1>Flip vs Wholesale Profit Comparison in Excel: Same House, Two Exits</h1>
+
+<p>You have one house under contract and two ways out of it. Assign the contract today and collect a $15,000 wholesale fee with almost no capital at risk, or close on it yourself, rehab it, and flip it in five months for a number that looks like $90,000 on the napkin. Most investors pick the flip on reflex, because $90,000 beats $15,000 and the flip feels like the real deal. That reflex is where money quietly leaks out. A flip vs wholesale profit comparison in Excel forces the two exits onto the same page, strips the flip down to its true net after every carrying cost, and scores both on the only measures that matter: dollars per day and cash you can lose. Once the spreadsheet does the arithmetic, the bigger headline number stops being an automatic win.</p>
+
+<p>This article builds that comparison in one Excel file. You get the flip model that turns the $90,000 napkin gross into a real net, the wholesale model that takes ten minutes, and the decision engine that scores both on velocity and risk so you choose on math instead of adrenaline. The point is not to talk you out of flipping. It is to make sure that when you tie up your capital for five months, you did it because the numbers said so, not because the small check felt beneath you.</p>
+
+<h2>The Same House, Two Exits</h2>
+
+<p>Here is the deal. A 3 bed, 2 bath, 1,450 square foot house you have under contract to buy for $150,000. After repair value sits around $285,000 based on three closed comps within half a mile. A full cosmetic-plus rehab runs about $45,000 on your budget. You have a cash buyer in your phone who will take the contract off your hands for a $15,000 assignment fee and close in twelve days. So the question is not "is this a good deal." It is "which exit is the better use of the next five months and the capital they cost."</p>
+
+<table>
+<thead>
+<tr><th>What you compare</th><th>Wholesale (assign)</th><th>Flip (rehab and resell)</th></tr>
+</thead>
+<tbody>
+<tr><td>Headline number</td><td>$15,000 fee</td><td>$90,000 gross spread</td></tr>
+<tr><td>Time to cash</td><td>~12 days</td><td>~5 months</td></tr>
+<tr><td>Your capital at risk</td><td>$1,000 earnest money</td><td>$70,000+ cash in the deal</td></tr>
+<tr><td>Who does the work</td><td>You assign, buyer executes</td><td>You manage GC, financing, sale</td></tr>
+<tr><td>Downside if it goes wrong</td><td>Lose the deal or earnest money</td><td>Rehab overrun, market shift, profit gone</td></tr>
+</tbody>
+</table>
+
+<p>The two columns are not the same bet in a smaller and larger size. They are different animals. Wholesale is a fast, near-riskless fee for finding and controlling a deal. Flip is a leveraged, five-month project with real downside and real upside. Comparing them on the headline number alone is like comparing a paycheck to a business, then picking the business because the top-line revenue is bigger. You have to run both to true net and then to return, which is what the rest of the file does.</p>
+
+<h2>Model the Flip Down to True Net Profit</h2>
+
+<p>The flip napkin says $285,000 minus $150,000 purchase minus $45,000 rehab equals $90,000. That number is a fantasy, because it ignores every dollar it costs to own, finance, and sell the house. Build the flip block so the spreadsheet subtracts each one and shows you what actually lands in your account. Put the inputs in column B and let the formulas do the rest.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line item</th><th>Value / formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>After repair value (sale price)</td><td>285,000</td><td>$285,000</td></tr>
+<tr><td>B3</td><td>Purchase price</td><td>150,000</td><td>$150,000</td></tr>
+<tr><td>B4</td><td>Rehab budget</td><td>45,000</td><td>$45,000</td></tr>
+<tr><td>B5</td><td>Rehab actual (15% contingency)</td><td><code>=B4*1.15</code></td><td>$51,750</td></tr>
+<tr><td>B6</td><td>Purchase closing costs (2%)</td><td><code>=B3*0.02</code></td><td>$3,000</td></tr>
+<tr><td>B7</td><td>Loan amount (90% of purchase, rehab paid cash)</td><td><code>=B3*0.9</code></td><td>$135,000</td></tr>
+<tr><td>B8</td><td>Financing points (2 pts)</td><td><code>=B7*0.02</code></td><td>$2,700</td></tr>
+<tr><td>B9</td><td>Interest (11%, 5 months)</td><td><code>=B7*0.11*(5/12)</code></td><td>$6,188</td></tr>
+<tr><td>B10</td><td>Holding (taxes, insurance, utilities)</td><td><code>=650*5</code></td><td>$3,250</td></tr>
+<tr><td>B11</td><td>Selling costs (6% of ARV)</td><td><code>=B2*0.06</code></td><td>$17,100</td></tr>
+<tr><td>B12</td><td>Net flip profit</td><td><code>=B2-B3-B5-B6-B8-B9-B10-B11</code></td><td>$51,012</td></tr>
+</tbody>
+</table>
+
+<p>Read what happened between the napkin and cell B12. The $90,000 gross became about $51,000 net, and it did not lose $39,000 to one big surprise. It bled out across six ordinary line items that the napkin never listed. The 15 percent rehab contingency in B5 alone ate $6,750, and that is not pessimism, it is what actually happens when you open walls. Financing cost you nearly $9,000 in points and interest before the house even sold. Selling it cost another $17,100 in agent commission and closing. None of these are avoidable. They are the price of the flip, and the only mistake is pretending they are zero.</p>
+
+<h3>Why the contingency and the interest are the two that bite</h3>
+
+<p>Two of those lines swing the outcome more than the rest, so model them as variables, not guesses. Make the rehab contingency in B5 a rate you can slide from 10 to 20 percent, because a light cosmetic job might run 10 while anything touching plumbing, electrical, or foundation deserves 20. Make the interest in B9 tied to a real month count, not a hopeful one. If the sale drags from five months to seven, change the 5 to 7 and watch B12 drop by roughly $2,500 in extra interest and $1,300 in extra holding. A flip that nets $51,000 in five months nets closer to $47,000 in seven, and every extra week of a slow market comes straight out of that number. The flip is not a fixed prize. It is a countdown.</p>
+
+<h2>The Wholesale Exit Is Simpler, and That Is the Point</h2>
+
+<p>The wholesale block barely needs formulas, which is exactly why it deserves respect. You control a contract at $150,000, you assign it to a buyer at $165,000, and the $15,000 spread is your fee. Model it in column C so the two exits sit side by side.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line item</th><th>Value / formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>C2</td><td>Assignment fee</td><td>15,000</td><td>$15,000</td></tr>
+<tr><td>C3</td><td>Marketing to find buyer</td><td>250</td><td>$250</td></tr>
+<tr><td>C4</td><td>Net wholesale profit</td><td><code>=C2-C3</code></td><td>$14,750</td></tr>
+<tr><td>C5</td><td>Capital at risk (earnest money)</td><td>1,000</td><td>$1,000</td></tr>
+<tr><td>C6</td><td>Days to cash</td><td>12</td><td>12</td></tr>
+</tbody>
+</table>
+
+<p>The wholesale net is $14,750 against $1,000 of earnest money that you usually get back at closing anyway. There is no contingency line because you never open a wall. There is no interest line because you never borrow. There is no selling cost because the buyer pays their own closing. The entire risk is that your buyer walks and you have to find another, or worst case you lose a $1,000 deposit. Compare that to the flip, where the same house can turn on you for five months. The wholesale gives up upside in exchange for taking almost all of the risk off the table, and the spreadsheet needs to price that trade honestly instead of treating $14,750 as simply "less."</p>
+
+<h2>The Decision Engine: Dollars Per Day and Cash at Risk</h2>
+
+<p>Now score both exits on the two measures that cut through the headline number. The first is velocity: how many dollars each deal produces per day it holds your attention and your capital. The second is return on the cash you actually put at risk. Add these rows and let the formulas call it.</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Formula</th><th>Wholesale</th><th>Flip</th></tr>
+</thead>
+<tbody>
+<tr><td>Net profit</td><td><code>=C4</code> / <code>=B12</code></td><td>$14,750</td><td>$51,012</td></tr>
+<tr><td>Days to cash</td><td><code>=C6</code> / 150</td><td>12</td><td>150</td></tr>
+<tr><td>Dollars per day</td><td><code>=Net/Days</code></td><td>$1,229</td><td>$340</td></tr>
+<tr><td>Cash at risk</td><td><code>=C5</code> / <code>=B3*0.1+B5+B6</code></td><td>$1,000</td><td>$69,750</td></tr>
+<tr><td>Return on cash</td><td><code>=Net/CashAtRisk</code></td><td>1,475%</td><td>73%</td></tr>
+<tr><td>Annualized return</td><td><code>=(Net/CashAtRisk)*(365/Days)</code></td><td>44,860%</td><td>178%</td></tr>
+</tbody>
+</table>
+
+<p>Look at what the decision engine just did to the $90,000 headline. On dollars per day, the wholesale produces $1,229 for every day it lives on your desk while the flip produces $340. On return on the cash you can actually lose, the wholesale returns your fee on a $1,000 deposit while the flip returns 73 percent on nearly $70,000 of real money locked up for five months. The flip still wins on one thing that matters enormously: absolute dollars. It puts $51,012 in your account versus $14,750, and no ratio changes the fact that $51,012 buys more than $14,750. The engine is not telling you to always wholesale. It is telling you the two exits win on different axes, and which axis matters depends entirely on your situation.</p>
+
+<h3>The tiebreaker most investors miss</h3>
+
+<p>Here is the row that actually decides it, and almost nobody builds it: deal replacement. The flip ties up your capital and your calendar for five months. In those same five months, how many wholesale deals can your pipeline realistically produce? Add a cell for that. If you can source and assign a comparable deal every five weeks, five months of wholesaling is four fees, roughly <code>=C4*4</code> or $59,000, against the single flip's $51,012, with a hundredth of the capital at risk and none of the rehab exposure. Put it in one line:</p>
+
+<p><code>=IF(C4*Deals_Per_5mo&gt;B12,"WHOLESALE PIPELINE WINS","FLIP WINS")</code></p>
+
+<p>If your pipeline is dry and you have idle cash sitting in the bank earning nothing, the flip is the better home for that money and the $51,012 is real. If your pipeline is full and your cash is thin or already working, wholesaling the same effort four or five times beats one flip on total dollars and crushes it on risk. The comparison is never flip versus wholesale in the abstract. It is this flip, against what your pipeline can actually replace it with, using the cash you actually have.</p>
+
+<h2>Run This Before You Sign, Every Time</h2>
+
+<p>Before you commit a house to either exit, make the model answer five questions with numbers, not instinct:</p>
+
+<ul>
+<li>What is the flip's true net in cell B12 after a real 15 percent rehab contingency and real financing, not the napkin gross?</li>
+<li>How much of your own cash does the flip lock up, and what else could that cash be doing for five months?</li>
+<li>What is each exit's dollars per day, and can you stomach the flip earning $340 a day while the market decides your fate?</li>
+<li>How far can the sale slip before the flip net falls below the wholesale fee? Slide the month count until B12 hits $14,750 and you have your breakeven timeline.</li>
+<li>How many wholesale deals can your pipeline replace this flip with in the same five months?</li>
+</ul>
+
+<p>When you answer those, the choice makes itself, and it will not always be the same choice. A capital-rich investor with a thin pipeline and a stable market should take the flip and its $51,012. A capital-light investor with deals stacking up should wholesale, bank the $14,750, and go find the next one. The spreadsheet exists so you make that call on your actual constraints instead of the size of the headline.</p>
+
+<h2>Stop Choosing Exits on Adrenaline</h2>
+
+<p>The flip is not automatically the better deal because $90,000 is a bigger number than $15,000. After the contingency, the points, five months of interest, the carrying costs, and the agent's commission, that $90,000 gross is a $51,000 net, and it took twelve times as long and seventy times as much capital at risk to earn it as the wholesale did. Sometimes that trade is worth it. Sometimes assigning the contract today and hunting the next one is the smarter, faster, safer play. The only way to know is to model both exits on the same house, on the same page, with every real cost included.</p>
+
+<p>Our <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> is built to run exactly this comparison. It carries the full flip model with rehab contingency, hard money points and interest, holding costs, and selling costs already wired to net profit, plus the dollars-per-day and cash-at-risk scoring that puts the wholesale fee next to the flip net so you see both exits at once. Drop in your purchase price, ARV, rehab number, and assignment fee, and it tells you which exit wins on velocity, on return, and on absolute dollars, before you sign anything. Model the deal, not the daydream, and let the numbers pick the exit.</p>`,
+  },
+  {
     slug: 'rehab-scope-of-work-template-excel',
     title: 'Rehab Scope of Work Template in Excel: Make Contractors Bid Apples to Apples',
     metaTitle: 'Rehab Scope of Work Template Excel | SheetCraft',
