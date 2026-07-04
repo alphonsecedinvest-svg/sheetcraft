@@ -16,6 +16,129 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'concrete-estimating-spreadsheet-excel',
+    title: 'Concrete Estimating Spreadsheet in Excel: Bid the Pour, Not the Guess',
+    metaTitle: 'Concrete Estimating Spreadsheet Excel | SheetCraft',
+    metaDescription: 'A concrete estimating spreadsheet in Excel that computes cubic yards, waste factor, rebar, and placement labor so your bid covers the pour.',
+    targetKeyword: 'concrete estimating spreadsheet Excel',
+    secondaryKeywords: ['concrete takeoff spreadsheet', 'cubic yards calculator Excel', 'concrete cost estimator', 'ready mix concrete waste factor', 'concrete slab estimate template'],
+    excerpt: 'A concrete sub loses money in the truck, not on the invoice: two yards short on the pour, a short-load fee on the last truck, or yards over-ordered and dumped in a wash rack. This concrete estimating spreadsheet in Excel computes cubic yards from real dimensions, adds one honest waste factor before you round, and prices rebar and placement labor as their own line items, so the number you bid actually covers the pour. Run the guess against the takeoff and the gap is real money, repeated on every job.',
+    publishedAt: '2026-07-04',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/concrete-estimating-spreadsheet-excel.png',
+    imageAlt: 'Flat illustration of a rebar-reinforced concrete slab foundation with corner dowels next to a ready-mix concrete truck and a spreadsheet panel with gold chart bars, representing a concrete estimating spreadsheet in Excel',
+    content: `<h1>Concrete Estimating Spreadsheet in Excel: Bid the Pour, Not the Guess</h1>
+
+<p>A concrete sub loses money in the truck, not on the invoice. You walk a slab, eyeball "about forty yards, couple grand of steel, two guys for a day," and write a number on the back of the plans. Then the pour comes up two yards short because nobody counted the turndown, the last truck rolls in with a short-load fee, and the yards you over-ordered on the next job get dumped in a wash rack because you had nowhere to put them. A concrete estimating spreadsheet in Excel kills that guess. It computes cubic yards from real dimensions, adds the waste factor before you round, prices the rebar and the placement labor as their own line items, and hands you a bid that actually covers the pour instead of one you hope covers it.</p>
+
+<p>This article builds that estimator in one workbook. You get the concrete takeoff spreadsheet that turns length, width, and thickness into ordered yards, the waste and short-load logic that keeps you from being the guy chasing a second truck, and the bid sheet that rolls concrete, steel, pump, and labor into a defensible number. The point is not to make you slower. A clean takeoff is faster than the guess, because the guess costs you a callback, a cold joint, or a margin you never see.</p>
+
+<h2>The Money You Lose Guessing Yardage</h2>
+
+<p>Ready-mix concrete runs about $175 per cubic yard delivered for a standard 3,000 to 4,000 psi mix in 2026, and that is before the fees that live in the fine print of the supplier ticket. Two of those fees eat concrete subs alive. The short-load fee hits every delivery under a full truck, usually anything below eight to ten yards, and it runs $40 to $60 per yard short or a flat charge near $150. The second is invisible: the yards you order and never place. Order 44 and pour 40 and you just paid $700 for concrete that hardened in the drum or got washed down a slope.</p>
+
+<p>Guessing pushes you into one of those two holes on almost every job. Under-guess and you come up short mid-pour, the finisher stands around while a second truck batches, and you either eat a short-load fee or fight a cold joint where the two loads met. Over-guess to be safe and you bleed the waste on every pour instead. The fix is not a bigger cushion. It is a takeoff that gives you the real number, then adds one honest waste factor on top so the cushion is sized on purpose, not on nerves.</p>
+
+<table>
+<thead>
+<tr><th>How you estimate the pour</th><th>The guess</th><th>The takeoff spreadsheet</th></tr>
+</thead>
+<tbody>
+<tr><td>Slab yardage</td><td>"About 40"</td><td>37.0 cy computed from dimensions</td></tr>
+<tr><td>Turndown / footing yardage</td><td>Forgotten</td><td>3.3 cy counted separately</td></tr>
+<tr><td>Waste factor</td><td>None, or a random +5</td><td>8% applied, rounded up to the yard</td></tr>
+<tr><td>Result on the pour</td><td>2 yards short, short-load fee</td><td>44 ordered, 40.3 needed, no surprise</td></tr>
+<tr><td>Rebar and labor</td><td>Lumped into a gut number</td><td>Priced as line items you can defend</td></tr>
+</tbody>
+</table>
+
+<h2>Build the Takeoff That Computes Cubic Yards</h2>
+
+<p>Every concrete estimate starts with volume, and volume is where the guess does its damage because a slab and a footing are not the same math. Give each element its own row so the cubic yards calculator in Excel adds them up instead of you carrying them in your head.</p>
+
+<h3>The slab formula</h3>
+
+<p>A flat slab is length times width times thickness, divided by 27 to convert cubic feet to cubic yards. The only trap is thickness, which lives in inches on the plans and has to become feet before it multiplies. Lay it out so the formula reads the inches directly:</p>
+
+<p>With length in <code>B2</code> (40 ft), width in <code>C2</code> (60 ft), and thickness in inches in <code>D2</code> (5 in), the slab volume in <code>E2</code> is <code>=(B2*C2*(D2/12))/27</code>. That returns 37.0 cubic yards. The <code>D2/12</code> converts the 5-inch slab to 0.417 feet, and the <code>/27</code> converts cubic feet to yards. Change the thickness to 6 inches and the number moves to 44.4 without you touching anything else, which is exactly the kind of what-if that catches a design change before it catches your margin.</p>
+
+<h3>Footings, turndowns, and columns</h3>
+
+<p>The turndown edge is the line item that turns a profitable slab into a break-even one because it is easy to miss and never small. Model it as a cross-section times a run. A 12-inch by 12-inch thickened edge around a 40 by 60 slab has a perimeter of 200 linear feet. Put width in inches in <code>B3</code> (12), depth in inches in <code>C3</code> (8, the part below the slab), and run in feet in <code>D3</code> (200). The volume in <code>E3</code> is <code>=(B3/12)*(C3/12)*D3/27</code>, which returns 3.3 cubic yards. That is nearly $600 of concrete plus the placement to go with it, sitting in a line item the guess never opens.</p>
+
+<p>Stack every element the same way and total them. If your slab is in <code>E2</code> and your turndown is in <code>E3</code>, the total needed in <code>E7</code> is <code>=SUM(E2:E6)</code>, which leaves rows for columns, piers, or a second slab. The needed number here is 40.3 cubic yards, and it is the number you place, not the number you order. Those are two different figures, and confusing them is the single most common way a concrete estimating spreadsheet in Excel still loses money.</p>
+
+<h2>Add the Waste Factor Before You Round Up</h2>
+
+<p>Concrete has spillage, over-excavation, form deflection, and the simple fact that you cannot place the last shovel of a load with a trowel. The real world eats 5 to 10 percent of what you batch, more on rough subgrade or hand-placed footings. Set the waste factor as its own cell so it is a decision, not an accident. Put 8% in <code>B10</code>, then compute the order in <code>E10</code>:</p>
+
+<p><code>=CEILING(E7*(1+$B$10),0.5)</code>. That takes 40.3 needed yards, adds 8% to reach 43.5, and rounds up to the nearest half yard the supplier will actually batch, giving 44 yards ordered. Locking the waste factor in one cell also lets you tune it by job type. Slab-on-grade over a laser-screeded base might run 5%. Footings in trench with a pump might run 12%. You change one number and the order updates, which beats carrying three different mental rules for three different pours.</p>
+
+<p>Now protect yourself from the short-load fee with a flag instead of a memory. The fee triggers on deliveries under the supplier threshold, so test the order against it. With the threshold in <code>B11</code> (8 yards), put <code>=IF(E10&lt;$B$11,"SHORT LOAD FEE LIKELY","FULL LOADS")</code> in <code>F10</code>. On a 44-yard pour that reads FULL LOADS. On a 5-yard equipment pad it reads SHORT LOAD FEE LIKELY, and you add the fee to the bid before you lose it on the ticket. The second flag watches your over-order: <code>=IF((E10-E7)*$B$12&gt;300,"REVIEW WASTE","OK")</code>, where <code>B12</code> holds the $175 unit cost. If the yards you ordered but do not need cost more than $300, the sheet tells you to look again before you pour money into the wash rack.</p>
+
+<h2>Rebar and Placement Labor, the Line Items That Sink Bids</h2>
+
+<p>Concrete is the headline, but reinforcing steel and placement labor are where a thin bid actually goes underwater. Both scale with the job in ways that are easy to underprice by feel, so the concrete cost estimator has to compute them, not gut-check them.</p>
+
+<h3>Reinforcing steel</h3>
+
+<p>Rebar in a slab is a grid, and a grid is countable. For #4 bar at 18 inches on center each way in a 40 by 60 slab, count the bars in each direction and multiply by their length. Bars running the long way sit across the 40-foot width: <code>=(ROUNDUP(B2/($B$14/12),0)+1)*C2</code>, where <code>B14</code> holds the 18-inch spacing. That returns 27 bars times 60 feet, or 1,620 linear feet. Bars the short way run across the 60-foot length: <code>=(ROUNDUP(C2/($B$14/12),0)+1)*B2</code>, giving 41 bars times 40 feet, or 1,640 linear feet. Sum them for 3,260 linear feet, then add lap splices: <code>=(3260)*(1+$B$15)</code> at a 10% lap factor lands near 3,586 linear feet. At $0.85 per foot for fabricated grade 60 material, that is roughly $3,048 of steel, a number you never want to discover after you signed.</p>
+
+<h3>Placement crew hours</h3>
+
+<p>Labor is yards divided by a production rate, times crew size, times a loaded wage. A five-man crew placing and finishing a flatwork slab with a line pump runs around 5 cubic yards per crew-hour on the placing side. Needed yards in <code>E7</code>, production rate in <code>B17</code> (5), crew size in <code>B18</code> (5), and loaded wage in <code>B19</code> ($55) give man-hours in one cell: <code>=(E7/B17)*B18</code>, which returns 40 man-hours, and cost as <code>=(E7/B17)*B18*B19</code>, or $2,200. Loaded wage means the real cost of the man on the job: base pay plus payroll taxes, workers comp, and burden, not the number on his check. Bid the check rate and you are financing your own crew.</p>
+
+<h2>The Bid Sheet That Ties It Together</h2>
+
+<p>The takeoff feeds one bid sheet where every cost is a line, the markup is a single cell, and the bottom line is a formula you can defend to a GC line by line. Here is the 40 by 60 reinforced slab priced the way the spreadsheet does it.</p>
+
+<table>
+<thead>
+<tr><th>Line item</th><th>Quantity</th><th>Unit</th><th>Unit cost</th><th>Total</th></tr>
+</thead>
+<tbody>
+<tr><td>Ready-mix concrete (ordered)</td><td>44</td><td>cy</td><td>$175</td><td>$7,700</td></tr>
+<tr><td>Line pump (day)</td><td>1</td><td>day</td><td>$1,200</td><td>$1,200</td></tr>
+<tr><td>Rebar #4 material</td><td>3,586</td><td>lf</td><td>$0.85</td><td>$3,048</td></tr>
+<tr><td>Rebar tie and place labor</td><td>16</td><td>mhr</td><td>$45</td><td>$720</td></tr>
+<tr><td>Placement and finish labor</td><td>40</td><td>mhr</td><td>$55</td><td>$2,200</td></tr>
+<tr><td>Vapor barrier and misc</td><td>2,400</td><td>sf</td><td>$0.35</td><td>$840</td></tr>
+<tr><td>Equipment and tools</td><td>1</td><td>ls</td><td>$400</td><td>$400</td></tr>
+<tr><td><strong>Direct cost subtotal</strong></td><td></td><td></td><td></td><td><strong>$16,108</strong></td></tr>
+<tr><td>Overhead and profit (20%)</td><td></td><td></td><td></td><td>$3,222</td></tr>
+<tr><td><strong>Bid total</strong></td><td></td><td></td><td></td><td><strong>$19,330</strong></td></tr>
+</tbody>
+</table>
+
+<p>Total the direct costs with <code>=SUM(E20:E26)</code>, apply markup with <code>=E27*(1+$B$28)</code> where <code>B28</code> holds 0.20, and you have $19,330 before you round the bid to $19,500. Now add the sanity check the guess never has. Cost per placed yard is <code>=E29/E7</code>, or $479 per cubic yard on the 40.3 you actually pour. Set your floor and flag it: <code>=IF(E29/E7&lt;$B$30,"TOO LOW, REVIEW","OK")</code>, with your break-even per yard in <code>B30</code>. If a fat-fingered dimension or a missed line drops you under the floor, the sheet says so in red before the number leaves your truck, not after the GC accepts it.</p>
+
+<h3>Run the guess against the takeoff</h3>
+
+<p>The same slab, guessed, gets bid near $14,000. The estimator forgot the 3.3-yard turndown, skipped the waste factor and under-ordered, priced rebar by feel at "a couple grand," and lumped labor into a round number. Come pour day it is a truck short, eats a short-load fee, fights a cold joint, and the finished job clears maybe $1,500 on a slab that should have carried $3,200. That $1,700 gap is not bad luck. It is the difference between a number you computed and a number you hoped for, repeated across every pour on the calendar.</p>
+
+<h2>Concrete Bid Checklist</h2>
+
+<p>Before any concrete number leaves your desk, the spreadsheet should confirm all of it:</p>
+
+<ul>
+<li>Every element has its own volume row: slab, turndown, footings, columns, piers.</li>
+<li>Thickness is entered in inches and divided by 12 inside the formula, not converted by hand.</li>
+<li>The waste factor is a single named cell, sized to the job type, applied before rounding.</li>
+<li>The order is rounded up to a half yard the supplier will batch, and the short-load flag has been read.</li>
+<li>Rebar is counted as a grid with lap splices added, priced per foot, not estimated as a lump.</li>
+<li>Labor is yards over a production rate at a loaded wage, not a crew day pulled from memory.</li>
+<li>The pump, vapor barrier, and equipment each have a line, because a forgotten line is a free line for the GC.</li>
+<li>The cost-per-yard flag reads OK against your floor before you round and send.</li>
+</ul>
+
+<h2>Bid the Pour on Numbers, Not Nerves</h2>
+
+<p>A concrete estimating spreadsheet in Excel is not about loving spreadsheets. It is about never again standing on a slab watching a finisher wait for a truck that should have been ordered, or watching yards you paid for run down a wash rack because the guess ran the other way. The takeoff computes the cubic yards, the waste factor sizes the cushion on purpose, and the bid sheet proves the number covers concrete, steel, pump, and labor with margin left standing.</p>
+
+<p>If you would rather not rebuild that takeoff and bid sheet from a blank workbook on every job, SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with a concrete estimate structured this way already: element-by-element volume rows with the cubic yards math built in, the waste factor and short-load flag wired up, rebar and placement labor priced as their own lines, and a cost-per-yard check that catches a thin bid before it leaves. The same workbook carries your estimate straight into budget tracking, so the yards and dollars you bid are the yards and dollars you watch against the actual pour. Bid the takeoff, not the guess, and keep the waste off your fee.</p>`,
+  },
+  {
     slug: 'flip-vs-wholesale-profit-comparison-excel',
     title: 'Flip vs Wholesale Profit Comparison in Excel: Same House, Two Exits',
     metaTitle: 'Flip vs Wholesale Profit Comparison Excel | SheetCraft',
