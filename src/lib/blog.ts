@@ -16,6 +16,153 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-weather-delay-log-excel',
+    title: 'Construction Weather Delay Log in Excel: Turn Rain Days Into Approved Time Extensions',
+    metaTitle: 'Construction Weather Delay Log Excel | SheetCraft',
+    metaDescription: 'A construction weather delay log in Excel that records measurable daily conditions so your time extension claim holds up and the schedule slip stays off you.',
+    targetKeyword: 'construction weather delay log Excel',
+    secondaryKeywords: ['weather delay documentation', 'time extension claim template', 'construction delay log template', 'excusable delay tracking', 'daily weather log construction'],
+    excerpt: 'A diary note that says \'rain, no work\' wins zero time extensions. This construction weather delay log in Excel records measurable daily conditions against the activity that was actually scheduled, separates excusable delays from the weather you were supposed to expect, and turns a wet month into the exact number of days you are owed, so liquidated damages stay off your account.',
+    publishedAt: '2026-07-05',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-weather-delay-log-excel.png',
+    imageAlt: 'Flat illustration of an idle excavator and paused tower crane on a rainy construction site beside a rebar concrete foundation, next to a spreadsheet panel with a calendar grid and gold chart bars, representing a construction weather delay log in Excel',
+    content: `<h1>Construction Weather Delay Log in Excel: Turn Rain Days Into Approved Time Extensions</h1>
+
+<p>A rain day you did not document is a rain day you paid for. On a fixed-schedule contract, the morning the ground was too wet to place footings still counts against your completion date, and when you miss that date the owner starts subtracting liquidated damages at a rate you agreed to before the first storm. A construction weather delay log in Excel is the difference between "it rained a lot in January" and a time extension request the owner's rep actually approves. One is a memory. The other is a dated, measured, activity-linked record that moves the schedule slip off your back and onto the weather, where it belongs.</p>
+
+<p>This article builds that log in one workbook. You get the daily record that captures measurable conditions against the activity that was actually scheduled, the formulas that separate an excusable delay from weather you were supposed to expect, and the monthly rollup that turns a column of adverse days into the exact number of days you are owed. Skip it and you are negotiating your completion date from memory against an owner holding a signed contract and a stack of your invoices.</p>
+
+<h2>Why "It Rained" Is Not a Time Extension Claim</h2>
+
+<p>Most contractors already write weather in the daily log. The problem is what they write: "Rain, no work." That line does nothing for you six weeks later when you are 9 days over and the owner's project manager wants to know why. A time extension is granted on evidence, not sympathy, and almost every prime contract sets a bar you have to clear. The two you meet most often are these: the delay must have hit a controlling activity on the critical path, and the weather must have been worse than what a reasonable contractor should have anticipated for that location and season. "Rain, no work" proves neither.</p>
+
+<p>Here is the cost of getting it wrong. On a $2.4M commercial tenant improvement with liquidated damages at $1,500 per day, a wet January that pushes you 5 days past substantial completion is $7,500 the owner is contractually entitled to withhold. If you cannot document the days, your only move is to accelerate: overtime, a second crew, a concrete pump you did not budget, all to claw back time that was never your fault. You spend money to avoid a penalty for a delay you were legally entitled to pass through. The weather delay log exists to make sure you never pay twice for the same storm.</p>
+
+<h2>What the Log Must Capture Every Single Day</h2>
+
+<p>A defensible entry is contemporaneous, measured, and tied to the specific activity that could not proceed. Adjectives lose claims. Numbers win them. Build one row per calendar day with these columns, and fill it in that day, not when the claim gets written.</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Day</th><th>Scheduled activity</th><th>Precip limit (in)</th><th>Low °F</th><th>Precip (in)</th><th>Wind (mph)</th><th>Status</th><th>Crew idled</th><th>Crew-hrs lost</th><th>Adverse?</th></tr>
+</thead>
+<tbody>
+<tr><td>01/06</td><td>Tue</td><td>Form + place footings</td><td>0.10</td><td>38</td><td>0.45</td><td>12</td><td>Lost</td><td>6</td><td>48</td><td>1</td></tr>
+<tr><td>01/07</td><td>Wed</td><td>Form + place footings</td><td>0.10</td><td>34</td><td>0.05</td><td>9</td><td>Lost</td><td>6</td><td>48</td><td>1</td></tr>
+<tr><td>01/08</td><td>Thu</td><td>Backfill + compact</td><td>0.50</td><td>41</td><td>0.30</td><td>10</td><td>Full</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>01/09</td><td>Fri</td><td>Steel erection (crane)</td><td>0.25</td><td>44</td><td>0.00</td><td>35</td><td>Lost</td><td>5</td><td>40</td><td>1</td></tr>
+<tr><td>01/12</td><td>Mon</td><td>Backfill + compact</td><td>0.50</td><td>43</td><td>0.60</td><td>11</td><td>Lost</td><td>4</td><td>32</td><td>1</td></tr>
+</tbody>
+</table>
+
+<p>Notice that three different conditions stopped work on three different days: precipitation over the placement limit on the 6th, air temperature below the 40°F minimum for concrete on the 7th, and wind over the crane's safe pick limit on the 9th. A single "rain day" checkbox would have missed two of them. The 8th shows why the log has teeth: it rained a third of an inch, but backfill tolerates that, so the crew worked a full day and you honestly log a zero. That honesty is what makes the days you do claim believable.</p>
+
+<h3>The threshold column is the whole game</h3>
+
+<p>Column D, the precip limit, is not decoration. It is the objective standard that turns your judgment into a rule anyone can check. Roofing gets 0.00. Concrete placement gets around 0.10. Earthwork and backfill tolerate 0.50 before the soil hits optimum moisture and compaction fails. When you write the limit next to the measured value, you are not asking the owner to trust your gut. You are showing the reading exceeded a documented tolerance for that exact task. That is the language a scheduler and a surety both speak.</p>
+
+<h2>The Formulas That Separate Excusable From Anticipated</h2>
+
+<p>The adverse-day flag in column K does the first cut. It fires when precipitation beats the row's activity limit, or the low temperature drops below your concrete minimum, or wind tops the safe crane limit. Put the two global limits in named cells (minimum working temperature in <code>$N$2</code>, maximum safe wind in <code>$N$3</code>) so one change updates every row:</p>
+
+<p><code>=IF(OR(F5&gt;D5, E5&lt;$N$2, G5&gt;$N$3), 1, 0)</code></p>
+
+<p>Crew-hours lost in column J should be computed, not eyeballed, so a partial day never gets rounded up to a full one:</p>
+
+<p><code>=IF(H5="Lost", I5*8, IF(H5="Partial", I5*4, 0))</code></p>
+
+<p>Now the part that most contractors miss and most owners lean on. A contract rarely grants a day for every adverse day. It grants days for adverse days beyond what the climate normally delivers. So you count your flagged days in the month, then subtract the anticipated baseline pulled from the nearest NOAA station's climate normals for days with measurable precipitation. Count the month first:</p>
+
+<p><code>=SUMIFS($K:$K, $A:$A, "&gt;="&amp;DATE(2026,1,1), $A:$A, "&lt;="&amp;DATE(2026,1,31))</code></p>
+
+<p>Then compute the excess days you are actually owed, floored at zero so a mild month never creates a negative you have to explain:</p>
+
+<p><code>=MAX(0, ActualAdverseDays - AnticipatedDays)</code></p>
+
+<p>This single subtraction is what converts a pile of wet days into a number the owner's rep can approve without escalating to counsel. It shows you already gave back the days you were supposed to expect and are only asking for the abnormal remainder.</p>
+
+<h2>The Monthly Rollup That Rides With the Claim</h2>
+
+<p>The daily log is the evidence. The rollup is the argument. Build a second tab that lists each project month, the anticipated baseline, your actual adverse count from the SUMIFS above, and the running excess. Anticipated values come straight from the station's 30-year normals so nobody can call them invented.</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Anticipated adverse days</th><th>Actual adverse days</th><th>Excess (excusable) days</th><th>Cumulative days owed</th></tr>
+</thead>
+<tbody>
+<tr><td>January</td><td>6</td><td>11</td><td>5</td><td>5</td></tr>
+<tr><td>February</td><td>6</td><td>7</td><td>1</td><td>6</td></tr>
+<tr><td>March</td><td>7</td><td>7</td><td>0</td><td>6</td></tr>
+</tbody>
+</table>
+
+<p>Total crew-hours idled across the flagged days rolls up with one formula that only counts adverse days, so a slow-but-dry afternoon never inflates the total:</p>
+
+<p><code>=SUMIFS(Log!$J:$J, Log!$K:$K, 1)</code></p>
+
+<p>Six cumulative excess days is your time extension request. It is not a feeling about a bad winter. It is 6 days that each cleared a documented threshold, exceeded the climate baseline, and idled a named crew on a scheduled activity, with the superintendent's initials on every row.</p>
+
+<h3>The checklist for a claim that survives review</h3>
+
+<p>Before a single wet day goes into a claim, every row should clear this list. If it does not, an owner's scheduler will find the gap first.</p>
+
+<ul>
+<li>Entered the same day, not reconstructed at claim time. Contemporaneous records carry the weight; back-filled ones invite doubt.</li>
+<li>Conditions measured, not described. Temperature, precipitation, and wind pulled from an on-site gauge or a named NOAA station, never "heavy rain."</li>
+<li>The controlling activity named, with the reason the condition stopped it and the threshold it beat.</li>
+<li>Crew and equipment that were actually on site and idled, with counts, not estimates.</li>
+<li>A photo reference tied to the date, showing site conditions.</li>
+<li>Superintendent initials on each row.</li>
+<li>Anticipated baseline days pulled from the same station's climate normals, so your excess calculation uses the owner's own reasonable-anticipation standard.</li>
+</ul>
+
+<h2>Pricing the Delay: What a Lost Day Actually Costs</h2>
+
+<p>Winning the extension keeps liquidated damages off your account. Whether you also recover money depends on your contract, but you cannot ask for a dollar you never counted. A lost day is not just idle labor. It is your site running with no production: the superintendent, the trailer, temp power, the dumpster, the fence, all billing while nothing gets built. Price it once and apply it per day.</p>
+
+<table>
+<thead>
+<tr><th>Cost bucket</th><th>Example basis</th><th>Per lost day</th></tr>
+</thead>
+<tbody>
+<tr><td>Extended general conditions</td><td>Super, trailer, temp power, dumpster, fence</td><td>$2,100</td></tr>
+<tr><td>Idle labor sent home</td><td>6-person crew, $58/hr, 4 hrs show-up pay</td><td>$1,392</td></tr>
+<tr><td>Idle equipment</td><td>Excavator + pump rented, charged idle</td><td>$340</td></tr>
+<tr><td><strong>Total per lost day</strong></td><td></td><td><strong>$3,832</strong></td></tr>
+</tbody>
+</table>
+
+<p>The per-day cost drops out of the same inputs so you can defend every line:</p>
+
+<p><code>=SiteGC + (CrewSize * CrewRate * ShowUpHrs) + IdleEquip</code></p>
+
+<p>Now the comparison that should end the argument about whether the log is worth the five minutes a day. Same winter, same 5 excusable January days, two contractors.</p>
+
+<table>
+<thead>
+<tr><th>Outcome</th><th>Diary note "rain, no work"</th><th>Weather delay log</th></tr>
+</thead>
+<tbody>
+<tr><td>Days approved</td><td>0</td><td>5</td></tr>
+<tr><td>Liquidated damages ($1,500/day)</td><td>$7,500 withheld</td><td>$0</td></tr>
+<tr><td>Recovery method</td><td>Overtime and a second crew to hit date</td><td>Approved extension, no acceleration</td></tr>
+<tr><td>Extended overhead documented</td><td>$0, unrecoverable</td><td>$19,160 quantified for negotiation</td></tr>
+</tbody>
+</table>
+
+<p>The contractor with the diary note eats $7,500 and burns more on acceleration to avoid it. The contractor with the log pays nothing and walks into the delay conversation with 5 documented days and $19,160 of extended overhead already priced. Same weather. Different paperwork.</p>
+
+<h2>Win the Days, Then Win the Dollars</h2>
+
+<p>A construction weather delay log in Excel wins you the time extension. The next fight is the money, and that fight happens in your budget. Those 6 excusable days carry $2,100 a day of extended general conditions, idle labor, idle equipment, and any material escalation the delay triggered downstream. Left in a separate weather file, that number never makes it into your cost report, and money you were owed quietly evaporates into "general overrun."</p>
+
+<p>That is the handoff the weather log cannot do alone. The SheetCraft Construction Budget Tracker is where a documented delay becomes a priced change order: log the extended general conditions and idle costs as a delay-driven entry, watch the impact ripple through your contingency drawdown, and see the cash flow projection update so you know exactly what the winter cost and what you are carrying until it settles. The log proves the days were not your fault. The tracker makes sure you get paid for them.</p>
+
+<p><a href="/products/construction-budget-tracker">Get the SheetCraft Construction Budget Tracker →</a></p>`,
+  },
+  {
     slug: 'concrete-estimating-spreadsheet-excel',
     title: 'Concrete Estimating Spreadsheet in Excel: Bid the Pour, Not the Guess',
     metaTitle: 'Concrete Estimating Spreadsheet Excel | SheetCraft',
