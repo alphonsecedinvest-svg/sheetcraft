@@ -16,6 +16,122 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-equipment-rental-vs-buy-calculator-excel',
+    title: 'Construction Equipment Rental vs Buy Calculator in Excel: The Utilization Number That Decides It',
+    metaTitle: 'Equipment Rent vs Buy Calculator Excel | SheetCraft',
+    metaDescription: 'A construction equipment rental vs buy calculator in Excel that finds the months-per-year where owning beats renting, so you stop overpaying either way.',
+    targetKeyword: 'construction equipment rental vs buy calculator Excel',
+    secondaryKeywords: ['equipment rent vs buy analysis', 'construction equipment cost of ownership', 'break-even utilization calculator', 'heavy equipment rental rates', 'own vs rent excavator'],
+    excerpt: 'Renting a mini excavator for 8 months can cost more than owning it for the whole year, idle months included. This construction equipment rental vs buy calculator in Excel pits fixed ownership cost against variable rental cost and returns the one number that decides it: the months of use per year where buying gets cheaper than renting. Above the line you buy, below it you rent, and the machine that sits in your yard stops quietly losing money.',
+    publishedAt: '2026-07-06',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-equipment-rental-vs-buy-calculator-excel.png',
+    imageAlt: 'Flat illustration of an orange mini excavator on tracks beside an abstract chart where a rising rental-cost line crosses a flat ownership-cost line at a highlighted break-even point with gold bars, representing a construction equipment rental vs buy calculator in Excel',
+    content: `<h1>Construction Equipment Rental vs Buy Calculator in Excel: The Utilization Number That Decides It</h1>
+
+<p>Every contractor has made this call from the gut, and half of them called it wrong. You need a mini excavator for the next job, so you rent one for the month. Then the next job needs it too. Eight months later you have paid enough in rental invoices to have bought the machine outright, and you still own nothing. A construction equipment rental vs buy calculator in Excel exists to stop exactly that. It turns a gut call into a single number: the months of use per year where owning gets cheaper than renting. Above that line you buy, below it you rent, and everything else in the decision is noise.</p>
+
+<p>The mistake runs both directions. Rent too long on a machine you use constantly and you burn cash on somebody else's depreciation. Buy a machine you only touch three months a year and you pay to store, insure, and finance an asset that sits in the yard losing value while your capital is locked up. This article builds the model that draws the line for a specific machine, with the formulas, a worked example, and the one input most contractors get wrong.</p>
+
+<h2>The Real Question Is Not Rent or Buy, It Is How Many Months</h2>
+
+<p>Rent-or-buy is not a philosophy. It is an arithmetic crossover driven almost entirely by utilization, meaning how much of the year the machine actually earns its keep. Rental cost is variable. You pay only for the months the machine is on a job. Ownership cost is mostly fixed. Depreciation, interest, insurance, and storage accrue every month whether the machine is digging or parked in the corner of the yard. The whole decision comes down to where those two lines cross.</p>
+
+<p>Here is the cost of getting it wrong, in dollars. Say a compact excavator rents for $2,400 a month and costs you about $15,600 a year to own outright. Rent it for 8 months to cover a busy stretch and you spend $19,200, which is $3,600 more than owning the machine for the entire year, idle months included. Now flip it. Buy that same machine but only use it 3 months a year, and you spend $15,600 to do $7,200 worth of work. You lit $8,400 on fire for the privilege of ownership. Same two numbers, opposite mistakes, and the only thing separating them is utilization.</p>
+
+<h2>The True Cost of Owning Is Not the Sticker Price</h2>
+
+<p>The number that wrecks these decisions is the purchase price, because contractors set it next to a monthly rental rate and it looks enormous. That is the wrong comparison. What you actually spend to own a machine is the cost of ownership per year, and the sticker price is only the front half of it. Break it into the pieces that accrue on the calendar whether or not the machine turns a bucket.</p>
+
+<table>
+<thead>
+<tr><th>Component</th><th>How it accrues</th><th>Example (annual)</th></tr>
+</thead>
+<tbody>
+<tr><td>Depreciation</td><td>(Purchase price minus resale) divided by years owned</td><td>$8,160</td></tr>
+<tr><td>Cost of capital</td><td>Average money tied up times your borrowing or opportunity rate</td><td>$3,808</td></tr>
+<tr><td>Insurance and registration</td><td>Flat every year</td><td>$1,200</td></tr>
+<tr><td>Storage and transport</td><td>Flat every year</td><td>$600</td></tr>
+<tr><td>Ownership maintenance</td><td>Preventive service plus wear parts, roughly flat</td><td>$1,800</td></tr>
+<tr><td><strong>Total cost of ownership</strong></td><td>Sum of the above</td><td><strong>$15,568</strong></td></tr>
+</tbody>
+</table>
+
+<p>Notice what is not on that list: fuel, ground-engaging tool wear, and the operator. Those are operating costs, and they hit you whether you rent or own, so they cancel out of the comparison. Leave them out. The rent-vs-buy decision is a fight between fixed ownership cost and variable rental cost, nothing else. The most common error is to compare the full $68,000 price tag against a $2,400 rental invoice, panic at the gap, and rent forever. Depreciation is the only part of that price you truly spend, because the resale value is money you get back.</p>
+
+<h2>Building the Rent vs Buy Calculator in Excel</h2>
+
+<p>Set up an inputs block in column B so every assumption is visible and one change re-runs the whole decision. Never bury a number inside a formula. If your loan rate or your resale estimate is wrong, you want to fix it in one cell and watch the answer move.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Purchase price</td><td>$68,000</td></tr>
+<tr><td>B3</td><td>Resale value when you sell it</td><td>$27,200</td></tr>
+<tr><td>B4</td><td>Years you will own it</td><td>5</td></tr>
+<tr><td>B5</td><td>Cost of capital (annual)</td><td>8%</td></tr>
+<tr><td>B6</td><td>Insurance and registration (annual)</td><td>$1,200</td></tr>
+<tr><td>B7</td><td>Storage and transport (annual)</td><td>$600</td></tr>
+<tr><td>B8</td><td>Ownership maintenance (annual)</td><td>$1,800</td></tr>
+<tr><td>B9</td><td>Rental rate (per month)</td><td>$2,400</td></tr>
+<tr><td>B10</td><td>Months of use per year</td><td>5</td></tr>
+</tbody>
+</table>
+
+<h3>The ownership side</h3>
+
+<p>Depreciation is the value the machine loses while you own it, spread evenly across the years you keep it. In B13, put \`=(B2-B3)/B4\`. With the example inputs that is ($68,000 minus $27,200) divided by 5, or $8,160 a year. This is the number that matters, not the purchase price, because the $27,200 you expect at resale is capital you recover.</p>
+
+<p>Cost of capital is the money you give up by tying $68,000 into a machine instead of leaving it in the business or paying down a loan. Averaging the investment across its life, put \`=((B2+B3)/2)*B5\` in B14. That returns ($68,000 plus $27,200) divided by 2, times 8%, or $3,808 a year. If you financed the purchase this is close to your real interest bill. If you paid cash, it is the return that money could have earned elsewhere, and ignoring it is how cash-rich contractors talk themselves into machines they should have rented.</p>
+
+<p>Now total the annual cost of ownership in B15 with \`=B13+B14+B6+B7+B8\`. That sums depreciation, cost of capital, insurance, storage, and maintenance to $15,568 a year. This is what the machine costs you every twelve months even if it never leaves the yard.</p>
+
+<h3>The rental side and the break-even</h3>
+
+<p>Rental is simpler because it is purely variable. Your annual rental cost in B17 is \`=B9*B10\`, the monthly rate times the months you actually use it. At 5 months that is $12,000. The number that ends the argument sits in B16, the break-even utilization: \`=B15/B9\`. That divides your annual ownership cost by the monthly rental rate and returns 6.49 months. Read it out loud. If this machine works more than about 6.5 months a year, buying is cheaper. Less than that, renting wins. Every rent-or-buy decision you have ever agonized over collapses into that one cell.</p>
+
+<h3>The decision flag</h3>
+
+<p>Stop eyeballing it. In B18, put \`=IF(B10>B16,"BUY","RENT")\`. It compares your real utilization against the break-even and prints the verdict. With 5 months of use against a 6.49 month break-even it returns RENT. To build in a margin of safety, since utilization estimates are optimistic, widen it: \`=IF(B10>B16*1.15,"BUY",IF(B10<B16*0.85,"RENT","BORDERLINE - RENT WITH OPTION"))\`. That flags the fuzzy middle where the math is too close to bet six figures on, and tells you to keep your options open rather than commit.</p>
+
+<h2>A Worked Example: The Mini Excavator</h2>
+
+<p>Take the excavator above, $15,568 a year to own, $2,400 a month to rent, and run your utilization across the realistic range. This is the table to build once and keep, because it shows you the crossover instead of a single yes-or-no.</p>
+
+<table>
+<thead>
+<tr><th>Months used per year</th><th>Rent (annual)</th><th>Own (annual fixed)</th><th>Cheaper</th><th>You save</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>$7,200</td><td>$15,568</td><td>Rent</td><td>$8,368</td></tr>
+<tr><td>5</td><td>$12,000</td><td>$15,568</td><td>Rent</td><td>$3,568</td></tr>
+<tr><td>6.5</td><td>$15,600</td><td>$15,568</td><td>Break-even</td><td>$0</td></tr>
+<tr><td>8</td><td>$19,200</td><td>$15,568</td><td>Own</td><td>$3,632</td></tr>
+<tr><td>10</td><td>$24,000</td><td>$15,568</td><td>Own</td><td>$8,432</td></tr>
+<tr><td>12</td><td>$28,800</td><td>$15,568</td><td>Own</td><td>$13,232</td></tr>
+</tbody>
+</table>
+
+<p>The 8-month row is the trap from the opening. Renting a machine you need two-thirds of the year costs $3,632 more than owning it outright and hands you nothing at the end. The 3-month row is the opposite trap. Buy a machine for occasional work and you pour $8,368 a year into an asset that spends three quarters of its life depreciating in your yard. The contractor who wins is not the one with a rule like "always own" or "renting is dead money." It is the one who knows this specific machine falls at 6.5 months and can say which side of the line their actual work sits on.</p>
+
+<p>Utilization is also the input people fake. Ask a contractor how much they will use a machine and the honest answer is usually lower than the hopeful one. Pull it from real job data if you have it: how many months last year did you actually have a machine like this on a site. If you do not track that, you are guessing, and a guess is exactly what puts a $68,000 excavator on your books for 3 months of work.</p>
+
+<h2>The Third Option: Rent With a Purchase Option</h2>
+
+<p>When your utilization lands in the borderline zone, or you cannot see past the next two jobs, there is a structure the calculator should include: the rental purchase option, or RPO. You rent the machine month to month, but the dealer applies a percentage of each rental payment, often 90 to 100 percent of the first few months, toward the purchase price if you decide to buy. You get the variable cost of renting while quietly banking equity, and you only commit once the work proves it is worth owning.</p>
+
+<p>Model it as a third column. Track cumulative rent paid, the portion that applies to purchase with \`=MIN(cumulative_applied, cap)\`, and the net buyout remaining as \`=B2 - applied_credit\`. The trade-off is real and belongs in the sheet: RPO monthly rates usually run 10 to 20 percent above a straight rental, and the applied credit caps out after a handful of months. So RPO is not free insurance. It is a paid hedge for exactly the case where your break-even math says BORDERLINE. If your utilization is clearly above or below the line, skip it and take the cheaper straight path.</p>
+
+<h2>Make the Call, Then Track What It Costs</h2>
+
+<p>The rent-vs-buy calculator answers one question at one moment: for this machine, at your honest utilization, do you rent or buy today. But the day you buy, a new problem starts. That $15,568 a year of ownership cost does not manage itself, and the resale value you plugged into B3 is a guess that only comes true if you track hours, service, and the actual months the machine earns against each job. A decision made in a spreadsheet and then forgotten quietly drifts wrong.</p>
+
+<p>The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> carries the decision forward. It holds the equipment cost of ownership model next to your live job budgets, so the rental and ownership dollars land against the projects that actually consumed them, your utilization number updates from real usage instead of a hopeful estimate, and next quarter's rent-or-buy call is backed by your own data instead of a gut feeling. Draw the line once with the calculator here, then let the tracker keep you honest about which side of it your machines are really on.</p>`,
+  },
+  {
     slug: 'construction-weather-delay-log-excel',
     title: 'Construction Weather Delay Log in Excel: Turn Rain Days Into Approved Time Extensions',
     metaTitle: 'Construction Weather Delay Log Excel | SheetCraft',
