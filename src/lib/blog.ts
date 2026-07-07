@@ -16,6 +16,119 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-crew-productivity-rate-tracker-excel',
+    title: 'Construction Crew Productivity Rate Tracker in Excel: Catch the Slip in Week Two, Not at Final Costing',
+    metaTitle: 'Crew Productivity Rate Tracker Excel | SheetCraft',
+    metaDescription: 'A construction crew productivity rate tracker in Excel that flags a production slip in week two, not at final job costing, so you fix it while it still pays.',
+    targetKeyword: 'construction crew productivity rate tracker Excel',
+    secondaryKeywords: ['construction labor productivity factor', 'units per labor hour tracking', 'crew production rate formula', 'construction earned value Excel', 'labor productivity tracking spreadsheet'],
+    excerpt: 'A crew running 15 percent slow does not announce it. The loss leaks quietly through every timesheet and surfaces at final job costing, weeks after you could have done anything about it. This construction crew productivity rate tracker in Excel measures installed units against the rate you bid, computes a running productivity factor, and fires a flag in week two so a slipping crew gets fixed while there are still weeks left to respond.',
+    publishedAt: '2026-07-07',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-crew-productivity-rate-tracker-excel.png',
+    imageAlt: 'Flat illustration of a construction worker in a hard hat and orange safety vest beside a rising line graph that dips at an early glowing warning point then climbs above a flat dashed baseline over gold columns, representing a construction crew productivity rate tracker in Excel',
+    content: `<h1>Construction Crew Productivity Rate Tracker in Excel: Catch the Slip in Week Two, Not at Final Costing</h1>
+
+<p>A crew that runs 15 percent slow does not announce it. Nobody walks into the trailer and says the framing is behind pace. The work looks fine, the guys are busy, the walls go up, and the only thing wrong is that every hour of labor is buying a little less installed work than you bid. That leak is invisible on a timesheet, because a timesheet only shows hours, and hours by themselves tell you nothing. A construction crew productivity rate tracker in Excel exists to make the leak visible while you can still stop it. It turns "how is it going out there" into a number, and it flashes that number in week two instead of at final job costing, which is the moment when the loss is already locked and the only thing left to do is write the check.</p>
+
+<p>Most contractors find out how a job actually performed after it closes. The accountant totals the labor cost, sets it against the estimate, and the overrun stares back from the page. By then the crew has demobilized, the schedule is history, and the money is gone. The whole value of tracking production rate is that it moves that discovery forward by weeks. This article builds the model that does it: the metric that matters, the weekly log that feeds it, the flag that fires in week two, and the four mistakes that make most productivity tracking useless.</p>
+
+<h2>The Number That Tells You If You Are Winning: Production Rate, Not Hours</h2>
+
+<p>You bid the job on a production rate whether you wrote it down or not. When your estimator priced 30,000 square feet of drywall hang at a certain number of labor hours, they assumed the crew installs board at some pace: so many square feet per labor hour. That pace is the production rate, and it is the only thing worth tracking, because it is the only thing that connects hours spent to work produced.</p>
+
+<p>Production rate comes in two forms and you want both. Units per labor hour, for example 50 square feet of board per hour, reads like a speedometer. Labor hours per unit, the inverse, is what estimating databases publish and what you use to price the next job. If your crew installs 50 square feet per labor hour, that is 0.02 labor hours per square foot. Same fact, two views.</p>
+
+<p>Here is the part contractors get wrong: measure per labor hour, not per crew hour. A labor hour is one worker for one hour. A crew hour is the whole crew for one hour, so a four-person crew burns four labor hours every crew hour. If you track units per crew hour and then add a helper mid-job, your crew-hour rate looks like it collapsed even though nothing changed about how hard anyone is working. Per labor hour is crew-size independent. Add a body, drop a body, split the crew across two floors, the labor-hour rate still means the same thing. That single choice is the difference between a metric you can trust and one that lies to you every time the roster changes.</p>
+
+<p>Your baseline is the rate you bid at, and you can recover it even if the estimate only shows dollars and hours. If cell B1 holds the total scope quantity and B3 holds the bid labor hours, your bid production rate in B2 is <code>=B1/B3</code>. Thirty thousand square feet over 600 bid hours returns 50 square feet per labor hour. Write that number down before the crew ever shows up, because without it you have nothing to measure against, and a productivity tracker with no baseline is just a busy timesheet.</p>
+
+<h2>Build the Tracker: Bid Baseline Plus Weekly Installed Quantities</h2>
+
+<p>The tracker has two parts. A small fixed block at the top holds the bid assumptions. A weekly log below it takes two inputs you already collect, installed quantity and labor hours, and turns them into a running verdict.</p>
+
+<p>Lay the bid block out like this and let the formulas carry the math:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Formula or value</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B1</td><td>Total scope (SF of board)</td><td>30000</td><td>30,000</td></tr>
+<tr><td>B2</td><td>Bid production rate (SF per labor hour)</td><td><code>=B1/B3</code></td><td>50.0</td></tr>
+<tr><td>B3</td><td>Bid labor hours</td><td>600</td><td>600</td></tr>
+<tr><td>B4</td><td>Loaded labor rate ($ per hour)</td><td>34</td><td>$34.00</td></tr>
+<tr><td>B5</td><td>Bid labor cost</td><td><code>=B3*B4</code></td><td>$20,400</td></tr>
+</tbody>
+</table>
+
+<p>Now the weekly log. Each Friday you enter two numbers per activity: how many units were actually installed that week, counted not guessed, and how many labor hours the crew burned, straight off the timesheet. Everything else is formula. Say the weekly rows start at row 10 with installed units in column C and labor hours in column D. The columns that matter are these.</p>
+
+<p>Weekly actual rate in column E is <code>=C10/D10</code>, units installed divided by hours spent. That is this week's speedometer. Earned hours in column F is <code>=C10/$B$2</code>, the installed units divided by the bid rate, which answers a sharper question: how many hours <em>should</em> this much work have taken at the price you bid. If you installed 5,500 square feet at a bid rate of 50, you earned 110 hours, no matter how many hours you actually spent. The gap between earned hours and actual hours is the whole game.</p>
+
+<p>The verdict is the productivity factor, and it belongs in its own column as a running total, not a weekly one. Cumulative productivity factor is <code>=SUM($F$10:F10)/SUM($D$10:D10)</code>, total earned hours to date over total actual hours to date. Above 1.0 you are beating the bid and banking margin. Below 1.0 you are burning hours faster than you are earning them, and the number is exactly how much. A factor of 0.85 means every hour of labor is producing 85 cents of the work you priced. Run a whole activity at 0.85 and you spend 18 percent more hours than you bid, because 1 divided by 0.85 is 1.176.</p>
+
+<h2>The Week-Two Flag: How a Slip Surfaces Before It Is Fatal</h2>
+
+<p>A single week of production rate is noise. The first week of any activity is layout, staging, a fresh crew finding the rhythm, and it will always look slow. If you panic on week one you will chase ghosts. The signal lives in the cumulative factor once you have two weeks of data, because two weeks of the same crew running below the bid is a pattern, not a bad Monday.</p>
+
+<p>So the flag has a guard built in. If the week number is in column B and the cumulative factor is in column G, the flag in column H is <code>=IF(AND(B11>=2,G11<0.9),"BEHIND - INVESTIGATE",IF(G11>1.05,"AHEAD",""))</code>. It stays silent through week one, then fires the moment two or more weeks of data land under 90 percent. Ninety percent is a reasonable trigger for finish trades; tighten it to 0.95 on thin-margin work, loosen it to 0.85 where your bid rates are conservative. The point is that the sheet nags you, so you are not relying on a project manager to notice a trend buried in a timesheet.</p>
+
+<p>When the flag fires, the number that forces action is the forecast. Estimate at completion in hours is <code>=B3/G11</code>, your bid hours divided by the pace you are actually running. The forecast dollar overrun is <code>=(B3/G11-B3)*B4</code>. Watch what those formulas do to a real job.</p>
+
+<table>
+<thead>
+<tr><th>Week</th><th>SF installed</th><th>Labor hrs</th><th>Weekly rate</th><th>Earned hrs</th><th>Cum. factor</th><th>Flag</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>5,500</td><td>132</td><td>41.7</td><td>110</td><td>0.83</td><td>(week 1, silent)</td></tr>
+<tr><td>2</td><td>6,900</td><td>158</td><td>43.7</td><td>138</td><td>0.86</td><td>BEHIND - INVESTIGATE</td></tr>
+<tr><td>3</td><td>7,600</td><td>156</td><td>48.7</td><td>152</td><td>0.90</td><td></td></tr>
+<tr><td>4</td><td>6,800</td><td>128</td><td>53.1</td><td>136</td><td>0.93</td><td></td></tr>
+<tr><td>5</td><td>3,200</td><td>64</td><td>50.0</td><td>64</td><td>0.94</td><td></td></tr>
+</tbody>
+</table>
+
+<p>Read the story in the rows. Week one the crew runs at 41.7 square feet per hour against a bid of 50, and the sheet says nothing because one week proves nothing. Week two the pace barely improves and the cumulative factor sits at 0.86. The flag fires. At that moment the forecast reads <code>=600/0.86</code>, or roughly 698 hours against a 600 hour bid, a projected overrun of 98 hours and about $3,330 in labor the estimate never accounted for. That is a number a project manager acts on.</p>
+
+<p>The investigation takes an afternoon. Board is not staged on the upper floors, so the hangers are carrying sheets up stairwells and stopping mid-shift to restock. Fix: stock every floor ahead of the crew and put one laborer on feeding board. Week three the rate jumps to 48.7. Week four the dialed-in crew hits 53.1, above the bid. The activity finishes at 30,000 square feet in 638 actual hours, a cumulative factor of 0.94, and an overrun of 38 hours, about $1,290.</p>
+
+<p>Now price the alternative. Had the week-two pace of 0.86 held to the end because nobody caught it until final costing, the job lands at 600 divided by 0.86, roughly 698 hours, an overrun near $3,330. Catching it in week two and fixing the staging saved on the order of $2,000 on a single activity with a $20,400 labor bid. That is roughly ten percent of the labor value, which on most subcontracts is the entire margin. The slip was the same either way. The only variable was whether anyone saw it while there were still four weeks left to respond.</p>
+
+<h2>Where Productivity Tracking Goes Wrong</h2>
+
+<p>Plenty of contractors try this and give up because the numbers jump around and stop meaning anything. Four mistakes cause almost all of it.</p>
+
+<ol>
+<li><strong>Tracking percent complete instead of installed units.</strong> Percent complete is a field opinion, and field opinions are optimistic and unfalsifiable. A superintendent who reports 60 percent complete cannot be wrong, because there is nothing to count. Installed units can be counted: square feet hung, linear feet set, fixtures trimmed, cubic yards placed. Track the countable quantity and the productivity factor becomes a fact instead of a mood.</li>
+<li><strong>Measuring by the day instead of the week.</strong> Daily production rate is pure noise. A crew that spends Monday morning on layout and material handling looks catastrophically slow by lunch and perfectly fine by Friday. Weekly buckets smooth out the normal rhythm of a job and still catch a real trend inside two weeks.</li>
+<li><strong>Using crew hours instead of labor hours.</strong> Covered above, and it is the quiet one. The day you add or pull a body, a crew-hour rate lurches for no real reason and you lose trust in the whole sheet. Labor hours survive roster changes.</li>
+<li><strong>Rolling the whole job into one number.</strong> Framing, drywall, and paint have nothing to do with each other, and averaging them hides the trade that is bleeding. Track productivity by cost code, one factor per activity, so the flag points at the crew that needs attention instead of a blurred jobwide average that is always "about fine."</li>
+</ol>
+
+<p>One more note on the baseline rates themselves. The figures below are illustrative ranges to get you started, not gospel, and they swing hard with ceiling height, layout complexity, and crew skill. The moment you have your own completed jobs, replace book rates with your history, because your crews on your kind of work are the only baseline that predicts your next job.</p>
+
+<table>
+<thead>
+<tr><th>Activity</th><th>Unit</th><th>Illustrative rate (per labor hour)</th></tr>
+</thead>
+<tbody>
+<tr><td>Metal stud wall framing</td><td>Linear feet</td><td>12 to 20</td></tr>
+<tr><td>Drywall hang</td><td>Square feet</td><td>40 to 60</td></tr>
+<tr><td>Suspended ceiling grid</td><td>Square feet</td><td>25 to 40</td></tr>
+<tr><td>Interior wall paint (roll)</td><td>Square feet</td><td>150 to 250</td></tr>
+<tr><td>Resilient / LVT flooring</td><td>Square feet</td><td>60 to 90</td></tr>
+</tbody>
+</table>
+
+<h2>From Tracking One Crew to Managing the Whole Job</h2>
+
+<p>A standalone productivity sheet is the right place to start, and for a single activity it is enough. The trouble comes when the job has eight cost codes, three crews, and a budget that has to reconcile labor productivity against material buyouts, change orders, and the draws you bill the owner. At that point a loose tab per trade turns into a stack of files nobody keeps current, and the week-two flag only works if someone is actually entering the quantities every Friday.</p>
+
+<p>The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> carries the productivity model into the full job. It keeps the earned-hours and productivity-factor math beside your live budget by cost code, so a crew running under pace shows up as both a labor-hour trend and a forecast dollar overrun against the line it belongs to, and the flag fires in the same place you already look at money. Build the single-activity tracker here to see the number that matters, then let the budget tracker run it across every crew on the job, so the slip that used to surface at final costing surfaces in week two, while you can still fix it.</p>`,
+  },
+  {
     slug: 'construction-equipment-rental-vs-buy-calculator-excel',
     title: 'Construction Equipment Rental vs Buy Calculator in Excel: The Utilization Number That Decides It',
     metaTitle: 'Equipment Rent vs Buy Calculator Excel | SheetCraft',
