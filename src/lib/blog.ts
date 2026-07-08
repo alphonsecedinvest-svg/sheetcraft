@@ -16,6 +16,153 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-joint-check-tracking-excel',
+    title: 'Construction Joint Check Agreement Tracking in Excel: Kill the Lien a Sub Leaves Behind',
+    metaTitle: 'Joint Check Agreement Tracking in Excel | SheetCraft',
+    metaDescription: 'Track construction joint checks in Excel so suppliers get paid and no sub can leave a mechanics lien on your job. A joint check register that closes the gap.',
+    targetKeyword: 'construction joint check agreement tracking Excel',
+    secondaryKeywords: ['joint check agreement', 'mechanics lien protection', 'construction lien waiver tracking', 'supplier payment tracking', 'two-party check log'],
+    excerpt: 'Pay your subcontractor and his supplier can still lien the job if the sub pockets the material money. Joint checks force that cash to the supplier, but only if you track them. Here is the Excel register that turns joint checks into real lien protection.',
+    publishedAt: '2026-07-08',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-joint-check-tracking-excel.png',
+    imageAlt: 'Construction office desk with a business checkbook, supplier invoices, a blueprint, a hard hat, and a laptop showing a joint check payment tracking spreadsheet',
+    content: `<h1>Construction Joint Check Agreement Tracking in Excel: Kill the Lien a Sub Leaves Behind</h1>
+
+<p>You paid your framing sub $18,000 on the last draw. Clean invoice, work looked solid, you moved on. Six weeks later the lumberyard that supplied his material files a $9,400 mechanics lien on your client's house. The sub spent your money on a truck payment and a job three towns over. Now the owner is holding your final draw, the lender froze the loan, and your only choices are to pay the $9,400 a second time or watch the relationship burn. Construction joint check agreement tracking in Excel exists to stop exactly this, before it reaches your title company.</p>
+
+<p>A joint check is a single check made payable to two parties at once: your subcontractor and the supplier or lower-tier sub who actually has lien rights on the property. Both have to endorse it, so the money physically cannot skip the supplier. Used right, joint checks are the cheapest lien insurance in construction. Used casually, without a register behind them, they open a second trap that costs just as much. This guide shows you how to build the tracker that captures the protection and closes that trap.</p>
+
+<h2>Why a Paid Invoice Does Not Mean You Are Protected</h2>
+
+<p>The dangerous assumption on most jobs is that paying the party you signed a contract with ends your exposure. It does not. Mechanics lien law does not care who your contract is with. It cares who furnished labor or material to the property. A second-tier supplier your sub never mentioned can attach a lien to the owner's title, and the owner can then withhold from you to clear it. You paid once at the sub level, and you pay again at the supplier level.</p>
+
+<p>Run the math on a routine subcontract. The sub is owed $18,000. Inside that number is a $9,400 material bill from a supplier who sent a preliminary notice at the start of the job. That notice is the supplier telling you, in writing, that they intend to preserve lien rights. Here is how the two payment methods play out:</p>
+
+<table>
+<thead>
+<tr><th>Approach</th><th>You pay the sub</th><th>Does the supplier get paid?</th><th>Lien risk on material</th><th>Your worst case</th></tr>
+</thead>
+<tbody>
+<tr><td>Single check to sub</td><td>$18,000</td><td>Only if the sub chooses to</td><td>$9,400 exposed</td><td>Pay $9,400 a second time</td></tr>
+<tr><td>Joint check to sub and supplier</td><td>$18,000 (joint)</td><td>Forced at endorsement</td><td>$0 on that material</td><td>$0 extra</td></tr>
+</tbody>
+</table>
+
+<p>The single check bets your money on the honesty and cash flow of a sub you do not control. The joint check removes the bet. The supplier has to sign the back of the check before it can be deposited, so the party with lien rights touches the money on the way through. The catch is that this only protects you if you can prove it happened, which is where the tracking comes in.</p>
+
+<h2>The Joint Check Trap Nobody Warns You About</h2>
+
+<p>Contractors who use joint checks loosely still get burned, and it surprises them. The joint check rule, recognized in California and many other states, generally presumes that a supplier who endorses a joint check has been paid up to the amount of that check. That sounds like automatic armor. It is not, because the presumption is only as strong as your paperwork. If you cannot show which check covered which material invoice, or the supplier claims the check was really for a different job, the presumption gets litigated and you are back to paying twice while attorneys bill by the hour.</p>
+
+<p>The other half of the trap is allocation. Say you cut a $18,000 joint check but only $9,400 of it was ever supposed to reach the supplier. The supplier endorses, keeps their $9,400, and the sub takes the $8,600 labor portion. Fine. But if you never recorded that split and never collected a waiver for the $9,400, you have a canceled check and no release. The supplier can argue they applied your money to an older balance on a different project and their lien on your job still stands. Endorsement alone does not tell you what the money was for.</p>
+
+<p>The fix is not more joint checks. It is a register that ties every joint check to three things: the supplier it was meant to protect, the specific material or invoice it covered, and the signed lien waiver you collected in exchange. Miss the waiver and you have proof of payment but no proof of release. Miss the allocation and you cannot show the check covered the material that got liened. Excel is where you keep all three lined up, per check, per job.</p>
+
+<h2>Building the Joint Check Register in Excel</h2>
+
+<h3>Sheet 1: The Check Register</h3>
+
+<p>This is the spine of the system. One row per joint check issued. Build these columns:</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Header</th><th>Input or formula</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Check #</td><td>Check number</td></tr>
+<tr><td>B</td><td>Date issued</td><td>Date the check was cut</td></tr>
+<tr><td>C</td><td>Project</td><td>Job name or code</td></tr>
+<tr><td>D</td><td>First payee (sub)</td><td>Your direct subcontractor</td></tr>
+<tr><td>E</td><td>Second payee (supplier)</td><td>Lower-tier supplier with lien rights</td></tr>
+<tr><td>F</td><td>Check amount</td><td>Face value of the joint check</td></tr>
+<tr><td>G</td><td>Material or invoice covered</td><td>What the second payee furnished</td></tr>
+<tr><td>H</td><td>Waiver received?</td><td>Yes or No</td></tr>
+<tr><td>I</td><td>Waiver amount</td><td>Dollar amount the waiver releases</td></tr>
+<tr><td>J</td><td>Open lien exposure</td><td><code>=IF(H2="Yes",MAX(F2-I2,0),F2)</code></td></tr>
+<tr><td>K</td><td>Status</td><td><code>=IF(J2&gt;0,"FOLLOW UP","CLEARED")</code></td></tr>
+</tbody>
+</table>
+
+<p>Column J is the number that matters. It answers one question in dollars: how much lien exposure is still open on this check? The logic reads plainly. If no waiver came back, the entire check amount is still exposed because you have no release. If a waiver did come back, exposure is the gap between what you paid the supplier and what they actually released. When the waiver covers the full material amount, J drops to zero and column K flips to CLEARED. Anything above zero is money that can still come back as a lien.</p>
+
+<p>Add an aging flag so nothing sits silently. In column L:</p>
+
+<p><code>=IF(AND(H2="No",TODAY()-B2&gt;10),"OVERDUE WAIVER","OK")</code></p>
+
+<p>This says: if the waiver is still missing more than ten days after you cut the check, escalate. A joint check with no waiver behind it is a check that bought you nothing legally. Ten days is enough time for the supplier to sign and return a release. Past that, someone is stalling, and stalling is the earliest signal of a payment problem downstream.</p>
+
+<h3>Sheet 2: The Exposure Dashboard</h3>
+
+<p>Roll the register up into numbers you can read in five seconds. Build a small summary block:</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>Total joint checks issued</td><td><code>=SUM(Register!F:F)</code></td></tr>
+<tr><td>Total released by waiver</td><td><code>=SUMIF(Register!H:H,"Yes",Register!I:I)</code></td></tr>
+<tr><td>Total open lien exposure</td><td><code>=SUM(Register!J:J)</code></td></tr>
+<tr><td>Checks needing follow-up</td><td><code>=COUNTIF(Register!K:K,"FOLLOW UP")</code></td></tr>
+<tr><td>Overdue waivers</td><td><code>=COUNTIF(Register!L:L,"OVERDUE WAIVER")</code></td></tr>
+</tbody>
+</table>
+
+<p>Then break exposure down by the supplier who could actually file, because that is who you call. Use a SUMIFS that totals open exposure for each second payee:</p>
+
+<p><code>=SUMIFS(Register!J:J,Register!E:E,A2)</code></p>
+
+<p>Where A2 holds a supplier name. Now you have a ranked list of who can still lien you and for how much. A supplier sitting at $0 exposure is handled. A supplier at $9,400 open is your next phone call, not a mystery you discover when the owner forwards you a lien notice.</p>
+
+<h3>Sheet 3: The Supplier Map</h3>
+
+<p>You cannot issue a joint check to a supplier you do not know exists. The failure on most jobs is not a bad joint check, it is a supplier nobody flagged until the lien landed. Fix that at the front of the job by making every sub hand you a list of their material suppliers before their first draw. Track it:</p>
+
+<table>
+<thead>
+<tr><th>Sub</th><th>Supplier</th><th>Material category</th><th>Est. value</th><th>Preliminary notice received?</th><th>Joint check required?</th></tr>
+</thead>
+<tbody>
+<tr><td>Ridgeline Framing</td><td>Cascade Lumber</td><td>Framing package</td><td>$9,400</td><td>Yes</td><td><code>=IF(E2="Yes","REQUIRED","Optional")</code></td></tr>
+<tr><td>Apex Electric</td><td>Metro Supply</td><td>Rough-in material</td><td>$6,200</td><td>No</td><td>Optional</td></tr>
+</tbody>
+</table>
+
+<p>Any supplier who has already served a preliminary notice or notice to owner goes straight to REQUIRED. They have told you in writing they are protecting lien rights, so every dollar of their material moves on a joint check from that point forward. Suppliers who never noticed are lower risk, but a large material value is reason enough to joint-check them anyway. This sheet turns lien protection from a reaction into a plan.</p>
+
+<h2>The Waiver Matching Discipline That Makes It Work</h2>
+
+<p>A joint check without a matching lien waiver is half a system. The waiver is the document that actually extinguishes the lien right. There are four standard types, and they are not interchangeable:</p>
+
+<table>
+<thead>
+<tr><th>Waiver type</th><th>When to collect it</th><th>What it releases</th></tr>
+</thead>
+<tbody>
+<tr><td>Conditional progress</td><td>With each joint check during the job</td><td>Rights through that payment, once the check clears</td></tr>
+<tr><td>Unconditional progress</td><td>After that check clears the bank</td><td>Rights through that payment, no strings</td></tr>
+<tr><td>Conditional final</td><td>With the final joint check</td><td>All remaining rights, once final clears</td></tr>
+<tr><td>Unconditional final</td><td>After the final check clears</td><td>All rights, no strings</td></tr>
+</tbody>
+</table>
+
+<p>The discipline is simple to state and easy to skip under deadline pressure. Never release a joint check without at least a conditional waiver in hand. Confirm the unconditional waiver lands after the check clears the bank. Your register's aging flag in column L is what enforces this, because it will not let an unwaived check quietly age past ten days without turning red. Contractors who lose money on liens almost never lose it because the tool failed. They lose it because they issued the check, meant to chase the waiver, and got busy.</p>
+
+<h2>What This Actually Saves You</h2>
+
+<p>Put real numbers on it. Say you run 25 subcontracts a year and material makes up 40 percent of a typical $18,000 sub value, so roughly $7,200 of exposed material per sub. You do not need most of them to go bad. You need one. One diverted material payment that comes back as a lien can force a $9,400 double payment, and that single hit can erase the entire profit margin on a job you already finished and thought was closed.</p>
+
+<p>Against that, the register costs you about an hour a week: log the checks you already cut, mark the waivers that came in, glance at the exposure dashboard, and make the one or two calls the OVERDUE WAIVER flag surfaces. If you do this on a $500,000 project and it prevents a single $9,400 double payment, the return on an hour a week is not close. The alternative is a shoebox of canceled checks and no idea which liens are still live against your jobs.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>Joint checks are one of the few tools in construction that shift lien risk off your books at zero cost, but only if the paperwork behind them is airtight. The check forces the money to the right party. The register proves it happened, ties each check to the material it covered, and matches it to the waiver that kills the lien. Skip the register and you are back to trusting that every sub pays every supplier, which is the exact trust that puts liens on your owners' titles.</p>
+
+<p>If you want the register built and connected to the rest of your job costs instead of living in a spreadsheet you maintain by hand, the <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> includes a joint check and lien waiver log that ties second-payee exposure straight into your draw schedule and change orders. Stop paying suppliers twice and start closing every job with proof that no lien is left standing.</p>`,
+  },
+  {
     slug: 'construction-crew-productivity-rate-tracker-excel',
     title: 'Construction Crew Productivity Rate Tracker in Excel: Catch the Slip in Week Two, Not at Final Costing',
     metaTitle: 'Crew Productivity Rate Tracker Excel | SheetCraft',
