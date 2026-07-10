@@ -16,6 +16,146 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'landlord-rent-ledger-template-excel',
+    title: 'The Landlord Rent Ledger Template in Excel That Wins Eviction Cases',
+    metaTitle: 'Landlord Rent Ledger Template in Excel | SheetCraft',
+    metaDescription: 'Build a landlord rent ledger template in Excel that holds up in eviction court. Track charges, payments, and a running balance a judge will accept.',
+    targetKeyword: 'landlord rent ledger template Excel',
+    secondaryKeywords: ['rent ledger template', 'tenant payment ledger', 'rent payment tracker Excel', 'eviction documentation', 'rent roll spreadsheet'],
+    excerpt: 'When a tenant stops paying and you file to evict, the judge does not want your story, they want a record. A rent ledger that shows every charge, every payment, and a running balance is the document that wins. Here is how to build one in Excel a court will accept.',
+    publishedAt: '2026-07-10',
+    readTime: 8,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/landlord-rent-ledger-template-excel.png',
+    imageAlt: 'Landlord\'s desk with a residential lease agreement, calculator, checkbook, and a laptop displaying a rent ledger spreadsheet tracking tenant charges, payments, and running balance',
+    content: `<h1>The Landlord Rent Ledger Template in Excel That Wins Eviction Cases</h1>
+
+<p>Your tenant is three months behind. You filed to evict, you show up to court with a folder of text messages and a mental note that "she paid something in March," and the judge asks one question: how much does she owe, and how did you get to that number? If your answer is a story instead of a record, you can lose a case you should win. A landlord rent ledger template in Excel is the document that answers that question in one line. It shows every charge, every payment, and a running balance the court can follow without taking your word for anything.</p>
+
+<p>Most landlords treat rent tracking as bookkeeping. It is not. It is evidence. The tenant who stops paying is the same tenant who will tell the judge she paid cash you never recorded, or that you never told her about the late fees, or that the number you are demanding is invented. A clean ledger kills all three arguments at once. This is how you build one that holds up.</p>
+
+<h2>Why Bank Statements and Text Messages Lose in Court</h2>
+
+<p>The cost of a missing ledger is not abstract. An uncontested eviction in most states takes 30 to 60 days. A contested one, where the tenant disputes the amount owed, can stretch past 90 days while you collect zero rent and pay filing fees, service fees, and often an attorney. On a $1,650 unit, three extra months of delay plus $600 in court costs is over $5,500 of preventable loss. The thing that turns a fast eviction into a slow one is a landlord who cannot prove the number.</p>
+
+<p>Bank statements feel like proof, but they fail for a specific reason. A deposit of $1,000 on a $1,650 unit does not tell the court whether that was a partial rent payment, a late fee payment, a security deposit refund, or money for a different unit. The court needs to see how each dollar was applied. Text messages are worse. "I'll get you the rest Friday" is not a payment record, it is a promise, and promises do not reconcile to a balance.</p>
+
+<p>Here is the difference in plain terms:</p>
+
+<table>
+<thead>
+<tr><th>What you bring to court</th><th>What the judge can verify</th><th>Result when the tenant disputes the amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Bank statements</td><td>Money moved, not what it paid for</td><td>Continuance while you reconstruct the math</td></tr>
+<tr><td>Text messages and memory</td><td>Nothing enforceable</td><td>Case weakened, amount reduced or dismissed</td></tr>
+<tr><td>A dated rent ledger with running balance</td><td>Every charge, payment, and the balance on any date</td><td>Judgment for the full amount</td></tr>
+</tbody>
+</table>
+
+<h2>What Belongs in a Defensible Rent Ledger</h2>
+
+<p>A rent ledger is one running list per tenant, in date order, where every line is either a charge that increases what they owe or a payment that reduces it. The magic is the running balance column, because it means you never have to add anything up in your head or in front of a judge. The balance on the day you filed is sitting right there on the row for that date.</p>
+
+<p>Keep one sheet per tenant, or one clearly filtered block per tenant if you run a small portfolio. Do not mix tenants in a single running balance, because the moment you do, the balance becomes meaningless. Here is the column layout that works:</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Header</th><th>Input or formula</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Date</td><td>Date of the charge or payment</td></tr>
+<tr><td>B</td><td>Description</td><td>"Rent - August", "Payment", "Late fee", "NSF fee"</td></tr>
+<tr><td>C</td><td>Charge</td><td>Amount added to what the tenant owes</td></tr>
+<tr><td>D</td><td>Payment</td><td>Amount received from the tenant</td></tr>
+<tr><td>E</td><td>Method</td><td>Cash, check, Zelle, money order</td></tr>
+<tr><td>F</td><td>Running balance</td><td><code>=F2+C3-D3</code></td></tr>
+</tbody>
+</table>
+
+<h3>The Running Balance Is the Whole Point</h3>
+
+<p>The running balance in column F is the one formula that makes the ledger defensible. On the first data row you seed it with the opening balance, then every row after carries the prior balance forward, adds any new charge, and subtracts any payment:</p>
+
+<p><code>=F2+C3-D3</code></p>
+
+<p>Read that in business terms: yesterday's balance, plus anything new they were charged today, minus anything they paid today. A positive number means the tenant owes you. A zero means they are current. You copy that formula down the entire column, and the balance recalculates itself every time you add a line. When you filed to evict on the 6th, you scroll to the row dated the 6th and the balance in column F is exactly what you claim in the complaint. No mental math, no reconstruction, no continuance.</p>
+
+<h3>Partial Payments Are Where Landlords Lose Track</h3>
+
+<p>The tenant who pays $800 against a $1,650 rent is the tenant who ends up in court, and the partial payment is the exact thing sloppy records mishandle. In a running-balance ledger it is trivial. The $1,650 rent charge is one line, the $800 payment is a separate line the same week, and column F shows the $850 still open. You never overwrite the rent charge to "net" the payment, because the court needs to see both the full obligation and what was actually paid against it.</p>
+
+<h2>Building the Ledger in Excel</h2>
+
+<p>Start with a small header block above the transactions so the sheet identifies itself. Put the tenant name in B1, the unit in B2, the lease start in B3, and the monthly rent in B4. That last cell matters, because you will reference it so you are not retyping the rent amount every month and risking a typo that a tenant's attorney will happily point out.</p>
+
+<p>For the monthly rent charge, instead of hand-keying 1650 every month, pull it from the header so it is always consistent:</p>
+
+<p><code>=$B$4</code></p>
+
+<p>To total what has ever been charged and what has ever been paid, use column sums that ignore the header rows. If your transactions run from row 8 down, put these in a summary area:</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Formula</th><th>What it tells you</th></tr>
+</thead>
+<tbody>
+<tr><td>Total charged</td><td><code>=SUM(C8:C500)</code></td><td>Everything the tenant has ever owed</td></tr>
+<tr><td>Total paid</td><td><code>=SUM(D8:D500)</code></td><td>Everything the tenant has ever paid</td></tr>
+<tr><td>Current balance</td><td><code>=SUM(C8:C500)-SUM(D8:D500)</code></td><td>What they owe right now, the number you sue for</td></tr>
+</tbody>
+</table>
+
+<p>The current balance from the summary should always match the last value in your running balance column. That is your built-in check. If they disagree, you fumbled a formula and you catch it at your desk instead of at the podium.</p>
+
+<h3>Automate the Late Fee So It Is Never a Surprise</h3>
+
+<p>Late fees get thrown out when the landlord cannot show the fee was applied consistently and on time. Let the sheet decide, not your mood. Say rent is due the 1st and your lease allows a $75 late fee after the 5th. In a helper cell next to the rent charge, flag whether the payment landed in time:</p>
+
+<p><code>=IF(D9=0,"LATE FEE DUE","PAID ON TIME")</code></p>
+
+<p>To count how many days past the due date a payment came in, subtract the due date from the payment date:</p>
+
+<p><code>=A9-DATE(2026,8,1)</code></p>
+
+<p>If that result is greater than 5, the $75 fee is justified and you add it as its own line in the ledger. Applied the same way every month, on the same schedule, the late fee stops being something a tenant can argue was arbitrary retaliation. It becomes a term of the lease you enforced by the book.</p>
+
+<h2>A Worked Example the Court Can Follow</h2>
+
+<p>Here is a real sequence for a tenant on a $1,650 unit who slid from current to eviction over three months. This is the block you would print and hand up:</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Description</th><th>Charge</th><th>Payment</th><th>Running balance</th></tr>
+</thead>
+<tbody>
+<tr><td>Aug 1</td><td>Rent - August</td><td>$1,650</td><td></td><td>$1,650</td></tr>
+<tr><td>Aug 3</td><td>Payment - Zelle</td><td></td><td>$1,650</td><td>$0</td></tr>
+<tr><td>Sep 1</td><td>Rent - September</td><td>$1,650</td><td></td><td>$1,650</td></tr>
+<tr><td>Sep 9</td><td>Payment - partial</td><td></td><td>$800</td><td>$850</td></tr>
+<tr><td>Sep 10</td><td>Late fee</td><td>$75</td><td></td><td>$925</td></tr>
+<tr><td>Oct 1</td><td>Rent - October</td><td>$1,650</td><td></td><td>$2,575</td></tr>
+<tr><td>Oct 6</td><td>Late fee</td><td>$75</td><td></td><td>$2,650</td></tr>
+</tbody>
+</table>
+
+<p>When you file on October 6, the complaint says the tenant owes $2,650, and the ledger's last row says $2,650. The judge sees the August rent paid in full and on time, so you look reasonable rather than predatory. The judge sees the September partial payment credited exactly as the tenant would remember it, so the tenant cannot claim you ignored their money. The judge sees two late fees applied on a fixed schedule, so they read as lease enforcement, not punishment. Every number reconciles. There is nothing to argue about except the fact that the tenant did not pay.</p>
+
+<h2>Three Mistakes That Get a Ledger Thrown Out</h2>
+
+<ol>
+<li><strong>Editing history instead of adding lines.</strong> When a payment comes in, never go back and change the rent charge to a smaller number. Add a payment row. A ledger that shows only net figures looks reconstructed, and reconstructed records invite the question "when did you actually write this?" Append-only entries in date order read as contemporaneous, which is exactly what a court wants.</li>
+<li><strong>Recording deposits as rent.</strong> A security deposit is not rent and it is not income you can sue for as unpaid rent. Keep it off the rent ledger entirely, or on a clearly separate line labeled as a deposit that does not flow into the running balance. Blending the two is how landlords accidentally overstate the balance and hand the tenant a reason to challenge the whole document.</li>
+<li><strong>Untracked cash.</strong> The tenant who pays cash and gets no receipt is setting up the "I paid and he never recorded it" defense. Log every cash payment the day it happens, note the method in column E, and give a receipt. An unlogged cash payment is a hole in your running balance, and a hole is all a tenant's attorney needs.</li>
+</ol>
+
+<h2>Build It Once, Defend It Every Time</h2>
+
+<p>A rent ledger is not paperwork you do after the fact when trouble starts. It is the record you keep from day one so that when trouble starts, the hard part is already done. Set up the columns, seed the running balance, reference the rent from a header cell, and add a line every time money is charged or paid. Do that and the difference between a 30-day eviction and a 90-day fight is a spreadsheet you already have open.</p>
+
+<p>If you would rather not wire up the running balance, late fee logic, and summary checks by hand across every unit you own, the <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> ships with a per-tenant rent ledger already built, the running-balance formula in place, late fees that flag themselves, and a portfolio view that rolls every tenant's current balance into one number. You track payments as they come in, and the day you ever need to walk into court, the document that wins is already sitting on the correct row. Start with a ledger you can defend, before you are the landlord improvising in front of a judge.</p>`,
+  },
+  {
     slug: 'construction-joint-check-tracking-excel',
     title: 'Construction Joint Check Agreement Tracking in Excel: Kill the Lien a Sub Leaves Behind',
     metaTitle: 'Joint Check Agreement Tracking in Excel | SheetCraft',
