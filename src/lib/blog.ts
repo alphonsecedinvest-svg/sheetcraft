@@ -16,6 +16,146 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-mileage-log-excel',
+    title: 'The Rental Property Mileage Log in Excel That Survives an Audit',
+    metaTitle: 'Rental Property Mileage Log in Excel | SheetCraft',
+    metaDescription: 'Build a rental property mileage log in Excel that survives an audit. Track every property visit so the standard mileage rate becomes real tax savings.',
+    targetKeyword: 'rental property mileage log Excel',
+    secondaryKeywords: ['mileage log template', 'IRS mileage deduction landlord', 'standard mileage rate 2026', 'vehicle expense tracking rental', 'property visit log Excel'],
+    excerpt: 'You drove to your rental four times last month, and every trip is a deduction the IRS will disallow if you never logged it. Vehicle expenses are one of the few write-offs where obvious is not good enough. Here is how to build a mileage log in Excel that turns miles into real tax savings and holds up in an audit.',
+    publishedAt: '2026-07-11',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-mileage-log-excel.png',
+    imageAlt: 'A landlord\'s mileage tracking setup with car keys, a dated trip notebook, a smartphone showing a map route to a rental house, and a laptop displaying a mileage log spreadsheet',
+    content: `<h1>The Rental Property Mileage Log in Excel That Survives an Audit</h1>
+
+<p>You drove to your rental four times last month. A showing, a leaky faucet, a supply run for the leaky faucet, and a drive-by after a storm. Every one of those trips is a business deduction. And unless you wrote them down at the time, none of them count. A rental property mileage log in Excel is not busywork. It is the difference between a deduction the IRS pays out and one it disallows on the spot, because vehicle expenses are one of the few write-offs where "I obviously drove there" is not good enough.</p>
+
+<p>Most landlords fall into one of two traps. They skip the mileage deduction because it feels small and fiddly, or they claim a round number at tax time with no record behind it. Both are expensive. The first leaves real money on the table. The second hands an auditor an easy win. This is how to build a rental property mileage log Excel template that captures every trip, applies the right rate, and holds up when someone asks you to prove it.</p>
+
+<h2>Why Mileage Is the One Deduction You Legally Cannot Reconstruct</h2>
+
+<p>Here is the part nobody tells you. For most business expenses, if you lose a receipt, a court can still let you estimate the deduction under what is called the Cohan rule. Vehicle expenses are carved out of that mercy. Under Section 274(d) of the tax code, car and truck expenses require strict substantiation. No log, no deduction, even when it is obvious you made the drive. A judge cannot round in your favor. This is why the mileage deduction is the single most common thing landlords lose in an audit, and it is entirely preventable.</p>
+
+<p>The standard mileage rate for 2026 is 70 cents per mile. That number does the heavy lifting, but only against miles you can document with a date, a destination, a business purpose, and the distance. Skip the log and the rate is worthless, because you have nothing to multiply it by that survives scrutiny.</p>
+
+<p>Now the cost of skipping it. Take Dana, who self-manages three units about 15 miles from her house. She never logs anything. Here is what a full year of her driving actually looks like once you count it:</p>
+
+<table>
+<thead>
+<tr><th>Trip type</th><th>Trips per year</th><th>Avg round-trip miles</th><th>Miles</th></tr>
+</thead>
+<tbody>
+<tr><td>Showings, inspections, turnovers</td><td>50</td><td>30</td><td>1,500</td></tr>
+<tr><td>Hardware and supply runs</td><td>30</td><td>14</td><td>420</td></tr>
+<tr><td>Contractor meets and storm drive-bys</td><td>22</td><td>25</td><td>550</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>102</strong></td><td></td><td><strong>2,470</strong></td></tr>
+</tbody>
+</table>
+
+<p>At 70 cents per mile, that is a <strong>$1,729 deduction</strong> Dana never claims. At a 24% marginal federal rate, she overpays about $415 in tax every year, before state tax. Hold the properties ten years and she has handed the IRS roughly $4,150 for the sole reason that she never opened a spreadsheet. The deduction was always there. She just could not prove it.</p>
+
+<h2>The Columns That Turn Miles Into a Deduction the IRS Accepts</h2>
+
+<p>A mileage log is not complicated, but it fails on the columns people leave out. The IRS wants four things for every trip: the date, where you went, why (the business purpose), and how far. Build the sheet so those four are non-negotiable and the math takes care of itself.</p>
+
+<p>Put your rate in one place so it is easy to update each year. In a Setup area, cell B1 holds <code>0.70</code>, and you name that cell <code>Rate</code> so every formula reads clean. Then lay out a Log sheet like this:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Column</th><th>Example value</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Date</td><td>2026-03-14</td></tr>
+<tr><td>B</td><td>Property</td><td>Maple St</td></tr>
+<tr><td>C</td><td>Purpose</td><td>Turnover inspection</td></tr>
+<tr><td>D</td><td>Round-trip miles</td><td>30</td></tr>
+<tr><td>E</td><td>Deductible?</td><td>Yes</td></tr>
+<tr><td>F</td><td>Deduction $</td><td>21.00</td></tr>
+</tbody>
+</table>
+
+<p>Column E and F are formulas, not typing. In E2, you decide whether the trip even qualifies:</p>
+
+<p><code>=IF(C2="","CHECK",IF(OR(C2="Improvement",C2="Personal"),"No","Yes"))</code></p>
+
+<p>That formula does one job in plain business terms. If you forgot to write down why you drove, it screams <code>CHECK</code> so you fix it before tax season. If the trip was a capital improvement or a personal errand, it marks it <code>No</code>, because those miles are not a current deduction. Everything else is a <code>Yes</code>. Then F2 applies the rate only to the qualifying trips:</p>
+
+<p><code>=IF(E2="Yes",D2*Rate,0)</code></p>
+
+<p>Your annual deductible mileage total is a single sum at the top of column F, or if you prefer to see it two ways, <code>=SUMIF(E:E,"Yes",D:D)*Rate</code> gives you the same number straight from the qualifying miles.</p>
+
+<h3>The One Column Landlords Always Forget</h3>
+
+<p>The purpose column is what makes the log contemporaneous evidence instead of a list of numbers. "Maple St, 30 miles" proves nothing. "Maple St, turnover inspection between tenants, 30 miles" is a business record. An auditor reading your log should be able to tell, line by line, that you were managing a rental and not driving to your kid's soccer game. Make the purpose specific. "Repair," "Showing," "Rent pickup," "Inspection," "Supply run for unit 2." Vague logs get thrown out. Specific logs get paid.</p>
+
+<h3>Separating Deductible Trips From Capital Trips</h3>
+
+<p>This is where landlords quietly overstate and set themselves up for trouble. A trip to fix a running toilet is deductible mileage this year. A trip to oversee a new roof or a kitchen remodel is not. Improvement-related travel gets capitalized into the property's cost basis and recovered through depreciation over years, not deducted as mileage now. That is why the "Improvement" purpose returns <code>No</code> in the formula above. To keep the two buckets honest, run a quick tally:</p>
+
+<p><code>=SUMIFS(D:D,C:C,"Improvement")</code></p>
+
+<p>That tells you how many improvement miles you drove, so if you ever want to add them to a capital project's basis you have the number ready. It also stops you from accidentally sweeping them into your deductible pile, which is exactly the kind of overreach that turns a routine review into a full audit.</p>
+
+<h2>Standard Mileage vs Actual Expenses: Which Column Set to Build</h2>
+
+<p>There are two ways to deduct vehicle costs, and you should pick before you build, because they need different tracking. The standard mileage method multiplies your business miles by the IRS rate and ignores what the car actually cost you. The actual expense method adds up gas, insurance, maintenance, registration, and depreciation, then deducts the business-use percentage of that total. Here is the same landlord, same 2,470 business miles, run both ways:</p>
+
+<table>
+<thead>
+<tr><th>Method</th><th>Inputs</th><th>Math</th><th>Deduction</th></tr>
+</thead>
+<tbody>
+<tr><td>Standard mileage</td><td>2,470 business miles</td><td>2,470 × 0.70</td><td><strong>$1,729</strong></td></tr>
+<tr><td>Actual expenses</td><td>$8,200 total car cost, 14,000 total miles</td><td>$8,200 × (2,470 / 14,000)</td><td>$1,447</td></tr>
+</tbody>
+</table>
+
+<p>Standard wins here by $282, and it wins for most landlords for a simple reason. Unless you drive an expensive vehicle and put serious business miles on it, the flat rate usually beats a small business-use slice of your real costs, and it needs a fraction of the recordkeeping. You track miles, not every gas receipt.</p>
+
+<p>The business-use percentage is the pivot for the actual method, so if you go that route your log needs a total-miles-driven figure too:</p>
+
+<p><code>=SUMIF(E:E,"Yes",D:D)/TotalMilesDriven</code></p>
+
+<p>One rule locks this decision. If you want the option to switch methods later, you must choose the standard mileage rate in the first year the vehicle is available for your rental activity. Start with actual expenses and heavy depreciation, and you can be stuck with actual for that car for as long as you own it. For a leased vehicle, picking standard in year one means standard for the whole lease. When in doubt, most landlords are better served starting with standard mileage and a clean log.</p>
+
+<h2>Making the Log Contemporaneous, Where Most Logs Actually Fail</h2>
+
+<p>The word that decides audits is "contemporaneous." The IRS wants a record kept at or near the time of the trip, not a heroic reconstruction the night before your return is due. A spreadsheet you update the same week, with real dates in order, reads as contemporaneous. A file where all 102 rows share the same "last modified" date and the miles are suspiciously round does not. Build two habits into the sheet so it stays credible.</p>
+
+<p>First, catch your own gaps before an auditor does. Count the rows where you forgot the purpose:</p>
+
+<p><code>=COUNTIF(E:E,"CHECK")</code></p>
+
+<p>If that returns anything above zero in December, you have homework, and you have it while you can still remember the trips. Second, watch each property separately so the totals make sense. A single unit racking up 1,800 miles when it is ten minutes away is a red flag you want to find first:</p>
+
+<p><code>=SUMIFS(F:F,B:B,"Maple St")</code></p>
+
+<p>Run that per property and the numbers should track reality. Here is what a clean monthly slice looks like once the habits are in place:</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Property</th><th>Purpose</th><th>Miles</th><th>Deductible?</th><th>Deduction $</th></tr>
+</thead>
+<tbody>
+<tr><td>2026-03-03</td><td>Maple St</td><td>Showing to applicant</td><td>30</td><td>Yes</td><td>21.00</td></tr>
+<tr><td>2026-03-11</td><td>Oak Ave</td><td>Supply run, faucet parts</td><td>14</td><td>Yes</td><td>9.80</td></tr>
+<tr><td>2026-03-14</td><td>Maple St</td><td>Turnover inspection</td><td>30</td><td>Yes</td><td>21.00</td></tr>
+<tr><td>2026-03-22</td><td>Cedar Ct</td><td>Oversee roof replacement</td><td>25</td><td>No</td><td>0.00</td></tr>
+<tr><td>2026-03-28</td><td>Oak Ave</td><td>Rent pickup and drive-by</td><td>14</td><td>Yes</td><td>9.80</td></tr>
+</tbody>
+</table>
+
+<p>Notice the roof trip on the 22nd sits in the log with a <code>No</code> and a zero. You did not delete it, because the drive still happened and its miles may belong on the property's basis. You just did not let it inflate your current deduction. That kind of discipline is what separates a log that wins from a log that invites a second look.</p>
+
+<h2>Turn the Log Into a Number You Actually Claim</h2>
+
+<p>Landlords do not lose the mileage deduction because they do not drive. They lose it because the driving never becomes a record. Build the four columns that matter, let the formulas separate deductible trips from capital ones, pick the standard rate in year one, and update the sheet the same week you make the trip. Do that and a $1,700 deduction stops being a rounding error you skip and becomes a documented line that lowers your tax bill and survives an audit at the same time.</p>
+
+<p>If you would rather not wire up the rate cell, the deductible flags, and the per-property tallies from scratch, the SheetCraft <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> has the mileage log built in, already linked to each property and rolled up into the same workbook that tracks your rent, expenses, and cash flow. Log the trip, and the deduction lands in the right place with the audit trail attached. Your miles are already money. This is how you keep them.</p>`,
+  },
+  {
     slug: 'landlord-rent-ledger-template-excel',
     title: 'The Landlord Rent Ledger Template in Excel That Wins Eviction Cases',
     metaTitle: 'Landlord Rent Ledger Template in Excel | SheetCraft',
