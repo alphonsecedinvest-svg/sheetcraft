@@ -16,6 +16,139 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-application-screening-scorecard-excel',
+    title: 'The Rental Application Screening Scorecard in Excel That Keeps You Out of Court',
+    metaTitle: 'Rental Application Screening Scorecard Excel | SheetCraft',
+    metaDescription: 'Screen tenants with a rental application screening scorecard in Excel. Score income, credit, and history on a fixed rubric and reject on numbers, not gut.',
+    targetKeyword: 'rental application screening scorecard Excel',
+    secondaryKeywords: ['tenant screening spreadsheet', 'rent to income ratio', 'tenant scoring rubric', 'fair housing screening criteria', 'landlord tenant screening checklist'],
+    excerpt: 'Most landlords screen tenants on a gut feeling, which is how you end up with a costly eviction and a fair housing complaint on the same unit. A rental application screening scorecard in Excel scores every applicant on the same numbers, income ratio, credit, and payment history, so you approve and reject on documented criteria instead of instinct.',
+    publishedAt: '2026-07-12',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-application-screening-scorecard-excel.png',
+    imageAlt: 'A rental screening desk flat lay with an application clipboard, a calculator, house keys, a small white model house, and green approve and red decline cards',
+    content: `<h1>The Rental Application Screening Scorecard in Excel That Keeps You Out of Court</h1>
+
+<p>Two applicants want your rental. One is warm, chatty, reminds you of your cousin, and makes $3,900 a month. The other is quiet, a little awkward, and makes $5,400 a month with a spotless payment record. Screen on instinct and you probably hand the keys to the first one. Six months later you are filing for eviction. A rental application screening scorecard in Excel exists to stop exactly that decision, because the tenant who feels right and the tenant who actually pays rent are not always the same person, and instinct cannot tell them apart.</p>
+
+<p>Screening on gut feel is not just a business risk. It is a legal one. Every time you approve or reject an applicant on a vibe instead of a number, you leave yourself open to a fair housing complaint you cannot defend, because you have no record of why one person got the unit and another did not. A rental application screening scorecard fixes both problems at once. It grades every applicant on the same criteria, it produces a paper trail, and it takes the decision out of your head and puts it on a spreadsheet where it belongs.</p>
+
+<h2>Why "I Get a Feel for People" Is the Most Expensive Screening Method There Is</h2>
+
+<p>Gut-feel screening fails in two directions, and both are costly.</p>
+
+<p>The first cost is the bad tenant you approve because you liked them. A single eviction is rarely a single line item. You lose rent from the first missed payment through the day the sheriff posts the notice, which in most states runs two to four months. You pay court and attorney fees. You pay to turn the unit after someone who stopped caring about it. Add it up and a routine eviction lands between $4,000 and $10,000 once you count lost rent, legal costs, and turnover. On a unit that nets $400 a month, that one bad approval erases a year or more of profit.</p>
+
+<p>The second cost is quieter and larger. The Fair Housing Act bars you from treating applicants differently based on race, color, religion, sex, national origin, familial status, or disability, and many states and cities add protections like source of income, age, or marital status. You do not have to intend to discriminate to get in trouble. If you approve one applicant with a 640 credit score and reject another with a 660 score, and the two happen to differ by a protected characteristic, you have a problem you cannot explain away, because you never wrote down a rule. A single fair housing settlement commonly runs $10,000 to $20,000 before legal defense, and federal civil penalties for a first violation exceed $20,000. The scorecard is not busywork. It is the document that proves you applied the same standard to everyone.</p>
+
+<h2>The Five Numbers That Predict Whether Rent Actually Shows Up</h2>
+
+<p>A good scorecard measures the things that correlate with getting paid, weights them by how much they matter, and ignores everything else. Five inputs carry almost all the signal. Here is the rubric, scored out of 100 points.</p>
+
+<table>
+<thead>
+<tr><th>Criterion</th><th>Weight</th><th>Scoring bands</th></tr>
+</thead>
+<tbody>
+<tr><td>Income to rent ratio</td><td>30</td><td>3.5x or more = 30, 3.0 to 3.49x = 22, 2.5 to 2.99x = 12, under 2.5x = 0</td></tr>
+<tr><td>Credit score</td><td>25</td><td>720 and up = 25, 660 to 719 = 18, 600 to 659 = 10, under 600 = 0</td></tr>
+<tr><td>Payment and rental history</td><td>20</td><td>Clean and verified = 20, one minor late = 12, multiple lates = 6, eviction or collection = 0</td></tr>
+<tr><td>Employment and income stability</td><td>15</td><td>2 or more years = 15, 1 to 2 years = 10, under 1 year = 5, unverifiable = 0</td></tr>
+<tr><td>References and application completeness</td><td>10</td><td>Two verified landlord references = 10, one = 6, none or incomplete = 0</td></tr>
+</tbody>
+</table>
+
+<h3>Income to rent ratio is the single strongest predictor</h3>
+
+<p>The oldest rule in rentals is that gross monthly income should be at least three times the rent. It survives because it works. A tenant paying $1,600 rent on $4,000 a month has room to absorb a car repair. The same rent on $2,800 a month is one bad week from a missed payment. Weight it heaviest, because it is the number most directly tied to whether the check clears.</p>
+
+<h3>Credit score tells you about habits, not wealth</h3>
+
+<p>Credit score is a proxy for whether this person pays recurring bills on time. It is not a measure of how much money they have. Someone can earn well and pay late, and someone modest can carry a perfect record. Bands matter more than the exact number, which is why the rubric groups scores into tiers instead of using them raw. A 662 and a 716 both land in the same tier, and treating them the same keeps you from splitting hairs that do not predict anything.</p>
+
+<h3>History beats everything the applicant tells you</h3>
+
+<p>What a prior landlord actually reports outweighs anything typed on the application. A verified "paid on time, would rent to again" is worth more than a high income with no track record behind it. A prior eviction or an unpaid balance sent to collections is the one input that should pull the score toward zero on its own. Call the last two landlords, not just the current one, since the current landlord may be motivated to pass along a problem tenant.</p>
+
+<h2>Building the Scorecard in Excel</h2>
+
+<p>Lay it out so each applicant is a column and each criterion is a row. Enter the raw inputs at the top, let formulas convert them to points, and read the decision off the bottom. Here is the logic that does the work.</p>
+
+<p>Put the income to rent ratio in its own cell first so you can see it, then score it. If gross monthly income is in B4 and monthly rent is in B5, then <code>=B4/B5</code> in B6 gives you the ratio. Now convert that ratio to points with a single tiered formula. IFS reads top to bottom and stops at the first match, so order the bands from best to worst:</p>
+
+<p><code>=IFS(B6&gt;=3.5,30,B6&gt;=3,22,B6&gt;=2.5,12,TRUE,0)</code></p>
+
+<p>The TRUE at the end is the catch-all that scores anything below 2.5x as zero, so no applicant ever slips through without a number. Do the same for credit, where the raw score sits in B7:</p>
+
+<p><code>=IFS(B7&gt;=720,25,B7&gt;=660,18,B7&gt;=600,10,TRUE,0)</code></p>
+
+<p>Enter the history, stability, and reference points directly from your rubric definitions, since those are judgment calls against fixed language rather than pure math. Then total the five point cells:</p>
+
+<p><code>=SUM(B8:B12)</code></p>
+
+<p>Turn that total into a decision so you are reading a word, not eyeballing a number. If the total is in B13:</p>
+
+<p><code>=IF(B13&gt;=75,"APPROVE",IF(B13&gt;=60,"CONDITIONAL","DECLINE"))</code></p>
+
+<p>That sorts the score into three lanes. Seventy-five and up is a clean approval. Sixty to seventy-four is conditional, meaning you can approve with a larger deposit, a co-signer, or first and last month up front. Below sixty is a decline. Add one more layer to catch disqualifiers that should override the total no matter how high it climbs, like an unpaid prior eviction judgment. Put a knockout flag in B14 and let it win:</p>
+
+<p><code>=IF(B14="yes","AUTO-DECLINE",B15)</code></p>
+
+<p>where B15 holds the normal decision from the formula above. Define these knockouts before you ever see an applicant, and apply them to every single one:</p>
+
+<ul>
+<li>Unpaid eviction judgment or a rent balance in collections</li>
+<li>Income to rent ratio below 2.5x with no qualified co-signer</li>
+<li>Application details that do not match the pay stubs or the prior landlord</li>
+<li>Refusal to authorize a credit and background check</li>
+</ul>
+
+<h2>A Real Two Applicant Decision</h2>
+
+<p>Run the two applicants from the top of this article through the sheet and watch the friendly conversation stop mattering.</p>
+
+<table>
+<thead>
+<tr><th>Input</th><th>Applicant A (the warm one)</th><th>Applicant B (the quiet one)</th></tr>
+</thead>
+<tbody>
+<tr><td>Gross monthly income</td><td>$3,900</td><td>$5,400</td></tr>
+<tr><td>Monthly rent</td><td>$1,600</td><td>$1,600</td></tr>
+<tr><td>Income ratio</td><td>2.44x</td><td>3.38x</td></tr>
+<tr><td>Income points</td><td>0</td><td>22</td></tr>
+<tr><td>Credit score</td><td>648</td><td>712</td></tr>
+<tr><td>Credit points</td><td>10</td><td>18</td></tr>
+<tr><td>History points</td><td>12</td><td>20</td></tr>
+<tr><td>Stability points</td><td>10</td><td>15</td></tr>
+<tr><td>Reference points</td><td>6</td><td>10</td></tr>
+<tr><td><strong>Total score</strong></td><td><strong>38</strong></td><td><strong>85</strong></td></tr>
+<tr><td><strong>Decision</strong></td><td><strong>DECLINE</strong></td><td><strong>APPROVE</strong></td></tr>
+</tbody>
+</table>
+
+<p>Applicant A makes decent money and seems great across a kitchen table. On the sheet, a 2.44x ratio and a 648 credit score put the total at 38. Applicant B, the awkward one you almost passed on, scores 85. The spreadsheet just made the decision your gut was about to get wrong, and it did it in numbers you can show anyone who asks, including a fair housing investigator. That last point is the one landlords underrate. The scorecard did not only protect your cash flow. It documented that the reason for the decline was a score, not a person.</p>
+
+<h2>The Rule That Turns a Spreadsheet Into a Legal Shield</h2>
+
+<p>The scorecard only protects you if you use it the same way every time. A rubric you apply to some applicants and skip for others is worse than no rubric, because it proves you had a standard and chose when to ignore it. Follow four rules.</p>
+
+<ol>
+<li><strong>Set the weights and thresholds before you list the unit.</strong> Decide your approve line, your knockouts, and your conditional terms in advance. Never adjust them mid-search to fit a specific person you took a liking to.</li>
+<li><strong>Score every applicant in the order received.</strong> Run the first qualified applicant through the full rubric. If they clear the bar and accept, you are done. A written first-qualified policy is itself a consistent, defensible standard.</li>
+<li><strong>Keep every completed scorecard for at least two years.</strong> The federal statute of limitations for many fair housing claims is two years, and several states run longer. A saved sheet per applicant, dated, with the raw inputs, is your evidence that the decision was about the numbers.</li>
+<li><strong>Send an adverse action notice when you decline on a report.</strong> If you reject or charge more based on a credit or background report, the Fair Credit Reporting Act requires you to tell the applicant, name the reporting agency, and note their right to dispute. A one-paragraph template covers it.</li>
+</ol>
+
+<p>One caution on criminal history. Federal guidance treats blanket criminal bans as a fair housing risk, because they can produce a disparate impact on protected groups. If you consider it at all, weigh the nature and recency of a specific conviction against a written policy, not a yes or no checkbox, and keep it out of the automated total. When in doubt, lean on income, credit, and verified rental history. Those are the inputs that actually predict whether rent shows up.</p>
+
+<h2>From Scorecard to a System That Runs Itself</h2>
+
+<p>A standalone screening tab is a strong start. The problem it does not solve is what happens after you approve someone. The reason you screen this hard is to protect the return on the property, and that return lives in a different set of numbers: rent against the mortgage, taxes, insurance, a maintenance reserve, and vacancy. A tenant who scores 85 still loses you money if the unit itself never cash flowed in the first place.</p>
+
+<p>That is why the screening scorecard belongs inside a full rental analysis instead of off on its own. Our <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> wires the tenant scoring rubric into the same workbook that runs your cash flow, cap rate, and cash on cash return, with the income ratio bands, credit tiers, and decision thresholds already built and the adverse action language ready to drop in. You enter an applicant, you get an APPROVE or DECLINE and a saved record, and the same file tells you whether the rent that applicant will pay actually covers the property. Screen on numbers, hold the tenants who pay, and keep the paper that proves you did it fairly. Stop deciding with your gut and start deciding with the scorecard.</p>`,
+  },
+  {
     slug: 'rental-property-mileage-log-excel',
     title: 'The Rental Property Mileage Log in Excel That Survives an Audit',
     metaTitle: 'Rental Property Mileage Log in Excel | SheetCraft',
