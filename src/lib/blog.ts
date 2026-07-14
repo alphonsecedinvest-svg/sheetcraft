@@ -16,6 +16,127 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'multifamily-operating-expense-ratio-calculator-excel',
+    title: 'The Multifamily Operating Expense Ratio Calculator in Excel That Catches a Money Pit Before You Buy It',
+    metaTitle: 'Multifamily Operating Expense Ratio Calculator | SheetCraft',
+    metaDescription: 'A seller\'s pro forma can hide a money pit. Build a multifamily operating expense ratio calculator in Excel and benchmark OER against the 50 percent rule.',
+    targetKeyword: 'multifamily operating expense ratio calculator Excel',
+    secondaryKeywords: ['operating expense ratio real estate', '50 percent rule real estate', 'multifamily OER benchmark', 'rental property expense ratio Excel', 'net operating income calculator'],
+    excerpt: 'A seller\'s pro forma that shows a 29 percent operating expense ratio is not a great deal, it is a warning that expenses were left out. A multifamily operating expense ratio calculator in Excel benchmarks the real OER against the 50 percent rule, so you spot a property that looks profitable but is quietly a money pit before you overpay by six figures. Here are the formulas, the benchmark ranges, and the exact costs sellers delete.',
+    publishedAt: '2026-07-14',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/multifamily-operating-expense-ratio-calculator-excel.png',
+    imageAlt: 'A flat lay with a white multifamily apartment building model, a printed real estate operating statement showing an income and expense table, a calculator, reading glasses, and coffee, representing a multifamily operating expense ratio calculator in Excel',
+    content: `<h1>The Multifamily Operating Expense Ratio Calculator in Excel That Catches a Money Pit Before You Buy It</h1>
+
+<p>A broker sends you an eight-unit building. The pro forma shows $96,000 in gross rents, $28,000 in expenses, and a 7.2% cap rate at the $860,000 asking price. On paper it cash flows beautifully. You run the numbers, you like them, and if you buy on those numbers you will spend the next three years wondering where your money went. The problem is hiding in one figure the broker did not label clearly. At $28,000 of expenses on $96,000 of income, the pro forma is claiming an operating expense ratio of 29%. Real multifamily buildings do not run at 29%. A multifamily operating expense ratio calculator in Excel is how you catch that in ten minutes instead of at your first property tax bill.</p>
+
+<p>The operating expense ratio is the fastest way to tell whether a rental deal is what the seller says it is. It compresses the entire operating budget into one number you can benchmark against thousands of other buildings. When that number sits far below normal, you are not looking at a well-run property. You are looking at a pro forma with expenses left out. This article builds the calculator, shows you the benchmark it has to clear, and names the specific costs sellers quietly delete to make a money pit look profitable.</p>
+
+<h2>What the Operating Expense Ratio Actually Measures</h2>
+
+<p>The operating expense ratio, or OER, is total operating expenses divided by effective gross income. Effective gross income is your gross potential rent minus vacancy and credit loss, plus other income like laundry, parking, and pet fees. Operating expenses are everything it costs to run the building: property taxes, insurance, management, repairs, maintenance, the utilities you pay, landscaping, trash, and reserves for big replacements.</p>
+
+<p>Two things are deliberately excluded, and this is where new investors go wrong. Operating expenses do not include your mortgage payment, and they do not include depreciation. Debt service is a financing decision, not a property cost, so it lives below the net operating income line. Depreciation is a tax entry, not a cash outflow. Leave both out. If you fold your mortgage into the ratio, you are measuring your loan, not the building, and the result compares to nothing.</p>
+
+<p>The formula itself is trivial. The discipline is in what you feed it. If your income cell is <code>=B6-B7+B8</code>, meaning gross rent minus vacancy plus other income, and your expense total is <code>=SUM(B12:B23)</code>, then the ratio is simply <code>=B25/B9</code>, formatted as a percentage. One division. The entire value of the model is whether rows 12 through 23 are honest.</p>
+
+<h2>The 50 Percent Rule Is a Lie Detector, Not a Budget</h2>
+
+<p>Every experienced multifamily investor carries one number in their head: operating expenses run about half of gross income. That is the 50 percent rule. Across a full year, for a typical small-to-mid multifamily building, roughly 50 cents of every rent dollar goes to operating costs before the mortgage gets paid.</p>
+
+<p>The rule is not a budget. You do not use it to plan the year. You use it as a screen. When a seller hands you a pro forma claiming a 29% OER, the 50 percent rule tells you instantly that something is missing, because well-run buildings land in the 35 to 45% range and older small buildings run higher than that, not lower. A ratio in the twenties is not a great deal. It is a warning that reassessed taxes are not in the numbers, or management is not in the numbers, or nobody set aside a single dollar for the roof.</p>
+
+<p>Here is the benchmark to keep next to the calculator. Compare your computed OER against the row that matches the building, and treat anything meaningfully below the range as a claim you have to prove, not a bargain you get to keep.</p>
+
+<table>
+<thead>
+<tr><th>Building profile</th><th>Typical OER range</th><th>What a number below the range usually means</th></tr>
+</thead>
+<tbody>
+<tr><td>Newer, well-managed, taxes current</td><td>35% to 42%</td><td>Plausible if audited by real statements</td></tr>
+<tr><td>Standard small multifamily, 4 to 20 units</td><td>42% to 50%</td><td>Below 40% suggests missing management or reserves</td></tr>
+<tr><td>Older building, deferred maintenance</td><td>50% to 60%</td><td>Below 45% is almost always understated repairs</td></tr>
+<tr><td>Any building post-sale reassessment</td><td>Add 3% to 8% to the above</td><td>Seller taxes never reflect your new basis</td></tr>
+</tbody>
+</table>
+
+<p>The 50 percent rule gets you to a fast yes-or-no on whether to keep reading a listing. The calculator is what you build once the listing survives the rule, so you can see exactly which line is off.</p>
+
+<h2>Building the Calculator in Excel</h2>
+
+<p>Lay the sheet out in three blocks: an income block at the top, an expense block in the middle, and the ratio and flags at the bottom. Enter the numbers from the seller's actual statements, not the pro forma, and the sheet does the rest.</p>
+
+<p>The income block is short. Gross potential rent is what the building collects at full occupancy. Vacancy and credit loss is what you lose to empty units and non-payment, never zero, and 5 to 8% is a realistic floor even on a full building. Other income is laundry, parking, storage, and fees.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line item</th><th>Example value</th><th>Formula or note</th></tr>
+</thead>
+<tbody>
+<tr><td>B6</td><td>Gross potential rent</td><td>$96,000</td><td>All units, full year, market or in-place rent</td></tr>
+<tr><td>B7</td><td>Vacancy and credit loss</td><td>$6,720</td><td><code>=B6*0.07</code> at a 7% vacancy assumption</td></tr>
+<tr><td>B8</td><td>Other income</td><td>$3,600</td><td>Laundry, parking, pet and storage fees</td></tr>
+<tr><td>B9</td><td>Effective gross income</td><td>$92,880</td><td><code>=B6-B7+B8</code></td></tr>
+</tbody>
+</table>
+
+<p>The expense block is where deals live or die. List every category on its own row so nothing hides inside a lump sum. The two lines investors most often skip are professional management and capital reserves, and those two are exactly what turns a fake 29% into a real 48%.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Expense line</th><th>Example value</th><th>Rule of thumb</th></tr>
+</thead>
+<tbody>
+<tr><td>B12</td><td>Property taxes (reassessed)</td><td>$11,600</td><td>Recompute at your purchase price, not the seller's basis</td></tr>
+<tr><td>B13</td><td>Insurance</td><td>$4,200</td><td>Get a real quote, premiums have jumped</td></tr>
+<tr><td>B14</td><td>Property management</td><td>$7,430</td><td><code>=B9*0.08</code>, count it even if you self-manage</td></tr>
+<tr><td>B15</td><td>Repairs and maintenance</td><td>$8,000</td><td>$1,000 per unit as a floor on older stock</td></tr>
+<tr><td>B16</td><td>Utilities (owner-paid)</td><td>$6,600</td><td>Water, sewer, trash, common-area electric</td></tr>
+<tr><td>B17</td><td>Landscaping and snow</td><td>$2,400</td><td>Contracted or your own time valued honestly</td></tr>
+<tr><td>B18</td><td>Turnover and leasing</td><td>$2,800</td><td>Paint, clean, list, screen between tenants</td></tr>
+<tr><td>B19</td><td>Capital reserves</td><td>$2,400</td><td><code>=300*8</code>, roughly $250 to $350 per unit per year</td></tr>
+<tr><td>B23</td><td>Total operating expenses</td><td>$45,430</td><td><code>=SUM(B12:B22)</code></td></tr>
+</tbody>
+</table>
+
+<p>Now the payoff cells. The operating expense ratio is <code>=B23/B9</code>, which on these numbers is 48.9%, not the 29% the broker showed. Add a benchmark flag so the sheet screams when a deal fails the 50 percent screen: <code>=IF(B25>0.5,"HIGH, verify or renegotiate",IF(B25<0.35,"LOW, expenses likely understated","IN RANGE"))</code>. That single formula turns a spreadsheet into a filter you can run across ten listings in an afternoon.</p>
+
+<p>Two more numbers finish the model. Net operating income is <code>=B9-B23</code>, and that is the figure a building actually sells on. Divide NOI by the asking price with <code>=B26/B30</code> to get the true cap rate. On the honest expenses, this deal's NOI is $47,450 and the real cap rate at $860,000 is 5.5%, not 7.2%. The 1.7 points of cap rate the seller invented is worth real money, which is the next section.</p>
+
+<h2>The Expenses Sellers Forget, and What They Cost You</h2>
+
+<p>Understated expenses are not a rounding error. They are a valuation error, because you buy income property on a multiple of NOI. Overstate NOI by leaving out costs and you overpay by that overstatement divided by the cap rate. Here is the same building side by side, the seller's pro forma against the numbers the calculator forces you to use.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Seller pro forma</th><th>Real underwriting</th><th>Why the gap</th></tr>
+</thead>
+<tbody>
+<tr><td>Effective gross income</td><td>$96,000</td><td>$92,880</td><td>Seller assumed zero vacancy</td></tr>
+<tr><td>Property taxes</td><td>$7,100</td><td>$11,600</td><td>Reassessment at your higher basis</td></tr>
+<tr><td>Property management</td><td>$0</td><td>$7,430</td><td>Seller self-manages, you might not, count it anyway</td></tr>
+<tr><td>Capital reserves</td><td>$0</td><td>$2,400</td><td>Roof, boiler, and parking lot do not fund themselves</td></tr>
+<tr><td>All other expenses</td><td>$20,900</td><td>$24,000</td><td>Trimmed repairs and turnover</td></tr>
+<tr><td>Net operating income</td><td>$68,000</td><td>$47,450</td><td>The whole story</td></tr>
+<tr><td>OER</td><td>29%</td><td>49%</td><td>The lie detector fires</td></tr>
+</tbody>
+</table>
+
+<p>The NOI gap is $20,550. At a market cap rate of 6.5%, that gap is worth <code>=20550/0.065</code>, about $316,000 of value. The seller is asking $860,000 for a building that, underwritten honestly, is worth closer to $730,000 at the same cap rate. If you had trusted the pro forma, you would have overpaid by six figures and financed the mistake for thirty years.</p>
+
+<p>Three lines cause almost all of it, and the calculator catches all three. Property taxes on the seller's old assessed value instead of your purchase price. Management priced at zero because the current owner self-manages, which tells you nothing about what the building costs to run when you hire it out or value your own hours. And capital reserves set to nothing, as if the roof installed in 2004 will last forever. Force each of those onto its own row and the fake ratio cannot survive.</p>
+
+<h2>What to Do With the Number Once You Have It</h2>
+
+<p>An OER calculator does three jobs. It screens listings fast so you stop wasting weekends on deals that fail the 50 percent rule. It arms your offer, because a 49% real OER against a 29% claimed one is a written, defensible reason to negotiate the price down to the value the honest NOI supports. And it protects you after closing, because the same sheet becomes your annual budget benchmark, telling you the month your real building starts drifting above its range so you fix a leak before it becomes a trend.</p>
+
+<p>Build the shell once and you can run any multifamily deal through it. The trap is not the math, which is one division. The trap is the blank rows, the expenses a seller left off the page and hoped you would too. A calculator with every line item pre-built, benchmark ranges wired in, and the 50 percent flag firing automatically is what keeps a good-looking money pit from becoming your money pit.</p>
+
+<p>If you would rather not wire the vacancy math, the reserve formulas, the reassessed-tax logic, and the OER flags from a blank sheet on every deal, the <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> ships with the full expense schedule, the operating expense ratio benchmark, and true cap rate already built in. Drop in the seller's statements, watch the ratio land next to the range it should be in, and know within minutes whether the deal is real or just dressed up to look that way.</p>`,
+  },
+  {
     slug: 'rental-property-rubs-calculator-excel',
     title: 'The Rental Property RUBS Calculator in Excel That Stops Utilities From Eating Your Cash Flow',
     metaTitle: 'Rental Property RUBS Calculator Excel | SheetCraft',
