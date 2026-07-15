@@ -16,6 +16,145 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'fix-and-flip-draw-request-tracker-excel',
+    title: 'The Fix and Flip Draw Request Tracker in Excel That Keeps Your Rehab From Running Out of Cash',
+    metaTitle: 'Fix and Flip Draw Request Tracker Excel | SheetCraft',
+    metaDescription: 'Fronting too much rehab cash stalls a flip. Build a fix and flip draw request tracker in Excel to keep lender reimbursements pacing your spend.',
+    targetKeyword: 'fix and flip draw request tracker Excel',
+    secondaryKeywords: ['rehab draw schedule template', 'hard money rehab draw request', 'fix and flip cash flow spreadsheet', 'rehab budget tracker Excel', 'lender draw reimbursement tracking'],
+    excerpt: 'On a rehab loan you spend first and get reimbursed later, and if you front more cash than the lender will fund, the project stalls before it sells. A fix and flip draw request tracker in Excel ties every dollar you spend to a line item the lender will actually reimburse, so you always know your out-of-pocket exposure and never submit a draw the inspector rejects. Here are the formulas, a worked $75,000 rehab, and the draw math that keeps your cash alive.',
+    publishedAt: '2026-07-15',
+    readTime: 9,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/fix-and-flip-draw-request-tracker-excel.png',
+    imageAlt: 'A flat lay with a printed house renovation budget sheet, a model house under renovation, a calculator, a hard hat, and keys, representing a fix and flip draw request tracker in Excel',
+    content: `<h1>The Fix and Flip Draw Request Tracker in Excel That Keeps Your Rehab From Running Out of Cash</h1>
+
+<p>You buy a flip with a rehab loan. The lender hands you the purchase money at closing and then holds the entire rehab budget in escrow, releasing it in pieces as you complete work. Nobody tells you the part that sinks first-time flippers: you pay the contractors first, out of your own pocket, and you get reimbursed weeks later, only for work an inspector can physically verify is done. Front more cash than the lender will fund, and the project stalls while your money is trapped in unfinished work. A fix and flip draw request tracker in Excel is the one sheet that keeps that gap from swallowing you, because it ties every dollar you spend to a line item the lender will actually pay back.</p>
+
+<p>Most flippers run the rehab out of a checkbook and a text thread with the GC. That works until draw #2, when the lender's inspector says the kitchen is 40 percent done, not the 70 percent you paid your contractor for, and the reimbursement comes back $9,000 short of what you already spent. Now you are floating $9,000 you did not plan to float, holding costs keep running, and you have three more draws to go. This article builds the tracker that shows your true out-of-pocket exposure at every stage, gives you the exact draw request formula, and runs a worked $75,000 rehab so you can see where the cash actually goes.</p>
+
+<h2>How a Rehab Draw Actually Works, and Why You Are Always Fronting Cash</h2>
+
+<p>On a fix and flip loan, the rehab budget is not cash in your account. It is a reserve the lender controls. You submit a scope of work at closing that breaks the rehab into line items, demo, framing, electrical, plumbing, kitchen, baths, flooring, paint, exterior, and each line gets an approved dollar amount. That approved list is your draw schedule. The lender will never fund a line above its approved amount, and it will only release money against work that is complete and inspected.</p>
+
+<p>The sequence on every draw is the same, and it is why your own cash is always out ahead of the loan:</p>
+
+<ol>
+<li>You pay contractors and buy materials with your own money.</li>
+<li>You submit a draw request listing the percentage complete on each line item.</li>
+<li>The lender orders an inspection, usually 2 to 5 business days out, and charges you $125 to $175 for it.</li>
+<li>The inspector confirms completed work, often lower than you claimed.</li>
+<li>The lender wires the approved amount, minus a draw fee of $150 to $350 and sometimes a 10 percent holdback.</li>
+</ol>
+
+<p>Two rules from that sequence quietly drain cash. First, materials sitting in the garage do not count. A lender pays for installed, completed work, so the $7,000 in cabinets you prepaid are worth zero on a draw until they are hung. Second, the holdback. Many lenders retain 10 percent of each draw until the final inspection, so even perfectly documented work reimburses at 90 cents on the dollar until the very end. Add the deposit contractors want up front and you are structurally, permanently, fronting cash on a flip. The tracker's whole job is to tell you how much.</p>
+
+<h2>Building the Draw Request Tracker in Excel</h2>
+
+<p>Lay the sheet out as one row per line item from your approved scope of work, with a totals row at the bottom and a draw summary block below that. The columns do two jobs at once: they generate the draw request you send the lender, and they show the cash you have tied up that the lender is not covering yet.</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Field</th><th>Formula or note</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Line item (cost code)</td><td>From the approved scope of work</td></tr>
+<tr><td>B</td><td>Approved budget</td><td>Lender-approved amount, the hard cap on this line</td></tr>
+<tr><td>C</td><td>Actual paid to date</td><td>What you have really spent on this line</td></tr>
+<tr><td>D</td><td>% complete (installed)</td><td>Inspector-verifiable, not deposits paid</td></tr>
+<tr><td>E</td><td>Earned to date</td><td><code>=B4*D4</code></td></tr>
+<tr><td>F</td><td>Previously funded</td><td>Sum of all prior draws on this line</td></tr>
+<tr><td>G</td><td>Eligible this draw</td><td><code>=MAX(0,E4-F4)</code></td></tr>
+<tr><td>H</td><td>Out of pocket</td><td><code>=C4-(F4+G4)</code></td></tr>
+</tbody>
+</table>
+
+<p>The one formula that matters most is column G. <code>=MAX(0,E4-F4)</code> says your eligible draw is the value of work completed to date minus what the lender has already funded, and never below zero. Because earned to date in column E is budget times percent complete, and percent complete tops out at 100, this formula can never let your cumulative draws exceed the approved budget on a line. That is exactly the ceiling the lender enforces, built into your sheet so you never submit a request that comes back rejected.</p>
+
+<p>Column H is the number that keeps you alive. <code>=C4-(F4+G4)</code> is what you have paid out minus everything the lender has funded or is about to fund on this line. When it is positive, you are fronting cash. Sum it at the bottom with <code>=SUM(H4:H19)</code> and you have your total out-of-pocket exposure on the rehab in one cell, updated every time you enter a payment.</p>
+
+<p>Add two flags so the sheet warns you before the lender does. An overage flag on each line, <code>=IF(C4&gt;B4,"OVER, overage not fundable","OK")</code>, catches the moment your actual spend passes the approved budget, because every dollar over the cap is yours forever, the lender will not fund it. And a fronting flag, <code>=IF(H4&gt;0,"FRONTING","even")</code>, shows which trades are eating your cash right now.</p>
+
+<p>Build the totals row so the draw request writes itself. Total approved is <code>=SUM(B4:B19)</code>, total paid is <code>=SUM(C4:C19)</code>, total earned is <code>=SUM(E4:E19)</code>, and the gross draw request you send the lender is <code>=SUM(G4:G19)</code>. That last cell is the number that goes on the draw form.</p>
+
+<h2>A $75,000 Rehab, Draw by Draw</h2>
+
+<p>Here is a standard cosmetic-plus rehab on a flip: a $75,000 approved budget across eight line items, funded 100 percent by the lender in draws. Watch the out-of-pocket column, because that is the money that has to come from somewhere while the work is in progress.</p>
+
+<table>
+<thead>
+<tr><th>Line item</th><th>Approved budget</th></tr>
+</thead>
+<tbody>
+<tr><td>Demo and dumpster</td><td>$6,000</td></tr>
+<tr><td>Framing and structural</td><td>$8,000</td></tr>
+<tr><td>Electrical and plumbing rough</td><td>$11,000</td></tr>
+<tr><td>HVAC</td><td>$7,500</td></tr>
+<tr><td>Drywall and paint</td><td>$9,500</td></tr>
+<tr><td>Kitchen and baths</td><td>$18,000</td></tr>
+<tr><td>Flooring</td><td>$8,000</td></tr>
+<tr><td>Exterior and landscaping</td><td>$7,000</td></tr>
+<tr><td>Total</td><td>$75,000</td></tr>
+</tbody>
+</table>
+
+<p>Now run draw #1. You finish demo, framing, and the rough-ins at 100 percent, which earns $25,000 of completed work. You also prepay a 50 percent deposit on the kitchen cabinets, $9,000, because the shop needs it to start the build. Those cabinets are 0 percent installed, so they earn nothing on this draw even though you already paid for them. Here is what the tracker shows.</p>
+
+<table>
+<thead>
+<tr><th>Draw #1</th><th>Amount</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>Work completed and inspected</td><td>$25,000</td><td>Demo, framing, rough-ins at 100%</td></tr>
+<tr><td>Eligible draw (gross)</td><td>$25,000</td><td><code>=SUM(G4:G19)</code></td></tr>
+<tr><td>Less 10% holdback</td><td>-$2,500</td><td>Released at final inspection</td></tr>
+<tr><td>Less draw and inspection fees</td><td>-$400</td><td>$250 draw + $150 inspection</td></tr>
+<tr><td>Net wired to you</td><td>$22,100</td><td>What actually hits your account</td></tr>
+<tr><td>Actual cash you paid out</td><td>$34,000</td><td>Includes $9,000 cabinet deposit</td></tr>
+<tr><td>Out-of-pocket exposure</td><td>$11,900</td><td>The cash gap you are floating</td></tr>
+</tbody>
+</table>
+
+<p>Read that last row. You are three weeks in, everything is going right, the inspector agreed with every number, and you are still $11,900 out of pocket beyond the loan. Nine thousand of it is cabinets that exist but are not installed, so no draw will touch that money until they are hung on draw #2. The other $2,900 is the holdback and fees. If you underwrote this deal assuming the rehab loan covered the rehab, you are already scrambling for cash on a project that is going perfectly.</p>
+
+<p>By draw #2 you install the cabinets, finish HVAC, drywall, and paint. The cabinet deposit finally becomes draw-eligible and your out-of-pocket drops back toward the holdback. By the final draw everything is complete, the 10 percent holdback across every draw releases at once, and the last of the cash gap closes only when the lender signs off on the final inspection. The tracker is what let you see, at draw #1, that you needed roughly $12,000 of your own liquid cash on hand to keep going, before you ever swung a hammer.</p>
+
+<h2>The Two Numbers That Actually Stall Flips</h2>
+
+<p>Line-item overage is the first. The lender caps every line at its approved budget. Go $2,000 over on electrical because you found knob-and-tube behind the plaster, and that $2,000 is not a draw you resubmit, it is cash out of your pocket that never comes back through the loan. The overage flag, <code>=IF(C4&gt;B4,"OVER, overage not fundable","OK")</code>, is not a nag. It is the difference between catching the problem while you can still move budget from a contingency line and discovering it at the closing table. Track approved versus actual on every line and you can request a budget reallocation from the lender while there is still room to do it.</p>
+
+<p>Out-of-pocket exposure is the second, and it is the one nobody models before they buy. Your completed-work cash gap is <code>=SUM(H4:H19)</code>, the money you have paid out that the loan has not yet funded, and the lender's holdback and draw fees stack on top of it. It peaks in the middle of the project, when deposits are paid but the work is not yet inspected. Run the tracker forward on your scope of work before you close and you get the single most important number in a flip that no ARV estimate gives you: the maximum cash you will have tied up at once. That is the liquidity you actually need, on top of your down payment and holding costs. Guess it low and you stall a 90 percent finished house because you cannot pay the trim carpenter.</p>
+
+<h2>When to Submit a Draw, and When to Wait</h2>
+
+<p>Every draw costs you. A $250 draw fee plus a $150 inspection is $400, and six draws on a project is $2,400 in pure friction. The instinct is to batch, submit fewer and larger draws to save the fees. The counter-instinct is to submit early and often to keep cash flowing back to you. The right answer is a rule, not a feeling.</p>
+
+<p>Submit a draw when the eligible amount clears a threshold that makes the fee worth it, or when your out-of-pocket is climbing toward the most cash you can float. A single decision cell handles it: <code>=IF(OR(G20&gt;10000,H20&gt;CashCeiling*0.8),"SUBMIT DRAW","WAIT")</code>, where G20 is your gross eligible draw and H20 is current out-of-pocket. That formula says draw when you have at least $10,000 of completed work to reimburse, so the $400 in fees is under 4 percent, or draw sooner if your cash gap is approaching 80 percent of what you can float, whichever comes first. It turns the batch-versus-cash-flow question into a number the sheet answers for you.</p>
+
+<p>Put the two approaches side by side on the same $75,000 rehab:</p>
+
+<table>
+<thead>
+<tr><th>Approach</th><th>Draw on every trade (8 draws)</th><th>Batch by threshold (3 draws)</th></tr>
+</thead>
+<tbody>
+<tr><td>Total draw and inspection fees</td><td>$3,200</td><td>$1,200</td></tr>
+<tr><td>Peak out-of-pocket</td><td>$7,500</td><td>$14,000</td></tr>
+<tr><td>Cash you must have on hand</td><td>Lower</td><td>Higher</td></tr>
+<tr><td>Best when</td><td>Cash is tight</td><td>You have reserves</td></tr>
+</tbody>
+</table>
+
+<p>Batching saves $2,000 in fees but forces you to float almost twice the cash at the peak. If you have the reserves, batch and pocket the fees. If you are stretched, eat the fees and draw more often to keep your money moving. The tracker shows you which situation you are actually in instead of letting you find out the expensive way.</p>
+
+<h2>Stop Fronting Cash You Cannot Get Back</h2>
+
+<p>A flip does not fail because the ARV was wrong by a few thousand dollars. It fails because the investor ran out of cash in the middle, with a half-finished house and a loan that will only pay for completed work. The draw request tracker exists to make that impossible to sneak up on you: it caps every line at what the lender will fund, flags every dollar of overage the second it happens, and tells you the exact out-of-pocket cash you are floating at every stage of the job.</p>
+
+<p>The SheetCraft <a href="/products/flip-brrrr-calculator">Fix and Flip and BRRRR Calculator</a> carries this the whole way. It ties your rehab scope of work, draw schedule, and out-of-pocket exposure into the same model that runs your purchase price, ARV, holding costs, and projected profit, so the cash you have to float on draws is not a surprise you discover after closing, it is a line in the deal you underwrote from the start. Build the draw tracker once, connect it to the numbers that decide whether the flip makes money, and stop fronting cash you have no fast way to get back.</p>`,
+  },
+  {
     slug: 'multifamily-operating-expense-ratio-calculator-excel',
     title: 'The Multifamily Operating Expense Ratio Calculator in Excel That Catches a Money Pit Before You Buy It',
     metaTitle: 'Multifamily Operating Expense Ratio Calculator | SheetCraft',
