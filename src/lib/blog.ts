@@ -16,6 +16,153 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'subject-to-real-estate-deal-calculator-excel',
+    title: 'The Subject To Real Estate Deal Calculator in Excel That Proves the Deal Before You Take Over the Mortgage',
+    metaTitle: 'Subject To Real Estate Deal Calculator Excel | SheetCraft',
+    metaDescription: 'Taking over a seller\'s low-rate mortgage can beat new financing. A subject to real estate deal calculator in Excel proves the payment, equity, and exit.',
+    targetKeyword: 'subject to real estate deal calculator Excel',
+    secondaryKeywords: ['subject to mortgage calculator', 'sub2 deal analyzer', 'taking over seller mortgage payments', 'creative financing spreadsheet', 'subject to real estate investing'],
+    excerpt: 'Subject to gets pitched as free money, but whether taking over a seller\'s mortgage pays comes down to four numbers. A subject to real estate deal calculator in Excel proves the payment, the equity, and the monthly spread before you sign, and shows why a 3.5 percent loan you inherit can beat new financing that bleeds 340 dollars a month. Here are the formulas and a worked deal.',
+    publishedAt: '2026-07-16',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/subject-to-real-estate-deal-calculator-excel.png',
+    imageAlt: 'A flat lay of a white model house, house keys on a leather fob, a mortgage statement and real estate purchase contract, a calculator, and a laptop showing a financial spreadsheet, representing a subject to real estate deal calculator in Excel',
+    content: `<h1>The Subject To Real Estate Deal Calculator in Excel That Proves the Deal Before You Take Over the Mortgage</h1>
+
+<p>A seller calls you with a house worth about $315,000 and a problem. He owes $250,000 on a mortgage he took out in 2021 at 3.5 percent, his job just moved him three states away, and he needs to be gone in thirty days. You could buy it the normal way, qualify for a new loan at today's 7.25 percent, put money down, and watch the deal die on the calculator because the payment is too high to cash flow. Or you can take the house <em>subject to</em> the existing mortgage, leave that 3.5 percent loan exactly where it sits, and make the payments yourself. The rate that funds most subject to deals is a rate you can no longer get anywhere. The problem is that "the payment is cheaper" is not a deal. Whether it is a deal depends on four numbers, and a <strong>subject to real estate deal calculator in Excel</strong> is what turns the seller's phone call into a yes or a no before you sign anything.</p>
+
+<p>Subject to gets pitched as free money: no down payment, no qualifying, no new loan. That is the marketing. The reality is that you are handing the seller cash for his equity, inheriting a payment you did not underwrite, and stepping in front of a due-on-sale clause that the lender can trigger. Get the numbers right and you buy a cash-flowing rental with a 3.5 percent loan that nobody would write today. Get them wrong and you paid the seller $20,000 to take over a payment that bleeds you $340 a month. This article builds the sheet that tells the two apart, gives you the exact formulas, and runs one real deal end to end.</p>
+
+<h2>What Subject To Actually Means, and Where the Money Is</h2>
+
+<p>In a subject to purchase, the deed transfers to you but the loan does not. Title moves into your name, and the mortgage stays in the seller's name at the seller's original terms. You are now the owner, you make the monthly payments, and the loan keeps amortizing on the seller's credit until you refinance or sell. Nobody assumes the loan, nobody pays it off, and no bank underwrites you. That is the whole mechanic, and it is legal in every state.</p>
+
+<p>The money is not in "no money down." The money is in the interest rate you inherit. A $250,000 balance at 3.5 percent carries a principal and interest payment of about $1,123. That same $250,000 as a brand new 30-year loan at 7.25 percent costs $1,705 a month. That $582 gap, every month, on somebody else's locked-in rate, is the entire reason subject to beats new financing right now. Over a five-year hold it is roughly $34,900 that stays in your pocket instead of going to a lender. The calculator's first job is to put a dollar figure on that gap so you stop treating it as a vague advantage and start treating it as the return it is.</p>
+
+<h2>The Four Numbers a Subject To Deal Lives or Dies On</h2>
+
+<p>Every subject to deal reduces to four figures. Miss any one and the sheet lies to you.</p>
+
+<ol>
+<li><strong>Equity captured.</strong> Market value minus the loan balance you take over minus every dollar of cash you put in. This is your paper profit the day you close.</li>
+<li><strong>Total cash in.</strong> What you actually hand over: cash to the seller for his equity, any back payments to bring the loan current, plus closing and attorney costs. This is the denominator for your return.</li>
+<li><strong>Monthly spread.</strong> Market rent minus the full inherited payment (PITI) minus your reserves. If it is negative, you are buying a monthly liability no matter how good the equity looks.</li>
+<li><strong>Rate arbitrage.</strong> The inherited payment versus what a new loan on the same balance would cost today. This is the number that proves subject to is worth the risk instead of just buying it clean.</li>
+</ol>
+
+<p>A deal can have gorgeous equity and still lose money every month, or cash flow beautifully with almost no equity capture. You need all four on one screen, which is exactly what the spreadsheet gives you and a napkin does not.</p>
+
+<h2>Building the Subject To Calculator in Excel</h2>
+
+<p>Lay the inputs down column B so every formula points at a labeled cell. Keep the seller's loan terms separate from your investor assumptions, because you do not get to change the loan, you only get to decide whether to take it.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Existing loan balance taken over</td><td>$250,000</td></tr>
+<tr><td>B4</td><td>Seller's mortgage rate</td><td>3.5%</td></tr>
+<tr><td>B5</td><td>Existing monthly principal and interest</td><td>$1,123</td></tr>
+<tr><td>B6</td><td>Annual property taxes</td><td>$3,744</td></tr>
+<tr><td>B7</td><td>Annual insurance</td><td>$1,800</td></tr>
+<tr><td>B8</td><td>Cash paid to seller (his equity)</td><td>$20,000</td></tr>
+<tr><td>B9</td><td>Back payments and repairs to close</td><td>$5,000</td></tr>
+<tr><td>B10</td><td>Closing and attorney costs</td><td>$3,000</td></tr>
+<tr><td>B11</td><td>Current market mortgage rate</td><td>7.25%</td></tr>
+<tr><td>B12</td><td>Market value</td><td>$315,000</td></tr>
+<tr><td>B13</td><td>Market monthly rent</td><td>$2,150</td></tr>
+<tr><td>B14</td><td>Vacancy, maintenance, capex reserve</td><td>15%</td></tr>
+</tbody>
+</table>
+
+<p>Now build the four numbers that decide the deal. Start with the full monthly payment you are stepping into. The seller's principal and interest is fixed, but you still owe taxes and insurance, so the real payment is:</p>
+
+<p><code>=B5 + B6/12 + B7/12</code></p>
+
+<p>That returns $1,585, the PITI you actually carry each month. Investors who quote only the $1,123 principal and interest talk themselves into deals that never had a spread.</p>
+
+<p>Total cash in is everything that leaves your bank account to close:</p>
+
+<p><code>=B8 + B9 + B10</code></p>
+
+<p>That is $28,000. This is the number you are risking, and it is the denominator for cash-on-cash, so keep every real cost in it, including the repairs you must make to rent the place.</p>
+
+<p>Equity captured is what you own on paper the moment the deed records:</p>
+
+<p><code>=B12 - B3 - (B8 + B9 + B10)</code></p>
+
+<p>Market value of $315,000, minus the $250,000 you took over, minus $28,000 in cash, leaves <strong>$37,000</strong> of captured equity. That is real, but it is trapped until you sell or refinance, which is why it can never be the only number you look at.</p>
+
+<p>The monthly spread is the number that keeps you solvent. Rent minus PITI minus reserves:</p>
+
+<p><code>=B13 - (B5 + B6/12 + B7/12) - (B13*B14)</code></p>
+
+<p>That is $2,150 minus $1,585 minus $323, which leaves <strong>$242 a month</strong> in cash flow. Positive, but thin, and the reserve line is doing real work here. Drop the reserve and the sheet flatters you.</p>
+
+<p>Now the number that justifies the whole strategy. Excel's <code>PMT</code> function tells you what this exact balance would cost as a new loan today, so you can see the rate arbitrage in dollars:</p>
+
+<p><code>=PMT(B11/12, 360, -B3) - B5</code></p>
+
+<p><code>PMT</code> takes the monthly rate, the number of payments, and the loan amount as a negative, and returns the payment. At 7.25 percent over 30 years, $250,000 costs $1,705 a month, so this formula returns <strong>$582</strong>. That is what the seller's old rate saves you every single month. Annualize it and multiply by your hold:</p>
+
+<p><code>=(PMT(B11/12, 360, -B3) - B5) * 60</code></p>
+
+<p>Over a five-year hold that is roughly <strong>$34,900</strong> you keep because you did not originate a new loan. Cash-on-cash return ties the spread back to the cash you risked:</p>
+
+<p><code>=((B13 - (B5 + B6/12 + B7/12) - (B13*B14)) * 12) / (B8 + B9 + B10)</code></p>
+
+<p>That is $2,904 of annual cash flow on $28,000 in, or <strong>10.4 percent</strong>, before the equity capture and the loan paydown even enter the picture.</p>
+
+<h2>A Worked Deal: $315,000 House, $250,000 Loan at 3.5 Percent</h2>
+
+<p>Here is the seller's house run through the sheet, next to the exact same purchase done with a new loan at today's rate. Same house, same price, same rent. The only thing that changes is whether you inherit the 3.5 percent loan or write a new one at 7.25 percent.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Subject To (inherit 3.5%)</th><th>New Loan (7.25%)</th></tr>
+</thead>
+<tbody>
+<tr><td>Loan balance / new loan</td><td>$250,000</td><td>$250,000</td></tr>
+<tr><td>Monthly principal and interest</td><td>$1,123</td><td>$1,705</td></tr>
+<tr><td>Taxes and insurance monthly</td><td>$462</td><td>$462</td></tr>
+<tr><td>Full PITI</td><td>$1,585</td><td>$2,167</td></tr>
+<tr><td>Market rent</td><td>$2,150</td><td>$2,150</td></tr>
+<tr><td>Reserves at 15%</td><td>-$323</td><td>-$323</td></tr>
+<tr><td>Monthly cash flow</td><td>+$242</td><td>-$340</td></tr>
+<tr><td>Cash to close</td><td>$28,000</td><td>~$65,000</td></tr>
+<tr><td>Cash-on-cash return</td><td>10.4%</td><td>Negative</td></tr>
+</tbody>
+</table>
+
+<p>Read the two cash flow rows. The subject to deal cash flows $242 a month. The identical house with a new loan bleeds $340 a month, and asks for more than twice the cash up front because a new investment loan wants 20 to 25 percent down. The inherited rate is not a minor advantage, it is the difference between an asset and a liability. This is the exact comparison the article idea points at: taking over the seller's mortgage does not just save on the down payment, it beats new financing on the only line that matters month to month.</p>
+
+<p>Notice what the equity line does not do. You captured $37,000 in equity, but that equity pays no bills. If the monthly spread had come back negative, no amount of paper equity would have made this a hold. The four numbers work together: the rate arbitrage makes the payment cheap, the cheap payment makes the spread positive, the spread makes it a keeper, and the equity is the bonus you collect on the exit.</p>
+
+<h2>The Risks the Calculator Has to Price In</h2>
+
+<p>Subject to has three ways to hurt you, and each one belongs in the sheet as a line item, not a footnote you find out about later.</p>
+
+<p><strong>The due-on-sale clause.</strong> When title transfers, the lender has the contractual right to call the entire loan due. It does not happen on most deals, but it can, and the only defense is being able to refinance or sell fast if the letter arrives. Price it by holding a reserve of at least six months of PITI in cash and flagging any deal that cannot cover it:</p>
+
+<p><code>=IF(reserve_cash &lt; B5*6, "THIN, build reserve", "OK")</code></p>
+
+<p><strong>Insurance and the loan staying in the seller's name.</strong> The policy has to be rewritten to name you as the insured with the seller's lender as mortgagee, or a claim gets denied and the lender gets nervous. And because the loan reports on the seller's credit, one late payment is his problem before it is yours. Both of these are reputation and paperwork risks, not spreadsheet risks, but the reserve line is what buys you time to fix them.</p>
+
+<p><strong>No exit.</strong> A subject to deal with no plan to refinance or sell is a deal you can be forced out of on the lender's timeline instead of yours. Model at least one exit. The cleanest is a refinance in year three or four once rents have risen and the balance has paid down, or a sale that harvests the captured equity. Add an exit flag that checks the spread survives a refinance stress test at today's rate:</p>
+
+<p><code>=IF((B13*(1-B14)) - PMT(B11/12,360,-B3) - B6/12 - B7/12 &gt; 0, "REFI SURVIVES", "REFI KILLS CASH FLOW")</code></p>
+
+<p>In this deal that formula returns REFI KILLS CASH FLOW, because at 7.25 percent the payment eats the rent. That is not a reason to skip the deal, it is a reason to hold the low rate as long as you legally can and plan your exit around a sale or a future rate drop, not a near-term refinance. The flag makes that decision explicit instead of a surprise in year three.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Subject to is the rare strategy where the math is simple and the discipline is hard. The four numbers, equity captured, cash in, monthly spread, and rate arbitrage, decide every deal, and they take about ten cells to compute. The discipline is refusing to sign when the spread is negative, refusing to skip the reserve, and always modeling an exit before you take over a loan you cannot refinance today. Run those four numbers on every seller who calls, and you will pass on the pretty-equity deals that bleed monthly and pounce on the boring ones that cash flow with a rate you can no longer buy.</p>
+
+<p>If you would rather not rebuild the PITI math, the <code>PMT</code>-based rate arbitrage, the cash-on-cash formula, and the due-on-sale and exit flags from scratch on every seller call, the SheetCraft <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already has the creative-financing block wired: labeled cells for the inherited loan terms, automatic equity capture and total cash in, the monthly spread with a reserve line built in, the new-loan comparison computed by <code>PMT</code>, and the reserve and exit flags that turn red before a deal turns bad. You type in the seller's balance, rate, and payment, drop in your rent and cash, and the sheet tells you in one screen whether taking over the mortgage beats walking away. Model the deal once, and let the only number that decides it stop being the one you hoped was true.</p>`,
+  },
+  {
     slug: 'fix-and-flip-draw-request-tracker-excel',
     title: 'The Fix and Flip Draw Request Tracker in Excel That Keeps Your Rehab From Running Out of Cash',
     metaTitle: 'Fix and Flip Draw Request Tracker Excel | SheetCraft',
