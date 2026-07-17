@@ -16,6 +16,161 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-direct-mail-campaign-tracker-excel',
+    title: 'The Real Estate Direct Mail Campaign Tracker in Excel That Kills the Lists That Don\'t Convert',
+    metaTitle: 'Real Estate Direct Mail Campaign Tracker Excel | SheetCraft',
+    metaDescription: 'Most investors mail blind and never learn which list pays. A real estate direct mail campaign tracker in Excel shows cost per lead and cost per deal by list.',
+    targetKeyword: 'real estate direct mail campaign tracker Excel',
+    secondaryKeywords: ['real estate direct mail ROI', 'cost per deal direct mail', 'wholesaling direct mail spreadsheet', 'motivated seller mailing list tracker', 'yellow letter response rate'],
+    excerpt: 'You mailed thousands of pieces and closed a couple of deals, but which list actually paid and which one quietly ate your budget? A real estate direct mail campaign tracker in Excel separates the two at the only level that counts, cost per deal, so you kill dead lists and pour money into the ones that convert. Here are the formulas, a two-tab setup, and three real lists run side by side.',
+    publishedAt: '2026-07-17',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-direct-mail-campaign-tracker-excel.png',
+    imageAlt: 'A clean flat lay of stacked white direct mail envelopes and postcards, a calculator, a coffee cup, a pen, and a laptop showing a spreadsheet with a bar chart, representing a real estate direct mail campaign tracker in Excel',
+    content: `<h1>The Real Estate Direct Mail Campaign Tracker in Excel That Kills the Lists That Don't Convert</h1>
+
+<p>You mailed 5,300 pieces last quarter, closed two deals, and made $41,000. That sounds like a win until someone asks the only question that matters: which of your three mailing lists produced those deals, and which one just ate $1,250 and gave you nothing back? Most investors cannot answer that, because they run every campaign out of one bank account, judge the whole effort by whether the phone rings, and keep funding a dead list for months because it feels like part of "the marketing." A <strong>real estate direct mail campaign tracker in Excel</strong> is the sheet that separates the list making you money from the list quietly bleeding it, and it does it at the only level that counts, cost per deal.</p>
+
+<p>Direct mail still works for finding off-market property, but "it works" is a feeling, not a number. Response rate flatters you, gross deal count hides the losers, and total spend tells you nothing about where the profit came from. When you track every campaign as one blurry lump, you cannot tell that the absentee-owner list is returning twenty dollars for every one you spend while the tax-delinquent list has cost you $1,250 across two mailings and produced zero contracts. This article builds the tracker that puts cost per lead and cost per deal next to each list, gives you the exact formulas, and runs three real campaigns through it so you can see which one you would have kept funding by accident.</p>
+
+<h2>Why "It's Working" Is Not a Number</h2>
+
+<p>Here is the trap. You spend $3,000 a month on mail, split across three lists, and deals show up often enough that the effort feels alive. What you do not see is that one list is carrying the other two. The winners subsidize the losers inside your blended average, so the whole program looks fine while half your budget produces nothing. You are not running one campaign that works. You are running one that works and one or two that you are paying to keep alive out of habit.</p>
+
+<p>The cost of not separating them is real money. Say the tax-delinquent list has taken $1,250 over two rounds with no deal, while absentee owners returned $28,000 on $1,100. Blended, the program looks like a $29,000 return on $3,030 spent, roughly a 9-to-1 win, and you conclude "mail is working, do more." So you scale everything by 50 percent, including the dead list, and now you are spending $625 a month to keep mailing people who never call. Over a year that is $7,500 poured into a list your own data already told you to cut, if only your data had been broken out by list instead of dumped in one pile.</p>
+
+<p>The fix is not more mail. It is attribution. Every piece you send belongs to a named list, every response gets tagged to the list that produced it, and every dollar of deal profit traces back to the campaign that found it. Once each list stands on its own line, the decision to kill or scale stops being a gut call and becomes arithmetic.</p>
+
+<h2>The Numbers Every Direct Mail Campaign Reduces To</h2>
+
+<p>A mailing campaign, no matter the list or the format, comes down to a short chain of numbers. Track these and nothing else matters. Miss one and the sheet lies to you the same way your gut does.</p>
+
+<ol>
+<li><strong>Pieces mailed.</strong> The count for that specific list, not your total volume.</li>
+<li><strong>Cost per piece.</strong> Print plus postage plus list cost, all in. A postcard runs about $0.50 to $0.65 all in, a letter closer to $0.80 to $1.00.</li>
+<li><strong>Total spend.</strong> Pieces times cost per piece, per list, per round.</li>
+<li><strong>Leads.</strong> Actual responses tagged to that list, not calls you think came from it.</li>
+<li><strong>Cost per lead.</strong> Spend divided by leads. The first honest efficiency number.</li>
+<li><strong>Deals closed.</strong> Contracts that actually funded, from that list.</li>
+<li><strong>Cost per deal.</strong> Spend divided by deals. This is the number that kills lists.</li>
+<li><strong>Deal profit and ROI.</strong> What the closed deals earned against what the list cost.</li>
+</ol>
+
+<p>Response rate is on that list on purpose, low on the priority order. A list can pull a beautiful 2 percent response and never close a deal, because it is full of people who want to chat but will not sell. Another can respond at 0.6 percent and hand you a $16,000 assignment. Cost per lead tells you if the list talks to you. Cost per deal tells you if it pays you. Only one of those buys groceries.</p>
+
+<h2>Building the Direct Mail Campaign Tracker in Excel</h2>
+
+<p>Use two tabs. A <strong>Response Log</strong> where every lead gets one row the day it comes in, and a <strong>Campaign Summary</strong> that rolls each list up automatically. The log keeps you honest, because a lead that never gets logged never inflates a list it did not earn.</p>
+
+<p>Lay the Response Log out with one row per lead and these columns:</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Field</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Date received</td><td>2026-07-09</td></tr>
+<tr><td>B</td><td>List name</td><td>Absentee Owners</td></tr>
+<tr><td>C</td><td>Lead name</td><td>R. Delgado</td></tr>
+<tr><td>D</td><td>Stage</td><td>Closed</td></tr>
+<tr><td>E</td><td>Deal profit</td><td>$14,000</td></tr>
+</tbody>
+</table>
+
+<p>Now the Campaign Summary reads from that log. Put each list down column A and its inputs across the row. The two numbers you type by hand are pieces mailed and cost per piece. Everything else is pulled or calculated, so a list can never look better than the log says it earned.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Field</th><th>Example (Absentee Owners)</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Pieces mailed</td><td>2,000</td></tr>
+<tr><td>B5</td><td>Cost per piece</td><td>$0.55</td></tr>
+<tr><td>B6</td><td>Leads (from log)</td><td>34</td></tr>
+<tr><td>B7</td><td>Deals (from log)</td><td>2</td></tr>
+<tr><td>B8</td><td>Deal profit (from log)</td><td>$28,000</td></tr>
+</tbody>
+</table>
+
+<p>Pull the leads straight from the log so you never double count or forget one. This counts every row tagged to that list:</p>
+
+<p><code>=COUNTIFS(Log!B:B, A4)</code></p>
+
+<p>Deals are the same count, filtered to the rows that actually closed, so a pile of chatty leads never masquerades as production:</p>
+
+<p><code>=COUNTIFS(Log!B:B, A4, Log!D:D, "Closed")</code></p>
+
+<p>Deal profit sums only the closed rows for that list, which keeps a live pipeline from padding a list before the money is real:</p>
+
+<p><code>=SUMIFS(Log!E:E, Log!B:B, A4, Log!D:D, "Closed")</code></p>
+
+<p>Now the efficiency numbers. Total spend for the list is pieces times cost per piece:</p>
+
+<p><code>=B4*B5</code></p>
+
+<p>Cost per lead is spend over leads, wrapped so an unmailed or brand-new list does not throw a divide-by-zero and scare you:</p>
+
+<p><code>=IF(B6=0, "no leads yet", (B4*B5)/B6)</code></p>
+
+<p>Cost per deal is the number that ends arguments. Spend over deals, guarded the same way, because a list with zero deals has an undefined cost per deal, not a good one:</p>
+
+<p><code>=IF(B7=0, "no deal yet", (B4*B5)/B7)</code></p>
+
+<p>Return on investment ties profit back to what the list cost you, so you are comparing money made to money spent, not response rates to each other:</p>
+
+<p><code>=IF(B4*B5=0, "", (B8-B4*B5)/(B4*B5))</code></p>
+
+<p>Then the line that makes the sheet worth building, a flag that tells you to kill or scale before you write the next check. It says: if the list has spent real money on volume and still has no deal, kill it, and if it does have deals but each one is costing more than your $3,000 ceiling, kill it, otherwise scale:</p>
+
+<p><code>=IF(AND(B7=0, B4&gt;=2000), "KILL, no deal on 2000+ pieces", IF(B7=0, "WAIT, still early", IF((B4*B5)/B7&gt;3000, "KILL, cost per deal too high", "SCALE")))</code></p>
+
+<p>That single cell converts a quarter of mailing into one word per list. No meeting, no debate, no "but it feels like it's picking up." The sheet already knows.</p>
+
+<h2>A Worked Example: Three Lists, One Budget</h2>
+
+<p>Here are three real investor lists run through the tracker over one quarter. Same mailbox, same follow-up, same acquisitions person on the phone. The only variable is the list, and the sheet is about to show you that the list is the entire game.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Absentee Owners</th><th>Tax Delinquent</th><th>Probate (letters)</th></tr>
+</thead>
+<tbody>
+<tr><td>Pieces mailed</td><td>2,000</td><td>2,500</td><td>800</td></tr>
+<tr><td>Cost per piece</td><td>$0.55</td><td>$0.50</td><td>$0.85</td></tr>
+<tr><td>Total spend</td><td>$1,100</td><td>$1,250</td><td>$680</td></tr>
+<tr><td>Leads</td><td>34</td><td>12</td><td>18</td></tr>
+<tr><td>Response rate</td><td>1.70%</td><td>0.48%</td><td>2.25%</td></tr>
+<tr><td>Cost per lead</td><td>$32</td><td>$104</td><td>$38</td></tr>
+<tr><td>Deals closed</td><td>2</td><td>0</td><td>1</td></tr>
+<tr><td>Deal profit</td><td>$28,000</td><td>$0</td><td>$16,000</td></tr>
+<tr><td>Cost per deal</td><td>$550</td><td>no deal</td><td>$680</td></tr>
+<tr><td>ROI</td><td>2,445%</td><td>-100%</td><td>2,253%</td></tr>
+<tr><td>Flag</td><td>SCALE</td><td>KILL</td><td>SCALE</td></tr>
+</tbody>
+</table>
+
+<p>Read the response rate row first, because that is the number your gut would have judged this on. Probate looks best at 2.25 percent, absentee is solid at 1.70, and tax delinquent is clearly weak at 0.48. So far your instinct and the data agree, and this is exactly where most investors stop and start reallocating by response rate.</p>
+
+<p>Now read the bottom three rows and watch the picture change. Tax delinquent did not just respond poorly, it produced zero deals on the largest mail volume and the most money spent, so its cost per deal is undefined and its ROI is a clean minus 100 percent. Every dollar you put in came back as nothing. Absentee owners cost $550 per deal and returned twenty-four times the spend. Probate cost slightly more per lead than absentee but closed a deal for $680 all in and returned twenty-two times over. The flag column is blunt about it: scale the two that pay, kill the one that does not, and do it before you fund another round out of a blended average that told you everything was fine.</p>
+
+<p>Notice what response rate did to you. It ranked probate above absentee, when in dollars they are nearly tied, and it made tax delinquent look merely weak instead of dead. If you had scaled by the top row, you would have poured the most new money into probate and kept a slice going to tax delinquent because 0.48 percent is not zero. The cost-per-deal row is the one that says stop. That is the whole reason the sheet earns its place.</p>
+
+<h3>The multi-touch trap that hides your real cost</h3>
+
+<p>One honest complication. Most direct mail deals do not close on the first postcard. A motivated seller often responds on touch four, five, or six, which means the cost of a deal is not one mailing, it is the whole sequence that finally cracked them. If you credit only the last mailer, you will understate cost per deal and overstate how cheap your winners are. Track spend by list across all touches, not per drop. Add a touches column to the summary and compute the true cost per deal as total list spend across every round divided by deals, so a list that only converts after six expensive touches cannot hide behind a cheap-looking single mailer:</p>
+
+<p><code>=IF(B7=0, "no deal yet", SUMIFS(Spend!C:C, Spend!B:B, A4)/B7)</code></p>
+
+<p>This is why the kill decision needs patience on new lists and ruthlessness on old ones. A list that has only seen two touches deserves a WAIT. A list that has seen six touches and 2,500 pieces with no contract has told you what it is.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Judge direct mail on cost per deal, never on response rate, and never on a blended program average that lets your winners hide your losers. Give a new list three to four touches before you decide, because deals close late. Then be ruthless: any list past 2,000 pieces or six touches with no funded deal gets cut, and every dollar you free up goes to the lists whose cost per deal is already proven. Run the tracker every time a mailing goes out, log every lead the day it calls, and let the flag column make the call so you stop paying to reach people your own data already crossed off.</p>
+
+<p>The tracker tells you which lists produce motivated sellers worth talking to. The moment one of them does, the question changes from "is this campaign working" to "is this specific house a deal," and that is a different sheet entirely. Once a seller from your best list is on the phone with a property and a number, you need to underwrite it fast, before a competing wholesaler does. The SheetCraft <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> is where that motivated-seller lead becomes a go or no-go: drop in the purchase price, rehab budget, ARV, and holding costs, and it returns your profit, your cash needed, and your BRRRR refinance position in one screen. Track the mail to find the seller, then run the numbers to make sure the deal your best list found is a deal worth closing, not just a lead worth logging.</p>`,
+  },
+  {
     slug: 'subject-to-real-estate-deal-calculator-excel',
     title: 'The Subject To Real Estate Deal Calculator in Excel That Proves the Deal Before You Take Over the Mortgage',
     metaTitle: 'Subject To Real Estate Deal Calculator Excel | SheetCraft',
