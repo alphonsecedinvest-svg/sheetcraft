@@ -16,6 +16,182 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hard-money-lender-comparison-spreadsheet-excel',
+    title: 'The Hard Money Lender Comparison Spreadsheet That Ranks True Cost',
+    metaTitle: 'Hard Money Lender Comparison Spreadsheet | SheetCraft',
+    metaDescription: 'Build a hard money lender comparison spreadsheet in Excel that ranks lenders on true all-in cost, not the headline rate. Points, junk fees, and draws exposed.',
+    targetKeyword: 'hard money lender comparison spreadsheet Excel',
+    secondaryKeywords: ['compare hard money lenders Excel', 'true cost of hard money loan', 'hard money junk fees', 'flipper loan comparison spreadsheet', 'hard money points and fees'],
+    excerpt: 'Most flippers pick a hard money lender by comparing interest rates and pay thousands more than they had to. Points, junk fees, draw inspection charges, and interest reserves routinely make the cheapest rate the most expensive loan. Here is the hard money lender comparison spreadsheet that ranks lenders on true all-in cost for your actual deal.',
+    publishedAt: '2026-07-18',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/hard-money-lender-comparison-spreadsheet-excel.png',
+    imageAlt: 'Flat illustration of a house under renovation beside three stacked hard money loan term sheets being compared with a magnifying glass and a total cost bar chart',
+    content: `<p>Ask a flipper how they picked their hard money lender and most will name a number: the interest rate. Lender A quoted 9.99 percent, Lender B quoted 11.5 percent, so they went with A and felt smart about it. Then the loan closed, the fees came out at the closing table, the draws got nickel-and-dimed by inspection charges, and the interest reserve ate six months of payments on a five-month hold. The 9.99 percent loan cost them thousands more than the 11.5 percent loan would have. A hard money lender comparison spreadsheet in Excel exists to stop exactly this: it strips the headline rate off the cover page and ranks every lender on the number that actually leaves your bank account.</p>
+
+<p>The rate is the one cost hard money lenders advertise loudly because it is usually the one that matters least on a short flip. Points, origination, junk fees, draw inspection charges, interest reserve rules, and prepay penalties do the real damage. This article shows you how to lay out a comparison sheet with lenders as columns, load in the fees they bury on page four of the term sheet, and let a ranking formula tell you which lender is cheapest for the specific deal in front of you. Not in general. For this deal, at this hold length.</p>
+
+<h2>The Rate Sheet Lies, and It Costs Real Dollars</h2>
+
+<p>Here is a live comparison on one deal. Purchase price $220,000, rehab budget $65,000, total project cost $285,000, ARV $360,000, planned five-month hold. Three real-shaped lenders:</p>
+
+<table>
+<thead>
+<tr><th>Term</th><th>Lender A</th><th>Lender B</th><th>Lender C</th></tr>
+</thead>
+<tbody>
+<tr><td>Headline Rate</td><td>9.99%</td><td>11.50%</td><td>10.75%</td></tr>
+<tr><td>Points</td><td>3.5</td><td>2.0</td><td>2.5</td></tr>
+<tr><td>Loan to Cost</td><td>80%</td><td>90%</td><td>85%</td></tr>
+<tr><td>Junk Fees (total)</td><td>$5,605</td><td>$1,645</td><td>$2,515</td></tr>
+<tr><td>Interest Reserve</td><td>6 months upfront</td><td>None (monthly)</td><td>None (monthly)</td></tr>
+<tr><td>All-In Cost of Capital (5-mo)</td><td>$22,696</td><td>$16,608</td><td>$17,252</td></tr>
+<tr><td>Rank on Rate</td><td>1 (cheapest)</td><td>3</td><td>2</td></tr>
+<tr><td>Rank on True Cost</td><td>3 (most expensive)</td><td>1</td><td>2</td></tr>
+</tbody>
+</table>
+
+<p>Read the last two rows again. The lender with the cheapest rate is the most expensive loan. Lender A costs $6,088 more than Lender B on the same deal, and Lender B also funded $28,500 more of your money (90 percent LTC versus 80 percent), so you left less of your own cash in the deal and your return on cash climbed on top of the savings. If you do the deal with Lender A, you spend $22,696 to borrow money for five months. If you do it with Lender B, you spend $16,608 and keep more cash liquid. Same house, same timeline, a $6,088 swing you never see if you shop on rate.</p>
+
+<p>That is the entire argument for building the sheet. A single-loan calculator answers "what does this loan cost." A comparison sheet answers the question that actually decides the deal: "which of these three costs me the least, and by how much." If you have not built the underlying cost math yet, the companion <a href="/blog/hard-money-loan-calculator-excel">hard money loan calculator</a> walks through the interest and reserve mechanics line by line. This piece assumes that math and puts three lenders side by side.</p>
+
+<h2>Lay It Out With Lenders as Columns</h2>
+
+<p>The layout is the whole trick. Deal-level inputs live in one column on the left because they do not change between lenders. Lender-specific inputs get one column each, so you can drop in a fourth or fifth lender by copying a column. Every formula reads across the row.</p>
+
+<p>Deal inputs in column B:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Deal Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Purchase Price</td><td>220000</td></tr>
+<tr><td>B4</td><td>Rehab Budget</td><td>65000</td></tr>
+<tr><td>B5</td><td>ARV</td><td>360000</td></tr>
+<tr><td>B6</td><td>Planned Hold (months)</td><td>5</td></tr>
+<tr><td>B7</td><td>Avg Outstanding % of Loan</td><td>0.80</td></tr>
+</tbody>
+</table>
+
+<p>Lender inputs in columns C, D, and E (Lender A, B, C):</p>
+
+<table>
+<thead>
+<tr><th>Row</th><th>Lender Input</th><th>C (A)</th><th>D (B)</th><th>E (C)</th></tr>
+</thead>
+<tbody>
+<tr><td>10</td><td>Loan to Cost %</td><td>0.80</td><td>0.90</td><td>0.85</td></tr>
+<tr><td>11</td><td>Interest Rate (annual)</td><td>0.0999</td><td>0.1150</td><td>0.1075</td></tr>
+<tr><td>12</td><td>Points</td><td>3.5</td><td>2.0</td><td>2.5</td></tr>
+<tr><td>13</td><td>Interest Reserve (months)</td><td>6</td><td>0</td><td>0</td></tr>
+<tr><td>14</td><td>Junk Fees Total</td><td>5605</td><td>1645</td><td>2515</td></tr>
+</tbody>
+</table>
+
+<p>The "Avg Outstanding % of Loan" in B7 is the input generic calculators ignore. On a flip with draws against receipts, you do not pay interest on the full loan from day one. You pay it on the money that has actually been advanced. Across a typical rehab the average outstanding balance runs 70 to 90 percent of the loan depending on how front-loaded the work is. Model it as one number so every lender gets judged on the same footing.</p>
+
+<h3>The Junk Fee Rows Nobody Puts on the Rate Sheet</h3>
+
+<p>Row 14 is a single total, but it hides the fees that make or break a lender. Build a small block below the sheet that itemizes them, then sum it into row 14. These are the line items that never appear next to the rate:</p>
+
+<table>
+<thead>
+<tr><th>Fee</th><th>Lender A</th><th>Lender B</th><th>Lender C</th></tr>
+</thead>
+<tbody>
+<tr><td>Underwriting</td><td>$1,495</td><td>$995</td><td>$1,200</td></tr>
+<tr><td>Document Prep</td><td>$795</td><td>$0</td><td>$500</td></tr>
+<tr><td>Processing</td><td>$595</td><td>$0</td><td>$0</td></tr>
+<tr><td>Wire Fee</td><td>$75</td><td>$50</td><td>$65</td></tr>
+<tr><td>Funding Fee</td><td>$995</td><td>$0</td><td>$0</td></tr>
+<tr><td>Admin / Servicing Setup</td><td>$250</td><td>$0</td><td>$0</td></tr>
+<tr><td>Draw Inspection</td><td>$1,400 (4 x $350)</td><td>$600 (4 x $150)</td><td>$750 (3 x $250)</td></tr>
+<tr><td><strong>Total Junk Fees</strong></td><td><strong>$5,605</strong></td><td><strong>$1,645</strong></td><td><strong>$2,515</strong></td></tr>
+</tbody>
+</table>
+
+<p>Sum each column with <code>=SUM(C_start:C_end)</code> and feed it into row 14. The draw inspection line is the sneaky one. A lender that charges $350 per draw and forces four draws costs you $1,400 in fees plus the delay of waiting on an inspector before the money releases. A lender at $150 per draw with three draws costs $450. That gap alone can swing which lender you pick, and it is invisible on a rate comparison.</p>
+
+<h2>The Formulas That Normalize Every Lender</h2>
+
+<p>Now the calculation rows. Each one is written for column C (Lender A) and copies straight across to D and E, because all the lender inputs sit in the same rows. That copy-across behavior is why the column layout matters.</p>
+
+<p><strong>Loan Amount</strong> in C16: <code>=C10*($B$3+$B$4)</code></p>
+
+<p>Loan to cost times total project cost. Lock the purchase and rehab cells with dollar signs so they hold when you copy across. Lender A: 0.80 times $285,000 = $228,000.</p>
+
+<p><strong>Points Cost</strong> in C17: <code>=C16*C12/100</code></p>
+
+<p>Points as a percentage of the loan, paid at close. Lender A: $228,000 times 3.5 divided by 100 = $7,980.</p>
+
+<p><strong>Effective Interest Months</strong> in C18: <code>=MAX(C13,$B$6)</code></p>
+
+<p>This is the reserve trap in one formula. You pay interest for the greater of the reserve months or your actual hold, because lenders rarely refund an unused reserve. Lender A forces a six-month reserve on a five-month hold, so it charges six. Lenders B and C have no reserve, so they charge the five months you actually hold.</p>
+
+<p><strong>Interest Cost</strong> in C19: <code>=C16*$B$7*(C11/12)*C18</code></p>
+
+<p>Loan amount times average outstanding percentage times the monthly rate times the effective months. Lender A: $228,000 times 0.80 times (0.0999/12) times 6 = $9,111. Notice the 9.99 percent lender pays more interest than the 10.75 percent lender here, purely because the reserve forces an extra month on the meter.</p>
+
+<p><strong>All-In Cost of Capital</strong> in C20: <code>=C17+C14+C19</code></p>
+
+<p>Points plus junk fees plus interest. Lender A: $7,980 + $5,605 + $9,111 = $22,696. This is the number that should decide the loan, and it is the number no rate sheet shows you.</p>
+
+<p><strong>Cost per $1,000 Borrowed per Month</strong> in C21: <code>=C20/(C16/1000)/$B$6</code></p>
+
+<p>The great equalizer. Because each lender funds a different loan amount, raw dollars are not apples to apples. This normalizes cost against how much money you actually got and how long you held it. Lender A: $22,696 divided by 228 divided by 5 = $19.91. Lender B lands at $12.95, Lender C at $14.24. Cheaper per dollar deployed, and it funded more of the deal.</p>
+
+<h2>The Ranking Line and the Hold-Length Crossover</h2>
+
+<p>Two formulas turn the sheet from a table you have to read into a sheet that tells you the answer.</p>
+
+<p><strong>True-Cost Rank</strong> in C22: <code>=RANK(C20,$C$20:$E$20,1)</code></p>
+
+<p>Ranks each lender by all-in cost, cheapest first. Put a matching rank on rate in C23 with <code>=RANK(C11,$C$11:$E$11,1)</code> and watch the two ranks disagree. On this deal, rate rank says A is number one. True-cost rank says A is dead last. That divergence is the finding you paid for.</p>
+
+<p><strong>Decision Flag</strong> in C24: <code>=IF(C20=MIN($C$20:$E$20),"BEST ALL-IN",IF(C14/C16>0.02,"JUNK FEE FLAG",""))</code></p>
+
+<p>It labels the cheapest lender "BEST ALL-IN" and flags any lender whose junk fees exceed 2 percent of the loan as a "JUNK FEE FLAG." Lender A's fees are 2.46 percent of the loan, so it lights up red on top of ranking last. Lender B wins the flag. Lender C stays quiet. You can scan three columns and know the answer in one second.</p>
+
+<p>Here is the part that makes the sheet worth re-running for every deal. The winner changes with your hold length, because a reserve and points are sunk costs while interest accrues over time. Run the same three lenders at a two-month hold and a nine-month hold:</p>
+
+<table>
+<thead>
+<tr><th>Planned Hold</th><th>Lender A (9.99%)</th><th>Lender B (11.5%)</th><th>Lender C (10.75%)</th><th>Winner</th></tr>
+</thead>
+<tbody>
+<tr><td>2 months</td><td>$22,696</td><td>$10,708</td><td>$12,043</td><td>Lender B</td></tr>
+<tr><td>5 months</td><td>$22,696</td><td>$16,608</td><td>$17,252</td><td>Lender B</td></tr>
+<tr><td>9 months</td><td>$34,091</td><td>$28,320</td><td>$24,197</td><td>Lender C</td></tr>
+</tbody>
+</table>
+
+<p>At two months, Lender A costs the same as at five months, because the six-month reserve is a sunk expense the moment you sign. If you flip fast, that reserve is pure waste. At nine months, the picture flips again: Lender C's lower rate finally beats Lender B's, because on a long hold the rate compounds and the upfront points matter less. Lender A never wins at any hold length. The RANK and MIN formulas re-sort automatically the instant you change B6, so you are never guessing. Input the hold length you actually believe, not the one the lender's timeline assumes.</p>
+
+<h2>A Buy Box for Lenders, Not Just Deals</h2>
+
+<p>Flippers build a buy box for properties and then shop lenders on vibes. Turn the comparison sheet into a lender buy box you run before you even have a deal under contract. Keep a standing tab with your three or four go-to lenders and update it whenever a term sheet changes. Before you accept a loan, confirm every one of these is entered, because each is a place lenders hide cost:</p>
+
+<ul>
+<li>Points and any separate origination fee, entered as real dollars, not just the percentage</li>
+<li>Every junk fee itemized: underwriting, doc prep, processing, funding, admin, wire</li>
+<li>Draw count, per-draw inspection fee, and how long draws take to fund</li>
+<li>Interest reserve months and whether unused reserve is refundable</li>
+<li>Prepay penalty or minimum interest floor, in months</li>
+<li>Extension fee per month and the term length before extensions start</li>
+<li>The realistic hold, not the optimistic one, because it re-ranks the field</li>
+</ul>
+
+<p>If a lender will not give you the fee schedule in writing before you commit, that is your answer. The all-in cost you cannot see is the all-in cost you will pay.</p>
+
+<h2>Stop Shopping on Rate</h2>
+
+<p>The cheap rate is often the expensive loan. Points, reserves, draw fees, and junk charges routinely swing the true cost of a hard money loan by five figures on a single flip, and none of them appear next to the rate the lender leads with. A comparison spreadsheet that stacks lenders in columns, itemizes the fees they bury, normalizes to cost per dollar per month, and re-ranks the field for your actual hold length turns a gut decision into a math decision. Build it once and every future deal takes ten minutes instead of a leap of faith.</p>
+
+<p>Our <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> carries this lender comparison logic inside the full deal model, so the winning loan flows straight through to your net profit, cash to close, and return on cash instead of living in a separate workbook. It already models points, interest reserves, draw structures, and holding costs against ARV, and it scores the deal on dollars-per-day and cash-at-risk so you see how the financing choice moves your actual return, not just your cost of capital. Drop in your purchase price, rehab, ARV, and three lender term sheets, and let the numbers pick the loan before you sign anything. Shop the true cost, not the cover page.</p>`,
+  },
+  {
     slug: 'real-estate-direct-mail-campaign-tracker-excel',
     title: 'The Real Estate Direct Mail Campaign Tracker in Excel That Kills the Lists That Don\'t Convert',
     metaTitle: 'Real Estate Direct Mail Campaign Tracker Excel | SheetCraft',
