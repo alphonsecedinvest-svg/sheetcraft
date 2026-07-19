@@ -16,6 +16,166 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-cash-buyers-list-spreadsheet-excel',
+    title: 'The Real Estate Cash Buyers List Spreadsheet That Assigns Deals in Hours',
+    metaTitle: 'Real Estate Cash Buyers List Spreadsheet | SheetCraft',
+    metaDescription: 'Build a real estate cash buyers list spreadsheet in Excel that matches each deal to the 3 buyers who actually buy it, so you assign in hours, not weeks.',
+    targetKeyword: 'real estate cash buyers list spreadsheet Excel',
+    secondaryKeywords: ['cash buyers list Excel template', 'wholesale buyers list spreadsheet', 'real estate investor buyers list', 'match wholesale deal to cash buyer', 'buyer buy box spreadsheet'],
+    excerpt: 'Most wholesalers keep one long buyers list and blast every deal to all of it, which trains buyers to ignore them and lets deals die on the clock. A real estate cash buyers list spreadsheet in Excel tags each buyer with a buy box, price band, area, and asset type so you can pull the three buyers who fit a deal and call them first. Here is the exact layout, the match formulas, and the fit score that turns a cold list into assigned contracts.',
+    publishedAt: '2026-07-19',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-cash-buyers-list-spreadsheet-excel.png',
+    imageAlt: 'Flat illustration of a stack of buyer and house cards being filtered down to three highlighted matching buyer profiles beside a single house',
+    content: `<p>Ask ten new wholesalers how they sell a contract and nine say the same thing: they "blast the deal to the buyers list." One email, four hundred names, send. Then they sit on their hands for two weeks while the inspection period bleeds out and wonder why nobody called. A real estate cash buyers list spreadsheet in Excel is not a contact dump you email in bulk. It is a matching engine. Tag every buyer with the box they actually buy, the price they pay, the areas they want, and the condition they tolerate, and the sheet hands you the two or three names who will close the specific deal in front of you. You call those three, not four hundred, and the contract assigns in hours.</p>
+
+<p>The blast feels productive because it moves fast. It is also the most expensive habit in wholesaling. Every deal you send to buyers who never buy your kind of property teaches your entire list that your emails are noise. The one time you have a real gem, the buyer who wanted it scrolls past it with the junk. This article builds the sheet the other way. You get a filterable buyer database, a set of match formulas that read a deal against every buyer's buy box, and a fit score that ranks who to call first. All in plain Excel, no CRM subscription required.</p>
+
+<h2>The Blast List Is a Timer Running Against You</h2>
+
+<p>A wholesale contract is not patient. You have an inspection or due diligence window, usually 7 to 14 days, and earnest money sitting in escrow that you lose if you cannot assign and close before the seller's contract dates. Every day you spend waiting for the right buyer to surface out of a mass email is a day off that clock. The blast does not just fail to find the buyer faster. It actively burns the time you need.</p>
+
+<p>Here is the same deal run two ways. You have a 3 bed, 2 bath house under contract at $185,000. ARV is around $265,000, it needs about $40,000 of work, and you have a 10 day inspection period with $5,000 of earnest money at risk.</p>
+
+<table>
+<thead>
+<tr><th>Step</th><th>Blast the Whole List</th><th>Match From the Sheet</th></tr>
+</thead>
+<tbody>
+<tr><td>Who you contact</td><td>420 names, one bulk email</td><td>3 buyers whose box fits this house</td></tr>
+<tr><td>First real reply</td><td>Day 6, a tire-kicker</td><td>Day 1, both matched flippers</td></tr>
+<tr><td>Serious offers</td><td>1, arrives day 9 under pressure</td><td>2, a small bidding spread by day 2</td></tr>
+<tr><td>Assignment fee</td><td>$4,000, take it or lose the deal</td><td>$12,000, buyers competing</td></tr>
+<tr><td>Closed by</td><td>Barely, day 10 with no cushion</td><td>Day 5, room to spare</td></tr>
+<tr><td>Fee per day of risk</td><td>$400</td><td>$2,400</td></tr>
+</tbody>
+</table>
+
+<p>Same house, same buyers in your phone, an $8,000 swing in your fee and five days of breathing room. The blast did not find a worse buyer because your list was bad. It found a worse buyer because it could not tell the two people who wanted this exact house from the 418 who did not. The sheet can. That is the whole point of building it.</p>
+
+<h2>Build the List Around the Buy Box, Not the Business Card</h2>
+
+<p>A buyers list that stores name, phone, and email is a phone book. It cannot match anything because it does not know what anyone buys. The fields that matter are the ones that describe the buyer's box: the price band they pay, the areas they want, the asset type, the condition they tolerate, and how fast they close. Set up one sheet named <code>Buyers</code> with a header row and one row per buyer. These columns carry the weight.</p>
+
+<table>
+<thead>
+<tr><th>Col</th><th>Field</th><th>Why it matters for matching</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Buyer ID</td><td>Stable key for lookups and sorting</td></tr>
+<tr><td>B</td><td>Name</td><td>Who you actually call</td></tr>
+<tr><td>C</td><td>Phone</td><td>Call, do not email, your matches</td></tr>
+<tr><td>D</td><td>Asset Type</td><td>SFR, small multi, land. A flipper of houses will not touch your fourplex</td></tr>
+<tr><td>E</td><td>Strategy</td><td>Flip, Rental, Turnkey. Decides how much rehab they accept</td></tr>
+<tr><td>F</td><td>Min Price</td><td>Lowest all-in price they bother with</td></tr>
+<tr><td>G</td><td>Max Price</td><td>Ceiling they pay for a deal like yours</td></tr>
+<tr><td>H</td><td>Target Areas</td><td>ZIP codes they buy in, space separated</td></tr>
+<tr><td>I</td><td>Max Rehab</td><td>Dollars of work they take on before they pass</td></tr>
+<tr><td>J</td><td>POF on File</td><td>Y or N, proof of funds you have seen</td></tr>
+<tr><td>K</td><td>Close Days</td><td>How fast they actually fund</td></tr>
+<tr><td>L</td><td>Last Bought</td><td>Date of their last close with you</td></tr>
+<tr><td>M</td><td>Deals</td><td>How many they have closed with you</td></tr>
+</tbody>
+</table>
+
+<p>Filled in, the first few rows of your list look like this. Notice that no two buyers have the same box.</p>
+
+<table>
+<thead>
+<tr><th>ID</th><th>Name</th><th>Type</th><th>Strategy</th><th>Min</th><th>Max</th><th>Areas</th><th>Max Rehab</th><th>POF</th></tr>
+</thead>
+<tbody>
+<tr><td>B01</td><td>Ramos</td><td>SFR</td><td>Flip</td><td>120000</td><td>220000</td><td>44107 44111 44135</td><td>60000</td><td>Y</td></tr>
+<tr><td>B02</td><td>Keller</td><td>SFR</td><td>Rental</td><td>60000</td><td>140000</td><td>44105 44120</td><td>25000</td><td>Y</td></tr>
+<tr><td>B03</td><td>Nwosu</td><td>Small multi</td><td>Rental</td><td>150000</td><td>400000</td><td>44102 44109</td><td>50000</td><td>N</td></tr>
+<tr><td>B04</td><td>Petrov</td><td>SFR</td><td>Flip</td><td>150000</td><td>260000</td><td>44107 44144</td><td>45000</td><td>Y</td></tr>
+<tr><td>B05</td><td>Dial</td><td>SFR</td><td>Turnkey</td><td>90000</td><td>170000</td><td>44135 44111</td><td>8000</td><td>Y</td></tr>
+</tbody>
+</table>
+
+<p>Look at the $185,000 house in ZIP 44107 with $40,000 of rehab against this list. Ramos fits: price in band, area matches, takes up to $60,000 of work. Petrov fits: same read. Keller is out on price and rehab, a rental buyer at a lower band who wants light work. Nwosu buys multifamily, not your single. Dial is a turnkey buyer who will not touch a $40,000 rehab. Two matches out of five, and you found them by reading columns, not by sending an email and hoping. Now let the sheet read those columns for you across a list of two hundred.</p>
+
+<h2>The Match Formulas That Do the Sorting for You</h2>
+
+<p>Put the deal you are working at the top of a second sheet so you change five cells and the whole list re-sorts against them. Deal inputs live in B3 through B7:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Deal Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Price to Buyer (contract plus your fee)</td><td>197000</td></tr>
+<tr><td>B4</td><td>Deal ZIP</td><td>44107</td></tr>
+<tr><td>B5</td><td>Asset Type</td><td>SFR</td></tr>
+<tr><td>B6</td><td>Rehab Estimate</td><td>40000</td></tr>
+<tr><td>B7</td><td>Strategy Fit</td><td>Flip</td></tr>
+</tbody>
+</table>
+
+<p>The price you test is the price to the buyer, meaning your contract price plus the fee you want. That is the number the buyer actually pays, so that is the number their band has to cover. Add a Match column to the Buyers sheet, say column N, and drop this in row 2, then fill it down the list:</p>
+
+<p><code>=IF(AND($B$3>=Buyers!F2,$B$3&lt;=Buyers!G2,ISNUMBER(SEARCH($B$4,Buyers!H2)),$B$6&lt;=Buyers!I2,$B$5=Buyers!D2),"MATCH","")</code></p>
+
+<p>In plain terms, that formula flags a buyer only if all five conditions hold at once: your price to the buyer sits inside their min and max band, the deal ZIP appears anywhere in their target areas, the rehab is inside their tolerance, and the asset type matches. One failed test and the buyer is not a match, which is exactly the judgment you want the sheet making instead of a mass email. The <code>SEARCH</code> wrapped in <code>ISNUMBER</code> is the piece that lets one text cell hold many ZIP codes and still match on any of them.</p>
+
+<p>If you run Excel 365 or 2021, skip the manual scan entirely and pull the matches into a clean list with one formula. On the deal sheet, put this below your inputs:</p>
+
+<p><code>=FILTER(Buyers!A2:M200,($B$3>=Buyers!F2:F200)*($B$3&lt;=Buyers!G2:G200)*(ISNUMBER(SEARCH($B$4,Buyers!H2:H200)))*($B$6&lt;=Buyers!I2:I200)*($B$5=Buyers!D2:D200),"No buyer fits, widen the box or the fee")</code></p>
+
+<p>The multiplication of the conditions is a logical AND: each test returns TRUE or FALSE, TRUE acts as 1, and any 0 in the chain zeroes the row out. What returns is only the buyers who fit, in a spill range you can call from the top down. The last argument catches the case that should stop you cold, zero matches, and tells you to loosen a constraint before you lock a deal you cannot move. Want to know how deep your bench is before you even sign? Count the pool:</p>
+
+<p><code>=COUNTIF(Buyers!N2:N200,"MATCH")</code></p>
+
+<p>If that returns 1, you have one buyer and no leverage on fee. If it returns 8, you have a bidding pool and you can push your number. That single count changes how you negotiate the seller, because it tells you how much room the deal has on the exit before you commit earnest money on the entry.</p>
+
+<h2>Score the Matches So You Know Who to Call First</h2>
+
+<p>A list of matches is progress, but three matches are not equal. One closed four deals with you and funds in seven days with proof of funds on file. Another you met at a meetup last month and have never seen close. You call the first one first. Encode that judgment in a Fit Score column, say column O, so the strongest buyer floats to the top on its own. Put this next to the Match flag:</p>
+
+<p><code>=IF(N2&lt;>"MATCH",0,IF(J2="Y",30,0)+IF(K2&lt;=10,25,IF(K2&lt;=21,15,5))+MIN(M2*5,25)+MAX(20-ABS($B$3-(F2+G2)/2)/((G2-F2)/2)*20,0))</code></p>
+
+<p>The score tops out at 100 and rewards the four things that actually decide whether a buyer closes:</p>
+
+<ul>
+<li><strong>Proof of funds on file, 30 points.</strong> A verified cash buyer is worth far more than a maybe. No POF, no points, and a note to go get it.</li>
+<li><strong>Close speed, up to 25 points.</strong> Ten days or less earns full marks, up to 21 days earns partial, slower barely registers, because on a tight assignment speed is the deal.</li>
+<li><strong>Track record, up to 25 points.</strong> Five points per deal closed with you, capped, so a proven buyer outranks a stranger without letting one whale dominate forever.</li>
+<li><strong>Price fit, up to 20 points.</strong> A deal priced in the dead center of a buyer's band scores full, a deal scraping their ceiling scores near zero, because a buyer paying the top of their range is the one who ghosts you at the closing table.</li>
+</ul>
+
+<p>Now rank them so your call order is not a guess. Add a Rank column:</p>
+
+<p><code>=IF(N2="MATCH",RANK(O2,$O$2:$O$200,0),"")</code></p>
+
+<p>Rank 1 is your first call, rank 2 is your backup, rank 3 keeps the first two honest. You dial three people in the order the sheet gives you, and you have started a bidding process before the blast crowd has even opened their inbox.</p>
+
+<h2>Keep the List Alive or It Rots</h2>
+
+<p>A buyers list decays. Buyers change their box, run out of capital, or drop out of the market entirely, and a name that fit perfectly last spring is dead weight today. Two maintenance formulas keep the list honest without a monthly audit. First, temperature by recency, in a column next to Last Bought:</p>
+
+<p><code>=IF(L2="","NEW",IF(TODAY()-L2>365,"COLD",IF(TODAY()-L2>180,"WARM","HOT")))</code></p>
+
+<p>A buyer who has not closed with you in over a year is COLD and should not sit at the top of your call list no matter how good their old numbers looked. Second, a proof of funds nudge so you never pitch a deal to someone you cannot verify:</p>
+
+<p><code>=IF(J2="Y","On file",IF(N2="MATCH","GET POF BEFORE CALL",""))</code></p>
+
+<p>That flag only fires on buyers who match the live deal, so it tells you exactly whose funds to confirm before you spend a phone call, instead of nagging you about the whole list. Run this quick discipline on a schedule and the sheet stays sharp:</p>
+
+<ul>
+<li>Re-verify proof of funds every quarter for anyone marked WARM or HOT.</li>
+<li>Move COLD buyers who go 18 months without a close to an archive tab, do not delete them.</li>
+<li>Log every close the day it happens, updating Last Bought and Deals, so the score and temperature stay true.</li>
+<li>Add the buy box the moment a new buyer joins, price band and areas first, before name and phone. A contact with no box cannot be matched.</li>
+</ul>
+
+<h2>From Matched Buyer to a Deal You Can Actually Sign</h2>
+
+<p>Knowing which three buyers fit is half the job. The other half is knowing the highest price you can pay the seller and still leave your best buyer a deal they say yes to. The buyers list tells you a buyer's ceiling. It does not tell you the maximum you can offer on the buy side, the fee the spread can carry, or whether the buyer's own flip numbers hold up at your price. That is where the deal math lives.</p>
+
+<p>Our <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> takes the buyer's ceiling your list surfaces and runs it backward to a defensible offer. It models the ARV, rehab, holding, and financing your cash buyer is underwriting, applies the 70 percent rule and their required profit, and hands you the maximum you can pay the seller plus the assignment fee the deal can actually hold. Match the buyer in your spreadsheet, price the deal in the calculator, and you walk into the seller negotiation knowing both the exit and the entry before you risk a dollar of earnest money. Build the buyers list so you know who buys, then run the numbers so you know what to pay. Stop blasting, start matching, and let the deal assign itself to the buyer who was always going to close it.</p>`,
+  },
+  {
     slug: 'hard-money-lender-comparison-spreadsheet-excel',
     title: 'The Hard Money Lender Comparison Spreadsheet That Ranks True Cost',
     metaTitle: 'Hard Money Lender Comparison Spreadsheet | SheetCraft',
