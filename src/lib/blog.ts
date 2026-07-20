@@ -16,6 +16,122 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-liquidated-damages-calculator-excel',
+    title: 'The Construction Liquidated Damages Calculator in Excel That Prices Delay Before You Sign',
+    metaTitle: 'Liquidated Damages Calculator Excel | SheetCraft',
+    metaDescription: 'Build a construction liquidated damages calculator in Excel that models daily delay exposure against your schedule buffer, and price the risk before you sign.',
+    targetKeyword: 'construction liquidated damages calculator Excel',
+    secondaryKeywords: ['liquidated damages clause construction', 'construction delay damages calculator', 'LD exposure spreadsheet', 'substantial completion date', 'construction schedule risk'],
+    excerpt: 'Most general contractors read the liquidated damages clause once, note the daily rate, and never model what a late finish actually costs. A construction liquidated damages calculator in Excel prices your daily delay exposure against the schedule buffer you built in, floors it at the days the owner approved as excusable, and hands you the break-even slip that says how late you can finish before the job stops making money. Here is the exact cell layout, the formulas, and the accelerate-or-absorb trigger.',
+    publishedAt: '2026-07-20',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-liquidated-damages-calculator-excel.png',
+    imageAlt: 'Flat illustration of a construction schedule calendar with a red deadline flag beside a rising stack of dollar coins, a contract scroll, and a hard hat',
+    content: `<p>A construction liquidated damages calculator in Excel is the tool that tells you, before you sign, exactly what a late finish costs you per day and how many days you can slip before the job stops making money. Most general contractors read the liquidated damages clause once, note the daily number, and file the contract. Then a bad month of weather or a slow owner decision pushes substantial completion past the contract date, and the owner starts withholding real dollars out of your final pay application. The number was in the contract the whole time. Nobody priced it.</p>
+
+<p>Liquidated damages, LDs, are a fixed dollar amount per calendar day you agree at signing to pay the owner for every day you finish late. They are not a fine the owner invents after the fact. They are a pre-agreed stand-in for the owner's actual delay costs: extended financing, lost rent, an empty building the tenants cannot move into. The problem is not the clause. The problem is signing it without modeling your exposure against the schedule buffer you actually have. This article builds the calculator that does that, in plain Excel, so a delay turns into a number you saw coming instead of a surprise deduction on your last check.</p>
+
+<h2>The Day You Sign Is the Day You Take the Risk</h2>
+
+<p>Two general contractors bid the same $3.2 million school addition. The contract runs 220 calendar days and carries liquidated damages of $2,500 per day past substantial completion, capped at 5 percent of the contract sum. Both bid a 6 percent margin, which is $192,000. Both hit the same wall: a wet spring and a slow submittal review cost them 33 days against their own plan, and only 4 of those days get approved as an excusable weather extension. The difference is that one of them built a buffer into the schedule and one planned straight to the deadline.</p>
+
+<table>
+<thead>
+<tr><th>Item</th><th>GC Who Built a Buffer</th><th>GC Who Planned to the Deadline</th></tr>
+</thead>
+<tbody>
+<tr><td>Planned substantial completion</td><td>May 17 (15-day buffer)</td><td>June 1 (0 buffer)</td></tr>
+<tr><td>Disruption absorbed on the job</td><td>33 days</td><td>33 days</td></tr>
+<tr><td>Forecast finish</td><td>June 19</td><td>July 4</td></tr>
+<tr><td>Calendar days past contract date</td><td>18</td><td>33</td></tr>
+<tr><td>Net LD days after 4 excused</td><td>14</td><td>29</td></tr>
+<tr><td>LD withheld at $2,500/day</td><td>$35,000</td><td>$72,500</td></tr>
+<tr><td>Margin left on $192,000</td><td>$157,000</td><td>$119,500</td></tr>
+</tbody>
+</table>
+
+<p>Same crew, same weather, same slow owner, a $37,500 swing in what gets withheld. The buffer did not make the work go faster. It moved the finish line the liquidated damages are measured from, and that is entirely a planning decision you make before you sign. The calculator exists to show you the size of that decision while you can still change it.</p>
+
+<h2>Build the Calculator Around the Buffer, Not the Deadline</h2>
+
+<p>The contract gives you one date that matters for LDs: the substantial completion date. Your bid gives you a different date, when your own schedule says you will actually finish. The gap between them is your buffer, and it is the single most valuable number on this sheet because it is free time the LD clock does not see. Set up one tab named <code>LD Model</code> with inputs down column B.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>B3</td><td>Contract sum</td><td>3,200,000</td></tr>
+<tr><td>B4</td><td>Bid margin %</td><td>6%</td></tr>
+<tr><td>B5</td><td>Project margin $ =B3*B4</td><td>192,000</td></tr>
+<tr><td>B6</td><td>LD rate per calendar day</td><td>2,500</td></tr>
+<tr><td>B7</td><td>LD cap, % of contract</td><td>5%</td></tr>
+<tr><td>B8</td><td>LD cap $ =B3*B7</td><td>160,000</td></tr>
+<tr><td>B9</td><td>Contract completion date</td><td>6/1/2026</td></tr>
+<tr><td>B10</td><td>Your planned completion</td><td>5/17/2026</td></tr>
+<tr><td>B11</td><td>Forecast completion (live)</td><td>6/19/2026</td></tr>
+<tr><td>B12</td><td>Approved time extensions, days</td><td>4</td></tr>
+</tbody>
+</table>
+
+<p>The two dates people confuse are B9 and B10. B9 is the owner's date, the one in the contract, the one the LDs count from. B10 is yours, the honest internal finish your schedule actually supports. Keep them separate. The day you let your planned date drift up to the contract date so the schedule "looks fine," you have thrown away your buffer and told the sheet you are betting the whole job on nothing going wrong.</p>
+
+<h2>The Formulas That Turn a Schedule Slip Into a Dollar Figure</h2>
+
+<p>With the inputs in place, six formulas do the work. Drop them in column B under the inputs.</p>
+
+<p>Schedule buffer, the free days between your plan and the contract date: <code>=B9-B10</code>. For the school job that returns 15. Any slip smaller than this costs you nothing in liquidated damages, which is exactly why it belongs on the bid, not in your head.</p>
+
+<p>Calendar days past the contract date: <code>=MAX(0,B11-B9)</code>. The <code>MAX</code> wrapper floors it at zero so an early finish never shows as negative damages. Here it returns 18.</p>
+
+<p>Net liquidated damages days, after the time extensions the owner has actually approved in writing: <code>=MAX(0,(B11-B9)-B12)</code>. This is the number that costs money, 14 days, because the 4 excused weather days do not count against you. If you are not submitting extension requests as delays happen, B12 stays at zero and you pay for delays that were never your fault.</p>
+
+<p>Gross exposure, before any contract cap: <code>=B16*B6</code>, which is 14 days times $2,500, or $35,000. With your net LD days in B16 and the rate in B6, that one cell is the honest answer to "what does finishing on the forecast date cost me."</p>
+
+<p>Capped exposure, because a well-drafted clause limits total LDs to a share of the contract: <code>=MIN(B16*B6,B8)</code>. On this job the cap is $160,000 and you are nowhere near it, so the capped number equals the gross. On a job that slips for months, the cap is the only thing between you and an unbounded deduction, which is exactly why the first thing you check in the clause is whether one exists.</p>
+
+<p>Margin after LDs, the number that tells you whether the job still pays: <code>=B5-B18</code>. It drops from $192,000 to $157,000. Still profitable, but you just handed back 18 percent of your margin to a clause you could have priced at bid.</p>
+
+<p>The last formula is the reason to build the whole model. Break-even slip, the count of net late days that erases your entire margin: <code>=B5/B6</code>. Here that is 76.8 days. That single figure reframes the job. You are not gambling the whole margin on the schedule. You are gambling it on being more than 76 days late, and now you know the exact edge.</p>
+
+<p>Add a status flag so the sheet grades itself instead of making you read numbers every week: <code>=IF(B16=0,"ON TIME",IF(B18&gt;=0.5*B5,"UNDERWATER RISK",IF(B18&gt;=0.25*B5,"FLAG","WATCH")))</code>. It turns the running exposure into one word your project manager reads at a glance. Fill the forecast date down a range and the model draws your risk curve, the table to put in front of the owner's rep and your bond agent both.</p>
+
+<table>
+<thead><tr><th>Net LD days</th><th>LD owed at $2,500/day</th><th>Margin remaining</th><th>Flag</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>$0</td><td>$192,000</td><td>ON TIME</td></tr>
+<tr><td>7</td><td>$17,500</td><td>$174,500</td><td>WATCH</td></tr>
+<tr><td>14</td><td>$35,000</td><td>$157,000</td><td>WATCH</td></tr>
+<tr><td>28</td><td>$70,000</td><td>$122,000</td><td>FLAG</td></tr>
+<tr><td>48</td><td>$120,000</td><td>$72,000</td><td>UNDERWATER RISK</td></tr>
+<tr><td>77</td><td>$192,500</td><td>($500)</td><td>UNDERWATER RISK</td></tr>
+</tbody>
+</table>
+
+<h2>The Acceleration Trigger: Buy the Day Back or Eat It</h2>
+
+<p>Once the sheet shows you trending late, you have two moves: spend money to recover days, or absorb the liquidated damages. The calculator makes that a math problem instead of a gut call. Put your acceleration cost in a cell, say E3, as the all-in cost to recover one calendar day: overtime premium, a second crew, a concrete pump you did not budget, expedited material. On the school job, buying back a day of finish work runs about $1,800.</p>
+
+<p>The rule is one comparison: <code>=IF(E3&lt;B6,"BUY THE DAY BACK","ABSORB THE LD")</code>. If a day of acceleration costs less than a day of liquidated damages, every day you recover is money made, not spent. Here $1,800 beats $2,500, so each day you claw back nets <code>=B6-E3</code>, or $700. Buy back the 7 days you can genuinely recover and you save $700 times 7, $4,900, on top of the $17,500 of LDs you dodge on those days. Flip the numbers, put acceleration at $3,000 a day against a $2,500 LD, and the sheet tells you to stop spending and take the deduction, because paying $3,000 to avoid $2,500 is how contractors lose money being heroes.</p>
+
+<p>The trap this closes is the reflex to accelerate at any cost the moment a job goes red. Acceleration is only worth it up to the LD rate, and only for days you can actually recover. Past that point you are burning margin to protect a number smaller than what you are spending to protect it.</p>
+
+<h2>Price It Before You Sign, Not After</h2>
+
+<p>The calculator is a bid tool first and a tracking tool second. Before you sign, run the clause through it and check five things.</p>
+
+<ul>
+<li><strong>Is there a cap?</strong> A liquidated damages clause with no ceiling is open-ended risk. If the cap is missing, that is a negotiation point, not a footnote.</li>
+<li><strong>Do the LDs run from substantial or final completion?</strong> Substantial completion is when the owner can use the building. If the clause counts to final completion, punch list items can rack up damages long after the owner moved in. Push for substantial.</li>
+<li><strong>Is the daily rate a reasonable estimate or a penalty?</strong> LDs are enforceable when they are a genuine pre-estimate of the owner's delay cost. A number that looks purely punitive can be challenged, but do not plan around winning that fight. Price the rate as written.</li>
+<li><strong>Are LDs the sole remedy for delay?</strong> A clause making liquidated damages the owner's only delay remedy actually protects you, because it caps a downside that actual and consequential damages would leave wide open. Read for it.</li>
+<li><strong>What earns a time extension?</strong> Weather beyond the baseline, owner-caused delay, and change orders should all stop the LD clock. Your net LD days formula only works if you log and submit those extension requests as they happen.</li>
+</ul>
+
+<p>Run those five, drop the rate and your honest schedule into the model, and you walk into the signing knowing your break-even slip and the exact day acceleration stops paying. That is the difference between a number you priced and a number that priced you.</p>
+
+<p>Modeling liquidated damages by hand on every bid is where this falls apart, because the LD math does not live alone. It sits on top of your budget, your schedule of values, your change orders, and the float you have left. The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> builds the LD exposure model into the same workbook that already carries your contract sum, margin, and schedule, so the day your forecast finish moves, your damages number, your remaining margin, and your accelerate-or-absorb flag all move with it. You price the delay risk once at bid, then watch it live for the length of the job, instead of finding out what a late finish costs on the last pay application of the project.</p>`,
+  },
+  {
     slug: 'real-estate-cash-buyers-list-spreadsheet-excel',
     title: 'The Real Estate Cash Buyers List Spreadsheet That Assigns Deals in Hours',
     metaTitle: 'Real Estate Cash Buyers List Spreadsheet | SheetCraft',
