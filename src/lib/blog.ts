@@ -16,6 +16,115 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-rework-cost-tracking-excel',
+    title: 'Construction Rework Cost Tracking in Excel: Find the Crew Doing the Job Twice',
+    metaTitle: 'Construction Rework Cost Tracking Excel | SheetCraft',
+    metaDescription: 'Build construction rework cost tracking in Excel that pins cost of quality to each trade, so you see which crew is doing the job twice before it eats margin.',
+    targetKeyword: 'construction rework cost tracking Excel',
+    secondaryKeywords: ['cost of quality construction', 'rework tracking spreadsheet', 'construction rework percentage', 'cost of poor quality Excel', 'track rework by trade'],
+    excerpt: 'Rework is the line item that never appears on your budget, because the wall you framed twice gets charged to the same cost code as the wall you framed once. Cost of quality runs 5 to 12 percent of project cost and most of it is rework, hiding in trades that all ran a little hot. This builds the Excel tracker that pins rework to the crew and the root cause, so you see which sub is doing the job twice while you can still act on it.',
+    publishedAt: '2026-07-21',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-rework-cost-tracking-excel.png',
+    imageAlt: 'Flat illustration of a construction worker with a trowel beside a drywall wall marked with a red X defect flag, next to a laptop showing a rising bar chart of costs by trade under a magnifying glass',
+    content: `<p>Construction rework cost tracking in Excel is the discipline of giving the work you had to do twice its own line, so the money it burns stops hiding inside your labor and material budgets. Every general contractor knows rework happens. Almost none of them know what it costs, because the second coat of paint, the wall that came out of plumb and got reframed, the slab section that failed the pour and got chipped out all get charged back to the same cost codes as the work that went right. The budget shows framing at 104 percent and nobody can say whether that is a bad estimate, a scope change, or the same crew nailing the same wall twice. The number is real and it is large, and it is invisible on purpose.</p>
+
+<p>Cost of quality, the industry term for what defects cost you, runs 5 to 12 percent of total project cost on typical commercial work, and most of that is rework. On a $2.4 million tenant improvement job at the low end of that range, you are handing back $120,000 to work that produced nothing. It does not show up as a loss. It shows up as trades that all ran a little hot, a schedule that slipped for reasons nobody logged, and a margin that came in thinner than the bid. This article builds the tracker that pulls rework out of the shadows and pins it to the crew and the root cause, so you can see which sub is doing the job twice while you can still do something about it.</p>
+
+<h2>The Line Item That Never Appears on Your Budget</h2>
+
+<p>Consider two drywall subs on the same $2.4 million office fit-out. Both bid the drywall scope at $186,000. Both finish the work. One runs a tight crew that hangs and finishes to a Level 4 the first time. The other runs cheaper labor, fails two hanging inspections, patches a wave of nail pops after the primer goes on, and refloats a stretch of ceiling the super rejected. Same contract value, same final product the client sees. The bid sheet says they cost the same. They did not.</p>
+
+<table>
+<thead>
+<tr><th>Item</th><th>Sub That Built It Once</th><th>Sub That Built It Twice</th></tr>
+</thead>
+<tbody>
+<tr><td>Contracted drywall scope</td><td>$186,000</td><td>$186,000</td></tr>
+<tr><td>Rework labor absorbed by the GC</td><td>$0</td><td>$14,800</td></tr>
+<tr><td>Rework material (board, mud, primer)</td><td>$0</td><td>$3,200</td></tr>
+<tr><td>Schedule days lost to rework</td><td>0</td><td>6</td></tr>
+<tr><td>Downstream trades delayed (paint, ceilings)</td><td>$0</td><td>$9,500</td></tr>
+<tr><td>True cost to your job</td><td>$186,000</td><td>$213,500</td></tr>
+</tbody>
+</table>
+
+<p>The gap is $27,500 on one trade, and none of it was in the bid comparison. If you never track rework, both subs look identical in your history and you rehire the cheap one because his number was clean. Construction rework cost tracking in Excel exists to make that $27,500 a visible, attributable number, so the sub who costs you a second crew never gets to hide behind a low bid again.</p>
+
+<h2>Set Up a Rework Log That Captures Cost of Quality by Trade</h2>
+
+<p>Rework tracking fails when you try to model it. It works when you log it. The goal is one row per rework event, captured the day the field catches it, not reconstructed from memory at closeout. Build one tab, format it as an Excel Table named <code>Rework</code>, and use these columns.</p>
+
+<table>
+<thead><tr><th>Column</th><th>Field</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Date caught</td><td>3/14/2026</td></tr>
+<tr><td>B</td><td>Cost code</td><td>09-250 Drywall</td></tr>
+<tr><td>C</td><td>Trade</td><td>Drywall</td></tr>
+<tr><td>D</td><td>Responsible party</td><td>Apex Interiors</td></tr>
+<tr><td>E</td><td>Root cause</td><td>Workmanship</td></tr>
+<tr><td>F</td><td>Rework labor hours</td><td>72</td></tr>
+<tr><td>G</td><td>Burdened labor rate</td><td>$68</td></tr>
+<tr><td>H</td><td>Rework material $</td><td>$3,200</td></tr>
+<tr><td>I</td><td>Equipment / other $</td><td>$450</td></tr>
+<tr><td>J</td><td>Total rework $</td><td>formula</td></tr>
+<tr><td>K</td><td>Chargeback status</td><td>Recoverable</td></tr>
+</tbody>
+</table>
+
+<p>Column J is the only formula in the log and it runs on every row: <code>=F2*G2+H2+I2</code>. Burdened labor hours times the loaded rate, plus material, plus equipment. That is the honest all-in cost of the event, not just the wages, because the payroll taxes, the pump you re-rented, and the small tools all belong to the second attempt too.</p>
+
+<p>Two columns carry the weight. Column E, root cause, is what turns the log from an accounting record into a management tool. Keep the list short and forced: <code>Workmanship</code>, <code>Design/RFI</code>, <code>Damage by others</code>, <code>Material defect</code>, <code>Owner change</code>. A defect caused by a bad detail on the drawings is not the sub's fault and should not count against his quality score. A defect caused by his crew is. Column K, chargeback status, splits rework into <code>Recoverable</code> money you can back-charge to a sub and <code>Absorbed</code> money the job eats. Those are two different problems and you cannot fix either one if they sit in the same pile.</p>
+
+<h2>The Formulas That Turn Rework Into a Number You Can Act On</h2>
+
+<p>With the log filling up, a summary tab named <code>Cost of Quality</code> does the analysis. Start with a small table of your contracted budget by trade in columns B and C, then let <code>SUMIFS</code> pull the rework against it.</p>
+
+<p>Rework dollars by trade, the core roll-up: <code>=SUMIFS(Rework[J],Rework[Trade],B3)</code>. With the trade name sitting in B3, that cell returns every rework dollar logged against drywall, framing, or whatever trade you name. Fill it down your trade list and you have the number no cost report ever gives you: what each trade cost you the second time.</p>
+
+<p>Rework as a percent of that trade's budget: <code>=SUMIFS(Rework[J],Rework[Trade],B3)/C3</code>. This is the ratio that matters, because $14,000 of rework on a $186,000 drywall scope, 7.5 percent, is a crew problem, while $14,000 on a $1.4 million concrete package is noise. Percent normalizes trades so you compare a painter to a plumber fairly.</p>
+
+<p>The self-inflicted share, filtering to workmanship only: <code>=SUMIFS(Rework[J],Rework[Trade],B3,Rework[Root cause],"Workmanship")</code>. Add the root cause criterion and the formula strips out design errors and damage by others, leaving the rework a crew actually caused. This is the number you put in a prequalification file, because it is the one the sub owns.</p>
+
+<p>Recoverable versus absorbed, the cash question: <code>=SUMIFS(Rework[J],Rework[Chargeback status],"Absorbed")</code> against <code>=SUMIFS(Rework[J],Rework[Chargeback status],"Recoverable")</code>. Absorbed rework comes straight off your margin. Recoverable rework is only recovered if you actually issue the back-charge, so a large recoverable balance sitting unbilled is a reminder to send the deduction before the sub's final pay app clears.</p>
+
+<p>Total rework as a percent of contract, the headline: <code>=SUM(Rework[J])/ContractSum</code>. Name your contract sum cell <code>ContractSum</code> and this one figure tells you where you land against that 5 to 12 percent cost of quality band. Then flag it so the sheet grades itself: <code>=IF(J20&gt;0.08,"AUDIT THE PROGRAM",IF(J20&gt;0.05,"FLAG",IF(J20&gt;0.02,"WATCH","OK")))</code>. Over 8 percent means your quality control is not working and it is costing more than most GCs make in profit. Between 5 and 8 is a flag. Under 2 percent either means you run a clean job or you are not logging honestly, and on most jobs it is the second one.</p>
+
+<h2>Read the Sheet: Which Crew Is Doing the Job Twice</h2>
+
+<p>The point of the tracker is not the total. It is the ranking. Sort your summary table by rework percent descending and the crew doing the job twice floats to the top of the page. On a real fit-out the picture usually looks like this.</p>
+
+<table>
+<thead><tr><th>Trade</th><th>Budget</th><th>Rework $</th><th>Rework %</th><th>Workmanship share</th><th>Flag</th></tr></thead>
+<tbody>
+<tr><td>Drywall</td><td>$186,000</td><td>$18,450</td><td>9.9%</td><td>$16,100</td><td>AUDIT THE PROGRAM</td></tr>
+<tr><td>Framing</td><td>$240,000</td><td>$14,900</td><td>6.2%</td><td>$4,200</td><td>FLAG</td></tr>
+<tr><td>Electrical</td><td>$310,000</td><td>$9,300</td><td>3.0%</td><td>$8,900</td><td>WATCH</td></tr>
+<tr><td>Plumbing</td><td>$205,000</td><td>$2,100</td><td>1.0%</td><td>$2,100</td><td>OK</td></tr>
+<tr><td>HVAC</td><td>$268,000</td><td>$1,600</td><td>0.6%</td><td>$0</td><td>OK</td></tr>
+</tbody>
+</table>
+
+<p>Read the drywall and framing rows against each other and the sheet is telling you two different stories. Drywall is at 9.9 percent and almost all of it, $16,100, is workmanship. That is a crew that cannot hang and finish to spec, and the fix is a hard conversation, a tighter inspection hold, or a different sub next job. Framing is at 6.2 percent but only $4,200 is workmanship. Pull those events and you will usually find the rework was driven by design changes or RFIs, which means the fix is not the framer, it is your submittal process. Same rework percent, opposite root cause, completely different action. Without the root cause column you would have blamed the wrong sub.</p>
+
+<p>Log every event with the same short checklist and the numbers stay clean enough to trust.</p>
+
+<ul>
+<li><strong>Catch it in the field, not at closeout.</strong> A rework event logged three weeks late loses the hours, the cause, and the chance to charge it back.</li>
+<li><strong>Always assign a root cause.</strong> Rework with no cause is a number you cannot act on. Force one of the five categories on every row.</li>
+<li><strong>Load the labor rate, do not use base wage.</strong> Burden adds 30 to 45 percent. Rework at base wage understates the real bleed by a third.</li>
+<li><strong>Set chargeback status the day you log it.</strong> Deciding recoverable versus absorbed later means you forget to issue the back-charge and eat cost you could have recovered.</li>
+<li><strong>Keep the trade list identical to your cost codes.</strong> If the log says "Drywall" and the budget says "09-250," your <code>SUMIFS</code> will not tie out.</li>
+</ul>
+
+<h2>Track It This Job, Price It on the Next One</h2>
+
+<p>Rework tracking pays off twice. On the live job, it tells you which trade to put a QC hold on before the defect multiplies, and it flags the recoverable dollars while you can still deduct them. On the next job, it becomes prequalification data. A sub who ran 9.9 percent workmanship rework on your last fit-out is not a low bidder, he is a $27,500 problem wearing a clean number, and now you have the history to prove it and either price it into his bid or hand the scope to someone else.</p>
+
+<p>Keeping a rework log in a standalone spreadsheet works until it drifts away from the budget it is supposed to explain, because rework only means something next to the trade budget, the cost codes, and the schedule it is dragging on. The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> carries the rework log in the same workbook as your budget by cost code, your committed costs, and your change orders, so the moment you log a rework event it rolls straight into the trade's cost-to-complete and your projected margin, not into a separate file you check once a month. You see the crew doing the job twice the week it starts, watch the recoverable balance you still need to back-charge, and walk into the next bid knowing exactly what that sub's quality really costs. Track the rework where the money already lives, and the hidden line item stops being hidden.</p>`,
+  },
+  {
     slug: 'construction-liquidated-damages-calculator-excel',
     title: 'The Construction Liquidated Damages Calculator in Excel That Prices Delay Before You Sign',
     metaTitle: 'Liquidated Damages Calculator Excel | SheetCraft',
