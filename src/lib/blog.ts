@@ -16,6 +16,173 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-pay-when-paid-cash-flow-tracker-excel',
+    title: 'Construction Pay When Paid Cash Flow Tracker in Excel: Know Which Invoices Are Gated',
+    metaTitle: 'Pay When Paid Cash Flow Tracker Excel | SheetCraft',
+    metaDescription: 'A construction pay when paid cash flow tracker in Excel that flags which invoices are gated behind owner payment, so you never overextend payroll.',
+    targetKeyword: 'construction pay when paid cash flow tracker Excel',
+    secondaryKeywords: ['pay when paid vs pay if paid', 'subcontractor cash flow spreadsheet', 'conditional payment clause tracking', 'contractor accounts receivable aging Excel', 'construction retention tracking'],
+    excerpt: 'A pay-when-paid clause does not change what you owe your crew on Friday, it changes when the general contractor owes you, and the gap between those dates is where profitable subcontractors go broke. Most subs bill a pay app, book it as a receivable, and staff the next job against money that is quietly gated behind an owner who has not paid the GC yet. This builds the Excel tracker that pins every invoice to the owner payment it depends on, flags the ones that are gated or at risk, watches the lien clock, and tells you how much payroll your real cash can actually cover this week.',
+    publishedAt: '2026-07-23',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-pay-when-paid-cash-flow-tracker-excel.png',
+    imageAlt: 'Flat illustration of a subcontractor foreman in a hard hat and vest at a job trailer desk reviewing a laptop that shows a cash flow spreadsheet with invoice bars marked pending and paid, a stack of pay applications and a payment calendar beside it, and a commercial building under construction with a crane through the window',
+    content: `<p>A construction pay when paid cash flow tracker in Excel is the sheet that tells you which of your invoices are real money and which ones are hostage. When you sign a subcontract with a pay-when-paid clause, you agree that the general contractor does not owe you until the owner pays him. Your crew never reads that clause. They show up Monday, they get paid Friday, and the material yard wants its money in thirty days no matter what the owner two tiers above you decides to do. The clause does not change what you spend. It changes when you collect, and it hands the timing to someone you have never met.</p>
+
+<p>Most subcontractors never track the gate. They submit a pay application, book it as a receivable, and staff the next job as if the cash is already in the bank. Then the owner sits on a draw for forty-five days, the GC passes the delay straight down the clause, and the sub who earned margin on every job runs out of cash to cover payroll. That is the trap that sinks profitable subs: you can make money on every line item and still fail, because the money you earned is gated behind a payment you do not control. This article builds the Excel tracker that pins every invoice to the owner payment it waits on, flags the ones that are gated or at risk, and tells you in dollars how much payroll your actual cash can cover before you commit to more work.</p>
+
+<h2>Pay-When-Paid vs Pay-If-Paid: Know Which Clause You Signed</h2>
+
+<p>These two clauses look almost identical on the page and behave nothing alike when the owner stops paying. Read your subcontract before you build anything, because the tracker treats them differently.</p>
+
+<p>A <strong>pay-when-paid</strong> clause is a timing device. It lets the GC delay paying you for a "reasonable time" while he pursues the owner, but he still owes you even if the owner never pays. Most courts read a vague "contractor shall pay subcontractor when paid by owner" as timing only. A <strong>pay-if-paid</strong> clause is a condition. Owner payment becomes a condition precedent to the GC owing you anything. If the owner never pays, the GC never has to, and your receivable is gone. Courts only enforce that if the language is explicit, using words like "condition precedent" and "subcontractor assumes the risk of owner nonpayment." Several states, including California, New York, and North Carolina, void pay-if-paid clauses as against public policy. Others enforce them exactly as written.</p>
+
+<table>
+<thead>
+<tr><th>Feature</th><th>Pay-when-paid</th><th>Pay-if-paid</th></tr>
+</thead>
+<tbody>
+<tr><td>What it controls</td><td>Timing of payment</td><td>Whether payment is owed at all</td></tr>
+<tr><td>Owner never pays</td><td>GC still owes you</td><td>GC may owe you nothing</td></tr>
+<tr><td>Trigger language</td><td>"when," "after," "within X days of"</td><td>"condition precedent," "risk of nonpayment"</td></tr>
+<tr><td>How to book it</td><td>Slow receivable</td><td>At-risk capital until owner pays</td></tr>
+<tr><td>Your lien rights</td><td>Preserved, deadlines still run</td><td>Preserved, and your only real leverage</td></tr>
+</tbody>
+</table>
+
+<p>This is why the tracker carries a Clause column. A pay-when-paid dollar is money you will get, late. A pay-if-paid dollar is money you might never see if the owner goes dark, which means you should never let it fund payroll for the next job. Same invoice amount, completely different risk, and your gut cannot tell them apart at 6 a.m. on payroll day.</p>
+
+<h2>The Cash Gap That Sinks Profitable Subs</h2>
+
+<p>Take a mechanical sub on a medical office build. Turner is the GC, the subcontract runs pay-if-paid, and the sub performs $80,000 of work in March. Labor to install it costs $34,000, material costs $22,000, so $56,000 of real cash goes out the door during the month the work happens. The pay app bills $80,000 less 10 percent retention, so $72,000 net gets submitted to the GC on March 31. Here is the timeline that $72,000 actually travels.</p>
+
+<table>
+<thead>
+<tr><th>Event</th><th>Day</th></tr>
+</thead>
+<tbody>
+<tr><td>Work performed, pay app submitted to GC</td><td>Day 0 (03/31)</td></tr>
+<tr><td>GC rolls it into the owner draw</td><td>Day 5</td></tr>
+<tr><td>Owner pays the GC (net-45 from draw)</td><td>Day 50</td></tr>
+<tr><td>GC pays the sub (10-day pay-when-paid lag)</td><td>Day 60</td></tr>
+<tr><td>Days your $56,000 in performance cost sits unfunded</td><td>60</td></tr>
+</tbody>
+</table>
+
+<p>Sixty days. And while that first pay app crawls through the chain, April happens. The crew performs another $80,000, another $56,000 in cash goes out, and a second pay app joins the queue behind the first. By the end of April the sub has spent $112,000 of cash and collected exactly nothing. That gap is not a loss on the job. Every line item is profitable. It is a cash gap, and cash gaps do not care about your margin. They care about whether you can make Friday.</p>
+
+<p>Now watch what the gap costs when you guess the pay date wrong. The sub assumes the money lands at day 30 and staffs a second crew at $18,000 a week to chase a new award. The owner actually pays at day 60. The sub is now $250,000 gated across four projects and short on payroll with a 30-day hole to bridge.</p>
+
+<table>
+<thead>
+<tr><th>How you cover the 30-day hole on $250,000</th><th>Cost</th></tr>
+</thead>
+<tbody>
+<tr><td>Factor the receivables at 2.5% per month</td><td>$6,250</td></tr>
+<tr><td>Draw a line of credit at 11% APR</td><td>about $2,290</td></tr>
+<tr><td>Miss payroll and lose the crew to a competitor</td><td>Unrecoverable</td></tr>
+</tbody>
+</table>
+
+<p>The tracker does not make the owner pay faster. It stops you from staffing the second crew on money that was never releasing in time, which is the mistake that turns a financing cost into a lost crew.</p>
+
+<h2>Build the Pay App Register</h2>
+
+<p>The core of the tracker is one tab, formatted as an Excel Table named <code>PayApps</code>, with one row per pay application per project. You are not modeling anything. You are logging where each invoice sits in the gate chain and refreshing the owner status every week. Use these columns.</p>
+
+<table>
+<thead>
+<tr><th>Col</th><th>Field</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Pay App #</td><td>3</td></tr>
+<tr><td>B</td><td>Project / GC</td><td>Riverside MOB / Turner</td></tr>
+<tr><td>C</td><td>Clause type</td><td>Pay-if-paid</td></tr>
+<tr><td>D</td><td>Billed this app</td><td>$80,000</td></tr>
+<tr><td>E</td><td>Retention %</td><td>10%</td></tr>
+<tr><td>F</td><td>Retention held</td><td>$8,000</td></tr>
+<tr><td>G</td><td>Net billed</td><td>$72,000</td></tr>
+<tr><td>H</td><td>Submitted to GC</td><td>03/31</td></tr>
+<tr><td>I</td><td>Owner draw due</td><td>05/15</td></tr>
+<tr><td>J</td><td>Owner paid?</td><td>No</td></tr>
+<tr><td>K</td><td>PWP lag (days)</td><td>10</td></tr>
+<tr><td>L</td><td>Proj. sub pay date</td><td>05/25</td></tr>
+<tr><td>M</td><td>Status</td><td>GATED</td></tr>
+<tr><td>N</td><td>Lien deadline</td><td>06/29</td></tr>
+<tr><td>O</td><td>Cost to perform</td><td>$56,000</td></tr>
+</tbody>
+</table>
+
+<p>Retention and net billed calculate themselves so you never fat-finger the 10 percent. In row 2, retention held is <code>=[@[Billed this app]]*[@[Retention %]]</code> and net billed is <code>=[@[Billed this app]]-[@[Retention held]]</code>. Net billed is the number that matters, because retention is money you will not touch until closeout regardless of what the owner does this month.</p>
+
+<h3>Project the real pay date, not the hopeful one</h3>
+
+<p>The projected sub pay date is where most subs lie to themselves. Do not enter the date you wish the money would arrive. Derive it. If the owner has paid, count the pay-when-paid lag from the actual owner pay date. If the owner has not paid, count the lag from the owner draw due date, because that is the earliest the clock even starts.</p>
+
+<p><code>=IF([@[Owner paid?]]="Yes",[@[Owner pay date]]+[@[PWP lag]],[@[Owner draw due]]+[@[PWP lag]])</code></p>
+
+<p>That single formula is the difference between a forecast built on hope and one built on the contract. It automatically pushes every pay date out to the truth the moment you update the owner status, and it feeds the weekly cash rule below.</p>
+
+<h2>Flag Gated, At-Risk, and Lien-Deadline Money</h2>
+
+<p>Now the sheet earns its keep. The Status column sorts every dollar into one of four buckets so you can see at a glance what is real. Paid means done. Releasing means the owner paid and your money is in the pay-when-paid window. Gated means the owner has not paid yet but is not late. At risk means the owner is overdue and you should be worried.</p>
+
+<p><code>=IF([@[Sub paid?]]="Yes","PAID",IF([@[Owner paid?]]="Yes","RELEASING",IF(TODAY()>[@[Owner draw due]]+30,"AT RISK","GATED")))</code></p>
+
+<p>Then total the exposure by bucket with SUMIFS so you are never guessing how much of your receivable ledger is actually collectible this month.</p>
+
+<table>
+<thead>
+<tr><th>What you want to know</th><th>Formula</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>Gated behind unpaid owners</td><td><code>=SUMIFS(PayApps[Net billed],PayApps[Status],"GATED")</code></td><td>$164,000</td></tr>
+<tr><td>At risk (overdue owners)</td><td><code>=SUMIFS(PayApps[Net billed],PayApps[Status],"AT RISK")</code></td><td>$86,000</td></tr>
+<tr><td>Releasing within 14 days</td><td><code>=SUMIFS(PayApps[Net billed],PayApps[Status],"RELEASING",PayApps[Proj. sub pay date],"&lt;="&amp;TODAY()+14)</code></td><td>$55,000</td></tr>
+</tbody>
+</table>
+
+<p>The at-risk number deserves special weight when the clause is pay-if-paid, because that is the money the GC can legally keep if the owner walks. When at-risk pay-if-paid dollars climb, that is your signal to file a preliminary notice or lien while you still can, not to wait politely for the owner.</p>
+
+<h3>Do not let the lien clock run out while you wait</h3>
+
+<p>A pay-when-paid clause does not extend your mechanics lien deadline. Those deadlines run from your last day of work or last material delivery, usually 60 to 120 days depending on the state, and they do not pause because you are being patient. Miss the deadline and you throw away your only real leverage on gated money. So the tracker flags any unpaid app inside 15 days of its lien deadline.</p>
+
+<p><code>=IF(AND([@[Sub paid?]]&lt;&gt;"Yes",[@[Lien deadline]]-TODAY()&lt;=15),"FILE NOTICE","")</code></p>
+
+<p>When that cell lights up FILE NOTICE, you protect the receivable before the window closes. Filing a lien is not going nuclear on a relationship. It is preserving a right that expires whether or not you exercise it, and it moves gated money to the top of everyone's pay list.</p>
+
+<h2>The Weekly Rule: Only Staff What Released Cash Covers</h2>
+
+<p>The whole point of tracking the gate is one decision made every week: can I commit more payroll, or not. Overextending payroll is how subs die, so put a hard gate on it. Build a small summary block that compares the cash you can actually count on against the cash you are about to commit over the next 14 days.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Cash on hand</td><td>$40,000</td></tr>
+<tr><td>Receivables releasing next 14 days (owner already paid)</td><td>$55,000</td></tr>
+<tr><td>Payroll committed next 14 days</td><td>$72,000</td></tr>
+<tr><td>Material POs committed next 14 days</td><td>$28,000</td></tr>
+<tr><td>Coverage ratio</td><td>0.95</td></tr>
+</tbody>
+</table>
+
+<p>Coverage divides the cash you can count on by the cash you must spend. Gated and at-risk receivables do not count here, because they are not releasing in the window. Only cash on hand plus money the owner has actually paid gets to vote.</p>
+
+<p><code>=IF((CashOnHand+ReleasingSoon)/(PayrollDue+MaterialsDue)&lt;1,"STOP STAFFING","OK TO COMMIT")</code></p>
+
+<p>At 0.95 the flag reads STOP STAFFING. You are 5 cents short on every dollar of the next two weeks, which means adding a crew right now borrows against money the owner has not released. Wait until a gated app flips to releasing and coverage clears 1.0, then commit. This one rule, driven by honest status codes instead of wishful receivables, is the entire difference between a sub who grows on collected cash and one who grows on a line of credit until the bank says no.</p>
+
+<h2>Stop Financing the Owner You Never Met</h2>
+
+<p>A pay-when-paid clause turns you into an unpaid lender to the top of the project, and a pay-if-paid clause can turn that loan into a gift. You cannot delete the clause, but you can stop pretending gated money is spendable money. Track every pay app against the owner payment it depends on, sort each dollar into gated, at risk, releasing, or paid, watch the lien clock, and let a coverage ratio veto payroll you cannot fund. Do that and you stop guessing which invoices are real.</p>
+
+<p>Building all of this from a blank sheet, then keeping the formulas from breaking every time you add a project, is its own job on top of running the crew. The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with the pay app register, the gate status logic, the SUMIFS exposure rollups, the lien-deadline flags, and the weekly coverage gate already wired together, so you drop in your projects and pay apps and immediately see how much of your receivable ledger is real cash versus money the owner is still sitting on. If pay-when-paid has ever forced you to float a job you already finished, start there and put the timing back in your hands.</p>`,
+  },
+  {
     slug: 'construction-unit-price-contract-tracker-excel',
     title: 'Construction Unit Price Contract Tracker in Excel: Bill Every Foot You Install',
     metaTitle: 'Construction Unit Price Contract Tracker Excel | SheetCraft',
