@@ -16,6 +16,130 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-prevailing-wage-fringe-calculator-excel',
+    title: 'Construction Prevailing Wage Fringe Calculator in Excel: Bid the Fringe You Actually Owe',
+    metaTitle: 'Prevailing Wage Fringe Calculator Excel | SheetCraft',
+    metaDescription: 'A construction prevailing wage fringe calculator in Excel that splits base from fringe and prices the cash-versus-plan tax gap, so your bid is not too high.',
+    targetKeyword: 'construction prevailing wage fringe calculator Excel',
+    secondaryKeywords: ['prevailing wage fringe benefits', 'Davis-Bacon fringe credit', 'cash fringe vs bona fide plan', 'fringe benefit annualization', 'certified payroll fringe rate'],
+    excerpt: 'Every prevailing wage rate is a base rate plus a fringe rate, and where you route the fringe changes your labor cost by more than a dollar an hour on every public job. Pay it all as cash and you carry payroll tax and workers comp on money that could have gone into a benefit plan tax-free. This builds the Excel calculator that splits base from fringe, credits your annualized plan contributions, solves the exact cash fringe you still owe per classification, and carries both the all-cash and plan-funded loaded rates into your bid so your number is not quietly too high.',
+    publishedAt: '2026-07-24',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-prevailing-wage-fringe-calculator-excel.png',
+    imageAlt: 'Flat illustration of a construction estimator at a job trailer desk reviewing a laptop that shows a prevailing wage spreadsheet with separate base rate and fringe columns, a printed wage determination document and a calculator beside it, a hard hat on the desk, and a public works project with a crane visible through the window',
+    content: `<p>A construction prevailing wage fringe calculator in Excel is the sheet that tells you how much of the required wage you can pay into benefit plans instead of cash, and what the difference does to your bid. Every prevailing wage rate has two parts: a base hourly rate and a fringe rate. The wage determination might read <strong>$34.50 base plus $18.75 fringe</strong> for a laborer, and the total you owe that worker is $53.25 an hour. What the determination does not tell you is that where you route that $18.75 fringe changes your labor cost by more than a dollar an hour, every hour, on every public job. Pay it wrong and you either lose the bid or eat the gap out of your margin.</p>
+
+<p>Most contractors bidding public work never separate the two. They take the total prevailing rate, add a burden multiplier, and drop it into the estimate. That treats the entire fringe amount as taxable cash wage, which means they carry payroll taxes and workers comp on money that could have gone into a plan tax-free. The contractor who funds bona fide benefit plans pays the same worker the same total rate and books a lower cost, because the fringe dollars in the plan never touch the payroll tax line. This article builds the calculator that splits base from fringe, computes the fringe credit you can actually claim, and shows the cash-versus-plan gap in dollars before you sign a bid you cannot win.</p>
+
+<h2>Base Rate Plus Fringe: Read the Number the Determination Gives You</h2>
+
+<p>A Davis-Bacon or state prevailing wage determination lists a separate base rate and fringe rate for every labor classification on the job. You are required to pay the sum of the two, but you are not required to pay the fringe portion as cash. You can pay it as cash wages, as contributions to bona fide fringe benefit plans, or as any combination that adds up to the fringe amount. The base rate, by contrast, always goes on the paycheck as cash. That single distinction is the whole game.</p>
+
+<table>
+<thead>
+<tr><th>Classification</th><th>Base rate</th><th>Fringe rate</th><th>Total prevailing rate</th></tr>
+</thead>
+<tbody>
+<tr><td>Laborer, Group 1</td><td>$34.50</td><td>$18.75</td><td>$53.25</td></tr>
+<tr><td>Cement mason</td><td>$41.20</td><td>$22.40</td><td>$63.60</td></tr>
+<tr><td>Operator, crane</td><td>$48.90</td><td>$26.10</td><td>$75.00</td></tr>
+<tr><td>Electrician, inside</td><td>$52.00</td><td>$28.50</td><td>$80.50</td></tr>
+</tbody>
+</table>
+
+<p>Set up the calculator with one row per classification and these columns: base rate in column B, fringe rate in column C, and total prevailing rate in column D as <code>=B2+C2</code>. That total is the floor you cannot go under. Underpay it by a nickel and you have a wage restitution problem, back wages, and a contracting officer holding your progress payment. The fringe rate in column C is the pool of money you get to decide how to spend, and the rest of this sheet is about spending it in the cheapest legal way.</p>
+
+<h2>The Fringe Dollar You Pay in Cash Costs More Than the One You Pay Into a Plan</h2>
+
+<p>Here is the fact that decides the bid. Cash wages carry labor burden. Employer FICA, federal and state unemployment, workers comp premium, and general liability are all assessed on cash payroll. Contributions to bona fide fringe benefit plans are not wages, so they carry none of it. When you pay the fringe as cash, you pay burden on it. When you pay the fringe into a plan, you do not. Same $18.75, different cost.</p>
+
+<p>Take the Laborer Group 1 line and run 1,000 hours of it two ways. Assume a labor burden of 21 percent on cash wages, which is a reasonable mid-range for FICA at 7.65, unemployment near 2, workers comp around 9, and GL around 2.5.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>All fringe as cash</th><th>Fringe into plans</th></tr>
+</thead>
+<tbody>
+<tr><td>Cash wage per hour</td><td>$53.25</td><td>$34.50</td></tr>
+<tr><td>Burden at 21% on cash</td><td>$11.18</td><td>$7.25</td></tr>
+<tr><td>Plan contributions per hour</td><td>$0.00</td><td>$18.75</td></tr>
+<tr><td>Fully loaded cost per hour</td><td>$64.43</td><td>$60.50</td></tr>
+<tr><td>Cost for 1,000 hours</td><td>$64,430</td><td>$60,500</td></tr>
+</tbody>
+</table>
+
+<p>The gap is $3.93 an hour, which is nothing more than the 21 percent burden you avoided on the $18.75 fringe. On 1,000 hours it is $3,930. On a job that runs 6,000 labor hours across your prevailing wage crew, it is about $23,600 of cost that lives or dies on one decision nobody in the bid room made on purpose. In the calculator, the loaded cost per hour is <code>=Base*(1+Burden)+CashFringe*(1+Burden)+PlanFringe</code>, where cash fringe and plan fringe add up to the required fringe rate. Move a dollar from cash fringe to plan fringe and the cell drops by the burden on that dollar, in real time.</p>
+
+<p>This is why bidding the total prevailing rate as if it were all cash quietly overprices your labor. If a competitor funds real benefit plans and you bid the all-cash number, you are $3.93 an hour high on every prevailing wage line. Either you lose the award, or you win it, later fund the plans anyway, and the burden you priced but never spent becomes a windfall you left in the estimate instead of the bid.</p>
+
+<h2>Build the Fringe Credit Calculator</h2>
+
+<p>Most contractors are not at either extreme. They fund some benefits, health insurance and maybe a retirement match, but those contributions do not add up to the full $18.75 fringe. The rest has to be paid in cash. The number you actually need is the fringe credit: how much of the required fringe your existing plans cover, and therefore how much cash fringe you still owe. Get it wrong low and you underpay the worker, which is a violation. Get it wrong high and you pay cash you did not owe and burden it for no reason.</p>
+
+<p>Add a block of columns for the creditable hourly contributions per classification: health in column E, retirement in column F, training fund in column G. Then compute the credit and the cash balance.</p>
+
+<table>
+<thead>
+<tr><th>Field</th><th>Formula</th><th>Laborer example</th></tr>
+</thead>
+<tbody>
+<tr><td>Total fringe credit</td><td><code>=E2+F2+G2</code></td><td>$6.95</td></tr>
+<tr><td>Cash fringe still owed</td><td><code>=MAX(0,C2-(E2+F2+G2))</code></td><td>$11.80</td></tr>
+<tr><td>Cash wage on the paycheck</td><td><code>=B2+MAX(0,C2-(E2+F2+G2))</code></td><td>$46.30</td></tr>
+<tr><td>Compliance flag</td><td><code>=IF(B2+E2+F2+G2+CashOwed&lt;D2,"SHORT","OK")</code></td><td>OK</td></tr>
+</tbody>
+</table>
+
+<p>The <code>MAX(0,...)</code> matters. If your plan contributions ever exceed the required fringe, you cannot bank the excess against the base rate or another classification. The credit caps at the fringe amount, and the extra is just a benefit you chose to give. The cash wage line is what feeds payroll and, more important, what feeds the burden calculation above, because only the cash portion gets taxed. A worker at $34.50 base with $6.95 in plan credit takes home cash wages of $46.30 an hour, and you fund $6.95 into plans on top. That is the real structure of a compliant prevailing wage paycheck, and it is invisible if you only ever look at the $53.25 total.</p>
+
+<h3>Annualize the benefits or the DOL claws the credit back</h3>
+
+<p>This is where contractors lose the credit they thought they had. You cannot take the full monthly health premium and divide it by prevailing wage hours only. The annualization rule says you divide the annual contribution by the worker's total annual hours, both prevailing wage and private work, unless the plan pays benefits based solely on public hours. The logic is that a health plan covers the worker all year, so a public job cannot absorb the entire cost.</p>
+
+<p>Say you pay $780 a month for a worker's health coverage, which is $9,360 a year, and that worker logs 2,080 total hours across all jobs. The creditable hourly rate is <code>=9360/2080</code>, or $4.50 an hour, not the $7.80 you would get by dividing only by the 1,200 hours he spent on public work. Build the annualization inline: <code>=AnnualContribution/TotalAnnualHours</code>. If you skip it and credit $7.80, you have overstated the credit by $3.30 an hour, underpaid the required fringe by that much, and every certified payroll you filed is now a back wage claim waiting for an audit.</p>
+
+<table>
+<thead>
+<tr><th>Benefit</th><th>Annual cost</th><th>Total annual hours</th><th>Hourly credit</th></tr>
+</thead>
+<tbody>
+<tr><td>Health insurance</td><td>$9,360</td><td>2,080</td><td>$4.50</td></tr>
+<tr><td>Retirement match</td><td>$4,368</td><td>2,080</td><td>$2.10</td></tr>
+<tr><td>Apprenticeship fund</td><td>$728</td><td>2,080</td><td>$0.35</td></tr>
+<tr><td>Total creditable fringe</td><td></td><td></td><td>$6.95</td></tr>
+</tbody>
+</table>
+
+<p>Run every benefit through the same divisor and the calculator hands you a defensible fringe credit per classification, the number that survives a wage and hour investigation instead of collapsing under it.</p>
+
+<h2>Roll the Fringe Decision Into the Bid</h2>
+
+<p>Now the calculator earns its keep at the one moment it matters, when you set the labor rate in the estimate. For each classification, carry two loaded rates side by side: the all-cash rate and the plan-funded rate. Multiply each by the estimated hours for that classification and total the job.</p>
+
+<table>
+<thead>
+<tr><th>Classification</th><th>Est. hours</th><th>All-cash loaded cost</th><th>Plan-funded loaded cost</th></tr>
+</thead>
+<tbody>
+<tr><td>Laborer, Group 1</td><td>3,200</td><td>$206,176</td><td>$194,368</td></tr>
+<tr><td>Cement mason</td><td>1,400</td><td>$107,662</td><td>$100,741</td></tr>
+<tr><td>Operator, crane</td><td>900</td><td>$81,675</td><td>$73,613</td></tr>
+<tr><td>Job total</td><td>5,500</td><td>$395,513</td><td>$368,722</td></tr>
+</tbody>
+</table>
+
+<p>Roughly $26,800 separates the two columns on a single 5,500-hour job, and it is all burden on fringe you were always going to pay one way or another. Total the two scenarios with <code>=SUMPRODUCT(Hours,AllCashRate)</code> and <code>=SUMPRODUCT(Hours,PlanRate)</code> so the moment you change a classification quantity, both bid totals move together. Then the estimator sees the real cost of funding plans versus paying cash, and prices the bid on the strategy the company actually runs, not on a total rate that silently assumes the most expensive option.</p>
+
+<p>The discipline is simple. Decide your fringe strategy before you bid, fund the plans you claim credit for, annualize every contribution, and let the calculator carry the loaded rate that matches reality into the estimate. Skip that and you are guessing at a labor number that is off by 6 to 7 percent on the fringe-heavy trades, in a market where public bids are won and lost by less than that.</p>
+
+<h2>Pay the Fringe, Not the Tax on It</h2>
+
+<p>Prevailing wage is a base rate plus a fringe rate, and the fringe rate is the one decision the wage determination leaves to you. Pay it all in cash and you carry payroll tax and workers comp on every fringe dollar. Pay it into bona fide plans and those dollars cost you exactly their face value. The calculator that splits base from fringe, credits your annualized plan contributions, solves the cash fringe you still owe, and carries both loaded rates into the bid is the difference between a competitive public number and one that is quietly $4 an hour too high on your busiest trades.</p>
+
+<p>Building that from a blank sheet, then keeping the burden math, the annualization divisor, and the compliance flags from breaking every time the determination updates, is real work on top of running the job. The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with the fringe credit calculator wired in: base and fringe split per classification, the annualization formula for every benefit, the cash-fringe solver with the MAX floor, the SHORT compliance flag, and the side-by-side all-cash and plan-funded bid totals that feed straight into your labor estimate. If you have ever bid the total prevailing rate as if it were all cash and wondered why the number came in high, that is the spreadsheet that fixes it before you sign the bid.</p>`,
+  },
+  {
     slug: 'construction-pay-when-paid-cash-flow-tracker-excel',
     title: 'Construction Pay When Paid Cash Flow Tracker in Excel: Know Which Invoices Are Gated',
     metaTitle: 'Pay When Paid Cash Flow Tracker Excel | SheetCraft',
