@@ -16,6 +16,128 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-equipment-utilization-rate-tracker-excel',
+    title: 'Construction Equipment Utilization Rate Tracker in Excel: Keep, Rent, or Sell Every Machine',
+    metaTitle: 'Equipment Utilization Rate Tracker Excel | SheetCraft',
+    metaDescription: 'A construction equipment utilization rate tracker in Excel that turns hour-meter data into a keep, rent, or sell verdict for every machine you own.',
+    targetKeyword: 'construction equipment utilization rate tracker Excel',
+    secondaryKeywords: ['equipment cost per hour', 'rent vs own construction equipment', 'fleet utilization rate', 'idle equipment cost', 'construction equipment hour meter tracking'],
+    excerpt: 'Idle iron does not stop costing money when it stops working. The loan payment, insurance, and depreciation on an owned machine run on the calendar, not the hour meter, so a dozer that logs 620 hours a year can quietly carry 61 dollars an hour in ownership cost before it burns a drop of fuel. This builds the Excel utilization tracker that reads the hour meter, computes utilization per machine, converts idle time into a real cost per operating hour, and flags every machine against the rent-versus-own breakeven so the keep, rent, or sell call is a number instead of a hunch.',
+    publishedAt: '2026-07-25',
+    readTime: 9,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-equipment-utilization-rate-tracker-excel.png',
+    imageAlt: 'Flat illustration of a construction fleet manager at a job-site trailer desk viewing a laptop that shows bar and pie charts of equipment utilization, with a yellow excavator, a bulldozer, and a compact track loader parked in the equipment yard visible through the window, and a yellow hard hat and coffee mug on the desk',
+    content: `<p>A construction equipment utilization rate tracker in Excel is the sheet that tells you which machines earn their keep and which ones bleed you dry sitting in the yard. Idle iron does not stop costing money when it stops working. The loan payment clears on the first of the month whether the excavator turned a track or not. Insurance renews, the machine depreciates, it takes up yard space, and the minimum service still comes due. A machine you own is a fixed cost that runs 24/7. The only thing that changes is how many productive hours you spread that cost across. Track utilization per machine and you can finally answer the three questions every equipment owner is guessing at: what to keep, what to rent, and what to sell.</p>
+
+<p>Most contractors track their fleet by the maintenance log and the fuel card, never by the one number that decides whether owning the machine was smart in the first place: the utilization rate. The yard looks full, everyone feels busy, and nobody notices that the D6 dozer ran 620 hours last year while carrying $38,000 in ownership cost. This builds the tracker that reads the hour meter, computes utilization against available time, converts idle time into a real dollar cost per operating hour, and flags every machine against the rent-versus-own breakeven so the sell decision is a number, not a hunch.</p>
+
+<h2>What Idle Iron Actually Costs</h2>
+
+<p>Every owned machine carries two kinds of cost. Operating cost is variable: fuel, DEF, filters, wear parts, ground-engaging tools. It only happens when the machine runs, and if the machine sits, it stops. Ownership cost is fixed. It accrues on the calendar, not the hour meter, and it does not care whether the machine moved an inch this month. That fixed cost is the whole reason utilization matters, because it is the money you are on the hook for no matter what.</p>
+
+<p>Here is the fixed ownership cost on a single mid-size excavator you paid $140,000 for.</p>
+
+<table>
+<thead>
+<tr><th>Fixed ownership cost</th><th>Annual amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Depreciation ($140,000 price less $50,000 salvage over 6 years)</td><td>$15,000</td></tr>
+<tr><td>Financing interest on the average loan balance</td><td>$5,000</td></tr>
+<tr><td>Insurance</td><td>$2,400</td></tr>
+<tr><td>Registration, permits, property tax</td><td>$1,000</td></tr>
+<tr><td>Yard storage and security, allocated</td><td>$600</td></tr>
+<tr><td>Total fixed ownership cost</td><td>$24,000</td></tr>
+</tbody>
+</table>
+
+<p>That $24,000 runs whether the machine works or not. Spread it across 1,850 operating hours and it is $12.97 an hour, a rounding error on a job. Spread it across 600 hours and it is $40 an hour of pure ownership burden before you buy a drop of fuel or pay the operator. Same machine, same check to the bank, three times the cost per productive hour, and the only variable that moved was utilization. That is the whole argument for tracking it.</p>
+
+<h2>Build the Utilization Tracker</h2>
+
+<p>Utilization rate is dead simple: operating hours divided by available hours over a period. The data is already sitting in the hour meter, and if the machine has telematics (Cat VisionLink, John Deere Operations Center, Komatsu Komtrax), it is streaming to a dashboard you probably never turn into a cost. You do not need the dashboard. You need two meter readings and a working-days count.</p>
+
+<p>Set up a monthly log with one row per machine. Read the hour meter at the start and end of the month and let Excel do the rest.</p>
+
+<table>
+<thead>
+<tr><th>Machine</th><th>Meter start</th><th>Meter end</th><th>Operating hrs</th><th>Available hrs</th><th>Utilization</th></tr>
+</thead>
+<tbody>
+<tr><td>Excavator, 8t</td><td>4,120</td><td>4,274</td><td>154</td><td>176</td><td>88%</td></tr>
+<tr><td>Skid steer</td><td>2,880</td><td>3,020</td><td>140</td><td>176</td><td>80%</td></tr>
+<tr><td>Wheel loader</td><td>3,300</td><td>3,382</td><td>82</td><td>176</td><td>47%</td></tr>
+<tr><td>Dozer, D6</td><td>6,510</td><td>6,558</td><td>48</td><td>176</td><td>27%</td></tr>
+<tr><td>Mini excavator</td><td>1,940</td><td>1,978</td><td>38</td><td>176</td><td>22%</td></tr>
+</tbody>
+</table>
+
+<p>Operating hours in column D is <code>=C2-B2</code>. Available hours in column E is your working calendar, 22 working days times an 8 hour shift, or 176 hours for the month. Utilization in column F is <code>=D2/E2</code> formatted as a percentage. That is the whole tracker at the log level. The dozer at 27 percent and the mini at 22 percent are the two lines that should make you uncomfortable, and now they are impossible to ignore.</p>
+
+<p>If you keep a running log of meter readings instead of a clean start and end, pull the hours per machine straight out of it. With machine names in one column and meter readings in another, the operating hours for a machine across the whole log is <code>=MAXIFS(Meter,Machine,A2)-MINIFS(Meter,Machine,A2)</code>. That reads the highest and lowest meter value for that machine and returns the hours between them, with no manual subtraction per month.</p>
+
+<h3>Turn utilization into a cost per operating hour</h3>
+
+<p>Utilization percent is a warning light. The number that drives a decision is fixed ownership cost per operating hour, because that is what tells you how badly idle time is inflating the real cost of the machine. Add the annual fixed ownership cost in column G and divide by trailing annual operating hours in column H.</p>
+
+<table>
+<thead>
+<tr><th>Machine</th><th>Annual fixed cost</th><th>Annual op hrs</th><th>Fixed $ / op hr</th></tr>
+</thead>
+<tbody>
+<tr><td>Skid steer</td><td>$9,000</td><td>1,600</td><td>$5.63</td></tr>
+<tr><td>Excavator, 8t</td><td>$24,000</td><td>1,850</td><td>$12.97</td></tr>
+<tr><td>Mini excavator</td><td>$7,500</td><td>430</td><td>$17.44</td></tr>
+<tr><td>Wheel loader</td><td>$18,000</td><td>950</td><td>$18.95</td></tr>
+<tr><td>Dozer, D6</td><td>$38,000</td><td>620</td><td>$61.29</td></tr>
+</tbody>
+</table>
+
+<p>Fixed cost per operating hour is <code>=G2/H2</code>. Look at the dozer. Its $38,000 of ownership cost lands on just 620 hours of work, so every hour that machine runs carries $61.29 of ownership burden before fuel, before the operator, before a single wear part. The excavator, worked hard at 1,850 hours, carries $12.97. You own both. One is a tool. The other is a $61-an-hour anchor you built a yard around.</p>
+
+<p>You can also price the waste directly. Idle ownership cost is the fixed money you paid for hours the machine did not work: <code>=G2*(1-F2)</code>, where F2 is the utilization rate. The dozer at 27 percent utilization burned roughly $27,700 of its $38,000 ownership cost on hours it sat still. That is not a metaphor. That is a check you wrote for iron that stayed parked.</p>
+
+<h2>The Rent, Own, or Sell Decision</h2>
+
+<p>Low utilization does not automatically mean sell. It means the machine may have crossed the line where renting the same iron is cheaper than owning it. That line is the breakeven, and it is one formula. Owning costs you fixed cost spread over hours plus owned maintenance per hour. Renting costs you the bare rental rate per hour, with the rental company carrying the ownership and the shop maintenance. Set the two equal and solve for hours.</p>
+
+<p>Breakeven annual hours is <code>=Fixed/(RentalRate-OwnedMaintPerHr)</code>. For the excavator with $24,000 fixed, a bare rental rate near $28 an hour (roughly a $4,800 monthly rate spread over 176 hours), and $12 an hour of owned maintenance, the breakeven is <code>=24000/(28-12)</code>, or 1,500 hours a year. Above 1,500 hours, owning wins. Below it, you are paying to own a machine you should be renting by the week.</p>
+
+<table>
+<thead>
+<tr><th>Machine</th><th>Annual op hrs</th><th>Breakeven hrs</th><th>Verdict</th></tr>
+</thead>
+<tbody>
+<tr><td>Excavator, 8t</td><td>1,850</td><td>1,500</td><td>KEEP</td></tr>
+<tr><td>Skid steer</td><td>1,600</td><td>1,150</td><td>KEEP</td></tr>
+<tr><td>Wheel loader</td><td>950</td><td>1,300</td><td>REVIEW</td></tr>
+<tr><td>Mini excavator</td><td>430</td><td>900</td><td>RENT NEXT JOB</td></tr>
+<tr><td>Dozer, D6</td><td>620</td><td>1,450</td><td>SELL</td></tr>
+</tbody>
+</table>
+
+<p>The verdict flag is <code>=IF(AnnualHours>=Breakeven,"KEEP",IF(AnnualHours>=0.6*Breakeven,"REVIEW","SELL/RENT"))</code>. It keeps machines that clear their own breakeven, flags the ones running 60 to 100 percent of breakeven for a hard look, and calls out the ones that are nowhere close. The dozer at 620 hours against a 1,450 hour breakeven is not a maybe. Renting a D6 for the three or four months a year you actually need it, at roughly $9,000 a month, runs about $30,000 against $38,000 in fixed ownership cost, and it frees up the six-figure capital the machine has frozen on your balance sheet.</p>
+
+<h3>When low utilization is not a sell signal</h3>
+
+<p>The flag is a trigger for a decision, not the decision. Override it when the specifics say so, and be honest about which specifics they are.</p>
+
+<ul>
+<li><strong>You cannot rent it on short notice.</strong> If your work needs that machine on 24 hours notice and the nearest rental yard is two weeks out in peak season, the owned machine buys you availability the breakeven math does not price.</li>
+<li><strong>It self-performs a high-margin scope.</strong> A low-hour machine that keeps a profitable scope in house instead of subbed out can earn more in protected margin than it costs in idle ownership. Track that margin, do not assume it.</li>
+<li><strong>It is a specialized attachment carrier.</strong> Niche iron with no local rental market is a keep even at low hours, because the alternative is not renting, it is not doing the work.</li>
+</ul>
+
+<p>What the flag kills is the default of owning everything because the yard feels emptier without it. Sentiment is not a line item. If the machine is generic, rentable, and running under 60 percent of its breakeven hours, the burden of proof flips. You now have to justify keeping it, not justify selling it.</p>
+
+<h2>Stop Paying to Park It</h2>
+
+<p>The fleet you own should be the machines that clear their own breakeven, not the ones you happened to buy in a good year and never re-examined. Read the hour meter every month, divide operating hours by available hours, convert idle time into fixed cost per operating hour, and hold every machine up to its rent-versus-own breakeven. Do that and the sell decisions make themselves, in dollars, before the next loan renewal or slow quarter forces the question for you.</p>
+
+<p>Building that from scratch means wiring the meter math, the utilization percentages, the fixed-cost allocation, the breakeven formula, and the verdict flags together without them breaking every time you add a machine or a slow month drops the trailing hours. The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with the equipment utilization tracker built in: a monthly hour-meter log, utilization rate per machine, the idle iron tax that shows fixed cost per operating hour, and the rent-own-sell breakeven flag wired to your own rental rates and ownership costs. If you have ever suspected a machine in your yard is quietly costing more parked than it earns working, that is the sheet that proves it one row at a time.</p>`,
+  },
+  {
     slug: 'construction-prevailing-wage-fringe-calculator-excel',
     title: 'Construction Prevailing Wage Fringe Calculator in Excel: Bid the Fringe You Actually Owe',
     metaTitle: 'Prevailing Wage Fringe Calculator Excel | SheetCraft',
