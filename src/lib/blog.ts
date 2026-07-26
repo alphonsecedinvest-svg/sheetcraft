@@ -16,6 +16,153 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-security-deposit-tracker-excel',
+    title: 'Rental Property Security Deposit Tracker in Excel: Never Get Sued at Move-Out',
+    metaTitle: 'Security Deposit Tracker Excel | SheetCraft',
+    metaDescription: 'A rental property security deposit tracker in Excel that logs each deposit, trust balance, state interest, and return deadline so move-out never ends in court.',
+    targetKeyword: 'rental property security deposit tracker Excel',
+    secondaryKeywords: ['security deposit accounting', 'commingling security deposits', 'security deposit interest calculation', 'security deposit return deadline', 'landlord deposit trust account'],
+    excerpt: 'The security deposit is the easiest money in real estate to lose, because you already hold it and the law is looking for a reason to make you return all of it with penalties on top. Commingle it, miss the return deadline, or skip the state-required interest and a $122 cleaning charge turns into a two-times-deposit penalty plus the tenant\'s attorney fees. This builds the Excel tracker that logs every deposit, keeps a running trust balance that flags commingling, accrues interest to the day, and counts down the statutory return deadline so a move-out is a form you fill out, not a court date.',
+    publishedAt: '2026-07-26',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-security-deposit-tracker-excel.png',
+    imageAlt: 'Flat illustration of a property manager at a desk viewing a laptop showing a rental security deposit ledger spreadsheet with a running balance and bar chart, apartment keys and a coffee mug on the desk, and a small multi-unit apartment building visible through the window behind',
+    content: `<p>A rental property security deposit tracker in Excel is the one document that decides whether a tenant move-out ends with a signed itemization or a court summons. The deposit is not your money. It is the tenant's cash sitting in your account, held in trust, and every state has rules about how you hold it, whether it has to earn interest, how fast you return it, and what happens when you get it wrong. Get it wrong and the penalty is rarely just the deposit. In many states it is two or three times the deposit plus the tenant's attorney fees, and you forfeit even the deductions you were legitimately owed.</p>
+
+<p>Most landlords track deposits the same way they track everything else: a lump number in a bank account and a memory of who paid what. That works until a tenant disputes a $600 carpet charge, hires an attorney who works on the fee-shifting statute for free, and asks the court one question you cannot answer from a bank statement. Where exactly was this deposit held, and can you prove it earned the interest the law required. This builds the Excel tracker that logs every deposit, keeps a running trust balance that flags commingling before a tenant's lawyer does, accrues any state-required interest to the day, and counts down the statutory return deadline so a move-out is a form you fill out, not a date you show up for in front of a judge.</p>
+
+<h2>Why a Bank Statement Is Not a Deposit Record</h2>
+
+<p>The single most expensive mistake in residential landlording is commingling. You take a $1,650 deposit, it lands in the same operating account you pay the plumber from, and three months later there is no way to say which dollars are the tenant's and which are yours. In roughly a dozen states the deposit is legally required to sit in a separate account, sometimes a specific trust or escrow account, sometimes at a bank in the state where the property sits. Commingle it and you have broken the statute before any dispute even starts. The tenant does not have to prove damages. The violation is the missing separate account.</p>
+
+<p>A bank statement fails as a deposit record for a simple reason: it shows a balance, not an assignment. A $9,400 balance in a landlord account does not tell a court that $1,650 of it belongs to the tenant in Unit 4, that it was received on a specific date, and that it has been sitting untouched since. The court needs to see the deposit tied to the tenant, the trust balance covering every deposit you are holding at once, and a clean line from move-in dollar to move-out refund. That is a ledger, and a ledger is exactly what Excel is good at.</p>
+
+<p>The cost of not having one is not theoretical. Here is the same $1,650 deposit under two landlords.</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Deposit</th><th>Legit deductions</th><th>Penalty exposure</th><th>What the landlord actually keeps or pays</th></tr>
+</thead>
+<tbody>
+<tr><td>Commingled, returned 40 days late in a 21-day state, no accounting</td><td>$1,650</td><td>$122 in cleaning</td><td>2x deposit + tenant attorney fees</td><td>Pays out $3,300 penalty + $1,200 fees, refunds the full $1,650, keeps $0 of the $122</td></tr>
+<tr><td>Tracked, itemized, returned in 14 days with receipts</td><td>$1,650</td><td>$122 in cleaning</td><td>None</td><td>Refunds $1,528, keeps the $122, no claim filed</td></tr>
+</tbody>
+</table>
+
+<p>Same deposit, same damage, same amount of actual cleaning. The tracked landlord nets $122. The commingled landlord is out $4,500 and a day in court. The difference is not the size of the deduction. It is whether the paperwork existed on the day it was needed.</p>
+
+<h2>The Numbers That Get Landlords Sued</h2>
+
+<p>Three deadlines and one rate decide almost every deposit lawsuit. Miss any of them and a legitimate deduction turns into a losing case.</p>
+
+<ul>
+<li><strong>The return window.</strong> States give you a fixed number of days after move-out to return the deposit or send an itemized statement. It ranges from 14 days to 45 days depending on the state, with 21 and 30 the most common. Blow the deadline and many statutes say you forfeit the right to keep any of it, even the parts you were owed.</li>
+<li><strong>The itemization requirement.</strong> Most states require a written, itemized list of deductions, not a lump "kept for damages." No itemized list means no valid deduction, so you refund the whole deposit even if the tenant torched the kitchen.</li>
+<li><strong>The interest obligation.</strong> Around fifteen states and a number of cities require you to pay interest on held deposits, sometimes at a rate the state publishes each year, sometimes at the rate the bank pays. Forget the interest and you have underpaid the refund, which reopens the whole dispute.</li>
+<li><strong>The separate-account rule.</strong> Where required, the deposit has to be held apart from your operating cash. This is the commingling trap above.</li>
+</ul>
+
+<p>None of these is hard on its own. The problem is holding all of them in your head across six units and three move-outs a year while you are also chasing a roofer and re-leasing a vacancy. That is what the spreadsheet is for. It turns four legal obligations into four columns that check themselves.</p>
+
+<h2>Building the Security Deposit Tracker in Excel</h2>
+
+<p>The tracker is one register with a row per tenant and a small reconciliation block at the top. Put the headers in row 3 and start data in row 4. The layout below covers every obligation that gets landlords sued.</p>
+
+<h3>The deposit register</h3>
+
+<p>Lay the columns out so each obligation has a home: A Unit, B Tenant, C Move-in date, D Deposit amount, E Date received, F State interest rate, G Move-out date (blank while the tenant is in place), H Days held, I Interest owed, J Total owed, K Return deadline, L Days to deadline, M Deductions, N Refund due, O Status.</p>
+
+<p>Days held counts from the date you received the deposit to the move-out date, or to today if the tenant is still living there:</p>
+
+<p><code>=IF(G4="",TODAY()-E4,G4-E4)</code></p>
+
+<p>This is the engine behind the interest. It keeps counting while the tenant is in place and freezes the second you enter a move-out date, so the interest number stops growing on the day the clock legally stops.</p>
+
+<h3>Interest that accrues to the day</h3>
+
+<p>If your state or city requires interest, put the annual rate in column F as a decimal (1.5% is 0.015) and let the sheet accrue it against the days held:</p>
+
+<p><code>=ROUND(D4*F4*(H4/365),2)</code></p>
+
+<p>For a $1,650 deposit held 400 days at a required 1.5%, that is <code>1650 * 0.015 * (400/365)</code>, or $27.12 you owe the tenant on top of the deposit. It is a small number until you skip it on ten units for three years and a tenant attorney adds every missed dollar into a demand letter with penalties attached. Total owed is just the deposit plus the interest:</p>
+
+<p><code>=D4+I4</code></p>
+
+<p>For states with no interest requirement, set column F to 0 and the interest column returns zero without breaking anything.</p>
+
+<h3>The trust balance check that catches commingling</h3>
+
+<p>This is the column that saves you. Put your actual separate deposit-account bank balance in a single cell, say B1. Then total everything you are supposed to be holding and compare. Sum the total owed only for deposits you still hold, meaning units with no move-out date yet:</p>
+
+<p><code>=SUMIFS(J4:J20,G4:G20,"")</code></p>
+
+<p>Now flag the gap in the reconciliation block:</p>
+
+<p><code>=IF(B1&lt;SUMIFS(J4:J20,G4:G20,""),"SHORTFALL: "&amp;TEXT(SUMIFS(J4:J20,G4:G20,"")-B1,"$#,##0")&amp;" MISSING","FUNDED")</code></p>
+
+<p>If your trust account holds less than the sum of every deposit you are on the hook for, the cell turns into "SHORTFALL: $2,400 MISSING" and you have found your commingling problem in your own spreadsheet, on a Tuesday, instead of in a courtroom. Fund the account back up before it ever becomes a case. When the account fully backs every deposit, it reads "FUNDED" and you can prove it.</p>
+
+<h3>The deadline countdown</h3>
+
+<p>The day you enter a move-out date in column G, the return clock starts. Set the deadline to your state's window, 21 days here, and count down against today:</p>
+
+<p><code>=IF(G4="","",G4+21)</code> for the deadline, and <code>=IF(K4="","",K4-TODAY())</code> for days remaining.</p>
+
+<p>Then let the status column shout at you before the deadline does:</p>
+
+<p><code>=IF(G4="","HELD",IF(TODAY()&gt;K4,"LATE - LIABILITY",IF(L4&lt;=5,"RETURN NOW","PROCESS")))</code></p>
+
+<p>A tenant still in place reads "HELD" and needs nothing. The moment they move out it becomes "PROCESS", then "RETURN NOW" when you are inside five days, then "LATE - LIABILITY" the instant you cross the statutory deadline. That last state is the one that costs you two or three times the deposit, and now it is impossible to miss because a red cell is staring at you.</p>
+
+<h2>The Move-Out Reconciliation</h2>
+
+<p>A deduction that is not itemized is not a deduction. Build a small reconciliation table for each move-out, one row per charge, with the category and the evidence noted so the itemized statement writes itself. The category matters because normal wear and tear is not deductible in any state. You cannot charge for faded paint, a worn carpet at the end of its life, or nail holes from hanging pictures. You can charge for damage beyond ordinary use, unpaid rent, and contractual cleaning.</p>
+
+<table>
+<thead>
+<tr><th>Charge</th><th>Category</th><th>Amount</th><th>Deductible</th><th>Evidence</th></tr>
+</thead>
+<tbody>
+<tr><td>Carpet cleaning, unit-wide</td><td>Cleaning (contractual)</td><td>$122</td><td>Yes</td><td>Invoice #4471, move-out photos</td></tr>
+<tr><td>Repaint scuffed hallway</td><td>Wear and tear</td><td>$0</td><td>No</td><td>Normal use, not charged</td></tr>
+<tr><td>Broken interior door</td><td>Damage</td><td>$180</td><td>Yes</td><td>Move-in vs move-out photo, receipt</td></tr>
+<tr><td>Unpaid final water bill</td><td>Unpaid utility</td><td>$63</td><td>Yes</td><td>Utility statement, lease clause 14</td></tr>
+</tbody>
+</table>
+
+<p>Total the deductible column and pull it into the register with a SUMIFS keyed to the unit, then compute the refund:</p>
+
+<p><code>=J4-M4</code></p>
+
+<p>where M4 is the deductions total for that tenant. Add one guardrail. You can never keep more than the deposit plus interest, so if the deductions exceed what you hold, the refund should floor at zero and the excess becomes a separate small-claims action, not a bigger bite out of the deposit:</p>
+
+<p><code>=MAX(J4-M4,0)</code></p>
+
+<p>The reconciliation above turns a $1,650 deposit into a $1,285 refund on $365 of documented, itemized, photographed charges. Every number traces to a receipt or a photo. There is nothing for a tenant attorney to attack, because the wear-and-tear repaint was correctly charged at zero and the deductions that remain are the kind courts uphold.</p>
+
+<h2>The Deposit Compliance Checklist</h2>
+
+<p>Run every move-out through this list before you cut the check. Each item maps to a column or a document in the tracker.</p>
+
+<ol>
+<li><strong>Separate account funded.</strong> The reconciliation cell reads "FUNDED", not "SHORTFALL". The deposit was never spent.</li>
+<li><strong>Interest calculated.</strong> Column I shows the accrued interest for states that require it, computed to the day held.</li>
+<li><strong>Move-out date entered.</strong> The clock is running and the status column knows it.</li>
+<li><strong>Deductions itemized.</strong> Every charge has a category, an amount, and evidence. Wear and tear is charged at zero.</li>
+<li><strong>Refund inside the window.</strong> Days to deadline is positive and the check plus the itemized statement go out before it hits zero.</li>
+<li><strong>Proof retained.</strong> Move-in and move-out photos, invoices, and the itemized statement are saved with the tenant's row reference.</li>
+</ol>
+
+<p>Six checkboxes stand between you and the fee-shifting statute. A landlord who runs this list on every move-out simply does not lose deposit cases, because the case a tenant attorney needs, the missing account and the missing itemization, does not exist.</p>
+
+<h2>Stop Improvising in Front of a Judge</h2>
+
+<p>The security deposit is the easiest money in real estate to lose, because you already have it in hand and the law is looking for a reason to make you give it all back with penalties on top. A bank balance and a good memory are not a defense. A per-tenant ledger with a running trust balance, day-accurate interest, a deadline that counts itself down, and an itemized reconciliation is.</p>
+
+<p>If you would rather not wire up the trust-balance check, the interest accrual, the deadline logic, and the itemization guardrails from a blank sheet across every unit you own, the <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> has the deposit tracker built into the same workbook that runs your rent roll, cash flow, cap rate, and expenses. Each deposit ties to its tenant and its unit, the trust reconciliation flags a shortfall the moment it appears, the interest accrues on its own, and the return deadline turns red before it turns into a liability. Log the deposit the day it comes in, and the day a tenant moves out the document that wins is already sitting on the correct row. Start with a ledger you can hand to a judge, before you are the landlord improvising without one.</p>`,
+  },
+  {
     slug: 'construction-equipment-utilization-rate-tracker-excel',
     title: 'Construction Equipment Utilization Rate Tracker in Excel: Keep, Rent, or Sell Every Machine',
     metaTitle: 'Equipment Utilization Rate Tracker Excel | SheetCraft',
