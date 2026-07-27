@@ -16,6 +16,195 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-loss-to-lease-calculator-excel',
+    title: 'Rental Property Loss to Lease Calculator in Excel: How Much Rent You Are Actually Giving Away',
+    metaTitle: 'Loss to Lease Calculator Excel | SheetCraft',
+    metaDescription: 'A rental property loss to lease calculator in Excel that separates real, capturable upside from the number in the offering memo before you underwrite it.',
+    targetKeyword: 'rental property loss to lease calculator Excel',
+    secondaryKeywords: ['loss to lease formula', 'gross potential rent', 'market rent vs in-place rent', 'multifamily rent roll analysis', 'net effective rent'],
+    excerpt: 'Loss to lease is the quietest number in multifamily. Nothing breaks when it grows, the rent still shows up, and every offering memo turns it into upside a buyer pays for at closing and never collects. This builds a rental property loss to lease calculator in Excel that measures the gap per unit, restates asking rents net of concessions, drops the gaps too small to justify a turnover, and separates the rent you can collect this year from the rent you can only collect eventually, turning a $223,000 headline into the $129,000 that is actually there.',
+    publishedAt: '2026-07-27',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-loss-to-lease-calculator-excel.png',
+    imageAlt: 'Flat illustration of a property manager at a desk working on a laptop showing a rent roll spreadsheet grid and a bar chart, with a stack of lease documents and apartment keys on the desk and a three-story apartment building with balconies through the window behind',
+    content: `<p>A rental property loss to lease calculator in Excel answers one question that decides whether you overpay for a building or leave money on your own renewal letters: how far below market are the rents you are actually collecting, and how much of that gap can you realistically ever collect. Loss to lease is the difference between what every occupied unit could rent for today and what the leases in your filing cabinet say. It is the quietest number in multifamily, because nothing breaks when it grows. The rent still shows up. The tenant still pays. The building looks full and healthy while the in-place rents drift a little further under market every month.</p>
+
+<p>It is also the most abused number in the business. Every offering memorandum on an underperforming building leads with it, because loss to lease is upside you can put in a headline without doing any work. The seller types a market rent into a column, subtracts the in-place rent, multiplies by twelve, divides by a cap rate, and calls the result value. Buyers underwrite it. Lenders size debt against it. Then the new owner sends the renewal letters and discovers that most of that number was never available. This builds the Excel calculator that measures loss to lease correctly at the unit level, strips out the portion that is structural, concession-inflated, or too small to be worth a turnover, and tells you what actually lands in year one.</p>
+
+<h2>What Loss to Lease Actually Measures</h2>
+
+<p>Loss to lease sits in a specific slot in the income waterfall, and putting it anywhere else is how double counting starts. The order is fixed: gross potential rent, every unit valued at market whether occupied or not, minus loss to lease on the occupied units, which gives you gross scheduled rent, the rent your signed leases actually promise. Only then do you subtract vacancy loss, concessions, bad debt, and non-revenue units like a model apartment or an on-site manager's unit.</p>
+
+<p>The trap is that vacant units have no in-place rent. If your formula subtracts a blank cell from a $1,525 market rent, that vacant unit contributes its entire market rent to loss to lease, and then contributes the same dollars again three lines down as vacancy loss. The same empty apartment gets charged to the P&amp;L twice. On an eight-unit with one vacancy, that error alone distorts effective gross income by 8 percent, which is enough to flip a deal from viable to broken or the other way around.</p>
+
+<p>The distinction that matters: vacancy is rent nobody is paying, loss to lease is rent somebody is paying at the wrong price. Two different problems, two different fixes, two different lines. If you have never separated them, the <a href="/blog/rental-property-vacancy-rate-calculator-excel">vacancy rate calculator</a> covers the other half of that waterfall.</p>
+
+<h2>Building the Loss to Lease Calculator in Excel</h2>
+
+<p>This runs on one sheet: a small assumptions block at the top and a rent roll below it, one row per unit. Put the assumptions in B1 through B5 and start the rent roll headers in row 7 with data from row 8.</p>
+
+<h3>The assumptions block</h3>
+
+<p>Five inputs drive everything downstream. B1 is your blended turnover cost, $3,200 for the building in this example, covering make-ready, lost rent during the vacancy, and leasing. B2 is the added probability that a market-rate increase pushes a tenant out, 25 percent. B3 is the minimum increase that justifies taking that risk:</p>
+
+<p><code>=ROUND(B1*B2/12,0)</code></p>
+
+<p>At $3,200 and 25 percent, that returns $67. Any gap smaller than $67 a month is not upside. It is a rounding error you are considering paying $3,200 for a shot at. B4 holds your cap rate, 6.0 percent, and B5 holds the management fee, 8 percent, so the valuation math at the bottom stays honest.</p>
+
+<h3>The rent roll layout</h3>
+
+<p>Fourteen columns, each earning its place: A Unit, B Type, C Status, D Lease start, E Lease end, F In-place rent, G Asking market rent, H Concession months in the comp set, I Net effective market rent, J Loss to lease dollars, K Loss to lease percent, L Months to reprice, M Action, N Year-one capture.</p>
+
+<p>Column I converts an advertised rent into a rent someone actually pays:</p>
+
+<p><code>=ROUND(G8*(12-H8)/12,0)</code></p>
+
+<p>Column J is the calculation itself, with the guard that stops the double count:</p>
+
+<p><code>=IF(OR(C8&lt;&gt;"Occupied",F8=0),0,I8-F8)</code></p>
+
+<p>A vacant unit, a model unit, or a manager's unit returns zero and stays out of the loss to lease line entirely, because those dollars belong to vacancy loss and non-revenue units further down the waterfall. Column K expresses the gap as a percentage of achievable rent, <code>=IF(I8=0,"",J8/I8)</code>, which is what you compare across floor plans since $130 on a studio and $130 on a three-bedroom are not the same problem.</p>
+
+<h3>The repricing clock</h3>
+
+<p>A gap you cannot touch for eleven months is not the same asset as a gap you can reprice with a 60-day notice. Column L counts whole months to the lease expiration and treats a blank expiration as month to month:</p>
+
+<p><code>=IF(E8="",0,MAX(0,(YEAR(E8)-YEAR(TODAY()))*12+MONTH(E8)-MONTH(TODAY())))</code></p>
+
+<p>Use this rather than DATEDIF, which throws an error the moment a lease date falls in the past, and expired leases are exactly the rows you most need to see. Column M turns the gap and the clock into an instruction:</p>
+
+<p><code>=IF(J8&lt;0,"RESETS DOWN",IF(J8=0,"AT MARKET",IF(J8&lt;$B$3,"HOLD FLAT",IF(L8=0,"NOTICE NOW","RAISE AT RENEWAL"))))</code></p>
+
+<p>Column N converts the instruction into dollars that hit this year's P&amp;L, because a unit repricing in month six delivers half a year of the gap, not a full year:</p>
+
+<p><code>=IF(OR(M8="HOLD FLAT",M8="RESETS DOWN"),0,J8*(12-L8))</code></p>
+
+<h2>Three Reasons the Number Is Smaller Than It Looks</h2>
+
+<p>Maple Court, eight units, four one-bedrooms and four two-bedrooms. Here is the rent roll the way it arrives in the offering memo, in-place rent against advertised market rent.</p>
+
+<table>
+<thead>
+<tr><th>Unit</th><th>Type</th><th>In-place rent</th><th>Asking market</th><th>Loss to lease</th><th>Gap %</th><th>Lease ends</th><th>Months to reprice</th></tr>
+</thead>
+<tbody>
+<tr><td>101</td><td>1BR</td><td>$1,395</td><td>$1,525</td><td>$130</td><td>8.5%</td><td>Oct 31, 2026</td><td>3</td></tr>
+<tr><td>102</td><td>1BR</td><td>$1,525</td><td>$1,525</td><td>$0</td><td>0.0%</td><td>Feb 28, 2027</td><td>7</td></tr>
+<tr><td>103</td><td>1BR</td><td>$1,240</td><td>$1,525</td><td>$285</td><td>18.7%</td><td>Month to month</td><td>0</td></tr>
+<tr><td>104</td><td>2BR</td><td>$1,750</td><td>$1,895</td><td>$145</td><td>7.7%</td><td>Sep 30, 2026</td><td>2</td></tr>
+<tr><td>201</td><td>2BR</td><td>$1,610</td><td>$1,895</td><td>$285</td><td>15.0%</td><td>Jan 31, 2027</td><td>6</td></tr>
+<tr><td>202</td><td>2BR</td><td>$1,895</td><td>$1,895</td><td>$0</td><td>0.0%</td><td>Dec 31, 2026</td><td>5</td></tr>
+<tr><td>203</td><td>1BR</td><td>$1,450</td><td>$1,525</td><td>$75</td><td>4.9%</td><td>Aug 31, 2026</td><td>1</td></tr>
+<tr><td>204</td><td>2BR</td><td>$1,700</td><td>$1,895</td><td>$195</td><td>10.3%</td><td>Month to month</td><td>0</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>$12,565</strong></td><td><strong>$13,680</strong></td><td><strong>$1,115</strong></td><td><strong>8.2%</strong></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p>$1,115 a month, $13,380 a year, and at a 6.0 cap that is $223,000 of value sitting in a building the seller is describing as mismanaged. It is a clean story. Three separate things are wrong with it.</p>
+
+<h3>Asking rent is not market rent when the comps are giving away a month</h3>
+
+<p>The $1,525 one-bedroom comps down the street are advertising half a month free on a 12-month lease. That means the rent a tenant actually pays over the year is <code>=ROUND(1525*(12-0.5)/12,0)</code>, or $1,461, not $1,525. Every dollar of loss to lease measured against the advertised number is 64 dollars of fiction per one-bedroom.</p>
+
+<p>Restate the four one-bedrooms against $1,461 and the picture changes character. Unit 103 still has a real $221 gap. Unit 101 drops to $66. Unit 203 drops to $11. And unit 102, signed at $1,525 during a hot spring, is now $64 above achievable market, which means at renewal it does not go up, it resets down or the tenant leaves and you re-lease at $1,461 with a concession attached. That is gain to lease, and most spreadsheets hide it by wrapping the formula in MAX(0, ...). Do not. A portfolio with a handful of gain-to-lease units is not a portfolio at market. It is a portfolio with pending rent cuts you have not budgeted for.</p>
+
+<h3>Some units are structurally cheap and always will be</h3>
+
+<p>Unit 201 is the ground-floor rear two-bedroom. It faces the dumpster enclosure and the parking pad, it gets headlights through the bedroom window every night, and in nine years it has never leased within $100 of unit 202. Pricing it at the $1,895 that the top-floor units command is not upside, it is a typo with a cap rate attached. Its real market rent is $1,750, which is what its own leasing history says, so the gap is $140 and not $285.</p>
+
+<p>This is why the market rent column belongs to the unit, not to the floor plan. Any calculator that fills column G with one number per bedroom count will systematically overstate loss to lease, because the worst unit in every building is the one furthest below the floor plan average, so it shows the biggest fake gap.</p>
+
+<h3>Some gaps are too small to be worth a turnover</h3>
+
+<p>Unit 203 sits $11 under market. Unit 101 sits $66 under, just below the $67 floor from the assumptions block. Chasing either one means sending a renewal letter with an increase on it, adding real probability that a paying tenant starts looking, in exchange for at most $792 a year. Lose that tenant and the turnover costs $3,200. The math is not close.</p>
+
+<p>The worst version of this is the polite increase. A 3 percent bump on a $1,450 rent is $43.50, or $522 a year. It irritates the tenant enough to make them price-shop, and it closes almost none of the gap. Either the gap is worth a real move to market or the right move is to hold flat and keep a paying tenant. The middle is where landlords buy turnover risk at a discount to nothing. The <a href="/blog/rental-lease-renewal-rent-increase-calculator-excel">renewal increase calculator</a> runs that expected value trade properly, and the <a href="/blog/rental-property-turnover-cost-calculator-excel">turnover cost calculator</a> builds the $3,200 from its parts.</p>
+
+<h3>What is actually there</h3>
+
+<p>Rerun the same eight units with per-unit market rents, net effective pricing, and the $67 floor applied.</p>
+
+<table>
+<thead>
+<tr><th>Unit</th><th>Asking</th><th>Concession</th><th>Net effective</th><th>In-place</th><th>Real gap</th><th>Action</th><th>Year-one capture</th></tr>
+</thead>
+<tbody>
+<tr><td>101</td><td>$1,525</td><td>0.5 mo</td><td>$1,461</td><td>$1,395</td><td>$66</td><td>HOLD FLAT</td><td>$0</td></tr>
+<tr><td>102</td><td>$1,525</td><td>0.5 mo</td><td>$1,461</td><td>$1,525</td><td>-$64</td><td>RESETS DOWN</td><td>$0</td></tr>
+<tr><td>103</td><td>$1,525</td><td>0.5 mo</td><td>$1,461</td><td>$1,240</td><td>$221</td><td>NOTICE NOW</td><td>$2,652</td></tr>
+<tr><td>104</td><td>$1,895</td><td>0</td><td>$1,895</td><td>$1,750</td><td>$145</td><td>RAISE AT RENEWAL</td><td>$1,450</td></tr>
+<tr><td>201</td><td>$1,750</td><td>0</td><td>$1,750</td><td>$1,610</td><td>$140</td><td>RAISE AT RENEWAL</td><td>$840</td></tr>
+<tr><td>202</td><td>$1,895</td><td>0</td><td>$1,895</td><td>$1,895</td><td>$0</td><td>AT MARKET</td><td>$0</td></tr>
+<tr><td>203</td><td>$1,525</td><td>0.5 mo</td><td>$1,461</td><td>$1,450</td><td>$11</td><td>HOLD FLAT</td><td>$0</td></tr>
+<tr><td>204</td><td>$1,895</td><td>0</td><td>$1,895</td><td>$1,700</td><td>$195</td><td>NOTICE NOW</td><td>$2,340</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td></td><td></td><td><strong>$714</strong></td><td></td><td><strong>$7,282</strong></td></tr>
+</tbody>
+</table>
+
+<p>Two units carry the building. Unit 103 at $221 under market on a month-to-month tenancy and unit 204 at $195 under, also month to month, together account for $4,992 of the $7,282 that lands in year one. Both can be repriced with a notice this week. That is the actual work order, and it is two letters, not eight.</p>
+
+<h2>How $223,000 of Upside Becomes $129,000</h2>
+
+<p>Run the corrections in sequence and watch the headline number come apart.</p>
+
+<table>
+<thead>
+<tr><th>Step</th><th>Loss to lease per month</th><th>Annualized</th><th>Value at a 6.0 cap</th></tr>
+</thead>
+<tbody>
+<tr><td>The number in the offering memo</td><td>$1,115</td><td>$13,380</td><td>$223,000</td></tr>
+<tr><td>Market rents restated net of concessions</td><td>$859</td><td>$10,308</td><td>$171,800</td></tr>
+<tr><td>Unit 201 priced against its own leasing history</td><td>$714</td><td>$8,568</td><td>$142,800</td></tr>
+<tr><td>Gaps under the $67 turnover floor removed</td><td>$701</td><td>$8,412</td><td>$140,200</td></tr>
+<tr><td>Net of the 8% management fee on captured rent</td><td>$645</td><td>$7,739</td><td>$129,000</td></tr>
+</tbody>
+</table>
+
+<p>$223,000 of claimed upside, roughly $129,000 of real value creation, and a $94,000 gap that a buyer pays for in cash at closing and recovers never. On an eight-unit. Scale that error across a 60-unit and it is the whole equity check.</p>
+
+<p>There is a second hole underneath the first one. Even the honest $8,412 does not arrive in year one, because unit 201 does not reprice until month six and unit 104 not until month two. Year-one collection is $7,282 against the $13,380 the memo implied, a $6,098 shortfall in the first twelve months of debt service. Buyers who size a loan against stabilized loss to lease and then pay year-one debt service out of year-one cash are the ones making capital calls in month nine.</p>
+
+<p>Two formulas at the bottom of the sheet keep both numbers in front of you. Capturable value:</p>
+
+<p><code>=SUMIFS($J$8:$J$15,$M$8:$M$15,"&lt;&gt;HOLD FLAT",$M$8:$M$15,"&lt;&gt;RESETS DOWN")*12*(1-$B$5)/$B$4</code></p>
+
+<p>And the timing shortfall the memo never shows:</p>
+
+<p><code>=SUM(J8:J15)*12-SUM(N8:N15)</code></p>
+
+<h3>Test the seller's market rent before you believe it</h3>
+
+<p>The entire calculation rests on column G, and column G is where a seller puts an aspiration. Test it against signed leases rather than advertised rents. Pull the average in-place rent for every lease of that floor plan signed in the last six months:</p>
+
+<p><code>=AVERAGEIFS($F$8:$F$15,$B$8:$B$15,"1BR",$D$8:$D$15,"&gt;="&amp;EDATE(TODAY(),-6))</code></p>
+
+<p>If the seller claims a $1,525 market rent and the last three one-bedrooms actually signed at $1,455, $1,440, and $1,475, the market rent is about $1,457 and the loss to lease evaporates. Guard the sample size so a single lease never becomes a market:</p>
+
+<p><code>=IF(COUNTIFS($B$8:$B$15,$B8,$D$8:$D$15,"&gt;="&amp;EDATE(TODAY(),-6))&lt;3,"THIN SAMPLE, VERIFY WITH COMPS","")</code></p>
+
+<h2>The Monthly Loss to Lease Review</h2>
+
+<p>Fifteen minutes on the first of the month, every month. Each item maps to a column.</p>
+
+<ol>
+<li><strong>Refresh column G from signed leases, not listings.</strong> Your own last three leases per floor plan beat any rent estimate site.</li>
+<li><strong>Update concession months in column H.</strong> The day competitors start offering a free month, your achievable rent drops 8 percent and your loss to lease drops with it.</li>
+<li><strong>Read column M, not the total.</strong> The portfolio number tells you nothing you can act on. The action column tells you which two letters to send.</li>
+<li><strong>Work NOTICE NOW rows first.</strong> Month-to-month tenants sitting under market are the only gap you can close this quarter.</li>
+<li><strong>Track RESETS DOWN separately.</strong> Those units are a budget problem for next year, not upside, and they belong in your rent projection as a decrease.</li>
+<li><strong>Ignore everything under the B3 floor.</strong> A $40 gap is not a project. It is a paying tenant you are lucky to have.</li>
+</ol>
+
+<p>Loss to lease is not a problem to eliminate. A portfolio at exactly zero loss to lease is a portfolio that has been pushed to the edge of every tenant's willingness to stay, and it will show up as turnover cost within four quarters. A healthy stabilized building runs somewhere in the low single digits, made up mostly of long-tenured residents you are deliberately underpricing because they pay on the first and never call. What kills returns is not having the number. It is not knowing which part of it is real.</p>
+
+<h2>Know the Number Before the Renewal Letters Go Out</h2>
+
+<p>The gap between $223,000 and $129,000 was not a spreadsheet error. Every step of the seller's math was arithmetically correct. It failed because it measured against advertised rents instead of net effective rents, priced the worst unit in the building at the best unit's rent, counted gaps too small to chase, and assumed every dollar arrives on day one. Those four corrections are the entire job, and they take four columns.</p>
+
+<p>If you would rather not wire up the net effective conversion, the per-unit market rent discipline, the turnover floor, and the timing weighting from a blank sheet across every unit you own, the <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> has the loss to lease calculator built into the same workbook that runs your rent roll, cash flow, cap rate, and expense tracking. Type in the leases once and the sheet shows you the gap per unit, flags the units that reset down at renewal, drops the gaps that are not worth a turnover, and separates the rent you can collect this year from the rent you can only collect eventually. Before you underwrite a seller's upside or sign off on eight renewal letters, run the real number. It is almost never the one in the headline.</p>`,
+  },
+  {
     slug: 'rental-property-security-deposit-tracker-excel',
     title: 'Rental Property Security Deposit Tracker in Excel: Never Get Sued at Move-Out',
     metaTitle: 'Security Deposit Tracker Excel | SheetCraft',
