@@ -16,6 +16,169 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-other-income-tracker-excel',
+    title: 'Rental Property Other Income Tracker in Excel: The NOI Hiding in Your Deposit Column',
+    metaTitle: 'Rental Property Other Income Tracker Excel | SheetCraft',
+    metaDescription: 'Build a rental property other income tracker in Excel. Log laundry, parking, pet, and fee income by category so your NOI and appraised value capture it.',
+    targetKeyword: 'rental property other income tracker Excel',
+    secondaryKeywords: ['ancillary income rental property', 'rental property NOI calculation', 'pet rent tracking spreadsheet', 'RUBS utility billback', 'other income real estate valuation'],
+    excerpt: 'Laundry, parking, pet rent, and storage fees are real NOI, but only if you can prove them. An Excel other income tracker splits recurring from one-time income, catches the billing that quietly stopped at renewal, and turns $535 a month into roughly $91,000 of appraised value.',
+    publishedAt: '2026-07-28',
+    readTime: 9,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-other-income-tracker-excel.png',
+    imageAlt: 'Property manager desk with laptop showing a rental income spreadsheet, lease documents, unit keys, and laundry coins',
+    content: `<h1>Rental Property Other Income Tracker in Excel: The NOI Hiding in Your Deposit Column</h1>
+
+<p>Dana owns an 8-unit building in Greensboro. Her rent roll says $8,400 a month. Her bank statements average $8,935. She has never reconciled the $535 gap because she knows roughly where it comes from: the laundry machines, the six reserved parking spaces, three pet rent addenda, four storage lockers, and the occasional late fee. It shows up in the account, so she assumes it counts. A rental property other income tracker in Excel is the thing she does not have, and it is costing her about $91,000.</p>
+
+<p>Not in cash. In value. When she refinances or sells, an appraiser will build a stabilized net operating income from documents, not from her memory of what the deposits included. Income that cannot be traced to a category, a lease clause, and a bank line gets discounted or dropped entirely. The $535 a month she is genuinely collecting turns into a rounding error in someone else's underwriting spreadsheet.</p>
+
+<p>This is the least glamorous line on an operating statement and the one with the highest ratio of dollars to effort. Rent takes a tenant, a turnover, and a market. Other income takes a spreadsheet.</p>
+
+<h2>The Money Hiding in Your Deposit Column</h2>
+
+<p>Here is Dana's actual ancillary income, broken out the way it should have been from day one:</p>
+
+<table>
+<thead>
+<tr><th>Category</th><th>Basis</th><th>Monthly</th><th>Annual</th><th>Recurring?</th></tr>
+</thead>
+<tbody>
+<tr><td>Laundry (2 machines)</td><td>Vendor split, 50%</td><td>$180</td><td>$2,160</td><td>Yes</td></tr>
+<tr><td>Reserved parking</td><td>6 spaces at $25</td><td>$150</td><td>$1,800</td><td>Yes</td></tr>
+<tr><td>Pet rent</td><td>3 pets at $35</td><td>$105</td><td>$1,260</td><td>Yes</td></tr>
+<tr><td>Storage lockers</td><td>4 at $15</td><td>$60</td><td>$720</td><td>Yes</td></tr>
+<tr><td>Late fees</td><td>12-month average</td><td>$40</td><td>$480</td><td>No</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>$535</strong></td><td><strong>$6,420</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<p>The recurring block is $495 a month, or $5,940 a year. At a 6.5% cap rate, that block is worth <code>=5940/0.065</code>, which is $91,384 of building value. The late fees are real money but they are not capitalized at full weight by a careful underwriter, and you should not plan on them being.</p>
+
+<p>Now run the comparison that matters. If Dana keeps doing what she is doing, she hands the appraiser twelve months of bank statements with mixed deposits and gets credited for base rent plus whatever the appraiser is willing to infer, typically zero to a token laundry allowance. Call it $15,000 of recognized value. If she spends one hour building a categorized log and twelve months feeding it five minutes a week, she hands over a trailing-twelve schedule that ties to the bank and gets credited near the full $91,384. One hour plus roughly four hours of data entry across the year buys somewhere around $76,000 of appraised value. There is no rehab line item on earth with that return.</p>
+
+<p>The same math runs in reverse on a purchase. A seller who shows you $6,420 of other income with no ledger behind it is asking you to pay $91,000 for a claim. Ask for the category detail. If it does not exist, underwrite the income at zero and let them prove you wrong.</p>
+
+<h2>Recurring vs Non-Recurring: The Split That Decides Your Valuation</h2>
+
+<p>Most landlords who do track other income make one mistake: they dump it all into a single "Other Income" line. That is worse than useless when an underwriter sees it, because a lender cannot tell whether your $6,420 is contractual monthly income or one lucky year of lease break fees. Faced with an undifferentiated number, the conservative move is to haircut all of it.</p>
+
+<p>Split the taxonomy on day one:</p>
+
+<table>
+<thead>
+<tr><th>Category</th><th>Type</th><th>Capitalized by underwriters</th><th>Proof required</th></tr>
+</thead>
+<tbody>
+<tr><td>Pet rent</td><td>Recurring</td><td>Yes, at full value</td><td>Pet addendum in each lease</td></tr>
+<tr><td>Parking and storage</td><td>Recurring</td><td>Yes, at full value</td><td>Lease clause or separate rental agreement</td></tr>
+<tr><td>Utility reimbursement (RUBS)</td><td>Recurring</td><td>Yes, netted against the utility expense</td><td>Billing statements plus the master bill</td></tr>
+<tr><td>Laundry and vending</td><td>Recurring</td><td>Usually, at trailing-12 actual</td><td>Vendor commission statements</td></tr>
+<tr><td>Month-to-month premium</td><td>Recurring but unstable</td><td>Partially, often haircut 50%</td><td>Lease status report</td></tr>
+<tr><td>Late fees, NSF fees</td><td>Non-recurring</td><td>Rarely, often excluded</td><td>Ledger detail by tenant</td></tr>
+<tr><td>Application and admin fees</td><td>Non-recurring</td><td>No, tied to turnover</td><td>Ledger detail by unit</td></tr>
+<tr><td>Lease break and damage recovery</td><td>Non-recurring</td><td>No</td><td>Move-out statements</td></tr>
+</tbody>
+</table>
+
+<p>Two consequences follow from this table. First, your tracker needs a category field with a controlled list, not a free-text notes column. Second, the recurring flag lives on the category, not on the transaction, so it can never be entered inconsistently.</p>
+
+<p>There is a tax consequence too. Every dollar in this table is ordinary rental income on Schedule E, including the fees people mentally file as reimbursements. Security deposit forfeitures applied to unpaid rent are income in the year applied. If your only record is a deposit line labeled "misc," your CPA is guessing, and guesses in that direction get corrected during an audit at your expense.</p>
+
+<h2>Building the Tracker: Three Sheets That Take an Hour</h2>
+
+<h3>Sheet 1: Income_Log</h3>
+
+<p>One row per transaction. No summaries, no formatting cleverness, no merged cells.</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Field</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Date received</td><td>07/03/2026</td></tr>
+<tr><td>B</td><td>Property</td><td>412 Elm</td></tr>
+<tr><td>C</td><td>Unit</td><td>3B</td></tr>
+<tr><td>D</td><td>Category (data validation list)</td><td>Pet rent</td></tr>
+<tr><td>E</td><td>Amount</td><td>$35.00</td></tr>
+<tr><td>F</td><td>Payment method</td><td>ACH</td></tr>
+<tr><td>G</td><td>Type (formula)</td><td>Recurring</td></tr>
+<tr><td>H</td><td>Notes</td><td>Addendum dated 02/01/26</td></tr>
+</tbody>
+</table>
+
+<p>Column G is never typed. It reads the category table:</p>
+
+<p><code>=XLOOKUP($D2,Categories!$A:$A,Categories!$B:$B,"UNMAPPED")</code></p>
+
+<p>The <code>"UNMAPPED"</code> fallback is the entire point. When somebody types "Pet Rent " with a trailing space, or invents "pet fee" on a Tuesday, that row lights up instead of silently vanishing from every rollup downstream. Pair it with a conditional format on <code>=$G2="UNMAPPED"</code> and you catch the typo in the same session you made it, not eleven months later when the appraiser's number comes back low.</p>
+
+<h3>Sheet 2: Categories</h3>
+
+<p>Eight to twelve rows, set up once. Column A is the category name, B is Recurring or Non-recurring, C is the expected monthly total for the property, D is the proof document, E is the tenant-facing rate.</p>
+
+<p>Column C is what turns a log into a control. You are asserting what you should be collecting: 6 parking spaces at $25 means $150, every month, no exceptions. Anything less is a leak, and the dashboard will say so.</p>
+
+<h3>Sheet 3: Dashboard</h3>
+
+<p>Categories down column A, months across row 4 as real dates (07/01/2026, not the text "July"). Every cell is the same formula:</p>
+
+<p><code>=SUMIFS(Income_Log!$E:$E,Income_Log!$D:$D,$A5,Income_Log!$A:$A,"&gt;="&amp;B$4,Income_Log!$A:$A,"&lt;="&amp;EOMONTH(B$4,0))</code></p>
+
+<p>Column N holds the trailing-twelve total per category, <code>=SUM(B5:M5)</code>. Then three cells do the actual work.</p>
+
+<p><strong>Recurring annual income:</strong></p>
+
+<p><code>=SUMIF(Categories!$B$2:$B$13,"Recurring",$N$5:$N$16)</code></p>
+
+<p><strong>Capitalized value of that income</strong>, with your market cap rate in B2:</p>
+
+<p><code>=SUMIF(Categories!$B$2:$B$13,"Recurring",$N$5:$N$16)/$B$2</code></p>
+
+<p>This is the number to look at when you are deciding whether to add three more storage lockers for $1,800. At a 6.5% cap, $15 a month per locker across three lockers is $540 a year and $8,308 of value. That is a 4.6x return on the build cost, realized the day you sell, and it never appears in a cash-on-cash calculation.</p>
+
+<p><strong>Collection variance against expectation:</strong></p>
+
+<p><code>=IF(Categories!$C5=0,"",(N5/12-Categories!$C5)/Categories!$C5)</code></p>
+
+<p>Flag it so you do not have to read percentages: <code>=IF(O5&lt;-0.05,"UNDER-COLLECTING","OK")</code>. Anything more than 5% below the contractual rate means either a tenant stopped paying, a lease was renewed without carrying the addendum forward, or somebody forgot to bill.</p>
+
+<h2>The Three Leaks the Log Catches in Month One</h2>
+
+<p>Every landlord who builds this finds the same three problems. They are not exotic. They are the direct consequence of ancillary income living in nobody's job description.</p>
+
+<p><strong>Leak 1: the addendum that died at renewal.</strong> Unit 3B signed a pet addendum at $35 a month in 2024. At the 2026 renewal, the new lease was generated from the base template and the pet clause did not carry over. The dog is still there. The billing is not. Four months at $35 is $140 gone, and at a 6.5% cap the ongoing omission costs $6,462 in value. Detect it by comparing the lease flag to actual collections:</p>
+
+<p><code>=IF(AND(Leases!$F3="Yes",SUMIFS(Income_Log!$E:$E,Income_Log!$C:$C,Leases!$A3,Income_Log!$D:$D,"Pet rent",Income_Log!$A:$A,"&gt;="&amp;EOMONTH(TODAY(),-2)+1)=0),"MISSING BILLING","")</code></p>
+
+<p><strong>Leak 2: the assigned space nobody charges for.</strong> Six spaces, five paying. The sixth was assigned verbally to the tenant in 1A during a snowstorm in 2024 and never made it onto a rental agreement. That is $300 a year and $4,615 of value, sitting in a parking lot you already own and already pave.</p>
+
+<p><strong>Leak 3: utility under-recovery.</strong> If you bill back water and sewer, the recovery ratio is the only number that matters:</p>
+
+<p><code>=SUMIFS(Income_Log!$E:$E,Income_Log!$D:$D,"Utility reimbursement",Income_Log!$A:$A,"&gt;="&amp;DATE(2026,1,1))/SUMIFS(Expenses!$D:$D,Expenses!$B:$B,"Water/Sewer",Expenses!$A:$A,"&gt;="&amp;DATE(2026,1,1))</code></p>
+
+<p>On a $7,200 annual water bill, a 78% recovery means $1,584 a year you paid for on behalf of tenants who agreed to pay it. Common causes: vacant units left in the allocation formula, a rate that has not moved since 2023 while the utility raised prices twice, or two units that were never enrolled. Each one is a fifteen-minute fix once you can see the ratio.</p>
+
+<p>The three leaks together cost Dana $2,024 a year in cash and roughly $31,000 in value. The log that finds them costs an hour.</p>
+
+<h2>Package It Before You Need It</h2>
+
+<p>The tracker only converts into money if it survives contact with a third party. Three people will look at it, and they want different things.</p>
+
+<ul>
+<li><strong>The appraiser</strong> wants a trailing-twelve schedule by category that ties to bank deposits. Give them the dashboard plus the monthly tie-out: <code>=ROUND(SUMIFS(Income_Log!$E:$E,Income_Log!$A:$A,"&gt;="&amp;B$4,Income_Log!$A:$A,"&lt;="&amp;EOMONTH(B$4,0))-Bank!B5,2)</code> with a check cell <code>=IF(ABS(C5)&gt;1,"INVESTIGATE","TIED")</code>. A ledger that ties to the bank every month for twelve months is credible. One that does not gets thrown out.</li>
+<li><strong>The lender</strong> wants proof of recurrence. Attach the lease addenda, the parking agreements, and the laundry vendor commission statements. Present recurring and non-recurring as two separate subtotals so they do not have to guess and haircut.</li>
+<li><strong>Your CPA</strong> wants the full gross, including the non-recurring fees, mapped to the right Schedule E lines with the RUBS income shown against the gross utility expense rather than netted invisibly.</li>
+</ul>
+
+<p>Build the three sheets this week using the last twelve months of bank statements. Categorize backward, not forward. Twelve months of history is what an appraiser can use; a log that starts today is worth nothing until next July. Budget two hours for the reconstruction and five minutes every Friday after that.</p>
+
+<p>Then run the capitalized value cell and look at the number. On a small portfolio it is usually between $60,000 and $150,000 of value that already exists, already gets deposited, and currently cannot be proven. That is the entire argument for tracking it.</p>
+
+<p>If you would rather not build the category table, the validation lists, the tie-out, and the leak formulas from scratch, SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> ships with the other income module already wired: a controlled category list split into recurring and non-recurring, per-unit collection variance flags, RUBS recovery ratios, and an NOI rollup that feeds straight into the cap rate and valuation tabs. You enter transactions. It tells you what the income is worth and which unit stopped paying.</p>`,
+  },
+  {
     slug: 'rental-property-loss-to-lease-calculator-excel',
     title: 'Rental Property Loss to Lease Calculator in Excel: How Much Rent You Are Actually Giving Away',
     metaTitle: 'Loss to Lease Calculator Excel | SheetCraft',
