@@ -16,6 +16,207 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-bad-debt-allowance-calculator-excel',
+    title: 'Rental Property Bad Debt Allowance Calculator in Excel: Model What Actually Collects',
+    metaTitle: 'Rental Bad Debt Allowance Calculator Excel | SheetCraft',
+    metaDescription: 'Build a rental property bad debt allowance calculator in Excel. Split credit loss from vacancy, price the eviction timeline, and get an NOI that holds up.',
+    targetKeyword: 'rental property bad debt allowance calculator Excel',
+    secondaryKeywords: ['credit loss vs vacancy pro forma', 'rent collection rate formula Excel', 'eviction cost per unit calculation', 'allowance for doubtful accounts rental property', 'effective gross income calculation'],
+    excerpt: 'A single 5 percent vacancy and credit loss line hides two risks that cost completely different amounts. One eviction in Ohio costs 5.8 months of vacancy on the same unit, and the allowance swings 607 basis points depending on which county hears the case. Model it separately and the 12-unit that penciled at a 1.20 DSCR shows its real 1.06.',
+    publishedAt: '2026-07-29',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-bad-debt-allowance-calculator-excel.png',
+    imageAlt: 'Landlord desk at dusk with a laptop showing a rent collection spreadsheet with overdue rows highlighted, a stack of notice envelopes, a calculator, apartment keys, and a lease document',
+    content: `<h1>Rental Property Bad Debt Allowance Calculator in Excel: Model What Actually Collects</h1>
+
+<p>Your 12-unit in Dayton billed $180,000 of rent last year. The bank took in $171,400. That $8,600 gap never appeared anywhere in your model, because your pro forma carried a single line called "vacancy and credit loss, 5%" and called it a day. A rental property bad debt allowance calculator in Excel exists to split that line in two, since the halves behave nothing alike and cost wildly different amounts.</p>
+
+<p>Vacancy is a unit sitting empty. You never billed anyone, you lost the rent, you re-rent it in 30 days. Bad debt is a unit that is occupied, billed, and not paying. You cannot re-rent it. You cannot enter it. In most states you cannot start the clock for another 30 days after the first missed payment. Rolling both into one percentage is the most common reason a deal that penciled at a 1.20 debt service coverage ratio reports 1.06 at its first annual review.</p>
+
+<h2>One Non-Payer Costs What Six Vacant Months Cost</h2>
+
+<p>Price both events on the same unit at $1,250 a month and the asymmetry stops being theoretical.</p>
+
+<table>
+<thead>
+<tr><th>Cost line</th><th>Vacancy event</th><th>Bad debt event</th></tr>
+</thead>
+<tbody>
+<tr><td>Billed rent never collected</td><td>$0</td><td>$5,000 (4 months)</td></tr>
+<tr><td>Vacant time lost</td><td>$1,250 (1 month)</td><td>$1,250 (post-lockout turn)</td></tr>
+<tr><td>Filing, service, attorney</td><td>$0</td><td>$1,100</td></tr>
+<tr><td>Turnover repairs above normal</td><td>$0</td><td>$1,800</td></tr>
+<tr><td>Security deposit applied</td><td>$0</td><td>($1,250)</td></tr>
+<tr><td>Post-judgment recovery at 8%</td><td>$0</td><td>($632)</td></tr>
+<tr><td><strong>Net cost per event</strong></td><td><strong>$1,250</strong></td><td><strong>$7,268</strong></td></tr>
+</tbody>
+</table>
+
+<p>One default costs 5.8 months of vacancy on the same unit. That ratio is why the two risks need separate inputs, separate assumptions, and separate lines in the pro forma.</p>
+
+<h3>The input block</h3>
+
+<p>Build an <strong>Inputs</strong> sheet with the eleven cells that drive everything downstream. Nothing here is a plug. Every one of them is knowable.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Units</td><td>12</td></tr>
+<tr><td>B4</td><td>Average monthly rent</td><td>$1,250</td></tr>
+<tr><td>B5</td><td>Gross potential rent, annual <code>=B3*B4*12</code></td><td>$180,000</td></tr>
+<tr><td>B6</td><td>Physical vacancy rate</td><td>6.0%</td></tr>
+<tr><td>B7</td><td>Expected default events per year</td><td>1.0</td></tr>
+<tr><td>B8</td><td>Months billed and unpaid before lockout</td><td>4.0</td></tr>
+<tr><td>B9</td><td>Filing, service, and attorney per event</td><td>$1,100</td></tr>
+<tr><td>B10</td><td>Turnover repairs above normal per event</td><td>$1,800</td></tr>
+<tr><td>B11</td><td>Security deposit applied</td><td>$1,250</td></tr>
+<tr><td>B12</td><td>Post-judgment collection recovery rate</td><td>8%</td></tr>
+</tbody>
+</table>
+
+<p>The calculation block sits directly underneath:</p>
+
+<ul>
+<li><strong>B14, gross cost per event:</strong> <code>=(B8*B4)+B4+B9+B10-B11</code> returns $7,900. The lone <code>B4</code> in the middle is the turn month after lockout, which most models forget because the tenant is already gone by then.</li>
+<li><strong>B15, net cost per event:</strong> <code>=B14*(1-B12)</code> returns $7,268. Set B12 from your own history, not from what the collection agency claims. Eight percent is generous for a judgment against someone who just spent four months not paying rent.</li>
+<li><strong>B16, annual bad debt allowance:</strong> <code>=B7*B15</code> returns $7,268.</li>
+<li><strong>B17, allowance as a percent of GPR:</strong> <code>=B16/B5</code> returns 4.04%.</li>
+<li><strong>B18, vacancy loss:</strong> <code>=B5*B6</code> returns $10,800, and it stays on its own line forever.</li>
+</ul>
+
+<p>Total economic loss on this building is 10.0% of gross potential rent. The combined 5% line was off by half, and half of $180,000 is not a rounding difference.</p>
+
+<h2>The Eviction Calendar Drives the Allowance More Than the Tenant Does</h2>
+
+<p>Hold the building constant. Same $1,250 rent, same $1,100 legal cost, same tenant who stops paying in March. Change only the county where the case gets filed.</p>
+
+<table>
+<thead>
+<tr><th>Market</th><th>Practical notice to lockout</th><th>B8 months unpaid</th><th>Net cost per event</th><th>Allowance at 1 event/year</th></tr>
+</thead>
+<tbody>
+<tr><td>Texas metro</td><td>3 to 6 weeks</td><td>1.5</td><td>$4,393</td><td>2.44%</td></tr>
+<tr><td>Georgia, Florida</td><td>6 to 10 weeks</td><td>2.5</td><td>$5,543</td><td>3.08%</td></tr>
+<tr><td>Ohio, Missouri</td><td>3 to 5 months</td><td>4.0</td><td>$7,268</td><td>4.04%</td></tr>
+<tr><td>Cook County, Illinois</td><td>6 to 9 months</td><td>7.0</td><td>$10,718</td><td>5.95%</td></tr>
+<tr><td>New York City</td><td>9 to 14 months</td><td>11.0</td><td>$15,318</td><td>8.51%</td></tr>
+</tbody>
+</table>
+
+<p>Same tenant, same rent, and the allowance moves 607 basis points. Legal cost is held at $1,100 across every row to isolate the calendar, which means the bottom two rows are optimistic: housing court attorneys in Cook County and New York bill $2,500 to $4,500 per case. A national "use 2% for bad debt" default is a guess about a courthouse you have never walked into.</p>
+
+<p>Get the number from your county clerk's docket, not from a state summary. Filing to judgment and judgment to sheriff's lockout are two separate queues, and the second one is where the months disappear.</p>
+
+<h2>Measure It From the T-12 Instead of Guessing</h2>
+
+<p>On a property you own or are under contract to buy, stop estimating. Build a <strong>Collections</strong> sheet with one row per month: A month, B charges posted, C collected in period, D collected late, E written off, F concessions.</p>
+
+<ul>
+<li><strong>Gross collection rate:</strong> <code>=SUM(C5:C16)/SUM(B5:B16)</code></li>
+<li><strong>True uncollected fraction:</strong> <code>=1-(SUM(C5:C16)+SUM(D5:D16))/SUM(B5:B16)</code></li>
+</ul>
+
+<p>Three things wreck this calculation, and all three are common enough to check every time.</p>
+
+<h3>Late is not lost</h3>
+
+<p>A model that treats anything not received by the 5th as bad debt overstates the allowance by three to four times. The tenant who pays on the 14th every month for six years is a cash management problem, not a credit loss. Keep columns C and D separate and flag the difference: <code>=IF(AND(D5&gt;0,E5=0),"LATE, NOT LOSS","")</code>. Price the late payer into your operating account balance, not into your NOI.</p>
+
+<h3>The seller who never writes anything off</h3>
+
+<p>A T-12 showing $700 of bad debt on $180,000 of rent looks like a well-run building. Then you pull the accounts receivable aging as of the first and last day of that same window. Receivables went from $4,900 to $18,600. Nothing was written off because writing off is a decision, and the seller chose not to make it while marketing the property.</p>
+
+<p>The real number: <code>=Write_offs+(AR_end-AR_begin)</code> returns $14,400, which is 8.0% of gross potential rent, not 0.39%. Request the aging report at both endpoints on every deal. If the seller will not produce it, underwrite the allowance at the top of the class band and let the price reflect that.</p>
+
+<h3>Double counting vacancy</h3>
+
+<p>Rent on an empty unit was never billed, so it can never be bad debt. If column B comes from a rent roll of scheduled rent instead of charges actually posted, you are counting the same loss twice and your EGI is wrong in the conservative direction, which feels safe and costs you deals. Tie it out: <code>=IF(ABS(SUM(B5:B16)-(B5-B18))&gt;500,"CHECK BILLING SOURCE","OK")</code>.</p>
+
+<h2>Roll Rates Turn Today's Aging Into Next Quarter's Write-Off</h2>
+
+<p>The trailing twelve tells you what happened. Roll rates tell you what is about to. Pull the percentage of each aging bucket that moves to the next bucket the following month, averaged over the last year, then chain them.</p>
+
+<table>
+<thead>
+<tr><th>Bucket</th><th>Balance today</th><th>Roll to next bucket</th><th>Cumulative write-off probability</th><th>Reserve</th></tr>
+</thead>
+<tbody>
+<tr><td>Current</td><td>$4,200</td><td>8%</td><td>2.2%</td><td>$93</td></tr>
+<tr><td>1 to 30</td><td>$3,150</td><td>46%</td><td>27.6%</td><td>$869</td></tr>
+<tr><td>31 to 60</td><td>$2,400</td><td>71%</td><td>60.0%</td><td>$1,440</td></tr>
+<tr><td>61 to 90</td><td>$1,900</td><td>88%</td><td>84.5%</td><td>$1,605</td></tr>
+<tr><td>90 plus</td><td>$3,600</td><td>96%</td><td>96.0%</td><td>$3,456</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$15,250</strong></td><td></td><td></td><td><strong>$7,463</strong></td></tr>
+</tbody>
+</table>
+
+<p>The cumulative column is one formula copied down: <code>=PRODUCT(D5:$D$9)</code>. The mixed anchor makes each row multiply its own roll rate by every roll rate below it. Reserve per row is <code>=B5*E5</code>, and the total allowance is <code>=SUMPRODUCT(B5:B9,E5:E9)</code>.</p>
+
+<p>Your balance sheet says $15,250 is owed to you. About $7,463 of that is not money, it is a story about money. Booking the reserve is what keeps you from spending it twice, once in your distribution and once in your refinance package.</p>
+
+<p>The operational payoff is the trigger. The $3,600 sitting in the 90-plus bucket was current five months ago, and the roll rate flagged it in month two. Put a decision rule on the sheet instead of on your calendar: <code>=IF(F9&gt;B4*2,"START FILING","HOLD")</code>. When the reserve on the oldest bucket passes two months of rent, negotiating is over and the only variable left is how many more months you fund.</p>
+
+<h2>Where the Number Goes and What It Changes</h2>
+
+<p>Vacancy, concessions, and bad debt each get their own line between gross potential rent and effective gross income. Here is the same 12-unit under both treatments, with operating expenses held flat at $79,200 so the only variable is the loss block.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Combined 5% version</th><th>Modeled version</th></tr>
+</thead>
+<tbody>
+<tr><td>Gross potential rent</td><td>$180,000</td><td>$180,000</td></tr>
+<tr><td>Vacancy at 6.0%</td><td></td><td>($10,800)</td></tr>
+<tr><td>Concessions</td><td></td><td>($1,875)</td></tr>
+<tr><td>Bad debt allowance at 4.04%</td><td></td><td>($7,268)</td></tr>
+<tr><td>Vacancy and credit loss at 5%</td><td>($9,000)</td><td></td></tr>
+<tr><td>Effective gross income</td><td>$171,000</td><td>$160,057</td></tr>
+<tr><td>Operating expenses</td><td>($79,200)</td><td>($79,200)</td></tr>
+<tr><td><strong>Net operating income</strong></td><td><strong>$91,800</strong></td><td><strong>$80,857</strong></td></tr>
+<tr><td>Value at a 6.5% cap</td><td>$1,412,308</td><td>$1,243,954</td></tr>
+<tr><td>DSCR, $980,000 loan at 6.75%</td><td>1.20</td><td>1.06</td></tr>
+</tbody>
+</table>
+
+<p>The gap is $168,354 of value and 14 basis points of coverage on a building most people would describe as small. You underwrite to a 1.20, the lender agrees, you close at $1,400,000. Twelve months later the operating statement produces a 1.06 and someone at the bank runs the covenant test. Nothing went wrong at the property. The model just billed rent it was never going to collect.</p>
+
+<h3>Where to start when you have no history</h3>
+
+<table>
+<thead>
+<tr><th>Tenant profile</th><th>Allowance, percent of GPR</th></tr>
+</thead>
+<tbody>
+<tr><td>Class A, 3.5x income minimum, 700+ FICO, third-party management</td><td>0.2% to 0.5%</td></tr>
+<tr><td>Class B, 3.0x income, 640 to 700</td><td>0.5% to 1.5%</td></tr>
+<tr><td>Class C, 2.5x to 3.0x income, 580 to 640</td><td>2.0% to 4.5%</td></tr>
+<tr><td>No credit check, cash applicants, month to month</td><td>5.0% to 9.0%</td></tr>
+<tr><td>Housing authority portion of a voucher unit</td><td>under 0.2%</td></tr>
+</tbody>
+</table>
+
+<p>That last row is worth a cell of its own. On a Section 8 unit, the housing authority pays 65% to 75% of contract rent by direct deposit and defaults on essentially none of it. Only the tenant portion carries credit risk. Blend it: <code>=(1-B22)*B23</code>, where B22 is the HAP share and B23 is the class rate for the tenant portion. A C-class building at a 4.0% class rate with 70% HAP coverage prices out at a 1.2% allowance. Underwriting voucher rent at the same risk as market rent is how buyers argue themselves out of the most reliable cash flow on the block.</p>
+
+<h2>Build It This Week</h2>
+
+<ol>
+<li>Export 12 months of <strong>posted charges</strong>, not scheduled rent, from your property management software or your ledger.</li>
+<li>Pull the AR aging as of the first and last day of that window. Run <code>=Write_offs+(AR_end-AR_begin)</code> and compare it to what the income statement claims.</li>
+<li>Split collected in period from collected late. Recompute the true uncollected fraction.</li>
+<li>Look up the practical notice-to-lockout window in your county docket and set B8 from that, not from a state-level article.</li>
+<li>Count actual default events over the last three years and divide by three to set B7. If the answer is zero, your screening is working or your sample is too small. Use the class band.</li>
+<li>Give vacancy, concessions, and bad debt three separate lines above effective gross income. Delete the combined percentage from every template you own.</li>
+<li>Rerun the DSCR and the cap rate valuation with the modeled EGI before you send the loan package.</li>
+</ol>
+
+<p>Then look at what the allowance is actually buying you. One default event costs $7,268 in Ohio. Screening 12 applicants properly, with income verification, prior landlord contact, and a full credit pull, runs about $540 a year. Avoiding a single eviction pays for 13 years of screening. Moving your minimum from 2.5x income to 3.0x costs you two weeks of extra vacancy on a turn and cuts the input in B7 by more than any collections process ever will.</p>
+
+<p>If you would rather not build the input block, the roll-rate chain, the T-12 tie-out, and the three-line loss stack from scratch, SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> ships with the credit loss module already wired: separate vacancy, concession, and bad debt lines feeding effective gross income, a per-event eviction cost calculator driven by your county timeline, an aging schedule with roll-rate reserves, and a DSCR panel that updates the moment the allowance changes. You enter charges and collections. It tells you what the building actually earns and which unit is about to stop paying for it.</p>`,
+  },
+  {
     slug: 'rental-property-other-income-tracker-excel',
     title: 'Rental Property Other Income Tracker in Excel: The NOI Hiding in Your Deposit Column',
     metaTitle: 'Rental Property Other Income Tracker Excel | SheetCraft',
