@@ -16,6 +16,240 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'mid-term-rental-analysis-spreadsheet-excel',
+    title: 'Mid Term Rental Analysis Spreadsheet in Excel: The Gap Days That Decide the Deal',
+    metaTitle: 'Mid Term Rental Analysis Spreadsheet Excel | SheetCraft',
+    metaDescription: 'Build a mid term rental analysis spreadsheet in Excel. Model gap days between contracts, furnishing payback, and the tax threshold that flips the deal.',
+    targetKeyword: 'mid term rental analysis spreadsheet Excel',
+    secondaryKeywords: ['travel nurse rental income calculator', 'mid term rental vs long term rental returns', 'furnished rental occupancy gap days', 'transient occupancy tax 30 day threshold', 'furnishing cost payback rental property'],
+    excerpt: 'A furnished 2-bed near a hospital campus rents for $850 a month more than the long term lease. After 18 vacant days per contract and a utility bill that never switches off, that premium is worth $282 a year. Model the gap days before you buy the couch.',
+    publishedAt: '2026-07-30',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/mid-term-rental-analysis-spreadsheet-excel.png',
+    imageAlt: 'Furnished mid term rental apartment with a suitcase by the entry and a laptop showing a spreadsheet grid',
+    content: `<h1>Mid Term Rental Analysis Spreadsheet in Excel: The Gap Days That Decide the Deal</h1>
+
+<p>A 2-bed near a hospital campus in Columbus rents long term for $1,450 a month. Furnished, on a 13-week travel nurse contract, the same unit rents for $2,300. That is an $850 a month premium, $10,200 a year, in exchange for a couch and a Wi-Fi bill. Every mid term rental analysis spreadsheet in Excel starts with that number, and most of them stop there. So you spend $11,400 furnishing the unit, run it for a year, and finish $282 ahead of the boring long term lease.</p>
+
+<p>The premium is real. It gets eaten by two lines almost nobody models: the vacant days between contracts, and the utilities you keep paying during them. Mid term rentals, 30 days and up, sit in the gap where short term permit rules stop applying and long term lease rates stop applying too. That space pays very well in the right zip code and loses money in the wrong one. The variable that separates the two is not rent. It is roughly 20 vacant days per contract.</p>
+
+<h2>Gap Days, Not Rent, Decide a Mid Term Deal</h2>
+
+<p>A travel nurse contract is 13 weeks, 91 days. Somewhere around 40 to 50 percent get extended, usually by 4 to 8 weeks. So your average occupied stretch is not 91 days, it is closer to 116. Then the contract ends, and the next one does not start the following morning.</p>
+
+<p>Hospital systems onboard travelers in cohorts, typically every two weeks. A contract ending on a Friday against a cohort that starts 11 days later is not bad luck, it is the calendar. Add a day or two of cleaning and a booking that falls through, and 18 gap days per contract is a normal year, not a pessimistic one.</p>
+
+<p>Here is what those days are worth. Same unit, same $2,300 rate, same expense stack, only the gap changes. The long term lease nets $16,599 in every row.</p>
+
+<table>
+<thead>
+<tr><th>Gap days per contract</th><th>Booked days</th><th>Occupancy</th><th>Gross rent</th><th>Net after expenses</th><th>vs long term lease</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>365</td><td>100%</td><td>$27,600</td><td>$20,505</td><td>+$3,906</td></tr>
+<tr><td>8</td><td>341</td><td>93.6%</td><td>$25,821</td><td>$18,763</td><td>+$2,164</td></tr>
+<tr><td>18</td><td>316</td><td>86.6%</td><td>$23,898</td><td>$16,881</td><td>+$282</td></tr>
+<tr><td>30</td><td>290</td><td>79.5%</td><td>$21,936</td><td>$14,960</td><td>($1,639)</td></tr>
+<tr><td>45</td><td>263</td><td>72.1%</td><td>$19,892</td><td>$12,959</td><td>($3,640)</td></tr>
+</tbody>
+</table>
+
+<p>Break-even lands at 19.7 gap days. Under 20 days of turnover per contract, the furnished play wins. Over 20, you bought a couch to earn less money with more work. A single extra week of gap costs about $1,100 of annual net, which is more than the entire year of consumables and insurance delta combined.</p>
+
+<h2>Build the Model So One Property Drives Both Strategies</h2>
+
+<p>The mistake in most spreadsheets is entering a monthly rate and multiplying by 12. Mid term rentals are quoted monthly and consumed in days. The model has to convert.</p>
+
+<h3>Inputs sheet</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Long term monthly rent, unfurnished</td><td>$1,450</td></tr>
+<tr><td>B4</td><td>Mid term monthly rate, furnished, utilities included</td><td>$2,300</td></tr>
+<tr><td>B5</td><td>Base contract length, days</td><td>91</td></tr>
+<tr><td>B6</td><td>Extension probability</td><td>45%</td></tr>
+<tr><td>B7</td><td>Average extension, days</td><td>56</td></tr>
+<tr><td>B8</td><td>Gap days between contracts</td><td>18</td></tr>
+<tr><td>B9</td><td>Furnishing package, one time</td><td>$11,400</td></tr>
+<tr><td>B10</td><td>Furniture useful life, years</td><td>5</td></tr>
+</tbody>
+</table>
+
+<h3>The contract cycle engine</h3>
+
+<p>Six formulas turn those inputs into a revenue number that reflects how the asset actually gets used.</p>
+
+<ul>
+<li><strong>B12, average contract length:</strong> <code>=B5+(B6*B7)</code> returns 116.2 days. This is the blended stay, not the advertised one, and it is the number your tax classification depends on later.</li>
+<li><strong>B13, full cycle length:</strong> <code>=B12+B8</code> returns 134.2 days. One occupied stretch plus one turnover.</li>
+<li><strong>B14, contracts per year:</strong> <code>=365/B13</code> returns 2.72. Use the fraction, not <code>ROUNDDOWN</code>. Contracts do not respect January 1.</li>
+<li><strong>B15, booked days:</strong> <code>=365*(B12/B13)</code> returns 316.</li>
+<li><strong>B17, booked months:</strong> <code>=B15/30.4167</code> returns 10.39. This is the honest answer to "how many months of rent do I collect," and it is 1.61 months short of what the listing rate implies.</li>
+<li><strong>B18, mid term gross:</strong> <code>=B17*B4</code> returns $23,898.</li>
+</ul>
+
+<p>Add one more cell you will use in every negotiation. <strong>B19, daily equivalent rate:</strong> <code>=ROUND(B4*12/365,2)</code> returns $75.62. A 91-day contract is 2.99 months, not 3, so the correct invoice is <code>=91*B19</code>, or $6,881. Quoting "three months at $2,300" hands the tenant $19 and hands you an argument about the last four days.</p>
+
+<h3>The long term benchmark</h3>
+
+<p>Give the comparison strategy the same rigor, otherwise you are comparing a modeled number to a fantasy. Long term units turn too.</p>
+
+<ul>
+<li><strong>B23, vacancy factor:</strong> <code>=1-(B22/(B21*30.4167))</code> with a 24-month turn cycle (B21) and 21 vacant days per turn (B22) returns 0.9712.</li>
+<li><strong>B24, effective gross:</strong> <code>=B3*12*B23</code> returns $16,899.</li>
+<li><strong>Turn cost, annualized:</strong> <code>=600/(B21/12)</code> returns $300 a year on a $600 paint-and-clean turn.</li>
+</ul>
+
+<p>Long term net: $16,599. That is the bar the furnished strategy has to clear.</p>
+
+<h3>The expense lines mid term adds, and the one that does not scale</h3>
+
+<p>These are the only lines that differ between the two strategies. Property tax, insurance base, mortgage, and capital reserves are identical on the same building, so leave them out of the comparison and stop double-counting them.</p>
+
+<table>
+<thead>
+<tr><th>Annual line</th><th>Long term</th><th>Mid term</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>Utilities, gas, electric, water, trash</td><td>$0</td><td>$1,980</td><td><code>=B27*12</code></td></tr>
+<tr><td>Internet</td><td>$0</td><td>$960</td><td><code>=B28*12</code></td></tr>
+<tr><td>Turnover cleaning</td><td>$300</td><td>$503</td><td><code>=B14*185</code></td></tr>
+<tr><td>Furniture replacement reserve</td><td>$0</td><td>$2,280</td><td><code>=B9/B10</code></td></tr>
+<tr><td>Listing and platform fees</td><td>$0</td><td>$394</td><td>flat listing plus 3% on off-platform bookings</td></tr>
+<tr><td>Linens, supplies, consumables</td><td>$0</td><td>$480</td><td><code>=B14*176</code></td></tr>
+<tr><td>Insurance delta for furnished occupancy</td><td>$0</td><td>$420</td><td>carrier quote</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$300</strong></td><td><strong>$7,017</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<p>Look at the utility lines. They are $2,940 a year and they are <em>not</em> multiplied by occupancy. The furnace runs in the 49 vacant days. The router stays on so you can show the unit. The water heater keeps a full tank at temperature. That is $395 of utilities burned inside your gap days, and it is the reason gap days cost more in a mid term model than in a long term one where the tenant pays the bill.</p>
+
+<p>If you hand the unit to a manager, mid term management runs 12 to 15 percent of collected rent against 8 to 10 percent for long term. On these numbers that is $3,300 versus $1,352, a $1,948 swing that erases the entire premium at 18 gap days. Self-manage or do not do it.</p>
+
+<h2>Two Traps That Do Not Show Up Until April</h2>
+
+<h3>The transient tax threshold is a day count, and it is not always 30</h3>
+
+<p>Investors move to mid term specifically because a 30-day minimum sidesteps short term rental permits and hotel taxes in most cities. Most, not all. Several states define a taxable transient stay by a much longer window. Florida taxes rentals of living quarters for six months or less. Texas exempts a guest at 30 consecutive days. Arizona uses 30 days. Get the number from your county tax collector in writing, not from a forum post.</p>
+
+<p>Model it as a threshold test, not an assumption:</p>
+
+<p><code>=IF(B12&lt;B30, B18*B31, 0)</code></p>
+
+<p>B30 is the local threshold in days, B31 the combined state, county, and city rate. In a six-month-threshold state, 116-day average contracts are fully taxable. At an 11 percent combined rate, that is <code>=23898*0.11</code>, or $2,629 a year. Mid term net drops from $16,881 to $14,252, which is $2,347 <em>below</em> the long term lease. The strategy does not just get worse, it inverts, and you find out when the assessment arrives with penalties on the back-filed months.</p>
+
+<h3>Moving from short term to mid term can cost you the depreciation deduction</h3>
+
+<p>This is the expensive one. The non-passive treatment that makes short term rentals attractive to high earners depends on the average period of customer use being seven days or less. At seven days or under, with material participation, the activity is not a rental activity for passive loss purposes and losses can offset ordinary income. Your mid term average stay is 116 days. It is an ordinary rental activity, and losses are passive.</p>
+
+<p>Put a number on it. Say the property and its $11,400 furniture package throw a $19,000 taxable loss in year one after cost segregation. At a 32 percent marginal rate:</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Average stay</th><th>Loss treatment</th><th>Year-one cash value</th></tr>
+</thead>
+<tbody>
+<tr><td>Short term, material participation</td><td>4.1 days</td><td>Non-passive, offsets W-2</td><td>$6,080</td></tr>
+<tr><td>Mid term, MAGI $185,000</td><td>116 days</td><td>Passive, allowance phased out</td><td>$0</td></tr>
+<tr><td>Mid term, MAGI $95,000</td><td>116 days</td><td>Passive, $25,000 active allowance available</td><td>$6,080</td></tr>
+</tbody>
+</table>
+
+<p>The $25,000 special allowance for active participation phases out between $100,000 and $150,000 of modified adjusted gross income. Above it, the loss is suspended and carries forward, worth nothing this year. So the same building, same rent, same tenant quality, is worth $6,080 more to a $95,000 household than to a $185,000 household, purely on classification. Put the test in the sheet:</p>
+
+<p><code>=IF(AVERAGE(Contracts!D:D)&lt;=7,"NON-PASSIVE ELIGIBLE","PASSIVE, VERIFY ALLOWANCE")</code></p>
+
+<p>Confirm the treatment with your CPA before you switch a working short term unit to 30-day minimums. The permit problem you are solving may be cheaper than the deduction you are giving up.</p>
+
+<h2>Furnishing Payback and the Rate Sensitivity Grid</h2>
+
+<p>The reserve line in the expense table is the annualized cost of the furniture, $2,280 a year. Payback answers a different question: when does the $11,400 come back out of the building. Use the advantage <em>before</em> the reserve, or you charge yourself for the couch twice.</p>
+
+<p><code>=B9/((MTR_net+B9/B10)-LTR_net)</code></p>
+
+<table>
+<thead>
+<tr><th>Gap days</th><th>Pre-reserve advantage</th><th>Furnishing payback</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>$6,186</td><td>1.8 years</td></tr>
+<tr><td>8</td><td>$4,444</td><td>2.6 years</td></tr>
+<tr><td>18</td><td>$2,562</td><td>4.5 years</td></tr>
+<tr><td>30</td><td>$641</td><td>17.8 years</td></tr>
+<tr><td>45</td><td>($1,360)</td><td>Never</td></tr>
+</tbody>
+</table>
+
+<p>Furniture in a rental lasts about five years. At 18 gap days the package pays for itself with six months to spare before you replace it. At 30 gap days it never pays for itself at all, it just gets replaced.</p>
+
+<h3>Two-variable data table</h3>
+
+<p>Rate and gap days are the only two inputs worth stress testing, which makes this a textbook two-variable data table. Put net income in the corner cell, gap days down the left column, monthly rate across the top, select the range, then Data, What-If Analysis, Data Table, with B8 as the column input and B4 as the row input. Net income, long term benchmark $16,599:</p>
+
+<table>
+<thead>
+<tr><th>Gap days</th><th>$2,000/mo</th><th>$2,300/mo</th><th>$2,600/mo</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>$16,905</td><td>$20,505</td><td>$24,105</td></tr>
+<tr><td>8</td><td>$15,395</td><td>$18,763</td><td>$22,131</td></tr>
+<tr><td>18</td><td>$13,764</td><td>$16,881</td><td>$19,998</td></tr>
+<tr><td>30</td><td>$12,099</td><td>$14,960</td><td>$17,822</td></tr>
+<tr><td>45</td><td>$10,364</td><td>$12,959</td><td>$15,553</td></tr>
+</tbody>
+</table>
+
+<p>Read the grid, not the average. At $2,000 a month the furnished strategy only wins at essentially zero turnover, which does not exist. At $2,600 it wins even at 45 gap days. The premium you can charge is set by the hospital and the market. Gap days are the one variable you control, and the grid shows they are worth as much as $300 a month of rate.</p>
+
+<p>Flag it so the sheet argues with you:</p>
+
+<p><code>=IF(MTR_net&lt;LTR_net*1.15,"PREMIUM TOO THIN, LEASE IT LONG","FURNISH IT")</code></p>
+
+<p>The 15 percent buffer is not arbitrary. Mid term is more work: more inquiries, more turnovers, more calls about the dishwasher. If the model shows a 2 percent edge, that edge is your unpaid labor.</p>
+
+<h2>Track the Real Calendar, Then Re-Forecast</h2>
+
+<p>Everything above runs on an assumed gap. After your first two contracts, stop assuming. Build a <strong>Contracts</strong> sheet and let the building tell you:</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Field</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>B</td><td>Move-in date</td><td>entered</td></tr>
+<tr><td>C</td><td>Move-out date</td><td>entered</td></tr>
+<tr><td>D</td><td>Occupied days</td><td><code>=C2-B2+1</code></td></tr>
+<tr><td>E</td><td>Gap before this contract</td><td><code>=IF(ROW()=2,0,B2-C1-1)</code></td></tr>
+<tr><td>F</td><td>Monthly rate</td><td>entered</td></tr>
+<tr><td>G</td><td>Contract revenue</td><td><code>=D2*(F2*12/365)</code></td></tr>
+</tbody>
+</table>
+
+<p>Then <code>=SUM(D:D)/365</code> is your true occupancy, <code>=AVERAGE(E3:E50)</code> is the gap number that replaces your guess in B8, and <code>=AVERAGE(D:D)</code> feeds the tax classification test. Re-forecast every time a contract closes. A unit trending at 26 gap days after three contracts is telling you to sign a 12-month lease with the next inquiry, not to lower the rate.</p>
+
+<p>One demand check before you buy any furniture: count the active furnished listings within three miles of the hospital campus, and count the open traveler contracts that system is posting. If open contracts do not run at least 1.5 times the listing count, you are the unit that sits empty between cohorts. That ratio takes twenty minutes to establish and it is worth more than any rent comp.</p>
+
+<h2>What to Do Before You Buy the Couch</h2>
+
+<ol>
+<li>Get the transient tax threshold and rate for your county in writing. If the threshold is longer than your contract length, stop here and lease it long term.</li>
+<li>Ask your CPA to confirm the passive classification and whether the $25,000 allowance is available at your MAGI, before you convert anything.</li>
+<li>Call the housing coordinator at the hospital system and ask for cohort start dates. That schedule sets your gap days, not your marketing.</li>
+<li>Get an insurance quote for furnished 30-day-plus occupancy in writing. A standard landlord policy is not automatically it.</li>
+<li>Model at $2,000 a month, not your target rate. If it does not clear the long term net at your realistic gap, the deal depends on a rate you have not proven.</li>
+<li>Compute payback on the pre-reserve advantage. If it is longer than five years, the furniture wears out before it pays for itself.</li>
+<li>Log every contract with move-in and move-out dates from day one, and replace the assumed gap with the measured one after two contracts.</li>
+</ol>
+
+<p>The recommendation: run mid term only where your measured gap holds under 20 days per contract and the monthly premium over long term is 55 percent or better. In this example that means $2,250 against $1,450. Below either threshold, the furnished strategy trades a real $16,599 for a hopeful $16,881 plus a few hundred hours of your year.</p>
+
+<p>If you would rather not build the cycle engine, the differential expense stack, the threshold tests, and the data table from scratch, SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> has the mid term module wired already: booked-days revenue instead of naive monthly math, gap-day sensitivity against a long term benchmark on the same property, a utilities line that correctly refuses to scale with occupancy, transient tax and passive-loss classification flags, and a contract log that feeds your measured gap back into the forecast. You enter the rate and the calendar. It tells you whether to furnish the unit or sign the lease.</p>`,
+  },
+  {
     slug: 'rental-property-bad-debt-allowance-calculator-excel',
     title: 'Rental Property Bad Debt Allowance Calculator in Excel: Model What Actually Collects',
     metaTitle: 'Rental Bad Debt Allowance Calculator Excel | SheetCraft',
