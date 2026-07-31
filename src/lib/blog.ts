@@ -16,6 +16,198 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'fix-and-flip-funding-gap-calculator-excel',
+    title: 'Fix and Flip Funding Gap Calculator in Excel: The Cash Hard Money Never Sends',
+    metaTitle: 'Fix and Flip Funding Gap Calculator Excel | SheetCraft',
+    metaDescription: 'Build a fix and flip funding gap calculator in Excel. The ARV cap, draw float, and holding costs that turn a $28,837 close into $64,205 of cash.',
+    targetKeyword: 'fix and flip funding gap calculator Excel',
+    secondaryKeywords: ['hard money loan to cost calculator', 'fix and flip cash to close spreadsheet', 'rehab draw reimbursement timeline', 'ARV cap loan shortfall', 'flip holding costs Excel'],
+    excerpt: 'The term sheet says 90 percent of purchase and 100 percent of rehab, so your brain hears 10 percent down, or $14,800. The deal actually needs $64,205 of liquid cash, and it needs it in week 16, long after you stopped watching the bank balance.',
+    publishedAt: '2026-07-31',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/fix-and-flip-funding-gap-calculator-excel.png',
+    imageAlt: 'Suburban house half mid renovation with scaffolding and half finished, beside a stack of cash and a rising bar chart',
+    content: `<h1>Fix and Flip Funding Gap Calculator in Excel: The Cash Hard Money Never Sends</h1>
+
+<p>A fix and flip funding gap calculator in Excel exists to answer one question your lender will not answer for you: how much of your own money has to sit in this deal, and on which day does the requirement peak. The term sheet says 90 percent of purchase, 100 percent of rehab. Your brain hears "10 percent down." On a $148,000 purchase that sounds like $14,800. The deal below needs $64,205 of liquid cash at its worst moment, and the day it needs that is week 16, four months after you already spent everything you thought the deal required.</p>
+
+<p>Nobody defaults on a flip because the ARV was wrong. They default because they ran out of cash in month four with a house that has no kitchen, an interest clock at 11.5 percent, and a contractor who stops showing up. The funding gap is not a rounding error in your underwriting. It is the thing that decides whether you finish.</p>
+
+<h2>The Funding Gap Is Three Separate Holes, Not One</h2>
+
+<p>Most flip spreadsheets have a cell called "cash to close" and nothing after it. That cell covers roughly 45 percent of what the deal will actually pull out of your bank account. Three distinct mechanisms create the rest, and they behave differently, so they need separate blocks in the model.</p>
+
+<h3>Hole 1: the ARV ceiling quietly defunds your rehab</h3>
+
+<p>Hard money term sheets stack two constraints, and the tighter one wins. Take the deal: purchase $148,000, rehab budget $86,000, ARV $325,000. Advance rate is 90 percent of purchase and 100 percent of rehab, but total loan is capped at 65 percent of ARV.</p>
+
+<p>Requested loan is <code>=B3*B6+B4*B7</code>, which is $133,200 plus $86,000, or $219,200. The ARV ceiling is <code>=B5*B8</code>, or $211,250. The lender funds <code>=MIN(B17,B18)</code>, which is $211,250. The purchase advance is protected because it funds first, so the entire $7,950 shortfall comes out of the rehab holdback. Your 100 percent rehab financing is actually 90.76 percent, and you find out at the closing table if you find out at all.</p>
+
+<p>Put the flag directly in the model so it cannot be skimmed past:</p>
+
+<p><code>=IF(B22&gt;0,"ARV CAP BITES: "&amp;TEXT(B22,"$#,##0")&amp;" of rehab is yours","Rehab fully funded")</code></p>
+
+<h3>Hole 2: draws are reimbursements, not advances</h3>
+
+<p>This is the one that surprises first-time flippers, and it is the largest single component of the gap. The rehab holdback is not sitting in your account. You pay the contractor, then you request a draw, then an inspector drives out, then the lender wires funds. Nine to seventeen business days later the money lands. Until then you have financed the work yourself, at 100 percent.</p>
+
+<p>Every dollar of rehab passes through your checking account before any of it comes back. On an $86,000 rehab with a $24,000 peak draw, the float alone is a $24,000 cash requirement that appears nowhere on the term sheet.</p>
+
+<h3>Hole 3: interest is monthly, revenue is a single event</h3>
+
+<p>Interest, taxes, utilities, insurance, and inspection fees hit every month. The property pays you exactly once, at the closing table, seven months later. Nothing offsets holding cost in the interim, so every month of carry is straight cash out of pocket, stacking on top of the draw float.</p>
+
+<h2>Build the Loan Sizing Block First</h2>
+
+<p>Everything downstream depends on how much the lender actually funds, so that block goes at the top and every other formula points at it.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Purchase price</td><td>input</td><td>$148,000</td></tr>
+<tr><td>B4</td><td>Rehab budget</td><td>input</td><td>$86,000</td></tr>
+<tr><td>B5</td><td>ARV</td><td>input</td><td>$325,000</td></tr>
+<tr><td>B6</td><td>Purchase advance rate</td><td>input</td><td>90%</td></tr>
+<tr><td>B8</td><td>Max loan to ARV</td><td>input</td><td>65%</td></tr>
+<tr><td>B15</td><td>Purchase advance requested</td><td><code>=B3*B6</code></td><td>$133,200</td></tr>
+<tr><td>B17</td><td>Loan requested</td><td><code>=B15+B4*B7</code></td><td>$219,200</td></tr>
+<tr><td>B18</td><td>ARV ceiling</td><td><code>=B5*B8</code></td><td>$211,250</td></tr>
+<tr><td>B19</td><td>Loan actually funded</td><td><code>=MIN(B17,B18)</code></td><td>$211,250</td></tr>
+<tr><td>B21</td><td>Rehab funded</td><td><code>=MAX(0,B19-B20)</code></td><td>$78,050</td></tr>
+<tr><td>B22</td><td>Unfunded rehab</td><td><code>=B4-B21</code></td><td>$7,950</td></tr>
+<tr><td>B23</td><td>Funded ratio</td><td><code>=IF(B4=0,0,B21/B4)</code></td><td>90.76%</td></tr>
+</tbody>
+</table>
+
+<p>The funded ratio in B23 is the workhorse cell. It converts every contractor invoice into the portion the lender will reimburse, and it is what makes the draw schedule below calculate itself when you change the ARV or the cap.</p>
+
+<p>Cash to close is a simple sum, but it needs all seven lines, not the three that appear on the loan estimate.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Basis</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Down payment</td><td><code>=B3-B20</code></td><td>$14,800</td></tr>
+<tr><td>Origination, 2 points</td><td><code>=B19*B10</code></td><td>$4,225</td></tr>
+<tr><td>Appraisal, underwriting, doc prep</td><td>flat</td><td>$1,950</td></tr>
+<tr><td>Title, escrow, recording, attorney</td><td>flat</td><td>$2,900</td></tr>
+<tr><td>Transfer tax, 0.7%</td><td><code>=B3*0.007</code></td><td>$1,036</td></tr>
+<tr><td>Builders risk and liability, 12 months prepaid</td><td>quote</td><td>$2,650</td></tr>
+<tr><td>Interest prepaid to month end</td><td><code>=B20*B9/12</code></td><td>$1,276</td></tr>
+<tr><td><strong>Cash to close</strong></td><td><code>=SUM(B27:B33)</code></td><td><strong>$28,837</strong></td></tr>
+</tbody>
+</table>
+
+<p>That $28,837 is the number the lender will quote you. Keep it visible, because the whole point of the model is to show how far it is from the truth.</p>
+
+<h2>The Draw Schedule Is Where the Real Money Hides</h2>
+
+<p>Build the draw table on its own tab with one row per draw. Two columns matter more than the dollar amounts: the out of pocket portion, and the days to fund.</p>
+
+<table>
+<thead>
+<tr><th>Draw</th><th>Scope</th><th>Invoice</th><th>Funded</th><th>Out of pocket</th><th>Days to fund</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Demo, dumpsters, structural, roof</td><td>$22,000</td><td>$19,966</td><td>$2,034</td><td>12</td></tr>
+<tr><td>2</td><td>Rough plumbing, electrical, HVAC, windows</td><td>$24,000</td><td>$21,781</td><td>$2,219</td><td>15</td></tr>
+<tr><td>3</td><td>Insulation, drywall, exterior paint</td><td>$16,000</td><td>$14,521</td><td>$1,479</td><td>9</td></tr>
+<tr><td>4</td><td>Kitchen, baths, flooring</td><td>$18,000</td><td>$16,336</td><td>$1,664</td><td>17</td></tr>
+<tr><td>5</td><td>Interior paint, trim, punch list, landscaping</td><td>$6,000</td><td>$5,446</td><td>$554</td><td>13</td></tr>
+<tr><td></td><td><strong>Total</strong></td><td><strong>$86,000</strong></td><td><strong>$78,050</strong></td><td><strong>$7,950</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<p>Column D is <code>=ROUND(C5*Deal!$B$23,0)</code> and column E is <code>=C5-D5</code>. Absolute reference on B23 so you can drag it. Add a column H for the week funds land, <code>=G5+F5/7</code>, where G is the week you paid the invoice. That single column is what turns a static budget into a timeline.</p>
+
+<p>Ask the lender for the days to fund in writing before you sign, and ask for the worst case, not the average. A lender who says "usually about a week" is quoting you their processing time, not the inspector's calendar. Seventeen days on draw 4 is what a real schedule looks like when the inspection lands the week of a holiday.</p>
+
+<h2>Your Funding Gap Is a Peak, Not a Sum</h2>
+
+<p>Here is the mistake that makes most flip calculators useless: they add up cash to close, unfunded rehab, and holding costs, print one number, and call it the cash requirement. That double counts the reimbursed portion and it completely misses timing. The requirement is not a total. It is the deepest point of a running balance.</p>
+
+<p>Build a timeline tab: column A week, column B event, column C cash out, column D cash in, column E running position. E5 is <code>=D5-C5</code>, and E6 down is <code>=E5+D6-C6</code>. That is the entire engine.</p>
+
+<table>
+<thead>
+<tr><th>Week</th><th>Event</th><th>Cash out</th><th>Cash in</th><th>Running position</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Close purchase</td><td>$28,837</td><td></td><td>($28,837)</td></tr>
+<tr><td>3</td><td>Draw 1 invoice paid</td><td>$22,000</td><td></td><td>($50,837)</td></tr>
+<tr><td>4</td><td>Month 1 holding and inspection</td><td>$2,909</td><td></td><td>($53,746)</td></tr>
+<tr><td>5</td><td>Draw 1 funds land</td><td></td><td>$19,966</td><td>($33,780)</td></tr>
+<tr><td>7</td><td>Draw 2 invoice paid</td><td>$24,000</td><td></td><td>($57,780)</td></tr>
+<tr><td>8</td><td>Month 2 holding and inspection</td><td>$2,909</td><td></td><td>($60,689)</td></tr>
+<tr><td>9</td><td>Draw 2 funds land</td><td></td><td>$21,781</td><td>($38,908)</td></tr>
+<tr><td>11</td><td>Draw 3 invoice paid</td><td>$16,000</td><td></td><td>($54,908)</td></tr>
+<tr><td>12</td><td>Month 3 holding and inspection</td><td>$2,909</td><td></td><td>($57,817)</td></tr>
+<tr><td>12</td><td>Draw 3 funds land</td><td></td><td>$14,521</td><td>($43,296)</td></tr>
+<tr><td>15</td><td>Draw 4 invoice paid</td><td>$18,000</td><td></td><td>($61,296)</td></tr>
+<tr><td>16</td><td>Month 4 holding and inspection</td><td>$2,909</td><td></td><td><strong>($64,205)</strong></td></tr>
+<tr><td>17</td><td>Draw 4 funds land</td><td></td><td>$16,336</td><td>($47,869)</td></tr>
+<tr><td>19</td><td>Draw 5 invoice paid</td><td>$6,000</td><td></td><td>($52,869)</td></tr>
+<tr><td>20</td><td>Month 5 holding and inspection</td><td>$2,909</td><td></td><td>($55,778)</td></tr>
+<tr><td>21</td><td>Draw 5 funds land</td><td></td><td>$5,446</td><td>($50,332)</td></tr>
+<tr><td>24</td><td>Month 6 holding, listed</td><td>$2,684</td><td></td><td>($53,016)</td></tr>
+<tr><td>28</td><td>Month 7 holding, under contract</td><td>$2,684</td><td></td><td>($55,700)</td></tr>
+<tr><td>29</td><td>Sale closes at $318,000</td><td></td><td>$84,921</td><td>$29,221</td></tr>
+</tbody>
+</table>
+
+<p>Two formulas turn this into a decision. The gap itself is <code>=-MIN(E5:E30)</code>, which returns $64,205. The date it hits is <code>=INDEX(A5:A30,MATCH(MIN(E5:E30),E5:E30,0))</code>, which returns week 16.</p>
+
+<p>The lender quoted $28,837. The deal requires $64,205, and it requires it 112 days after closing, long after most flippers have stopped watching their bank balance. That is a 2.23x multiple on the number in your head.</p>
+
+<h3>The interest line has two versions and the term sheet will not tell you which</h3>
+
+<p>Some lenders charge interest on the full committed loan from day one, including the undrawn rehab holdback. Others charge only on the drawn balance. Same 11.5 percent, very different bill. Full balance is <code>=$B$19*$B$9/12</code>, a flat $2,024 a month, $14,168 over seven months. Drawn balance accrues daily against the actual outstanding, <code>=F6*Deal!$B$9/365*((A6-A5)*7)</code> down a balance column, which totals about $12,299. The difference is $1,869 you either budget for or discover. Ask which structure applies, and put the answer in a toggle cell.</p>
+
+<h2>Stress Test the Gap Before You Sign, Not After</h2>
+
+<p>The base case is the least useful scenario in the model, because the base case is the one that will not happen. Run four variants off the same timeline.</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Peak cash needed</th><th>Profit at sale</th><th>Return on peak cash</th></tr>
+</thead>
+<tbody>
+<tr><td>Base case as modeled</td><td>$64,205</td><td>$29,221</td><td>45.5%</td></tr>
+<tr><td>Rehab runs 12% over budget</td><td>$74,525</td><td>$18,901</td><td>25.4%</td></tr>
+<tr><td>Two extra months, one point extension</td><td>$64,205</td><td>$21,740</td><td>33.9%</td></tr>
+<tr><td>Sells at $305,000 instead of $318,000</td><td>$64,205</td><td>$17,027</td><td>26.5%</td></tr>
+<tr><td>All three at once</td><td>$74,525</td><td>($774)</td><td>negative</td></tr>
+</tbody>
+</table>
+
+<p>Read the third row carefully, because it is the counterintuitive one. A two month delay costs you $7,481 in carry and extension fees, but it does not raise the peak cash requirement at all. The peak happens in week 16, mid rehab, before the delay exists. Delays destroy profit. Overruns destroy solvency. They are different risks and your reserve has to be sized against the second one.</p>
+
+<p>The bottom row is the whole argument for building this thing. A 12 percent overrun, a two month delay, and a $13,000 price miss are each individually ordinary. Together they convert a $29,221 profit into a $774 loss, and they do it on a deal that penciled at a perfectly respectable 72 percent of ARV going in.</p>
+
+<h2>What To Do With the Number</h2>
+
+<p>Before wiring earnest money on any hard money deal, work this list top to bottom:</p>
+
+<ol>
+<li>Get the ARV cap and the advance rate in writing and run <code>=MIN()</code> against both. If the cap bites, you have less rehab financing than the headline says, and the shortfall is yours in cash.</li>
+<li>Ask for the worst case days from draw request to wire, not the average. Put that number in the model, not the number in the marketing deck.</li>
+<li>Ask whether interest accrues on the full commitment or the drawn balance, and price both.</li>
+<li>Build the running position column and read <code>=-MIN()</code>. That is your funding gap. Ignore any total that adds line items together.</li>
+<li>Add a full 12 percent rehab contingency as unfunded cash. A lender already at the ARV ceiling will not fund overruns without re-underwriting the whole loan.</li>
+<li>Confirm your liquid reserve covers the peak plus the contingency, in cash, in an account you can reach in 48 hours. Not a HELOC you have not drawn, not a partner who has verbally agreed.</li>
+</ol>
+
+<p>For this deal the reserve requirement is <code>=ROUNDUP((-MIN(E5:E30)+B4*0.12)/1000,0)*1000</code>, which is $75,000. The lender described this as 10 percent down on a $148,000 house. The number in your head was $14,800. The number that keeps you solvent is five times that.</p>
+
+<p>The recommendation: do not sign a hard money term sheet until the peak of your running position, plus a full unfunded contingency, sits liquid in an account you control. If it does not, the fix is not a better contractor or a faster lender. It is a smaller deal. A flip you can carry through week 16 at 26 percent returns beats a flip you cannot carry at 45 percent, because the second one never reaches the closing table.</p>
+
+<p>If you would rather not wire the loan sizing block, the funded ratio, the draw timeline, and the peak formula together from an empty sheet, SheetCraft's <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already has the funding gap engine built in: ARV cap logic that shows exactly how much rehab gets defunded, a draw schedule that converts contractor invoices into reimbursement timing, a running cash position that reports the peak and the week it lands, both interest accrual structures on a toggle, and a reserve test that flags the deal before you commit. You enter the term sheet and the scope of work. It tells you how much cash the deal will actually demand, and on which day.</p>`,
+  },
+  {
     slug: 'mid-term-rental-analysis-spreadsheet-excel',
     title: 'Mid Term Rental Analysis Spreadsheet in Excel: The Gap Days That Decide the Deal',
     metaTitle: 'Mid Term Rental Analysis Spreadsheet Excel | SheetCraft',
