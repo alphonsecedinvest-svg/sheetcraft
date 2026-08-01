@@ -16,6 +16,196 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'wholesale-double-closing-cost-calculator-excel',
+    title: 'Wholesale Double Closing Cost Calculator in Excel: What Hiding Your Spread Really Costs',
+    metaTitle: 'Wholesale Double Closing Cost Calculator Excel | SheetCraft',
+    metaDescription: 'Build a wholesale double closing cost calculator in Excel. Two sets of closing costs eat $9,030 of a $32,500 spread. Know the break-even before you fund.',
+    targetKeyword: 'wholesale double closing cost calculator Excel',
+    secondaryKeywords: ['double close vs assignment calculator', 'transactional funding cost spreadsheet', 'wholesale closing costs Excel', 'real estate double closing fees', 'assignment fee disclosure risk'],
+    excerpt: 'The double close hides your $32,500 spread from the end buyer and charges you $9,030 for the privacy. Two settlement statements, two title policies, and a second set of transfer taxes you now pay as the seller. Here is the break-even walk risk that decides which one to run.',
+    publishedAt: '2026-08-01',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/wholesale-double-closing-cost-calculator-excel.png',
+    imageAlt: 'Two real estate closing folders side by side with a house model and a stack of cash split by a wedge between them',
+    content: `<h1>Wholesale Double Closing Cost Calculator in Excel: What Hiding Your Spread Really Costs</h1>
+
+<p>A wholesale double closing cost calculator in Excel exists to answer one question before you commit: how much of your spread do you burn to keep the end buyer from seeing it. On the deal below, the answer is $9,030 out of a $32,500 spread. That is 27.8 percent of the profit, gone, in exchange for privacy. Nobody in a wholesaling course puts that number on a slide.</p>
+
+<p>The pitch for the double close is always the same. Assign the contract and your $32,500 fee sits on the settlement statement in 12 point type, the end buyer reads it, and now they want to renegotiate or they walk. Take title yourself and resell an hour later, and the buyer sees a normal purchase from a normal seller. True. But you just bought two closings instead of one, and the second one you pay for as the seller, which is the expensive side in most states.</p>
+
+<p>The decision is not philosophical. It is a comparison between a certain cost and a probability. This article builds both sides of that comparison in a spreadsheet, and ends with the single number that tells you which one to run.</p>
+
+<h2>The Cost Stack Nobody Itemizes</h2>
+
+<p>Take a real deal shape. You are under contract with the seller at $182,000. You have an end buyer at $214,500 paying cash. Gross spread is $32,500. Same day A to B and B to C, Florida style transfer tax at $0.70 per $100.</p>
+
+<h3>Block one: the A to B closing, where you are the buyer</h3>
+
+<p>You almost certainly do not have $182,000 sitting idle, so you use transactional funding. That lender wires the purchase money in the morning and gets repaid from the B to C proceeds in the afternoon. The money is out for four hours and the fee is priced like a month.</p>
+
+<p>Lay the inputs out so the fee structure is visible instead of buried in a single number:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line item</th><th>Formula</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>A to B purchase price</td><td>input</td><td>$182,000</td></tr>
+<tr><td>B4</td><td>B to C sale price</td><td>input</td><td>$214,500</td></tr>
+<tr><td>B5</td><td>Gross spread</td><td><code>=B4-B3</code></td><td>$32,500</td></tr>
+<tr><td>B11</td><td>Transactional funding rate</td><td>input</td><td>2.00%</td></tr>
+<tr><td>B12</td><td>Funder minimum fee</td><td>input</td><td>$2,500</td></tr>
+<tr><td>B13</td><td>Funding fee charged</td><td><code>=MAX(B12,B3*B11)</code></td><td>$3,640</td></tr>
+<tr><td>B14</td><td>Funder doc and wire fee</td><td>input</td><td>$495</td></tr>
+<tr><td>B15</td><td>Owner's title policy, A to B</td><td>input</td><td>$1,050</td></tr>
+<tr><td>B16</td><td>Lender's policy, simultaneous issue</td><td>input</td><td>$200</td></tr>
+<tr><td>B17</td><td>Settlement and escrow fee, A to B</td><td>input</td><td>$650</td></tr>
+<tr><td>B18</td><td>Recording, deed and mortgage</td><td>input</td><td>$106</td></tr>
+<tr><td>B19</td><td><strong>A to B subtotal</strong></td><td><code>=SUM(B13:B18)</code></td><td><strong>$6,141</strong></td></tr>
+</tbody>
+</table>
+
+<p>The <code>MAX</code> in B13 is not decoration. Transactional funders quote a percentage with a floor, and on any purchase under $125,000 the floor is what you actually pay. A $68,000 purchase at 2 percent is $1,360 on paper and $2,500 in reality. If your model multiplies price by rate, it understates every small deal you will ever run, and small deals are exactly where the double close stops working.</p>
+
+<h3>Block two: the B to C closing, where you are the seller</h3>
+
+<p>This is the side that surprises people. On the A to B close you had a motivated seller absorbing the customary seller costs. On the B to C close, you are the seller. In most of the country that means you hand over the buyer's owner title policy and the deed transfer tax.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line item</th><th>Formula</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>B22</td><td>Settlement and escrow fee, B to C</td><td>input</td><td>$650</td></tr>
+<tr><td>B23</td><td>Owner's title policy, B to C, full rate</td><td><code>=B4*0.00566</code></td><td>$1,215</td></tr>
+<tr><td>B24</td><td>Reissue credit, prior policy under 90 days</td><td><code>=IF(B6&lt;=90,-B23*0.6,0)</code></td><td>-$729</td></tr>
+<tr><td>B25</td><td>Deed transfer tax you pay as seller</td><td><code>=B4/100*B8</code></td><td>$1,502</td></tr>
+<tr><td>B26</td><td>Recording, deed B to C</td><td>input</td><td>$86</td></tr>
+<tr><td>B27</td><td>Wires, courier, e-recording</td><td>input</td><td>$165</td></tr>
+<tr><td>B28</td><td><strong>B to C subtotal</strong></td><td><code>=SUM(B22:B27)</code></td><td><strong>$2,889</strong></td></tr>
+</tbody>
+</table>
+
+<p>Row B24 is the one line in this model that gives money back, and most wholesalers never claim it. Title underwriters issue a reissue or substitution rate when a policy on the same property was written recently, because they already searched the chain. On a same day double close the prior policy is 40 minutes old. The discount runs 50 to 60 percent of the full premium in most underwriter rate manuals, and it is not applied automatically. You have to ask the closer to run it, in writing, before the settlement statement is drafted. On this deal that request is worth $729, which is more than the escrow fee.</p>
+
+<h3>Block three: what happens if the closings are not the same day</h3>
+
+<p>Transactional funding is priced for a same day round trip. The moment your closings are 3 days apart, that product is gone and you are on short term hard money at 11 to 13 percent with points, or your own cash, plus insurance, plus utilities, plus the risk that the end buyer disappears while you hold the deed.</p>
+
+<p>Model it explicitly so a delay never surprises you:</p>
+
+<p><code>=IF(B6=0,0,B3*B31/365*B6)</code> for the carry, where B6 is days between closings and B31 is your bridge rate.</p>
+
+<p><code>=IF(B6=0,0,B6*18)</code> for the daily burn of a vacant insured property.</p>
+
+<p>At 12 percent on $182,000, every day between closings costs $59.84 in interest plus $18 in carry. A two week gap is $1,096. That is not fatal, but it means a delayed double close on a $15,000 spread has eaten another 7 percent of it while you waited.</p>
+
+<h2>Total Cost and the Comparison That Matters</h2>
+
+<p>Roll it up:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>B36</td><td>Total double close cost</td><td><code>=B19+B28+B32+B33</code></td><td>$9,030</td></tr>
+<tr><td>B37</td><td>Double close net to you</td><td><code>=B5-B36</code></td><td>$23,470</td></tr>
+<tr><td>B38</td><td>Cost as percent of spread</td><td><code>=B36/B5</code></td><td>27.8%</td></tr>
+<tr><td>B40</td><td>Assignment processing fee</td><td>input</td><td>$500</td></tr>
+<tr><td>B39</td><td>Assignment net to you</td><td><code>=B5-B40</code></td><td>$32,000</td></tr>
+</tbody>
+</table>
+
+<p>In pure dollars the assignment wins by $8,530 and it wins every single time. That is the part the double close crowd skips. A double close never makes you more money than an assignment on the same contract. It only protects you from a specific failure: the end buyer sees the fee, reprices or walks, and you collect nothing.</p>
+
+<p>So the real comparison is expected value, and it needs two probabilities.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B42</td><td>Probability the deal survives a disclosed fee</td><td>input</td><td>70%</td></tr>
+<tr><td>B43</td><td>Probability the double close actually completes</td><td>input</td><td>95%</td></tr>
+<tr><td>B44</td><td>Expected value, assign</td><td><code>=B39*B42</code></td><td>$22,400</td></tr>
+<tr><td>B45</td><td>Expected value, double close</td><td><code>=B37*B43</code></td><td>$22,297</td></tr>
+<tr><td>B46</td><td>Decision</td><td><code>=IF(B45&gt;B44,"DOUBLE CLOSE","ASSIGN")</code></td><td>ASSIGN</td></tr>
+</tbody>
+</table>
+
+<p>At a 30 percent chance of the buyer walking, this deal is a coin flip with $103 of daylight between the two paths. That is the useful output. It tells you the decision is not close to obvious, and that a small change in your read of the buyer flips it.</p>
+
+<h3>The one number to put at the top of the sheet</h3>
+
+<p>Rather than guessing at probabilities every time, solve for the threshold once:</p>
+
+<p><code>=1-(B37*B43)/B39</code></p>
+
+<p>On this deal that returns 30.3 percent. Read it as a rule: if you believe there is more than a 30.3 percent chance this end buyer blows up the deal after seeing a $32,500 assignment fee, double close. If not, assign and keep the $9,030.</p>
+
+<p>Put it in plain language in the cell next to it so you cannot talk yourself past it:</p>
+
+<p><code>=TEXT(B48,"0.0%")&amp;" walk risk is the break-even. Below that, assign."</code></p>
+
+<h2>Where the Double Close Stops Working Entirely</h2>
+
+<p>Most of the cost stack is fixed. Funding minimum, escrow fees, recording, doc fees. Only the title premium and transfer tax scale with price. That means the double close is proportionally brutal on small spreads and cheap on large ones. Hold the purchase at $182,000 and vary the resale:</p>
+
+<table>
+<thead>
+<tr><th>Gross spread</th><th>Double close cost</th><th>Net after costs</th><th>Cost as % of spread</th><th>Break-even walk risk</th></tr>
+</thead>
+<tbody>
+<tr><td>$8,000</td><td>$8,802</td><td>-$802</td><td>110%</td><td>Never double close</td></tr>
+<tr><td>$15,000</td><td>$8,867</td><td>$6,133</td><td>59%</td><td>59.8%</td></tr>
+<tr><td>$25,000</td><td>$8,960</td><td>$16,040</td><td>36%</td><td>37.8%</td></tr>
+<tr><td>$32,500</td><td>$9,030</td><td>$23,470</td><td>28%</td><td>30.3%</td></tr>
+<tr><td>$60,000</td><td>$9,284</td><td>$50,716</td><td>15%</td><td>19.0%</td></tr>
+<tr><td>$100,000</td><td>$9,655</td><td>$90,345</td><td>10%</td><td>13.7%</td></tr>
+</tbody>
+</table>
+
+<p>Under roughly $12,000 of spread, a double close on this cost structure is a way to work for free. Between $12,000 and $25,000 you need to genuinely believe the buyer is a coin flip to walk before it pays. Above $60,000, the calculus inverts and the cost of privacy is cheap insurance, which is exactly why the biggest spreads are the ones almost always double closed.</p>
+
+<p>Flag it in the sheet rather than eyeballing the table:</p>
+
+<p><code>=IF(B37&lt;=0,"DEAD: costs exceed spread",IF(B38&gt;0.4,"MARGINAL: costs eat "&amp;TEXT(B38,"0%"),"VIABLE"))</code></p>
+
+<h2>Three Ways a Double Close Dies After You Have Already Paid</h2>
+
+<p>The cost model above assumes the thing completes. Three failure modes make that assumption false, and all three are knowable before you sign.</p>
+
+<h3>Your end buyer is using FHA financing</h3>
+
+<p>FHA will not insure a loan on a property the seller has owned for 90 days or less. Resell between day 91 and day 180 at more than double your purchase price and a second independent appraisal is required. A same day double close to an FHA buyer is not expensive, it is impossible. Encode it as a hard stop:</p>
+
+<p><code>=IF(AND(B7="FHA",B6&lt;91),"BLOCKED: FHA 90-day resale rule","OK")</code></p>
+
+<p>Conventional lenders have no statutory seasoning rule, but a large share carry investor overlays that behave the same way. Ask your buyer's loan officer the seasoning question in writing before you plan the structure, not after.</p>
+
+<h3>The transactional funder needs cleared funds, not a promise</h3>
+
+<p>Transactional funding works because B to C proceeds repay A to B within hours. If your end buyer is financed, their lender wires when their lender wires, and that is routinely a day late. Most funders will not release A to B without the B to C funds already in escrow. Cash buyer, the structure works. Financed buyer, expect the funder to decline or to reprice into a multi day product, which pushes you into the carry rows above.</p>
+
+<h3>The title underwriter will not insure the back to back</h3>
+
+<p>Not every title company runs double closes, and the ones that do have underwriter rules about it. Some require an affidavit disclosing the simultaneous transaction to both parties. Some will not insure without seasoning. Some individual closers simply refuse. Finding an investor friendly title company takes about two weeks, and doing it while under contract with a 14 day inspection period is how deals die. Solve this before you need it and keep two on the bench.</p>
+
+<p>One more thing the double close does not do: it does not exempt you from state wholesaling rules. Several states have passed statutes in the last few years that regulate the marketing of a contract or equitable interest, and taking title yourself does not automatically place you outside them. Get a real answer for your state from a real attorney and then build the model.</p>
+
+<h2>What to Actually Do</h2>
+
+<p>Run the assignment as the default. It is cheaper by definition and there is no version of this math where the double close produces more gross dollars. Build the cost stack anyway, because you need the break-even walk risk number sitting in the sheet before you are on the phone with a buyer arguing about your fee.</p>
+
+<p>Then use three rules. Under $12,000 of spread, never double close, because the fixed costs eat it. Over $60,000 of spread, plan on double closing, because you are paying 10 to 15 percent of the profit to remove the single largest reason a big wholesale deal collapses. In the middle, compute <code>=1-(B37*B43)/B39</code> and be honest about whether this specific buyer, who has walked from two deals already this quarter, clears that threshold.</p>
+
+<p>And always claim the reissue rate on the second policy. On the deal in this article it is $729, which is 8 percent of the entire cost of the double close, available for the price of one email to the closer.</p>
+
+<p>The reason most wholesalers never build this model is that it lives across two settlement statements, a funding term sheet, and a title rate manual, and stitching those into one sheet takes an afternoon you do not have when a deal is live. The <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already carries the acquisition cost stack, transactional and hard money fee structures with minimums, the holding cost engine for gaps between closings, and the exit side with seller paid title and transfer tax. Drop in your $182,000 contract price and your buyer's number, and the spread, the total cost, and the break-even walk risk come out on the same screen while the buyer is still on the phone.</p>`,
+  },
+  {
     slug: 'fix-and-flip-funding-gap-calculator-excel',
     title: 'Fix and Flip Funding Gap Calculator in Excel: The Cash Hard Money Never Sends',
     metaTitle: 'Fix and Flip Funding Gap Calculator Excel | SheetCraft',
