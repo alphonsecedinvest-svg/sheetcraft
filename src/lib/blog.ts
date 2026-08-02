@@ -16,6 +16,198 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'brrrr-cash-left-in-deal-calculator-excel',
+    title: 'BRRRR Cash Left in Deal Calculator in Excel: What Actually Recycled',
+    metaTitle: 'BRRRR Cash Left in Deal Calculator | SheetCraft',
+    metaDescription: 'Build a BRRRR cash left in deal calculator in Excel. See what the refinance really returns, what stays trapped, and why zero cash left in is the wrong target.',
+    targetKeyword: 'BRRRR cash left in deal calculator Excel',
+    secondaryKeywords: ['BRRRR cash left in deal', 'capital recycle rate', 'BRRRR calculator Excel', 'cash out refinance proceeds', 'return on trapped capital'],
+    excerpt: 'A Columbus investor pulls $56,350 out of a BRRRR refinance and calls the deal recycled, but $29,180 of his capital is still locked in the house. A BRRRR cash left in deal calculator in Excel counts every dollar that left your account, subtracts what the refinance actually returned, and reports the capital recycle rate that decides how many deals your money can do. Zero cash left in deal is the wrong target, and the LTV table shows exactly why.',
+    publishedAt: '2026-08-02',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/brrrr-cash-left-in-deal-calculator-excel.png',
+    imageAlt: 'Flat illustration of a renovated house above an open safe holding stacks of gold coins, with coins flowing between a wallet and the house and a laptop showing a spreadsheet grid with a descending bar chart',
+    content: `<p>An investor in Columbus closes the refinance on his third BRRRR, watches $56,350 land in his account, and tells his partner the deal recycled. He bought the house at $118,000, put $42,000 of rehab into it, and the appraisal came back at $215,000. His napkin math says he is all in at $177,400 against a new loan of $161,250, so he left roughly $16,000 in the property. The real number is $20,750. Add the six months of reserves his lender requires him to keep parked and $29,180 of his capital is sitting inside that house, unavailable for the next deal. A <strong>BRRRR cash left in deal calculator</strong> built in Excel exists to close that $13,000 gap between the story and the bank statement, because the number that decides whether you get to repeat is not your equity, your ARV, or your cash flow. It is how much of your own money came back out.</p>
+
+<p>Most BRRRR content treats zero cash left in deal as the win condition. It is not, and treating it that way is how investors end up owning eight houses that lose money every month. Cash left in deal and monthly cash flow are two ends of one lever. The refinance percentage does not create value, it only decides which end you take your compensation in. Here is how to build the model in Excel, and more importantly, how to read the answer when it tells you the deal never worked at any loan amount.</p>
+
+<h2>What Cash Left in Deal Actually Counts</h2>
+
+<p>The reason the Columbus investor was off by $13,030 is not bad arithmetic. It is an incomplete ledger. Cash left in deal is not all-in cost basis minus the new loan. It is every dollar that left your bank account, minus every dollar the refinance sent back. Those are different numbers because your cost basis includes money the purchase lender fronted, and your refinance proceeds are net of costs the loan amount never shows.</p>
+
+<p>Four line items get dropped almost every time:</p>
+
+<ul>
+<li><strong>Refinance closing costs.</strong> Origination, appraisal, title, and recording on a cash-out refinance run $4,000 to $6,000. That money comes off your proceeds, not off your loan amount.</li>
+<li><strong>Holding costs during the rehab.</strong> Points and interest on hard money, plus taxes, insurance, and utilities while nobody is paying rent. Seven months on this deal cost $12,700.</li>
+<li><strong>Lease-up costs.</strong> Marketing, tenant screening, the property manager's placement fee. Small, real, and always paid in cash.</li>
+<li><strong>Lender reserves.</strong> Most DSCR lenders require six months of PITIA in verified reserves. You do not spend it, which is exactly why it gets forgotten, but you also cannot deploy it into the next purchase. It is committed capital.</li>
+</ul>
+
+<p>Build the ledger as a single column so the total is one formula, not a mental estimate.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Cash out of pocket</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Purchase price</td><td>$118,000</td></tr>
+<tr><td>B5</td><td>Purchase loan at 85% LTP</td><td><code>=B4*0.85</code> &rarr; $100,300</td></tr>
+<tr><td>B6</td><td>Down payment</td><td><code>=B4-B5</code> &rarr; $17,700</td></tr>
+<tr><td>B7</td><td>Purchase closing costs</td><td>$3,400</td></tr>
+<tr><td>B8</td><td>Rehab paid from your account</td><td>$42,000</td></tr>
+<tr><td>B9</td><td>Hard money points and interest</td><td>$9,800</td></tr>
+<tr><td>B10</td><td>Taxes, insurance, utilities during rehab</td><td>$2,900</td></tr>
+<tr><td>B11</td><td>Lease-up and placement</td><td>$1,300</td></tr>
+<tr><td>B12</td><td><strong>Total cash deployed</strong></td><td><code>=SUM(B6:B11)</code> &rarr; $77,100</td></tr>
+</tbody>
+</table>
+
+<p>Note what is not in B12: the $100,300 the purchase lender put up. That is not your cash, so it never belonged in the cash-in ledger, and the refinance paying it off is not money coming back to you. Half the confusion around cash left in deal comes from mixing the two.</p>
+
+<h3>Track rehab as spend, not as budget</h3>
+
+<p>If your lender funds rehab in draws, you still front each line item and wait three to five weeks for reimbursement. Model the reimbursements as they land, not as they were promised. Use <code>=SUMIFS(Ledger!D:D,Ledger!B:B,"Rehab",Ledger!C:C,"Paid")</code> against a running transaction sheet so B8 reflects what actually cleared. A draw schedule that runs two draws behind can put $18,000 of temporary cash left in deal on your balance sheet for a quarter, which is enough to make you miss the next acquisition.</p>
+
+<h2>Build the Cash Left in Deal Calculator in Excel</h2>
+
+<p>The refinance block sits directly under the ledger so both totals are visible at once. Your loan amount is set by the appraisal, not by what you paid, which is the single most useful structural fact in the whole model.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Refinance and result</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B15</td><td>Appraised after-repair value</td><td>$215,000</td></tr>
+<tr><td>B16</td><td>Cash-out LTV</td><td>75%</td></tr>
+<tr><td>B17</td><td>Rate</td><td>7.25%</td></tr>
+<tr><td>B18</td><td>Term in years</td><td>30</td></tr>
+<tr><td>B19</td><td>Refinance closing costs</td><td>$4,600</td></tr>
+<tr><td>B21</td><td>New loan amount</td><td><code>=B15*B16</code> &rarr; $161,250</td></tr>
+<tr><td>B22</td><td>Payoff of purchase loan</td><td><code>=B5</code> &rarr; $100,300</td></tr>
+<tr><td>B23</td><td>Net cash to you at closing</td><td><code>=B21-B22-B19</code> &rarr; $56,350</td></tr>
+<tr><td>B24</td><td><strong>Cash left in deal</strong></td><td><code>=B12-B23</code> &rarr; $20,750</td></tr>
+<tr><td>B25</td><td>Capital recycle rate</td><td><code>=B23/B12</code> &rarr; 73%</td></tr>
+<tr><td>B26</td><td>Reserves held (6 months PITIA)</td><td><code>=6*B40</code> &rarr; $8,430</td></tr>
+<tr><td>B27</td><td><strong>Total capital committed</strong></td><td><code>=B24+B26</code> &rarr; $29,180</td></tr>
+</tbody>
+</table>
+
+<p>B25 is the number to put in front of your own face. Capital recycle rate tells you what fraction of the money you deployed is available to deploy again, and it is the only input that matters when you are projecting how fast a portfolio grows. A 73 percent recycle rate does not mean you did 73 percent of a BRRRR. It means every deal permanently retires 27 percent of your working capital.</p>
+
+<p>The operating block turns the new loan into a monthly outcome:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Operations</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B30</td><td>Monthly rent</td><td>$1,895</td></tr>
+<tr><td>B31</td><td>Property taxes</td><td>$210</td></tr>
+<tr><td>B32</td><td>Insurance</td><td>$95</td></tr>
+<tr><td>B33</td><td>Management at 9%</td><td><code>=B30*0.09</code> &rarr; $171</td></tr>
+<tr><td>B34</td><td>Maintenance and capex</td><td>$190</td></tr>
+<tr><td>B35</td><td>Vacancy at 6%</td><td><code>=B30*0.06</code> &rarr; $114</td></tr>
+<tr><td>B36</td><td>Total operating expenses</td><td><code>=SUM(B31:B35)</code> &rarr; $780</td></tr>
+<tr><td>B37</td><td>Monthly NOI</td><td><code>=B30-B36</code> &rarr; $1,115</td></tr>
+<tr><td>B38</td><td>New principal and interest</td><td><code>=-PMT(B17/12,B18*12,B21)</code> &rarr; $1,100</td></tr>
+<tr><td>B39</td><td>Monthly cash flow</td><td><code>=B37-B38</code> &rarr; $15</td></tr>
+<tr><td>B40</td><td>PITIA for lender test</td><td><code>=B38+B31+B32</code> &rarr; $1,405</td></tr>
+<tr><td>B41</td><td>Lender DSCR</td><td><code>=B30/B40</code> &rarr; 1.35</td></tr>
+</tbody>
+</table>
+
+<p>Now the two return lines that most spreadsheets skip. Cash-on-cash return on trapped capital is <code>=IFERROR(B39*12/B24,"No cash trapped")</code>, which returns 0.9 percent here. The honest version adds first-year principal paydown, since that is a real return on the dollars you left behind: <code>=IFERROR((B39*12+B38*12+CUMIPMT(B17/12,B18*12,B21,1,12,0))/B24,"")</code> gives $1,740 against $20,750, or 8.4 percent. That is the number to compare against what the same $20,750 would earn as the down payment on your next deal. If your next BRRRR returns 20 percent cash-on-cash, leaving $20,750 here to earn 8.4 percent costs you roughly $2,400 a year in opportunity, every year, until you sell or refinance again.</p>
+
+<h2>Zero Cash Left In Is the Wrong Target</h2>
+
+<p>Here is where the lever shows itself. Same house, same appraisal, same rent, four quotes from four lenders. Watch cash left in deal fall and watch what happens on the other end.</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>65% at 7.00%</th><th>70% at 7.00%</th><th>75% at 7.25%</th><th>80% at 7.75%</th></tr>
+</thead>
+<tbody>
+<tr><td>Loan amount</td><td>$139,750</td><td>$150,500</td><td>$161,250</td><td>$172,000</td></tr>
+<tr><td>Net proceeds to you</td><td>$34,850</td><td>$45,600</td><td>$56,350</td><td>$67,100</td></tr>
+<tr><td>Cash left in deal</td><td>$42,250</td><td>$31,500</td><td>$20,750</td><td>$10,000</td></tr>
+<tr><td>Capital recycle rate</td><td>45%</td><td>59%</td><td>73%</td><td>87%</td></tr>
+<tr><td>Principal and interest</td><td>$930</td><td>$1,001</td><td>$1,100</td><td>$1,233</td></tr>
+<tr><td>Monthly cash flow</td><td>$185</td><td>$114</td><td>$15</td><td>-$118</td></tr>
+<tr><td>Cash-on-cash on trapped capital</td><td>5.3%</td><td>4.3%</td><td>0.9%</td><td>-14.2%</td></tr>
+<tr><td>Lender DSCR</td><td>1.53</td><td>1.45</td><td>1.35</td><td>1.23</td></tr>
+</tbody>
+</table>
+
+<p>Two things in that table deserve a hard look. First, the 80 percent column recycles 87 percent of the capital and loses $1,416 a year. That is the deal an investor posts about. Eight of them is a portfolio that costs $11,328 a year to own before the first water heater fails. Second, every column passes the lender's DSCR test at 1.20, including the one that bleeds. DSCR compares rent to principal, interest, taxes, and insurance. It does not know about management, vacancy, maintenance, or capex. A lender approving your refinance is not confirming the deal works. It is confirming the loan is collectable.</p>
+
+<p>So set your own two thresholds in the sheet and let it call the deal:</p>
+
+<ul>
+<li>B47, maximum acceptable cash left in deal: $8,000</li>
+<li>B48, minimum acceptable monthly cash flow: $150</li>
+<li>B49, verdict: <code>=IF(AND(B24&lt;=B47,B39&gt;=B48),"RECYCLED","CHECK THE LTV TABLE")</code></li>
+</ul>
+
+<p>Then run the LTV column from 60 percent to 80 percent in rows and flag each with <code>=IF(AND(D55&lt;=$B$47,F55&gt;=$B$48),"PASS","FAIL")</code>. The headline you actually want is <code>=IF(COUNTIF(G55:G63,"PASS")=0,"NO LTV WORKS. FIX BASIS OR RENT.","OK")</code>. On this deal, no LTV passes. Not one. That verdict is worth more than any single output in the model, because it tells you the refinance was never the problem.</p>
+
+<h2>Purchase Price Controls Trapped Cash, Rent Controls Cash Flow</h2>
+
+<p>Hold rehab, holding costs, ARV, and LTV fixed, then change only the purchase price. Your down payment moves by 15 percent of the change, and the payoff moves by 85 percent of the change. Add those together and something clean falls out of the algebra: cash left in deal moves dollar for dollar with the purchase price. On this deal the relationship is exactly <code>=B4-97250</code>. Every $1,000 you overpay is $1,000 trapped in the house for as long as you own it.</p>
+
+<p>Meanwhile the payment is set by the appraisal, not the price, so the purchase price does not move your cash flow by a single dollar. Cash flow is a rent problem. Solve for the rent that clears your threshold with <code>=(B48+B38+B31+B32+B34)/(1-0.09-0.06)</code>, which returns $2,053. Against a $215,000 ARV, that is 0.955 percent monthly rent to value. The one percent rule is not folk wisdom. It is roughly the rent required to make a 75 percent cash-out refinance cash flow at seven and a quarter.</p>
+
+<table>
+<thead>
+<tr><th>Purchase price</th><th>Cash left in deal</th><th>Monthly cash flow</th><th>What it fixes</th></tr>
+</thead>
+<tbody>
+<tr><td>$118,000</td><td>$20,750</td><td>$15</td><td>Nothing</td></tr>
+<tr><td>$110,000</td><td>$12,750</td><td>$15</td><td>Trapped cash only</td></tr>
+<tr><td>$105,250</td><td>$8,000</td><td>$15</td><td>Hits the capital threshold</td></tr>
+<tr><td>$97,250</td><td>$0</td><td>$15</td><td>Full recycle, still no cash flow</td></tr>
+</tbody>
+</table>
+
+<p>Read the last row carefully. A perfect BRRRR, 100 percent of capital returned, and the house still pays you $15 a month. That is the trap in chasing zero cash left in deal as the goal. You can win the metric completely and own something that cannot fund its own roof.</p>
+
+<h2>What the Recycle Rate Does to Your Deal Count</h2>
+
+<p>Take a $150,000 working capital base, one deal at a time, nine months per cycle. Each deal ties up the full out-of-pocket amount during the project and permanently retires whatever gets left in.</p>
+
+<table>
+<thead>
+<tr><th>Purchase price</th><th>Cash left in per deal</th><th>Deals fundable from $150,000</th><th>Years until stuck</th></tr>
+</thead>
+<tbody>
+<tr><td>$118,000</td><td>$20,750</td><td>4</td><td>3.0</td></tr>
+<tr><td>$110,000</td><td>$12,750</td><td>6</td><td>4.5</td></tr>
+<tr><td>$105,250</td><td>$8,000</td><td>10</td><td>7.5</td></tr>
+<tr><td>$97,250</td><td>$0</td><td>Unlimited</td><td>Never</td></tr>
+</tbody>
+</table>
+
+<p>The difference between paying $118,000 and $105,250 for the same house is 11 percent on the contract. On your business it is the difference between four deals and ten from the same capital. Model it with <code>=IF(B24&lt;=0,"Unlimited",ROUNDDOWN((150000-B12)/B24,0)+1)</code> and put that cell next to your maximum offer, because it converts a negotiating position into a deal count. Walking away from an overpriced house is not discipline for its own sake. It is six future acquisitions.</p>
+
+<h3>The pre-refinance checklist</h3>
+
+<ul>
+<li>Get the lender's exact cash-out LTV cap in writing, along with the seasoning period, before the rehab starts.</li>
+<li>Ask what the reserve requirement is in months and whether it must be seasoned. That is capital you cannot count on.</li>
+<li>Get a written closing cost estimate and subtract it from proceeds, not from the loan amount.</li>
+<li>Run your rent through a property manager, not through your own optimism. A $150 rent miss moves cash flow by more than a quarter point of rate.</li>
+<li>Compute cash left in deal at the appraisal you fear, not the one your comps support.</li>
+<li>Check that at least one LTV row passes both thresholds. If none does, renegotiate the price or drop the deal.</li>
+</ul>
+
+<h2>Run the Numbers Before the Offer, Not After the Refinance</h2>
+
+<p>Every calculation above works exactly as well before you write an offer as it does after the appraisal, and it is worth ten times more early. After the refinance, cash left in deal is a fact you record. Before the offer, it is a price you set, because the purchase price is the only input in the whole model that you control outright. The investor in Columbus did not have a refinance problem. He had a $20,750 offer problem, and he found out about it eight months and one appraisal too late.</p>
+
+<p>If you would rather not rebuild the cash-in ledger, the net proceeds math, the LTV sweep, and the recycle rate on every deal, the <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> has all of it wired together already: a full cash deployed ledger with draw-reimbursement timing, cash left in deal and capital recycle rate as headline outputs, an LTV table that flags when no loan amount satisfies both your capital and cash flow thresholds, and a maximum offer solver that backs the purchase price out of the cash you need returned. It costs $49. That is one fifth of one percent of the capital this one deal left stranded, and the sheet takes about fifteen minutes to fill in. Decide what you are willing to leave in a house before you decide what you are willing to pay for it, and the repeat leg of BRRRR stops being a hope and starts being arithmetic.</p>`,
+  },
+  {
     slug: 'wholesale-double-closing-cost-calculator-excel',
     title: 'Wholesale Double Closing Cost Calculator in Excel: What Hiding Your Spread Really Costs',
     metaTitle: 'Wholesale Double Closing Cost Calculator Excel | SheetCraft',
