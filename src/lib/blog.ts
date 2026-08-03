@@ -16,6 +16,174 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-novation-agreement-calculator-excel',
+    title: 'Real Estate Novation Agreement Calculator in Excel: Novate or Assign',
+    metaTitle: 'Real Estate Novation Calculator Excel | SheetCraft',
+    metaDescription: 'Real estate novation agreement calculator in Excel: model the spread after commissions, concessions, and make-ready, and know when to just assign.',
+    targetKeyword: 'real estate novation agreement calculator Excel',
+    secondaryKeywords: ['novation vs assignment', 'novation agreement real estate', 'wholesale novation spreadsheet', 'seller net calculator Excel', 'wholesaling to financed buyers'],
+    excerpt: 'A Fort Worth wholesaler sees a $76,000 gap between his $196,000 contract and a $272,000 retail buyer, then collects $38,546 at closing. A real estate novation agreement calculator in Excel finds the missing $37,454 before you sign anything, because commissions, concessions, and the make-ready you fund out of pocket never touch an assignment. The model stacks both exits in one sheet and returns the three numbers that decide it: break-even sale price, break-even close probability, and return on the capital you put at risk.',
+    publishedAt: '2026-08-03',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-novation-agreement-calculator-excel.png',
+    imageAlt: 'Flat illustration of a house with a curved arrow sweeping from a cash buyer holding a briefcase of money to a second buyer holding a key in front of a rising bar chart, above a contract page with a gold wax seal and a stack of coins',
+    content: `<p>A wholesaler in Fort Worth has a 3 bed, 2 bath house under contract at $196,000. His cash buyers top out at $215,000 because they underwrite to seventy percent of after repair value and this house does not need a gut, it needs paint, carpet, landscaping, and a water heater. A retail buyer with an FHA loan will pay $272,000 for it once that work is done. He looks at the gap, sees $76,000, and starts telling people he found a novation deal. The number he will actually collect at the closing table is $38,546. A <strong>real estate novation agreement calculator</strong> built in Excel exists to find the other $37,454 before he signs anything, because in a novation the costs that eat your spread are costs an assignment never made you pay.</p>
+
+<p>Novation is the third exit, and it is the one most wholesalers get wrong in the same direction. They price it like an assignment with a bigger number on the end. It is not. In a novation you are running a retail sale on someone else's title, which means you pay retail selling costs, you fund the make-ready out of pocket, and you carry the deal for sixty days instead of fourteen. Every one of those is a line item. Here is how to build the model, and more useful, the three numbers in it that tell you when the boring assignment was the better trade.</p>
+
+<h2>The Buyer an Assignment Cannot Reach</h2>
+
+<p>The reason novation exists at all is a financing problem, not a greed problem. When you assign a contract, your end buyer has to close on a contract that shows your fee, and almost no institutional lender will fund that. FHA and conventional money will not write a loan where the buyer of record inherited a contract carrying a $76,000 assignment fee. So an assignment restricts you to cash and hard money, and cash pays a cash discount. That discount is the $57,000 sitting between $215,000 and $272,000.</p>
+
+<p>A double close solves the disclosure problem and creates a new one. You take title, then resell, which means transactional funding on $196,000, two sets of closing costs, and an end buyer whose lender now sees a same-day resale with zero seasoning. Many underwriters kill it right there.</p>
+
+<p>In a novation, the original seller stays on title until the final closing. You amend the purchase agreement so the end buyer replaces you as the buyer of record, at a new price, with the seller's written consent, and your compensation is documented and paid from the seller's proceeds at closing. Chain of title never breaks, there is no seasoning issue, and the retail buyer's FHA loan funds normally. That is the whole point. You are not hiding a fee, you are getting paid to bring a higher buyer to a seller who agreed to a net.</p>
+
+<h3>What the seller actually signs</h3>
+
+<p>The seller is not agreeing to a price, the seller is agreeing to a net. In the model that distinction is cell B4, and it is the anchor for everything else. Your original contract at $196,000 becomes "seller nets $196,000 regardless of what the property sells for," and the novation agreement says the excess above that net, less the costs listed in the agreement, is your fee. If the seller thinks in list price instead of net, the deal falls apart the day the property goes live at $279,900 and they see the number on Zillow. Model it as a net and paper it as a net.</p>
+
+<h2>Build the Novation Calculator in Excel</h2>
+
+<p>One sheet, four blocks. Inputs on top, then the assignment exit, then the novation exit, then the decision. The point of stacking them is that you never evaluate a novation on its own. You evaluate it against the assignment you are giving up.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Seller net on the original contract</td><td>$196,000</td></tr>
+<tr><td>B5</td><td>Best cash buyer offer</td><td>$215,000</td></tr>
+<tr><td>B6</td><td>Retail list price</td><td>$279,900</td></tr>
+<tr><td>B7</td><td>Expected sale price</td><td>$272,000</td></tr>
+<tr><td>B8</td><td>Make-ready budget you fund</td><td>$12,500</td></tr>
+<tr><td>B9</td><td>Days from list to close</td><td>60</td></tr>
+<tr><td>B10</td><td>Total commissions</td><td>5.0%</td></tr>
+<tr><td>B11</td><td>Buyer concessions you expect to pay</td><td>2.0%</td></tr>
+<tr><td>B12</td><td>Seller-side closing costs</td><td>1.2%</td></tr>
+<tr><td>B13</td><td>Carry per month, utilities and insurance and lawn</td><td>$450</td></tr>
+<tr><td>B14</td><td>Contract extension and per diem to seller</td><td>$1,000</td></tr>
+<tr><td>B15</td><td>Novation agreement, attorney, title prep</td><td>$750</td></tr>
+</tbody>
+</table>
+
+<p>B7 is separate from B6 on purpose. List price is a marketing decision, sale price is what the model runs on, and putting them in the same cell is how people talk themselves into a spread that never shows up. Set B7 at ninety-seven to ninety-eight percent of list for a make-ready property in a normal market, and lower it the day you take a price cut.</p>
+
+<h3>The assignment column is the baseline, not the fallback</h3>
+
+<p>Build the assignment exit first, because it is the number the novation has to beat.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Assignment exit</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B18</td><td>Assignment fee</td><td><code>=B5-B4</code> &rarr; $19,000</td></tr>
+<tr><td>B19</td><td>Dispo marketing and buyer list costs</td><td>$250</td></tr>
+<tr><td>B20</td><td><strong>Assignment net</strong></td><td><code>=B18-B19</code> &rarr; $18,750</td></tr>
+<tr><td>B21</td><td>Days to cash</td><td>14</td></tr>
+</tbody>
+</table>
+
+<p>Nineteen thousand dollars, fourteen days, zero capital at risk beyond earnest money. That is a real trade and the novation has to be meaningfully better than it, not nominally better.</p>
+
+<h3>The novation block is a seller net sheet in disguise</h3>
+
+<p>Everything below the sale price is a cost that comes off the top before anyone pays you. Order the rows the way a settlement statement orders them so you can reconcile the sheet against the ALTA at closing line by line.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Novation exit</th><th>Formula</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B24</td><td>Gross sale price</td><td><code>=B7</code></td><td>$272,000</td></tr>
+<tr><td>B25</td><td>Commissions</td><td><code>=B7*B10</code></td><td>$13,600</td></tr>
+<tr><td>B26</td><td>Buyer concessions</td><td><code>=B7*B11</code></td><td>$5,440</td></tr>
+<tr><td>B27</td><td>Seller-side closing costs</td><td><code>=B7*B12</code></td><td>$3,264</td></tr>
+<tr><td>B28</td><td>Make-ready</td><td><code>=B8</code></td><td>$12,500</td></tr>
+<tr><td>B29</td><td>Carry</td><td><code>=B13*(B9/30)</code></td><td>$900</td></tr>
+<tr><td>B30</td><td>Extension and per diem</td><td><code>=B14</code></td><td>$1,000</td></tr>
+<tr><td>B31</td><td>Legal and doc prep</td><td><code>=B15</code></td><td>$750</td></tr>
+<tr><td>B32</td><td>Seller net</td><td><code>=B4</code></td><td>$196,000</td></tr>
+<tr><td>B33</td><td><strong>Your novation fee</strong></td><td><code>=B24-SUM(B25:B32)</code></td><td>$38,546</td></tr>
+</tbody>
+</table>
+
+<p>There is the $37,454. Commissions, concessions, and seller closing costs are 8.2 percent of the sale price and they alone take $22,304. The make-ready takes $12,500 in cash you spend on a house you do not own. Carry, extensions, and paper take $2,650. None of those exist on an assignment, which is why comparing $76,000 to $19,000 is not a comparison, it is a fantasy.</p>
+
+<p>Track the make-ready as spend rather than budget. Point B8 at a transaction tab with <code>=SUMIFS(Reno!D:D,Reno!B:B,"Make-ready",Reno!E:E,"Paid")</code> so the fee in B33 falls in real time as invoices clear. On a $12,500 scope a $3,000 overrun is a quarter of your cushion and you want to watch it move, not discover it at closing.</p>
+
+<h2>The Three Numbers That Decide Novate or Assign</h2>
+
+<p>The fee in B33 is not the decision. Three derived numbers are, and all three belong on the sheet before you ever present a novation to a seller.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Decision metric</th><th>Formula</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B36</td><td>Spread over assignment</td><td><code>=B33-B20</code></td><td>$19,796</td></tr>
+<tr><td>B37</td><td>Capital at risk</td><td><code>=B8+B14+B15+B29</code></td><td>$15,150</td></tr>
+<tr><td>B38</td><td>Extra days at risk</td><td><code>=B9-B21</code></td><td>46</td></tr>
+<tr><td>B39</td><td>Return on capital at risk</td><td><code>=B36/B37</code></td><td>130.7%</td></tr>
+<tr><td>B41</td><td>Fallback assignment fee if the retail sale dies</td><td>input</td><td>$12,000</td></tr>
+<tr><td>B42</td><td>Net if it dies</td><td><code>=B41-B19-B37</code></td><td>-$3,400</td></tr>
+<tr><td>B43</td><td>Break-even close probability</td><td><code>=(B20-B42)/(B33-B42)</code></td><td>52.8%</td></tr>
+<tr><td>B44</td><td>Break-even sale price</td><td><code>=(B20+B28+B29+B30+B31+B32)/(1-B10-B11-B12)</code></td><td>$250,436</td></tr>
+</tbody>
+</table>
+
+<h3>Break-even sale price is your walk-away number</h3>
+
+<p>B44 says the property has to sell for at least $250,436 for the novation to have been worth doing. Below that you did sixty days of work, fronted $15,150, and made less than the assignment you turned down. That number is the one to write on a sticky note before the listing goes live, because it converts every price cut conversation from a feeling into arithmetic. Your agent wants to drop to $259,900 in week four? Fine, you are still $9,000 ahead of the assignment. Wants to drop to $249,000? You just paid yourself to work for free.</p>
+
+<h3>Break-even close probability prices the risk</h3>
+
+<p>B43 is the number almost nobody builds. It asks what odds of actually closing the retail sale make this trade rational, given what you lose if it collapses. If the retail buyer walks and the house comes back to you tired, your cash buyer will not honor $19,000 on an aged contract with an annoyed seller, so B41 models a discounted fallback of $12,000, and against $15,150 already spent that is a $3,400 loss. Run <code>=(B20-B42)/(B33-B42)</code> and the answer is 52.8 percent.</p>
+
+<p>Read it plainly. You need better than a coin flip on this closing before novation beats assignment. In a market where inspection-ready make-ready properties go under contract in three weeks and appraise, that is an easy yes. In a market where you are the fourth listing on the street and rates just moved, it is not. Flag it with <code>=IF(B45&lt;B43,"ASSIGN","NOVATE")</code> where B45 is your honest estimate of close probability, and force yourself to type a number into B45 rather than nodding at a vibe.</p>
+
+<h3>Return on capital at risk keeps novation in its lane</h3>
+
+<p>B39 says the $15,150 you put at risk returns 130.7 percent over 46 extra days, which annualizes past 1,000 percent on <code>=(B36/B37)*(365/B38)</code>. That is the honest argument for novation and it is a strong one. It is also the number that stops you from novating a deal where the make-ready is $60,000, because at that scope you are running a flip on someone else's title with none of the upside and all of the exposure. If B37 climbs above about a third of B33, you are not novating anymore, you should be buying the house.</p>
+
+<h2>Where Novation Deals Die</h2>
+
+<p>Four failure modes, and each one gets a cell.</p>
+
+<p><strong>The appraisal.</strong> A financed buyer means an appraiser decides your sale price. Put the appraised value in B46 and the gap in <code>=MAX(0,B7-B46)</code>. Assume you eat it, because a buyer at $272,000 with three percent down rarely brings $10,000 in cash to cover a shortfall. Run it: appraisal at $262,000, price drops, and the model recomputes to $29,366. That is still $10,616 better than assigning, which is the useful thing to know before the call, not after.</p>
+
+<table>
+<thead>
+<tr><th>Sale price</th><th>Selling costs at 8.2%</th><th>Your novation fee</th><th>Versus assignment</th></tr>
+</thead>
+<tbody>
+<tr><td>$279,900</td><td>$22,952</td><td>$45,798</td><td>+$27,048</td></tr>
+<tr><td>$272,000</td><td>$22,304</td><td>$38,546</td><td>+$19,796</td></tr>
+<tr><td>$262,000</td><td>$21,484</td><td>$29,366</td><td>+$10,616</td></tr>
+<tr><td>$255,000</td><td>$20,910</td><td>$22,940</td><td>+$4,190</td></tr>
+<tr><td>$250,436</td><td>$20,536</td><td>$18,750</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Every row below $250,436 is red. Build it as a data table off B7 so it recalculates when the make-ready overruns, because the break-even price moves up a dollar for every dollar you overspend on paint.</p>
+
+<p><strong>The seller's patience.</strong> Your original contract has an expiration and a novation needs sixty to ninety days. Put the contract end date in B47, the projected close in <code>=B47+B9</code>, and a warning in <code>=IF(TODAY()&gt;B47-14,"EXTENSION DUE","OK")</code>. Sellers who feel strung along cancel, and a canceled contract in week seven costs you the full $15,150 with no fallback at all. Pay the per diem early and cheerfully, it is the least expensive line in the model.</p>
+
+<p><strong>The title company.</strong> Plenty of them will not close a novation, and you find out in week six. Confirm in writing before you spend a dollar on make-ready, and confirm specifically that your fee can appear on the settlement statement as a line to your entity. If it cannot, the deal becomes a side agreement, and side agreements around a federally insured loan are where wholesalers get into genuine trouble.</p>
+
+<p><strong>Licensing and marketing.</strong> You are marketing a property you do not own. Most novation deals list on the MLS, and in most states listing property for a seller for compensation requires a license, which is why the working structure is a licensed agent on the listing and a documented fee to you. Get the arrangement reviewed by an attorney in your state once, not once per deal. Budget it inside B15 and stop guessing.</p>
+
+<h2>The Rule Worth Running</h2>
+
+<p>Novate when three conditions hold at once: the make-ready is cosmetic and under about $15,000, the break-even sale price in B44 sits at least eight percent under a comp-supported sale price, and your honest close probability clears B43. On the deal above that is $12,500 of work, a $250,436 break-even against $272,000 of comps, and a 52.8 percent bar. Three yeses, so you novate and collect $38,546 instead of $18,750.</p>
+
+<p>Assign when any one of them fails. The spread on paper is never the argument. A $76,000 gap that turns into $38,546 is a great deal. The same $76,000 gap on a house needing $45,000 of work, in a market where your break-even lands at $268,000 against soft comps, is a sixty day unpaid job with $50,000 of your money in someone else's drywall. The only way to tell those two apart is to build both exits in the same sheet and let the difference in B36 make the decision instead of the size of the number in B24.</p>
+
+<p>The novation model is only as good as the two prices feeding it, and both come from underwriting, not from hope. Your cash buyer ceiling in B5 and your retail sale price in B7 are the entire spread, and if either one is off by five percent the whole decision inverts. The SheetCraft <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> is where those two numbers get built. It models after repair value off comps, prices the rehab scope line by line so your $12,500 make-ready is a scope and not a guess, and runs the seventy percent rule against holding and financing costs to produce exactly what a cash buyer can pay, which is your B5. Underwrite the deal there, drop the ARV and the buyer ceiling into the novation sheet, and you will know before you call the seller whether this is a $38,546 novation or a $19,000 assignment wearing a costume.</p>`,
+  },
+  {
     slug: 'brrrr-cash-left-in-deal-calculator-excel',
     title: 'BRRRR Cash Left in Deal Calculator in Excel: What Actually Recycled',
     metaTitle: 'BRRRR Cash Left in Deal Calculator | SheetCraft',
