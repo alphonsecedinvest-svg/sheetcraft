@@ -16,6 +16,192 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'subcontractor-backcharge-tracking-spreadsheet-excel',
+    title: 'Subcontractor Backcharge Tracking Spreadsheet in Excel: Stop Writing Them Off',
+    metaTitle: 'Subcontractor Backcharge Spreadsheet Excel | SheetCraft',
+    metaDescription: 'Subcontractor backcharge tracking spreadsheet in Excel: log the notice deadline, tie every charge to a pay app deduction, and collect instead of writing off.',
+    targetKeyword: 'subcontractor backcharge tracking spreadsheet Excel',
+    secondaryKeywords: ['construction backcharge log', 'backcharge notice requirements', 'subcontractor deduction pay application', 'construction backcharge form Excel', 'backcharge collection rate'],
+    excerpt: 'A Charlotte GC logs $71,400 of backcharges on a $4.2 million job and collects $24,900, giving away a quarter of the profit. A subcontractor backcharge tracking spreadsheet in Excel fixes that with three columns almost nobody builds: the notice deadline that decides whether a charge is collectible at all, the coverage ratio that shows whether you still hold enough of the subcontract balance to deduct against, and the pay application tie-out that turns an intention into a deduction. On that job, timely notice collected 82 percent. Late notice collected 8 percent.',
+    publishedAt: '2026-08-04',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/subcontractor-backcharge-tracking-spreadsheet-excel.png',
+    imageAlt: 'Flat illustration of a stopwatch beside a clipboard checklist and a document with one line struck through in red, with coins sliding back toward the clipboard and a yellow hard hat and work glove at the base',
+    content: `<p>A general contractor in Charlotte closes out a $4.2 million medical office fit-out and hands accounting a package with $71,400 of backcharges logged against fourteen subcontractors. Four months later the ledger shows $24,900 actually deducted. The other $46,500 got argued down, traded away for lien waivers, or quietly written off because nobody could produce a dated notice. The job carried a 4.2 percent net margin, $176,400 of profit, so that write-off is one dollar in four. A <strong>subcontractor backcharge tracking spreadsheet</strong> built in Excel is not a grievance list. It is the document that decides which of those charges survives contact with the sub's attorney, and the columns that do the deciding are the ones almost nobody builds.</p>
+
+<p>Backcharges are unusual among construction costs because the money is already in your hands. You are not invoicing for it, you are declining to release it. That makes them the cheapest dollars on the job to collect and, for exactly that reason, the ones people are laziest about. The laziness has a price and it shows up in one number: how much of what you logged you actually kept.</p>
+
+<h2>Backcharges do not get denied, they get run out the clock</h2>
+
+<p>Almost no subcontractor writes back and says they refuse to pay. What happens is nothing. Six weeks of nothing, then a phone call at closeout when the project manager who watched the debris pile grow has moved to another job and the superintendent who took the photos is on a different site. Meanwhile you need a final lien waiver and a signed warranty to close the owner out. The sub knows you need it more than you need the $8,400. That conversation takes nine minutes and ends around $3,000.</p>
+
+<p>Three specific failures produce that outcome, and all three are things a spreadsheet column can prevent.</p>
+
+<h3>The notice window closed before anyone opened a file</h3>
+
+<p>Nearly every subcontract has a cure and self-help clause, and it reads roughly the same everywhere. The contractor gives written notice of the deficiency, the subcontractor has some number of hours to cure it, and if they fail to cure, the contractor may perform the work and deduct the cost from amounts due. That clause is the entire legal basis for the deduction. Miss the notice and you did not exercise a contract right, you volunteered free labor and then asked to be reimbursed for it.</p>
+
+<p>On the Charlotte job, the average gap between the day a backcharge cost was incurred and the day it first appeared in writing anywhere was nineteen days. Eleven of the fourteen subcontracts required written notice within seventy-two hours. The costs were real, the photos existed, and most of the charges were dead on arrival before anyone opened the spreadsheet.</p>
+
+<h3>Your own timecards do not say who caused the cost</h3>
+
+<p>The most common backcharge in commercial work is cleanup and self-performed patching. Your laborers do it. The timecard says "general conditions, final clean, 12 hrs." That entry proves you spent money. It proves nothing at all about who owed it, and a sub's counsel will make that point in one sentence.</p>
+
+<p>A collectible timecard carries the backcharge number and the deficiency at the moment of entry: "BC-014, Metro Drywall, remove debris and scrap board, level 2 north, 2 men, 6 hrs." Reconstructing that at closeout from memory and a photo folder is exactly the exercise the other side is hoping you attempt. Assign the number the same day or accept that the hours are a gift.</p>
+
+<h3>You find the charge after you have paid the sub down to nothing</h3>
+
+<p>Self-help works only while you are still holding their money. Say you trace $12,300 of damaged terrazzo to the mechanical sub. By the time it is documented, that sub is billed to 98 percent complete and you hold $9,850 of retainage. Deducting the full $12,300 is not a deduction anymore, it is a demand that they write you a check, and they will not write it. A backcharge that exceeds the sub's remaining contract balance is a lawsuit wearing a deduction's clothes, and it needs to be priced that way on the day you log it, not discovered in February.</p>
+
+<h2>Build the log around the notice clock, not the dollar amount</h2>
+
+<p>Most backcharge logs sort by amount, because the big numbers feel like the important ones. Sort by the notice clock instead. A $900 charge with eleven hours left on its cure window is worth more attention today than an $8,400 charge whose window closed in June.</p>
+
+<p>Set the log up on a sheet named <code>Backcharges</code>, headers on row 3, data starting row 4. These are the columns that earn their place, shown with one live example.</p>
+
+<table>
+<thead>
+<tr><th>Col</th><th>Field</th><th>BC-014 example</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Backcharge ID</td><td>BC-014</td></tr>
+<tr><td>B</td><td>Date incurred</td><td>2026-03-09</td></tr>
+<tr><td>C</td><td>Subcontractor</td><td>Metro Drywall</td></tr>
+<tr><td>D</td><td>Cost code charged</td><td>09-250</td></tr>
+<tr><td>E</td><td>Category</td><td>Cleanup, self-performed</td></tr>
+<tr><td>F</td><td>Description and evidence</td><td>Scrap board and debris, level 2 north. Photos 3/9, daily report 3/9</td></tr>
+<tr><td>G</td><td>Contract clause</td><td>Subcontract 09-01, art. 8.3</td></tr>
+<tr><td>H</td><td>Notice required (days)</td><td>3</td></tr>
+<tr><td>I</td><td>Notice deadline</td><td><code>=B4+H4</code> &rarr; 2026-03-12</td></tr>
+<tr><td>J</td><td>Notice sent</td><td>2026-03-10</td></tr>
+<tr><td>K</td><td>Notice status</td><td>TIMELY</td></tr>
+<tr><td>L</td><td>Direct cost</td><td>$1,258.00</td></tr>
+<tr><td>M</td><td>Markup per contract</td><td>10%</td></tr>
+<tr><td>N</td><td>Total charged</td><td><code>=L4*(1+M4)</code> &rarr; $1,383.80</td></tr>
+<tr><td>O</td><td>Status</td><td>Deducted</td></tr>
+<tr><td>P</td><td>Pay app deducted on</td><td>PA-11</td></tr>
+<tr><td>Q</td><td>Amount deducted</td><td>$1,383.80</td></tr>
+<tr><td>R</td><td>Balance open</td><td><code>=N4-Q4</code> &rarr; $0.00</td></tr>
+</tbody>
+</table>
+
+<p>Column H is per subcontract, not a constant. Copying one number down the column is the mistake that makes the whole log look authoritative while being wrong for a third of the rows. Pull the cure period out of each executed subcontract once, at buyout, and keep it on the sub roster so column H can look it up with <code>=VLOOKUP($C4,SubRoster!$A:$D,4,FALSE)</code>.</p>
+
+<h3>The one formula that runs your Monday</h3>
+
+<p>Column K turns a date into an instruction:</p>
+
+<p><code>=IF(J4="",IF(TODAY()&gt;I4,"BLOWN","OPEN "&amp;I4-TODAY()&amp;"d"),IF(J4&lt;=I4,"TIMELY","LATE"))</code></p>
+
+<p>If no notice has gone out and the deadline has passed, the charge reads BLOWN and you now know it is worth pennies. If no notice has gone out and time remains, it counts down. If notice went out, it grades itself against the deadline. Filter column K for anything starting with OPEN, sort ascending, and that short list is the entire backcharge to-do list for the week. Nothing else on the sheet needs a human today.</p>
+
+<p>For the superintendent's view, one column is enough: <code>=IF(AND($J4="",TODAY()&gt;=$I4-1),"SEND TODAY","")</code>. That is a text message, not a report.</p>
+
+<h3>Charge the cost you can prove and the markup your contract names</h3>
+
+<p>Backcharge markup is where contractors trade a large certain recovery for a small speculative one. If the subcontract states a percentage, use that percentage. If it says only "actual cost plus reasonable overhead," a self-selected 15 percent invites the sub's counsel to attack the arithmetic instead of the facts, and you spend your credibility defending $189 while the $1,258 of real cost sits unpaid.</p>
+
+<table>
+<thead>
+<tr><th>BC-014 build-up</th><th>Basis</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>GC labor</td><td>2 men &times; 6 hrs &times; $47.50 loaded</td><td>$570.00</td></tr>
+<tr><td>Dumpster</td><td>1 of 3 pulls that week, allocated</td><td>$415.00</td></tr>
+<tr><td>Scissor lift</td><td>1 day at internal rate</td><td>$185.00</td></tr>
+<tr><td>Replacement board</td><td>4 sheets 5/8 type X</td><td>$88.00</td></tr>
+<tr><td><strong>Direct cost (L4)</strong></td><td></td><td><strong>$1,258.00</strong></td></tr>
+<tr><td>Markup (M4)</td><td>Subcontract art. 8.3, 10%</td><td>$125.80</td></tr>
+<tr><td><strong>Total charged (N4)</strong></td><td><code>=L4*(1+M4)</code></td><td><strong>$1,383.80</strong></td></tr>
+</tbody>
+</table>
+
+<p>Do not round that to $1,400. An unrounded number reads as a cost record pulled from a system. A rounded number reads as an estimate, and estimates get negotiated. The dumpster allocation matters for the same reason: charging the full $1,245 pull when the sub caused a third of it is the single detail that lets someone reframe the entire log as padded.</p>
+
+<h2>Coverage ratio, the column that tells you whether you can still self-help</h2>
+
+<p>Here is the column nobody builds. A backcharge is only collectible by deduction up to the money you still owe that sub. Everything above that line is a claim you have to go get. So the log needs a second sheet, one row per subcontract, that compares exposure to what you are still holding.</p>
+
+<table>
+<thead>
+<tr><th>Subcontractor</th><th>Contract with COs (B)</th><th>Paid to date (D)</th><th>Remaining balance (F)</th><th>Open exposure (G)</th><th>Coverage (H)</th><th>Action (I)</th></tr>
+</thead>
+<tbody>
+<tr><td>Metro Drywall</td><td>$384,000</td><td>$307,200</td><td>$76,800</td><td>$9,420</td><td>8.15</td><td>RELEASE</td></tr>
+<tr><td>Carolina Glass</td><td>$228,500</td><td>$171,375</td><td>$57,125</td><td>$2,140</td><td>26.70</td><td>RELEASE</td></tr>
+<tr><td>Apex Mechanical</td><td>$612,000</td><td>$594,600</td><td>$17,400</td><td>$21,750</td><td>0.80</td><td>HOLD PAY APP</td></tr>
+<tr><td>Piedmont Electric</td><td>$455,000</td><td>$443,900</td><td>$11,100</td><td>$14,830</td><td>0.75</td><td>HOLD PAY APP</td></tr>
+</tbody>
+</table>
+
+<p>The three formulas behind it:</p>
+
+<ul>
+<li><strong>F4, remaining balance:</strong> <code>=B4-D4</code>. Contract value including approved change orders, less everything paid. Retainage you are still holding lives inside this number, which is the point.</li>
+<li><strong>G4, open exposure:</strong> <code>=SUMIFS(Backcharges!$N:$N,Backcharges!$C:$C,$A4,Backcharges!$O:$O,"&lt;&gt;Deducted",Backcharges!$O:$O,"&lt;&gt;Written off")</code>. Everything charged to that sub that has not yet been collected or abandoned.</li>
+<li><strong>H4 and I4, the decision:</strong> <code>=IF(G4=0,"",F4/G4)</code> and <code>=IF(G4=0,"",IF(H4&lt;1.5,"HOLD PAY APP","RELEASE"))</code>.</li>
+</ul>
+
+<p>Apex and Piedmont are already past the point where a deduction settles anything. Neither of those situations was created by a bad backcharge, they were created by pay applications approved by someone who had never seen the backcharge log. The threshold sits at 1.5 rather than 1.0 on purpose, because coverage of exactly 1.0 leaves you no room for the next incident on a sub who has now demonstrated a pattern.</p>
+
+<p>This sheet is worthless at closeout and decisive on the fifteenth of the month. Run it as a step in pay application approval, before the check goes out, while the leverage still exists.</p>
+
+<h3>Close the loop on the pay application</h3>
+
+<p>Status in column O moves through a fixed path: Open, Noticed, Cured, Accepted, Disputed, Deducted, Written off. Only two of those are endings. Cured means the sub fixed it and the charge closes at zero, which is the outcome the notice was actually trying to produce.</p>
+
+<p>A row marked Deducted with a blank column P is not a deduction, it is an intention. Every closed row carries the pay application number and the dollar amount that appeared on it, and the two sides have to tie:</p>
+
+<p><code>=SUMIFS($Q:$Q,$P:$P,"PA-11")</code></p>
+
+<p>That total must equal the deduction line on pay application 11 to the cent. When it does not, your accounting and the sub's accounting disagree by exactly the amount you are about to lose in the closeout negotiation, and you found it four months early.</p>
+
+<h2>Stop crediting backcharges at 100 percent in your cost forecast</h2>
+
+<p>This is the part that reaches the controller and the surety. In most job cost systems, a backcharge posts as a credit to the cost code at full value on the day it is logged. Log $71,400 and the forecast immediately shows $71,400 of cost relief, which flows into projected margin, which flows into the work in progress schedule, over and under billings, and whatever your bonding agent reads in the spring.</p>
+
+<p>The Charlotte job collected 35 percent. Split by notice status, the only variable that predicted anything:</p>
+
+<table>
+<thead>
+<tr><th>Notice status</th><th>Charged</th><th>Collected</th><th>Rate</th></tr>
+</thead>
+<tbody>
+<tr><td>TIMELY</td><td>$28,600</td><td>$23,450</td><td>82%</td></tr>
+<tr><td>LATE</td><td>$19,100</td><td>$1,450</td><td>8%</td></tr>
+<tr><td>BLOWN</td><td>$23,700</td><td>$0</td><td>0%</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$71,400</strong></td><td><strong>$24,900</strong></td><td><strong>35%</strong></td></tr>
+</tbody>
+</table>
+
+<p>So the number that belongs in the forecast is not the gross. It is this:</p>
+
+<p><code>=SUMIFS($N:$N,$K:$K,"TIMELY")*0.82+SUMIFS($N:$N,$K:$K,"LATE")*0.08</code></p>
+
+<p>Rows reading BLOWN contribute nothing, which is accurate and which is also the only report that makes anyone care about the notice clock. On this job the defensible credit was roughly $25,000, so a forecast carrying $71,400 overstated the result by $46,500 for eleven months. It was discovered on the final pay application, when there were no months left to recover it in.</p>
+
+<p>After two or three closed jobs, stop using 0.82 and 0.08 and use your own history: <code>=SUMIFS(History!$Q:$Q,History!$K:$K,"TIMELY")/SUMIFS(History!$N:$N,History!$K:$K,"TIMELY")</code>. Every company's number is different, and the gap between yours and the industry anecdote is worth knowing before you argue with a sub about $3,000.</p>
+
+<p>That table also prices the discipline. The spread between timely and late is 74 points. On BC-014, sending the notice inside seventy-two hours was worth about $1,024 on a $1,383.80 charge. The superintendent's two minute email is the best paid two minutes on the project, and until somebody puts that number in front of them, it will keep not happening.</p>
+
+<h2>Run it for one quarter, then negotiate from a different position</h2>
+
+<p>Five steps, in order, and the first one takes an afternoon:</p>
+
+<ol>
+<li>Pull your last closed job. List every backcharge you intended and what you actually deducted. That percentage is your baseline and it will be lower than you expect.</li>
+<li>Extract the notice requirement from every active subcontract into column H at buyout. Different subs, different clocks, and a single copied value is worse than no column.</li>
+<li>Change the timecard rule today. Any hour spent fixing or cleaning up after a sub gets a BC number at entry, same shift, not at closeout.</li>
+<li>Put the coverage flag into pay application approval. HOLD PAY APP has to fire while you still hold the balance, not after.</li>
+<li>Forecast at your collection rate by notice status. Report the number you can defend, not the number you logged.</li>
+</ol>
+
+<p>The recovery on the Charlotte job was not going to be 100 percent under any system. Backcharges get cured, some get compromised for good commercial reasons, and a few were wrong. But 82 percent on the timely ones is a real rate that came out of a real job, and the difference between 35 percent and something near 70 on that $71,400 is $25,000 of margin that already exists and is sitting in your bank account waiting to be given away.</p>
+
+<p>The reason standalone backcharge logs die in month four is that they need data they do not own. Coverage ratio needs subcontract values with approved change orders, paid to date, and retainage held. The pay application tie-out needs the deduction lines. The forecast credit needs the cost codes. Keep the log in a separate file and someone maintains those four things twice, which means they maintain them once and the log goes stale. The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries the subcontract values, change orders, billed and paid to date, retainage, and cost code structure, which are columns B through E of the coverage sheet and the tie-out for column P. Add the backcharge log as one more tab against data you are already keeping, and the coverage flag, the pay application reconciliation, and the expected recovery credit populate themselves from the sheet you open every month anyway.</p>`,
+  },
+  {
     slug: 'real-estate-novation-agreement-calculator-excel',
     title: 'Real Estate Novation Agreement Calculator in Excel: Novate or Assign',
     metaTitle: 'Real Estate Novation Calculator Excel | SheetCraft',
