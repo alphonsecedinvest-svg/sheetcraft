@@ -16,6 +16,189 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-overhead-allocation-by-job-excel',
+    title: 'Construction Overhead Allocation by Job in Excel: Which Jobs Actually Pay for the Office',
+    metaTitle: 'Construction Overhead Allocation by Job | SheetCraft',
+    metaDescription: 'Construction overhead allocation by job in Excel: two overhead pools, labor-hour and direct-cost drivers, and a flag for which jobs really pay for the office.',
+    targetKeyword: 'construction overhead allocation by job Excel',
+    secondaryKeywords: ['construction overhead rate per labor hour', 'job cost overhead allocation spreadsheet', 'contractor overhead pool Excel', 'construction job profitability analysis', 'overhead absorption contractor'],
+    excerpt: 'A contractor books $6,400,000 of revenue and $43,000 of profit, then points at the wrong job when asked where the profit came from. Allocating overhead as a flat 13.25 percent of revenue made a $110,400 winner look like a $6,500 loser and a $65,500 money pit look like the best margin on the board. Two overhead pools in Excel, one driven by self-perform labor hours and one by direct cost, fix the picture and change what you bid next week.',
+    publishedAt: '2026-08-05',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-overhead-allocation-by-job-excel.png',
+    imageAlt: 'Flat illustration of an office building above three funnels pouring coins into job site buckets, the two small buckets overflowing while the largest bucket sits nearly empty, with a yellow hard hat and a bar chart at the base',
+    content: `<p>Ridgeline Construction finished the year at $6,400,000 in revenue, $5,509,000 in direct cost, and $848,000 in overhead. Net profit: $43,000. The owner knows those three numbers cold. Ask him which of his five jobs produced the $43,000 and he will point at the medical office fit-out, because that is the one that felt good. He is wrong, and the reason he is wrong is that his spreadsheet charges every job 13.25 percent of its revenue for overhead. That single number is doing all the lying. <strong>Construction overhead allocation by job</strong> in Excel is not an accounting chore, it is the difference between bidding the work that pays for your office and bidding the work that quietly eats it.</p>
+
+<p>Overhead allocation is not the same thing as overhead markup, and mixing them up is why most contractors never fix this. Markup is the number you add at bid time. Allocation is the question of which slice of last year's office cost actually belongs to which job. You cannot set a defensible <a href="/blog/construction-overhead-markup-calculator">overhead markup</a> until allocation tells you what different kinds of work really consume. Get the allocation wrong and every markup decision downstream is wrong in the same direction, on every bid, all year.</p>
+
+<h2>Percent of revenue is the default and it is backwards</h2>
+
+<p>Almost every contractor spreadsheet allocates overhead as a flat percentage of job revenue. It is easy, it always foots to the total, and it produces a per-job number that looks authoritative. Ridgeline's is $848,000 divided by $6,400,000, or 13.25 percent, applied to all five jobs.</p>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Revenue</th><th>Direct cost</th><th>Gross profit</th><th>Overhead at 13.25%</th><th>Net</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Retail shell, 88% subbed</td><td>$2,600,000</td><td>$2,262,000</td><td>$338,000</td><td>$344,500</td><td>-$6,500</td></tr>
+<tr><td>B. Medical office fit-out</td><td>$1,700,000</td><td>$1,462,000</td><td>$238,000</td><td>$225,250</td><td>$12,750</td></tr>
+<tr><td>C. Restaurant remodel</td><td>$980,000</td><td>$835,000</td><td>$145,000</td><td>$129,850</td><td>$15,150</td></tr>
+<tr><td>D. Office TI</td><td>$640,000</td><td>$548,000</td><td>$92,000</td><td>$84,800</td><td>$7,200</td></tr>
+<tr><td>E. Small works, 31 jobs</td><td>$480,000</td><td>$402,000</td><td>$78,000</td><td>$63,600</td><td>$14,400</td></tr>
+</tbody>
+</table>
+
+<p>Read that table the way the owner read it. The big retail shell lost money. The small works division, 31 little jobs run out of the service truck, threw off $14,400 on $480,000 of revenue, the best net margin on the board at 3.0 percent. The obvious conclusion is to stop chasing big shell work and feed the small works crew.</p>
+
+<p>That conclusion is going to cost Ridgeline about $200,000 next year, because the allocation that produced it assumes a dollar of revenue consumes the office at the same rate no matter where it comes from. It does not, and the gap is not subtle.</p>
+
+<h3>What a revenue dollar actually costs the office</h3>
+
+<p>The retail shell was 88 percent subcontracted. Twelve subcontracts, twelve monthly pay applications, one owner, one architect, nine change orders, one set of lien waivers per month. A project manager touched it perhaps six hours a week.</p>
+
+<p>The small works division was 31 separate contracts, 31 invoicing cycles, 31 certificates of insurance, 47 change orders under $2,000 each, and 116 site visits by a superintendent who spent most of the year driving. The bookkeeper opened a job file 31 times. Estimating priced 84 small proposals to win those 31.</p>
+
+<p>Revenue allocation charged the shell job $344,500 for that six hours a week and charged the small works division $63,600 for consuming the entire office. Nobody would defend that if you stated it out loud. It survives because it is never stated out loud, it is just a column.</p>
+
+<h2>Pick a base that moves with the work, not with the invoice</h2>
+
+<p>The accounting fix is to allocate on direct labor hours instead of revenue. Self-performed field hours are the closest single proxy for how much supervision, tools, trucks, and management a job absorbs, and every contractor already has the data sitting in timecards coded to job numbers. Ridgeline ran 18,500 self-perform field hours across the five jobs, so the rate is $848,000 divided by 18,500, or $45.84 per hour.</p>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Field hours</th><th>Overhead at $45.84/hr</th><th>Net</th><th>Versus revenue method</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Retail shell</td><td>1,900</td><td>$87,100</td><td>$250,900</td><td>+$257,400</td></tr>
+<tr><td>B. Medical office</td><td>3,400</td><td>$155,900</td><td>$82,100</td><td>+$69,350</td></tr>
+<tr><td>C. Restaurant</td><td>4,100</td><td>$187,900</td><td>-$42,900</td><td>-$58,050</td></tr>
+<tr><td>D. Office TI</td><td>3,900</td><td>$178,800</td><td>-$86,800</td><td>-$94,000</td></tr>
+<tr><td>E. Small works</td><td>5,200</td><td>$238,400</td><td>-$160,400</td><td>-$174,800</td></tr>
+</tbody>
+</table>
+
+<p>Same company, same $43,000 of profit, completely different story about where it came from. But do not adopt this one either, because it overcorrects. Pure labor-hour allocation hands the retail shell a free ride on $2,262,000 of subcontracted cost that generated real office work: twelve subcontract buyouts, bonding and general liability that price off contract value, twelve pay applications to assemble and reconcile, and a certificate-of-insurance chase that ran all year. Those costs scale with contract dollars, not with your crew's hours.</p>
+
+<p>Any single allocation base is a blunt instrument, because overhead is not one thing. It is at least two things, driven by two different meters.</p>
+
+<h2>Build two pools in Excel, not one rate</h2>
+
+<p>Split the $848,000 into a field-support pool and a general and administrative pool, then give each pool the driver that actually moves it. The test for which pool a cost belongs in takes one question per line item on your P&L:</p>
+
+<ul>
+<li><strong>Does it go up when you put another crew in the field, and nothing else changes?</strong> Field support. Superintendent salaries not charged to jobs, trucks and fuel, small tools, field phones, safety program, workers comp administration.</li>
+<li><strong>Does it go up when you sign another contract, regardless of who performs the work?</strong> General and administrative. Contract administration, accounting, general liability and bonding, estimating, project management time on pay apps and submittals.</li>
+<li><strong>Does it sit flat either way?</strong> Office rent, owner compensation, software, legal. Park it in the G&A pool and remember that this is the piece that makes a slow year dangerous.</li>
+</ul>
+
+<p>Ridgeline's split came out at $392,000 field support and $456,000 G&A. Two tabs run the whole thing.</p>
+
+<h3>The Pools tab</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Field</th><th>Value or formula</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Field support pool</td><td>$392,000</td></tr>
+<tr><td>B4</td><td>Budget self-perform hours</td><td>18,500</td></tr>
+<tr><td>B5</td><td>Field rate per hour</td><td><code>=B3/B4</code> &rarr; $21.19</td></tr>
+<tr><td>B7</td><td>G&amp;A pool</td><td>$456,000</td></tr>
+<tr><td>B8</td><td>Budget direct cost</td><td>$5,509,000</td></tr>
+<tr><td>B9</td><td>G&amp;A rate on direct cost</td><td><code>=B7/B8</code> &rarr; 8.28%</td></tr>
+<tr><td>B11</td><td>Absorbed this year</td><td><code>=SUM(Jobs!J4:J40)</code></td></tr>
+<tr><td>B12</td><td>Under or over absorbed</td><td><code>=B3+B7-B11</code></td></tr>
+</tbody>
+</table>
+
+<h3>The Jobs tab</h3>
+
+<p>One row per job. Columns A through F are what you already track. G through P are the ones that change what you bid. Example values are job E, the small works division.</p>
+
+<table>
+<thead>
+<tr><th>Col</th><th>Field</th><th>Job E example</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Job number</td><td>26-118</td></tr>
+<tr><td>B</td><td>Job name</td><td>Small works, all quarters</td></tr>
+<tr><td>C</td><td>Contract revenue</td><td>$480,000</td></tr>
+<tr><td>D</td><td>Direct cost</td><td>$402,000</td></tr>
+<tr><td>E</td><td>Gross profit</td><td><code>=C4-D4</code> &rarr; $78,000</td></tr>
+<tr><td>F</td><td>Gross margin</td><td><code>=E4/C4</code> &rarr; 16.3%</td></tr>
+<tr><td>G</td><td>Self-perform field hours</td><td><code>=SUMIFS(Time!$D:$D,Time!$A:$A,$A4)</code> &rarr; 5,200</td></tr>
+<tr><td>H</td><td>Field support allocated</td><td><code>=G4*Pools!$B$5</code> &rarr; $110,188</td></tr>
+<tr><td>I</td><td>G&amp;A allocated</td><td><code>=D4*Pools!$B$9</code> &rarr; $33,286</td></tr>
+<tr><td>J</td><td>Total overhead allocated</td><td><code>=H4+I4</code> &rarr; $143,474</td></tr>
+<tr><td>K</td><td>Net profit</td><td><code>=E4-J4</code> &rarr; -$65,474</td></tr>
+<tr><td>L</td><td>Net margin</td><td><code>=K4/C4</code> &rarr; -13.6%</td></tr>
+<tr><td>M</td><td>Markup required to cover overhead</td><td><code>=J4/D4</code> &rarr; 35.7%</td></tr>
+<tr><td>N</td><td>Markup actually achieved</td><td><code>=C4/D4-1</code> &rarr; 19.4%</td></tr>
+<tr><td>O</td><td>Pricing gap in points</td><td><code>=N4-M4</code> &rarr; -16.3</td></tr>
+<tr><td>P</td><td>Flag</td><td><code>=IF(O4&lt;0,"UNDERPRICED","COVERS OVERHEAD")</code> &rarr; UNDERPRICED</td></tr>
+</tbody>
+</table>
+
+<p>Column G is the one people get wrong. It has to be self-performed field hours only. If your timecard export includes a working owner, a project manager, or anything you also put in the field support pool, you are allocating a cost using a driver that contains the cost, and the rate will drift every time your office headcount changes. Pull hours from the payroll job-cost export filtered to field classifications, and reconcile the column total to the payroll register once a quarter.</p>
+
+<p>Columns M through P are the payoff. M is not a target margin or a rule of thumb, it is the arithmetic answer to what this job had to add on top of direct cost just to break even after the office. N is what you actually charged. O is the distance between the two, in percentage points, per job.</p>
+
+<h2>What the two-pool numbers tell you to bid</h2>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Field ($21.19/hr)</th><th>G&amp;A (8.28%)</th><th>Total overhead</th><th>Net</th><th>Required markup</th><th>Actual markup</th><th>Gap</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Retail shell</td><td>$40,300</td><td>$187,300</td><td>$227,600</td><td>$110,400</td><td>10.1%</td><td>14.9%</td><td>+4.8</td></tr>
+<tr><td>B. Medical office</td><td>$72,000</td><td>$121,100</td><td>$193,100</td><td>$44,900</td><td>13.2%</td><td>16.3%</td><td>+3.1</td></tr>
+<tr><td>C. Restaurant</td><td>$86,900</td><td>$69,100</td><td>$156,000</td><td>-$11,000</td><td>18.7%</td><td>17.4%</td><td>-1.3</td></tr>
+<tr><td>D. Office TI</td><td>$82,600</td><td>$45,400</td><td>$128,000</td><td>-$36,000</td><td>23.4%</td><td>16.8%</td><td>-6.6</td></tr>
+<tr><td>E. Small works</td><td>$110,200</td><td>$33,300</td><td>$143,500</td><td>-$65,500</td><td>35.7%</td><td>19.4%</td><td>-16.3</td></tr>
+</tbody>
+</table>
+
+<p>Two jobs made $155,300. Three jobs lost $112,500. The company netted $43,000 and the owner thought it came from the medical office.</p>
+
+<h3>The big job was priced out of the market by its own spreadsheet</h3>
+
+<p>Under revenue allocation, the retail shell needed $2,262,000 of direct cost plus $344,500 of overhead, so break-even looked like $2,606,500. Ridgeline won it at $2,600,000, which is why the spreadsheet showed a $6,500 loss and why the owner decided that shell work is a trap. Under two-pool allocation, real break-even on that job was $2,489,600. There was $110,400 of room in the number, and the estimator did not know it. Every shell job he bid after that one, he bid with $116,900 of phantom office cost baked in, and lost the ones that mattered by two or three points to a competitor who knew what his own overhead did.</p>
+
+<h3>The small works division needs a 36 percent markup or it needs to close</h3>
+
+<p>Job E carried $143,500 of overhead on $402,000 of direct cost. To break even, small works has to price at direct cost plus 35.7 percent. To clear a 10 percent net margin, price at <code>=(D4+J4)/(1-0.10)</code>, or $606,100 on $402,000 of cost, a 50.8 percent markup. Ridgeline was charging 19.4 percent.</p>
+
+<p>That does not automatically mean kill the division. Small works feeds relationships, keeps crews busy between big jobs, and generates callbacks that turn into fit-outs. But those are strategic reasons to accept a loss, and you can only accept a loss on purpose if you know it is $65,500 and not a $14,400 gain. Two other moves are available before closing anything: raise small works pricing to a minimum 35 percent markup with a $2,500 minimum charge, or cut the hours that drive the allocation by batching site visits and stopping the 47 no-charge change orders under $2,000.</p>
+
+<h2>A rate is a bet on next year's volume</h2>
+
+<p>Here is the failure mode nobody warns you about. Your allocation rate has a denominator, and the denominator is a forecast. Ridgeline's $21.19 per hour assumes 18,500 self-perform hours. Run 15,200 hours instead and every single job still gets charged $21.19, every job still looks like it covered its overhead, and $69,900 of field support cost was never charged to anything.</p>
+
+<p>Put the check in cell B12 of the Pools tab and read it every quarter, not at year end:</p>
+
+<p><code>=B3+B7-SUM(Jobs!J4:J40)</code></p>
+
+<p>A positive number is overhead you spent and never recovered in any job's price. Ridgeline at 15,200 hours and $4,900,000 of direct cost would show $69,900 unabsorbed on the field pool and $50,400 on the G&amp;A pool, $120,300 total, against $43,000 of reported profit. That is the year where every job report is green and the bank account is red. Track it with a simple driver variance too: <code>=SUM(Jobs!G4:G40)/Pools!$B$4-1</code> tells you how far off your hours forecast is, and if it drops below negative 10 percent by the end of Q2, reprice mid-year rather than discovering it in February.</p>
+
+<h3>Do not build a third pool yet</h3>
+
+<p>Once the two-pool model runs, someone will suggest a transaction-count driver for project management: pay apps, RFIs, submittals, change orders, owner meetings. They are right that it is more accurate. Job A had 21 of those events and job E had 194. But a third pool needs a count that somebody has to maintain, and drivers that depend on a new form get abandoned by the second quarter. Run two pools for four quarters against real closed jobs first. If the flags in column P keep matching what your PMs already suspected, the model is good enough to price off.</p>
+
+<h2>Do this before your next bid goes out</h2>
+
+<ol>
+<li>Pull last year's P&amp;L and split every overhead line into the field pool or the G&amp;A pool using the three questions above. It takes about ninety minutes and it only has to be done once.</li>
+<li>Export self-perform field hours by job from payroll for the same period. Filter out office and management classifications, then reconcile the total to the payroll register.</li>
+<li>Build the Pools tab, compute the two rates, and apply them to every job you closed last year. Do not model it on open jobs first, closed jobs are the only ones with a true final cost.</li>
+<li>Sort by column O. The most negative row is the kind of work you have been buying at a discount all year, and it is almost never the kind you expected.</li>
+<li>Reprice that work category before the next proposal goes out, and set the minimum markup at column M plus your target net margin.</li>
+<li>Add the absorption check in B12 to your quarterly review. A rate that assumed volume you did not get is a loss that no job report will ever show you.</li>
+</ol>
+
+<p>The reason standalone overhead allocation spreadsheets die by the third quarter is that the model needs data it does not own. Column D needs final direct cost including approved change orders, column G needs job-coded labor hours, and the whole thing needs a job list that stays current as work closes out. Rebuild those by hand and you will do it twice before you stop doing it at all. The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries the job register, committed and actual direct cost by cost code, change orders, and labor hours by job, which is columns A through G of the allocation tab. Drop the Pools tab in beside it and columns H through P populate themselves from the job cost you are already maintaining, so the question of which job pays for the office gets answered every month instead of once a year, after the bidding decisions have already been made.</p>`,
+  },
+  {
     slug: 'subcontractor-backcharge-tracking-spreadsheet-excel',
     title: 'Subcontractor Backcharge Tracking Spreadsheet in Excel: Stop Writing Them Off',
     metaTitle: 'Subcontractor Backcharge Spreadsheet Excel | SheetCraft',
