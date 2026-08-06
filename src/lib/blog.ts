@@ -16,6 +16,236 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'contractor-experience-modification-rate-calculator-excel',
+    title: 'Contractor Experience Modification Rate Calculator in Excel: What One Claim Costs You in 2029',
+    metaTitle: 'Experience Modification Rate Calculator Excel | SheetCraft',
+    metaDescription: 'Build a contractor experience modification rate calculator in Excel. See the real NCCI formula, the three year window, and what one claim costs in premium.',
+    targetKeyword: 'contractor experience modification rate calculator Excel',
+    secondaryKeywords: ['EMR calculator construction', 'workers comp experience modification formula', 'how to lower EMR contractor', 'experience rating worksheet Excel', 'construction workers comp premium calculator'],
+    excerpt: 'A drywall sub with $3,300,000 of payroll owes $288,750 of manual workers comp premium, and their published mod of 0.88 sits against a loss-free floor of 0.65 that nobody in the office knows exists. That gap is $64,761 a year. A contractor experience modification rate calculator in Excel rebuilds the NCCI formula line by line, prices claim dollars before they happen at $1.78 for primary and $0.57 for excess, and puts the carrier reserve valuation date on a calendar ninety days early.',
+    publishedAt: '2026-08-06',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-experience-modification-rate-calculator-excel.png',
+    imageAlt: 'Flat illustration of a large clock face with its hands sweeping into an arrow above two desk calendars, a rising stack of gold coins and a clipboard checklist to the right, with a yellow hard hat at the lower left',
+    content: `<p>Harbor Drywall &amp; Framing runs $3,300,000 of field payroll and owes $288,750 of manual workers compensation premium before any modifier touches it. Their experience modification rate is 0.88. The owner knows that number cold, because a general contractor's prequalification form asks for it every March and 0.88 is a number you are happy to write down. He does not know that his loss-free mod is 0.65, that $64,761 a year sits in the gap between those two figures, or that the back strain his foreman is dealing with this morning gets priced into his premium in 2028, 2029, and 2030. A <strong>contractor experience modification rate calculator</strong> in Excel is not an insurance exercise. It is the only way to see the three year delay between what happens on your jobsite and what it costs you, early enough that you can still act on it.</p>
+
+<p>Your carrier will not build this for you. The rating worksheet they mail shows the answer with the inputs printed in six point type on the back, valued as of a date eighteen months in the past, and it lands after the renewal has already been quoted. By the time you can read it, every decision that produced it is closed.</p>
+
+<h2>The mod is a three year multiplier that runs on a delay</h2>
+
+<p>Two facts about the experience period explain most of what contractors get wrong about their mod.</p>
+
+<p>The first is that the experience period covers three policy years, not one, and it excludes the year that just ended. A mod effective January 1, 2026 is built from policy years 2022, 2023, and 2024. Policy year 2025 is too green to have credible loss data, so it sits out. The second is that a claim therefore lands in three consecutive mods, and the first of those is roughly two years after the injury.</p>
+
+<table>
+<thead>
+<tr><th>Mod effective</th><th>Experience period</th><th>Counts a March 2026 injury?</th></tr>
+</thead>
+<tbody>
+<tr><td>1/1/2026</td><td>PY 2022, 2023, 2024</td><td>No</td></tr>
+<tr><td>1/1/2027</td><td>PY 2023, 2024, 2025</td><td>No</td></tr>
+<tr><td>1/1/2028</td><td>PY 2024, 2025, 2026</td><td>Yes, year one</td></tr>
+<tr><td>1/1/2029</td><td>PY 2025, 2026, 2027</td><td>Yes, year two</td></tr>
+<tr><td>1/1/2030</td><td>PY 2026, 2027, 2028</td><td>Yes, year three</td></tr>
+<tr><td>1/1/2031</td><td>PY 2027, 2028, 2029</td><td>No, it drops out</td></tr>
+</tbody>
+</table>
+
+<p>Read the third column and the whole safety-versus-cost argument changes shape. Nothing you do this year shows up in this year's premium. Nothing. The claim that happens today is invisible for two renewals, then it charges you for three, then it disappears. Contractors who only look at renewal quotes are steering a truck by watching the road two years behind them.</p>
+
+<p>The delay has a hard edge you can put in a calendar. Loss data gets reported to the rating bureau on a valuation date, and the first one falls eighteen months after the policy period begins. For policy year 2026 starting January 1, that is July 1, 2027, with re-reports at thirty and forty two months. Whatever the carrier has reserved on an open claim on that date is the number that enters the formula, whether or not the claim ever costs that much. The valuation date, not the settlement date, is your deadline.</p>
+
+<h2>The formula your carrier prints on the back of the worksheet</h2>
+
+<p>The NCCI experience rating formula is used in roughly thirty eight states. California, Pennsylvania, New Jersey, New York, Delaware, Michigan, North Carolina, Texas, and Wisconsin run independent bureaus with their own parameters, so pull your own worksheet before you trust any published example, including this one. The structure is the same everywhere:</p>
+
+<p><code>Mod = (Ap + B + W * Ae + (1 - W) * Ee) / (Ep + B)</code></p>
+
+<p>Six terms, and the whole model turns on understanding what each one is doing to you.</p>
+
+<table>
+<thead>
+<tr><th>Term</th><th>What it is</th><th>Harbor's value</th><th>Where it comes from</th></tr>
+</thead>
+<tbody>
+<tr><td>Ap</td><td>Actual primary losses, each claim capped at the split point</td><td>$73,640</td><td>Your claim runs, capped in the sheet</td></tr>
+<tr><td>Ae</td><td>Actual excess losses, everything above the cap</td><td>$110,500</td><td>Your claim runs</td></tr>
+<tr><td>Ep</td><td>Expected losses, payroll divided by 100 times the expected loss rate</td><td>$371,000</td><td>State ELR table by class code</td></tr>
+<tr><td>Ee</td><td>Expected excess losses, Ep times one minus the D-ratio</td><td>$296,800</td><td>State D-ratio table by class code</td></tr>
+<tr><td>B</td><td>Ballast, a stabilizer that grows with your size</td><td>$115,000</td><td>Table of Weighting Values</td></tr>
+<tr><td>W</td><td>Weight, how much of your excess losses you own</td><td>0.32</td><td>Table of Weighting Values</td></tr>
+</tbody>
+</table>
+
+<p>The split point is the cap that divides primary from excess. NCCI sets it annually and indexes it, and it has been in the $18,000 to $20,000 range in recent years. Harbor's worksheet says $18,500. Do not hardcode it, put it in a cell, because it changes and it varies by state.</p>
+
+<p>Notice what the denominator collapses to. Expected primary plus expected excess is just expected losses, so the bottom of the fraction is <code>Ep + B</code> and nothing else. Harbor's denominator is $486,000, and it does not move when a claim happens. That single fact makes the whole thing modelable: every dollar of loss has a fixed, knowable price in mod points.</p>
+
+<h3>Your mod has a floor, and you probably do not know yours</h3>
+
+<p>Set actual losses to zero and the formula does not return zero. It returns the best mod your payroll and class codes will ever produce:</p>
+
+<p><code>=(Ballast+(1-W)*Expected_excess)/(Expected_losses+Ballast)</code></p>
+
+<p>For Harbor that is ($115,000 + 0.68 * $296,800) / $486,000, or 0.65. A perfect year, an empty claim run, zero recordables, and the best they can buy is a 35 percent credit. Everything below 0.65 is not available at any price.</p>
+
+<p>This matters because "get under 1.0" is the wrong target and it is the only target most contractors are given. Harbor is at 0.88 against a floor of 0.65. The distance between them is 0.224 mod points, which on $288,750 of manual premium is $64,761 a year of recoverable money. Without the floor calculation the owner has no idea whether he is nearly optimized or leaving a truck payment on the table every month.</p>
+
+<h2>Build the sheet in four tabs</h2>
+
+<p>This is a small model. The difficulty is not the math, it is keeping the claim data in a shape the formula can consume.</p>
+
+<h3>Tab 1: Inputs</h3>
+
+<p>Everything that comes off the rating worksheet goes here, one cell each, never buried in a formula.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Harbor</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Rating effective date</td><td>1/1/2026</td></tr>
+<tr><td>B3</td><td>Experience period start <code>=EDATE(B2,-48)</code></td><td>1/1/2022</td></tr>
+<tr><td>B4</td><td>Experience period end <code>=EDATE(B2,-12)</code></td><td>1/1/2025</td></tr>
+<tr><td>B5</td><td>Split point</td><td>$18,500</td></tr>
+<tr><td>B6</td><td>Ballast</td><td>$115,000</td></tr>
+<tr><td>B7</td><td>Weight</td><td>0.32</td></tr>
+<tr><td>B8</td><td>Medical-only rating factor</td><td>0.30</td></tr>
+<tr><td>B9</td><td>Annual manual premium</td><td>$288,750</td></tr>
+<tr><td>B10</td><td>Prequalification ceiling you bid against</td><td>0.90</td></tr>
+</tbody>
+</table>
+
+<p>B3 and B4 are the two formulas that keep the model honest year to year. Change the rating effective date and the experience window slides by itself, so you never hand-pick which claims count.</p>
+
+<h3>Tab 2: Exposure</h3>
+
+<p>One row per class code per policy year. Column A holds the policy period start date, not the text "2022", so the same date criteria work on this tab and the claims tab.</p>
+
+<p>Expected losses in F: <code>=C4/100*D4</code>, payroll divided by one hundred times the expected loss rate. Expected primary in G: <code>=F4*E4</code>, using the D-ratio. Expected excess in H: <code>=F4-G4</code>.</p>
+
+<table>
+<thead>
+<tr><th>Policy year</th><th>Payroll</th><th>ELR per $100</th><th>D-ratio</th><th>Expected losses</th><th>Expected excess</th></tr>
+</thead>
+<tbody>
+<tr><td>1/1/2022</td><td>$2,600,000</td><td>$4.30</td><td>0.20</td><td>$111,800</td><td>$89,440</td></tr>
+<tr><td>1/1/2023</td><td>$2,950,000</td><td>$4.20</td><td>0.20</td><td>$123,900</td><td>$99,120</td></tr>
+<tr><td>1/1/2024</td><td>$3,300,000</td><td>$4.10</td><td>0.20</td><td>$135,300</td><td>$108,240</td></tr>
+</tbody>
+</table>
+
+<p>The ELR is not your manual rate. It is the loss portion only, roughly half the manual rate, and it is published per class code by your state. Using the manual rate here is the single most common way this spreadsheet gets built wrong, and it makes every mod you calculate look artificially good.</p>
+
+<h3>Tab 3: Claims</h3>
+
+<p>One row per claim, pulled from the loss run your carrier will email you within a day of being asked. Column F is incurred, meaning paid plus reserve, not paid.</p>
+
+<p>Rated value in G: <code>=IF(E4="Medical only",F4*Inputs!$B$8,F4)</code>. In most NCCI states a medical-only claim is discounted 70 percent for experience rating purposes. Primary in H: <code>=MIN(G4,Inputs!$B$5)</code>. Excess in I: <code>=G4-H4</code>. Valuation date in J: <code>=EDATE(C4,18)</code>. And the column that earns the whole model, K: <code>=IF(AND(D4="Open",J4&gt;TODAY(),J4-TODAY()&lt;=90),"REVIEW NOW","")</code>.</p>
+
+<table>
+<thead>
+<tr><th>Claim</th><th>PY</th><th>Type</th><th>Status</th><th>Incurred</th><th>Rated</th><th>Primary</th><th>Excess</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2022</td><td>Medical only</td><td>Closed</td><td>$6,400</td><td>$1,920</td><td>$1,920</td><td>$0</td></tr>
+<tr><td>2</td><td>2022</td><td>Lost time</td><td>Closed</td><td>$47,000</td><td>$47,000</td><td>$18,500</td><td>$28,500</td></tr>
+<tr><td>3</td><td>2023</td><td>Medical only</td><td>Closed</td><td>$3,100</td><td>$930</td><td>$930</td><td>$0</td></tr>
+<tr><td>4</td><td>2023</td><td>Lost time</td><td>Closed</td><td>$12,800</td><td>$12,800</td><td>$12,800</td><td>$0</td></tr>
+<tr><td>5</td><td>2023</td><td>Lost time</td><td>Open</td><td>$88,000</td><td>$88,000</td><td>$18,500</td><td>$69,500</td></tr>
+<tr><td>6</td><td>2024</td><td>Medical only</td><td>Closed</td><td>$2,400</td><td>$720</td><td>$720</td><td>$0</td></tr>
+<tr><td>7</td><td>2024</td><td>Medical only</td><td>Closed</td><td>$5,900</td><td>$1,770</td><td>$1,770</td><td>$0</td></tr>
+<tr><td>8</td><td>2024</td><td>Lost time</td><td>Open</td><td>$31,000</td><td>$31,000</td><td>$18,500</td><td>$12,500</td></tr>
+</tbody>
+</table>
+
+<p>Totals: $196,600 incurred, $73,640 primary, $110,500 excess.</p>
+
+<h3>Tab 4: Mod</h3>
+
+<p>Pull the sums with date criteria so the window is never hand-picked:</p>
+
+<p><code>=SUMIFS(Claims!$H:$H,Claims!$C:$C,"&gt;="&amp;Inputs!$B$3,Claims!$C:$C,"&lt;"&amp;Inputs!$B$4)</code></p>
+
+<p>Repeat for excess against column I, and for expected losses and expected primary against the exposure tab. Then the mod itself, in B9:</p>
+
+<p><code>=(B3+Inputs!$B$6+Inputs!$B$7*B4+(1-Inputs!$B$7)*B7)/(B5+Inputs!$B$6)</code></p>
+
+<p>Harbor's numerator is $73,640 + $115,000 + $35,360 + $201,824, or $425,824. Divided by $486,000 it gives 0.8762, which the bureau publishes as 0.88.</p>
+
+<p>Now build the two lines that turn a calculator into a decision tool. Cost per $1,000 of primary loss across the full three year window, in B12:</p>
+
+<p><code>=1000/(B5+Inputs!$B$6)*Inputs!$B$9*3</code></p>
+
+<p>And the same for excess loss, in B13, which multiplies by the weight:</p>
+
+<p><code>=1000/(B5+Inputs!$B$6)*Inputs!$B$7*Inputs!$B$9*3</code></p>
+
+<p>For Harbor those come out at $1,782 and $570. Every dollar of primary loss costs $1.78 in future premium. Every dollar of excess loss costs $0.57. That 3.1 to 1 ratio is the most useful number in the model and it drives everything in the next section.</p>
+
+<h2>What the model tells you that the worksheet never will</h2>
+
+<p>With the two marginal cost cells built, you can price any claim scenario in about four seconds.</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Incurred</th><th>Primary</th><th>Excess</th><th>Mod points</th><th>Premium per year</th><th>Three year cost</th></tr>
+</thead>
+<tbody>
+<tr><td>$9,000, medical only</td><td>$9,000</td><td>$2,700</td><td>$0</td><td>0.006</td><td>$1,604</td><td>$4,813</td></tr>
+<tr><td>$9,000, lost time</td><td>$9,000</td><td>$9,000</td><td>$0</td><td>0.019</td><td>$5,347</td><td>$16,042</td></tr>
+<tr><td>$50,000, lost time</td><td>$50,000</td><td>$18,500</td><td>$31,500</td><td>0.059</td><td>$16,980</td><td>$50,941</td></tr>
+<tr><td>$92,500 in one claim</td><td>$92,500</td><td>$18,500</td><td>$74,000</td><td>0.087</td><td>$25,061</td><td>$75,182</td></tr>
+<tr><td>$92,500 in five claims</td><td>$92,500</td><td>$92,500</td><td>$0</td><td>0.190</td><td>$54,958</td><td>$164,873</td></tr>
+</tbody>
+</table>
+
+<p>One caveat before you quote these to your CFO. Premium discount tiers and any schedule credit apply after the mod, so on an account this size the cash effect lands five to ten percent below the table. It changes the magnitude slightly and the conclusions not at all.</p>
+
+<h3>Frequency costs 2.2 times what severity costs</h3>
+
+<p>Compare the last two rows. Identical loss dollars, $92,500 either way. Spread across five ordinary $18,500 claims it costs $164,873 over three years. Concentrated in one bad $92,500 injury it costs $75,182. The five small claims do 2.2 times the damage of the one large one, because primary dollars are counted in full and excess dollars are discounted to $0.57.</p>
+
+<p>Contractors run this backwards. The safety meeting is about the fall protection and the trench box, the things that produce the catastrophic claim, and the strains, lacerations, and eye injuries get treated as the cost of doing business. The formula says the opposite. Your mod is a frequency instrument. A program that eliminates four minor recordables a year is worth more than one that prevents a single serious injury, in mod terms, which is an uncomfortable sentence and still true. Run both, obviously, but if you are tracking one number on the <a href="/blog/construction-safety-tracking-spreadsheet-osha-compliant">safety log</a>, track incident count.</p>
+
+<h3>Light duty is worth $11,229 per claim</h3>
+
+<p>Rows one and two of that table are the same $9,000 of medical cost. The difference is whether the injured worker missed enough time to convert the claim from medical-only to lost-time. Medical-only gets the 70 percent rating discount, lost-time does not. That single classification is worth $11,229 over the three year window on a $9,000 claim.</p>
+
+<p>A modified duty assignment costs you a body on the site doing something worth less than full production, maybe $4,000 of soft cost over six weeks. It returns $11,229. That is not a wellness initiative, it is a 181 percent return, and it is why the good contractors have the light duty job description written before anyone gets hurt.</p>
+
+<h3>The reserve review is the highest paid hour of your year</h3>
+
+<p>Claim 5 sits open at $88,000 incurred. Most of that is a reserve, an adjuster's estimate, set early when the file looked worse than it turned out to be. Say a claim review before the valuation date gets it down to $52,000 on the strength of a return-to-work release and an independent medical exam.</p>
+
+<p>Primary does not move, it is already capped at $18,500. Excess drops from $69,500 to $33,500, a $36,000 reduction, weighted at 0.32. The numerator falls $11,520, the mod goes from 0.876 to 0.852, and the published mod rounds to 0.85 instead of 0.88. That is $6,844 a year, $20,533 over the window, from one meeting with your adjuster.</p>
+
+<p>Column K on the claims tab exists to force that meeting. Ninety days before each valuation date, every open claim in the experience window shows REVIEW NOW. Filter on it, book the call, and go line by line: is the reserve consistent with the current medical status, is subrogation being pursued, is anything sitting open that should be closed. Carriers do not lower reserves unprompted.</p>
+
+<h3>The premium is the small cost</h3>
+
+<p>Harbor bids to two general contractors whose prequalification packages cap EMR at 0.90. At 0.88 they are on the list. One bad year at 1.02 and they are off it.</p>
+
+<p>The premium difference between 0.88 and 1.02 is 0.14 mod points, or $40,425 a year. The work stream behind those two prequalification forms is $2,400,000 a year at 11 percent gross margin, which is $264,000 of gross profit. Losing the bid list costs 6.5 times what the premium increase costs, and it does not come back the month the mod does, because the GC filled the slot with somebody else and that relationship now has history.</p>
+
+<p>This is the argument that gets a safety budget approved when the premium argument does not. Put cell B14 on the mod tab, <code>=IF(B9&gt;Inputs!$B$10,"ABOVE PREQUAL CEILING","OK")</code>, and put the dollar value of the work behind that ceiling in the cell next to it. It reframes workers comp from an insurance line item into a revenue gate, which is what it actually is. The general contractors on the other side of that form are running <a href="/blog/subcontractor-prequalification-scorecard-excel">the same scorecard</a> on you.</p>
+
+<h2>Do this in the next thirty days</h2>
+
+<ol>
+<li>Email your agent for two things: current loss runs valued within the last thirty days for the last five policy years, and the rating worksheets for the last three mods. Both are yours, both arrive within a day, and neither costs anything.</li>
+<li>Copy the ballast, weight, split point, ELRs, and D-ratios off the most recent worksheet into the Inputs tab. Rebuild last year's published mod from your own sheet and confirm it ties to two decimals. If it does not tie, you have the wrong ELR or the wrong experience window, and everything downstream is fiction until it ties.</li>
+<li>Calculate your loss-free mod. That number, not 1.00, is your target, and the gap to it in dollars is your actual budget for safety and claims management.</li>
+<li>Filter column K. Every open claim inside ninety days of a valuation date goes on a call with your adjuster this month. Nothing else in this list pays as fast.</li>
+<li>Count your claims by year instead of summing them. If the count is flat or rising while the dollars look fine, your mod is going up in two years regardless of what this year's renewal says.</li>
+<li>Write the modified duty job description now, before you need it, and give it to every supervisor. The $11,229 per claim only shows up if the decision gets made in the first forty eight hours.</li>
+<li>Check your prequalification ceilings. If any GC you depend on caps at 0.90 and you are inside 0.05 of it, your mod is a business continuity problem, not an insurance one.</li>
+</ol>
+
+<p>The recommendation, plainly: build the sheet, but do not let it live alone. Every standalone EMR spreadsheet dies the same way, because payroll by class code, open claim status, and the job-level labor data behind it all live somewhere else, and by the third quarter nobody has rekeyed them. Workers comp is also a line in your <a href="/blog/construction-labor-burden-rate-calculator-excel">labor burden rate</a>, so a mod that moves and a burden rate that does not means you are bidding at last year's cost. The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries payroll by job and class code, the labor burden build-up, and a job register that stays current as work closes out, which is the exposure tab and half the inputs tab populated from data you maintain anyway. Add the claims tab beside it and the mod recalculates every month instead of arriving on a worksheet eighteen months late, which is the only version of this that changes what you bid.</p>`,
+  },
+  {
     slug: 'construction-overhead-allocation-by-job-excel',
     title: 'Construction Overhead Allocation by Job in Excel: Which Jobs Actually Pay for the Office',
     metaTitle: 'Construction Overhead Allocation by Job | SheetCraft',
