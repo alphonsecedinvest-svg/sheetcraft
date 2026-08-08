@@ -16,6 +16,235 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-historical-cost-database-excel',
+    title: 'Construction Historical Cost Database in Excel: Store Hours, Not Dollars',
+    metaTitle: 'Construction Historical Cost Database Excel | SheetCraft',
+    metaDescription: 'Build a construction historical cost database in Excel that stores labor hours per unit, brackets unit costs by job size, and flags thin data before you bid.',
+    targetKeyword: 'construction historical cost database Excel',
+    secondaryKeywords: ['unit cost database construction', 'labor productivity tracking spreadsheet', 'historical unit costs by cost code', 'construction cost history template Excel', 'how to build a unit cost database'],
+    excerpt: 'Redline Concrete bids slab on grade at 1.83 labor hours per 100 square feet, the published figure with a city index applied. Its own eleven jobs say 3.71 on anything under 5,000 square feet, and the gap is $71,336 of labor performed and never bid in twelve months, sixteen percent of net income. A construction historical cost database in Excel fixes that by storing hours per unit instead of dollars, bracketing unit costs by job size, and flagging thin data before the estimator trusts it.',
+    publishedAt: '2026-08-08',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-historical-cost-database-excel.png',
+    imageAlt: 'Flat illustration of stacked archive boxes holding rolled construction drawings and a yellow hard hat on the left, a spreadsheet grid with two rising trend lines in the center, and a concrete slab with a hand float trowel and a stopwatch on the right',
+    content: `<p>Redline Concrete and Masonry does $6.8 million a year and self-performs everything it can: footings, slab on grade, edge and curb form, CMU wall. Thirty-four jobs closed in the last three years. Every one of them was bid off published unit cost data with a city cost index applied, because that is what the estimator learned in 2009 and it has never obviously failed. A <strong>construction historical cost database</strong> in Excel is the alternative, and the reason to build one is not that published data is wrong. It is that published data describes an average crew in an average metro, and Redline has never once sent an average crew to a job site.</p>
+
+<p>Here is what Redline's own numbers say about one cost code, 03 30 00, slab on grade, placing and finishing. Eleven jobs where somebody actually wrote down how many square feet got poured and how many labor hours were coded to it.</p>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Year</th><th>Actual sf</th><th>Labor hours</th><th>Hours per 100 sf</th><th>Size band</th></tr>
+</thead>
+<tbody>
+<tr><td>Ridgeline Retail Pad</td><td>2023</td><td>2,850</td><td>122</td><td>4.28</td><td>S</td></tr>
+<tr><td>Kemper Warehouse Add</td><td>2023</td><td>14,600</td><td>268</td><td>1.84</td><td>L</td></tr>
+<tr><td>Vance St Medical</td><td>2024</td><td>4,100</td><td>141</td><td>3.44</td><td>S</td></tr>
+<tr><td>Hollis Industrial</td><td>2024</td><td>19,200</td><td>315</td><td>1.64</td><td>L</td></tr>
+<tr><td>Marino Auto Body</td><td>2024</td><td>3,400</td><td>131</td><td>3.85</td><td>S</td></tr>
+<tr><td>Pinebrook Flex A</td><td>2024</td><td>8,600</td><td>224</td><td>2.60</td><td>M</td></tr>
+<tr><td>Delta Freight Dock</td><td>2025</td><td>22,400</td><td>361</td><td>1.61</td><td>L</td></tr>
+<tr><td>Southgate Church</td><td>2025</td><td>6,200</td><td>186</td><td>3.00</td><td>M</td></tr>
+<tr><td>Ferrell Storage</td><td>2025</td><td>3,750</td><td>139</td><td>3.71</td><td>S</td></tr>
+<tr><td>Ashwood Flex B</td><td>2025</td><td>10,400</td><td>246</td><td>2.37</td><td>M</td></tr>
+<tr><td>Novak Machine Shop</td><td>2026</td><td>4,450</td><td>152</td><td>3.42</td><td>S</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>99,950</strong></td><td><strong>2,285</strong></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p>The published figure Redline has been bidding, after the city labor index of 0.94 is applied, is 1.83 hours per 100 square feet. Look down the right column. Redline hits that number on exactly three jobs, and all three are over 14,000 square feet.</p>
+
+<h2>Two averages of the same eleven jobs, 26 percent apart</h2>
+
+<p>The instinct at this point is to average the column and be done. That is where most self-built cost history dies, because there are two defensible averages and they disagree badly.</p>
+
+<p>Average the eleven ratios: <code>=AVERAGE(E2:E12)</code> gives 2.89 hours per 100 square feet. Divide total hours by total quantity instead: <code>=SUM(D2:D12)/SUM(C2:C12)*100</code> gives 2.29. Same eleven jobs, same time cards, 26 percent apart. The simple average weights a 2,850 square foot pad the same as a 22,400 square foot dock. The weighted average lets the three big jobs, which are 57 percent of the square footage, drown out the eight small ones.</p>
+
+<p>Both numbers are wrong, and they are wrong in a specific way that matters more than the gap between them. Unit cost is not a constant. It is a curve against quantity, because mobilization, layout, edge to area ratio, and the crew standing around waiting for the truck are roughly fixed per pour and get spread over whatever you place that day. Store one number per cost code and you have averaged away the only structure in the data.</p>
+
+<h3>Bracket by size, then take percentiles</h3>
+
+<p>Split the same eleven jobs into three bands and the picture stops being noise.</p>
+
+<table>
+<thead>
+<tr><th>Band</th><th>Quantity range</th><th>n</th><th>p50 hrs/100 sf</th><th>p75 hrs/100 sf</th><th>Coefficient of variation</th><th>Verdict</th></tr>
+</thead>
+<tbody>
+<tr><td>S</td><td>under 5,000 sf</td><td>5</td><td>3.71</td><td>3.85</td><td>9.4%</td><td>Usable</td></tr>
+<tr><td>M</td><td>5,000 to 11,999 sf</td><td>3</td><td>2.60</td><td>2.80</td><td>11.7%</td><td>Thin, watch it</td></tr>
+<tr><td>L</td><td>12,000 sf and up</td><td>3</td><td>1.64</td><td>1.74</td><td>7.4%</td><td>Thin, watch it</td></tr>
+</tbody>
+</table>
+
+<p>Use the median, not the mean, and keep the 75th percentile next to it. The median is your estimate. The spread between p50 and p75 is your contingency, priced instead of guessed. And carry the sample count in a visible cell, because three jobs is not a database and the sheet should say so out loud rather than returning a confident number built on three rows.</p>
+
+<p>The coefficient of variation, <code>=STDEV.S(range)/AVERAGE(range)</code>, is the honesty check. Under about 15 percent means your crews are repeatable and the scope definition is holding. Over 30 percent almost never means your crews are erratic. It means two of those jobs are not the same scope wearing the same code, and you need to go read the notes before you trust the median.</p>
+
+<h2>Store hours, not dollars</h2>
+
+<p>Nearly every unit cost history built in a spreadsheet stores dollars per unit, and every one of them is obsolete within eighteen months. A labor dollar from 2023 is not a labor dollar from 2026. Your composite burdened rate moved, the comp mod moved, health insurance moved. Bake all of that into a stored $/sf figure and you have made your own history depreciate.</p>
+
+<p>Hours per unit does not depreciate. How long it takes your finishers to pull 100 square feet of 4,000 psi slab is a fact about your crew and your means and methods, and it is just as true in 2026 as it was when they did it. Store the hours. Price them at today's rate at the moment you look them up.</p>
+
+<p>That single decision splits the database into two mechanisms that behave differently, which is exactly right, because labor and material behave differently.</p>
+
+<ul>
+<li><strong>Labor</strong> is stored as hours per unit and repriced with the current burdened crew rate: <code>=Hours_Per_Unit*XLOOKUP(Crew,Rates!$A:$A,Rates!$B:$B)</code>. No index, no escalation guess. Redline's concrete crew composite is $52.80 fully burdened today, so 3.71 hours per 100 square feet becomes $1.96 per square foot, and it becomes something else automatically the day the rate cell changes.</li>
+<li><strong>Material and sub dollars</strong> are stored as spent and escalated forward with an index, because you cannot reprice a 2023 concrete delivery from first principles: <code>=Mat_Per_Unit*Idx_Today/XLOOKUP(JobID,Jobs!$A:$A,Jobs!$H:$H)</code>.</li>
+<li><strong>Equipment</strong> follows whichever convention you actually use. Owned equipment on an internal hourly rate behaves like labor. Rented pumps and lasers behave like material.</li>
+</ul>
+
+<p>The material side is where the money hides. Redline's ready-mix ran $148 per cubic yard in the second quarter of 2023 and runs $181 today, up 22.3 percent. A 6 inch slab at 5 percent over-pour is 0.01944 cubic yards per square foot. On the Kemper job the as-spent material read $2.88 per square foot. Average that raw against 2026 jobs and you produce a bid number that is 65 cents per square foot light on concrete alone. Normalize it, <code>=2.88*122.3/100</code>, and it reads $3.52, which is what the truck will actually cost you next month.</p>
+
+<h3>The index does not have to be sophisticated</h3>
+
+<p>Keep an Index tab with one row per quarter and one column per input class: ready-mix, rebar, block, lumber, and a blended column for subs. Populate it from your own purchase records, not from a national series, because your supplier's price list is the thing your job will actually pay. Twelve rows a year, updated in ten minutes each quarter, and every historical dollar in the file becomes comparable to today.</p>
+
+<h2>You are not building a cost database, you are building a quantity database</h2>
+
+<p>This is the part that decides whether the project takes a week or dies in month two.</p>
+
+<p>You already have the cost half. It is in your accounting system, coded to jobs and cost codes, reconciled to the penny because a bookkeeper closes it every month. What you do not have, anywhere, in any system, is the denominator. Nobody wrote down that Southgate Church was 6,200 square feet of slab. The cost of a cost code without a quantity is accounting. Cost divided by quantity is estimating. The entire build is about manufacturing that one missing column.</p>
+
+<p>Run the coverage test before you build anything. For each cost code, count how many closed jobs have cost, then how many of those also have a defensible installed quantity.</p>
+
+<table>
+<thead>
+<tr><th>Cost code</th><th>Description</th><th>Jobs with cost</th><th>Jobs with actual quantity</th><th>Usable after band split</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>03 30 00</td><td>Slab on grade, place and finish</td><td>27</td><td>11</td><td>5 / 3 / 3</td><td>S band usable</td></tr>
+<tr><td>03 11 00</td><td>Edge and curb formwork</td><td>24</td><td>9</td><td>4 / 3 / 2</td><td>S band usable</td></tr>
+<tr><td>04 22 00</td><td>CMU wall, 8 in</td><td>15</td><td>7</td><td>4 / 3 / 0</td><td>S band usable</td></tr>
+<tr><td>03 21 00</td><td>Reinforcing, place and tie</td><td>26</td><td>4</td><td>2 / 1 / 1</td><td>Thin, use published</td></tr>
+<tr><td>31 23 16</td><td>Excavation and backfill</td><td>12</td><td>3</td><td>2 / 1 / 0</td><td>Thin, use published</td></tr>
+</tbody>
+</table>
+
+<p>Thirty-four closed jobs produce three trustworthy numbers. That is not a failure of the method, it is the honest yield, and it is still three numbers more than the estimator had on Monday. The bottleneck column is the fourth one, and it is the only column worth an afternoon of backfill.</p>
+
+<h3>Two quantities, not one, and they answer different questions</h3>
+
+<p>Store the bid quantity and the actual installed quantity in separate columns. Divide by the wrong one and you corrupt the number you are trying to build.</p>
+
+<p>Southgate Church was taken off at 5,900 square feet and poured at 6,200. Divide 186 hours by the bid quantity and you get 3.15 hours per 100 square feet. Divide by the actual and you get 3.00. That 5 percent gap is not your crew being slow. It is your takeoff missing 300 square feet, and if you file it under productivity you have permanently taxed the crew for the estimator's error and lost the signal that your takeoffs run light on churches.</p>
+
+<ul>
+<li><strong>Hours divided by actual quantity</strong> is productivity. It is what goes in the database.</li>
+<li><strong>Actual quantity divided by bid quantity</strong> is takeoff accuracy. Track it by job type and it becomes its own useful number.</li>
+<li><strong>Cost divided by bid quantity</strong> is bid performance. Useful for a postmortem, poisonous inside a unit cost history, because it silently blends two unrelated failures.</li>
+</ul>
+
+<h2>Build the sheet: six tabs and one hard rule</h2>
+
+<p>The hard rule first, because no formula survives without it. Your accounting cost code list and your estimating assembly list must be the same list, with the same numbers, and each code carries a written inclusion boundary. Most contractors run two lists that were never reconciled, and the result is a database where 03 30 00 means slab plus pump plus vapor barrier on one job and slab alone on another.</p>
+
+<p>Hollis Industrial had the pump truck and the vapor barrier install buried in 03 30 00. As coded, its material reads $3.34 per square foot. Pull the pump and the barrier out and it reads $3.05. On a large band with three data points, one miscoded job moves the median by nine percent and nobody can see why. Write the boundary in a cell, one line, in plain English: <em>includes place, screed, float, trowel, cure and control joints. Excludes pump, vapor barrier, subgrade prep, reinforcing.</em></p>
+
+<h3>Jobs tab</h3>
+
+<p>One row per job. Columns A through J: Job ID, name, type, actual start, substantial completion, cost midpoint, index period, material index, conditions note, include flag.</p>
+
+<p>The cost midpoint is what you escalate from, not the start or the finish: <code>=D2+(E2-D2)/2</code>. Turn it into an index key with <code>=YEAR(F2)&amp;"-Q"&amp;ROUNDUP(MONTH(F2)/3,0)</code> and pull the factor with <code>=XLOOKUP(G2,Index!$A:$A,Index!$B:$B)</code>.</p>
+
+<p>The conditions note is not decoration. Ridgeline Retail Pad is the 4.28 hour outlier in the small band, and the note says winter pour with blankets and a heated enclosure. That job stays in the database with the note attached, because you will bid another winter pour. What it does not do is silently drag the median for a job you are pouring in June.</p>
+
+<h3>CostLines tab, the grain of the whole file</h3>
+
+<p>One row per job per cost code. Job ID, cost code, description, bid quantity, actual quantity, UOM, labor hours, material dollars as spent, sub dollars as spent, equipment dollars as spent, include flag, exclusion note. Nothing computed lives here. This tab is a record of what happened and it never changes after a job closes.</p>
+
+<h3>UnitHistory tab, everything computed</h3>
+
+<p>Same row count as CostLines, all formulas.</p>
+
+<ul>
+<li>Hours per unit: <code>=IF(E2=0,"",G2/E2)</code>. The guard matters, because a job that got coded before the quantity was captured will otherwise fill your file with divide errors that break every downstream FILTER.</li>
+<li>Quantity variance: <code>=IF(D2=0,"",E2/D2-1)</code>.</li>
+<li>Material per unit at today: <code>=IF(E2=0,"",H2/E2*Idx_Today/XLOOKUP(A2,Jobs!$A:$A,Jobs!$H:$H))</code>.</li>
+<li>Size band, with the breaks stored per code rather than hard coded, because 5,000 means nothing to a code measured in linear feet: <code>=IFS(E2&lt;XLOOKUP(B2,Codes!$A:$A,Codes!$D:$D),"S",E2&lt;XLOOKUP(B2,Codes!$A:$A,Codes!$E:$E),"M",TRUE,"L")</code>.</li>
+<li>Labor dollars per unit at today's rate: <code>=M2*XLOOKUP(XLOOKUP(B2,Codes!$A:$A,Codes!$G:$G),Rates!$A:$A,Rates!$B:$B)</code>.</li>
+</ul>
+
+<h3>Lookup tab, the face the estimator actually uses</h3>
+
+<p>Two inputs, cost code in B2 and the quantity you are about to bid in B3. Everything else computes.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Output</th><th>Formula</th><th>Novak II, 4,200 sf</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Band</td><td><code>=IFS(B3&lt;XLOOKUP(B2,Codes!$A:$A,Codes!$D:$D),"S",...)</code></td><td>S</td></tr>
+<tr><td>B5</td><td>Sample count</td><td><code>=COUNTIFS(CostLines!$B:$B,B2,UnitHistory!$Q:$Q,B4,CostLines!$K:$K,1)</code></td><td>5</td></tr>
+<tr><td>B6</td><td>p50 hours per unit</td><td><code>=PERCENTILE.INC(FILTER(UnitHistory!M:M,(CostLines!B:B=B2)*(UnitHistory!Q:Q=B4)*(CostLines!K:K=1)),0.5)</code></td><td>0.0371</td></tr>
+<tr><td>B7</td><td>p75 hours per unit</td><td>same FILTER, 0.75</td><td>0.0385</td></tr>
+<tr><td>B9</td><td>Coefficient of variation</td><td><code>=STDEV.S(FILTER(...))/AVERAGE(FILTER(...))</code></td><td>9.4%</td></tr>
+<tr><td>B10</td><td>Data flag</td><td><code>=IF(B5&lt;4,"THIN: "&amp;B5&amp;" JOBS, USE PUBLISHED",IF(B9&gt;0.30,"SCOPE MISMATCH, READ NOTES","OK"))</code></td><td>OK</td></tr>
+<tr><td>B11</td><td>Labor $ on this bid</td><td><code>=B6*Rate*B3</code></td><td>$8,227</td></tr>
+<tr><td>B14</td><td>Cost of bidding p75 instead</td><td><code>=(B7-B6)*Rate*B3</code></td><td>$311</td></tr>
+</tbody>
+</table>
+
+<p>Wrap every FILTER in <code>=IFERROR(...,"NO DATA")</code>, because FILTER on an empty match returns a hard error that will cascade through the tab. On Excel 2019 and earlier, swap FILTER for <code>=MEDIAN(IF((CostLines!$B$2:$B$400=$B$2)*(UnitHistory!$Q$2:$Q$400=$B$4)*(CostLines!$K$2:$K$400=1),UnitHistory!$M$2:$M$400))</code> entered with Ctrl+Shift+Enter, and use SUMPRODUCT for the count.</p>
+
+<p>Cell B10 is the most valuable cell in the file. It is the one that stops the sheet from lying with confidence. When it says THIN, the estimator uses published data for that line and the sheet has still done its job by telling him which line to distrust.</p>
+
+<h2>What three years of history is actually worth</h2>
+
+<p>Here is the Novak Machine Shop II bid, 4,200 square feet of slab, priced four ways at the same $52.80 burdened rate.</p>
+
+<table>
+<thead>
+<tr><th>Basis</th><th>Hours per 100 sf</th><th>Labor $/sf</th><th>Labor on 4,200 sf</th></tr>
+</thead>
+<tbody>
+<tr><td>Published data, city index 0.94</td><td>1.83</td><td>$0.97</td><td>$4,058</td></tr>
+<tr><td>Weighted average of all 11 jobs</td><td>2.29</td><td>$1.21</td><td>$5,078</td></tr>
+<tr><td>Simple average of all 11 jobs</td><td>2.89</td><td>$1.53</td><td>$6,409</td></tr>
+<tr><td><strong>S band p50, 5 comparable jobs</strong></td><td><strong>3.71</strong></td><td><strong>$1.96</strong></td><td><strong>$8,227</strong></td></tr>
+<tr><td>S band p75</td><td>3.85</td><td>$2.03</td><td>$8,538</td></tr>
+</tbody>
+</table>
+
+<p>The bid Redline was about to send carries $4,058 of labor for work that will cost $8,227. On a slab package that prices out around $38,000, that is eleven percent of the package missing before anyone talks about profit. And note the last row: the entire risk premium between the median and the 75th percentile is $311. Redline has been carrying a five percent blanket contingency, roughly $1,900 on this package, to cover an uncertainty the data says is worth $311.</p>
+
+<p>Run the same test across the three codes Redline self-performs, on the trailing twelve months of small jobs only.</p>
+
+<table>
+<thead>
+<tr><th>Cost code</th><th>TTM quantity, small jobs</th><th>Published $/unit</th><th>S band p50 $/unit</th><th>Gap</th><th>Labor understated</th></tr>
+</thead>
+<tbody>
+<tr><td>03 30 00 slab on grade</td><td>34,600 sf</td><td>$0.97</td><td>$1.96</td><td>$0.99</td><td>$34,254</td></tr>
+<tr><td>03 11 00 edge and curb form</td><td>4,180 lf</td><td>$6.40</td><td>$9.41</td><td>$3.01</td><td>$12,582</td></tr>
+<tr><td>04 22 00 CMU wall, 8 in</td><td>9,800 sf</td><td>$6.85</td><td>$9.35</td><td>$2.50</td><td>$24,500</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td></td><td></td><td><strong>$71,336</strong></td></tr>
+</tbody>
+</table>
+
+<p>Redline nets about 6.5 percent on $6.8 million, roughly $442,000. The $71,336 is sixteen percent of net income, performed and never billed, and it does not show up anywhere in the monthly financials as a problem because the jobs all finished and the checks all cleared. It shows up as a company that works hard and has a thin year.</p>
+
+<p>The other half of the story is the half nobody looks for. On pours over 12,000 square feet Redline runs 1.64 hours per 100 square feet against a published 1.83. They are 10 percent faster than the book on exactly the work they have been pricing at book plus a safety factor. In 2025 they bid eleven large slab packages and won two. Assume a $185,000 average package and a 16 percent gross margin, and winning two more of those, which a 4 to 6 percent price correction plausibly does, is $59,200 of gross profit. That number is an estimate and it depends on a bid spread you would need to pull from your own results, but the direction is not in doubt: the same wrong number is losing you the jobs you should win and winning you the jobs you should lose.</p>
+
+<h3>The two week version</h3>
+
+<ol>
+<li>Pick the three cost codes that carry the most self-performed labor dollars. Not the most codes, three. Everything else stays on published data and that is fine.</li>
+<li>Write the inclusion boundary for each of those three codes in one sentence. Get the field superintendent to agree with it before you key a single row, because he is the one whose time cards have to obey it.</li>
+<li>Pull actual installed quantities for the last eight to twelve closed jobs on those codes. Pay applications, final takeoffs, and delivery tickets get you most of the way. This is the whole project and it is an afternoon per code.</li>
+<li>Export cost by job and cost code from accounting. It is a report you already have. Do not retype it.</li>
+<li>Build the Index tab from your own supplier invoices, one row per quarter, four material classes. Ten minutes.</li>
+<li>Split into three size bands per code and refuse to publish any band with fewer than four jobs. Let the flag say THIN. Resist the urge to widen the bands to manufacture a sample.</li>
+<li>Put the Lookup tab in front of the estimator with the sample count and the flag visible on the same screen as the number. A unit cost with no n next to it will get trusted, and that is how the file starts causing damage instead of preventing it.</li>
+<li>At every job closeout, add one row. Fifteen minutes. The database is worthless as a project and valuable as a habit.</li>
+</ol>
+
+<p>The recommendation, plainly: build it, but do not build it as a standalone file. The reason isolated cost history spreadsheets always die is structural, not motivational. Costs live in accounting, quantities live in the takeoff and the pay application, cost codes live in a list somebody maintains in a different program, and the person keeping the history file is rekeying all three by hand. By the fourth job they stop, and what is left is a file that looks authoritative and stopped being true in March.</p>
+
+<p>The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already holds the pieces this sits on: a single cost code list shared by the budget and the actuals, job level cost capture by code, and committed versus actual by line. The column it needs is actual installed quantity next to the cost you are already recording, and once that column exists, the unit cost history is a lookup against data you maintain anyway rather than a second set of books. That is the difference between knowing your real numbers once, during a slow week, and knowing them on every bid you send for the next ten years.</p>`,
+  },
+  {
     slug: 'construction-material-waste-factor-calculator-excel',
     title: 'Construction Material Waste Factor Calculator in Excel: The 10 Percent Nobody Checks',
     metaTitle: 'Construction Waste Factor Calculator Excel | SheetCraft',
