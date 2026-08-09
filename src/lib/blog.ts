@@ -16,6 +16,172 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-acceleration-cost-claim-calculator-excel',
+    title: 'Construction Acceleration Cost Claim Calculator in Excel: Price It Before You Add the Crew',
+    metaTitle: 'Construction Acceleration Cost Claim Excel | SheetCraft',
+    metaDescription: 'Build a construction acceleration cost claim calculator in Excel that prices overtime premium, lost productivity, and added supervision before you staff up.',
+    targetKeyword: 'construction acceleration cost claim calculator Excel',
+    secondaryKeywords: ['constructive acceleration claim', 'loss of productivity calculation', 'measured mile analysis Excel', 'construction overtime inefficiency factor', 'acceleration claim documentation'],
+    excerpt: 'Vance Mechanical gets a letter telling it to hold the contract completion date after a 34 day owner delay, with no change order and no mention of acceleration. The overtime premium is $93,600, the lost productivity buried in the extra clock hours is $187,200, and only one of those two numbers ever gets billed. A construction acceleration cost claim calculator in Excel prices the composite loss factor before the crew grows, and a daily measured mile log proves it after.',
+    publishedAt: '2026-08-09',
+    readTime: 11,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-acceleration-cost-claim-calculator-excel.png',
+    imageAlt: 'Flat illustration of a construction schedule bar chart with a large double arrow on the left, a spreadsheet grid with a curved production line in the center, and two workers in yellow hard hats beside a large stopwatch and a tower crane on the right',
+    content: `<p>Vance Mechanical is nine weeks into the piping rough-in on a 210,000 square foot hospital addition when the owner's design team reissues the med gas riser layout for the third time. Thirty-four days of vertical work stop. Vance submits a time impact analysis and asks for a 34 day extension. Nothing comes back for three weeks. Then a letter arrives from the construction manager: maintain the contract completion date, submit a recovery schedule within seven days. The word acceleration never appears. No change order is issued. A <strong>construction acceleration cost claim calculator</strong> in Excel is what turns that letter into $389,887 of recoverable cost instead of a line item the controller writes off in January as "we just went over on hours."</p>
+
+<p>The reason most acceleration claims die is not arithmetic. It is that the contractor builds the calculation after the fact, when accelerated hours are already blended into the job cost and nobody alive can separate normal production from compressed production. You build this workbook before you add the second shift, not after.</p>
+
+<h2>The Money Is Not the Overtime Premium</h2>
+
+<p>Ask a project manager what acceleration costs and you get overtime. Time and a half, a bigger payroll, done. That answer captures about a third of the exposure and it is the reason contractors leave six figures on the table on a single job.</p>
+
+<p>Here is Vance's actual position at the moment the recovery letter lands. Remaining scope is 9,600 earned labor hours. The as-planned execution was 20 pipefitters, 40 hours a week, 12 weeks. The compressed window is 8 weeks.</p>
+
+<p>You cannot simply divide 9,600 by 8 weeks and staff to that number, because the hours you buy under compression are not worth the hours you planned. A fitter in week 6 of a 55 hour schedule, working in a ceiling shared with two other trades, on a crew that grew by half with fitters who have never seen the job, does not install what a fitter on a 40 hour week installs. The workbook has to price that gap explicitly or you will understaff the recovery and blow the date anyway.</p>
+
+<h3>The inefficiency lookup</h3>
+
+<p>Three loss factors drive nearly all of it. Put them in a lookup table on a <code>Factors</code> sheet, sourced to a published study you can name in a claim narrative. MCAA bulletins, the Business Roundtable overtime studies, and the NECA labor curves are all defensible starting points.</p>
+
+<table>
+<thead>
+<tr><th>Scheduled hours per week</th><th>4 weeks</th><th>8 weeks</th><th>12 weeks</th><th>16 weeks</th></tr>
+</thead>
+<tbody>
+<tr><td>50</td><td>5%</td><td>9%</td><td>11%</td><td>12%</td></tr>
+<tr><td>55</td><td>8%</td><td><strong>15%</strong></td><td>18%</td><td>20%</td></tr>
+<tr><td>60</td><td>11%</td><td>20%</td><td>24%</td><td>27%</td></tr>
+<tr><td>70</td><td>16%</td><td>28%</td><td>33%</td><td>36%</td></tr>
+</tbody>
+</table>
+
+<p>Vance runs 55 hour weeks for 8 weeks, so the overtime loss is 15%. Pull it with <code>=INDEX($C$4:$F$7,MATCH($B$11,$B$4:$B$7,1),MATCH($B$9,$C$3:$F$3,1))</code>, where B11 is scheduled hours per week and B9 is the accelerated duration. The approximate match on both axes is deliberate. A 57 hour week reads off the 55 hour row, which is the conservative direction, and conservative is what survives an audit.</p>
+
+<p>Overmanning is the second factor. Crew goes from 20 to 30, a 50% increase over planned peak, and the supervision ratio degrades with it. <code>=LOOKUP($B$10/$B$5-1,{0;0.11;0.26;0.51},{0;0.05;0.1;0.18})</code> returns 10%. Trade stacking is the third and it is a judgment input, 5% here for three trades in the same ceiling corridor.</p>
+
+<p>Compound them, do not add them. <code>=(1-C15)*(1-C16)*(1-C17)</code> returns a composite efficiency of 0.727, a 27.3% loss. Required clock hours become <code>=B3/B18</code>, or 13,210. Available capacity at 30 fitters is <code>=B10*B11*B9</code>, or 13,200, and the guard <code>=IF(B10*B11*B9&gt;=B19,"OK","SHORT "&amp;ROUND(B19-B10*B11*B9,0)&amp;" HRS")</code> flags the 10 hour gap so somebody has to decide about a Saturday instead of discovering the shortfall in week 7.</p>
+
+<h3>Where the delta actually sits</h3>
+
+<p>Fully burdened straight time is $52.00 an hour, overtime premium at half time is $26.00. Split the accelerated cost against the as-planned baseline.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Hours</th><th>Rate</th><th>Cost</th></tr>
+</thead>
+<tbody>
+<tr><td>As-planned labor</td><td>9,600</td><td>$52.00</td><td>$499,200</td></tr>
+<tr><td>Accelerated clock hours at ST rate</td><td>13,200</td><td>$52.00</td><td>$686,400</td></tr>
+<tr><td>Overtime premium</td><td>3,600</td><td>$26.00</td><td>$93,600</td></tr>
+<tr><td><strong>Total accelerated labor</strong></td><td>13,200</td><td></td><td><strong>$780,000</strong></td></tr>
+<tr><td><strong>Delta versus plan</strong></td><td>+3,600</td><td></td><td><strong>$280,800</strong></td></tr>
+</tbody>
+</table>
+
+<p>Of that $280,800, the overtime premium is $93,600. The other $187,200 is 3,600 clock hours of pure lost productivity, hours that produced nothing beyond the original 9,600 earned hours. Two thirds of the claim is the part nobody bills, because it never shows up as a premium on a payroll register. It shows up as hours, and hours look like your problem unless you priced them in advance.</p>
+
+<p>Then the costs that ride along. Split the overtime hours with <code>=MAX(0,$B$11-40)*$B$10*$B$9</code> and straight time with <code>=MIN($B$11,40)*$B$10*$B$9</code>, then add the rest as separate claim lines.</p>
+
+<table>
+<thead>
+<tr><th>Cost element</th><th>Basis</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Overtime premium</td><td>3,600 hrs at $26.00</td><td>$93,600</td></tr>
+<tr><td>Lost productivity hours</td><td>3,600 hrs at $52.00</td><td>$187,200</td></tr>
+<tr><td>Second general foreman</td><td>440 hrs at $71.00</td><td>$31,240</td></tr>
+<tr><td>Small tools and consumables</td><td>4% of added labor</td><td>$11,232</td></tr>
+<tr><td>Onboarding and badging, 10 added fitters</td><td>80 hrs at $52.00</td><td>$4,160</td></tr>
+<tr><td>Two additional scissor lifts</td><td>2 months at $2,900</td><td>$11,600</td></tr>
+<tr><td><strong>Subtotal direct cost</strong></td><td></td><td><strong>$339,032</strong></td></tr>
+<tr><td>Overhead and profit at 15%</td><td>Per subcontract</td><td>$50,855</td></tr>
+<tr><td><strong>Total acceleration claim</strong></td><td></td><td><strong>$389,887</strong></td></tr>
+</tbody>
+</table>
+
+<h2>Five Boxes You Check or the Claim Is Worth Zero</h2>
+
+<p>Directed acceleration is easy. Somebody signs a change directive telling you to go faster and the entitlement argument is over. That is not what happens on most jobs. What happens is constructive acceleration, where the owner denies or ignores your extension request and then insists on the original date, and every dollar of it hangs on five elements you either documented contemporaneously or lost.</p>
+
+<ol>
+<li>An excusable delay occurred. Owner-caused or otherwise beyond your control under the contract.</li>
+<li>You requested a time extension in writing, within the contract notice period.</li>
+<li>The owner denied it, or sat on it long enough that silence became denial.</li>
+<li>The owner ordered completion by the original date, expressly or by clear implication.</li>
+<li>You actually accelerated and incurred cost doing it.</li>
+</ol>
+
+<p>Build these as five rows on a <code>Entitlement</code> sheet with a document reference in column C and a date in column D. Then let the workbook nag you: <code>=IF(COUNTBLANK(C2:C6)&gt;0,"ENTITLEMENT GAP: "&amp;COUNTBLANK(C2:C6)&amp;" ELEMENT(S) UNSUPPORTED","COMPLETE")</code>. If that cell is red, you are spending money on a claim that does not exist yet.</p>
+
+<p>The notice clock is worth its own formula, because it is the single most common way a valid claim dies. With the directive date in B26 and the contract notice period in B27, use <code>=IF(TODAY()-$B$26&gt;$B$27,"NOTICE PERIOD BLOWN","DAYS LEFT: "&amp;$B$27-(TODAY()-$B$26))</code>.</p>
+
+<p>Concurrency is the other trap. If your own delay ran alongside the owner's, most jurisdictions give you the time and refuse the money. Tag every delay event by responsible party and check it before you price anything: <code>=IF(COUNTIFS(Delay!$B:$B,A2,Delay!$C:$C,"CONTRACTOR")&gt;0,"CONCURRENT, TIME ONLY","COMPENSABLE")</code>. Accelerating through your own delay is voluntary acceleration and you pay for it yourself.</p>
+
+<h2>The Daily Log Is the Claim, Not the Calculator</h2>
+
+<p>The factor tables price the work. They do not prove it. A claims consultant on the other side will attack an industry factor as a generic average applied to a specific job, and they will usually win that argument on its own. What they cannot attack is your own crew's production, measured on your own job, before and after the compression started.</p>
+
+<p>That is the measured mile, and it needs one row per crew per day, captured while the work happens. Ten columns is enough.</p>
+
+<table>
+<thead>
+<tr><th>Col</th><th>Field</th><th>Why it matters</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Date</td><td>Anchors the period split</td></tr>
+<tr><td>B</td><td>Area or system</td><td>Proves like-for-like comparison</td></tr>
+<tr><td>C</td><td>Crew size</td><td>Feeds the overmanning factor</td></tr>
+<tr><td>D</td><td>Clock hours</td><td>What you paid for</td></tr>
+<tr><td>E</td><td>Earned hours</td><td>Quantity installed times budgeted unit rate</td></tr>
+<tr><td>F</td><td>Overtime hours</td><td>Splits the premium</td></tr>
+<tr><td>G</td><td>Directive reference</td><td>Ties the day to the acceleration order</td></tr>
+<tr><td>H</td><td>Period tag</td><td>BASE or ACCEL, drives the measured mile</td></tr>
+<tr><td>I</td><td>Trades in area</td><td>Evidence for the stacking factor</td></tr>
+<tr><td>J</td><td>Notes</td><td>Weather, RFI holds, material late</td></tr>
+</tbody>
+</table>
+
+<p>Column E is the one people skip and it is the only one that makes the log worth keeping. Earned hours are quantity installed times your budgeted unit rate, not what the foreman guesses the percentage is. Sixty feet of 4 inch grooved carbon steel at 0.42 budget hours per foot is 25.2 earned hours, whatever the crew actually burned.</p>
+
+<p>The daily productivity factor is <code>=IF(D2=0,"",E2/D2)</code>. The comparison is two SUMIFS:</p>
+
+<ul>
+<li>Baseline: <code>=SUMIFS(Log!$E:$E,Log!$H:$H,"BASE")/SUMIFS(Log!$D:$D,Log!$H:$H,"BASE")</code></li>
+<li>Accelerated: <code>=SUMIFS(Log!$E:$E,Log!$H:$H,"ACCEL")/SUMIFS(Log!$D:$D,Log!$H:$H,"ACCEL")</code></li>
+<li>Loss: <code>=1-(B3/B2)</code></li>
+</ul>
+
+<p>Vance's weeks 1 through 9 ran 6,840 clock hours against 7,120 earned hours, a factor of 1.041. The eight accelerated weeks ran 13,200 clock hours against 9,980 earned, a factor of 0.756. The loss is 27.4%. The factor tables predicted 27.3% before a single extra fitter walked on site.</p>
+
+<p>Those two numbers landing a tenth of a point apart is the whole game. One is an industry study, one is your own job, and when they agree the negotiation stops being about whether productivity was lost and starts being about the rate. Add one guard so the log stays clean: <code>=IF(AND(F2&gt;0,G2=""),"UNSUPPORTED OT","OK")</code> catches any overtime day with no directive reference attached, which is the exact day the other side will pull in a deposition.</p>
+
+<h2>Run the Three Way Comparison Before You Say Yes</h2>
+
+<p>Acceleration is a decision, not a reflex, and the workbook exists so you make it with numbers on the table. Liquidated damages on this hospital run $4,500 a day. Thirty-four days is $153,000.</p>
+
+<table>
+<thead>
+<tr><th>Path</th><th>Cost incurred</th><th>Recovery</th><th>Net position</th></tr>
+</thead>
+<tbody>
+<tr><td>Accelerate, document, claim in full</td><td>$339,032</td><td>$389,887</td><td>+$50,855 and the date held</td></tr>
+<tr><td>Accelerate, no contemporaneous record</td><td>$339,032</td><td>$107,640 (premium only)</td><td>-$231,392</td></tr>
+<tr><td>Hold the extension request, absorb LDs</td><td>$153,000</td><td>$0</td><td>-$153,000</td></tr>
+</tbody>
+</table>
+
+<p>Read the middle row twice. Accelerating without a record costs $78,392 more than simply eating the liquidated damages, because without a measured mile you can only prove the overtime premium and the $187,200 productivity claim evaporates. The worst available outcome on this job is the one most contractors default into: staff up immediately because the CM asked, argue about it in the spring.</p>
+
+<p>The three way comparison also tells you when to refuse. If the composite loss factor pushes required hours past what your available manpower and the physical work face can absorb, the model returns SHORT and no amount of payroll fixes it. That is a written response to the CM, not a recovery schedule.</p>
+
+<h2>What to Do This Week</h2>
+
+<p>If a recovery schedule request is sitting on your desk right now, three things happen before you call the hall for more fitters. Write the entitlement letter that puts the extension request, the denial, and the acceleration direction on the record in one document. Set the period tag in your daily log to BASE today and to ACCEL the day the crew changes, because the measured mile only exists if you drew the line in real time. Price the composite loss factor and staff to the required clock hours, not to the arithmetic hours, so the compressed date is actually achievable.</p>
+
+<p>Building the entitlement sheet, the factor lookups, the daily log with earned hours, and the measured mile rollup from a blank workbook is roughly a full day, and it is a day you do not have when the letter lands. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries the cost code structure, the labor hour tracking against budgeted unit rates, and the change order log that a claim like this hangs on, so the log side is running before the acceleration starts. Add the factor tables and the delta calculation on top of it and the $187,200 you would have written off becomes a number you can defend line by line.</p>`,
+  },
+  {
     slug: 'construction-historical-cost-database-excel',
     title: 'Construction Historical Cost Database in Excel: Store Hours, Not Dollars',
     metaTitle: 'Construction Historical Cost Database Excel | SheetCraft',
