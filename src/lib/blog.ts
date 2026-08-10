@@ -16,6 +16,189 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-repair-vs-improvement-classification-excel',
+    title: 'Rental Property Repair vs Improvement Classification in Excel: Settle It Before Your CPA Guesses',
+    metaTitle: 'Rental Repair vs Improvement Excel Sheet | SheetCraft',
+    metaDescription: 'Classify rental property repair vs improvement in Excel with the BAR test, the three IRS safe harbors, and a running ceiling tracker your CPA can audit.',
+    targetKeyword: 'rental property repair vs improvement classification Excel',
+    secondaryKeywords: ['repair vs capital improvement rental property', 'de minimis safe harbor election', 'safe harbor for small taxpayers', 'partial disposition election', 'rental property expense tracking spreadsheet'],
+    excerpt: 'A $9,000 roof section deducted as a repair saves $2,880 of tax this year. Capitalized over 27.5 years, it saves $31. Most landlords let that decision happen by accident in December. Build the Excel classification sheet that runs the unit of property test, the BAR test, and the three safe harbors on every invoice line.',
+    publishedAt: '2026-08-10',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-repair-vs-improvement-classification-excel.png',
+    imageAlt: 'Flat illustration of a residential rental building beside a spreadsheet grid used to classify repair versus improvement costs',
+    content: `<h1>Rental Property Repair vs Improvement Classification in Excel: Settle It Before Your CPA Guesses</h1>
+
+<p>A hail strike takes out 400 square feet of shingles on the rear slope of your four-plex. The roofer bills $9,000. Your bookkeeper codes it to Repairs and Maintenance. Your CPA sees a $9,000 roof line in December, moves it to fixed assets, and depreciates it. Nobody writes down why. That single unlogged decision, repeated across a portfolio, is where landlords quietly hand back thousands of dollars a year. Rental property repair vs improvement classification in Excel is not a bookkeeping chore. It is a cash decision you make in March and defend in April of the following year, and the sheet is what stands between a defensible position and a guess.</p>
+
+<p>Here is what that one line is worth. The work went into service in September.</p>
+
+<table>
+<thead>
+<tr><th>Treatment</th><th>Year 1 deduction</th><th>Year 1 tax saved at 32%</th><th>When you see the rest</th></tr>
+</thead>
+<tbody>
+<tr><td>Deducted as a repair</td><td>$9,000</td><td><strong>$2,880</strong></td><td>Now</td></tr>
+<tr><td>Capitalized, 27.5 years, mid-month</td><td>$95</td><td>$31</td><td>Spread to 2053</td></tr>
+<tr><td>Difference</td><td>$8,905</td><td><strong>$2,849</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<p>Getting it wrong in the cautious direction costs $2,849 of this year's cash on one invoice. Getting it wrong in the aggressive direction, with no documentation, costs the deduction plus penalties if anyone looks. The point of the sheet is that you stop choosing between those two and start producing evidence.</p>
+
+<h2>Four gates, run in order</h2>
+
+<p>Every invoice runs through the same four questions. Most articles give you three of them. The fourth is the one that decides whether the first three are worth arguing about.</p>
+
+<h3>Gate 1: What is the unit of property?</h3>
+
+<p>You do not test work against "the building." For a rental building, the tangible property regulations split the asset into the building structure plus eight separately tested systems: HVAC, plumbing, electrical, escalators, elevators, fire protection and alarm, gas distribution, and security systems, plus any other structural component named in published guidance. Work gets measured against the system it touches, not against your total basis.</p>
+
+<p>This is where most self-classification falls apart. Replacing one of three rooftop HVAC units is generally a repair, because one unit is not a major component of the HVAC system. Replacing all three in the same year is a restoration, and it capitalizes. Same trade, same roof, same crew, opposite tax result, and the only thing that changed was scope. Your log needs a unit of property column with a fixed dropdown, not a free text field, because next April you will not remember whether the invoice covered one unit or all three.</p>
+
+<h3>Gate 2: Does it fail the BAR test?</h3>
+
+<p>Betterment, Adaptation, Restoration. Fail any one and you capitalize.</p>
+
+<ul>
+<li><strong>Betterment.</strong> Corrects a defect that existed when you bought the property, materially adds to it, or materially increases capacity, quality, or strength. Upgrading a 100 amp panel to 200 amp is a betterment. Fixing the foundation crack that was in the inspection report at closing is a betterment, even though it feels like a repair.</li>
+<li><strong>Adaptation.</strong> Puts the property to a new or different use. Converting a duplex unit into a short-term rental with a commercial-grade kitchen is an adaptation.</li>
+<li><strong>Restoration.</strong> Replaces a major component or substantial structural part, rebuilds to like-new condition, returns property from a state of disrepair, or repairs damage where you already took a basis adjustment.</li>
+</ul>
+
+<p>That last clause is the trap nobody warns you about. If you claim a casualty loss on storm damage and reduce your basis, the money you then spend fixing that damage is a restoration and must be capitalized to the extent of the basis adjustment. Claiming the casualty loss can convert a $9,000 deduction into a $95 deduction. That comparison belongs in your sheet as a side-by-side before you file, not as a discovery in year two.</p>
+
+<h3>Gate 3: Does a safe harbor rescue it?</h3>
+
+<p>Three safe harbors, and they do not all work the way landlords assume.</p>
+
+<p><strong>De minimis safe harbor.</strong> $2,500 per invoice or per item for taxpayers without an applicable financial statement, $5,000 with one. It requires an annual election on the return and a written capitalization policy in place at the start of the year. The operative words are "per item as substantiated by the invoice." Four appliances at $1,480 each on an itemized invoice is $5,920 deducted. The identical purchase billed as one line reading "kitchen package, $5,920" is a fixed asset. You control that outcome by telling the vendor how to write the invoice, which costs nothing and takes one phone call.</p>
+
+<p><strong>Safe harbor for small taxpayers.</strong> Average annual gross receipts of $10 million or less, building unadjusted basis of $1 million or less, and total spend on repairs, maintenance, and improvements for the year at or under the lesser of $10,000 or 2% of that building's unadjusted basis. Elected building by building, every year.</p>
+
+<p><strong>Routine maintenance safe harbor.</strong> Activities you reasonably expect to perform more than once during a 10 year period for a building. Recoating a flat porch roof on a five year cycle qualifies. It does not rescue betterments or adaptations.</p>
+
+<h3>Gate 4: Can you actually use the deduction this year?</h3>
+
+<p>This is the gate that changes the whole calculation, and it has nothing to do with the roof. If your modified adjusted gross income is $190,000 from a W-2 and you do not qualify as a real estate professional, your rental loss is passive and suspended. The $25,000 active participation allowance phases out between $100,000 and $150,000 of MAGI and is gone above it. A $9,000 repair deduction that lands in a suspended loss is worth exactly $0 in cash this year.</p>
+
+<p>So put a usable-this-year toggle in your settings and let the sheet tell you the truth. When the answer is no, you take the correct position and move on without spending four hours and a CPA call fighting for it. When the answer is yes, that same four hours is worth $2,849 on one line. Effort follows the money, not the principle.</p>
+
+<h2>Build the classification sheet</h2>
+
+<p>Three tabs. Settings, Buildings, Log.</p>
+
+<h3>Settings</h3>
+
+<p>B1 tax year, B2 marginal rate, B3 de minimis cap, B4 applicable financial statement Y/N, B5 deduction usable this year Y/N. Five cells that every formula downstream reads, so a rate change or a REPS qualification updates the entire portfolio in one edit.</p>
+
+<h3>Buildings</h3>
+
+<p>Column A building code, B address, C unadjusted basis, D placed in service date. Then the small taxpayer math:</p>
+
+<ul>
+<li>Ceiling: <code>=MIN(10000,0.02*C2)</code></li>
+<li>Year to date spend: <code>=SUMIFS(Log!$G:$G,Log!$B:$B,$A2,Log!$A:$A,"&gt;="&amp;DATE(Settings!$B$1,1,1),Log!$A:$A,"&lt;="&amp;DATE(Settings!$B$1,12,31))</code></li>
+<li>Headroom: <code>=E2-F2</code></li>
+<li>Status: <code>=IF(F2&gt;E2,"SHST LOST",IF(F2/E2&gt;0.8,"WATCH","OK"))</code></li>
+</ul>
+
+<p>Run that across a real portfolio and the safe harbor stops looking like a $10,000 free pass.</p>
+
+<table>
+<thead>
+<tr><th>Building</th><th>Unadjusted basis</th><th>2% of basis</th><th>Ceiling</th><th>YTD spend</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>Maple four-plex</td><td>$412,000</td><td>$8,240</td><td>$8,240</td><td>$15,400</td><td>SHST LOST</td></tr>
+<tr><td>Elm duplex</td><td>$268,000</td><td>$5,360</td><td>$5,360</td><td>$20,120</td><td>SHST LOST</td></tr>
+<tr><td>Oak single family</td><td>$196,000</td><td>$3,920</td><td>$3,920</td><td>$2,900</td><td>WATCH, $1,020 left</td></tr>
+</tbody>
+</table>
+
+<p>On a $412,000 building the ceiling is $8,240, and one HVAC job blows it. Worse, the ceiling counts everything you spent on that building, including amounts you already deducted under the other two safe harbors, and the election is all or nothing for the year. Blow it in November and you lose it for the whole year on that building, retroactively.</p>
+
+<p>That is exactly why the running total matters more than the rule. Oak has $1,020 of headroom in November. The $2,400 gutter job you were going to schedule for December moves to January, and the safe harbor survives. No formula tells you that. The headroom column does.</p>
+
+<h3>Log</h3>
+
+<p>One row per invoice line. Columns: A date, B building, C vendor, D invoice number, E description, F unit of property, G amount, H betterment Y/N, I adaptation Y/N, J restoration Y/N, K expected again within 10 years Y/N, L itemized on invoice Y/N, M classification, N year one deduction, O year one tax value, P exposure, Q evidence link.</p>
+
+<p>Column M is the whole engine, and the order of the tests is not decorative:</p>
+
+<p><code>=IFS(AND(L2="Y",G2&lt;=Settings!$B$3),"Expense: de minimis",AND(H2="N",I2="N",J2="N",K2="Y"),"Expense: routine maintenance",AND(H2="N",I2="N",J2="N"),"Expense: repair",INDEX(Buildings!$H:$H,MATCH($B2,Buildings!$A:$A,0))="OK","Expense: small taxpayer","Capitalize")</code></p>
+
+<p>De minimis runs first because it is an amount test applied at the invoice line, before anyone asks whether the work was a betterment. The small taxpayer harbor runs last because it is the only one that can rescue work that already failed BAR, and it pulls the live status from the Buildings tab so a blown ceiling in June reclassifies the whole year automatically.</p>
+
+<p>Year one deduction, column N, using the mid-month convention that applies to residential rental property:</p>
+
+<p><code>=IF(LEFT(M2,7)="Expense",G2,G2/27.5*(12.5-MONTH($A2))/12)</code></p>
+
+<p>Then the two columns that make this a decision tool instead of a ledger. Year one tax value: <code>=N2*Settings!$B$2*(Settings!$B$5="Y")</code>. And exposure, meaning what this position costs you if it gets reclassified on exam: <code>=IF(LEFT(M2,7)="Expense",(G2-G2/27.5*(12.5-MONTH($A2))/12)*Settings!$B$2*(Settings!$B$5="Y"),0)</code></p>
+
+<p>Here is a real year on the Maple and Elm buildings.</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Work</th><th>Unit of property</th><th>Amount</th><th>Result</th><th>Year 1 deduction</th><th>Exposure</th></tr>
+</thead>
+<tbody>
+<tr><td>03/14</td><td>Reshingle 400 sf rear slope after hail</td><td>Structure</td><td>$9,000</td><td>Repair</td><td>$9,000</td><td><strong>$2,849</strong></td></tr>
+<tr><td>04/02</td><td>Replace 1 of 3 rooftop units</td><td>HVAC</td><td>$6,400</td><td>Repair</td><td>$6,400</td><td><strong>$1,995</strong></td></tr>
+<tr><td>05/19</td><td>Replace all supply and waste lines</td><td>Plumbing</td><td>$14,200</td><td>Capitalize</td><td>$323</td><td>$0</td></tr>
+<tr><td>06/07</td><td>Four appliances, itemized $1,480 each</td><td>Non-building</td><td>$5,920</td><td>De minimis</td><td>$5,920</td><td>$0</td></tr>
+<tr><td>08/22</td><td>Add second bathroom in basement</td><td>Structure</td><td>$21,500</td><td>Capitalize</td><td>$293</td><td>$0</td></tr>
+<tr><td>11/03</td><td>Recoat porch roof, five year cycle</td><td>Structure</td><td>$2,900</td><td>Routine maintenance</td><td>$2,900</td><td>$924</td></tr>
+</tbody>
+</table>
+
+<p>Sort by exposure descending and you get your documentation list. Two lines carry $4,844 of the risk. Those two get photos, the vendor's scope narrative, and a three sentence memo naming the test they passed. The other four get a filed PDF and nothing more. That is a Saturday morning, not a project.</p>
+
+<p>The appliance line is worth one more note. Property with a recovery period of 20 years or less, meaning appliances, carpet, and land improvements, is currently eligible for 100% bonus depreciation, so capitalizing those costs you almost nothing in year one anyway. Residential rental structures and their systems sit on 27.5 years with no bonus and no qualified improvement property treatment. The classification fight is only worth having on structural and building system work. Skip it on the dishwasher.</p>
+
+<h2>When you do capitalize, take the old component off the books</h2>
+
+<p>You capitalize a $34,000 full roof replacement on Maple, bought in 2019 for $412,000 of depreciable basis. Most landlords stop there and now depreciate two roofs, one of which is in a dumpster. The partial disposition election lets you write off the remaining basis of the roof you removed.</p>
+
+<p>You back into the old roof's original cost with a reasonable method. The producer price index discounting approach is the common one:</p>
+
+<table>
+<thead>
+<tr><th>Input</th><th>Cell</th><th>Value</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>New roof cost</td><td>B4</td><td>$34,000</td><td></td></tr>
+<tr><td>PPI ratio, 2026 over 2019</td><td>B5</td><td>1.46</td><td></td></tr>
+<tr><td>Estimated original roof cost</td><td>B6</td><td>$23,288</td><td><code>=B4/B5</code></td></tr>
+<tr><td>Depreciation already taken</td><td>B7</td><td>$5,928</td><td><code>=B6*(YEARFRAC(B2,B3)/27.5)</code></td></tr>
+<tr><td>Loss on disposition</td><td>B8</td><td><strong>$17,360</strong></td><td><code>=B6-B7</code></td></tr>
+<tr><td>Tax value at 32%</td><td>B9</td><td><strong>$5,555</strong></td><td><code>=B8*Settings!$B$2</code></td></tr>
+</tbody>
+</table>
+
+<p>A job you were told is "not deductible" produces $5,555 of current year tax value, and you stop depreciating an asset that no longer exists. The election is made on a timely filed return for the year of disposition, extensions included, so this is a March decision, not a discovery in 2029.</p>
+
+<h2>The year-end checklist</h2>
+
+<ol>
+<li>Reconcile the Log against the bank feed. Every payment to a trade vendor has a row or it does not exist.</li>
+<li>Check every building's headroom column. Anything above 80% of the ceiling gets a December versus January scheduling decision.</li>
+<li>Sort by exposure and document the top lines. Photos, scope narrative, and the test the work passed.</li>
+<li>Confirm the de minimis election statement and the written capitalization policy are actually attached and dated.</li>
+<li>List every capitalized component replacement and ask whether a partial disposition election applies to the thing you tore out.</li>
+<li>Hand the CPA the Log tab, not a shoebox. The classification column is your position. Their job is to challenge it, not to invent it.</li>
+</ol>
+
+<p>This is a documentation system, not tax advice. Your CPA still makes the call. The difference is that they make it from a dated log with a unit of property, a BAR answer, and an invoice reference on every line, instead of guessing in December from a QuickBooks account called Repairs.</p>
+
+<h2>Where this pays</h2>
+
+<p>Across a six door portfolio, this sheet is typically worth $3,000 to $8,000 of year one cash, from three sources: repairs correctly kept as repairs, invoices structured so the de minimis harbor applies, and partial dispositions nobody claimed. None of that requires an aggressive position. It requires knowing which unit of property you touched and writing it down the week the work happened.</p>
+
+<p>The classification log is one tab of a system that also has to tell you whether the property is worth keeping. Our <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> comes with the expense classification structure already built, wired into cash flow, cap rate, and depreciation schedules, so a $9,000 roof line flows straight through to your after tax return instead of sitting in a separate spreadsheet you update once a year. If you own more than two doors and your repairs still land in one undifferentiated account, start there.</p>`,
+  },
+  {
     slug: 'construction-acceleration-cost-claim-calculator-excel',
     title: 'Construction Acceleration Cost Claim Calculator in Excel: Price It Before You Add the Crew',
     metaTitle: 'Construction Acceleration Cost Claim Excel | SheetCraft',
