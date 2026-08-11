@@ -16,6 +16,208 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'tenant-delinquency-aging-report-excel',
+    title: 'Tenant Delinquency Aging Report in Excel: Catch the Loss at 30 Days, Not 120',
+    metaTitle: 'Tenant Delinquency Aging Report Excel | SheetCraft',
+    metaDescription: 'Build a tenant delinquency aging report in Excel that ages every charge, applies payments oldest first, and tells you which tenant to act on this week.',
+    targetKeyword: 'tenant delinquency aging report Excel',
+    secondaryKeywords: ['rent arrears tracking spreadsheet', 'landlord accounts receivable aging Excel', 'late rent collection process', 'property management delinquency report', 'SUMIFS aging buckets Excel'],
+    excerpt: 'Two tenants owe you the exact same $2,175. One needs a text message, the other needed a filing six weeks ago, and your rent ledger cannot tell them apart. Waiting 60 days to find out costs $2,860 on one unit, which is exactly 60 days of rent you donated.',
+    publishedAt: '2026-08-11',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/tenant-delinquency-aging-report-excel.png',
+    imageAlt: 'Landlord desk with rent statements, apartment keys and calendars used to build a tenant delinquency aging report in Excel',
+    content: `<p>Your rent ledger says unit 7 owes $4,200. That balance has been climbing since June, the tenant sends something every few weeks, and it has never once looked alarming enough to act on. A tenant delinquency aging report in Excel breaks that same $4,200 into the months it came from and tells you what the ledger cannot: the oldest unpaid charge is 71 days old, the tenant has collected at 16 percent over the last quarter, and you are about four weeks from a loss you will never claw back. This article builds that report from a charge-level ledger, gives you the formulas, and runs a 14-unit building through it.</p>
+
+<h2>A Ledger Tells You Who Paid, Not Who Is About to Stop</h2>
+
+<p>A rent ledger is a transaction list. It answers one question well: did this tenant pay in July. An aging report is a position report. It answers a different question: how old is the money I am owed, and is the hole getting deeper or shallower. Only the second question predicts anything, because rent losses do not arrive as a surprise. They arrive as a balance that ages quietly for four months while you tell yourself the tenant is catching up.</p>
+
+<h3>The balance column hides the shape</h3>
+
+<p>Two tenants in the same building owe you exactly $2,175 today. The ledger shows one number for each and gives you no reason to treat them differently.</p>
+
+<table>
+<thead>
+<tr><th>As of August 11</th><th>Unit 11, Boateng</th><th>Unit 9, Whitcomb</th></tr>
+</thead>
+<tbody>
+<tr><td>Total owed</td><td>$2,175</td><td>$2,175</td></tr>
+<tr><td>0 to 30 days</td><td>$2,175</td><td>$0</td></tr>
+<tr><td>31 to 60 days</td><td>$0</td><td>$0</td></tr>
+<tr><td>61 to 90 days</td><td>$0</td><td>$725</td></tr>
+<tr><td>Over 90 days</td><td>$0</td><td>$1,450</td></tr>
+<tr><td>Oldest unpaid charge</td><td>10 days</td><td>102 days</td></tr>
+<tr><td>Collected in last 90 days</td><td>$2,900</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Boateng paid every month for two years and just got hit with a $650 utility rebill on top of August rent. Whitcomb stopped answering the phone in May. One of these needs a text message. The other needed a filing six weeks ago. The balance column treats them as identical, and that is the entire reason this report exists.</p>
+
+<h3>What 60 days of hesitation actually costs</h3>
+
+<p>Price the delay before you decide it is harmless. Unit 7 rents for $1,450, which is $47.67 a day. In this county the sequence runs 5 days on the notice, 21 days from filing to hearing, 7 days to the writ, and 10 days to the lockout, roughly 45 days from serving the notice to holding the keys. The only variable below is the day you start.</p>
+
+<table>
+<thead>
+<tr><th>Cost line</th><th>Serve at day 35</th><th>Serve at day 95</th></tr>
+</thead>
+<tbody>
+<tr><td>Days of unpaid occupancy to possession</td><td>80</td><td>140</td></tr>
+<tr><td>Rent never collected at $47.67 per day</td><td>$3,814</td><td>$6,674</td></tr>
+<tr><td>Filing, service, attorney</td><td>$1,200</td><td>$1,200</td></tr>
+<tr><td>Turn beyond normal wear</td><td>$1,800</td><td>$1,800</td></tr>
+<tr><td>Re-lease vacancy, 21 days</td><td>$1,001</td><td>$1,001</td></tr>
+<tr><td>Security deposit applied</td><td>($1,450)</td><td>($1,450)</td></tr>
+<tr><td><strong>Net cost of one non-payer</strong></td><td><strong>$6,365</strong></td><td><strong>$9,225</strong></td></tr>
+</tbody>
+</table>
+
+<p>The gap is $2,860, which is exactly 60 days of rent. Every other line is identical, because the filing costs the same and the turn costs the same whether you start in July or in September. Waiting does not buy you a better outcome or more information. It buys the tenant two more months of housing at your expense. On a 14-unit building running a 6 percent margin, $2,860 is roughly what four units clear in a month.</p>
+
+<h2>Build the Report From Charges, Not From Balances</h2>
+
+<p>Most landlord spreadsheets store one running balance per tenant. You cannot age a running balance, because it has no date attached. Aging requires that every charge keep its own birthday, and that payments be applied to specific charges rather than dropped into a pool.</p>
+
+<h3>Three tabs, and the four columns that do the work</h3>
+
+<p>Tab one is <code>Charges</code>: date, unit, tenant, type, amount. Type matters more than it looks, and the section on notices explains why. Tab two is <code>Payments</code>: date, unit, tenant, amount, method. Tab three is the aging report itself, one row per tenant, all formulas.</p>
+
+<p>On the Charges tab, columns F through I turn a list of invoices into a position. Here is unit 7, sorted oldest first.</p>
+
+<table>
+<thead>
+<tr><th>A: Date</th><th>C: Tenant</th><th>D: Type</th><th>E: Amount</th><th>F: Prior charges</th><th>G: Cash applied</th><th>H: Open</th><th>I: Age</th></tr>
+</thead>
+<tbody>
+<tr><td>2026-03-01</td><td>Cordell</td><td>Rent</td><td>$1,450</td><td>$0</td><td>$1,450</td><td>$0</td><td></td></tr>
+<tr><td>2026-04-01</td><td>Cordell</td><td>Rent</td><td>$1,450</td><td>$1,450</td><td>$1,450</td><td>$0</td><td></td></tr>
+<tr><td>2026-05-01</td><td>Cordell</td><td>Rent</td><td>$1,450</td><td>$2,900</td><td>$1,450</td><td>$0</td><td></td></tr>
+<tr><td>2026-06-01</td><td>Cordell</td><td>Rent</td><td>$1,450</td><td>$4,350</td><td>$150</td><td>$1,300</td><td>71</td></tr>
+<tr><td>2026-07-01</td><td>Cordell</td><td>Rent</td><td>$1,450</td><td>$5,800</td><td>$0</td><td>$1,450</td><td>41</td></tr>
+<tr><td>2026-08-01</td><td>Cordell</td><td>Rent</td><td>$1,450</td><td>$7,250</td><td>$0</td><td>$1,450</td><td>10</td></tr>
+</tbody>
+</table>
+
+<p>The tenant paid $1,450 in March, $900 in April, $1,450 in May, and $700 in July. Four payments, $4,500 total, against $8,700 charged. The ledger reports $4,200 owed. The table above reports where the $4,200 lives.</p>
+
+<h3>Apply the cash oldest first</h3>
+
+<p>Column F counts every charge that came before this one for the same tenant, which is the running total the payment waterfall has to fill before it reaches this row.</p>
+
+<p><code>=SUMIFS($E$2:$E2,$C$2:$C2,$C2)-$E2</code></p>
+
+<p>Column G pours all cash that tenant has ever paid into the charges from the top down, and stops when this row is full.</p>
+
+<p><code>=MIN($E2,MAX(0,SUMIFS(Payments!$D:$D,Payments!$C:$C,$C2)-$F2))</code></p>
+
+<p>Read it as a business rule rather than a formula. Total paid minus everything owed before this row equals the cash still available when the waterfall arrives here. If that is negative, nothing is left, so <code>MAX</code> floors it at zero. If it exceeds the charge, the charge is fully covered, so <code>MIN</code> caps it. The June row gets $150 because that is all the money left after March, April, and May were satisfied.</p>
+
+<p>Column H is the open balance, <code>=$E2-$G2</code>, and column I is its age, <code>=IF($H2=0,"",TODAY()-$A2)</code>. Two requirements make this work: the Charges tab must be sorted ascending by date, and tenant names must be identical strings, which means a dropdown validated against a tenant list, not free typing.</p>
+
+<h3>Age each charge, not the pile</h3>
+
+<p>On the aging tab, with the tenant name in A5, each bucket is a date-bounded sum of open balances.</p>
+
+<ul>
+<li>0 to 30 days: <code>=SUMIFS(Charges!$H:$H,Charges!$C:$C,$A5,Charges!$A:$A,"&gt;"&amp;TODAY()-31)</code></li>
+<li>31 to 60: <code>=SUMIFS(Charges!$H:$H,Charges!$C:$C,$A5,Charges!$A:$A,"&lt;="&amp;TODAY()-31,Charges!$A:$A,"&gt;"&amp;TODAY()-61)</code></li>
+<li>61 to 90: <code>=SUMIFS(Charges!$H:$H,Charges!$C:$C,$A5,Charges!$A:$A,"&lt;="&amp;TODAY()-61,Charges!$A:$A,"&gt;"&amp;TODAY()-91)</code></li>
+<li>Over 90: <code>=SUMIFS(Charges!$H:$H,Charges!$C:$C,$A5,Charges!$A:$A,"&lt;="&amp;TODAY()-91)</code></li>
+</ul>
+
+<p>Because the bounds key off <code>TODAY()</code>, the report re-ages itself every morning without anyone touching it. That is the point. A static aging report is just a screenshot of a problem.</p>
+
+<h2>The Clock, the Trigger, and the Number You Put on the Notice</h2>
+
+<h3>Days since the oldest open charge</h3>
+
+<p>The single most useful cell on the sheet is not a dollar figure. It is the age of the oldest charge that still has money on it.</p>
+
+<p><code>=IFERROR(TODAY()-MINIFS(Charges!$A:$A,Charges!$C:$C,$A5,Charges!$H:$H,"&gt;0"),0)</code></p>
+
+<p>Sort the report by this column descending and the building organizes itself by urgency instead of by size. The biggest balance is rarely the most dangerous one.</p>
+
+<h3>The trigger ladder</h3>
+
+<p>A number without an instruction gets read and ignored. Put the instruction in a column, with the clock in H5 and the total owed in G5.</p>
+
+<p><code>=IFS(G5=0,"Current",H5&lt;=10,"Reminder",H5&lt;=30,"Late fee, call",H5&lt;=45,"Serve notice",H5&lt;=75,"File",TRUE,"Attorney, write-off review")</code></p>
+
+<p>Calibrate those rungs to your county, not to a national default. The rung that matters is "Serve notice," and there is a non-arbitrary way to place it: it belongs before the day the unpaid rent passes the security deposit, because that is the day the tenant stops having anything at stake. With a $1,450 deposit and $1,450 rent, that day arrives 30 days into the first missed month. Add a flag for it.</p>
+
+<p><code>=IF(RentOnly&gt;Deposit,"Deposit exhausted","Covered")</code></p>
+
+<h3>The number that goes on the notice</h3>
+
+<p>Total owed and rent owed are not the same number, and confusing them is how a filing gets tossed. Many states allow a pay-or-quit demand for rent only, so a $650 utility rebill and a $75 late fee sitting in the same balance can invalidate the demand. Keep the Type column honest and pull the demand figure separately.</p>
+
+<p><code>=SUMIFS(Charges!$H:$H,Charges!$C:$C,$A5,Charges!$D:$D,"Rent")</code></p>
+
+<p>Boateng owes $2,175 in total and $1,450 in rent. Serving for $2,175 in a rent-only state means starting over, which is roughly 30 days and $1,430 of occupancy given away over a column you did not build. Confirm the rule where your property sits, then build the column either way, because a lender or a buyer will eventually ask you to split fee income from rent anyway.</p>
+
+<h3>Payment plans that hold the trigger, but only while they hold</h3>
+
+<p>A promise to pay should suppress the action column, and only while the tenant is actually current on the promise. With the installment in J5, the plan start date in K5, and the number of installments due to date in L5:</p>
+
+<p><code>=IF(AND($J5&gt;0,SUMIFS(Payments!$D:$D,Payments!$C:$C,$A5,Payments!$A:$A,"&gt;="&amp;$K5)&gt;=$J5*$L5),"Plan current, hold",I5)</code></p>
+
+<p>The instant a payment is missed, the original trigger returns on its own. No meeting, no judgment call, no memory required. That is the difference between a plan and a delay.</p>
+
+<h2>One Building, Four Balances, Four Different Decisions</h2>
+
+<p>Fourteen units, $1,450 average rent, $20,300 of monthly billing. Ten tenants are current. Here is the rest of the report on August 11.</p>
+
+<table>
+<thead>
+<tr><th>Unit</th><th>Tenant</th><th>0-30</th><th>31-60</th><th>61-90</th><th>90+</th><th>Total</th><th>Rent only</th><th>Oldest</th><th>90-day collection</th><th>Trigger</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>Alvarez</td><td>$145</td><td>$0</td><td>$0</td><td>$0</td><td>$145</td><td>$0</td><td>12</td><td>97%</td><td>Reminder</td></tr>
+<tr><td>7</td><td>Cordell</td><td>$1,450</td><td>$1,450</td><td>$1,300</td><td>$0</td><td>$4,200</td><td>$4,200</td><td>71</td><td>16%</td><td>File</td></tr>
+<tr><td>9</td><td>Whitcomb, moved out</td><td>$0</td><td>$0</td><td>$725</td><td>$1,450</td><td>$2,175</td><td>$2,175</td><td>102</td><td>n/a</td><td>Collections</td></tr>
+<tr><td>11</td><td>Boateng</td><td>$2,175</td><td>$0</td><td>$0</td><td>$0</td><td>$2,175</td><td>$1,450</td><td>10</td><td>57%</td><td>Reminder</td></tr>
+<tr><td></td><td><strong>Total</strong></td><td><strong>$3,770</strong></td><td><strong>$1,450</strong></td><td><strong>$2,025</strong></td><td><strong>$1,450</strong></td><td><strong>$8,695</strong></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p>The collection rate is one more <code>SUMIFS</code> pair, payments over charges for the last quarter.</p>
+
+<p><code>=IFERROR(SUMIFS(Payments!$D:$D,Payments!$C:$C,$A5,Payments!$A:$A,"&gt;"&amp;TODAY()-91)/SUMIFS(Charges!$E:$E,Charges!$C:$C,$A5,Charges!$A:$A,"&gt;"&amp;TODAY()-91),"")</code></p>
+
+<p>Now read the rows. Alvarez owes $145 and collects at 97 percent, which is a late fee on a good tenant. Send the reminder and forget it. Boateng shows the second largest balance on the sheet and is the second least urgent, because all of it was billed 10 days ago and $725 of it is not even rent. Cordell is the one that costs money: 71 days on the oldest charge, a 16 percent collection rate over three months, and $4,200 outstanding with the deposit already exhausted twice over. Whitcomb is the row most landlords delete, and deleting it is how the $2,175 becomes zero. You cannot evict someone who already left, so that balance is a small claims or collections decision, and the clock on it is your state's statute of limitations, not the eviction calendar.</p>
+
+<p>One portfolio number belongs at the bottom: everything past 30 days divided by monthly billing.</p>
+
+<p><code>=SUM(D20:F20)/GPR</code> returns 24.3 percent here, against $4,925 aged past 30 days on $20,300 of rent. Institutional multifamily runs this at 1 to 3 percent. Flag it at 5 with <code>=IF(ratio&gt;0.05,"FLAG","OK")</code> and treat anything above that as a process failure rather than a tenant problem, because four bad rows out of fourteen is not bad luck.</p>
+
+<h3>Four ways an aging report lies to you</h3>
+
+<ul>
+<li><strong>Aging the balance instead of the charges.</strong> A single $4,200 figure has no date, so it gets classified by feel. Cordell's balance is not 71 days old or 10 days old. It is $1,300 at 71 days, $1,450 at 41, and $1,450 at 10, and only the charge-level view says that.</li>
+<li><strong>Applying payments to the newest charge.</strong> Post Cordell's July $700 against July rent and the same $4,200 shows $550 sitting in the over-90 bucket and an oldest item of 132 days instead of 71. Same total, different age, different trigger, and a ledger that contradicts the lease. Most leases apply payments to the oldest balance first. Build what yours says, or amend it.</li>
+<li><strong>Dropping former tenants.</strong> Money does not stop aging when the keys come back. A move-out row changes which collection path applies, not whether the balance is real.</li>
+<li><strong>Running it when someone remembers.</strong> An aging report reviewed in November catches what should have been caught in August. Cadence is the feature.</li>
+</ul>
+
+<h2>Run It on the Sixth of Every Month</h2>
+
+<p>Grace periods usually expire on the fifth. Open the file on the sixth, before anything else, and work five steps in order.</p>
+
+<ol>
+<li>Confirm the Charges tab is sorted ascending by date, then fill the F through I formulas down.</li>
+<li>Sort the aging tab by oldest open charge, descending. Read that column first, not the total.</li>
+<li>For every row past 30 days, compare rent only against the deposit and note who has nothing left at stake.</li>
+<li>Execute every instruction in the trigger column the same day. A trigger you override twice is a trigger you should delete.</li>
+<li>Stamp the action and the date in a Notes column, because that column becomes the exhibit if the file ever reaches a courtroom.</li>
+</ol>
+
+<p>Fifteen minutes a month against a $2,860 swing on a single unit is the best hourly rate in this business.</p>
+
+<p>If you would rather not wire the payment waterfall, the four buckets, the trigger ladder, and the deposit-exhaustion check by hand, SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> ships with the delinquency module already built: a charge-level ledger that applies every payment oldest first, buckets that re-age off <code>TODAY()</code> each morning, a rent-only demand column kept separate from fees and rebills, a per-tenant 90-day collection rate, and a portfolio delinquency ratio that flags the month you cross 5 percent. You enter charges and payments. It tells you which door to knock on this week, and exactly what number goes on the notice.</p>`,
+  },
+  {
     slug: 'rental-property-repair-vs-improvement-classification-excel',
     title: 'Rental Property Repair vs Improvement Classification in Excel: Settle It Before Your CPA Guesses',
     metaTitle: 'Rental Repair vs Improvement Excel Sheet | SheetCraft',
