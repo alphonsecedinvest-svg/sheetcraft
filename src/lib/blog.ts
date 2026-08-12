@@ -16,6 +16,210 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-tax-appeal-analysis-excel',
+    title: 'Rental Property Tax Appeal Analysis in Excel: Know If You Have a Case Before You Pay Anyone',
+    metaTitle: 'Rental Property Tax Appeal Analysis Excel | SheetCraft',
+    metaDescription: 'Run a rental property tax appeal analysis in Excel: assessment per square foot against sold comps, the equity test, and a tax-loaded income approach.',
+    targetKeyword: 'rental property tax appeal analysis Excel',
+    secondaryKeywords: ['property tax appeal spreadsheet', 'assessment per square foot comparison', 'multifamily property tax assessment appeal', 'property tax reduction calculator Excel', 'sold comps analysis tax appeal'],
+    excerpt: 'Your assessment jumped 23 percent to $1,214,000 and a contingency firm wants 40 percent of year one to file for you. Three tests in Excel, sold comps, the equity gap, and a tax-loaded income approach, put the building at $1,033,000. That is $3,801 a year, $56,311 of value, and one hour of work to know whether you have a case at all.',
+    publishedAt: '2026-08-12',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-tax-appeal-analysis-excel.png',
+    imageAlt: 'Calculator, apartment keys and a stack of paperwork on a desk with a brick apartment building through the window, used for a rental property tax appeal analysis in Excel',
+    content: `<p>The notice came in at $1,214,000 on an eight unit building the county carried at $985,000 last year. That is a 23 percent jump and $4,809 more in tax, every year, until the next revaluation. Most owners do one of two things with that envelope: pay it, or hand it to a firm that takes 40 percent of the first year savings and never shows the comparison that justified the filing. A rental property tax appeal analysis in Excel gives you a third option that takes about an hour. Three tests, all built on public data, and one number at the bottom that tells you whether to file, what value to ask for, and what the reduction is worth over the hold.</p>
+
+<h2>Your Tax Bill Went Up. That Is Not an Appeal.</h2>
+
+<p>A property tax bill has two moving parts and you can only fight one of them. The assessor sets a value. The taxing bodies set a levy. The appeals board has no authority over the levy, so "my taxes went up 23 percent" is not an argument anyone at that table can act on. The only claim that moves money is that the value is wrong, either against the market or against how your neighbors were treated.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Subject building</th><th>Can you appeal it?</th></tr>
+</thead>
+<tbody>
+<tr><td>Assessor market value</td><td>$1,214,000</td><td>Yes. This is the whole fight.</td></tr>
+<tr><td>Assessment ratio</td><td>100 percent</td><td>Only if you are misclassified</td></tr>
+<tr><td>Assessed value</td><td>$1,214,000</td><td>Derived</td></tr>
+<tr><td>Combined levy</td><td>2.10 percent</td><td>No</td></tr>
+<tr><td>Annual tax</td><td>$25,494</td><td>Derived</td></tr>
+</tbody>
+</table>
+
+<p>Set that up as your Subject tab, because every other formula in the file points at it. Valuation date in <code>B2</code>, notice date in <code>B3</code>, deadline in <code>B4</code>, building square feet in <code>B5</code>, unit count in <code>B6</code>, assessor market value in <code>B7</code>, ratio in <code>B8</code>, levy in <code>B10</code>. Then three derived cells that you will reference constantly:</p>
+
+<ul>
+<li><code>=B7*B8</code> in <code>B9</code> for assessed value, because in a fractional assessment state the number on the notice is not the number the ratio is applied to.</li>
+<li><code>=B9*B10</code> in <code>B11</code> for the annual bill. This is the cell your savings estimate comes from.</li>
+<li><code>=B7/B5</code> in <code>B12</code> for assessment per square foot. At $189.69 per square foot, this single cell is the one you will compare against everything else in the file.</li>
+</ul>
+
+<h3>Check the record card before you build anything</h3>
+
+<p>Pull the property record card from the assessor site first. It lists the square footage, unit count, year built, and bath count the model used. Errors are common and they are the fastest win in this entire process, because a data correction usually gets handled at the counter without a hearing. If the card says 6,750 square feet and the building is 6,400, the gap is worth <code>=(6750-6400)*B12</code>, which is $66,392 of value and $1,394 a year in tax. Fix the record before you argue about value, or you will win the appeal and still be assessed on a building that does not exist.</p>
+
+<h2>Why Mass Appraisal Misses Hardest on Small Multifamily</h2>
+
+<p>Assessors value thousands of parcels with a computer assisted mass appraisal model, not with an inspection of your building. On single family homes the model is decent, because the sales volume is high and the properties are similar. On five to twenty unit apartment buildings, three things break at once.</p>
+
+<p>First, the sales sample is thin, so the model leans on per unit tables that ignore unit mix. A building with six studios and two two-bedrooms gets valued like a building with eight two-bedrooms. Second, nobody goes inside. Original kitchens, a twenty two year old boiler, and knob and tube in half the units are invisible to a model that only sees roof age from an aerial. Third, and most expensive, is sale chasing. Buy a building and many jurisdictions quietly reset your value to the purchase price while the identical building next door coasts on a stale number for another cycle. That is how two comparable buildings on the same street end up assessed at $189 and $158 per square foot.</p>
+
+<p>None of that is a conspiracy. It is a small office valuing 40,000 parcels with a deadline. It does mean that the burden of finding the error sits with you, and it means the error is usually there on small multifamily.</p>
+
+<h2>Three Tests That Decide Whether You Have a Case</h2>
+
+<p>Run all three. They fail in different conditions, and knowing which one carries your case tells you what evidence to bring.</p>
+
+<h3>Test 1: market value against sold comps</h3>
+
+<p>Build a Comps tab with one row per arm's length sale in the eighteen months before your valuation date. Columns: address, sale date, units, building square feet, sale price. Then five formula columns that turn a list of sales into a value.</p>
+
+<p>Months from sale to valuation date in <code>F4</code>: <code>=DATEDIF(B4,Subject!$B$2,"M")</code>. Time adjusted price in <code>G4</code>: <code>=E4*(1+Subject!$B$14)^F4</code>, where <code>B14</code> holds your monthly market trend, 0.35 percent here. Condition adjustment in <code>H4</code> as a dollar figure you can defend out loud. Adjusted price in <code>I4</code>: <code>=G4+H4</code>. Adjusted price per square foot in <code>J4</code>: <code>=I4/D4</code>.</p>
+
+<p>Then the column that keeps you honest, net adjustment in <code>L4</code>: <code>=(I4-E4)/E4</code>, flagged in <code>M4</code> with <code>=IF(ABS(L4)&gt;0.15,"WEAK, EXCLUDE","USE")</code>. Any comp you had to move more than 15 percent is not a comp, it is an argument. Boards notice, and one stretched comp costs you credibility on the four good ones.</p>
+
+<table>
+<thead>
+<tr><th>Comp</th><th>Sale date</th><th>SF</th><th>Sale price</th><th>Time adj</th><th>Condition adj</th><th>Adjusted $/SF</th><th>Flag</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2025-03-14</td><td>4,900</td><td>$792,000</td><td>+$25,300</td><td>-$25,000</td><td>$161.69</td><td>USE</td></tr>
+<tr><td>2</td><td>2025-06-27</td><td>6,600</td><td>$1,036,000</td><td>+$21,948</td><td>+$18,000</td><td>$163.02</td><td>USE</td></tr>
+<tr><td>3</td><td>2025-09-09</td><td>8,100</td><td>$1,318,000</td><td>+$13,888</td><td>$0</td><td>$164.43</td><td>USE</td></tr>
+<tr><td>4</td><td>2025-11-21</td><td>6,250</td><td>$1,005,000</td><td>+$3,518</td><td>-$30,000</td><td>$156.56</td><td>USE</td></tr>
+<tr><td>5</td><td>2025-02-05</td><td>9,400</td><td>$1,090,000</td><td>+$38,757</td><td>+$240,000</td><td>$145.61</td><td>WEAK, EXCLUDE</td></tr>
+</tbody>
+</table>
+
+<p>Comp 5 was an REO in gut condition. Adjusting it up by $240,000 is a 25.6 percent net adjustment, so the flag drops it out of the calculation instead of you quietly deleting the row later. Indicated value: <code>=MEDIAN(FILTER(J4:J8,M4:M8="USE"))*Subject!$B$5</code>, which is $162.36 per square foot times 6,400 square feet, or $1,039,000. Use median rather than average so one outlier cannot carry the number. On Excel versions without <code>FILTER</code>, put <code>=IF(M4="USE",J4,"")</code> in a helper column and take the median of that.</p>
+
+<h3>Test 2: the equity test, which wins the appeals your comps cannot</h3>
+
+<p>If the market genuinely ran up 20 percent, sold comps will support the assessor and Test 1 goes nowhere. The equity test is a different claim: whatever the market did, you were revalued and your neighbors were not, so you are carrying more than your share of the same levy. In most states that is a standalone ground for relief called uniformity, and it does not require the assessor to be wrong about the market.</p>
+
+<p>The data is free. Pull the assessment roll for six to ten comparable buildings, put assessor value and building square feet in columns, and compute <code>=E4/D4</code> for each.</p>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Units</th><th>SF</th><th>Assessor value</th><th>Assessed $/SF</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>8</td><td>6,300</td><td>$1,006,000</td><td>$159.68</td></tr>
+<tr><td>B</td><td>6</td><td>4,750</td><td>$742,000</td><td>$156.21</td></tr>
+<tr><td>C</td><td>10</td><td>7,900</td><td>$1,275,000</td><td>$161.39</td></tr>
+<tr><td>D</td><td>8</td><td>6,500</td><td>$1,033,000</td><td>$158.92</td></tr>
+<tr><td>E</td><td>12</td><td>9,600</td><td>$1,570,000</td><td>$163.54</td></tr>
+<tr><td>F</td><td>6</td><td>4,900</td><td>$784,000</td><td>$160.00</td></tr>
+<tr><td><strong>Subject</strong></td><td><strong>8</strong></td><td><strong>6,400</strong></td><td><strong>$1,214,000</strong></td><td><strong>$189.69</strong></td></tr>
+</tbody>
+</table>
+
+<p>Median of the six in <code>F11</code>: <code>=MEDIAN(F4:F9)</code>, or $159.84. Subject premium: <code>=Subject!$B$12/F11-1</code>, which returns 18.7 percent. That percentage is the sentence you say at the hearing. Equity indicated value: <code>=F11*Subject!$B$5</code>, or $1,023,000. When you present this, bring the printed assessment cards for all six, not a summary you typed. The board will not take your table at face value and should not.</p>
+
+<h3>Test 3: the income approach, with the tax load nobody applies</h3>
+
+<p>Anything above four units is an income asset and most boards will accept an income analysis. Owners skip it because they get the mechanics wrong in one specific way, then get contradicted at the hearing and lose the room.</p>
+
+<p>The trap is circular. If you put property tax in your operating expenses and capitalize the resulting NOI, you are baking today's assessment into the value you are arguing is too high. The fix is the loaded cap rate: exclude property tax from expenses entirely, then add the effective tax rate to the cap rate. Value falls out clean.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Amount</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Gross scheduled rent</td><td>$139,200</td><td><code>=Subject!$B$6*B3*12</code></td></tr>
+<tr><td>B5</td><td>Other income</td><td>$4,200</td><td>Actual, from the P and L</td></tr>
+<tr><td>B7</td><td>Vacancy and credit loss at 6 percent</td><td>$8,352</td><td><code>=B4*B6</code></td></tr>
+<tr><td>B8</td><td>Effective gross income</td><td>$135,048</td><td><code>=B4+B5-B7</code></td></tr>
+<tr><td>B9</td><td>Operating expenses, property tax excluded</td><td>$43,200</td><td>Actual, trailing 12</td></tr>
+<tr><td>B10</td><td>NOI before property tax</td><td>$91,848</td><td><code>=B8-B9</code></td></tr>
+<tr><td>B11</td><td>Market cap rate</td><td>6.75 percent</td><td>From broker surveys</td></tr>
+<tr><td>B12</td><td>Effective tax rate</td><td>2.10 percent</td><td><code>=Subject!$B$10</code></td></tr>
+<tr><td>B13</td><td>Loaded cap rate</td><td>8.85 percent</td><td><code>=B11+B12</code></td></tr>
+<tr><td>B14</td><td>Indicated value</td><td>$1,038,000</td><td><code>=B10/B13</code></td></tr>
+</tbody>
+</table>
+
+<p>Two rules on the inputs. Use actual rents, not pro forma, because you are arguing what the building is worth today and the assessor will happily adopt your pro forma. Keep capital expenditures out of operating expenses. A new roof is not an operating expense and putting it there is the fastest way to have your whole schedule dismissed.</p>
+
+<h3>Reconcile the three, then decide</h3>
+
+<p>Weight the approaches and let one cell decide. Sales carry the most weight when you have four clean comps, equity carries more when the market moved and the roll did not, income carries more when your rents are genuinely below what the assessor assumed.</p>
+
+<table>
+<thead>
+<tr><th>Approach</th><th>Indicated value</th><th>Weight</th></tr>
+</thead>
+<tbody>
+<tr><td>Sold comps</td><td>$1,039,000</td><td>40 percent</td></tr>
+<tr><td>Equity, assessed $/SF</td><td>$1,023,000</td><td>35 percent</td></tr>
+<tr><td>Income, loaded cap</td><td>$1,038,000</td><td>25 percent</td></tr>
+<tr><td><strong>Reconciled value</strong></td><td><strong>$1,033,000</strong></td><td><code>=SUMPRODUCT(B18:B20,C18:C20)/SUM(C18:C20)</code></td></tr>
+</tbody>
+</table>
+
+<p>Overassessment in <code>B23</code>: <code>=Subject!$B$7/B22-1</code>, or 17.5 percent. Now the decision cell, which is the entire point of the file: <code>=IF(B23&lt;0.05,"DO NOT FILE",IF(B23&lt;0.1,"INFORMAL REVIEW FIRST",IF(B23&lt;0.2,"FILE WITH THIS PACKAGE","FILE AND ORDER AN APPRAISAL")))</code>.</p>
+
+<table>
+<thead>
+<tr><th>Indicated overassessment</th><th>What it means</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>Under 5 percent</td><td>Inside the assessor's own tolerance</td><td>Do not file. Recheck next cycle.</td></tr>
+<tr><td>5 to 10 percent</td><td>Real but thin</td><td>Informal review with the assessor. No hearing.</td></tr>
+<tr><td>10 to 20 percent</td><td>Solid case</td><td>File. The three tests are your evidence package.</td></tr>
+<tr><td>Over 20 percent</td><td>Serious money</td><td>File and spend $2,500 to $4,000 on a fee appraisal.</td></tr>
+</tbody>
+</table>
+
+<p>The "do not file" row is the row that earns its keep. In many jurisdictions a board can raise your value on appeal, and in all of them a failed filing burns a window that does not reopen for a year. Filing on a 4 percent gap is not free.</p>
+
+<h2>What the Reduction Is Actually Worth</h2>
+
+<p>Everyone quotes one year of tax savings. That number is wrong twice, and both errors run in your favor.</p>
+
+<p>At a reconciled $1,033,000, the bill drops to $21,693 and the annual saving is <code>=(Subject!$B$7-B22)*Subject!$B$10</code>, or $3,801. Error one: assessments in this county run on a three year cycle, so the reduction repeats until the next revaluation. That is $11,403, not $3,801. Error two, and the bigger one: property tax is an operating expense, so cutting it raises NOI permanently. At the 6.75 percent cap you just used in Test 3, <code>=B26/Income!$B$11</code> puts $56,311 of value on the balance sheet. A one hour analysis moved the sale price of the building by more than fifty thousand dollars.</p>
+
+<p>Now the contingency question, priced properly.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Firm at 40 percent of year one</th><th>You, with this sheet</th></tr>
+</thead>
+<tbody>
+<tr><td>Year one gross saving</td><td>$3,801</td><td>$3,801</td></tr>
+<tr><td>Fee</td><td>$1,520</td><td>$0, plus about $75 for comp data</td></tr>
+<tr><td>Year one net</td><td>$2,281</td><td>$3,726</td></tr>
+<tr><td>Years two and three</td><td>$7,602</td><td>$7,602</td></tr>
+<tr><td>Your time</td><td>About 1 hour</td><td>About 4 hours</td></tr>
+<tr><td>Three year net</td><td>$9,883</td><td>$11,328</td></tr>
+</tbody>
+</table>
+
+<p>That is $1,445 for three extra hours, which is a fine rate but not the real argument. The real argument is that a contingency firm has no downside on a weak filing and you do. They file, the board affirms, they collect nothing and move on. You lost the window, and in a jurisdiction where the board can increase value, you may have handed them a fresh look at a building they were not thinking about. Run the three tests first. If the answer is 17 percent, hire whoever you want, because the case is real either way. If the answer is 4 percent, no fee structure makes that filing a good idea.</p>
+
+<h2>The Calendar Kills More Appeals Than the Evidence Does</h2>
+
+<p>Appeal windows are short, they are keyed to the notice date rather than the tax bill, and they are absolute. A perfect analysis submitted two days late is worth nothing. Put the deadline in the file: notice date in <code>B3</code>, deadline in <code>B4</code> as <code>=B3+45</code> or whatever your jurisdiction allows, and a countdown in <code>B15</code>: <code>=IF(TODAY()&gt;$B$4,"WINDOW CLOSED",$B$4-TODAY()&amp;" days left")</code>. Conditional format it red under 14 days. On a portfolio, one row per parcel with that countdown is the only reason you will not miss one.</p>
+
+<p>Then work the filing in order.</p>
+
+<ol>
+<li>Pull the property record card and correct any physical data error before you touch valuation. This step alone closes some cases.</li>
+<li>Build the Comps tab, adjust for time and condition, and let the 15 percent flag drop the comps you should not defend.</li>
+<li>Pull six or more assessment cards for comparable buildings and compute the equity gap. Print the cards.</li>
+<li>Run the income approach on trailing twelve actuals with property tax excluded and the cap rate loaded.</li>
+<li>Reconcile, read the decision cell, and stop there if it says do not file.</li>
+<li>File the exact reconciled value, not a round number you like. A specific figure backed by three methods reads as an analysis. "I think it is worth about a million" reads as a hope.</li>
+<li>Save the whole workbook by tax year. Next cycle you update prices and dates in about twenty minutes instead of starting over.</li>
+</ol>
+
+<p>One last thing on tone at the hearing. The people across the table are not adversaries with a quota, they are staff who valued 40,000 parcels with a model and know it is imperfect on your asset class. Show them a clean comparison, concede the parts of their number that are right, and ask for a specific value. Cases get settled in the hallway on exactly that basis far more often than they get won in the room.</p>
+
+<p>If you would rather not wire the time adjustments, the comp flags, the equity median, and the loaded cap rate by hand, SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes the tax appeal module already built: a Subject tab that drives every reference, a comps sheet with automatic time adjustment and the 15 percent exclusion flag, an equity table that computes your premium against the assessed roll, an income approach that loads the effective tax rate into the cap so the math never goes circular, a weighted reconciliation with the file or do not file decision cell, and a portfolio deadline tracker that counts down from each notice date. You enter the assessment notice, five sold comps, six neighbor cards, and your trailing twelve. It tells you what to ask for, what it is worth over three years, and whether the appeal is worth filing at all.</p>`,
+  },
+  {
     slug: 'tenant-delinquency-aging-report-excel',
     title: 'Tenant Delinquency Aging Report in Excel: Catch the Loss at 30 Days, Not 120',
     metaTitle: 'Tenant Delinquency Aging Report Excel | SheetCraft',
