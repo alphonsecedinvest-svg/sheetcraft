@@ -16,6 +16,205 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-portfolio-interest-rate-stress-test-excel',
+    title: 'Rental Portfolio Interest Rate Stress Test in Excel: Find the Property That Breaks in 2029',
+    metaTitle: 'Rental Portfolio Interest Rate Stress Test | SheetCraft',
+    metaDescription: 'Build a rental portfolio interest rate stress test in Excel. Model balloon balances, stressed DSCR, and the cash you need when each loan matures.',
+    targetKeyword: 'rental portfolio interest rate stress test Excel',
+    secondaryKeywords: ['portfolio DSCR calculator Excel', 'balloon payment refinance risk', 'rental property loan maturity tracker', 'commercial loan balloon balance Excel', 'DSCR stress test spreadsheet'],
+    excerpt: 'Five of your six loans are fine. The stress test exists to find the sixth. Build a per loan maturity register in Excel, reprice every balloon at 3 points higher, and see which property forces a decision and how much cash it takes.',
+    publishedAt: '2026-08-13',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-portfolio-interest-rate-stress-test-excel.png',
+    imageAlt: 'Landlord desk with laptop showing a rental portfolio spreadsheet and line chart, desk calendars marking loan maturity dates, and brick apartment buildings visible through the window',
+    content: `<h1>Rental Portfolio Interest Rate Stress Test in Excel: Find the Property That Breaks in 2029</h1>
+
+<p>A rental portfolio interest rate stress test in Excel answers one question that a per-property DSCR calculator cannot: when your fixed rate loans hit their maturity dates, which property forces a decision, and how much cash do you need on hand the month it happens?</p>
+
+<p>Here is the situation almost nobody models. You own six properties. Five loans are comfortable. Your blended DSCR is 1.48. Every lender statement looks fine. Then you pull the notes out of the file cabinet and discover that three of your six loans are not 30 year mortgages at all. They are 25 year amortizations with 5 year balloons, and they mature in September 2028, March 2029, and June 2029. Inside eleven months, $1.66 million of debt has to be replaced at whatever rate the market offers that week.</p>
+
+<p>You did not take on interest rate risk when you signed. You took it on for a specific date, three to five years out, and then you filed the note and forgot the date. The stress test is how you get the date back.</p>
+
+<h2>The Stress Test Most Landlords Run Is the Wrong One</h2>
+
+<p>The standard version goes like this: take one property, raise the rate by 2 percent, watch the payment go up, conclude that cash flow is thinner but survivable. That test is wrong in three ways.</p>
+
+<p>It stresses the rate on a loan that is not repricing. Your fully amortizing 30 year residential mortgage at 3.75 percent will never reprice. Stressing it produces a scary number that will never happen. Meanwhile the mixed use loan that actually reprices in 36 months does not get tested, because it is currently the loan with the best payment.</p>
+
+<p>It ignores the balloon balance. When the loan matures you are not refinancing the original amount and you are not refinancing today's balance. You are refinancing the balance on the maturity date, which is a number nobody has calculated.</p>
+
+<p>It stops at cash flow. Cash flow going from $600 to $180 per month is uncomfortable. A DSCR falling below 1.20 is different in kind, because at that point no lender will write the loan at the amount you owe, and the shortfall becomes a cash call at the closing table.</p>
+
+<p>The right test is per loan, dated to maturity, run against the balance that will actually exist on that date, with the output measured in dollars of cash you must produce.</p>
+
+<h2>Sheet 1: The Loan Register That Makes Maturity Visible</h2>
+
+<p>One row per loan. Not per property, per loan, because a property with a second position or a HELOC has two maturity dates.</p>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Orig. Balance</th><th>Rate</th><th>Amort (yrs)</th><th>Originated</th><th>Maturity</th><th>Monthly P&amp;I</th></tr>
+</thead>
+<tbody>
+<tr><td>Maple duplex</td><td>$205,000</td><td>3.75%</td><td>30</td><td>Jun 2020</td><td>Jun 2050</td><td>$949</td></tr>
+<tr><td>Oak 4-plex</td><td>$340,000</td><td>4.25%</td><td>30</td><td>Mar 2021</td><td>Mar 2051</td><td>$1,673</td></tr>
+<tr><td>Cedar 12-unit</td><td>$780,000</td><td>4.60%</td><td>25</td><td>Mar 2024</td><td>Mar 2029</td><td>$4,380</td></tr>
+<tr><td>Birch 8-unit</td><td>$495,000</td><td>5.10%</td><td>25</td><td>Sep 2023</td><td>Sep 2028</td><td>$2,923</td></tr>
+<tr><td>Main St mixed use</td><td>$640,000</td><td>4.95%</td><td>20</td><td>Jun 2024</td><td>Jun 2029</td><td>$4,206</td></tr>
+<tr><td>Elm 6-unit</td><td>$410,000</td><td>6.25%</td><td>30</td><td>Nov 2026</td><td>Nov 2031</td><td>$2,525</td></tr>
+</tbody>
+</table>
+
+<p>Put original balance in column B, note rate in C, amortization years in D, origination date in E, maturity date in F. Then three calculated columns do the work.</p>
+
+<p><strong>Monthly principal and interest (column G):</strong></p>
+<p><code>=-PMT(C4/12, D4*12, B4)</code></p>
+
+<p>The leading minus sign flips Excel's cash flow convention so the payment reads as a positive number. Cedar returns $4,380.</p>
+
+<p><strong>Payments made by maturity (column H):</strong></p>
+<p><code>=DATEDIF(E4, F4, "m")</code></p>
+
+<p>Cedar returns 60. This is the column that exposes the problem, because the amortization column says 25 years and this column says the loan is over in five.</p>
+
+<p><strong>Balloon balance at maturity (column I):</strong></p>
+<p><code>=-FV(C4/12, H4, -G4, B4)</code></p>
+
+<p>Cedar returns $686,400. After five years of payments on a 25 year schedule, you have retired $93,600 of a $780,000 loan. That is the number you refinance, and it is 88 percent of what you borrowed.</p>
+
+<h3>The Maturity Wall by Year</h3>
+
+<p>Build a small year table below the register, years 2027 through 2035 in column A, then:</p>
+
+<p><code>=SUMIFS($I$4:$I$20, $F$4:$F$20, "&gt;="&amp;DATE(A25,1,1), $F$4:$F$20, "&lt;="&amp;DATE(A25,12,31))</code></p>
+
+<table>
+<thead>
+<tr><th>Year</th><th>Balloon balance maturing</th><th>Loans</th></tr>
+</thead>
+<tbody>
+<tr><td>2027</td><td>$0</td><td>0</td></tr>
+<tr><td>2028</td><td>$439,200</td><td>1</td></tr>
+<tr><td>2029</td><td>$1,220,000</td><td>2</td></tr>
+<tr><td>2031</td><td>$383,900</td><td>1</td></tr>
+</tbody>
+</table>
+
+<p>Eleven months, two loans, $1.22 million. That concentration is not bad luck. It is what happens when you buy aggressively in a two year window and every lender writes the same five year term. The register is the first time you see it.</p>
+
+<h2>Sheet 2: The Repricing Engine</h2>
+
+<p>Now stress. Put the rate shock in a single input cell so you can flex it: <code>$B$2</code> = 3.00%. Three points is not arbitrary. It is roughly the gap between small balance commercial paper written in 2023 and 2024 and where that same paper prices today, which means it is the shock that already happened to anyone who matured this year.</p>
+
+<p><strong>Stressed payment on the refinanced balance (column M):</strong></p>
+<p><code>=-PMT((C4+$B$2)/12, L4*12, I4)</code></p>
+
+<p>Column L is the new amortization the lender will offer, which is often shorter than what you have now. Do not assume you get 30 years back.</p>
+
+<p><strong>Stressed DSCR (column P):</strong></p>
+<p><code>=N4/(M4*12)</code></p>
+
+<p>Column N is projected NOI at the maturity year, not today's NOI. Grow it at your real trailing rate, not 3 percent because 3 percent sounds reasonable.</p>
+
+<p><strong>The flag (column Q):</strong></p>
+<p><code>=IF(P4&lt;1.20, "CASH CALL", IF(P4&lt;1.35, "TIGHT", "OK"))</code></p>
+
+<p><strong>Break-even rate, the number worth the whole exercise (column R):</strong></p>
+<p><code>=RATE(L4*12, -(N4/1.20/12), I4)*12</code></p>
+
+<p>This inverts the DSCR test and returns the highest rate at which the property still supports a 1.20 loan on its balloon balance. It converts a vague fear into a threshold you can watch against the 10 year Treasury every quarter.</p>
+
+<p><strong>Cash required at closing (column S):</strong></p>
+<p><code>=MAX(0, I4 - PV((C4+$B$2)/12, L4*12, -(N4/1.20/12)))</code></p>
+
+<p>The PV function returns the largest loan the property can carry at the stressed rate and a 1.20 coverage floor. Subtract that from the balloon balance and you have the check you write to close.</p>
+
+<h2>Reading the Output: Which Property Forces a Decision</h2>
+
+<table>
+<thead>
+<tr><th>Loan</th><th>Balloon</th><th>Matures</th><th>NOI then</th><th>DSCR at +3.00</th><th>Break-even rate</th><th>Cash needed</th></tr>
+</thead>
+<tbody>
+<tr><td>Cedar 12-unit</td><td>$686,400</td><td>Mar 2029</td><td>$99,100</td><td>1.61</td><td>11.30%</td><td>$0</td></tr>
+<tr><td>Birch 8-unit</td><td>$439,200</td><td>Sep 2028</td><td>$45,700</td><td>1.11</td><td>7.25%</td><td>$31,500</td></tr>
+<tr><td>Main St mixed use</td><td>$533,600</td><td>Jun 2029</td><td>$64,000</td><td>1.18</td><td>7.94%</td><td>$10,100</td></tr>
+</tbody>
+</table>
+
+<p>Five of six properties are fine. That is the correct result and it is the whole point. The test is not a doomsday model, it is a search. It found Birch.</p>
+
+<p><strong>Birch breaks at 7.25 percent.</strong> The note is at 5.10 percent, so the headroom is 2.15 points, not the 3.00 you assumed. Two things did that. The 25 year amortization means the balance barely moved, and the insurance renewal added $6,200 a year to operating expenses, which is a rate shock disguised as an expense line. On the operating side you lost coverage before the rate ever moved.</p>
+
+<p><strong>Main St fails by two hundredths.</strong> DSCR lands at 1.18 against a 1.20 floor, and the cash call is $10,100. Marginal, but marginal is exactly where lender discretion lives, and the retail lease downstairs rolls in 2028. Model that separately: six months of vacancy plus tenant improvements drops NOI to $55,000 and DSCR to 1.01. That version is not a cash call, it is a workout.</p>
+
+<p><strong>Cedar has $236,700 of borrowing headroom.</strong> At 7.60 percent on a 25 year schedule, a 1.20 DSCR on $99,100 of NOI supports $923,100 of debt against a $686,400 balloon. Cedar is not a problem. Cedar is the solution, and you would never see that from a per property spreadsheet that only asks whether each loan survives on its own.</p>
+
+<h3>The Three Exits, Priced</h3>
+
+<p>Once a loan flags, you have three moves and the sheet prices all of them.</p>
+
+<ul>
+<li><strong>Cash in refinance.</strong> Write the check from column S. For Birch that is $31,500 in September 2028, which means it must be liquid in August 2028, not invested in another deal.</li>
+<li><strong>Sell.</strong> Compare the balloon balance to net sale proceeds. If Birch sells at a 7.5 percent cap on $45,700 of NOI, that is $609,300 gross, roughly $560,000 net of commission and closing, against a $439,200 payoff. Selling is not the crisis outcome, it is a $120,000 equity outcome that you can choose calmly in 2027 instead of accepting in 2028.</li>
+<li><strong>Pull the cash from elsewhere.</strong> Cash out Cedar in March 2029 for $200,000 of the available headroom and the Birch gap is funded twice over. This is the move the portfolio view exists to reveal.</li>
+</ul>
+
+<h2>Why the Portfolio Rollup Hides the Problem, and Why You Still Need It</h2>
+
+<p>Roll the six loans up and the picture looks calm.</p>
+
+<table>
+<thead>
+<tr><th>Portfolio metric</th><th>Today (2026)</th><th>After the wall (2029, +3.00)</th></tr>
+</thead>
+<tbody>
+<tr><td>Total NOI</td><td>$295,600</td><td>$310,100</td></tr>
+<tr><td>Annual debt service</td><td>$199,900</td><td>$218,500</td></tr>
+<tr><td>Global DSCR</td><td>1.48</td><td>1.42</td></tr>
+<tr><td>Cash flow after debt service</td><td>$95,700</td><td>$91,600</td></tr>
+</tbody>
+</table>
+
+<p>Global DSCR moves from 1.48 to 1.42 and monthly cash flow drops about $340. If that were the only output you produced, you would conclude the portfolio absorbs a three point shock without breathing hard. Meanwhile Birch is at 1.11 and the lender holding that note does not care that Cedar covers 1.61. Loans do not average. Every one of them is tested alone, by a different underwriter, on a different date.</p>
+
+<p>So the rollup is not the test. The rollup is the funding plan. Its job is to tell you where the cash for the flagged loans comes from, and whether the portfolio still services debt after every reprice lands. Use both formulas:</p>
+
+<p><code>=SUM(N4:N20)/SUM(M4:M20)*12</code> for global coverage, and per loan <code>=Q4</code> for the flags. The first tells you whether you survive. The second tells you what you have to do about it and when.</p>
+
+<h3>Stress More Than the Rate</h3>
+
+<p>Rate is the input everyone models because it is the easy one. Three inputs move DSCR harder in practice.</p>
+
+<ul>
+<li><strong>Insurance.</strong> Premiums on small multifamily rose faster than rents in most coastal and wind exposed markets. A $6,200 annual increase on Birch cost 0.15 of coverage before any rate move.</li>
+<li><strong>Amortization.</strong> Being pushed from a 25 year schedule to 20 costs more coverage than a 50 basis point rate increase. Model the amortization the lender offers, not the one you want.</li>
+<li><strong>NOI haircut.</strong> Add a single input cell for a haircut percentage and multiply column N by <code>(1-$B$3)</code>. Run 0, 5, and 10 percent. If a 5 percent haircut moves two more loans into CASH CALL, your real headroom is thinner than the rate test suggests.</li>
+</ul>
+
+<h2>Run It Quarterly, and Do Not Build It From Scratch</h2>
+
+<p>This sheet has a shelf life of about 90 days, because the inputs move. Four things to refresh:</p>
+
+<ul>
+<li>Update NOI from trailing twelve month actuals, not the pro forma you underwrote with.</li>
+<li>Compare each break-even rate in column R against current market pricing for that asset type. The month a break-even rate sits below the market rate, that loan has already failed and you have simply not closed on the failure yet.</li>
+<li>Recheck maturity dates against the actual notes. Extension options, rate reset dates, and recourse triggers are frequently not where you remember them.</li>
+<li>Track the cash column as a savings target. If the wall says $41,600 across 2028 and 2029, that is $1,300 a month starting now, and it comes out of distributions.</li>
+</ul>
+
+<p>The point of a rental portfolio interest rate stress test in Excel is not to predict rates. Nobody does that. It is to convert an unknown future into a dated, priced list of decisions, so that when Birch matures in September 2028 you are executing a plan you made 24 months earlier rather than calling three brokers in a panic with 40 days left.</p>
+
+<h3>Build It Yourself or Start From a Model That Already Works</h3>
+
+<p>Everything above is buildable in a weekend if you are fluent with PMT, FV, PV, RATE, and DATEDIF, and if you enjoy debugging sign conventions. The parts that take longest are not the formulas. They are the structure decisions: one row per loan instead of per property, projected NOI at the maturity year instead of today's NOI, a break-even rate column instead of a pass or fail flag, and a rollup that funds the gaps instead of averaging them away.</p>
+
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> ships with that structure already wired: per property NOI that flows from actual rent roll and operating expense inputs, financing tabs with amortization and balloon logic, DSCR and coverage tests, and portfolio level rollups that let you see all your properties against each other instead of one at a time. Drop your loan terms and maturity dates into it, add the stress columns above, and you have the answer to which property forces a decision in about an hour instead of a weekend.</p>
+
+<p>Then set a calendar reminder for the first business day of every quarter. The stress test that nobody reruns is the one that tells you everything is fine right up until it is not.</p>`,
+  },
+  {
     slug: 'rental-property-tax-appeal-analysis-excel',
     title: 'Rental Property Tax Appeal Analysis in Excel: Know If You Have a Case Before You Pay Anyone',
     metaTitle: 'Rental Property Tax Appeal Analysis Excel | SheetCraft',
