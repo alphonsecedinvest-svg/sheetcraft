@@ -16,6 +16,188 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-submetering-payback-calculator-excel',
+    title: 'Rental Property Submetering Payback Calculator in Excel: Which Buildings Pay It Back and Which Never Do',
+    metaTitle: 'Rental Submetering Payback Calculator Excel | SheetCraft',
+    metaDescription: 'Submeters cost $350 to $900 per unit. Build a rental property submetering payback calculator in Excel to see which buildings pay it back and which never do.',
+    targetKeyword: 'rental property submetering payback calculator Excel',
+    secondaryKeywords: ['water submetering ROI multifamily', 'submetering vs RUBS payback', 'apartment water submeter cost per unit', 'utility recovery NOI calculator Excel'],
+    excerpt: 'The vendor quote says payback in 18 to 36 months. That number assumes your building recovers nothing today. Subtract what you already bill back, the irrigation load no meter can capture, and the billing fee that never ends, and the same $625 per unit install pays back in 11 months on one building and never on another.',
+    publishedAt: '2026-08-14',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-submetering-payback-calculator-excel.png',
+    imageAlt: 'Flat illustration of an apartment utility room with a copper pipe manifold and a row of digital water submeters on the wall, beside a laptop on a workbench showing a payback spreadsheet with a bar chart and rising trend line',
+    content: `<h1>Rental Property Submetering Payback Calculator in Excel: Which Buildings Pay It Back and Which Never Do</h1>
+
+<p>A rental property submetering payback calculator in Excel exists for one reason: the vendor's ROI sheet is comparing submetering against doing nothing, and your building is probably not doing nothing. Submeters cost $350 to $900 per unit installed. Every vendor quote comes with the same claim attached, payback in 18 to 36 months, and that number is real for exactly one kind of building. For a different building on the same street it is 36 months at best, and for a third it is negative forever.</p>
+
+<p>The difference is not the meters. It is four inputs the vendor never asks about. This article builds the model that includes them, runs two real buildings through it, and shows why the building with the worse payback might still be worth submetering while the one with the better payback might not.</p>
+
+<h2>The Four Numbers Missing From the Vendor ROI Sheet</h2>
+
+<p>Every submetering proposal follows the same arithmetic. Your annual water and sewer bill is X. Submetering recovers 95 percent of X. Divide the install cost by that recovery and you get a payback in months. It looks airtight because every number in it is true. It is still wrong, because of what it leaves out.</p>
+
+<h3>1. What you already recover</h3>
+
+<p>If you run a <a href="/blog/rental-property-rubs-calculator-excel">ratio utility billing system</a> today and recover 70 percent of the bill, submetering does not earn you 95 percent. It earns you the difference between 95 and 70. The vendor's payback is calculated on the full recovery. Yours is calculated on the increment, which can be a quarter the size. This single substitution is what turns an 18 month payback into a 5 year one.</p>
+
+<h3>2. The share of the bill you cannot submeter</h3>
+
+<p>A submeter measures water that passes through a unit. It does not measure the irrigation zone, the common laundry, the pool, the hose bib the landscaper uses, or the slab leak under the parking lot. That load stays on the master meter and stays yours. In a garden style property with real landscaping it runs 25 to 40 percent of the bill. In a walk up with no lawn it might be 8 percent. This is the recovery ceiling, and it is why the 95 percent figure quietly means 95 percent of a smaller number than you think.</p>
+
+<h3>3. The fee that never ends</h3>
+
+<p>Meter reading and billing costs $2 to $4.25 per unit per month, forever. Meters and their batteries have a service life, typically 10 to 20 years, so a replacement reserve belongs in the model too. Install cost is a one time number. These are annuities working against you, and they compound the error in a payback calculated on gross recovery.</p>
+
+<h3>4. How long you are holding the building</h3>
+
+<p>A 36 month payback on a property you are selling in 24 months delivers you two thirds of nothing in cash flow. Whether it still makes sense depends entirely on how the building gets appraised, which is the section most owners skip and the one that actually decides the question.</p>
+
+<h2>Build the Model</h2>
+
+<p>One tab, three blocks. Inputs in B4 through B15, calculations in B17 through B22, verdict in B24 through B28.</p>
+
+<h3>Input block</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Units</td><td>24</td></tr>
+<tr><td>B5</td><td>Annual master water and sewer bill</td><td>$21,600</td></tr>
+<tr><td>B6</td><td>Non-submeterable share of the bill</td><td>18%</td></tr>
+<tr><td>B7</td><td>Current annual recovery from tenants</td><td>$0</td></tr>
+<tr><td>B9</td><td>Install cost per unit (quoted)</td><td>$625</td></tr>
+<tr><td>B10</td><td>Total install <code>=B4*B9</code></td><td>$15,000</td></tr>
+<tr><td>B11</td><td>Billing fee per unit per month</td><td>$4.25</td></tr>
+<tr><td>B12</td><td>Meter replacement reserve per unit per year</td><td>$12</td></tr>
+<tr><td>B13</td><td>Annual program cost <code>=B4*(B11*12+B12)</code></td><td>$1,512</td></tr>
+<tr><td>B14</td><td>Billing recovery rate on metered usage</td><td>96%</td></tr>
+<tr><td>B15</td><td>Usage reduction once tenants are billed</td><td>18%</td></tr>
+</tbody>
+</table>
+
+<p>B6 is the input people guess at, and it is the one that decides the answer. Do not guess it. Pull twelve months of master meter reads, then read every in-unit fixture you can during a turn, or ask the vendor to install one temporary meter on the irrigation line for a season. If you cannot measure it, run the model at 15 percent and again at 35 percent and see whether the decision changes. If it does, you have to go measure.</p>
+
+<p>B15 is the conservation effect and it is well documented. Tenants who see a usage-based bill cut consumption 15 to 30 percent. Use 18 percent if you have no history. It only applies to in-unit water, which is the entire point of the next block.</p>
+
+<h3>Calculation block</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Calculation</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B17</td><td>Submeterable load</td><td><code>=B5*(1-B6)</code></td><td>$17,712</td></tr>
+<tr><td>B18</td><td>Submeterable load after conservation</td><td><code>=B17*(1-B15)</code></td><td>$14,524</td></tr>
+<tr><td>B19</td><td>New annual recovery</td><td><code>=B18*B14</code></td><td>$13,943</td></tr>
+<tr><td>B20</td><td>Master bill after conservation</td><td><code>=B5-(B17*B15)</code></td><td>$18,412</td></tr>
+<tr><td>B21</td><td>Net utility cost today</td><td><code>=B5-B7</code></td><td>$21,600</td></tr>
+<tr><td>B22</td><td>Net utility cost after submetering</td><td><code>=B20-B19+B13</code></td><td>$5,981</td></tr>
+</tbody>
+</table>
+
+<p>B20 is the row that separates this model from the vendor's. Conservation shrinks the master bill before any billback happens, and that saving lands on you whether or not you recover a cent. B22 then nets the recovery income against the shrunken bill and adds the program cost back. What you are comparing is not recovery against install cost. It is your total net utility position before and after.</p>
+
+<h3>Verdict block</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Output</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B24</td><td>Annual NOI gain</td><td><code>=B21-B22</code></td><td>$15,619</td></tr>
+<tr><td>B25</td><td>Payback in months</td><td><code>=IF(B24&lt;=0,"NEVER",B10/(B24/12))</code></td><td>11.5</td></tr>
+<tr><td>B26</td><td>Market cap rate</td><td>input</td><td>6.5%</td></tr>
+<tr><td>B27</td><td>Value created at sale</td><td><code>=IF(B24&lt;=0,0,B24/B26)</code></td><td>$240,293</td></tr>
+<tr><td>B28</td><td>Return on capex</td><td><code>=B27/B10</code></td><td>16.0x</td></tr>
+</tbody>
+</table>
+
+<p>The <code>IF</code> wrapper on B25 is not decoration. A real building can produce a negative NOI gain, and without the guard Excel returns a cheerful negative payback that reads like a fast one. You will see that case below.</p>
+
+<h2>Two Buildings, One Vendor Quote, Opposite Answers</h2>
+
+<p>Both of these got the same brochure claiming an 18 to 36 month payback.</p>
+
+<h3>Building A: 24 units, master metered, recovering nothing</h3>
+
+<p>Water and sewer runs $900 per unit per year. No billback of any kind, because the previous owner never set one up. Landscaping is minimal, so the non-submeterable share is 18 percent. The quote is $625 per unit.</p>
+
+<p>The model returns an annual NOI gain of $15,619 on a $15,000 install. Payback is 11.5 months, faster than the brochure. At a 6.5 percent cap rate that recovered NOI is worth $240,293 in value, a 16x return on the capex. Note where the gain comes from: $13,943 of it is recovery, but $3,188 is pure conservation on the master bill, money the vendor sheet does not credit at all because it assumes you recover everything anyway. Building A is not a close call. Sign the contract.</p>
+
+<h3>Building B: 8 units, already on RUBS, heavy irrigation</h3>
+
+<p>Water and sewer runs $1,200 per unit per year, $9,600 total, because the lot is large and the irrigation is on the master. The owner already runs RUBS and recovers $6,700 a year. The non-submeterable share is 34 percent. Small building retrofits price higher per unit, and stacked risers push the quote to $700 per unit, $5,600 total.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Submeter only</th><th>Submeter plus allocate the common load</th></tr>
+</thead>
+<tbody>
+<tr><td>Submeterable load</td><td>$6,336</td><td>$6,336</td></tr>
+<tr><td>Recovery from meters</td><td>$4,988</td><td>$4,988</td></tr>
+<tr><td>Recovery from common allocation</td><td>$0</td><td>$2,938</td></tr>
+<tr><td>Master bill after conservation</td><td>$8,460</td><td>$8,460</td></tr>
+<tr><td>Program cost</td><td>$504</td><td>$504</td></tr>
+<tr><td>Net cost after</td><td>$3,976</td><td>$1,038</td></tr>
+<tr><td>Net cost today</td><td>$2,900</td><td>$2,900</td></tr>
+<tr><td>Annual NOI gain</td><td>-$1,076</td><td>$1,862</td></tr>
+<tr><td>Payback</td><td>NEVER</td><td>36.1 months</td></tr>
+</tbody>
+</table>
+
+<p>Read the left column again. Submetering Building B, on its own, costs the owner $1,076 a year more than the RUBS system already running. That is not a modeling trick. RUBS allocates the whole bill including irrigation. Submeters only capture water that went through a unit, so the moment you switch, that $3,264 of irrigation and common load comes back onto your side of the ledger. You spent $5,600 to lose money annually.</p>
+
+<p>The right column is the hybrid, meters for in-unit usage plus a documented allocation of the common load, and it works. It also lands at 36.1 months, the far edge of the brochure range, on a building this owner intends to sell in two years. The cash flow never arrives.</p>
+
+<h2>Payback Is the Wrong Test if You Are Selling</h2>
+
+<p>Here is where the standard advice fails. If you hold the building, payback months is the right question. If you sell inside the payback window, the correct test is whether the capitalized value of the recovered NOI exceeds the capex, because you harvest it at closing rather than monthly.</p>
+
+<p>Building B's hybrid produces $1,862 of annual NOI. At a 6.5 percent cap that is $28,646 of value against $5,600 spent, a 5.1x. On paper the seller should do it even though the payback exceeds the hold.</p>
+
+<p>On paper. An 8 unit building in most markets is appraised by sales comparison, not by income. The appraiser pulls three nearby small multifamily sales and adjusts for beds, baths, and condition. Nothing in that process capitalizes a $1,862 improvement in utility recovery. Building A, at 24 units, is squarely in income-approach territory and the recovered NOI shows up in the valuation directly.</p>
+
+<p>So the rule is not about payback at all:</p>
+
+<ul>
+<li><strong>Holding past the payback:</strong> use B25. Under 24 months, do it. Over 48, look for a cheaper fix first.</li>
+<li><strong>Selling inside the payback, income-appraised property (roughly 5 units and up, or any commercial loan):</strong> use B27 against B10. If value created beats capex by 3x or more, do it.</li>
+<li><strong>Selling inside the payback, comp-appraised property:</strong> skip it. You will not get paid for it.</li>
+</ul>
+
+<p>Building B fails all three tests. And that points at what the owner should actually do.</p>
+
+<h3>The cheaper fix nobody quotes you</h3>
+
+<p>Thirty four percent of Building B's bill, $3,264 a year, is common and irrigation load that no billing system will ever recover. It is 100 percent owner cost under every scenario in the table above. A smart irrigation controller and a leak audit run about $850 installed and typically cut irrigation consumption 25 percent. On $2,600 of irrigation that is $650 a year, for a 15.7 month payback, with no lease amendment, no state compliance exposure, and no tenant relationship to manage.</p>
+
+<p>Building B's best available return was never the submetering decision. It was the line item the submetering vendor cannot sell against.</p>
+
+<h2>The Compliance Inputs That Change the Model</h2>
+
+<p>Submetering is regulated at the state level and the rules bite directly on the fee assumptions in row B11.</p>
+
+<ul>
+<li><strong>California:</strong> SB 7 requires submeters in multiunit residential buildings permitted on or after January 1, 2018 where the landlord intends to bill separately, and imposes disclosure duties covering submeter location, last inspection and test date, and the data behind each bill.</li>
+<li><strong>Texas:</strong> owners may not charge above the utility's cost per gallon plus applicable taxes and surcharges. Apartment and manufactured home community owners may add a service charge capped at 9 percent of the submetering costs allocated to each unit.</li>
+<li><strong>North Carolina:</strong> an administrative fee of up to $3.75 per unit per month is permitted for reading, billing, and collection.</li>
+</ul>
+
+<p>Verify your own state before you model. If your jurisdiction caps or bars the pass-through of the billing fee, that $4.25 per unit per month moves from tenant expense to owner expense, and in the model it converts B13 from a wash into a direct hit on B24. On a 24 unit building that is $1,224 a year off the NOI gain, which pushes Building A's payback from 11.5 months to about 12.5. On a building already near the line it can flip the answer.</p>
+
+<h2>What To Do</h2>
+
+<p>Run the four missing inputs before you run the vendor's spreadsheet. Measure the non-submeterable share instead of guessing it. Subtract what you already recover. Put the billing fee in as a perpetual cost and check whether your state lets you pass it through. Then pick the test that matches your hold period and your appraisal method, not the one the brochure uses.</p>
+
+<p>If your building is master metered, recovering nothing, and appraised on income, submetering is one of the highest-return capital items available to you, and the payback is usually faster than quoted once conservation is credited properly. If you already run a functioning allocation system and a third of your bill is landscaping, the meters are a lateral move at best and you should spend the money on the irrigation controller.</p>
+
+<p>Building the model above takes an afternoon. Building the rest of the picture it feeds, the NOI rollup, the cap rate valuation, the ten year projection that shows what a $15,619 recurring NOI gain does to your equity position by year seven, takes considerably longer. SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> already has that wiring in place: a full operating expense schedule where utility recovery sits as its own line against the gross utility cost, an NOI rollup that feeds the cap rate and valuation tabs automatically, and a ten year projection with independent expense growth rates so you can model water inflating at 6 percent while rents grow at 3. Drop your recovered NOI into the utility line and it tells you what the meters did to the value of the building, not just to next month's cash flow.</p>`,
+  },
+  {
     slug: 'rental-portfolio-interest-rate-stress-test-excel',
     title: 'Rental Portfolio Interest Rate Stress Test in Excel: Find the Property That Breaks in 2029',
     metaTitle: 'Rental Portfolio Interest Rate Stress Test | SheetCraft',
