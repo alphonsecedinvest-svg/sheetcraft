@@ -16,6 +16,206 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'multifamily-rent-comp-survey-spreadsheet-excel',
+    title: 'Multifamily Rent Comp Survey Spreadsheet in Excel: Why Asking Rents Price Your Building Wrong',
+    metaTitle: 'Multifamily Rent Comp Survey Spreadsheet Excel | SheetCraft',
+    metaDescription: 'Asking rents are marketing. Build a multifamily rent comp survey spreadsheet in Excel that adjusts for concessions and finds the real market rent.',
+    targetKeyword: 'multifamily rent comp survey spreadsheet Excel',
+    secondaryKeywords: ['net effective rent calculation Excel', 'apartment rent comparables template', 'rent concession analysis multifamily', 'market rent survey template Excel'],
+    excerpt: 'Five comps on the same street advertise $1,595 to $1,795. Adjust for concessions, admin fees, mandatory parking, and utility billbacks and the ranking inverts: the highest sign on the block is the third cheapest place to live. An asking-rent survey said the market was $1,689. It was $1,636.',
+    publishedAt: '2026-08-15',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/multifamily-rent-comp-survey-spreadsheet-excel.png',
+    imageAlt: 'Flat illustration of a leasing office desk with a laptop showing a five-bar rent comparison chart, an apartment floor plan on a clipboard, and a garden-style apartment building visible through the window',
+    content: `<h1>Multifamily Rent Comp Survey Spreadsheet in Excel: Why Asking Rents Price Your Building Wrong</h1>
+
+<p>A multifamily rent comp survey spreadsheet in Excel is only worth building if it does the one thing the listing sites refuse to do, which is tell you what the tenant actually pays. Every ILS, every broker report, and every free comp tool publishes asking rent. Asking rent is a marketing number. It is the price before the two months free, before the $45 parking that is not optional, before the $52 utility billback that lands in month two. Your prospect does the arithmetic on their phone in the parking lot. If your survey does not, you are pricing against a market that does not exist.</p>
+
+<p>Below is a real comp set from a 24 unit garden style property, five 2BD/2BA competitors within a mile. On asking rent the owner concluded the market was $1,689 and posted $1,675. On effective rent the market was $1,636, and that $1,675 unit was the second worst value on the street. It sat 34 days.</p>
+
+<h2>The Comp Set That Inverts When You Run the Math</h2>
+
+<p>Here is the raw shop data. Every column is something a leasing agent will tell you on a five minute phone call, and none of it appears on the listing.</p>
+
+<table>
+  <thead>
+    <tr><th>Property</th><th>SF</th><th>Asking</th><th>Free months</th><th>Term</th><th>Admin fee</th><th>Parking/mo</th><th>W/D in unit</th><th>Utility billback</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>The Preston</td><td>910</td><td>$1,725</td><td>1.5</td><td>13</td><td>$150</td><td>$0</td><td>Yes</td><td>$55</td></tr>
+    <tr><td>Elmwood Crossing</td><td>860</td><td>$1,595</td><td>0</td><td>12</td><td>$200</td><td>$0</td><td>No</td><td>$40</td></tr>
+    <tr><td>Marlow Station</td><td>940</td><td>$1,795</td><td>2</td><td>15</td><td>$99</td><td>$45</td><td>Yes</td><td>$0</td></tr>
+    <tr><td>Bexley Row</td><td>845</td><td>$1,650</td><td>1</td><td>12</td><td>$175</td><td>$0</td><td>No</td><td>$52</td></tr>
+    <tr><td>The Grove at 12th</td><td>880</td><td>$1,680</td><td>0</td><td>12</td><td>$0</td><td>$25</td><td>Yes</td><td>$45</td></tr>
+  </tbody>
+</table>
+
+<p>Lay this out with the shop data in columns A through I starting at row 12, headers in row 11. The concession adjusted rent goes in column J:</p>
+
+<p><code>=C12*(E12-D12)/E12</code></p>
+
+<p>That spreads the free months across the full term. The Preston's $1,725 sign becomes $1,525.96, because 1.5 free months on a 13 month lease is an 11.5 percent discount, not the 12.5 percent you get if you sloppily divide by 12.</p>
+
+<p>Then column K, the number that actually competes, total monthly cost of occupancy:</p>
+
+<p><code>=J12 + F12/E12 + G12 + I12</code></p>
+
+<p>Admin fee amortized over the term, plus required parking, plus the utility billback. Now the survey looks like this:</p>
+
+<table>
+  <thead>
+    <tr><th>Property</th><th>Asking rent</th><th>Asking rank</th><th>Cost of occupancy</th><th>Real rank</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Marlow Station</td><td>$1,795</td><td>1 (priciest)</td><td>$1,607</td><td>3</td></tr>
+    <tr><td>The Preston</td><td>$1,725</td><td>2</td><td>$1,592</td><td>4</td></tr>
+    <tr><td>The Grove at 12th</td><td>$1,680</td><td>3</td><td>$1,750</td><td>1 (priciest)</td></tr>
+    <tr><td>Bexley Row</td><td>$1,650</td><td>4</td><td>$1,579</td><td>5 (cheapest)</td></tr>
+    <tr><td>Elmwood Crossing</td><td>$1,595</td><td>5 (cheapest)</td><td>$1,652</td><td>2</td></tr>
+  </tbody>
+</table>
+
+<p>The ranking does not shift. It inverts. Marlow Station has the highest sign on the street and is the third cheapest place to live. Elmwood Crossing has the lowest sign and is the second most expensive. The Grove looked mid pack and is the priciest unit in the submarket.</p>
+
+<p>Average asking rent: $1,689. Average cost of occupancy: $1,636. The $53 difference is phantom rent, and it is the number that put this owner's unit on the market for 34 days.</p>
+
+<h2>Adjusting Comps to Your Unit, Not Just to Each Other</h2>
+
+<p>Cost of occupancy tells you what each competitor charges. It does not tell you what <em>you</em> can charge, because none of those units is your unit. The subject here is 875 SF with no in-unit washer and dryer, free surface parking, and a $48 billback. Two of the five comps have a washer and dryer. That is worth real money and it has to come out.</p>
+
+<p>Put the adjustment factors in an assumptions block at the top of the sheet so they are visible and arguable, not buried in formulas:</p>
+
+<table>
+  <thead><tr><th>Cell</th><th>Input</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>B2</td><td>Subject unit SF</td><td>875</td></tr>
+    <tr><td>B3</td><td>Marginal $/SF per month</td><td>$0.85</td></tr>
+    <tr><td>B4</td><td>In-unit W/D premium</td><td>$45</td></tr>
+    <tr><td>B5</td><td>Subject has W/D (1/0)</td><td>0</td></tr>
+    <tr><td>B6</td><td>Subject utility billback</td><td>$48</td></tr>
+    <tr><td>B7</td><td>Staleness limit (days)</td><td>45</td></tr>
+  </tbody>
+</table>
+
+<p>Column L is the adjusted comparable, what each comp implies your unit is worth:</p>
+
+<p><code>=K12 + ($B$2-B12)*$B$3 + ($B$5-H12)*$B$4</code></p>
+
+<p>With column H holding 1 or 0 for the washer and dryer. Marlow Station at $1,607 cost of occupancy is 65 SF larger and has a W/D, so it adjusts down by $55.25 and $45 to $1,507. The Grove at $1,750 adjusts to $1,701.</p>
+
+<table>
+  <thead><tr><th>Property</th><th>Cost of occupancy</th><th>SF adj.</th><th>W/D adj.</th><th>Adjusted comparable</th></tr></thead>
+  <tbody>
+    <tr><td>Marlow Station</td><td>$1,607</td><td>-$55</td><td>-$45</td><td>$1,507</td></tr>
+    <tr><td>The Preston</td><td>$1,592</td><td>-$30</td><td>-$45</td><td>$1,518</td></tr>
+    <tr><td>Bexley Row</td><td>$1,579</td><td>+$26</td><td>$0</td><td>$1,605</td></tr>
+    <tr><td>Elmwood Crossing</td><td>$1,652</td><td>+$13</td><td>$0</td><td>$1,664</td></tr>
+    <tr><td>The Grove at 12th</td><td>$1,750</td><td>-$4</td><td>-$45</td><td>$1,701</td></tr>
+  </tbody>
+</table>
+
+<p>Use the median, not the mean. The mean here is $1,599 and the median is $1,605, close enough that it looks like a distinction without a difference. It is not. Five comps is a small sample and one aggressive lease-up property will drag a mean by $40. Median survives that.</p>
+
+<p><code>=MEDIAN(L12:L16)</code> gives $1,605 of indicated cost of occupancy. Subtract your own $48 billback and the indicated asking rent is <code>=MEDIAN(L12:L16)-$B$6</code>, or $1,557.</p>
+
+<p>The owner posted $1,675. The market said $1,557. That $118 gap is the entire article.</p>
+
+<h3>The $/SF trap</h3>
+
+<p>Add effective $/SF as a sanity column, <code>=K12/B12</code>, but do not price off it across floor plans. A kitchen and a bathroom cost the same to build whether they sit in 550 SF or 1,150 SF, so studios always price higher per foot. A 550 SF studio at $2.40/SF and a 1,150 SF two bedroom at $1.60/SF are not evidence that the studio is overpriced. Compare $/SF only inside the same bedroom count, where it catches the one comp whose square footage claim is fiction.</p>
+
+<h2>What the Wrong Number Actually Costs</h2>
+
+<p>At a $1,557 market rent, one day of vacancy costs <code>=1557*12/365</code>, or $51.19. Being $118 over effective market does not lose you $118. It loses you the days.</p>
+
+<table>
+  <thead><tr><th>Scenario</th><th>Days on market</th><th>Vacancy cost</th><th>Rent achieved</th><th>Year 1 collections</th></tr></thead>
+  <tbody>
+    <tr><td>Priced at $1,675 from asking-rent survey</td><td>34</td><td>$1,740</td><td>$1,560 after two price cuts</td><td>$16,980</td></tr>
+    <tr><td>Priced at $1,557 from effective-rent survey</td><td>12</td><td>$614</td><td>$1,557</td><td>$18,070</td></tr>
+  </tbody>
+</table>
+
+<p>You do not hold the higher rent. You discover the market the slow way, cut twice, and land within $3 of where the survey would have put you on day one. The overpricing bought 22 extra vacant days and cost $1,090 per unit turned.</p>
+
+<p>On 24 units at 37 percent turnover, that is nine turns a year. Nine times $1,090 is $9,810 of annual NOI, every year, structurally. At a 5.75 percent cap rate that is <code>=9810/0.0575</code>, or $170,609 of property value, destroyed by a spreadsheet column nobody added. Pair this with a <a href="/blog/rental-property-turnover-cost-calculator-excel">turnover cost calculator</a> and the number gets worse, because those 22 days sit on top of the make-ready, not instead of it.</p>
+
+<h2>Concession or Rate Cut: The Decision Your Survey Should Force</h2>
+
+<p>You are $118 over market. There are two ways down and they are identical this year and very different in year three.</p>
+
+<p><strong>Option A, the rate cut.</strong> Post $1,557, no concession, 12 month lease. Clean and honest.</p>
+
+<p><strong>Option B, the concession.</strong> Post $1,687 with one month free on a 13 month lease. Effective rent is <code>=1687*12/13</code>, or $1,557. Identical to Option A.</p>
+
+<p>Same money in year one. Now renew both at 4 percent, dropping the concession at renewal as everyone does:</p>
+
+<table>
+  <thead><tr><th>Year</th><th>Option A rate cut</th><th>Option B concession</th><th>Monthly gap</th></tr></thead>
+  <tbody>
+    <tr><td>1 (effective)</td><td>$1,557</td><td>$1,557</td><td>$0</td></tr>
+    <tr><td>2</td><td>$1,619</td><td>$1,754</td><td>$135</td></tr>
+    <tr><td>3</td><td>$1,684</td><td>$1,824</td><td>$140</td></tr>
+  </tbody>
+</table>
+
+<p>Over three years on a unit that renews twice, Option B collects $61,620 against Option A's $58,320. That is $3,300 per unit, and it is not a rent increase, it is the same money structured so the renewal base compounds off $1,687 instead of $1,557. It also keeps your <a href="/blog/rent-roll-template-excel-lenders-buyers">rent roll</a> face rent intact, which matters when a lender sizes a refinance off contract rents.</p>
+
+<h3>The catch, and where the break-even actually sits</h3>
+
+<p>Concessions attract rate shoppers, and rate shoppers churn. If Option B renews meaningfully worse than Option A, the higher base is worth nothing because nobody stays to pay it. Model it per 100 leases, with a $2,417 turnover cost covering 14 days vacancy, make-ready, and leasing:</p>
+
+<p><code>=IF(B22*1620 &gt; (0.58-B22)*2417, "CONCESSION", "RATE CUT")</code></p>
+
+<p>Where B22 is your trailing twelve month renewal rate on concession leases and 0.58 is your renewal rate on straight leases. Solve it and the break-even lands at a 34.7 percent renewal rate. Option B wins unless concessions drop your renewal rate from 58 percent to below 35 percent, a 23 point collapse. Real world concession leases renew four to eight points lower, not twenty three.</p>
+
+<p>So the default is the concession, and it is the default by a wide margin. Take the rate cut in exactly two situations: your renewal rate is already under 45 percent and the margin is thin, or you are selling within 18 months and a buyer will underwrite your concessions as permanent anyway. Feed the year two number into a <a href="/blog/rental-lease-renewal-rent-increase-calculator-excel">renewal increase calculator</a> before you commit, because a $1,754 renewal ask on a unit that competes at $1,650 effective just buys you a turnover.</p>
+
+<h2>Keeping the Survey From Rotting</h2>
+
+<p>A rent comp survey is worthless 60 days after you build it, and the failure is silent. Nobody notices that the Marlow Station number is from March until they have priced six units off it.</p>
+
+<p>Add a shop date in column M and a flag in column N:</p>
+
+<p><code>=IF(TODAY()-M12&gt;$B$7,"RE-SHOP","OK")</code></p>
+
+<p>Then refuse to average stale data. Do not use <code>=MEDIAN(L12:L16)</code> blindly. Gate it:</p>
+
+<p><code>=IF(COUNTIFS(M12:M16,"&gt;="&amp;TODAY()-$B$7)&lt;3,"INSUFFICIENT DATA",MEDIAN(IF(M12:M16&gt;=TODAY()-$B$7,L12:L16)))</code></p>
+
+<p>Entered as an array formula in older Excel, plain in 365. Fewer than three fresh comps and the sheet says INSUFFICIENT DATA instead of quietly handing you a median built on one property. That single cell is the difference between a survey and a guess.</p>
+
+<h3>How to actually get concession data</h3>
+
+<p>Asking rents are published. Concessions frequently are not, and the ones on the ILS banner are the least aggressive ones on offer. Four things that work:</p>
+
+<ul>
+  <li><strong>Call as a prospect with a near-term move-in.</strong> Ask what the best offer is for someone signing this week. Urgency is what unlocks the real number.</li>
+  <li><strong>Price the same unit at three lease terms.</strong> If a 15 month term quotes below a 12 month term, that gap is a concession in disguise. Convert everything to a 12 month equivalent before it enters the sheet.</li>
+  <li><strong>Ask what is required versus optional.</strong> Marlow Station's $45 parking is mandatory. The Grove's $25 is not. One belongs in cost of occupancy and one does not, and no listing distinguishes them.</li>
+  <li><strong>Re-shop the two closest comps every 30 days,</strong> the rest every 45. Properties in lease-up change pricing weekly, so tag those and shop them fortnightly.</li>
+</ul>
+
+<p>Log every shop as a new row rather than overwriting the old one. Six months of history turns the survey into a trend line, and a comp whose effective rent has fallen $60 while its sign never moved is telling you something about occupancy that no report will.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Rebuild the survey around cost of occupancy this week, before your next three renewals go out. Concretely:</p>
+
+<ol>
+  <li>Shop five comps for concessions, mandatory fees, parking, and billbacks. Two phone calls each, one hour total.</li>
+  <li>Compute cost of occupancy with <code>=C12*(E12-D12)/E12 + F12/E12 + G12 + I12</code>.</li>
+  <li>Adjust to your unit for SF and amenities, take the median, subtract your own billback.</li>
+  <li>Compare against your current asking rent. Under 3 percent apart, hold, that is noise. More than 5 percent over, move, and move with a concession unless your renewal rate is under 45 percent.</li>
+  <li>Gate the median on freshness so the sheet refuses to answer with stale data.</li>
+</ol>
+
+<p>The gap between your in-place rents and this number is your loss to lease, and it is the single largest recoverable line item in most small multifamily portfolios. Once you know the real market rent, run it through a <a href="/blog/rental-property-loss-to-lease-calculator-excel">loss to lease calculator</a> to see what the whole rent roll is leaving behind.</p>
+
+<p>If you would rather not build the concession math, amenity adjustments, staleness gates, and renewal comparison from scratch, the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> ships with the comp survey tab already wired: enter asking rent, free months, term, fees, and amenities for up to twelve comps and it returns cost of occupancy, adjusted comparables, a freshness-gated median, and the concession versus rate cut break-even for your renewal rate. It feeds straight into the cash flow and cap rate model, so a $118 pricing correction shows up as a valuation change on the same screen instead of a note you meant to act on.</p>`,
+  },
+  {
     slug: 'rental-property-submetering-payback-calculator-excel',
     title: 'Rental Property Submetering Payback Calculator in Excel: Which Buildings Pay It Back and Which Never Do',
     metaTitle: 'Rental Submetering Payback Calculator Excel | SheetCraft',
