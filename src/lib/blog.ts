@@ -16,6 +16,230 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-closing-cost-estimator-excel',
+    title: 'House Flip Closing Cost Estimator in Excel: The Sale Side Eats Half Your Profit',
+    metaTitle: 'House Flip Closing Cost Estimator Excel | SheetCraft',
+    metaDescription: 'Flippers model the buy side and forget the sale side. Build a house flip closing cost estimator in Excel that prices both ends off the sale price.',
+    targetKeyword: 'house flip closing cost estimator Excel',
+    secondaryKeywords: ['flip seller closing costs spreadsheet', 'real estate transfer tax calculator Excel', 'net proceeds calculator flip', 'house flip profit calculator Excel'],
+    excerpt: 'A flipper modeled $32,809 of profit on a $315,000 exit and wired home $16,736. The gap was not the rehab, it was $40,523 of closing costs across two settlement statements, 12.9 percent of ARV. Here is the Excel model that prices both ends off a sale price you have not achieved yet.',
+    publishedAt: '2026-08-16',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-closing-cost-estimator-excel.png',
+    imageAlt: 'Flat illustration of a renovated craftsman house with a mailbox in the front yard, a ring of keys on a stone ledge, and two uneven stacks of gold coins showing modeled profit against actual profit',
+    content: `<h1>House Flip Closing Cost Estimator in Excel: The Sale Side Eats Half Your Profit</h1>
+
+<p>A house flip closing cost estimator in Excel is worth building only if it models both settlement statements. Almost none of them do. Every lender calculator, every free closing cost tool, and every deal analyzer on the internet prices the purchase: origination, appraisal, lender's title, recording. Then it prints a number and stops. The purchase is the cheap end. On the flip below the buy side cost $9,919 and the sell side cost $30,604, and the flipper found that out on the day he wired.</p>
+
+<p>He modeled $32,809 of profit on a $315,000 exit. He collected $16,736. The rehab came in on budget and the timeline came in on schedule. The entire $16,073 gap was closing costs he had approximated with two round percentages he had copied from a podcast: three percent to buy, six percent to sell.</p>
+
+<h2>The Deal That Modeled $32,809 and Paid $16,736</h2>
+
+<p>Standard suburban flip. Purchase at $185,000, hard money at 85 percent of purchase with rehab financed on draws, 11.5 percent interest only, two points, 90 day minimum interest. Rehab budget $62,000, spent $62,000. Listed at $319,900, sold at $315,000 on day 158.</p>
+
+<table>
+  <thead>
+    <tr><th>Line</th><th>Modeled</th><th>Actual</th><th>Variance</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Purchase price</td><td>$185,000</td><td>$185,000</td><td>$0</td></tr>
+    <tr><td>Rehab</td><td>$62,000</td><td>$62,000</td><td>$0</td></tr>
+    <tr><td>Buy side closing, 3 percent of purchase</td><td>$5,550</td><td>$9,919</td><td>$4,369</td></tr>
+    <tr><td>Holding, 158 days</td><td>$10,741</td><td>$10,741</td><td>$0</td></tr>
+    <tr><td>Sell side, 6 percent commission only</td><td>$18,900</td><td>$30,604</td><td>$11,704</td></tr>
+    <tr><td><strong>Total cost</strong></td><td><strong>$282,191</strong></td><td><strong>$298,264</strong></td><td><strong>$16,073</strong></td></tr>
+    <tr><td><strong>Profit on a $315,000 sale</strong></td><td><strong>$32,809</strong></td><td><strong>$16,736</strong></td><td><strong>-$16,073</strong></td></tr>
+  </tbody>
+</table>
+
+<p>He had $48,410 of his own cash in the deal between the down payment, the buy side costs, and the monthly carry. He underwrote a 68 percent cash on cash return over five months and collected 35 percent. Both ends of closing came to $40,523, or 12.9 percent of ARV. On the flips I have modeled the combined number lands between 8 and 11 percent of ARV in a normal market, and it crosses 12 the moment a buyer asks for a credit.</p>
+
+<p>Notice which line did not move. Holding costs were exact, because he tracked them daily. Closing costs blew up because he treated them as a percentage instead of a list. If you have already built the <a href="/blog/house-flipping-holding-costs-calculator">holding cost model</a>, you have the harder half. This is the half that is just discipline.</p>
+
+<h2>Build the Estimator So Every Line Knows Its Own Basis</h2>
+
+<p>The structural mistake in every closing cost sheet I have opened is hardcoded dollar amounts. Someone types $7,875 for commission because ARV is $315,000. Then the property sits, the price drops to $299,000, and the sheet still says $7,875. Every percentage line is now wrong, and the profit number at the bottom is wrong by more than the price cut.</p>
+
+<p>Closing costs are not constants. They are a function of a sale price you have not achieved yet. Build the sheet so it knows that.</p>
+
+<h3>Three columns instead of one</h3>
+
+<p>Put your inputs in B3 through B15: purchase price in B3, target sale price in B4, rehab in B5, loan to purchase percent in B6, rate in B7, points in B8, hold days in B9, annual property tax in B10, listing commission in B11, buyer agent compensation in B12, buyer credit percent in B13, seller transfer tax rate in B14, owner's title rate in B15.</p>
+
+<p>Then give every closing cost line four columns: description in B, type in C, rate in D, flat amount in E. The amount in F computes itself:</p>
+
+<p><code>=IF(C19="Flat",E19,D19*IFS(C19="% of purchase",$B$3,C19="% of sale",$B$4,C19="% of loan",$B$3*$B$6))</code></p>
+
+<p>Now the sheet reprices itself. Drop the sale price in B4 from $315,000 to $299,000 and commission, transfer tax, the buyer credit, and the owner's title policy all fall at once. The flat fees do not move, because they never do. That distinction is the entire point, and it is what lets you answer the only question that matters during a price reduction: what does this cut actually cost me?</p>
+
+<h3>The buy side, priced line by line</h3>
+
+<table>
+  <thead>
+    <tr><th>Line</th><th>Type</th><th>Rate</th><th>Amount</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Origination, two points</td><td>% of loan</td><td>2.00%</td><td>$3,145</td></tr>
+    <tr><td>Underwriting and document prep</td><td>Flat</td><td></td><td>$1,195</td></tr>
+    <tr><td>Appraisal and draw inspection setup</td><td>Flat</td><td></td><td>$650</td></tr>
+    <tr><td>Lender's title policy</td><td>% of loan</td><td>0.372%</td><td>$585</td></tr>
+    <tr><td>Owner's title policy on the purchase</td><td>% of purchase</td><td>0.576%</td><td>$1,065</td></tr>
+    <tr><td>Settlement fee, buyer half</td><td>Flat</td><td></td><td>$475</td></tr>
+    <tr><td>Recording, deed and mortgage</td><td>Flat</td><td></td><td>$195</td></tr>
+    <tr><td>Transfer tax, buyer share</td><td>% of purchase</td><td>0.25%</td><td>$463</td></tr>
+    <tr><td>Survey</td><td>Flat</td><td></td><td>$450</td></tr>
+    <tr><td>Vacant dwelling policy, 6 months prepaid</td><td>Flat</td><td></td><td>$1,180</td></tr>
+    <tr><td>Tax proration reimbursed to the seller</td><td>Days</td><td></td><td>$401</td></tr>
+    <tr><td>Wire and courier</td><td>Flat</td><td></td><td>$115</td></tr>
+    <tr><td><strong>Buy side total</strong></td><td></td><td></td><td><strong>$9,919</strong></td></tr>
+  </tbody>
+</table>
+
+<p>That is 5.36 percent of the purchase price, not three. The three percent rule of thumb is a retail buyer number and it assumes agency financing. Hard money points alone are 1.7 percent of the purchase.</p>
+
+<h3>The sell side, where the money actually leaves</h3>
+
+<table>
+  <thead>
+    <tr><th>Line</th><th>Type</th><th>Rate</th><th>Amount</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Listing side commission</td><td>% of sale</td><td>2.50%</td><td>$7,875</td></tr>
+    <tr><td>Buyer agent compensation offered</td><td>% of sale</td><td>2.50%</td><td>$7,875</td></tr>
+    <tr><td>Transfer tax, seller share</td><td>% of sale</td><td>1.00%</td><td>$3,150</td></tr>
+    <tr><td>Owner's title policy for the buyer</td><td>% of sale</td><td>0.49%</td><td>$1,545</td></tr>
+    <tr><td>Buyer closing cost credit</td><td>% of sale</td><td>1.50%</td><td>$4,725</td></tr>
+    <tr><td>Post inspection repair credit</td><td>Flat</td><td></td><td>$2,200</td></tr>
+    <tr><td>Property tax proration, 158 days</td><td>Days</td><td></td><td>$1,714</td></tr>
+    <tr><td>Home warranty</td><td>Flat</td><td></td><td>$625</td></tr>
+    <tr><td>Settlement fee, seller half</td><td>Flat</td><td></td><td>$475</td></tr>
+    <tr><td>Lien release, recording, payoff statement</td><td>Flat</td><td></td><td>$245</td></tr>
+    <tr><td>Deed preparation</td><td>Flat</td><td></td><td>$175</td></tr>
+    <tr><td>Minimum interest shortfall</td><td>Conditional</td><td></td><td>$0</td></tr>
+    <tr><td><strong>Sell side total</strong></td><td></td><td></td><td><strong>$30,604</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Sum the two with <code>=SUM(F19:F31)+SUM(F35:F47)</code> and divide by ARV. If your sheet does not print that ratio next to the profit line, add it today.</p>
+
+<h2>The Four Lines Everyone Gets Wrong</h2>
+
+<h3>Tax proration, and the sign that flips</h3>
+
+<p>Property taxes settle at closing, not monthly, which means most flippers either forget them entirely or count them twice by carrying them in the holding cost tab and again in the settlement statement. Pick one place. It belongs on the settlement statement, because that is where it is paid.</p>
+
+<p>The harder part is direction. In an arrears state you owe the buyer for every day you held the property, and it comes out of your proceeds. In an advance state the taxes were already paid, and the buyer reimburses you for the unused days, so it comes in. Same input, opposite sign, and the error is worth twice the number if you get it backwards.</p>
+
+<p><code>=IF($B$16="Arrears",-1,1)*($B$10/365)*$B$9</code></p>
+
+<p>At $3,960 a year and 158 days held, that is $1,714 leaving the table in an arrears state. Put the state's convention in a dropdown so nobody has to remember it.</p>
+
+<h3>The minimum interest guarantee that punishes you for finishing early</h3>
+
+<p>Nearly every hard money note carries a minimum interest period, usually 90 days, sometimes six months. Finish in 71 days and you will still be billed for 90. The flippers who get hit by this are the good ones, the crews who turn a cosmetic rehab in ten weeks and expect to be rewarded for it.</p>
+
+<p><code>=IF($B$9&lt;$B$17,($B$17-$B$9)*(($B$3*$B$6)*($B$7/365)),0)</code></p>
+
+<p>On this note the daily interest on the acquisition loan alone is $49.54. Sell on day 71 against a 90 day minimum and the shortfall line prints $941 for money you did not use. It is not a reason to go slower. It is a reason to know the number before you accept an early offer, and a reason to ask for a 60 day minimum when you sign the note.</p>
+
+<h3>The title reissue rate nobody asks for</h3>
+
+<p>You bought an owner's title policy at purchase for $1,065. Five months later you pay for the buyer's owner's policy at $1,545. Most underwriters offer a reissue or substitution rate when the prior policy on the same parcel is under 24 months old, commonly 30 to 50 percent off the standard premium. It is not automatic. You have to hand the title company a copy of your own policy and ask.</p>
+
+<p><code>=IF($B$9&lt;=730,$E$40*(1-$B$18),$E$40)</code></p>
+
+<p>At a 40 percent reissue credit that is $618 back on a single deal. Run six flips a year and you left $3,708 with the underwriter for not sending an email.</p>
+
+<h3>Transfer tax, the line with a $13,476 spread</h3>
+
+<p>This is the single most variable line on the sell side and the one national calculators handle worst, because they average it. On the same $315,000 sale:</p>
+
+<table>
+  <thead>
+    <tr><th>Jurisdiction</th><th>Typical basis</th><th>Tax on $315,000</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Texas, Indiana, Missouri</td><td>No transfer tax</td><td>$0</td></tr>
+    <tr><td>Florida documentary stamps</td><td>0.70% of price</td><td>$2,205</td></tr>
+    <tr><td>Washington REET, first tier</td><td>1.10% of price</td><td>$3,465</td></tr>
+    <tr><td>Pennsylvania, state plus local, seller half</td><td>1.00% of price</td><td>$3,150</td></tr>
+    <tr><td>Delaware, seller half</td><td>2.00% of price</td><td>$6,300</td></tr>
+    <tr><td>Philadelphia, combined, seller pays all</td><td>4.278% of price</td><td>$13,476</td></tr>
+  </tbody>
+</table>
+
+<p>Verify your own rate with the title company that will actually close the deal, and put it in the input block rather than inside a formula. Two things move it that a table cannot capture: the contract overrides local custom, so a split that is customary is not a split that is guaranteed, and a buyer using FHA or a down payment assistance program will often push the whole transfer tax onto the seller as a condition of the offer. Model the version where you pay all of it, then negotiate down from there.</p>
+
+<p><code>=XLOOKUP($B$19,RateTable[Jurisdiction],RateTable[SellerRate],0)*$B$4</code></p>
+
+<h2>What the Model Is Actually For: Choosing Between Two Offers</h2>
+
+<p>The reason to build this is not to feel bad about closing costs. It is to answer offer questions in ninety seconds instead of guessing. Two offers land on day 141:</p>
+
+<ul>
+  <li><strong>Offer A:</strong> $312,000, conventional financing, buyer asks for a 2.0 percent seller credit, 35 days to close.</li>
+  <li><strong>Offer B:</strong> $305,000, cash, no credit, 12 days to close.</li>
+</ul>
+
+<p>Offer A is $7,000 higher. Most sellers take it without a calculator. Set up a comparison block with price in C, credit percent in D, and days to close in E, then compute net proceeds in F:</p>
+
+<p><code>=C61*(1-$B$11-$B$12-$B$14-$B$15-D61)-$B$20-(E61*$B$21)</code></p>
+
+<p>B20 is the sum of the flat sell side fees, $3,720 here, and B21 is your all in daily cost, which is loan interest plus utilities plus the daily tax accrual. On this deal that is $49.54 plus $9.77 of draw interest plus $4.87 of utilities plus $10.85 of tax, or $75.03 a day. Do not put the tax proration in B20 as well, or you will charge it twice.</p>
+
+<table>
+  <thead>
+    <tr><th></th><th>Offer A</th><th>Offer B</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Contract price</td><td>$312,000</td><td>$305,000</td></tr>
+    <tr><td>Commissions, transfer tax, title, credit</td><td>-$26,489</td><td>-$19,794</td></tr>
+    <tr><td>Flat seller fees</td><td>-$3,720</td><td>-$3,720</td></tr>
+    <tr><td>Carry to closing</td><td>-$2,626</td><td>-$900</td></tr>
+    <tr><td><strong>Net proceeds</strong></td><td><strong>$279,165</strong></td><td><strong>$280,586</strong></td></tr>
+  </tbody>
+</table>
+
+<p>The lower offer pays $1,421 more and frees your capital 23 days sooner. The 2 percent credit is what did it: on a $312,000 price that credit is $6,240, and it also does not reduce commission, since commission is calculated on contract price, not net. A seller credit is the most expensive dollar on the settlement statement because it is the only one you pay full freight on.</p>
+
+<h3>The marginal rate, which changes how you price</h3>
+
+<p>Add up every percentage line on the sell side: 2.5 plus 2.5 plus 1.0 plus 0.49 plus 1.5 equals 7.99 percent. Put it in one cell with <code>=SUM($B$11:$B$15)</code>. That number tells you the exchange rate between price and cash.</p>
+
+<p>Every $1,000 you add to the price puts $920 in your pocket. Every $1,000 you cut costs you $920, not $1,000. So when the stager quotes $3,800 and claims it moves the price $9,000, the honest math is $9,000 times 0.9201 minus $3,800, or $4,481 of upside, less $1,050 if it delays you 14 days. Still worth doing. When the agent proposes a $16,000 price cut to generate traffic, it costs you $14,722, and against a daily carry of $75.03 that cut has to save you 196 days on market to pay for itself. It will not.</p>
+
+<h2>Break Even, and the Flag That Stops the Deal</h2>
+
+<p>Your break even is not total cost. Total cost here is $298,264, but selling at $298,264 would leave you short, because a lower price also lowers commission and transfer tax. Separate the fixed from the variable and solve it properly:</p>
+
+<p><code>=($B$3+$B$5+F31+F55+$B$20+F44)/(1-SUM($B$11:$B$15))</code></p>
+
+<p>Fixed costs are purchase, rehab, buy side closing, holding, flat sell fees, and the tax proration, which totals $273,094. Divide by 0.9201 and the true break even is $296,809, not $298,264. The static number would have you walk away from a viable offer $1,455 too early.</p>
+
+<p>Then put a flag on the top of the sheet so the model argues with you before you buy, not after you sell:</p>
+
+<p><code>=IF((F31+F48)/$B$4&gt;0.11,"FLAG: closing costs are "&amp;TEXT((F31+F48)/$B$4,"0.0%")&amp;" of ARV","OK")</code></p>
+
+<p>Eleven percent is the line where a normal deal becomes a thin one. On this flip the flag would have fired at underwriting, at 12.9 percent, while the purchase was still under contract and the price was still negotiable. That is worth more than any post mortem.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Stop using a closing cost percentage. Build the line item sheet once and reuse it on every deal. Concretely, this week:</p>
+
+<ol>
+  <li>Pull the settlement statements from your last two closings, buy side and sell side, and type every line into the sheet. Do not summarize. The lines you have never heard of are the ones costing you money.</li>
+  <li>Tag each line as flat, percent of purchase, percent of sale, percent of loan, or per day, and let column F compute itself with the IFS formula above.</li>
+  <li>Put your jurisdiction's transfer tax rate in the input block, from your title company, not from a national calculator.</li>
+  <li>Add the four lines nobody models: tax proration with the arrears sign, the minimum interest shortfall, the title reissue credit, and a buyer credit line set to your market's actual concession rate rather than zero.</li>
+  <li>Wire the offer comparator and the 11 percent flag. Those two cells are what turn the model from bookkeeping into a decision tool.</li>
+</ol>
+
+<p>Then run it on the deal you are underwriting right now, before you sign. A closing cost estimator built after the purchase is a receipt. Built before, it changes your maximum allowable offer, usually by $12,000 to $18,000 on a $300,000 exit, which is exactly the margin between a flip that works and one that pays you $16,736 for five months and $48,410 of your own cash.</p>
+
+<p>If you would rather not wire the basis logic, proration signs, minimum interest condition, transfer tax lookup, and offer comparator from scratch, the <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> ships with both settlement statements already built: enter purchase price, ARV, loan terms, hold days, and your local transfer tax rate and it returns buy side and sell side totals, closing costs as a percent of ARV with the flag, the true break even price, and a side by side net proceeds comparison for up to four offers. It feeds the same numbers into the MAO and cash on cash tabs, so a 1.5 percent buyer credit shows up as a lower maximum offer on the property you are bidding on tomorrow instead of a surprise on the day you wire.</p>`,
+  },
+  {
     slug: 'multifamily-rent-comp-survey-spreadsheet-excel',
     title: 'Multifamily Rent Comp Survey Spreadsheet in Excel: Why Asking Rents Price Your Building Wrong',
     metaTitle: 'Multifamily Rent Comp Survey Spreadsheet Excel | SheetCraft',
