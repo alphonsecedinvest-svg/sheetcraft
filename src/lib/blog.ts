@@ -16,6 +16,196 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'brrrr-seasoning-period-tracker-excel',
+    title: 'BRRRR Seasoning Period Tracker in Excel: The Date That Decides When Your Capital Comes Back',
+    metaTitle: 'BRRRR Seasoning Period Tracker Excel | SheetCraft',
+    metaDescription: 'A BRRRR seasoning period tracker in Excel dates every refinance window per lender, so you stop refinancing against cost basis and paying a penalty to fix it.',
+    targetKeyword: 'BRRRR seasoning period tracker Excel',
+    secondaryKeywords: ['BRRRR refinance seasoning requirements', 'cash out refinance seasoning spreadsheet', 'delayed financing exception', 'DSCR loan seasoning', 'BRRRR capital release calendar'],
+    excerpt: 'A Kansas City BRRRR was eligible to refinance in July at $103,200 and worth $147,000 in January. Same house, same appraisal, one date apart. Here is the Excel tracker that dates both clocks per lender so your capital comes back on schedule.',
+    publishedAt: '2026-08-17',
+    readTime: 10,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/brrrr-seasoning-period-tracker-excel.png',
+    imageAlt: 'Three white model houses beside a brass desk clock, illustrating a BRRRR seasoning period tracker',
+    content: `<h1>BRRRR Seasoning Period Tracker in Excel: The Date That Decides When Your Capital Comes Back</h1>
+
+<p>A BRRRR seasoning period tracker in Excel is not a calendar reminder. It is the schedule that tells you which day each property hands your money back, and how much of it. Most investors track rehab budgets to the dollar and track the refinance date in their head. Then they call the lender the day they think they are eligible, take the loan the lender offers, and leave $37,250 in the house because they hit the wrong date by five months.</p>
+
+<p>That is not a hypothetical. It is the spread between two dates on the same property, and both dates were knowable on the day of closing.</p>
+
+<h2>The Seasoning Clock Does Not Start When You Think It Does</h2>
+
+<p>You closed on January 8. You wired on January 7. The title company recorded the deed on January 14, because the county recorder was six days behind. Most lenders count seasoning from the deed recording date, not from your settlement date and definitely not from your wire.</p>
+
+<p>Six days sounds like nothing. It is not nothing when you order a $650 appraisal and set a 30 day rate lock for a July 8 closing that legally cannot happen until July 14. The lock expires, the extension costs a quarter point, and on a $146,000 loan that is $367 of pure administrative waste. Multiply that across a portfolio and you are paying a recurring fee for not writing down a date that is printed on a document you already own.</p>
+
+<p>Three dates compete to start the clock, and which one wins depends on the program:</p>
+
+<ul>
+  <li><strong>Deed recording date.</strong> The default for conventional cash-out and for most DSCR lenders. Find it on the recorded deed stamp, book and page, or pull it from the county recorder site the week you close.</li>
+  <li><strong>Settlement date.</strong> Used by a minority of portfolio lenders who count from the closing disclosure.</li>
+  <li><strong>First payment due date.</strong> Used by some local banks and by VA cash-out, which requires 210 days from the first payment plus six consecutive payments.</li>
+</ul>
+
+<p>Put all three in the sheet. You will not remember which lender uses which one twelve months from now, and the lender's processor will not volunteer it.</p>
+
+<h2>There Are Two Clocks, and the Second One Is the Expensive One</h2>
+
+<p>Here is what almost nobody tracks. Becoming <em>eligible</em> to refinance and becoming eligible to refinance <em>against your after repair value</em> are two different dates, usually six months apart.</p>
+
+<p>Fannie Mae generally requires six months of ownership before a cash-out refinance. Most DSCR lenders land in the same place. But inside the first twelve months of ownership, many lenders cap the value they will use at the lesser of the current appraisal or your purchase price plus documented improvements. You are eligible at month six. You are eligible <em>at cost basis</em> at month six. The full appraised value usually shows up at month twelve.</p>
+
+<p>Refinancing on the first eligible date is how BRRRR investors trap their own capital.</p>
+
+<h3>1412 Hawthorne, and the $42,398 calendar mistake</h3>
+
+<p>Bought for $96,000 cash off a HELOC, $2,850 in purchase closing costs, $41,600 of rehab. Cost basis $140,450. Appraised at $196,000 after the rehab. DSCR lender at 75 percent LTV, standard six month seasoning, standard 5-4-3-2-1 prepayment penalty. Deed recorded January 14, so the eligible date is July 14 and the full appraised value date is January 14 of the following year.</p>
+
+<p>Purchase price plus documented improvements is $96,000 plus $41,600, or $137,600. That is the number the lender will use in July. The appraisal says $196,000 and the lender will use it in January. Three paths:</p>
+
+<table>
+  <thead>
+    <tr><th>Line</th><th>A. Refinance at month 6</th><th>B. Refinance at 6, again at 12</th><th>C. Wait, refinance once at month 12</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Value the lender uses</td><td>$137,600</td><td>$137,600 then $196,000</td><td>$196,000</td></tr>
+    <tr><td>Loan amount at 75 percent</td><td>$103,200</td><td>$103,200 then $147,000</td><td>$147,000</td></tr>
+    <tr><td>Refinance closing costs</td><td>$3,400</td><td>$7,500</td><td>$4,100</td></tr>
+    <tr><td>Prepayment penalty, year one</td><td>$0</td><td>$5,160</td><td>$0</td></tr>
+    <tr><td>Extra carry from waiting</td><td>$0</td><td>$0</td><td>$702</td></tr>
+    <tr><td><strong>Net capital returned</strong></td><td><strong>$99,800</strong></td><td><strong>$134,340</strong></td><td><strong>$142,198</strong></td></tr>
+    <tr><td><strong>Still stuck in the house</strong></td><td><strong>$40,650</strong></td><td><strong>$6,110</strong></td><td><strong>-$1,748</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Path C beats path A by $42,398 and beats path B by $7,858. The carry cost of waiting is small because it is only a rate spread, not a full interest bill: you hold $103,200 on the HELOC at 8.75 percent for 184 extra days instead of on the DSCR note at 7.4 percent, which is $702. Investors overestimate that number badly and refinance early to stop a bleed that was never bleeding.</p>
+
+<p>Path B is the one that punishes you twice. You refinance in July at the capped value, realize in the fall that the appraisal would have supported $147,000, and go back for a second cash-out. Now you pay a 5 percent prepayment penalty on the $103,200 note you are retiring inside year one, $5,160, plus a second set of closing costs. That $5,160 exists only because a date was not written down.</p>
+
+<h2>Build the Tracker: Rules Table First, Properties Second</h2>
+
+<p>The mistake in most seasoning spreadsheets is hardcoding "6 months" into a formula. Seasoning is a lender attribute, not a property attribute. Put the rules in their own table so a lender changing its matrix is a one cell edit, not a rebuild.</p>
+
+<h3>The Rules sheet</h3>
+
+<p>Rows 4 through 8, columns A through H. These values are representative. Replace every row with what your lender puts in writing on a term sheet, because programs change and no two non-QM shops match.</p>
+
+<table>
+  <thead>
+    <tr><th>Program</th><th>Clock starts on</th><th>Eligible after</th><th>Full ARV after</th><th>Max LTV</th><th>Window days</th><th>Value basis before full ARV</th><th>Cap applies to</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Agency cash-out</td><td>Deed recorded</td><td>6 mo</td><td>12 mo</td><td>75%</td><td>0</td><td>Purchase + improvements</td><td>Value</td></tr>
+    <tr><td>Delayed financing</td><td>Deed recorded</td><td>0 mo</td><td>999 mo</td><td>75%</td><td>180</td><td>Purchase + closing</td><td>Loan amount</td></tr>
+    <tr><td>DSCR standard</td><td>Deed recorded</td><td>6 mo</td><td>12 mo</td><td>75%</td><td>0</td><td>Purchase + improvements</td><td>Value</td></tr>
+    <tr><td>DSCR no seasoning</td><td>Deed recorded</td><td>0 mo</td><td>0 mo</td><td>70%</td><td>0</td><td>Cost basis</td><td>Value</td></tr>
+    <tr><td>Local portfolio bank</td><td>First payment due</td><td>12 mo</td><td>12 mo</td><td>75%</td><td>0</td><td>Cost basis</td><td>Value</td></tr>
+  </tbody>
+</table>
+
+<p>Two columns there do work nobody expects. <strong>Window days</strong> handles the one clock that runs the other direction: the delayed financing exception lets you cash-out immediately after an all-cash purchase, but the window closes at 180 days and the loan is capped at your documented purchase price plus closing costs. Every other date in this sheet is a date you wait for. That one is a date you lose.</p>
+
+<p><strong>Cap applies to</strong> encodes a distinction that costs people money. Agency and DSCR programs cap the <em>value</em> and then apply LTV to it. Delayed financing caps the <em>loan amount</em> directly. Same word, different math, and a sheet that treats them identically will overstate your proceeds on one of them.</p>
+
+<h3>The property rows</h3>
+
+<p>On the Properties sheet, row 4 is your first house. Columns A through I are typed in: property name, settlement date, deed recorded date, first payment date, purchase price, purchase closing costs, rehab spend, cost basis, and a data validated program name pulled from the Rules sheet. Column H is <code>=E4+F4+G4</code>. Everything from J onward computes.</p>
+
+<p>Column J finds the right start date for that lender:</p>
+
+<p><code>=SWITCH(XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$B$4:$B$8),"Deed recorded",$C4,"First payment due",$D4,$B4)</code></p>
+
+<p>Columns K and L are the two clocks. Eligible date, then full appraised value date:</p>
+
+<p><code>=EDATE($J4,XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$C$4:$C$8))</code></p>
+
+<p><code>=EDATE($J4,XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$D$4:$D$8))</code></p>
+
+<p>Column M is the closing window, blank when the program has none:</p>
+
+<p><code>=IF(XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$F$4:$F$8)=0,"",$J4+XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$F$4:$F$8))</code></p>
+
+<p>Column N is your appraised value. Column O is the number that actually matters, the value the lender will use if you call today:</p>
+
+<p><code>=IF(TODAY()&gt;=$L4,$N4,MIN($N4,SWITCH(XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$G$4:$G$8),"Purchase + improvements",$E4+$G4,"Purchase + closing",$E4+$F4,$E4+$F4+$G4)))</code></p>
+
+<p>Read that in plain English: past the full ARV date, the appraisal counts. Before it, the lender uses the lower of the appraisal and your cost basis under whichever definition that program uses. Column P turns it into a loan, and handles the delayed financing case where the cap lands on the loan instead of the value:</p>
+
+<p><code>=IF(TODAY()&lt;$K4,0,IF(XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$H$4:$H$8)="Loan amount",ROUND(MIN($E4+$F4,$N4*XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8)),0),ROUND($O4*XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8),0)))</code></p>
+
+<p>Column Q is the same calculation at full appraised value, <code>=ROUND($N4*XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8),0)</code>. Column R is trapped capital right now, <code>=MAX(0,$H4-$P4)</code>. That column is the one to sort by.</p>
+
+<h3>The status flag that tells you what to do</h3>
+
+<p><code>=IFS(AND($M4&lt;&gt;"",$M4-TODAY()&lt;=120),"WINDOW CLOSES IN "&amp;$M4-TODAY()&amp;" DAYS",TODAY()&gt;=$L4,"CALL LENDER, FULL ARV",TODAY()&gt;=$K4,"ELIGIBLE BUT CAPPED, "&amp;$L4-TODAY()&amp;" DAYS TO FULL ARV",TRUE,"WAIT "&amp;$K4-TODAY()&amp;" DAYS")</code></p>
+
+<p>Note the order of the tests. The expiring window is checked first, because a deadline you miss is worse than a date you wait for. "ELIGIBLE BUT CAPPED" is the flag that saves the most money, because it is the exact state in which an impatient investor calls the lender and signs for $103,200.</p>
+
+<h3>What a real portfolio looks like on August 17</h3>
+
+<table>
+  <thead>
+    <tr><th>Property</th><th>Recorded</th><th>Program</th><th>Eligible</th><th>Full ARV</th><th>Basis</th><th>Loan today</th><th>Trapped</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1412 Hawthorne</td><td>2026-01-14</td><td>DSCR standard</td><td>2026-07-14</td><td>2027-01-14</td><td>$140,450</td><td>$103,200</td><td>$37,250</td><td>ELIGIBLE BUT CAPPED, 150 DAYS</td></tr>
+    <tr><td>4407 Cedar</td><td>2025-11-24</td><td>Agency cash-out</td><td>2026-05-24</td><td>2026-11-24</td><td>$121,900</td><td>$89,625</td><td>$32,275</td><td>ELIGIBLE BUT CAPPED, 99 DAYS</td></tr>
+    <tr><td>88 Rowan</td><td>2026-03-02</td><td>DSCR no seasoning</td><td>2026-03-02</td><td>2026-03-02</td><td>$88,300</td><td>$83,300</td><td>$5,000</td><td>CALL LENDER, FULL ARV</td></tr>
+    <tr><td>219 Pratt</td><td>2026-06-11</td><td>Delayed financing</td><td>2026-06-11</td><td>n/a</td><td>$76,600</td><td>$73,100</td><td>$3,500</td><td>WINDOW CLOSES IN 113 DAYS</td></tr>
+  </tbody>
+</table>
+
+<p>Four properties, four completely different answers, and only one of them is "call the lender today." Rowan took the no-seasoning DSCR at 70 percent LTV, which returned cash on day one and permanently left $5,000 in the deal. That is the price of speed and it is worth paying when you have a deal waiting. Pratt is the urgent one: $73,100 of your own money sitting behind a door that locks on December 8.</p>
+
+<h2>Turn It Into a Capital Release Calendar</h2>
+
+<p>A tracker that only shows dates is a to-do list. A tracker that shows dollars by month is an acquisition plan. Add two helper columns. Column T is the date worth calling on, column U is what you get on it:</p>
+
+<p><code>=IF($M4&lt;&gt;"",$M4,IF($Q4&gt;$P4,MAX($L4,TODAY()),MAX($K4,TODAY())))</code></p>
+
+<p><code>=IF(OR($M4&lt;&gt;"",$P4&gt;=$Q4),$P4,$Q4)</code></p>
+
+<p>Then build a month column starting at the first of this month and sum against it:</p>
+
+<p><code>=SUMIFS($U$4:$U$40,$T$4:$T$40,"&gt;="&amp;$A13,$T$4:$T$40,"&lt;"&amp;EDATE($A13,1))</code></p>
+
+<table>
+  <thead>
+    <tr><th>Month</th><th>Capital released</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>August 2026</td><td>$83,300</td><td>88 Rowan, available now</td></tr>
+    <tr><td>November 2026</td><td>$129,000</td><td>4407 Cedar, full ARV date</td></tr>
+    <tr><td>December 2026</td><td>$73,100</td><td>219 Pratt, window deadline</td></tr>
+    <tr><td>January 2027</td><td>$147,000</td><td>1412 Hawthorne, full ARV date</td></tr>
+  </tbody>
+</table>
+
+<p>Now you can answer the question that actually runs a BRRRR business: can I go under contract on a $145,000 acquisition in December? Yes, and the sheet says exactly which house pays for it.</p>
+
+<h2>The Documentation That Buys You a Shorter Clock</h2>
+
+<p>Some lenders will shorten seasoning on a documented rehab, using the appraisal rather than cost basis before month twelve. They will not do it on your word. Build the file while the work is happening, not when the underwriter asks:</p>
+
+<ul>
+  <li>Recorded deed with the book, page, and recording date, pulled the week you close</li>
+  <li>Settlement statement showing the source of funds and no lien on title</li>
+  <li>Paid invoices for every rehab line, each tied to a line on your scope of work</li>
+  <li>Lien waivers from every sub paid more than $1,000</li>
+  <li>Permits and the certificate of occupancy or final inspection card</li>
+  <li>Date-stamped before and after photos, room by room</li>
+  <li>Signed lease with first month and deposit deposited, because DSCR lenders price off actual rent when it exists</li>
+  <li>Bank statements tracing your funds to the seller, required for delayed financing</li>
+</ul>
+
+<h2>What to Do This Week</h2>
+
+<p>Pull the recorded deed date for every property you own and put it in column C. It takes about ten minutes per county and it is the single input most likely to be wrong in your head. Then get the seasoning matrix from two lenders in writing, on a term sheet, not from a phone call, and type it into the Rules sheet. Sort by trapped capital and look at the top row. Finally, make it a rule that nobody calls a lender on the eligible date without first reading the full ARV date on the same line. That one habit is worth more than any formula in this article.</p>
+
+<p>If you would rather not build the underwriting side from scratch, the <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already models the refinance the way a lender does, LTV cap against DSCR cap, cost basis against appraised value, and cash left in the deal at each. Drop your eligible date and full ARV date from the tracker into it and you get both numbers for both dates, so the decision to wait or to call stops being a guess and becomes a comparison you can show your partner.</p>`,
+  },
+  {
     slug: 'house-flip-closing-cost-estimator-excel',
     title: 'House Flip Closing Cost Estimator in Excel: The Sale Side Eats Half Your Profit',
     metaTitle: 'House Flip Closing Cost Estimator Excel | SheetCraft',
