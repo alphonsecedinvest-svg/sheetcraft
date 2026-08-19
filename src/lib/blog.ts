@@ -16879,7 +16879,7 @@ READ_TIME: 8
 
 <p>Last month, a general contractor in Denver lost a $2.3 million residential project because his construction project cost report template didn't include the variance analysis his lender required. The bank's loan officer took one look at his handwritten notes and Excel sheets with missing formulas, then denied the construction loan on the spot.</p>
 
-<p>This isn't unusual. Banks reject nearly 40% of construction loan applications due to inadequate financial documentation. Meanwhile, clients fire contractors every week over cost surprises that proper reporting could have prevented. The solution isn't more complex software—it's a systematic approach to cost reporting that satisfies both banks and clients from day one.</p>
+<p>This isn't unusual. Banks reject nearly 40% of construction loan applications due to inadequate financial documentation. Meanwhile, clients fire contractors every week over cost surprises that proper reporting could have prevented. The solution isn't more complex software, it's a systematic approach to cost reporting that satisfies both banks and clients from day one.</p>
 
 <h2>What Banks Actually Look for in Construction Cost Reports</h2>
 
@@ -19301,11 +19301,11 @@ LP + GP = Total Available Cash Flow</p>
     content: `<article>
         <h1>Construction Warranty Tracking Spreadsheet: Never Miss a Callback Window</h1>
 
-        <p>Last month, a roofing contractor in Denver received a $12,800 repair bill for a commercial membrane roof he installed 18 months ago. The leak wasn't his fault—a manufacturing defect in the membrane material. But because he missed the 12-month warranty registration deadline, the manufacturer denied the claim. That $12,800 came straight from his profit margin.</p>
+        <p>Last month, a roofing contractor in Denver received a $12,800 repair bill for a commercial membrane roof he installed 18 months ago. The leak wasn't his fault, a manufacturing defect in the membrane material. But because he missed the 12-month warranty registration deadline, the manufacturer denied the claim. That $12,800 came straight from his profit margin.</p>
 
         <p>Construction warranties are financial assets. Material warranties, workmanship guarantees, equipment warranties, and manufacturer defects coverage collectively represent 5-15% of your total project value. But most contractors treat warranty tracking as an afterthought, losing thousands annually to expired claims and missed callback windows.</p>
 
-        <p>A construction warranty tracking spreadsheet transforms warranty management from reactive crisis response to proactive asset protection. Instead of discovering expired warranties when problems arise, you get automated alerts while claims are still valid—and you build the documentation that gets manufacturers to pay.</p>
+        <p>A construction warranty tracking spreadsheet transforms warranty management from reactive crisis response to proactive asset protection. Instead of discovering expired warranties when problems arise, you get automated alerts while claims are still valid, and you build the documentation that gets manufacturers to pay.</p>
 
         <h2>The Real Cost of Poor Warranty Tracking</h2>
 
@@ -19754,7 +19754,7 @@ LP + GP = Total Available Cash Flow</p>
 
         <h3>Mistake 1: Tracking Only Major Warranties</h3>
 
-        <p>Roofing and HVAC get tracked. Windows, doors, waterproofing, and electrical components get forgotten. Track every warranty—material costs add up fast when minor components fail.</p>
+        <p>Roofing and HVAC get tracked. Windows, doors, waterproofing, and electrical components get forgotten. Track every warranty. Material costs add up fast when minor components fail.</p>
 
         <h3>Mistake 2: Missing Registration Deadlines</h3>
 
@@ -21839,7 +21839,7 @@ Construction professional using Excel spreadsheet to calculate labor costs and r
 
 <h2>Take Control of Your Labor Costs</h2>
 
-<p>Accurate labor cost calculation isn't just about Excel formulas—it's about protecting your profits and building a sustainable business. When you understand your true loaded rates, you can bid jobs confidently and avoid the cash flow disasters that plague contractors who underestimate costs.</p>
+<p>Accurate labor cost calculation isn't just about Excel formulas, it's about protecting your profits and building a sustainable business. When you understand your true loaded rates, you can bid jobs confidently and avoid the cash flow disasters that plague contractors who underestimate costs.</p>
 
 <p>Start with the formulas and examples in this article, but don't stop there. Track your actual costs against estimates and refine your calculations based on real project data. The contractors who survive and thrive are those who know their numbers cold.</p>
 
@@ -23750,7 +23750,7 @@ Target_Occupancy_Rate = (Annual_Financial_Goal + Total_Annual_Expenses) / (Avera
 
 ## Transform Your Vacation Rental Investment Results
 
-<p>Professional vacation rental investors who use comprehensive Excel income calculators consistently outperform those who track income casually. The difference isn't spreadsheet sophistication—it's the business insights that detailed tracking reveals about pricing optimization, expense control, and cash flow management.</p>
+<p>Professional vacation rental investors who use comprehensive Excel income calculators consistently outperform those who track income casually. The difference isn't spreadsheet sophistication, it's the business insights that detailed tracking reveals about pricing optimization, expense control, and cash flow management.</p>
 
 <p>Your vacation rental income calculator Excel system should answer these profit-critical questions within 30 seconds:</p>
 
@@ -25197,7 +25197,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
     metaDescription: 'Learn how to calculate house flipping holding costs in Excel. Step-by-step formulas for financing, taxes, insurance, utilities, and the daily cost of delayed timelines.',
     targetKeyword: 'house flipping holding costs calculator',
     secondaryKeywords: ['holding costs calculator', 'flip holding costs', 'house flip monthly expenses', 'real estate holding costs spreadsheet'],
-    excerpt: 'Most house flippers lose money not on the purchase or the renovation—but on the months they own the property while paying mortgage, taxes, insurance, and utilities. Here is how to calculate your true daily holding cost.',
+    excerpt: 'Most house flippers lose money not on the purchase or the renovation, but on the months they own the property while paying mortgage, taxes, insurance, and utilities. Here is how to calculate your true daily holding cost.',
     publishedAt: '2026-03-08',
     readTime: 12,
     relatedProduct: 'flip-brrrr-calculator',
@@ -25205,19 +25205,19 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
     imageAlt: 'House flip investment analysis showing monthly holding cost breakdown with calendar and financial calculator',
     content: `Most house flippers do not lose money because they paid too much for the property. They do not lose money because the rehab went over budget. They lose money because they forgot to calculate the cost of owning the property while they owned it.
 
-Holding costs—the daily, weekly, and monthly expenses you pay just to keep the property—are the silent killers of flip profits. A $20,000 rehab overrun is visible and dramatic. But $4,200 per month in holding costs for seven months instead of four? That is $12,600 in profit erosion that happens quietly, invoice by invoice, with nobody to blame but the calendar.
+Holding costs, the daily, weekly, and monthly expenses you pay just to keep the property, are the silent killers of flip profits. A $20,000 rehab overrun is visible and dramatic. But $4,200 per month in holding costs for seven months instead of four? That is $12,600 in profit erosion that happens quietly, invoice by invoice, with nobody to blame but the calendar.
 
 This guide will show you exactly how to calculate your holding costs before you buy, track them during the project, and build an Excel calculator that tells you the true daily cost of every delay.
 
 ## What Are Holding Costs in House Flipping?
 
-Holding costs are all the expenses you incur from the day you close on the property to the day you close with the buyer. Unlike rehab costs—which produce something tangible—holding costs are pure burn. They buy you time. Nothing more.
+Holding costs are all the expenses you incur from the day you close on the property to the day you close with the buyer. Unlike rehab costs, which produce something tangible, holding costs are pure burn. They buy you time. Nothing more.
 
 Here is the complete list of what counts as a holding cost:
 
 ### Financing Costs
 - **Hard money interest** or private loan interest (usually 10-14% annually, interest-only)
-- **Loan origination points** (often 2-4 points upfront—amortized over the hold period)
+- **Loan origination points** (often 2-4 points upfront, amortized over the hold period)
 - **Extension fees** if your loan term runs long (typically 1-2% of the loan amount)
 
 ### Property Taxes
@@ -25337,7 +25337,7 @@ This is the tool you use when your contractor says, "We need two more weeks."
 Formula:
 \`=Days_Delayed*Daily_Holding_Cost\`
 
-This sheet makes the invisible visible. When your electrician says he cannot start for three weeks, you now know that delay costs you $2,142—not just inconvenience.
+This sheet makes the invisible visible. When your electrician says he cannot start for three weeks, you now know that delay costs you $2,142, not just inconvenience.
 
 ## Real-World Example: The Six-Month Flip
 
@@ -25385,7 +25385,7 @@ Here is the math that explains why experienced flippers either move fast or use 
 - Monthly interest: $1,875 (plus principal paydown)
 - You save $1,125 per month in interest expense
 
-But conventional lenders do not fund renovations. They require the property to be habitable at closing. Hard money fills the gap—but at a cost that punishes delay severely.
+But conventional lenders do not fund renovations. They require the property to be habitable at closing. Hard money fills the gap, but at a cost that punishes delay severely.
 
 This is why the 90-day flip is the industry benchmark. Go past 90 days, and the hard money interest starts dominating your profit and loss statement.
 
@@ -25423,7 +25423,7 @@ Your monthly holding costs are $3,200. Daily burn is $107.
 - Offer A: $375,000 in 30 days = $3,200 holding cost (1 month) = **net $371,800**
 - Offer B: $385,000 in 75 days = $8,000 holding cost (2.5 months) = **net $377,000**
 
-Offer B still wins, but by $5,200—not by $10,000. And if your carrying costs were higher (say, $4,500/month), the delta shrinks to $2,050. At some point, certainty beats upside.
+Offer B still wins, but by $5,200, not by $10,000. And if your carrying costs were higher (say, $4,500/month), the delta shrinks to $2,050. At some point, certainty beats upside.
 
 Build this comparison into your Excel calculator. When an offer comes in, plug in the price and timeline. Let the spreadsheet tell you which is better.
 
@@ -25436,7 +25436,7 @@ Many counties issue supplemental tax bills after a sale, catching up the assesse
 Standard homeowner's insurance does not cover renovation work. You need a builder's risk or renovation policy, which costs 30-50% more. Get a quote before you budget, not after you realize your policy is insufficient.
 
 ### 3. Ignoring HOA Rental Restrictions
-Some HOAs prohibit rentals under 12 months—effectively blocking flips. Others charge transfer fees or resale certificates ($200-500). Know the HOA docs before you close, not after.
+Some HOAs prohibit rentals under 12 months, effectively blocking flips. Others charge transfer fees or resale certificates ($200-500). Know the HOA docs before you close, not after.
 
 ### 4. Not Prorating Utilities
 If you close on the 15th of the month, you get a half-month of utilities before the first full month. Budget the prorated amount plus a buffer for construction usage (which is always higher than residential).
@@ -25454,7 +25454,7 @@ If you are using SheetCraft's Flip & BRRRR Calculator, the holding cost module i
 
 ## Key Takeaways
 
-1. **Calculate your daily holding cost.** Divide monthly carrying costs by 30. This number—whether it is $75 or $200—should be burned into your brain. Every delay is measured in these dollars.
+1. **Calculate your daily holding cost.** Divide monthly carrying costs by 30. This number, whether it is $75 or $200, should be burned into your brain. Every delay is measured in these dollars.
 
 2. **Budget holding costs at 150% of your optimistic timeline.** If you think the project takes 4 months, budget for 6. The extra buffer protects your profit when reality intervenes.
 
@@ -25466,7 +25466,7 @@ If you are using SheetCraft's Flip & BRRRR Calculator, the holding cost module i
 
 6. **Build parallel workstreams.** Sequential processing is the enemy. Every task that can run parallel should. Time is literally money when you are paying $100+ per day just to own the property.
 
-The best flippers do not just understand holding costs—they obsess over them. They know their daily burn rate by heart. They negotiate timelines with contractors knowing that every week of delay costs real money. They accept offers based on net proceeds, not just gross price.
+The best flippers do not just understand holding costs, they obsess over them. They know their daily burn rate by heart. They negotiate timelines with contractors knowing that every week of delay costs real money. They accept offers based on net proceeds, not just gross price.
 
 Build the calculator. Know your numbers. And stop letting time steal your profits.`
   },
@@ -25477,7 +25477,7 @@ Build the calculator. Know your numbers. And stop letting time steal your profit
     metaDescription: 'Learn how to create a construction material takeoff spreadsheet in Excel. Step-by-step guide with CSI divisions, waste factors, and quantity calculations that prevent costly bid errors.',
     targetKeyword: 'construction material takeoff spreadsheet',
     secondaryKeywords: ['material takeoff Excel', 'construction quantity takeoff spreadsheet', 'material quantity takeoff template', 'how to do a material takeoff'],
-    excerpt: 'Inaccurate material takeoffs are the silent killer of construction profit margins. Here\'s how to build a spreadsheet that traces every quantity directly to your plans — and keeps your bids honest.',
+    excerpt: 'Inaccurate material takeoffs are the silent killer of construction profit margins. Here\'s how to build a spreadsheet that traces every quantity directly to your plans, and keeps your bids honest.',
     publishedAt: '2026-03-07',
     readTime: 13,
     relatedProduct: 'construction-budget-tracker',
@@ -25489,7 +25489,7 @@ Here's the scenario: You're bidding a 4,500 sq ft custom home. You walk the site
 
 By the time you're done, you've spent $22,000 more on materials than you estimated. Your profit margin just became a loss.
 
-This isn't bad luck. It's a measurement problem — and it's 100% preventable with a proper material takeoff spreadsheet.
+This isn't bad luck. It's a measurement problem, and it's 100% preventable with a proper material takeoff spreadsheet.
 
 ## What Is a Material Takeoff?
 
@@ -25502,7 +25502,7 @@ Done right, a takeoff tells you:
 - How many tons of rebar and in what sizes
 - How many rolls of insulation, bags of drywall compound, and squares of roofing
 
-Done wrong — or skipped entirely — you're building with estimated quantities. And estimation errors compound: a 10% error on framing lumber ripples through your fastener count, wall assembly times, drywall quantities, and painting schedule.
+Done wrong, or skipped entirely, you're building with estimated quantities. And estimation errors compound: a 10% error on framing lumber ripples through your fastener count, wall assembly times, drywall quantities, and painting schedule.
 
 ## The Real Cost of Inaccurate Takeoffs
 
@@ -25515,25 +25515,25 @@ Let's quantify what a 10–15% material estimation error actually costs on a rea
 - Rush delivery premiums and waste disposal: **$4,500**
 - **Total preventable losses: $39,300**
 
-That's the number that doesn't show up in project reports. It shows up in your bank account — or rather, doesn't show up there.
+That's the number that doesn't show up in project reports. It shows up in your bank account, or rather, doesn't show up there.
 
 Beyond the money: inaccurate takeoffs delay projects. Running out of materials mid-pour, mid-frame, or mid-tile means work stoppages that cost you far more in labor productivity than the material cost itself. On a 25-person crew, a half-day stoppage can burn $4,000–$6,000 in unproductive labor. Do that three times on a project and you've lost your entire profit margin.
 
 ## How Construction Professionals Structure Takeoffs
 
-The industry standard for organizing takeoff data is the **CSI MasterFormat** — the numbering system that categorizes construction work into 50 divisions. For a material takeoff, you'll work across these key divisions:
+The industry standard for organizing takeoff data is the **CSI MasterFormat**: the numbering system that categorizes construction work into 50 divisions. For a material takeoff, you'll work across these key divisions:
 
-- **Division 03** — Concrete (foundations, slabs, footings)
-- **Division 04** — Masonry (CMU block, brick, mortar)
-- **Division 05** — Metals (structural steel, rebar, metal framing)
-- **Division 06** — Wood, Plastics, Composites (framing lumber, OSB, engineered wood)
-- **Division 07** — Thermal and Moisture Protection (insulation, roofing, waterproofing)
-- **Division 08** — Openings (doors, windows, hardware)
-- **Division 09** — Finishes (drywall, flooring, paint, tile)
-- **Division 22/23** — Plumbing and HVAC rough-in materials
-- **Division 26** — Electrical rough-in materials
+- **Division 03**: Concrete (foundations, slabs, footings)
+- **Division 04**: Masonry (CMU block, brick, mortar)
+- **Division 05**: Metals (structural steel, rebar, metal framing)
+- **Division 06**: Wood, Plastics, Composites (framing lumber, OSB, engineered wood)
+- **Division 07**: Thermal and Moisture Protection (insulation, roofing, waterproofing)
+- **Division 08**: Openings (doors, windows, hardware)
+- **Division 09**: Finishes (drywall, flooring, paint, tile)
+- **Division 22/23**: Plumbing and HVAC rough-in materials
+- **Division 26**: Electrical rough-in materials
 
-Organizing your takeoff by CSI division isn't just an industry convention — it's practical. It maps directly to subcontractor scopes, purchase orders, and cost codes in your project budget. When your GC or owner asks why framing costs came in high, you can pull Division 06 and show exactly which items drove the variance.
+Organizing your takeoff by CSI division isn't just an industry convention, it's practical. It maps directly to subcontractor scopes, purchase orders, and cost codes in your project budget. When your GC or owner asks why framing costs came in high, you can pull Division 06 and show exactly which items drove the variance.
 
 ## Building Your Material Takeoff Spreadsheet in Excel
 
@@ -25566,7 +25566,7 @@ This says: take the raw quantity, add the waste percentage, then round up to the
 
 ### Waste Factors by Material Type
 
-Waste factors aren't guesses — they're industry-calibrated allowances for cuts, defects, and handling losses. Here are the standard factors to build into your spreadsheet:
+Waste factors aren't guesses, they're industry-calibrated allowances for cuts, defects, and handling losses. Here are the standard factors to build into your spreadsheet:
 
 | Material | Waste Factor |
 |----------|-------------|
@@ -25583,13 +25583,13 @@ Waste factors aren't guesses — they're industry-calibrated allowances for cuts
 | Rebar | 5% (cut waste) |
 | Paint | 10–15% |
 
-Add these as a reference tab in your workbook. When a client asks why you ordered 110 sheets of OSB for 1,100 sq ft of subfloor, you can show the 10% waste factor is backed by published industry standards — not padding.
+Add these as a reference tab in your workbook. When a client asks why you ordered 110 sheets of OSB for 1,100 sq ft of subfloor, you can show the 10% waste factor is backed by published industry standards, not padding.
 
 ### Tab 2: The Quantity Calculation Sheet
 
 For each major material category, create a calculation sheet that traces quantities directly to plan dimensions. This is your audit trail.
 
-**Example: Exterior Wall Framing — Stud Count**
+**Example: Exterior Wall Framing: Stud Count**
 
 | Wall | Length (ft) | Height (ft) | Stud Spacing | Base Count | Corner/Header Additions | Total Studs |
 |------|-------------|-------------|--------------|------------|------------------------|-------------|
@@ -25611,7 +25611,7 @@ For each major material category, create a calculation sheet that traces quantit
 - Each door opening: add 2 jack studs + 2 king studs
 - Each window: add 2 jack studs + 2 king studs + sill cripples
 
-This level of granularity is what separates a professional takeoff from a back-of-napkin estimate. Every stud is accounted for. Every opening adjustment is documented. If the GC challenges your lumber quantity, you show them this table — row by row, wall by wall.
+This level of granularity is what separates a professional takeoff from a back-of-napkin estimate. Every stud is accounted for. Every opening adjustment is documented. If the GC challenges your lumber quantity, you show them this table, row by row, wall by wall.
 
 ### Tab 3: The Division Summary Dashboard
 
@@ -25634,7 +25634,7 @@ Your summary tab pulls totals from the takeoff log, grouped by CSI division:
 =SUMIFS('Takeoff Log'!I:I, 'Takeoff Log'!B:B, "Wood Framing")
 \`\`\`
 
-**Add conditional formatting:** Any division running more than 5% over the preliminary estimate allocation turns orange. This flags where your initial assumptions were off — before purchase orders go out.
+**Add conditional formatting:** Any division running more than 5% over the preliminary estimate allocation turns orange. This flags where your initial assumptions were off, before purchase orders go out.
 
 ### Tab 4: The Purchase Order Tracker
 
@@ -25642,16 +25642,16 @@ A takeoff that doesn't drive procurement is just a list. Add a PO tracking tab:
 
 | PO # | Supplier | Division | Total | Order Date | Expected Delivery | Received | Variance |
 |------|----------|----------|-------|------------|-------------------|----------|----------|
-| PO-001 | ABC Lumber | Div 06 | $31,400 | 03/01 | 03/08 | — | Pending |
-| PO-002 | West Coast Concrete | Div 03 | $6,960 | 03/05 | 03/12 | — | Pending |
+| PO-001 | ABC Lumber | Div 06 | $31,400 | 03/01 | 03/08 | - | Pending |
+| PO-002 | West Coast Concrete | Div 03 | $6,960 | 03/05 | 03/12 | - | Pending |
 
-**Connect to the summary:** Use SUMIFS to pull the total ordered value by division and compare to the takeoff estimate. The gap tells you what's still unordered — and what's overdue.
+**Connect to the summary:** Use SUMIFS to pull the total ordered value by division and compare to the takeoff estimate. The gap tells you what's still unordered, and what's overdue.
 
 ## Common Mistakes That Undermine Takeoffs
 
 ### 1. Working from Preliminary Plans
 
-Plans change. A takeoff from 60% design documents isn't worth much if the final plans add 400 sq ft to the second floor. Always take off from **issued-for-construction (IFC) drawings** — and note the drawing revision on your takeoff sheet. Version control isn't optional: name files with the revision (\`Takeoff_v2.0_IFC-A4.xlsx\`) and never overwrite the prior version.
+Plans change. A takeoff from 60% design documents isn't worth much if the final plans add 400 sq ft to the second floor. Always take off from **issued-for-construction (IFC) drawings**: and note the drawing revision on your takeoff sheet. Version control isn't optional: name files with the revision (\`Takeoff_v2.0_IFC-A4.xlsx\`) and never overwrite the prior version.
 
 ### 2. Confusing Net and Gross Quantities
 
@@ -25684,12 +25684,12 @@ Add two columns to your Takeoff Log:
 | M | Production Rate (units/hr) | Reference value |
 | N | Labor Hours | =G2 / M2 |
 
-**Example — Drywall installation:**
+**Example: Drywall installation**
 - Ordered quantity: 2,840 SF
 - Production rate: 80 SF/hr (hang, tape, first coat)
 - Labor hours: 2,840 ÷ 80 = **35.5 hours**
 
-Multiply by your labor rate and you've got a drywall labor estimate calculated directly from the same quantities you used for material cost. This is how professional estimators build bids where every number is internally consistent — not a mix of measured quantities and gut-feel labor hours.
+Multiply by your labor rate and you've got a drywall labor estimate calculated directly from the same quantities you used for material cost. This is how professional estimators build bids where every number is internally consistent, not a mix of measured quantities and gut-feel labor hours.
 
 ## When to Use Takeoff Software vs. Excel
 
@@ -25701,15 +25701,15 @@ Multiply by your labor rate and you've got a drywall labor estimate calculated d
 | Cost | Near zero | $150–$600/month |
 | Learning curve | Low | Medium–high |
 
-The reality for most small to mid-size contractors: Excel handles the math. The bottleneck isn't software — it's discipline. A well-organized Excel takeoff updated every time plans change is more reliable than takeoff software that's only opened for the initial bid.
+The reality for most small to mid-size contractors: Excel handles the math. The bottleneck isn't software, it's discipline. A well-organized Excel takeoff updated every time plans change is more reliable than takeoff software that's only opened for the initial bid.
 
 ## Connecting Takeoffs to Your Project Budget
 
 Your material takeoff is the foundation of your project budget. The quantities flow directly into cost estimates, which flow into your bid, which flow into your change order management as the project executes.
 
-When a change order modifies the scope, the affected CSI divisions should update automatically — not require a manual reconciliation three weeks later when invoices don't match the budget.
+When a change order modifies the scope, the affected CSI divisions should update automatically, not require a manual reconciliation three weeks later when invoices don't match the budget.
 
-SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker) includes a material cost module organized by CSI division that accepts takeoff quantities and keeps your budget current as scope changes. It's designed specifically for contractors who need accurate cost control — not just an invoice log.
+SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker) includes a material cost module organized by CSI division that accepts takeoff quantities and keeps your budget current as scope changes. It's designed specifically for contractors who need accurate cost control, not just an invoice log.
 
 [See the Construction Budget Tracker →](/products/construction-budget-tracker)
 
@@ -25717,7 +25717,7 @@ SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker
 
 1. **A material takeoff is the foundation of your entire bid.** Every inaccuracy compounds through your estimate, your purchase orders, and your project schedule. A 10% error on a $1.2M project can cost you $39,000 in preventable losses.
 
-2. **Organize by CSI MasterFormat.** It maps directly to subcontractor scopes, purchase orders, and cost codes — not just for the estimate, but for the entire project lifecycle.
+2. **Organize by CSI MasterFormat.** It maps directly to subcontractor scopes, purchase orders, and cost codes, not just for the estimate, but for the entire project lifecycle.
 
 3. **Always apply waste factors using CEILING.** The formula \`=CEILING(E2*(1+F2),1)\` ensures you order enough without over-ordering, based on industry-standard waste percentages by material type.
 
@@ -25734,15 +25734,15 @@ SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker
     metaDescription: 'The complete list of rental property expenses every real estate investor needs. Organized by category with Excel formulas to track your rental property cash flow accurately.',
     targetKeyword: 'rental property expense categories list',
     secondaryKeywords: ['rental property expenses list', 'rental property tax deductions', 'investment property expenses', 'landlord expense categories', 'rental property bookkeeping'],
-    excerpt: 'Most real estate investors overestimate their rental income because they underestimate their expenses. Here is the complete list of every cost category—from the obvious mortgage payment to the hidden vacancy loss and capital reserves you forgot to budget.',
+    excerpt: 'Most real estate investors overestimate their rental income because they underestimate their expenses. Here is the complete list of every cost category, from the obvious mortgage payment to the hidden vacancy loss and capital reserves you forgot to budget.',
     publishedAt: '2026-03-09',
     readTime: 14,
     relatedProduct: 'rental-property-analyzer',
     image: '/images/blog/rental-property-expense-categories.jpg',
     imageAlt: 'Property manager organized desk with expense tracking documents, laptop spreadsheet, calculator, and property keys',
-    content: `The investor who tells you they are cash-flowing $400 per month on a rental property is often the same investor who forgot to account for vacancy loss, capital expenditures, and the property manager's placement fee. Six months later, that $400 monthly cash flow has become $50—and they are wondering where the money went.
+    content: `The investor who tells you they are cash-flowing $400 per month on a rental property is often the same investor who forgot to account for vacancy loss, capital expenditures, and the property manager's placement fee. Six months later, that $400 monthly cash flow has become $50, and they are wondering where the money went.
 
-Rental property investing is not complicated. But it is precise. The difference between a profitable deal and a break-even time sink usually comes down to expense tracking. Not the mortgage payment—everyone remembers that. The small, irregular, easy-to-forget expenses that collectively determine whether your investment builds wealth or drains cash.
+Rental property investing is not complicated. But it is precise. The difference between a profitable deal and a break-even time sink usually comes down to expense tracking. Not the mortgage payment, everyone remembers that. The small, irregular, easy-to-forget expenses that collectively determine whether your investment builds wealth or drains cash.
 
 This guide gives you the complete list of rental property expense categories. Use it to build an expense tracking system that captures every deductible dollar and prevents the cash flow surprises that kill deals.
 
@@ -25758,7 +25758,7 @@ Major improvements that extend the property's useful life or substantially incre
 
 The trap most investors fall into: treating CapEx as an operating expense. When your water heater fails and you replace it for $1,200, that is a repair (operating expense, deductible now). When you proactively replace a functioning 15-year-old HVAC system with a new high-efficiency unit for $6,500, that is a capital improvement (depreciated over 27.5 years).
 
-Track them separately. Your tax preparer—and your future self when budgeting reserves—will thank you.
+Track them separately. Your tax preparer, and your future self when budgeting reserves, will thank you.
 
 ## Operating Expense Categories: The Complete List
 
@@ -25767,7 +25767,7 @@ Here is the exhaustive list of operating expenses, organized by category for eas
 ### 1. Financing Costs
 
 **Mortgage Principal & Interest (P&I)**
-Your largest fixed expense. While the interest portion is tax-deductible, the principal portion is not—it is equity buildup. Track them separately.
+Your largest fixed expense. While the interest portion is tax-deductible, the principal portion is not, it is equity buildup. Track them separately.
 
 **Private Money / Hard Money Interest**
 If you used short-term financing to acquire or renovate, the interest is deductible as an operating expense.
@@ -26019,7 +26019,7 @@ This is the number that matters. Not the $400/month you thought you were making 
 
 ## Tax Deduction Strategy
 
-Understanding which expenses are deductible—and when—can save thousands in taxes:
+Understanding which expenses are deductible, and when, can save thousands in taxes:
 
 ### Immediately Deductible (Operating Expenses)
 All the categories listed above except CapEx. Deducted in full in the year paid.
@@ -26031,7 +26031,7 @@ Structural improvements, new roofs, HVAC systems, major renovations.
 Appliances, carpeting, furniture (if furnished rental). Accelerated depreciation provides larger deductions sooner.
 
 ### Section 179 / Bonus Depreciation
-Certain property improvements may qualify for immediate expensing under Section 179 or bonus depreciation rules. Consult a CPA—this changes with tax law.
+Certain property improvements may qualify for immediate expensing under Section 179 or bonus depreciation rules. Consult a CPA, this changes with tax law.
 
 ## The Verification Gate: Is Your Expense Tracking Complete?
 
@@ -26047,7 +26047,7 @@ Before finalizing your tracking system, run this checklist:
 
 ## Integrating Expense Tracking With Property Analysis
 
-Your expense tracking should feed directly into your property acquisition analysis. When evaluating a new deal, reference your historical expense data from similar properties. If your Class B duplexes average 12% of EGR in maintenance costs, use that number—not a guess—when analyzing the next duplex.
+Your expense tracking should feed directly into your property acquisition analysis. When evaluating a new deal, reference your historical expense data from similar properties. If your Class B duplexes average 12% of EGR in maintenance costs, use that number, not a guess, when analyzing the next duplex.
 
 SheetCraft's Rental Property Analyzer includes a complete expense module with all the categories above pre-populated. Enter your property details, and the analyzer projects realistic cash flow based on documented expense ratios rather than optimistic assumptions.
 
@@ -26061,11 +26061,11 @@ SheetCraft's Rental Property Analyzer includes a complete expense module with al
 
 3. **Track mileage contemporaneously.** The IRS requires a log with date, purpose, and miles. Estimates at year-end do not survive audits.
 
-4. **Build CapEx reserves into your cash flow analysis.** Setting aside $200/month for future roof and HVAC replacement ensures you have cash when those bills arrive—not just hope.
+4. **Build CapEx reserves into your cash flow analysis.** Setting aside $200/month for future roof and HVAC replacement ensures you have cash when those bills arrive, not just hope.
 
 5. **Use SUMIFS to automate expense rollups.** The formula \`=SUMIFS(Amount_Range, Category_Range, Category, CapEx_Range, "No")\` gives you instant visibility into spending by category without manual tabulation.
 
-6. **Reconcile actuals against budget quarterly.** Expense categories that consistently exceed budget signal either a forecasting problem or a property problem—both need addressing.
+6. **Reconcile actuals against budget quarterly.** Expense categories that consistently exceed budget signal either a forecasting problem or a property problem, both need addressing.
 
 The investors who build wealth through rental properties are not luckier or smarter. They are simply more precise. They know their numbers. They track every dollar. And they never confuse gross rent with net cash flow.`
   }
@@ -26074,18 +26074,18 @@ The investors who build wealth through rental properties are not luckier or smar
     slug: 'construction-bid-comparison-spreadsheet',
     title: 'How to Compare Construction Bids in a Spreadsheet (Don\'t Just Pick the Cheapest)',
     metaTitle: 'Construction Bid Comparison Spreadsheet: How to Evaluate Bids Properly | SheetCraft',
-    metaDescription: 'Learn how to build a construction bid comparison spreadsheet that goes beyond price. Compare scope, qualifications, and total cost of ownership — not just the bottom line.',
+    metaDescription: 'Learn how to build a construction bid comparison spreadsheet that goes beyond price. Compare scope, qualifications, and total cost of ownership, not just the bottom line.',
     targetKeyword: 'construction bid comparison spreadsheet',
     secondaryKeywords: ['bid leveling spreadsheet', 'subcontractor bid comparison', 'construction bid analysis Excel', 'how to compare contractor bids', 'bid tabulation sheet'],
-    excerpt: 'The lowest bid is not always the cheapest bid. Here is how to build a bid comparison spreadsheet that reveals what each number actually includes — and protects your project from the contractor who wins low and changes high.',
+    excerpt: 'The lowest bid is not always the cheapest bid. Here is how to build a bid comparison spreadsheet that reveals what each number actually includes, and protects your project from the contractor who wins low and changes high.',
     publishedAt: '2026-03-10',
     readTime: 14,
     relatedProduct: 'construction-budget-tracker',
     image: '/images/blog/construction-bid-comparison.jpg',
     imageAlt: 'Construction project manager reviewing multiple contractor bid documents and comparing them in a spreadsheet on a laptop in a professional office',
-    content: `The lowest bid wins the job. That sentence describes how a lot of construction projects get awarded — and why a lot of construction projects end up over budget.
+    content: `The lowest bid wins the job. That sentence describes how a lot of construction projects get awarded, and why a lot of construction projects end up over budget.
 
-Here is the scenario that plays out constantly across commercial and residential projects: You solicit bids from four subcontractors for MEP rough-in on a mid-size commercial fitout. The bids come back at $148,000, $162,000, $175,000, and $183,000. You award to the low bidder. Eighteen months later, the change order log for that subcontractor runs to $34,000 in additions — items the other bidders included in their base scope that this contractor quietly excluded. Your \$148,000 bid just became \$182,000. And you would have been better off with the second-lowest bid.
+Here is the scenario that plays out constantly across commercial and residential projects: You solicit bids from four subcontractors for MEP rough-in on a mid-size commercial fitout. The bids come back at $148,000, $162,000, $175,000, and $183,000. You award to the low bidder. Eighteen months later, the change order log for that subcontractor runs to $34,000 in additions, items the other bidders included in their base scope that this contractor quietly excluded. Your \$148,000 bid just became \$182,000. And you would have been better off with the second-lowest bid.
 
 This is not bad luck. It is a bid evaluation failure. And it is 100% preventable with a properly structured bid comparison spreadsheet.
 
@@ -26093,7 +26093,7 @@ This is not bad luck. It is a bid evaluation failure. And it is 100% preventable
 
 The instinct to rank bids by price is understandable. You have a budget. You want to stay in it. The lowest number looks like the best deal.
 
-But bids are not interchangeable. Each one represents a contractor's interpretation of your plans, specifications, and scope documents — and those interpretations vary dramatically, especially on projects where drawings are incomplete or specifications are ambiguous.
+But bids are not interchangeable. Each one represents a contractor's interpretation of your plans, specifications, and scope documents, and those interpretations vary dramatically, especially on projects where drawings are incomplete or specifications are ambiguous.
 
 What looks like a \$35,000 price gap between two concrete bids might actually be:
 
@@ -26102,7 +26102,7 @@ What looks like a \$35,000 price gap between two concrete bids might actually be
 - **\$6,000** in logistical assumptions (one included pump truck time; the other assumed gravity pour)
 - **\$6,000** in genuine efficiency difference
 
-Only \$6,000 of that gap represents one contractor being cheaper than the other. The rest is scope misalignment. Award to the low bidder and you will spend that \$29,000 in change orders — plus the project delay and administrative overhead of processing them.
+Only \$6,000 of that gap represents one contractor being cheaper than the other. The rest is scope misalignment. Award to the low bidder and you will spend that \$29,000 in change orders, plus the project delay and administrative overhead of processing them.
 
 Professional project managers call the process of untangling these differences **bid leveling** or **bid scoping**. The bid comparison spreadsheet is the tool that makes it systematic.
 
@@ -26110,16 +26110,16 @@ Professional project managers call the process of untangling these differences *
 
 A proper bid comparison spreadsheet has four functions:
 
-1. **Normalize** — Put all bids on an apples-to-apples basis by identifying what each includes and excludes
-2. **Quantify** — Assign dollar values to scope gaps so you can compare true total costs
-3. **Score** — Evaluate non-price factors (experience, references, safety record, financial stability)
-4. **Recommend** — Produce a defensible, documented basis for award
+1. **Normalize**: Put all bids on an apples-to-apples basis by identifying what each includes and excludes
+2. **Quantify**: Assign dollar values to scope gaps so you can compare true total costs
+3. **Score**: Evaluate non-price factors (experience, references, safety record, financial stability)
+4. **Recommend**: Produce a defensible, documented basis for award
 
 Let us build each layer.
 
 ### Layer 1: The Bid Tabulation Sheet
 
-Start with the mechanical comparison — every line item from your scope of work, bid by each contractor.
+Start with the mechanical comparison, every line item from your scope of work, bid by each contractor.
 
 Set up your columns:
 
@@ -26145,9 +26145,9 @@ For a structural concrete package, your scope items might be:
 - Testing (cylinders, slump)
 - Allowances (weather delays, premium time)
 
-If Contractor A gives you a lump sum of \$148,000 for all of the above, but Contractor B breaks it out and you can see they quoted \$12,000 less on forming because they assume a reusable form system — that is information you can act on. Maybe Contractor B's system requires longer strip times that affect the critical path. Maybe it does not. But you cannot evaluate what you cannot see.
+If Contractor A gives you a lump sum of \$148,000 for all of the above, but Contractor B breaks it out and you can see they quoted \$12,000 less on forming because they assume a reusable form system, that is information you can act on. Maybe Contractor B's system requires longer strip times that affect the critical path. Maybe it does not. But you cannot evaluate what you cannot see.
 
-**Best practice:** Require all bidders to use your scope breakdown format. State it in the bid instructions. You will lose a bid or two from contractors who refuse to format their numbers — and those are often the contractors who hide scope gaps in lump sum pricing.
+**Best practice:** Require all bidders to use your scope breakdown format. State it in the bid instructions. You will lose a bid or two from contractors who refuse to format their numbers, and those are often the contractors who hide scope gaps in lump sum pricing.
 
 ### Layer 2: The Scope Gap Analysis
 
@@ -26173,13 +26173,13 @@ For each exclusion, add the market cost to fill the gap. These become your "appl
 
 | Adjustment Item | A | B | C | D |
 |-----------------|---|---|---|---|
-| Pump truck (if excluded) | — | +\$4,200 | +\$4,200 | — |
-| Rebar shop drawings (if excluded) | — | — | +\$2,800 | — |
-| Formwork (if owner-furnished) | — | — | +\$11,500 | — |
-| Testing (if excluded) | +\$1,800 | — | +\$1,800 | — |
+| Pump truck (if excluded) | - | +\$4,200 | +\$4,200 | - |
+| Rebar shop drawings (if excluded) | - | - | +\$2,800 | - |
+| Formwork (if owner-furnished) | - | - | +\$11,500 | - |
+| Testing (if excluded) | +\$1,800 | - | +\$1,800 | - |
 | **Adjusted Total** | **\$149,800** | **\$161,200** | **\$171,300** | **\$183,000** |
 
-Now compare adjusted totals, not bid totals. The gap between Contractor A and Contractor B just shrunk from \$14,000 to \$11,400 — and you understand exactly why.
+Now compare adjusted totals, not bid totals. The gap between Contractor A and Contractor B just shrunk from \$14,000 to \$11,400, and you understand exactly why.
 
 **The adjustment pricing formula:**
 
@@ -26195,7 +26195,7 @@ Build a market rates reference table on a separate sheet. When you fill in the I
 
 Bids often include alternates (additive or deductive options) and allowances (budget amounts for undefined scope). These need their own treatment.
 
-**Alternates:** List each alternate in your tabulation and show which contractors priced it and at what cost. Some contractors may decline to bid an alternate — that tells you something about their capacity or interest.
+**Alternates:** List each alternate in your tabulation and show which contractors priced it and at what cost. Some contractors may decline to bid an alternate, that tells you something about their capacity or interest.
 
 | Alternate | A | B | C | D |
 |-----------|---|---|---|---|
@@ -26224,7 +26224,7 @@ Price is one dimension. Contractor qualifications are another. Build a scoring m
 - Bank references or Dun & Bradstreet rating
 
 **Safety Record (20% weight)**
-- EMR (Experience Modification Rate) — anything above 1.0 is a risk flag
+- EMR (Experience Modification Rate), anything above 1.0 is a risk flag
 - OSHA recordable incident rate
 - Lost time accident rate
 - Safety program documentation
@@ -26261,7 +26261,7 @@ The final tab synthesizes everything into a single decision view.
 | Metric | Contractor A | Contractor B | Contractor C | Contractor D |
 |--------|-------------|-------------|-------------|-------------|
 | Base Bid | \$148,000 | \$157,000 | \$153,100 | \$183,000 |
-| Scope Adjustments | +\$1,800 | +\$4,200 | +\$18,100 | — |
+| Scope Adjustments | +\$1,800 | +\$4,200 | +\$18,100 | - |
 | **Adjusted Total** | **\$149,800** | **\$161,200** | **\$171,200** | **\$183,000** |
 | Qual Score | 3.85 | 4.30 | 3.30 | 4.05 |
 | Price Rank | 1 | 2 | 3 | 4 |
@@ -26271,7 +26271,7 @@ With this view, the award decision changes. Contractor A is cheapest on paper bu
 
 On a \$1.5M project with a 14-month schedule, probably yes. On a \$40,000 punch list package, probably no.
 
-That is the conversation you want to have — based on numbers, not instinct.
+That is the conversation you want to have, based on numbers, not instinct.
 
 ## The Change Order Risk Factor
 
@@ -26298,11 +26298,11 @@ Add a "Change Order Risk" column to your comparison. Score it qualitatively (Low
 
 ### 1. Comparing First Bids Without a Scope Meeting
 
-Every bid package should be followed by a pre-bid meeting or at minimum an RFI period. Contractors who did not attend the pre-bid meeting or submit RFIs have a higher chance of scope misunderstandings — which become your problem at change order time.
+Every bid package should be followed by a pre-bid meeting or at minimum an RFI period. Contractors who did not attend the pre-bid meeting or submit RFIs have a higher chance of scope misunderstandings, which become your problem at change order time.
 
 ### 2. Accepting Lump Sums Without a Scope Breakdown
 
-A lump sum bid is an information desert. You cannot level it, compare it, or audit it. Require a cost breakdown as a condition of bid acceptance. Contractors who refuse are telling you they do not want transparency — which is worth considering before you sign a contract.
+A lump sum bid is an information desert. You cannot level it, compare it, or audit it. Require a cost breakdown as a condition of bid acceptance. Contractors who refuse are telling you they do not want transparency, which is worth considering before you sign a contract.
 
 ### 3. Ignoring the Bid Bond Requirement
 
@@ -26310,11 +26310,11 @@ For public work and most commercial projects over \$150,000, a bid bond (typical
 
 ### 4. Letting Alternates Distort the Base Comparison
 
-Additive alternates are optional work. They should not enter the base bid comparison. Calculate the base adjusted total first. Then, if you want to exercise an alternate, add its cost to that adjusted total. Never compare \$148,000 base + \$8,500 alternate against \$161,200 base without alternates — you are adding apples to oranges.
+Additive alternates are optional work. They should not enter the base bid comparison. Calculate the base adjusted total first. Then, if you want to exercise an alternate, add its cost to that adjusted total. Never compare \$148,000 base + \$8,500 alternate against \$161,200 base without alternates, you are adding apples to oranges.
 
 ### 5. Not Documenting the Award Basis
 
-This is a legal and operational risk. If the low bidder claims you improperly awarded to a higher-priced competitor, you need documented justification — scope adjustments, qualifications scoring, the whole record. Your bid comparison spreadsheet is that documentation. Save it. Archive it with the contract.
+This is a legal and operational risk. If the low bidder claims you improperly awarded to a higher-priced competitor, you need documented justification, scope adjustments, qualifications scoring, the whole record. Your bid comparison spreadsheet is that documentation. Save it. Archive it with the contract.
 
 ### 6. Treating All Line Items as Equivalent
 
@@ -26326,7 +26326,7 @@ A bid comparison spreadsheet is not just an evaluation tool. It is a negotiation
 
 When you have leveled your bids and know which contractor you prefer but whose price is over budget, you have specific data to work with. You can say: "Your adjusted scope total is \$161,200. We have a budget of \$155,000 for this package. Can you identify \$6,200 in cost reduction without removing scope?" 
 
-That conversation — targeted, data-based, specific — is more productive than "can you sharpen your pencil?" It shows the contractor that you understand their bid, which builds respect. It gives them a clear target, which helps them help you.
+That conversation, targeted, data-based, specific, is more productive than "can you sharpen your pencil?" It shows the contractor that you understand their bid, which builds respect. It gives them a clear target, which helps them help you.
 
 After negotiations, document the agreed reductions and how they affect scope. A \$6,200 reduction that removes testing is different from one that substitutes an equivalent product. Update your bid comparison spreadsheet with the final negotiated position and get written confirmation of the revised scope before you sign the contract.
 
@@ -26334,9 +26334,9 @@ After negotiations, document the agreed reductions and how they affect scope. A 
 
 Your bid comparison spreadsheet does not live in isolation. It feeds directly into your project budget.
 
-When you award a contract, that bid — adjusted and negotiated — becomes a line in your budget. The scope inclusions and exclusions you documented become the baseline against which you evaluate future change orders. If a contractor submits a change order for \$3,500 to include pump truck access (which your bid comparison shows they explicitly excluded), that is a legitimate addition. If they submit a \$3,500 change order for work that their own bid included, you have documentation to dispute it.
+When you award a contract, that bid, adjusted and negotiated, becomes a line in your budget. The scope inclusions and exclusions you documented become the baseline against which you evaluate future change orders. If a contractor submits a change order for \$3,500 to include pump truck access (which your bid comparison shows they explicitly excluded), that is a legitimate addition. If they submit a \$3,500 change order for work that their own bid included, you have documentation to dispute it.
 
-Accurate bid documentation prevents the most common change order dispute: contractor claims the work was not in their scope; owner says it was. Your bid comparison spreadsheet — with the inclusion/exclusion matrix — is the contemporaneous record that resolves those disputes.
+Accurate bid documentation prevents the most common change order dispute: contractor claims the work was not in their scope; owner says it was. Your bid comparison spreadsheet, with the inclusion/exclusion matrix, is the contemporaneous record that resolves those disputes.
 
 SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker) includes a bid management module where you can record your bid comparisons and link awarded values directly to budget line items. When change orders arrive, the tracker shows the original scope assumptions so you can evaluate each request against what was actually in the contract.
 
@@ -26391,9 +26391,9 @@ The initial bid gap suggested Alpha was \$16,200 cheaper. After bid leveling, th
 
 5. **Document your award basis.** The bid comparison spreadsheet is your legal and operational record. Archive it with the contract. It protects you against future disputes about scope and pricing.
 
-6. **Use the spreadsheet for negotiation.** Targeted, data-based negotiation beats "sharpen your pencil." When you know exactly where the price gap is and why, you can have a specific conversation about how to close it — without removing essential scope.
+6. **Use the spreadsheet for negotiation.** Targeted, data-based negotiation beats "sharpen your pencil." When you know exactly where the price gap is and why, you can have a specific conversation about how to close it, without removing essential scope.
 
-The contractors who challenge your scope decisions, submit speculative change orders, and claim they never included something are the contractors you should have passed on during bid evaluation. A rigorous bid comparison spreadsheet helps you identify them before they sign the contract — not after they have leverage.`
+The contractors who challenge your scope decisions, submit speculative change orders, and claim they never included something are the contractors you should have passed on during bid evaluation. A rigorous bid comparison spreadsheet helps you identify them before they sign the contract, not after they have leverage.`
   },
   {
     slug: 'cash-on-cash-return-calculator-excel',
@@ -26616,7 +26616,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p>Three months into a $1.2 million commercial renovation, Mike Chen discovered his project was $87,000 over budget. The framing crew had burned through 140% of their allocated hours. Material costs had spiked 18% since estimate. A change order for additional electrical work sat unpriced for six weeks. By the time he saw the numbers, it was too late to recover.</p>
 
-<p>This scenario plays out on construction sites every day. Cost overruns do not announce themselves. They accumulate quietly—an extra day here, a material price increase there, a scope creep that nobody documented. Without systematic budget variance analysis, you discover the problem when the money is already gone.</p>
+<p>This scenario plays out on construction sites every day. Cost overruns do not announce themselves. They accumulate quietly, an extra day here, a material price increase there, a scope creep that nobody documented. Without systematic budget variance analysis, you discover the problem when the money is already gone.</p>
 
 <p>A construction budget variance analysis Excel system transforms reactive panic into proactive control. Instead of learning about overruns in month-end reports, you catch deviations in real time, when you can still adjust schedules, negotiate with subs, or flag issues to the owner. This guide shows you how to build that system.</p>
 
@@ -26642,7 +26642,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p><code>Cost Variance = Earned Value - Actual Cost</code></p>
 
-<p>Where <strong>Earned Value</strong> is the budgeted cost of work performed (BCWP)—what you should have spent to achieve the current percent complete.</p>
+<p>Where <strong>Earned Value</strong> is the budgeted cost of work performed (BCWP), what you should have spent to achieve the current percent complete.</p>
 
 <p>In Excel:</p>
 <p><code>=B2-C2</code> where B2 is Earned Value and C2 is Actual Cost</p>
@@ -26655,7 +26655,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p><code>Schedule Variance = Earned Value - Planned Value</code></p>
 
-<p>Where <strong>Planned Value</strong> is the budgeted cost of work scheduled (BCWS)—what you planned to spend by this date.</p>
+<p>Where <strong>Planned Value</strong> is the budgeted cost of work scheduled (BCWS), what you planned to spend by this date.</p>
 
 <p>In Excel:</p>
 <p><code>=B2-D2</code> where B2 is Earned Value and D2 is Planned Value</p>
@@ -26713,9 +26713,9 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 <tr><th>Metric</th><th>Formula</th><th>Status</th></tr>
 </thead>
 <tbody>
-<tr><td>Total Budget</td><td><code>=SUM('Master Tracker'!C:C)</code></td><td>—</td></tr>
-<tr><td>Total Earned Value</td><td><code>=SUM('Master Tracker'!E:E)</code></td><td>—</td></tr>
-<tr><td>Total Actual Cost</td><td><code>=SUM('Master Tracker'!F:F)</code></td><td>—</td></tr>
+<tr><td>Total Budget</td><td><code>=SUM('Master Tracker'!C:C)</code></td><td>-</td></tr>
+<tr><td>Total Earned Value</td><td><code>=SUM('Master Tracker'!E:E)</code></td><td>-</td></tr>
+<tr><td>Total Actual Cost</td><td><code>=SUM('Master Tracker'!F:F)</code></td><td>-</td></tr>
 <tr><td>Project Cost Variance</td><td><code>=B3-B4</code></td><td><code>=IF(B5<0,"OVER BUDGET","ON TRACK")</code></td></tr>
 <tr><td>Project CPI</td><td><code>=B3/B4</code></td><td><code>=IF(B6<0.95,"CRITICAL",IF(B6<1,"WARNING","GOOD"))</code></td></tr>
 <tr><td>Project SPI</td><td><code>=B3/B7</code></td><td><code>=IF(B8<0.95,"BEHIND",IF(B8<1,"AT RISK","ON SCHEDULE"))</code></td></tr>
@@ -26763,7 +26763,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p>By Week 4, the CPI of 0.84 signaled trouble. The contractor investigated and found the crew was using 20% more lumber than estimated due to waste and rework. He switched to a more experienced crew, implemented better material handling, and renegotiated the lumber supplier contract.</p>
 
-<p>By Week 12, the CPI recovered to 0.94. Final cost was $463,000—only a $13,000 overrun instead of the $108,000 that the Week 8 trend suggested.</p>
+<p>By Week 12, the CPI recovered to 0.94. Final cost was $463,000, only a $13,000 overrun instead of the $108,000 that the Week 8 trend suggested.</p>
 
 <p>Without weekly variance analysis, this contractor would have discovered the overrun at month-end, too late to recover.</p>
 
@@ -26848,7 +26848,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p>Mark bought his first rental property in 2018. Six years later, he has no idea when the mortgage will be paid off. He knows the loan term is 30 years, but he has made extra payments, refinanced once, and the amortization schedule he received at closing is buried in a filing cabinet. When a tenant asks if he owns the property free and clear, he cannot answer with confidence.</p>
 
-<p>This scenario is more common than most investors want to admit. Rental property mortgages are often treated as background noise—an expense that gets deducted from rental income but never analyzed strategically. The question of when the property actually becomes debt-free rarely gets calculated, let alone optimized.</p>
+<p>This scenario is more common than most investors want to admit. Rental property mortgages are often treated as background noise, an expense that gets deducted from rental income but never analyzed strategically. The question of when the property actually becomes debt-free rarely gets calculated, let alone optimized.</p>
 
 <p>A rental property mortgage payoff calculator in Excel changes this dynamic. Instead of guessing, you know exactly when each property will be paid off. You can model the impact of extra principal payments, compare payoff strategies across your portfolio, and make informed decisions about whether to accelerate debt reduction or leverage equity for additional acquisitions.</p>
 
@@ -26867,7 +26867,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p><strong>Investor A:</strong> Makes minimum payments only. Property pays off in 2050.</p>
 
-<p><strong>Investor B:</strong> Applies $200/month of cash flow to principal. Property pays off in 2039—11 years early. Saves $47,000 in interest.</p>
+<p><strong>Investor B:</strong> Applies $200/month of cash flow to principal. Property pays off in 2039, 11 years early. Saves $47,000 in interest.</p>
 
 <p>That 11-year difference is not abstract. It represents 11 years of full rental income without mortgage payments. On a property generating $1,800/month in rent, that is $237,600 in additional cash flow during retirement years.</p>
 
@@ -27027,7 +27027,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <h2>Tax Considerations in Payoff Decisions</h2>
 
-<p>Mortgage interest on rental properties is tax-deductible. Paying off the mortgage eliminates this deduction—but that does not mean keeping the mortgage is always better.</p>
+<p>Mortgage interest on rental properties is tax-deductible. Paying off the mortgage eliminates this deduction, but that does not mean keeping the mortgage is always better.</p>
 
 <p><strong>Example Analysis:</strong></p>
 
@@ -27123,7 +27123,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p>The investor who knows these numbers makes better decisions than the investor who guesses. The difference compounds over decades.</p>
 
-<p>Mark, the investor from the beginning of this article, built his calculator and discovered something surprising: by applying just $150/month of cash flow to principal across his three properties, he could have two of them paid off by age 62—right when he plans to retire. The third pays off at 65. His retirement income projection changed from "maybe enough" to "comfortable" based on that single insight.</p>
+<p>Mark, the investor from the beginning of this article, built his calculator and discovered something surprising: by applying just $150/month of cash flow to principal across his three properties, he could have two of them paid off by age 62, right when he plans to retire. The third pays off at 65. His retirement income projection changed from "maybe enough" to "comfortable" based on that single insight.</p>
 
 <p>That is the power of knowing your numbers. Build the calculator. Run the scenarios. Make informed decisions. Your future self will thank you.</p>
 
