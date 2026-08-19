@@ -16,6 +16,171 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-subcontract-buyout-log-excel',
+    title: 'Construction Subcontract Buyout Log in Excel: Catch the Margin Loss at 30 Percent Bought Out',
+    metaTitle: 'Construction Subcontract Buyout Log Excel | SheetCraft',
+    metaDescription: 'A construction subcontract buyout log in Excel shows margin loss at 30 percent bought out, not at the 60 percent cost review. Formulas, scope gaps, tables.',
+    targetKeyword: 'construction subcontract buyout log Excel',
+    secondaryKeywords: ['subcontractor buyout tracking spreadsheet', 'bid leveling sheet Excel', 'construction buyout schedule template', 'subcontract scope gap tracking', 'general contractor buyout savings'],
+    excerpt: 'Five trades executed and a $3,150,000 job is already $36,900 behind the numbers carried on bid day. That is 18 percent of the fee, gone in week six. Here is the Excel buyout log that catches it while you can still act, plus the formula that projects where buyout actually lands.',
+    publishedAt: '2026-08-19',
+    readTime: 11,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-subcontract-buyout-log-excel.png',
+    imageAlt: 'Brass balance scale weighing plain budget weights against copper fittings, wire connectors and anchors, illustrating construction subcontract buyout variance',
+    content: `<h1>Construction Subcontract Buyout Log in Excel: Catch the Margin Loss at 30 Percent Bought Out</h1>
+
+<p>A general contractor in Nashville signed a $3,150,000 tilt-up shell with an interior fit-out last spring. The estimate carried $2,677,000 in subcontracts and material buyouts, $268,000 in general conditions, and a fee of $204,750. Six weeks after the notice to proceed, five trades were executed and the project manager reported that buyout was "going fine." It was not. Those five subcontracts landed $36,900 worse than the numbers carried on bid day, which is 18 percent of the fee, burned before a single yard of slab concrete was placed. A construction subcontract buyout log Excel workbook exists to put that number on the table in week six, instead of at the 60 percent cost review in month seven when the only lever left is arguing with the owner.</p>
+
+<p>Most buyout logs are award registers. Trade, subcontractor name, contract value, date signed. That is a filing system. It records what already happened and asks you to feel good about it. The log that earns its place answers a different question: given what the bought trades actually cost, can the trades I have not bought yet still absorb the damage?</p>
+
+<h2>The Buyout Gap Is Where a Job's Margin Actually Moves</h2>
+
+<p>By the time the last subcontract is executed, 85 to 90 percent of your cost is fixed. Everything after that is production risk and change order defense. The window where a general contractor can still move the number is the eight to twelve weeks of buyout, and most of the movement happens in the ten days between opening bids on a package and signing it.</p>
+
+<p>Here is what the Nashville job looked like at week six.</p>
+
+<table>
+<tr><th>Div</th><th>Trade</th><th>Carried on bid day</th><th>Low bid</th><th>Scope gaps GC absorbs</th><th>True cost</th><th>Buyout variance</th></tr>
+<tr><td>02</td><td>Earthwork and site utilities</td><td>$284,000</td><td>$276,500</td><td>$0</td><td>$276,500</td><td>+$7,500</td></tr>
+<tr><td>03</td><td>Cast in place concrete</td><td>$312,000</td><td>$328,000</td><td>$0</td><td>$328,000</td><td>-$16,000</td></tr>
+<tr><td>04</td><td>Masonry</td><td>$186,000</td><td>$208,500</td><td>$4,200</td><td>$212,700</td><td>-$26,700</td></tr>
+<tr><td>07</td><td>Roofing and sheet metal</td><td>$164,000</td><td>$151,000</td><td>$6,500</td><td>$157,500</td><td>+$6,500</td></tr>
+<tr><td>21</td><td>Fire sprinkler</td><td>$96,000</td><td>$104,200</td><td>$0</td><td>$104,200</td><td>-$8,200</td></tr>
+<tr><td></td><td><strong>Executed to date</strong></td><td><strong>$1,042,000</strong></td><td><strong>$1,068,200</strong></td><td><strong>$10,700</strong></td><td><strong>$1,078,900</strong></td><td><strong>-$36,900</strong></td></tr>
+</table>
+
+<p>Look at roofing. The raw comparison says the GC saved $13,000. The subcontract came in at $151,000 against a carried number of $164,000, and on a normal buyout log that row is a win. It is not a win. The roofer excluded the walkway pads at the rooftop unit curbs, which is $2,800 of work somebody has to buy, and bid a ten-year material-only warranty when the specification calls for a twenty-year NDL, a $3,700 difference. The real gain is $6,500, exactly half of what the headline number claimed.</p>
+
+<p>That pattern repeats on nearly every job. A bid that comes in under budget is usually under because it excludes something the drawings require. Price the exclusion before you celebrate the gain, and put the price in its own column so it cannot be forgotten.</p>
+
+<h2>Build the Log Around Scope Gaps, Not Around Price</h2>
+
+<p>One row per bid package. Package list goes in rows 4 through 28, with a summary block in rows 1 through 3 where the numbers that matter live.</p>
+
+<table>
+<tr><th>Column</th><th>Field</th><th>Why it exists</th></tr>
+<tr><td>A</td><td>Package number and CSI division</td><td>Sort key, and it ties the log back to the estimate</td></tr>
+<tr><td>B</td><td>Trade</td><td>Plain English for the owner meeting</td></tr>
+<tr><td>C</td><td>Carried on bid day</td><td>The number in the bid you submitted, not the estimator's pre-bid budget</td></tr>
+<tr><td>D</td><td>Complete bids received</td><td>Counts leveled bids only, not a name on a plan-holder list</td></tr>
+<tr><td>E</td><td>Low leveled bid</td><td>Feeds the award decision</td></tr>
+<tr><td>F</td><td>Scope gap dollars GC absorbs</td><td>The column that separates a real gain from a fake one</td></tr>
+<tr><td>G</td><td>True cost to buy</td><td><code>=E4+F4</code></td></tr>
+<tr><td>H</td><td>Awarded value</td><td>Executed subcontract amount</td></tr>
+<tr><td>I</td><td>Award date</td><td>Aging and audit trail</td></tr>
+<tr><td>J</td><td>Buyout variance</td><td><code>=C4-(H4+F4)</code></td></tr>
+<tr><td>K</td><td>Status</td><td>Not released, Bidding, Leveled, Awarded, Executed</td></tr>
+<tr><td>L</td><td>Must award by</td><td>Driven by lead time, covered below</td></tr>
+<tr><td>M</td><td>Share of sub budget</td><td><code>=C4/SUM($C$4:$C$28)</code></td></tr>
+</table>
+
+<p>Column C is the one people get wrong. The estimator's working budget and the number you actually carried in the bid are frequently different, because on bid day somebody dropped a late quote in, shaved a trade to make the number, or moved allowance dollars around. Log the bid day figure. Compare against the pre-bid budget and your variance is fiction, and the PM will spend the whole job defending a baseline nobody submitted.</p>
+
+<p>Column J is the only variance number that means anything. Subtracting the subcontract value from the budget and stopping there tells you what the subcontractor charged. Adding column F tells you what the trade costs you, which is a different figure and the one your fee is exposed to.</p>
+
+<p>Two flags belong in the log from day one. Coverage:</p>
+
+<p><code>=IF(AND($C4/SUM($C$4:$C$28)&gt;0.05,$D4&lt;3),"THIN COVERAGE","")</code></p>
+
+<p>On any trade worth more than 5 percent of the subcontract budget, two bids is not a market. It is a coin flip with your fee on the table. The flag does not tell you the price is wrong. It tells you that you have no way of knowing, which on a $400,000 package is the same thing.</p>
+
+<p>And status discipline:</p>
+
+<p><code>=SUMIFS($C$4:$C$28,$K$4:$K$28,"Executed")/SUM($C$4:$C$28)</code></p>
+
+<p>Only "Executed" counts toward percent bought out. An award letter is not a subcontract. Price moves between the letter and the signature more often than anyone admits, usually when the sub reads the flow-down terms and reprices the schedule risk. On the Nashville job that formula returned 38.9 percent, and the executed variance in column J summed to negative $36,900.</p>
+
+<h3>The Leveling Tab Feeds Column F</h3>
+
+<p>Build a second tab with one row per exclusion, per bidder: package number, bidder, item, who carries it, dollar value. Column F then pulls itself:</p>
+
+<p><code>=SUMIFS(Leveling!$E:$E,Leveling!$A:$A,$A4,Leveling!$B:$B,$H$4,Leveling!$D:$D,"GC carries")</code></p>
+
+<p>Masonry on this job shows why it matters. Bidder A quoted $208,500 and excluded cold weather protection ($2,900) and final cleaning ($1,300). Bidder B quoted $214,000 with nothing excluded. The headline says A is $5,500 cheaper. Leveled, A is $1,300 cheaper, and the actual decision is whether $1,300 is worth self-managing two extra scopes in January. Stated that way, most PMs take bidder B. Stated as a raw price comparison, everyone takes A and finds out in February.</p>
+
+<h2>The One Formula That Should Drive Your Monday Meeting</h2>
+
+<p>Percent bought out and variance to date are backward looking. The number that changes behavior is the projected final buyout position:</p>
+
+<p><code>=SUMIFS($J$4:$J$28,$K$4:$K$28,"Executed")+SUMIFS($C$4:$C$28,$K$4:$K$28,"&lt;&gt;Executed")*$B$6</code></p>
+
+<p>Cell B6 holds your company's historical buyout rate, which you get by dividing total buyout variance by total subcontract budget across your last ten or twelve closed jobs. For this contractor it is positive 0.6 percent. Not a guess, a measured average.</p>
+
+<p>The math at week six: $1,635,000 of budget is still unbought. At 0.6 percent that recovers $9,810. Against negative $36,900 already banked, the projected final position is negative $27,090, or 13.2 percent of the $204,750 fee. Then the break-even question, which is one cell:</p>
+
+<p><code>=-SUMIFS($J$4:$J$28,$K$4:$K$28,"Executed")/SUMIFS($C$4:$C$28,$K$4:$K$28,"&lt;&gt;Executed")</code></p>
+
+<p>That returns 2.26 percent. Every remaining trade has to come in an average of 2.26 percent under the carried number just to finish flat. This company's best full-job buyout in five years was 1.4 percent. Say that out loud in week six and the conversation stops being about whether the concrete sub was fair and starts being about which of the remaining packages can realistically be attacked.</p>
+
+<table>
+<tr><th>Remaining $1,635,000 buys at</th><th>Recovery</th><th>Final buyout position</th><th>Fee remaining</th></tr>
+<tr><td>Historical average, +0.6%</td><td>+$9,810</td><td>-$27,090</td><td>$177,660</td></tr>
+<tr><td>Aggressive, +2.0%</td><td>+$32,700</td><td>-$4,200</td><td>$200,550</td></tr>
+<tr><td>Rushed and under-bid, -1.0%</td><td>-$16,350</td><td>-$53,250</td><td>$151,500</td></tr>
+</table>
+
+<p>The spread between the second and third rows is $49,050 of fee on the same job, same drawings, same field crew. Nothing in the dirt changes it. It is decided in a conference room over about ten weeks, by whether anybody is watching.</p>
+
+<p>Wrap the projection in a flag so it reads itself:</p>
+
+<p><code>=IF($B$8/$B$9&lt;-0.05,"RECOVERY PLAN REQUIRED",IF($B$8&lt;0,"WATCH","ON PLAN"))</code></p>
+
+<p>B8 is the projected position, B9 is the fee. Five percent of fee is the right trigger because below that you can usually claw it back with normal buyout discipline. Above it you need to change something structural, and the earlier you know, the more of the five levers below are still open.</p>
+
+<h2>Buyout Dates Are Set by Lead Times, Not by Your Calendar</h2>
+
+<p>The second way buyout kills a job has nothing to do with price. A trade bought on budget but bought late costs schedule, and schedule costs general conditions at a rate you already know. Column L, must award by, works backward from the long lead item in each package:</p>
+
+<p><code>=E4-F4-G4</code></p>
+
+<p>Where E is the week the material has to be on site, F is fabrication lead time in weeks after approved submittals, and G is submittal preparation plus review. Expressed in project weeks it stays readable when the schedule shifts.</p>
+
+<table>
+<tr><th>Trade</th><th>Long lead item</th><th>Fabrication</th><th>Submittal and review</th><th>Need on site</th><th>Must award by</th></tr>
+<tr><td>26 Electrical</td><td>Main switchgear</td><td>42 weeks</td><td>6 weeks</td><td>Week 54</td><td>Week 6</td></tr>
+<tr><td>23 HVAC</td><td>Four rooftop units</td><td>26 weeks</td><td>5 weeks</td><td>Week 38</td><td>Week 7</td></tr>
+<tr><td>05 Steel</td><td>Joists and metal deck</td><td>18 weeks</td><td>5 weeks</td><td>Week 27</td><td>Week 4</td></tr>
+<tr><td>08 Openings</td><td>Hollow metal frames</td><td>14 weeks</td><td>4 weeks</td><td>Week 22</td><td>Week 4</td></tr>
+</table>
+
+<p>Electrical is the package almost every GC buys last, because it is the biggest, the hardest to level, and the one where the drawings are least complete. On this job it has to be executed by week 6, ahead of drywall, ahead of finishes, ahead of trades that will not set foot on site for a year. Miss that date by four weeks and you pay expedite freight on switchgear, which runs $18,000 to $40,000 on a package this size, or you extend the job a month at $6,200 a week in general conditions, which is $24,800. Either way it is larger than most of the buyout gains you were chasing.</p>
+
+<p>Make the log say it out loud:</p>
+
+<p><code>=IF($K4="Executed","",IF($L4&lt;$B$1,"LATE",IF($L4&lt;=$B$1+2,"AWARD NOW","")))</code></p>
+
+<p>B1 holds the current project week. Sort the log by column L, not by division number. Division order is how the estimate is organized. Lead time order is how the job actually needs to be bought.</p>
+
+<h2>Do Not Spend the Gains, and Know Your Levers When You Are Down</h2>
+
+<p>Buyout savings are not profit until the trade is finished. The $6,500 roofing gain turns into a $2,900 loss the first time the GC pays for temporary protection the subcontract quietly left out. Hold gains in a reserve row and release them on a rule, not on optimism:</p>
+
+<p><code>=IF(AND($N4&gt;=0.5,$O4=0),$J4,0)</code></p>
+
+<p>Column N is percent complete for that trade, column O is open change order exposure in dollars. A gain moves to the projected profit line only when the trade is half built and carries no open exposure. Everything else sits in reserve where the PM cannot spend it on a contingency item.</p>
+
+<p>When the projection says you are underwater, there are five levers and they are worth very different amounts.</p>
+
+<ol>
+<li><strong>Rebid the package.</strong> Available only before award, and only worth the two to three weeks of float it costs when you have fewer than three real bids. Typical recovery when it works: 4 to 9 percent of the trade value.</li>
+<li><strong>Value engineer with the awarded sub.</strong> Recovery of 3 to 8 percent, but only if you give up something real, a finish, an assembly, a warranty term. VE that changes nothing on the drawings recovers nothing on the invoice.</li>
+<li><strong>Bill the owner for scope the documents did not include.</strong> The highest recovery lever, and it depends entirely on column F. A scope gap documented at buyout with a date, a bidder, and a drawing reference is a change order. The same gap remembered in month five is an argument you lose.</li>
+<li><strong>Self perform.</strong> Worth 15 to 25 percent when the trade is labor heavy, your crew is otherwise idle, and your burdened rate beats the sub's. On masonry and mechanical, rarely. On rough carpentry, specialties, and site cleanup, often.</li>
+<li><strong>Accept it and defend what is left.</strong> Freeze contingency spending, tighten the change order process, hold the rest of the buyout to its dates. A $27,000 buyout loss against a $204,750 fee is survivable. That loss plus a contingency nobody is guarding is how a job finishes at zero.</li>
+</ol>
+
+<p>Four of those five close the moment the subcontract is executed. That is the whole argument for keeping the log current. It is not a reporting tool for the monthly owner package. It is the only instrument that tells you a trade is in trouble while you can still do something about it.</p>
+
+<h3>Set It Up the Week You Get the Award Letter</h3>
+
+<p>Build the log before the first bid package goes out, and seed column C directly from the bid tab while the numbers are still cold. Once buyout starts, people remember the budget as whatever makes the current award look acceptable, and a baseline you set after the fact is worthless.</p>
+
+<p>Update it twice a week, Tuesday and Friday, and report exactly two numbers at the internal job review: percent bought out by budget dollar, and projected final buyout position in dollars and as a percent of fee. Every other column in the workbook exists to make those two cells honest. If your PM can only tell you the first number, the log is still a register and the job is still flying blind.</p>
+
+<p>If you would rather not rebuild the leveling tab, the variance math, and the must-award-by logic on every project, the <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> already carries them: a budget structured by cost code that reconciles back to the bid, a buyout column set that keeps awarded value and scope gaps separate so a fake gain cannot hide, and change order and draw schedule modules that pick up exactly where the buyout log stops. The buyout log tells you what the job is going to cost. The tracker tells you what it is costing while you build it.</p>`,
+  },
+  {
     slug: 'house-flip-permit-cost-and-timeline-tracker-excel',
     title: 'House Flip Permit Cost and Timeline Tracker in Excel: The Fee Is Never the Expensive Part',
     metaTitle: 'House Flip Permit Cost and Timeline Tracker | SheetCraft',
