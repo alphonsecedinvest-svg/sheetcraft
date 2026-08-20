@@ -16,6 +16,175 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-long-lead-item-tracker-excel',
+    title: 'Construction Long Lead Item Tracker in Excel: Find the Eight Week Hole in Month One',
+    metaTitle: 'Construction Long Lead Item Tracker Excel | SheetCraft',
+    metaDescription: 'A construction long lead item tracker in Excel works backward from the need date, so a 40 week switchgear lead surfaces in week one instead of month seven.',
+    targetKeyword: 'construction long lead item tracker Excel',
+    secondaryKeywords: ['long lead time items construction schedule', 'construction procurement log Excel', 'equipment lead time tracking spreadsheet', 'construction submittal to delivery tracking', 'general contractor material procurement schedule'],
+    excerpt: 'Three items were already late on the first morning of an $8,400,000 job and nothing in the schedule said so. The switchgear alone carried $197,800 of exposure. Here is the Excel tracker that computes the award, submittal, approval, and release deadlines backward from each need date.',
+    publishedAt: '2026-08-20',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-long-lead-item-tracker-excel.png',
+    imageAlt: 'Heavy steel chain with one broken link on a contractor workbench beside brass calipers and coiled copper wire, illustrating a gap in the construction procurement chain',
+    content: `<h1>Construction Long Lead Item Tracker in Excel: Find the Eight Week Hole in Month One</h1>
+
+<p>A general contractor in Columbus took a $8,400,000 medical office building last spring. Thirty eight thousand square feet, two stories, notice to proceed on Monday March 2, 2026, substantial completion March 5, 2027. The CPM schedule was 340 activities and looked professional. It showed the main switchgear being set in late December with a four day activity bar and two weeks of float. What it did not show is that the switchgear had a 40 week quoted lead time, which meant the purchase order had to reach the factory on March 3, one day after the job started, and the subcontract that authorized that purchase order had to be signed on January 2, eight weeks before the owner had even issued notice to proceed. A construction long lead item tracker Excel workbook exists to put that January 2 date on a page in week one, while there are still six or seven levers to pull, instead of in month seven when the electrician calls and asks where his gear is.</p>
+
+<p>The float on that one item was negative 8.4 weeks on day one. At $10,600 a week of extended general conditions and $1,850 a day of liquidated damages, a critical path week on that job costs $23,550. The switchgear was carrying $197,800 of exposure before a footing was poured, and nothing in the schedule, the budget, or the submittal log said so.</p>
+
+<h2>The Gantt Chart Plans the Install. The Vendor Controls the Release.</h2>
+
+<p>A CPM schedule models work: excavate, form, pour, erect, set, connect. Long lead equipment is not work. It is a chain of paperwork gates that has to finish before any work can start, and every gate in that chain sits with somebody who does not report to you. The subcontractor prepares the submittal. The engineer of record reviews it. Your own accounting department issues the purchase order. The factory schedules production against a backlog you cannot see. By the time the item appears as a bar on your schedule, every decision that determined whether it arrives has already been made or missed.</p>
+
+<p>So the tracker is not a schedule. It is a deadline generator. You take the date the item has to be on site, subtract every duration in the chain, and read off the date each gate has to close. Here is what that produced on the Columbus job when the project manager ran it in week one, sorted by how much trouble each item was in.</p>
+
+<table>
+<tr><th>ID</th><th>Long lead item</th><th>Need on site</th><th>Quoted fab and ship</th><th>Award by</th><th>Float at NTP</th></tr>
+<tr><td>LL-06</td><td>Main switchgear, 2000A service and distribution</td><td>12/22/26</td><td>40 wk</td><td>01/02/26</td><td><strong>-8.4 wk</strong></td></tr>
+<tr><td>LL-01</td><td>Structural steel joists, beams and deck</td><td>07/14/26</td><td>14 wk</td><td>02/02/26</td><td><strong>-4.0 wk</strong></td></tr>
+<tr><td>LL-03</td><td>Rooftop units, four at 25 ton</td><td>09/29/26</td><td>26 wk</td><td>02/02/26</td><td><strong>-4.0 wk</strong></td></tr>
+<tr><td>LL-07</td><td>Standby generator, 150 kW with ATS</td><td>01/19/27</td><td>34 wk</td><td>03/24/26</td><td>+3.1 wk</td></tr>
+<tr><td>LL-04</td><td>Hydraulic elevator, two stop</td><td>11/17/26</td><td>22 wk</td><td>04/06/26</td><td>+5.0 wk</td></tr>
+<tr><td>LL-02</td><td>Aluminum storefront and curtain wall</td><td>10/06/26</td><td>16 wk</td><td>04/13/26</td><td>+6.0 wk</td></tr>
+<tr><td>LL-05</td><td>Fire pump and controller</td><td>12/15/26</td><td>24 wk</td><td>05/04/26</td><td>+9.0 wk</td></tr>
+<tr><td>LL-08</td><td>Medical gas manifold and alarm panel</td><td>01/12/27</td><td>18 wk</td><td>07/14/26</td><td>+19.1 wk</td></tr>
+</table>
+
+<p>Three items were already late on the first morning. That is not a failure of this particular contractor. It is the normal condition of a job where the equipment lead time exceeds the buyout window, and it is invisible until somebody does the subtraction. Notice also that the generator has a longer quoted lead than the rooftop units, 34 weeks against 26, and is in far better shape. Lead time alone tells you nothing. Lead time measured against the need date is the only ranking that means anything, which is why a list of items sorted by weeks of lead is a decoration and a list sorted by float is a work list.</p>
+
+<h3>Which items belong on the tracker</h3>
+
+<p>Put an item on the list if the fab and ship duration is 12 weeks or more, if it is engineered to order, or if it is single sourced at any lead time. That usually gives you 8 to 15 rows on a mid size commercial job. If your list has 40 rows because somebody added door hardware and toilet partitions, nobody will update it past month two, and an abandoned tracker is worse than no tracker because it looks like coverage.</p>
+
+<h2>Build Every Chain Backward From the Need Date</h2>
+
+<p>One row per item. Headers in row 3, data from row 4 down. Columns D through I are the inputs you type. Columns J through M compute themselves and are the deadlines you manage to.</p>
+
+<table>
+<tr><th>Column</th><th>Field</th><th>What it does</th></tr>
+<tr><td>A</td><td>Item ID</td><td>LL-01 through LL-15, so submittals and POs can reference it</td></tr>
+<tr><td>B</td><td>Item description</td><td>Specific enough to price. "Switchgear" is not, "2000A service and distribution switchgear" is</td></tr>
+<tr><td>C</td><td>Responsible sub or vendor</td><td>Who owns the gate. One name, not a company</td></tr>
+<tr><td>D</td><td>Need on site</td><td>Pulled from the schedule activity start, not guessed</td></tr>
+<tr><td>E</td><td>Site buffer, calendar weeks</td><td>Cushion between delivery and installation. One week normally, two on anything that needs a crane pick</td></tr>
+<tr><td>F</td><td>Fab and ship, calendar weeks</td><td>The vendor quote plus freight plus any factory shutdown weeks</td></tr>
+<tr><td>G</td><td>Release to factory, work weeks</td><td>Approval to purchase order in your own accounting system. Usually one, be honest if it is two</td></tr>
+<tr><td>H</td><td>Engineer review, work weeks</td><td>Contract says 14 days. Carry two cycles on anything over 20 weeks of lead</td></tr>
+<tr><td>I</td><td>Submittal prep, work weeks</td><td>Award to submittal in hand. Three to four weeks unless the vendor prepares it</td></tr>
+<tr><td>J to M</td><td>Award by, submit by, approve by, release by</td><td>Computed. These are the four dates you actually manage</td></tr>
+<tr><td>N to R</td><td>Actual award, submittal in, approved, released, delivery confirmed</td><td>Typed as each gate closes. Blank means open</td></tr>
+<tr><td>S</td><td>Float, weeks</td><td>Computed. Positive is cushion, negative is debt</td></tr>
+<tr><td>T</td><td>Status</td><td>Computed flag driven by column S</td></tr>
+</table>
+
+<p>The four backward formulas, starting in row 4:</p>
+
+<p><strong>Release by</strong> (M4), the date the approved submittal has to be at the factory:<br>
+<code>=D4-(E4+F4)*7</code></p>
+
+<p><strong>Approve by</strong> (L4):<br>
+<code>=WORKDAY(M4,-G4*5,Holidays)</code></p>
+
+<p><strong>Submit by</strong> (K4):<br>
+<code>=WORKDAY(L4,-H4*5,Holidays)</code></p>
+
+<p><strong>Award by</strong> (J4):<br>
+<code>=WORKDAY(K4,-I4*5,Holidays)</code></p>
+
+<p>The mix of plain subtraction and <code>WORKDAY</code> is deliberate. Fabrication runs on calendar time. A factory in Wisconsin building your switchgear does not stop for Presidents Day, so column F gets multiplied by 7 and subtracted straight. The paperwork chain runs on business days, and the engineer of record absolutely does stop for Thanksgiving. Name a range of federal holidays plus your own shutdown days <code>Holidays</code> and feed it to every <code>WORKDAY</code> call. On the Columbus job that single argument moved the switchgear award by date from January 6 to January 2, four days that a naive chain would have quietly given away.</p>
+
+<h3>Put the factory shutdown in column F, not in a note</h3>
+
+<p>The most expensive weeks in procurement are the ones nobody quotes. European extruders shut down for most of August. Many domestic equipment plants close the week between Christmas and New Year, and some take the first week of July. A curtain wall package quoted at 16 weeks that crosses a four week August shutdown is a 20 week package. Add the shutdown weeks directly into column F and write the reason in a cell comment. If you keep shutdown weeks in a separate column you will forget to add them, because the formula will not.</p>
+
+<h2>The Float Column Is the Only Column That Matters</h2>
+
+<p>Float has to answer one question: as of the last thing that actually happened, are we ahead or behind? That means the formula walks the chain from the far end backward, finds the most advanced gate that has a real date in it, and measures that date against its own deadline. In S4:</p>
+
+<p><code>=IFS(R4&lt;&gt;"",(D4-R4)/7, Q4&lt;&gt;"",(M4-Q4)/7, P4&lt;&gt;"",(L4-P4)/7, O4&lt;&gt;"",(K4-O4)/7, N4&lt;&gt;"",(J4-N4)/7, TRUE,(J4-TODAY())/7)</code></p>
+
+<p>Read it right to left and it makes sense. If the vendor has confirmed delivery, float is the cushion between that confirmed date and the need date. If not, but the purchase order has been released, float is how early or late the release hit against the release by date. If nothing at all has happened, float is the runway left before the award deadline, measured against today, which means it decays by exactly one week every week you do nothing. That last clause is the whole value of the tool. An item with nine weeks of float in March has negative two weeks of float in June if you never touch it.</p>
+
+<p>On Excel 2016 and older, <code>IFS</code> does not exist. The nested version behaves identically:</p>
+
+<p><code>=IF(R4&lt;&gt;"",(D4-R4)/7,IF(Q4&lt;&gt;"",(M4-Q4)/7,IF(P4&lt;&gt;"",(L4-P4)/7,IF(O4&lt;&gt;"",(K4-O4)/7,IF(N4&lt;&gt;"",(J4-N4)/7,(J4-TODAY())/7)))))</code></p>
+
+<p>Status in T4, four bands, sized so that "critical" means you have less than a normal review cycle of cushion left:</p>
+
+<p><code>=IF(R4&lt;&gt;"","LOCKED",IF(S4&lt;0,"LATE "&amp;TEXT(-S4,"0.0")&amp;" WK",IF(S4&lt;2,"CRITICAL",IF(S4&lt;6,"WATCH","OK"))))</code></p>
+
+<h3>Convert the worst float into a dollar figure</h3>
+
+<p>A red cell gets ignored. A dollar figure gets escalated. Put your weekly cost of delay in B2 and build a three cell summary block above the table:</p>
+
+<table>
+<tr><th>Cell</th><th>Formula</th><th>Columbus job, week one</th></tr>
+<tr><td>B1</td><td><code>=COUNTIF(S4:S30,"&lt;0")</code></td><td>3 items with negative float</td></tr>
+<tr><td>C1</td><td><code>=MIN(S4:S30)</code></td><td>-8.4 weeks, worst case</td></tr>
+<tr><td>D1</td><td><code>=IF(MIN(S4:S30)&lt;0,-MIN(S4:S30)*B2,0)</code></td><td>$197,800 of exposure</td></tr>
+</table>
+
+<p>B2 on this job held $23,550, which is $10,600 of weekly general conditions plus $12,950 of weekly liquidated damages. That number is not precise and does not need to be. It needs to be defensible enough to survive the sentence "our switchgear position is worth about $198,000 of risk and I need a decision on it this week."</p>
+
+<h2>What a 40 Week Lead Time Quote Actually Hides</h2>
+
+<p>Four things, and every one of them has cost somebody a certificate of occupancy.</p>
+
+<p><strong>The clock starts at approved submittal, not at purchase order.</strong> Almost every equipment quote reads "weeks from receipt of approved submittal" or "from release to fabrication." Contractors routinely count 40 weeks from the day they sign the subcontract, which buries the entire submittal and review chain inside the lead time instead of ahead of it. On this job that mistake was worth 8 work weeks, the difference between an award by date of January 2 and one in late February.</p>
+
+<p><strong>Freight is not in the quote.</strong> Ex works pricing ends at the factory dock. A switchgear lineup out of the Midwest is another 2 weeks on the road, and an oversize load needs permits and a route survey. Put freight in column F. If the quote says FOB job site, confirm it in writing, because purchasing departments and shipping departments disagree about this constantly.</p>
+
+<p><strong>The quote expires.</strong> A 40 week lead quoted in January is frequently 46 weeks by April, and the vendor is under no obligation to tell you. Reconfirm lead time every 30 days until the release date, and stamp the date you confirmed it. If the confirmed lead grows, column F changes and every downstream deadline recomputes on its own, which is the entire reason the dates are formulas and not typed values.</p>
+
+<p><strong>First pass approval is not the base case.</strong> Major equipment submittals get rejected or returned "revise and resubmit" often enough that planning on one review cycle is planning on luck. Carry two cycles in column H for anything over 20 weeks of lead. It costs you three weeks of apparent float on paper and saves you from discovering the shortfall after the rejection.</p>
+
+<h2>Recovering Eight Weeks Without Paying for Eight Weeks</h2>
+
+<p>Finding negative 8.4 weeks in week one is only worth something if you know what to do with it. The levers are not equal, and they compress different gates, so they add.</p>
+
+<table>
+<tr><th>Lever</th><th>Gate compressed</th><th>Weeks back</th><th>Cost or risk</th></tr>
+<tr><td>Letter of intent in week one, gear value capped, full subcontract negotiated later</td><td>Award, 4 wk to 1 wk</td><td>3.0</td><td>$0, exposure capped at the $188,000 gear value</td></tr>
+<tr><td>Vendor prepares the submittal package off the bid drawings</td><td>Submittal prep, included above</td><td>included</td><td>$0, ask at bid time</td></tr>
+<tr><td>Contractual 5 business day review on flagged long lead submittals</td><td>Engineer review, 3 wk to 1 wk</td><td>2.0</td><td>$2,500 expedited review fee</td></tr>
+<tr><td>Same day purchase order on approval, out of the accounting queue</td><td>Release, 1 wk to same day</td><td>1.0</td><td>$0, needs a standing authorization</td></tr>
+<tr><td>Cut the site buffer, gear lands the week it is set</td><td>Buffer, 2 wk to 1 wk</td><td>1.0</td><td>No cushion for shipping damage or a bad pad</td></tr>
+<tr><td>Alternate manufacturer at a 26 week quoted lead</td><td>Fab and ship, 40 wk to 26 wk</td><td>14.0</td><td>+$22,000 on a $188,000 package</td></tr>
+</table>
+
+<p>The first five levers together recover 7 of the 8.4 weeks and cost $2,500. The sixth recovers all of it by itself and costs $22,000. The comparison the project manager took to the owner was one line: $22,000 against $197,800 of exposure, on a package where the alternate was an approved equal already listed in the specification. The owner approved it in a day.</p>
+
+<p>With the alternate manufacturer at 26 weeks, a one week buffer, and the compressed paperwork chain, the switchgear release by date moved from March 3 to June 16 and its float went from negative 8.4 weeks to positive 12.1. The same compression applied to the rooftop units took them from negative 4.0 to positive 0.1, and to the structural steel from negative 4.0 to negative 0.9, close enough to absorb with a two week erection resequence. Three fires, one week, no delay claim.</p>
+
+<h3>The week 12 review catches what week one missed</h3>
+
+<p>Here is the same tracker on Friday May 22, 2026, with actuals typed in and the float formula walking each chain to its most advanced closed gate.</p>
+
+<table>
+<tr><th>ID</th><th>Item</th><th>Last gate closed</th><th>Actual</th><th>Deadline</th><th>Float</th><th>Status</th></tr>
+<tr><td>LL-01</td><td>Structural steel</td><td>Delivery confirmed</td><td>07/09/26</td><td>07/14/26 need</td><td>+0.7</td><td>LOCKED</td></tr>
+<tr><td>LL-06</td><td>Main switchgear</td><td>Released to factory</td><td>05/15/26</td><td>06/16/26</td><td>+4.6</td><td>WATCH</td></tr>
+<tr><td>LL-02</td><td>Storefront and curtain wall</td><td>Awarded</td><td>03/26/26</td><td>04/13/26</td><td>+2.6</td><td>WATCH</td></tr>
+<tr><td>LL-07</td><td>Standby generator</td><td>Awarded</td><td>03/09/26</td><td>03/24/26</td><td>+2.1</td><td>WATCH</td></tr>
+<tr><td>LL-08</td><td>Medical gas manifold</td><td>Nothing yet</td><td></td><td>07/14/26 award</td><td>+7.6</td><td>OK</td></tr>
+<tr><td>LL-03</td><td>Rooftop units</td><td>Released to factory</td><td>03/20/26</td><td>03/24/26</td><td>+0.6</td><td>CRITICAL</td></tr>
+<tr><td>LL-04</td><td>Hydraulic elevator</td><td>Submittal received</td><td>05/06/26</td><td>05/04/26</td><td>-0.3</td><td>LATE 0.3 WK</td></tr>
+<tr><td>LL-05</td><td>Fire pump and controller</td><td>Nothing yet</td><td></td><td>05/04/26 award</td><td>-2.6</td><td>LATE 2.6 WK</td></tr>
+</table>
+
+<p>Look at the fire pump. On day one it had 9.0 weeks of float and it was the second healthiest item on the list. Nobody touched it for eleven weeks while the team fought the three fires at the top of the table, and float decays at one week per week. It is now 2.6 weeks late on award, and the item it holds up is not a wall or a ceiling, it is the fire protection system that gates the certificate of occupancy. That is the failure mode of every long lead process that is not reviewed on a schedule: the loud items get managed and the quiet ones go negative in silence.</p>
+
+<p>The routine that prevents it takes fifteen minutes. Every Friday, sort the tracker by column S ascending, type in any gate that closed during the week, and read the top three rows out loud in the Monday coordination meeting. Anything in LATE or CRITICAL gets a name and a date attached before the meeting ends. Anything in WATCH gets a lead time reconfirmation email to the vendor if the last one is more than 30 days old. That is the entire process.</p>
+
+<h2>Start With the Three Items That Can Actually Hurt You</h2>
+
+<p>You do not need 15 rows on Monday. Take the three items on your current job with the longest quoted lead times, get their real need on site dates out of the schedule, and run the four backward formulas. The exercise takes twenty minutes and one of two things happens. Either every award by date is in the future, in which case you have three deadlines you did not have this morning, or one of them is in the past, in which case you have found a problem while it still has six cheap answers instead of one expensive one.</p>
+
+<p>The tracker only works if it sits next to the money. A release date that slips is a general conditions cost, an alternate manufacturer is a budget variance, and an expedited review fee is a line item somebody has to approve. The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with the long lead schedule already wired into the cost side of the workbook, so the four backward dates, the float calculation, the status bands, and the weekly cost of delay all live in the same file as your budget, commitments, and change orders. The formulas above are built and tested, the holiday range is populated, and the summary block reports exposure in dollars the first time you type a need date. You can build this yourself in an afternoon, and you should if you have the afternoon. If you would rather spend that afternoon getting the switchgear released, start from the template.</p>`,
+  },
+  {
     slug: 'construction-subcontract-buyout-log-excel',
     title: 'Construction Subcontract Buyout Log in Excel: Catch the Margin Loss at 30 Percent Bought Out',
     metaTitle: 'Construction Subcontract Buyout Log Excel | SheetCraft',
