@@ -16,6 +16,197 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-go-no-go-bid-decision-matrix-excel',
+    title: 'Construction Go No Go Bid Decision Matrix in Excel: The Jobs You Should Not Have Bid',
+    metaTitle: 'Construction Go No Go Bid Decision Matrix | SheetCraft',
+    metaDescription: 'A construction go no go bid decision matrix in Excel scores each invitation on payment history, bidder count, and schedule fit before you spend the hours.',
+    targetKeyword: 'construction go no go bid decision matrix Excel',
+    secondaryKeywords: ['contractor bid hit rate spreadsheet', 'construction bid no bid criteria', 'cost per bid estimating calculator', 'general contractor bid selection scorecard', 'weighted scoring matrix Excel construction'],
+    excerpt: 'A general contractor priced 46 jobs in 2025 to win seven, and the two worst jobs of the year were both wins. The bottom three score bands ate $158,240 of estimating and produced negative $30,480 of gross profit. Here is the Excel scorecard, with weights, written anchors, and knockout rules, that decides which invitations to decline before the plotter starts.',
+    publishedAt: '2026-08-21',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-go-no-go-bid-decision-matrix-excel.png',
+    imageAlt: 'Wooden crate packed with rolled construction blueprints beside one single roll set apart on a workbench with brass calipers and a carpenter pencil',
+    content: `<h1>Construction Go No Go Bid Decision Matrix in Excel: The Jobs You Should Not Have Bid</h1>
+
+<p>A commercial general contractor in Greenville booked $9,660,000 across seven jobs in 2025. To win those seven, the estimating department priced 46. Two estimators, a project manager pulled in every bid week, 2,760 hours of takeoff, scope leveling, and voicemails to subs who never quoted. A construction go no go bid decision matrix in Excel would have told them, before a single sheet came off the plotter, that most of those 46 bids were a donation. This is not a hit rate problem. It is a selection problem, and it prices out to the dollar.</p>
+
+<p>Here is the part that stings. The two worst jobs of their year, the ones that consumed a superintendent for eleven combined months and closed at 1.8 percent and negative 2.2 percent gross margin, were both jobs they won. Winning was the punishment.</p>
+
+<h2>Price the Bid Before You Price the Job</h2>
+
+<p>Most contractors cannot tell you what one bid costs. It sits inside overhead, so it feels free. It is not free, and the number takes ten minutes to build.</p>
+
+<p>A chief estimator at $98,000 with 32 percent burden costs $129,360 a year against 1,880 available hours, so $68.81 per hour. Round to $69. Then add the direct costs that exist only because you chose to bid: plan reproduction, bid bond premium, the site walk, and on design-build work, the proposal package.</p>
+
+<table>
+<tr><th>Bid type</th><th>Contract value</th><th>Estimating hours</th><th>Labor at $69</th><th>Direct bid costs</th><th>Cost to bid</th></tr>
+<tr><td>Invited private tenant improvement</td><td>$780,000</td><td>34</td><td>$2,346</td><td>$240</td><td>$2,586</td></tr>
+<tr><td>Negotiated commercial addition</td><td>$1,900,000</td><td>52</td><td>$3,588</td><td>$310</td><td>$3,898</td></tr>
+<tr><td>Municipal site and utility, hard bid</td><td>$1,600,000</td><td>64</td><td>$4,416</td><td>$580</td><td>$4,996</td></tr>
+<tr><td>Public school addition, open bid</td><td>$2,400,000</td><td>88</td><td>$6,072</td><td>$910</td><td>$6,982</td></tr>
+<tr><td>Design-build RFP with proposal book</td><td>$3,100,000</td><td>128</td><td>$8,832</td><td>$1,850</td><td>$10,682</td></tr>
+</table>
+
+<p>In the workbook, B6 holds the hours you expect to spend, B7 your loaded rate, and B8 the direct costs. B9 computes what walking into this bid costs you:</p>
+
+<p><code>=B6*B7+B8</code></p>
+
+<p>Their weighted average across 46 bids was $4,840, so total 2025 estimating spend was $222,640. Gross profit produced by the entire company that year was $669,600. Estimating consumed 33 cents of every gross profit dollar. That ratio is why a scorecard is not paperwork. Bid selection is the second largest controllable cost in the business after field labor, and it is the only one most contractors never measure.</p>
+
+<h2>Score Eight Factors, Not Eight Feelings</h2>
+
+<p>Every contractor already has go no go criteria. They live in the owner's head, they change with how the backlog looked that morning, and they cannot be delegated. The point of writing them down is not documentation. It is that a chief estimator with a scored sheet can decline a job on a Tuesday without calling the owner, and the answer is the same answer the owner would have given.</p>
+
+<p>Eight factors, weights summing to 100, each scored 1 to 5 against written anchors. The anchors matter more than the weights. Without them you get a 4 because the job feels like a 4.</p>
+
+<table>
+<tr><th>Factor</th><th>Weight</th><th>Score 1</th><th>Score 3</th><th>Score 5</th></tr>
+<tr><td>Owner payment history and funding</td><td>20</td><td>Unknown private owner, no funding letter, or a record of paying past 60 days</td><td>Known owner, pays in 45 to 60 days, funding confirmed</td><td>Repeat owner paying inside 30 days, bank funded with a lender inspector</td></tr>
+<tr><td>Bidder count and who is on the list</td><td>15</td><td>Open public advertisement, 8 or more bidders expected</td><td>Invited list of 5 to 7 you mostly recognize</td><td>Three or fewer, or negotiated with no formal competition</td></tr>
+<tr><td>Schedule fit against backlog</td><td>15</td><td>Peak manpower lands on top of a job already at full crew</td><td>Partial overlap, manageable by subcontracting more scope</td><td>Starts inside a backlog gap with crews already coming free</td></tr>
+<tr><td>Self-perform content</td><td>15</td><td>Under 15 percent, you are a broker on this one</td><td>25 to 40 percent in trades you staff</td><td>Over 50 percent in your strongest trade</td></tr>
+<tr><td>Contract terms</td><td>12</td><td>Pay-if-paid, no damages for delay, uncapped liquidated damages, 10 percent retainage to final</td><td>Standard AIA A101, 10 percent retainage reduced at 50 percent complete</td><td>Retainage 5 percent, liquidated damages capped, prompt pay statute applies</td></tr>
+<tr><td>Bonding and working capital draw</td><td>10</td><td>Consumes over 30 percent of remaining aggregate, or peak negative cash exceeds 60 percent of the line</td><td>Draws 15 to 30 percent of remaining aggregate</td><td>Under 10 percent, or no bond required and terms are monthly</td></tr>
+<tr><td>Relationship and information advantage</td><td>8</td><td>Never met the owner or the architect, plans came from a plan room</td><td>You know the architect, not the owner</td><td>You built the last two for this owner and walked the site with them</td></tr>
+<tr><td>Distance from the yard</td><td>5</td><td>Over 90 minutes, per diem or an hour lost each way</td><td>40 to 90 minutes</td><td>Under 40 minutes, crews go home at night</td></tr>
+</table>
+
+<p>Weight the first factor highest because it is the only one that can take the whole job away from you after you have already built it. A 14 percent margin on a job that pays in 118 days and holds retainage for eleven months past substantial completion is not a 14 percent margin. It is a loan you made to a stranger at your line of credit rate.</p>
+
+<h3>Four knockouts that skip the score entirely</h3>
+
+<p>Some conditions do not belong in a weighted average, because a high score everywhere else should not be allowed to outvote them. Any one of these is a no-bid no matter what the arithmetic says.</p>
+
+<ul>
+<li>The owner or general contractor still owes you money past 90 days on any job, or you have filed a lien against them in the last three years.</li>
+<li>There is no confirmed funding at bid time. No loan commitment, no bond referendum passed, no appropriation line. A project funded by intention is a project that stops in month five.</li>
+<li>The bid form requires you to waive claims for owner-caused delay and the published schedule carries less than 5 percent float. That combination transfers the whole schedule risk to you for free.</li>
+<li>More than 25 percent of contract value is still uncovered by a firm subcontractor quote 24 hours before bid time. Filling that gap with a plug number is not estimating, it is a wager.</li>
+</ul>
+
+<p>Put the four knockouts in B12 through B16 as TRUE or FALSE dropdowns and let B18 decide whether the scoring section even runs:</p>
+
+<p><code>=IF(COUNTIF(B12:B16,TRUE)&gt;0,"NO BID","SCORE IT")</code></p>
+
+<h2>Build the Matrix in Excel</h2>
+
+<p>One sheet per invitation, or one saved template you copy. Inputs in column B, factors in rows 22 through 29, and every decision cell computed so nobody can nudge it.</p>
+
+<table>
+<tr><th>Cell</th><th>Field</th><th>Source</th></tr>
+<tr><td>B2 to B5</td><td>Project, owner, contract value, bid date</td><td>Typed from the invitation</td></tr>
+<tr><td>B6 to B8</td><td>Estimating hours, loaded rate, direct bid costs</td><td>Typed. Hours come from a comparable past bid, not optimism</td></tr>
+<tr><td>B9</td><td>Cost to bid</td><td>Computed</td></tr>
+<tr><td>B12 to B16</td><td>The four knockouts plus one open slot for your own</td><td>TRUE or FALSE dropdown</td></tr>
+<tr><td>B18</td><td>Knockout result</td><td>Computed</td></tr>
+<tr><td>B22 to B29</td><td>Factor weights</td><td>Locked. Set once a year, not per job</td></tr>
+<tr><td>C22 to C29</td><td>Scores, 1 to 5</td><td>Typed against the written anchors</td></tr>
+<tr><td>D22 to D29</td><td>Weighted points</td><td>Computed</td></tr>
+<tr><td>B31</td><td>Weighted score, 1.00 to 5.00</td><td>Computed</td></tr>
+<tr><td>B33 to B37</td><td>Target margin, win probability, expected contribution, return on estimating spend</td><td>Mixed</td></tr>
+<tr><td>B38</td><td>Decision</td><td>Computed. This is the only cell anyone reads</td></tr>
+</table>
+
+<p>The weighted points in D22, filled down to D29:</p>
+
+<p><code>=B22*C22</code></p>
+
+<p>The score itself in B31, which converts 800 possible weighted points back to a 1 to 5 scale that people can hold in their head:</p>
+
+<p><code>=SUMPRODUCT(B22:B29,C22:C29)/100</code></p>
+
+<p>Put an integrity check in B32 so a well meaning estimator who decides bonding deserves 20 points cannot quietly break the scale for every future job:</p>
+
+<p><code>=IF(SUM(B22:B29)&lt;&gt;100,"WEIGHTS DO NOT SUM TO 100","")</code></p>
+
+<p>A score by itself still does not tell you whether to spend the hours. A 3.4 on an $800,000 tenant improvement and a 3.4 on a $3,100,000 design-build are not the same decision, because one costs $2,586 to chase and the other costs $10,682. So convert the score into money. B33 holds the gross margin you actually realize on this class of work, B34 pulls a win probability from your own history, and the next three cells turn that into an expected return on estimating hours.</p>
+
+<p><code>=LOOKUP(B31,Bands!$A$2:$A$6,Bands!$B$2:$B$6)</code></p>
+
+<p>Gross margin dollars at target, in B35:</p>
+
+<p><code>=B4*B33</code></p>
+
+<p>Expected contribution in B36, which is that margin discounted by the odds of winning:</p>
+
+<p><code>=B35*B34</code></p>
+
+<p>Return on estimating spend in B37 is <code>=B36/B9</code>, and the decision in B38 requires both a real score and a real return:</p>
+
+<p><code>=IF(B18="NO BID","NO BID",IF(AND(B31&gt;=3.6,B37&gt;=3),"BID",IF(AND(B31&gt;=3,B37&gt;=3),"BID ONLY IF THE SHOP IS IDLE","NO BID")))</code></p>
+
+<p>Why a floor of 3 on the return and not 1? Because expected contribution above cost to bid only breaks even on that single bid, and your estimating department also has to carry every bid you lose, plus the salary of the person who has to be there whether an invitation arrives or not. Three is the number that leaves the department funded. Set your own once you have run the backtest below.</p>
+
+<h2>Backtest It on Last Year Before You Trust a Single Threshold</h2>
+
+<p>A scoring model you have not tested is a horoscope with cell references. Before this thing gets to reject anything, pull last year's bid log and score every job using only what you knew on bid day. Not what you learned in month four. If the owner turned out to be a slow payer and you did not know it at bid time, that factor scores a 3, not a 1.</p>
+
+<p>Here is what the Greenville contractor's 46 bids looked like once sorted by score.</p>
+
+<table>
+<tr><th>Score band</th><th>Bids</th><th>Wins</th><th>Hit rate</th><th>Estimating spend</th><th>Gross profit produced</th><th>Gross profit per estimating dollar</th></tr>
+<tr><td>4.2 to 5.0</td><td>6</td><td>3</td><td>50.0%</td><td>$24,800</td><td>$468,030</td><td>$18.87</td></tr>
+<tr><td>3.6 to 4.1</td><td>9</td><td>2</td><td>22.2%</td><td>$39,600</td><td>$232,050</td><td>$5.86</td></tr>
+<tr><td>3.0 to 3.5</td><td>12</td><td>1</td><td>8.3%</td><td>$58,900</td><td>$22,320</td><td>$0.38</td></tr>
+<tr><td>2.5 to 2.9</td><td>11</td><td>1</td><td>9.1%</td><td>$54,200</td><td>($52,800)</td><td>($0.97)</td></tr>
+<tr><td>Below 2.5</td><td>8</td><td>0</td><td>0.0%</td><td>$45,140</td><td>$0</td><td>$0.00</td></tr>
+<tr><td>Total</td><td>46</td><td>7</td><td>15.2%</td><td>$222,640</td><td>$669,600</td><td>$3.01</td></tr>
+</table>
+
+<p>The bottom three bands consumed $158,240 of estimating, 71 percent of the year's estimating budget, and produced negative $30,480 of gross profit. That single sentence is the whole argument for a matrix, and it came out of their own bid log, not out of a theory about contractor discipline.</p>
+
+<p>Look at the 2.5 to 2.9 row for the second lesson. It shows a higher hit rate than the band above it. That is noise, one win out of eleven, and that win was the $2,400,000 school addition they took at 6.4 percent below the second bidder and finished at negative 2.2 percent. Winning a hard bid by that margin is not a victory, it is a receipt for an estimating error. Never read a probability off eleven bids. Smooth the bands before you feed them to the lookup, and use three years of bid log if you have it.</p>
+
+<table>
+<tr><th>Bands sheet, column A</th><th>Column B, win probability used</th></tr>
+<tr><td>0.0</td><td>4%</td></tr>
+<tr><td>2.5</td><td>8%</td></tr>
+<tr><td>3.0</td><td>12%</td></tr>
+<tr><td>3.6</td><td>22%</td></tr>
+<tr><td>4.2</td><td>45%</td></tr>
+</table>
+
+<p>Column A holds the lower bound of each band in ascending order, which is what makes the approximate LOOKUP land in the right row. If your scores cluster between 3.0 and 3.8 on everything, your anchors are too generous. Rewrite them until a genuinely bad job scores below 2.5, because a matrix that never says no is a matrix that costs you 40 hours a year to maintain and changes nothing.</p>
+
+<h2>What Changes When You Start Saying No</h2>
+
+<p>Run the same 61 invitations they received in 2025 back through the finished model. Bid all 6 in the top band, all 9 in the 3.6 to 4.1 band, and the best 6 of the 12 in the middle band where the return on estimating spend clears 3. Decline the other 25.</p>
+
+<table>
+<tr><th>Line</th><th>2025 as actually bid</th><th>Same 61 invitations, matrix applied</th></tr>
+<tr><td>Bids submitted</td><td>46</td><td>21</td></tr>
+<tr><td>Estimating spend</td><td>$222,640</td><td>$93,850</td></tr>
+<tr><td>Estimating hours</td><td>2,760</td><td>1,240</td></tr>
+<tr><td>Expected wins</td><td>7</td><td>5.5</td></tr>
+<tr><td>Contract booked</td><td>$9,660,000</td><td>$6,640,000</td></tr>
+<tr><td>Gross profit</td><td>$669,600</td><td>$711,240</td></tr>
+<tr><td>Gross profit per estimating dollar</td><td>$3.01</td><td>$7.58</td></tr>
+</table>
+
+<p>Slightly more gross profit on 31 percent less revenue, using 58 percent less estimating money. The right column is an expected value built from their own realized band statistics, not a promise, and any single year will scatter around it. The direction is not in doubt though, because the removed bids are the ones that historically produced nothing.</p>
+
+<p>Now the objection every contractor raises at this table. Revenue drops $3,020,000. If your overhead structure requires $9,660,000 of volume to cover itself, you do not have a bidding problem, you have an overhead problem, and bidding low-scoring work to feed it is the exact mechanism by which contractors go out of business at record revenue. Fix the overhead or go get better invitations. Do not fix it by buying revenue at negative margin.</p>
+
+<p>Which brings up what the freed capacity is actually for. Twenty five fewer bids returns about 1,520 estimating hours, roughly 30 hours a week. The instinct is to cut a head and bank the salary. That is the wrong move in most shops, because the binding constraint was never estimating hours. It was the number of high-scoring invitations arriving in the first place. Six invitations scored above 4.2 all year. Spend the freed 30 hours a week on the owners, developers, and architects who generate that kind of invitation, and the top band goes from six to fifteen. That is the compounding version of this, and it only becomes available once you stop spending the department on work you were never going to win.</p>
+
+<h3>Rules that make it stick</h3>
+
+<ul>
+<li>Score every invitation, including the ones you are certain about. The log is worthless with gaps in it, and the certain ones are where the surprises live.</li>
+<li>Lock the weights for a full year. Adjusting them mid-year to justify a job you already want is how the model dies.</li>
+<li>Record the actual outcome, win or loss, and the realized gross margin at closeout on the same row. Without the outcome column you cannot recalibrate, and an uncalibrated model is just the owner's opinion in a spreadsheet.</li>
+<li>Review the log quarterly and check one number: gross profit per estimating dollar. If it is not climbing, your anchors are wrong.</li>
+</ul>
+
+<h2>Start With Last Year's Bid Log</h2>
+
+<p>Build the sheet this week, then score your last 20 bids before you score a new one. You already know which of them you won and what they returned, so the backtest costs you an afternoon and tells you immediately whether your anchors separate good work from bad. If the model retroactively flags the two jobs that hurt you, it works. If it does not, the anchors are too soft and the fix is to rewrite the score 1 column until they bite.</p>
+
+<p>The scorecard tells you which jobs to chase. Tracking whether the ones you win actually deliver the margin you bid is the other half, and it is the half that feeds the realized margin figures the matrix depends on. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> carries budget against committed cost and actual cost by cost code, flags variance as it appears rather than at closeout, and gives you the realized gross margin per job that column B33 of this matrix needs. Score the bid with the matrix, then run the won job in the tracker, and next year's backtest is built from real numbers instead of memory.</p>`,
+  },
+  {
     slug: 'construction-long-lead-item-tracker-excel',
     title: 'Construction Long Lead Item Tracker in Excel: Find the Eight Week Hole in Month One',
     metaTitle: 'Construction Long Lead Item Tracker Excel | SheetCraft',
