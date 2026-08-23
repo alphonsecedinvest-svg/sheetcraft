@@ -16,6 +16,204 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-owner-decision-log-template-excel',
+    title: 'Construction Owner Decision Log Template in Excel: The 27 Days You Never Got Credit For',
+    metaTitle: 'Construction Owner Decision Log Template Excel | SheetCraft',
+    metaDescription: 'A construction owner decision log template in Excel ties every open selection to a need by date and float, so a slow owner answer becomes documented delay.',
+    targetKeyword: 'construction owner decision log template Excel',
+    secondaryKeywords: ['construction pending decisions tracker', 'owner caused delay documentation Excel', 'construction open items log template', 'construction delay notice tracking spreadsheet', 'construction need by date schedule'],
+    excerpt: 'Meridian finished 34 days late and lost $180,700: $70,000 of liquidated damages assessed and $110,700 of extended general conditions never billed. Twenty seven of those days belonged to an owner who had not picked tile. Here is the Excel decision log, the need by date math, and the notice trigger that turns a slow answer into a documented time extension.',
+    publishedAt: '2026-08-23',
+    readTime: 11,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-owner-decision-log-template-excel.png',
+    imageAlt: 'A fan of ceramic tile samples in muted earth tones arranged in an arc on a light oak workbench, with a small brass service bell to the left and a steel tape measure at the front edge',
+    content: `<h1>Construction Owner Decision Log Template in Excel: The 27 Days You Never Got Credit For</h1>
+
+<p>A construction owner decision log template in Excel exists for one reason: to turn an owner's slow answer into a dated, quantified fact before it becomes your late finish. Most GCs do not have one. They have 900 emails, a folder of meeting minutes, and a closeout letter assessing liquidated damages for days they did not cause.</p>
+
+<p>Meridian Construction Group learned the price on a $12.4 million three story medical office building. Contract duration 425 calendar days, liquidated damages at $2,500 per day. They achieved substantial completion 34 days late. The owner withheld against 28 of those days and Meridian recovered none of the money it had spent staying on site.</p>
+
+<p>Nothing about the work went wrong. The concrete was fine, the steel came in on time, the mechanical sub was good. What happened is that the owner took 11 weeks to pick restroom tile, and nobody wrote down that the tile decision was due in July, not October.</p>
+
+<h2>The 34 Days and Who Actually Owned Them</h2>
+
+<p>When Meridian finally sat down and reconstructed the schedule, the causes were not close to evenly split. The problem was never the analysis. It was that 27 of the 34 days had no contemporaneous record tying them to anything.</p>
+
+<table>
+<tr><th>Cause of delay</th><th>Days</th><th>Record kept at the time</th><th>Days credited</th></tr>
+<tr><td>Weather beyond the contract allowance</td><td>6</td><td>Daily logs, NOAA data, notice within 14 days</td><td>6</td></tr>
+<tr><td>Owner selection and approval delays</td><td>27</td><td>Meeting minutes noting "awaiting owner"</td><td>0</td></tr>
+<tr><td>Meridian's own drywall manpower</td><td>1</td><td>Not applicable</td><td>0</td></tr>
+<tr><td>Total</td><td>34</td><td></td><td>6</td></tr>
+</table>
+
+<p>Six weather days got credited without an argument because Meridian's superintendent had been trained to file a weather notice within 14 days, with the rain gauge reading and the crew count attached. That process worked. The identical 27 days of owner delay got nothing, because "awaiting owner selections" in a weekly meeting minute is not a notice, does not name a required date, and does not say what activity it feeds.</p>
+
+<p>The money moves in two directions at once, which is the part contractors miss.</p>
+
+<table>
+<tr><th>Line</th><th>Calculation</th><th>Amount</th></tr>
+<tr><td>Liquidated damages assessed</td><td>28 days at $2,500</td><td>$70,000</td></tr>
+<tr><td>Extended general conditions never billed</td><td>27 days at $4,100</td><td>$110,700</td></tr>
+<tr><td>Total swing</td><td></td><td>$180,700</td></tr>
+<tr><td>Fee on the job at 3.8 percent</td><td>3.8% of $12.4M</td><td>$471,200</td></tr>
+<tr><td>Share of fee lost</td><td></td><td>38%</td></tr>
+</table>
+
+<p>The $4,100 per day is not a claim number invented after the fact. It is Meridian's actual site cost for a superintendent, a project engineer at half time, a jobsite trailer, temporary power, portable toilets, dumpster service, and general liability premium, divided by calendar days. Every one of those 27 days they paid it. An owner caused delay is normally both excusable and compensable, meaning it buys you time relief and cost recovery. Meridian got neither, because the trigger for both is a written notice tied to a date, and the date was never established.</p>
+
+<h2>The Need By Date Is the Whole Argument</h2>
+
+<p>The owner's mental model of the tile decision was simple and completely wrong. Tile gets installed in October, so the tile gets picked in October. Everyone in the OAC meeting nodded along, including Meridian's project manager, because nobody had run the arithmetic out loud.</p>
+
+<p>Here is the arithmetic for one decision on one activity.</p>
+
+<table>
+<tr><th>Step between decision and installation</th><th>Calendar days</th></tr>
+<tr><td>Subcontractor prepares the sample submittal after the selection</td><td>12</td></tr>
+<tr><td>Architect reviews and returns the submittal</td><td>14</td></tr>
+<tr><td>Mill runs the order and ships</td><td>28</td></tr>
+<tr><td>Delivery, receiving, and staging at the site</td><td>10</td></tr>
+<tr><td>Total procurement chain</td><td>64</td></tr>
+</table>
+
+<p>Activity A2140, restroom tile installation, starts October 6. Subtract 64 days and the decision was due August 3. The owner picked tile on September 25. That is 53 days past the date the schedule needed it, against 4 days of total float on the activity.</p>
+
+<p>Nothing in that table is controversial. Every number came from the subcontract, the specification section, and the supplier quote Meridian already had in hand on day one. The failure was never analytical. It was that the need by date lived in a project manager's head instead of in a column on a sheet everyone saw every Tuesday.</p>
+
+<p>This is also why a generic open items list does not do the job. An open items list says a thing is open. A decision log says a thing is open, names who owes the answer, states the calendar date the answer stops being free, and computes what it costs per day after that. Those last two columns are the entire difference between a to do list and an entitlement record.</p>
+
+<h2>Building the Decision Log in Excel</h2>
+
+<p>One sheet, sixteen columns, roughly a dozen formulas. Put your two rate inputs at the top so the cost math has something to point at, and start the log rows at row 5.</p>
+
+<h3>The Layout</h3>
+
+<table>
+<tr><th>Cell or column</th><th>Header</th><th>Where it comes from</th><th>Example</th></tr>
+<tr><td>B2</td><td>Notice lead days</td><td>Contract notice clause</td><td>21</td></tr>
+<tr><td>B3</td><td>Daily extended general conditions</td><td>Your G&amp;A buildup, not a guess</td><td>$4,100</td></tr>
+<tr><td>B4</td><td>Daily liquidated damages</td><td>Contract</td><td>$2,500</td></tr>
+<tr><td>A</td><td>Decision ID</td><td>Sequential, OD-001 forward</td><td>OD-001</td></tr>
+<tr><td>B</td><td>Decision required</td><td>Written as a question with one answer</td><td>Restroom tile and grout selection</td></tr>
+<tr><td>C</td><td>Date first requested</td><td>The email or RFI that asked</td><td>2026-05-18</td></tr>
+<tr><td>D</td><td>Responsible party</td><td>Owner, architect, tenant, owner vendor</td><td>Owner</td></tr>
+<tr><td>E</td><td>Driving activity ID</td><td>Your CPM schedule</td><td>A2140</td></tr>
+<tr><td>F</td><td>Activity start date</td><td>Current schedule update</td><td>2026-10-06</td></tr>
+<tr><td>G</td><td>Procurement chain days</td><td>Sub quote plus spec review duration</td><td>64</td></tr>
+<tr><td>H</td><td>Need by date</td><td>Formula</td><td>2026-08-03</td></tr>
+<tr><td>I</td><td>Days until need by</td><td>Formula</td><td>-18</td></tr>
+<tr><td>J</td><td>Date decided</td><td>Blank while open</td><td></td></tr>
+<tr><td>K</td><td>Days open</td><td>Formula</td><td>95</td></tr>
+<tr><td>L</td><td>Status</td><td>Formula</td><td>IMPACTING</td></tr>
+<tr><td>M</td><td>Total float on the activity</td><td>Schedule update, not memory</td><td>4</td></tr>
+<tr><td>N</td><td>Projected delay days</td><td>Formula</td><td>14</td></tr>
+<tr><td>O</td><td>Notice sent date</td><td>Your letter log</td><td>2026-08-06</td></tr>
+<tr><td>P</td><td>Notice reference</td><td>Letter or RFI number</td><td>MCG-041</td></tr>
+</table>
+
+<p>Two columns in that list will get pushback from your own team. Column G, the procurement chain, feels like work because someone has to read the spec section and call the supplier. It takes about eight minutes per decision and it is the only reason the log has any authority. Column M, total float, has to come out of the current schedule update rather than out of a superintendent's gut, because float is what the owner's consultant will attack first.</p>
+
+<h3>The Formulas</h3>
+
+<p>Need by date in H5, which is the activity start pulled back through the procurement chain:</p>
+
+<p><code>=F5-G5</code></p>
+
+<p>Days until the need by date in I5. A negative number here means the decision is already late, which is exactly how you want it to read:</p>
+
+<p><code>=H5-TODAY()</code></p>
+
+<p>Days open in K5. This works whether the decision has landed or not, so the column keeps its meaning after closeout:</p>
+
+<p><code>=IF(J5="",TODAY()-C5,J5-C5)</code></p>
+
+<p>Projected delay days in N5. This is the load bearing formula in the sheet. It measures how far past the need by date the answer ran, then absorbs the available float before calling anything a delay:</p>
+
+<p><code>=MAX(0,(IF(J5="",TODAY(),J5)-H5)-M5)</code></p>
+
+<p>Giving float away before you claim a single day is not generosity, it is what keeps the log credible. A schedule consultant who finds you claiming days that float already covered will discard the whole document. A log that already netted float out survives the review.</p>
+
+<p>Status in L5, so the sheet sorts itself into what needs attention:</p>
+
+<p><code>=IF(J5&lt;&gt;"","CLOSED",IF(N5&gt;0,"IMPACTING",IF(I5&lt;=$B$2,"NOTICE DUE","OPEN")))</code></p>
+
+<p>The notice trigger in Q5. This is the column that changes behavior, because it names an action instead of describing a condition:</p>
+
+<p><code>=IF(AND(J5="",O5="",I5&lt;=$B$2),"SEND NOTICE","")</code></p>
+
+<p>Daily exposure per open decision. Extended general conditions in R5:</p>
+
+<p><code>=N5*$B$3</code></p>
+
+<p>Liquidated damages exposure in S5:</p>
+
+<p><code>=N5*$B$4</code></p>
+
+<h3>The Rollup Nobody Can Argue With</h3>
+
+<p>Build a small summary block off to the right listing each responsible party in column U, then total the projected delay days attributable to each:</p>
+
+<p><code>=SUMIFS($N$5:$N$60,$D$5:$D$60,$U5)</code></p>
+
+<p>Count the decisions that are open and already past their need by date:</p>
+
+<p><code>=COUNTIFS($J$5:$J$60,"",$H$5:$H$60,"&lt;"&amp;TODAY())</code></p>
+
+<p>Here is what the log reads on a live job in week 34, snapshot taken August 21.</p>
+
+<table>
+<tr><th>ID</th><th>Decision</th><th>Party</th><th>Activity</th><th>Need by</th><th>Decided</th><th>Float</th><th>Delay days</th></tr>
+<tr><td>OD-001</td><td>Restroom tile and grout</td><td>Owner</td><td>A2140</td><td>2026-08-03</td><td>open</td><td>4</td><td>14</td></tr>
+<tr><td>OD-002</td><td>Storefront tint and mullion finish</td><td>Owner</td><td>A1820</td><td>2026-07-06</td><td>2026-07-30</td><td>16</td><td>8</td></tr>
+<tr><td>OD-003</td><td>Exam room casework laminate</td><td>Tenant</td><td>A2310</td><td>2026-08-13</td><td>open</td><td>12</td><td>0</td></tr>
+<tr><td>OD-004</td><td>Light fixture substitution approval</td><td>Architect</td><td>A2050</td><td>2026-08-18</td><td>open</td><td>0</td><td>3</td></tr>
+<tr><td>OD-005</td><td>Rooftop unit manufacturer substitution</td><td>Owner</td><td>A1650</td><td>2026-05-25</td><td>2026-06-08</td><td>21</td><td>0</td></tr>
+<tr><td>OD-006</td><td>Door hardware keying schedule</td><td>Owner facilities</td><td>A2620</td><td>2026-10-11</td><td>open</td><td>15</td><td>0</td></tr>
+<tr><td>OD-007</td><td>Monument sign design and location</td><td>Owner</td><td>A3110</td><td>2026-09-30</td><td>open</td><td>6</td><td>0</td></tr>
+<tr><td>OD-008</td><td>Nurse call head end location</td><td>Owner IT vendor</td><td>A2450</td><td>2026-09-18</td><td>open</td><td>2</td><td>0</td></tr>
+</table>
+
+<p>Twenty five delay days total. The rollup puts 22 of them on the owner, 3 on the architect, and none anywhere else. At $6,600 a day of combined liquidated damages and extended general conditions, that is $165,000 of exposure sitting on a screen in week 34 of a 66 week job, while there is still time to do something about it.</p>
+
+<p>Notice what OD-003 and OD-005 do. Both ran past their need by date and both show zero delay days, because float covered them. That is the log telling the truth against your own interest, and it is why the owner's consultant cannot dismiss the rows that do show days.</p>
+
+<h2>From Log Entry to Written Notice</h2>
+
+<p>A log that nobody converts into notices is a diary. Most standard contracts give you a fixed window, commonly 21 days from the event, to claim time or money, and the window closes whether or not you were busy. That is what cell B2 is for and why column Q says SEND NOTICE instead of something passive.</p>
+
+<p>When Q5 fires, the letter takes four minutes because every fact is already in the row. State the decision requested and the date you requested it. State the need by date and show the procurement chain that produced it. Name the driving activity and its float. State that the activity is at risk after the need by date and that Meridian reserves its rights for time and cost. Ask for the decision by a specific date.</p>
+
+<p>What that letter does not do is threaten anybody or price a claim. It records a date. Nine times out of ten the owner answers within a week, which is the actual goal. The tenth time, you have the document that turns 27 days from your problem into a time extension request with a paper trail behind it.</p>
+
+<p>Three habits kill this in practice, and they are worth naming.</p>
+
+<ul>
+<li>Verbal notice in the OAC meeting. Almost every contract requires written notice to a named person. Minutes distributed by the architect are not that, and the owner's attorney knows it.</li>
+<li>One notice covering six decisions. Each decision drives a different activity with different float. Bundle them and the owner rebuts the weakest one and treats the whole letter as noise.</li>
+<li>Waiting until the delay is certain. The notice goes out when the need by date passes, not when the impact is proven. Contemporaneous is the word that matters, and it means then, not later.</li>
+</ul>
+
+<h2>Start With the Eight Decisions That Are Already Late</h2>
+
+<p>Do not build this retroactively across the whole job. Take an hour this week and do three things.</p>
+
+<p>First, list every decision currently sitting with the owner, the architect, or a tenant. On a job of any size you will find between eight and twenty. Write the question so it has exactly one answer.</p>
+
+<p>Second, for each one, open the spec section and the sub quote and write down the procurement chain in days. Then pull the driving activity start and its total float from your current schedule update. That is the eight minutes per decision that makes the sheet real.</p>
+
+<p>Third, sort by days until need by, ascending. Everything negative goes out as a written notice this week, in a separate letter each, addressed per the contract. Everything inside your notice window goes on page one of the next OAC agenda, before the safety report and before the RFI log, sorted the same way.</p>
+
+<p>Twenty minutes every Tuesday for the remaining 32 weeks of a job is about 11 hours of work. Against $180,700, that is the highest paid hour on the project by a wide margin, and it does not require winning an argument with anyone. It requires writing down a date before the date arrives.</p>
+
+<h2>Put the Decision Log Where the Money Already Lives</h2>
+
+<p>A decision log works best when it points at the same schedule and the same cost codes your budget already uses, because the delay days are worthless until somebody converts them into dollars against a real general conditions rate. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries the job register, the cost code structure, and the general conditions buildup that column B3 needs, so the decision log becomes one more tab reading from data you maintain anyway instead of a standalone file that goes stale in month three.</p>
+
+<p>If you run one job right now with an owner who has not picked something, build the eight rows before Friday. The tile decision that lands 53 days late costs the same either way. The only variable is whether you can prove, with dates you wrote down before the fact, that it was never yours to make.</p>`,
+  },
+  {
     slug: 'construction-material-sales-tax-use-tax-tracker-excel',
     title: 'Construction Material Sales Tax and Use Tax Tracker in Excel: The Bill Arrives Three Years Late',
     metaTitle: 'Construction Material Use Tax Tracker Excel | SheetCraft',
