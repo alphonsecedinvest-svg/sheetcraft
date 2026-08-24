@@ -16,6 +16,172 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-trir-calculator-excel',
+    title: 'Construction TRIR Calculator in Excel: Why a 1.0 Prequal Gate Means Zero Recordables',
+    metaTitle: 'Construction TRIR Calculator Excel | SheetCraft',
+    metaDescription: 'A construction TRIR calculator in Excel shows what most subs miss: at 72,100 hours, a 1.0 prequal gate means zero recordables, not one. Formulas and gate math.',
+    targetKeyword: 'construction TRIR calculator Excel',
+    secondaryKeywords: ['OSHA recordable incident rate formula', 'DART rate calculator Excel', 'contractor prequalification TRIR requirements', 'OSHA 300 log spreadsheet template', 'construction safety metrics spreadsheet'],
+    excerpt: 'Brennan Mechanical had one recordable injury in 2025, five sutures and zero lost time, and a TRIR of 2.77 that put $3.1 million of annual volume at risk against a GC prequal gate of 2.3. Here is the Excel model: the hours denominator most contractors understate, the 1904.7 recordability test, and the gate check that tells you in July how many recordables you have left.',
+    publishedAt: '2026-08-24',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-trir-calculator-excel.png',
+    imageAlt: 'A white construction hard hat and tan leather work gloves on a light oak workbench beside a small brass balance scale with one pan tipped lower than the other',
+    content: `<h1>Construction TRIR Calculator in Excel: Why a 1.0 Prequal Gate Means Zero Recordables</h1>
+
+<p>A construction TRIR calculator in Excel is not a safety tool. It is a bid access tool. Your total recordable incident rate decides which general contractors let you onto a bid list next year, and for most subcontractors that number gets decided by a physician assistant at an urgent care clinic who has never heard of your prequalification package.</p>
+
+<p>Brennan Mechanical found this out in October 2025. Thirty four employees, $8.4 million in revenue, HVAC and sheet metal, prequalified with four GCs in central Ohio. One of those four, Hartwell Construction, was worth $3.1 million of Brennan's annual volume. Hartwell issued a new prequal standard for the 2026 bid year: three year TRIR at or below 2.3, EMR at or below 1.0, no grandfathering for existing subs.</p>
+
+<p>Brennan had one recordable injury in 2025. A helper caught his hand on a duct edge, urgent care closed it with five sutures, and he was back on full duty the next shift. Zero days away. Zero restricted days. Their TRIR for the year was 2.77.</p>
+
+<p>One cut, no lost time, above the gate.</p>
+
+<h2>The Arithmetic Nobody Explains Before They Set the Threshold</h2>
+
+<p>TRIR is the count of OSHA recordable cases per 100 full time workers per year. The formula standardizes on 200,000 hours, which is 100 people working 40 hours a week for 50 weeks.</p>
+
+<p><code>=(B5*200000)/B4</code></p>
+
+<p>B5 is your recordable case count for the year. B4 is total hours actually worked by every employee. That is the whole calculation, and its weakness is the denominator. At 200,000 hours the formula behaves like a rate. At 72,100 hours it behaves like a coin flip with a $3.1 million payout.</p>
+
+<p>Run the threshold backward and the problem becomes obvious. Solve for how many recordables you are allowed before you cross a given gate, and the answer for most subcontractors is not "a few." It is none.</p>
+
+<table>
+<tr><th>Annual hours worked</th><th>Approx. full time employees</th><th>Recordables allowed at TRIR 1.0</th><th>Recordables allowed at TRIR 2.3</th></tr>
+<tr><td>40,000</td><td>19</td><td>0</td><td>0</td></tr>
+<tr><td>72,100</td><td>34</td><td>0</td><td>0</td></tr>
+<tr><td>100,000</td><td>48</td><td>0</td><td>1</td></tr>
+<tr><td>200,000</td><td>96</td><td>1</td><td>2</td></tr>
+<tr><td>500,000</td><td>240</td><td>2</td><td>5</td></tr>
+</table>
+
+<p>Read the first column of that table as a headcount and the meaning changes. A contractor has to reach roughly 96 full time employees before a single recordable injury still leaves it under a 1.0 gate. Everybody below that is running a zero defect standard, whether or not anyone told them so. The GC safety manager who wrote "TRIR must be under 1.0" on the prequal form was thinking about his own company, which works 1.4 million hours a year and can absorb six recordables without blinking.</p>
+
+<p>This is not a complaint you can win. Researchers at the Construction Safety Research Alliance have shown that TRIR is a poor predictor of future incidents at small case counts, and the metric survives anyway because owners need a number they can put in a contract. So you manage the number instead of arguing with it. The Excel model below does three things: it counts hours correctly, it forces every case through the recordability test in 29 CFR 1904.7 before it lands on the log, and it tells you your remaining headroom before the year ends rather than after.</p>
+
+<h2>Build the Model: Four Tabs, and the Denominator Comes First</h2>
+
+<h3>Tab 1, Hours</h3>
+
+<p>Rows 5 through 16 are months. Columns are Field regular in B, Field overtime in C, Shop in D, Office and project management in E, Total in F.</p>
+
+<p><code>=SUM(B5:E5)</code></p>
+
+<p>Include every hour actually worked by every employee on your payroll, overtime included. Exclude vacation, holiday, and sick leave, because those are paid hours, not worked hours. Exclude your subcontractors, who keep their own logs. Include temporary and leased workers you supervise day to day, because 29 CFR 1904.31 makes them yours for recordkeeping purposes even though somebody else cuts their checks.</p>
+
+<p>Brennan's first submission used certified payroll as the source, which is the single most common denominator error in this trade. Certified payroll reports field labor on prevailing wage jobs. It does not report shop hours, it does not report the estimator, and it does not report the two project managers. Brennan reported 57,100 hours instead of 72,100. That understatement pushed their reported TRIR from 2.77 to 3.50 on a form they submitted themselves.</p>
+
+<p>Put a validation row underneath the totals so that never happens twice. B19 is average headcount, B20 divides total hours by it.</p>
+
+<p><code>=F17/B19</code></p>
+
+<p><code>=IF(B20&gt;2600,"CHECK HIGH",IF(B20&gt;1400,"OK","CHECK LOW"))</code></p>
+
+<p>At 57,100 hours across 34 people, B20 returns 1,679 and the flag reads CHECK LOW. A construction employee who worked a full year lands between roughly 1,800 and 2,400 hours. Anything under 1,400 means you left a group out. Anything over 2,600 means you counted somebody twice, usually because payroll and certified payroll both went into the same column.</p>
+
+<h3>Tab 2, Case Log</h3>
+
+<p>This tab mirrors the OSHA 300 but adds the column the 300 does not have, which is the reason the case was classified the way it was. Columns A through F hold case number, date, employee, job number, what happened, and treatment given. Columns G through L are the six recordability triggers, each a Y or N: death, days away from work, restricted work or job transfer, medical treatment beyond first aid, loss of consciousness, and significant injury or illness diagnosed by a licensed health care professional.</p>
+
+<p><code>=IF(COUNTIF(G5:L5,"Y")&gt;0,"RECORDABLE","FIRST AID")</code></p>
+
+<p>Column N assigns the single most serious outcome, because OSHA counts each case once even when it qualifies under several headings.</p>
+
+<p><code>=IF(G5="Y","Death",IF(H5="Y","Days away",IF(I5="Y","Restricted",IF(M5="RECORDABLE","Other recordable",""))))</code></p>
+
+<p>Columns O and P hold the day counts. Column Q is a free text field for the basis, and it is the most valuable column on the tab. Write the actual rule you applied. When ISNetworld or an owner's auditor asks why a case with a doctor visit is not on your log, "urgent care applied Steri-Strips, 1904.7(b)(5)(ii)(D)" ends the conversation in one line.</p>
+
+<h3>Tab 3, Rates</h3>
+
+<p>B4 pulls hours from the Hours tab. B5 through B8 count cases off the log.</p>
+
+<p><code>=COUNTIF(Log!M:M,"RECORDABLE")</code></p>
+
+<p>DART is the count of cases involving days away, restricted work, or transfer, and most prequal systems weight it more heavily than TRIR because it separates a laceration from a back injury.</p>
+
+<p><code>=(B8*200000)/B4</code></p>
+
+<p>Brennan's 2025 numbers make the point better than any explanation. TRIR of 2.77 with a DART rate of 0.00. Not one hour of work was lost. The number that gates the bid list cannot tell the difference.</p>
+
+<h3>Tab 4, the Gate Check</h3>
+
+<p>This is the tab that changes behavior, because it converts an abstract threshold into a case count you can hold in your head in March. B14 holds the owner's threshold. B15 converts it into cases you are allowed at your current hour volume.</p>
+
+<p><code>=FLOOR(B14*B4/200000,1)</code></p>
+
+<p>B16 subtracts your actual case count to give headroom. Brennan at a 2.3 gate: 0.83 cases allowed, floored to 0, minus 1 recorded, equals negative one. B17 answers the other useful question, which is how many hours you would have needed for the cases you already have to clear the threshold.</p>
+
+<p><code>=B5*200000/B14</code></p>
+
+<p>One case at a 2.3 gate needs 86,957 hours, about 41 full time employees. One case at a 1.0 gate needs 200,000 hours. Print that number and hand it to whoever negotiates your prequal packages, because it is the entire argument for asking an owner to use a DART gate or an industry comparison instead of a flat TRIR number.</p>
+
+<h2>The Recordability Call Is Worth More Than Everything Else in the Spreadsheet</h2>
+
+<p>At 72,100 hours, one case is the difference between a TRIR of 0.00 and 2.77. Nothing else you do inside Excel moves the number that far. Which means the highest value activity in your safety program is making sure each case is classified correctly against the rule, in both directions.</p>
+
+<p>OSHA lists first aid explicitly and exclusively in 1904.7(b)(5)(ii). If the treatment appears on that list, it is first aid no matter what the clinic billed for it. Wound coverings including butterfly bandages and Steri-Strips. Cleaning, flushing, or soaking a surface wound. Hot or cold therapy. Non-rigid support such as an elastic wrap. Removing a splinter with tweezers. Draining a blister. Drinking fluids for heat stress. Nonprescription medication at nonprescription strength.</p>
+
+<p>Cross that line and it becomes medical treatment. Sutures, staples, and surgical glue are recordable. Prescription medication is recordable even if the employee never fills the prescription, because the recommendation is the treatment. Over the counter medication at prescription strength is recordable. A fractured bone or tooth is recordable on diagnosis alone, with no treatment required.</p>
+
+<table>
+<tr><th>What happened</th><th>Treatment</th><th>Classification</th><th>Effect on TRIR at 72,100 hours</th></tr>
+<tr><td>Hand laceration, duct edge</td><td>Five sutures</td><td>Recordable, medical treatment</td><td>+2.77</td></tr>
+<tr><td>Hand laceration, duct edge</td><td>Steri-Strips and a dressing</td><td>First aid</td><td>0.00</td></tr>
+<tr><td>Strained back lifting a rooftop unit</td><td>Ibuprofen 800 mg, prescription</td><td>Recordable, medical treatment</td><td>+2.77</td></tr>
+<tr><td>Strained back lifting a rooftop unit</td><td>Over the counter ibuprofen, ice</td><td>First aid</td><td>0.00</td></tr>
+<tr><td>Foreign body in eye</td><td>Removed with irrigation</td><td>First aid</td><td>0.00</td></tr>
+<tr><td>Foreign body in eye</td><td>Removed with a needle or burr</td><td>Recordable, medical treatment</td><td>+2.77</td></tr>
+<tr><td>Wrist pain, no visible injury</td><td>Diagnosed hairline fracture, wrap only</td><td>Recordable, significant diagnosis</td><td>+2.77</td></tr>
+</table>
+
+<p>Two more classification rules get missed constantly, and both run in your favor. Restricted work that exists only on the day of the injury is not a restricted work case, so a worker who finishes the shift on light tasks and reports at full duty the next morning did not create one. And a restriction that does not actually affect a routine job function is not restricted work either, so "no climbing ladders for one week" restricts a sheet metal installer and does not restrict the estimator.</p>
+
+<p>None of this is an argument for keeping injuries off the log. Under-recording is a recordkeeping violation, discouraging reporting is a separate and much worse one under section 11(c), and any competent prequal auditor will run your 300 log against your workers compensation first reports of injury and find the gap in ten minutes. The point is narrower and entirely legitimate: send an authorized company representative to the clinic with a written job description and a real light duty offer, so the treating provider makes the call with the facts in front of them instead of defaulting to sutures and a week of restrictions on a case that does not need either.</p>
+
+<h3>Light Duty Moves EMR, Not TRIR</h3>
+
+<p>Worth being precise, because contractors conflate the two gates constantly. A bona fide transitional duty program converts a days away case into a restricted case. Both are recordable, both are DART, so TRIR does not move at all. What moves is workers compensation indemnity cost, which drives your experience modification rate for three policy years. TRIR counts events. EMR counts dollars. A $210,000 shoulder claim and a five suture laceration are one case each on the TRIR line and about as far apart as two claims can be on the EMR line.</p>
+
+<h2>The Three Year Number, and the Average That Is Not a Rate</h2>
+
+<p>Almost every prequal form asks for three years, which means one bad year follows you through three bid seasons. Tab 4 holds one row per year with hours and cases, and it produces two different numbers that both look like a three year average.</p>
+
+<table>
+<tr><th>Year</th><th>Hours worked</th><th>Recordable cases</th><th>TRIR</th></tr>
+<tr><td>2023</td><td>41,600</td><td>1</td><td>4.81</td></tr>
+<tr><td>2024</td><td>68,900</td><td>0</td><td>0.00</td></tr>
+<tr><td>2025</td><td>72,100</td><td>1</td><td>2.77</td></tr>
+<tr><td>Three year composite</td><td>182,600</td><td>2</td><td>2.19</td></tr>
+<tr><td>Average of the three rates</td><td></td><td></td><td>2.53</td></tr>
+</table>
+
+<p>The composite is total cases over total hours, scaled once.</p>
+
+<p><code>=(SUM(C5:C7)*200000)/SUM(B5:B7)</code></p>
+
+<p>The other number is <code>=AVERAGE(D5:D7)</code>, which treats 2023 as equally important as 2025 even though 2023 carried 40 percent fewer hours. Brennan's 2023 was a slow year with a short backlog. One case in a thin year produces a rate of 4.81, and a straight average carries that distortion forward at full weight for three years.</p>
+
+<p>Against Hartwell's 2.3 gate, the composite of 2.19 passes and the average of 2.53 fails. Same two injuries, same three years, same company, opposite outcome, and the only difference is which arithmetic somebody typed into a form. Submit the composite, because it is the only one of the two that is actually a rate, and attach the year by year table alongside it so nobody thinks a year went missing. Brennan did exactly that in November 2025 and stayed on the Hartwell list.</p>
+
+<h2>What to Do With This Before Your Next Prequal Renewal</h2>
+
+<p>The gate check is worth running in July, not in January when the form arrives. Three moves, in order of what they return.</p>
+
+<p>First, rebuild the denominator from payroll gross hours rather than certified payroll, and reconcile it against headcount using the validation flag. Brennan's correction moved their reported rate from 3.50 to 2.77 without changing a single fact about the year. That is free, it is accurate, and it takes an afternoon.</p>
+
+<p>Second, go back through the last three years of clinic paperwork with 1904.7 open next to it, and write the basis into column Q for every case. Contractors routinely carry one or two cases on the log that were first aid under the rule, usually because a work restriction was written on a form and never actually applied, or because a case got recorded on the day of injury and never revisited. Removing one incorrectly recorded case from a 72,100 hour year is worth 2.77 points of TRIR, which is larger than any other single lever in this article.</p>
+
+<p>Third, put B16 on a wall. Headroom of zero means the next recordable case ends your access to a bid list, and that is a fact your foremen can act on in a way that a rate expressed to two decimals never will be.</p>
+
+<h2>Track the Hours Where the Labor Already Lives</h2>
+
+<p>The denominator in this model is the same labor hour data your job costing already carries, which is why keeping TRIR in a standalone file is what makes it go stale by March. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already holds the job register, the labor cost codes, and the hour totals by job and by period that tab 1 needs, so the rate calculation reads from numbers you maintain weekly instead of numbers somebody reconstructs the night before a prequal deadline.</p>
+
+<p>If you are under 100,000 hours a year, run the gate check this week. The threshold on next year's prequal form is already written, your hour count is roughly known, and the number of recordables you are allowed is almost certainly zero. Better to find that out in August than to find it out in a letter that says your firm is no longer on the invited bidders list.</p>`,
+  },
+  {
     slug: 'construction-owner-decision-log-template-excel',
     title: 'Construction Owner Decision Log Template in Excel: The 27 Days You Never Got Credit For',
     metaTitle: 'Construction Owner Decision Log Template Excel | SheetCraft',
