@@ -16,6 +16,218 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'self-manage-vs-property-manager-calculator-excel',
+    title: 'Self Manage vs Property Manager Calculator in Excel: Your Hourly Wage Has a Ceiling',
+    metaTitle: 'Self Manage vs Property Manager Calculator | SheetCraft',
+    metaDescription: 'A self manage vs property manager calculator in Excel: the 8% quote really bills 11.3% of rent, and self-managing pays a wage capped at $51.56 an hour.',
+    targetKeyword: 'self manage vs property manager calculator Excel',
+    secondaryKeywords: ['property management fee calculator', 'cost of self managing rental property', 'tenant placement fee', 'property management fee percentage', 'rental property vacancy rate calculator'],
+    excerpt: 'An 8 percent manager does not cost 8 percent. Stack the placement fees, renewal fees, and maintenance markups and four doors at $1,800 bill $9,766 a year. Price your own 121 hours against that and self-managing pays a wage with a hard ceiling of $51.56 an hour, no matter how many doors you buy.',
+    publishedAt: '2026-08-25',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/self-manage-vs-property-manager-calculator-excel.png',
+    imageAlt: 'Brass balance scale weighing three small house models against an hourglass, with a set of rental keys on the desk',
+    content: `<h1>Self Manage vs Property Manager Calculator in Excel: Your Hourly Wage Has a Ceiling</h1>
+
+<p>Most every self manage vs property manager calculator in Excel asks the wrong question. It compares a management fee against zero, declares self-managing the winner, and sends a four door landlord off to work 121 unbilled hours a year without ever knowing the rate. The fee is not the decision. The decision is the hourly wage you pay yourself by refusing to pay that fee, and that wage has a hard ceiling you can compute in a single cell.</p>
+
+<p>An owner outside Greensboro, North Carolina holds four single family rentals bought between 2019 and 2023. All four rent for $1,800. A management company quotes 8 percent of collected rent, and the owner does the mental math on the spot: 8 percent of $86,400 is about $6,900, and an hour of my time is worth more than that, so I will keep managing them myself.</p>
+
+<p>Both halves of that sentence are wrong. The fee is not $6,900, and the hours are not free.</p>
+
+<h2>What an 8 Percent Manager Actually Bills You</h2>
+
+<p>The monthly percentage is the headline, not the invoice. Four separate charges show up over a full year, and only one of them was in the quote. Build the fee stack before you compare anything.</p>
+
+<p>Start with the rent base. Put monthly rent in B4 and door count in B5, then compute gross scheduled rent per door.</p>
+
+<p><code>=B4*12</code></p>
+
+<p>That returns $21,600. Multiply by doors in B18 for the portfolio total of $86,400. Managers bill on collected rent, not scheduled rent, so B7 holds the vacancy rate you expect under professional management, here 5 percent.</p>
+
+<p><code>=B18*(1-B7)</code></p>
+
+<p>Collected rent lands at $82,080, and the management fee in B20 comes off that number.</p>
+
+<p><code>=B19*B8</code></p>
+
+<p>Now the three charges nobody quotes. Turnover drives two of them, so B11 holds your annual turnover rate, here 40 percent, meaning a tenant stays about 30 months.</p>
+
+<p><code>=B5*B11</code></p>
+
+<p>That is 1.6 turns a year across four doors. Each turn triggers a tenant placement fee, typically 50 to 100 percent of one month of rent. At 75 percent in B9, the fee per turn is $1,350, and the annual placement cost is $2,160. Every door that does not turn generates a renewal fee instead, usually $150 to $300.</p>
+
+<p><code>=(B5-B21)*B10</code></p>
+
+<p>The last one is the quiet one. Most managers add a coordination markup of 8 to 12 percent on every repair invoice they process. On $1,400 of annual repairs per door, a 10 percent markup is $140 a door, and it never appears on a fee schedule as a percentage of rent.</p>
+
+<table>
+<tr><th>Line item</th><th>Basis</th><th>Per door per year</th><th>Four doors</th></tr>
+<tr><td>Monthly management</td><td>8% of collected rent</td><td>$1,641.60</td><td>$6,566.40</td></tr>
+<tr><td>Tenant placement</td><td>75% of one month, 1.6 turns</td><td>$540.00</td><td>$2,160.00</td></tr>
+<tr><td>Lease renewal</td><td>$200 per renewal, 2.4 renewals</td><td>$120.00</td><td>$480.00</td></tr>
+<tr><td>Maintenance coordination</td><td>10% markup on $1,400 of repairs</td><td>$140.00</td><td>$560.00</td></tr>
+<tr><td>Total billed</td><td></td><td>$2,441.60</td><td>$9,766.40</td></tr>
+</table>
+
+<p>Divide the total by gross scheduled rent and the real number appears.</p>
+
+<p><code>=B27/B18</code></p>
+
+<p>The 8 percent manager costs 11.3 percent of scheduled rent, or $9,766 instead of $6,900. That is a $2,866 gap between the quote and the invoice, and it is the single most useful output on the sheet, because it is the amount you are actually buying your time back for.</p>
+
+<h3>Ask for the fee schedule in writing before you model anything</h3>
+
+<p>Three more charges appear in about a third of management agreements and belong in your version of the sheet if they appear in yours: a setup fee of $100 to $300 per door at onboarding, a vacancy fee of $50 to $100 a month while a unit sits empty, and periodic inspection fees of $100 to $150 each. A company that charges all three on four doors adds roughly $900 a year, which pushes the true rate past 12 percent.</p>
+
+<h2>The Hour Ledger, and Why 121 Hours Does Not Feel Like 121 Hours</h2>
+
+<p>Self-managing has a price too, and the first component is your calendar. Landlords underestimate this badly because the work arrives in bursts. Nobody notices 40 minutes of tenant messages spread across a month. Everybody notices the Saturday they showed a vacant house six times.</p>
+
+<p>Track hours by event type, not by month. Each event has a rate and a frequency, and both are already in your inputs.</p>
+
+<table>
+<tr><th>Task</th><th>Hours per event</th><th>Events per year, four doors</th><th>Annual hours</th></tr>
+<tr><td>Marketing, showings, screening, lease signing</td><td>9.0 per turn</td><td>1.6 turns</td><td>14.4</td></tr>
+<tr><td>Make ready coordination and final walkthrough</td><td>6.0 per turn</td><td>1.6 turns</td><td>9.6</td></tr>
+<tr><td>Rent posting, statements, tenant messages</td><td>0.9 per door month</td><td>48 door months</td><td>43.2</td></tr>
+<tr><td>Maintenance dispatch and vendor follow up</td><td>5.5 per door year</td><td>4 door years</td><td>22.0</td></tr>
+<tr><td>After hours and weekend calls</td><td>3.0 per door year</td><td>4 door years</td><td>12.0</td></tr>
+<tr><td>Renewal negotiation and paperwork</td><td>1.5 per renewal</td><td>2.4 renewals</td><td>3.6</td></tr>
+<tr><td>Books, 1099s, state compliance</td><td>10 fixed plus 1.5 per door</td><td>Portfolio</td><td>16.0</td></tr>
+<tr><td>Total</td><td></td><td></td><td>120.8</td></tr>
+</table>
+
+<p>Two of those rows deserve a formula rather than a typed total, because they scale differently. Turn work scales with turnover.</p>
+
+<p><code>=(B31+B32)*B21</code></p>
+
+<p>Recurring work scales with doors, and monthly hours have to be annualized before anything else touches them.</p>
+
+<p><code>=(B33*12)+B34+B35</code></p>
+
+<p>That returns 19.3 hours per door per year, which multiplied by B5 gives 77.2. Add turn hours, renewal hours, and the books, and the four door portfolio costs 120.8 hours. Divide by 48 working weeks and it reads as 2.5 hours a week, which is exactly why the number feels small and is not.</p>
+
+<p><code>=B44/48</code></p>
+
+<p>The average is a lie in both directions. Roughly 40 percent of those hours land inside two or three windows a year, each one a 15 hour turn compressed into the 21 days a unit sits empty. If your job, your family, or your travel schedule cannot absorb a 15 hour week on demand twice a year, the annual total is irrelevant. Availability is the constraint, not capacity.</p>
+
+<h2>The Two Costs Self-Managers Never Book</h2>
+
+<p>Hours are the obvious cost. The two expensive ones are invisible because they never generate a receipt.</p>
+
+<h3>The vacancy gap</h3>
+
+<p>A management company runs showings seven days a week, syndicates to 30 listing sites, and has a waiting list from the last three vacancies. A working owner shows on Saturdays and answers inquiries at night. That difference is measured in days on market, and days on market is measured in dollars.</p>
+
+<p>Put your realistic self-managed vacancy rate in B6 and the managed rate in B7, then price the spread.</p>
+
+<p><code>=B18*B54</code></p>
+
+<p>With B54 holding the 3 point gap between 8 percent and 5 percent, the answer is $2,592 a year on four doors. That is 40 percent of the entire management fee, paid in rent you never collected, and it appears nowhere in your bank statement because you cannot see money that did not arrive.</p>
+
+<p>This is also the most controllable line on the sheet. A self-manager who answers every inquiry within an hour, pre-schedules showings in blocks, and starts marketing 30 days before the move out date can match or beat a manager on days vacant. Set B6 equal to B7 and watch what happens to the bottom line. That single habit is worth more than every hour you save on bookkeeping.</p>
+
+<h3>The risk provision, which is smaller than you were told</h3>
+
+<p>Management companies sell on liability, and the pitch works because the anecdotes are terrifying. Price it anyway, because a probability times an exposure is an expense, and it belongs in a cell instead of in your stomach.</p>
+
+<p>Security deposit statutes are the most common trap. Miss the itemization deadline in your state and courts routinely award the tenant two to three times the deposit plus fees. Model a 4 percent chance per move out against a $4,500 exposure.</p>
+
+<p><code>=B56*B57</code></p>
+
+<p>That is $180 per turn, or $288 a year at 1.6 turns. Add a per door provision of $35.50 for a defective eviction notice that has to be refiled, and the total risk provision is $430 a year across four doors.</p>
+
+<p>Compare that to the $2,592 vacancy gap. The lawsuit you are afraid of costs one sixth of the marketing you are not doing. That is the correct ranking of your problems, and it is the opposite of every sales conversation you will have with a management company.</p>
+
+<h2>The Wage Ceiling: Why More Doors Never Pays Better</h2>
+
+<p>Now the sheet earns its keep. Total the self-managed side, subtract it from the manager side, and divide by hours.</p>
+
+<p><code>=B27-B63</code></p>
+
+<p>Self-managing four doors costs $4,622 in hard costs, lost rent, and risk, against $9,766 to hire it out. The saving is $5,144 for 120.8 hours.</p>
+
+<p><code>=B65/B44</code></p>
+
+<p>That is $42.59 an hour before tax. Apply your marginal rate in B14, because avoided fees are additional taxable rental income and are not sheltered unless depreciation covers them.</p>
+
+<p><code>=B65*(1-B14)</code></p>
+
+<p>At 24 percent, the real answer is $32.37 an hour. Now extend the model across door counts and something counterintuitive shows up.</p>
+
+<table>
+<tr><th>Doors</th><th>Annual hours</th><th>Hours per week</th><th>Manager cost</th><th>Self-manage cost</th><th>Net saved</th><th>Per hour, pre-tax</th></tr>
+<tr><td>1</td><td>37.7</td><td>0.8</td><td>$2,442</td><td>$1,582</td><td>$860</td><td>$22.81</td></tr>
+<tr><td>2</td><td>65.4</td><td>1.4</td><td>$4,883</td><td>$2,595</td><td>$2,288</td><td>$34.99</td></tr>
+<tr><td>4</td><td>120.8</td><td>2.5</td><td>$9,766</td><td>$4,622</td><td>$5,144</td><td>$42.59</td></tr>
+<tr><td>8</td><td>231.6</td><td>4.8</td><td>$19,533</td><td>$8,676</td><td>$10,857</td><td>$46.88</td></tr>
+<tr><td>12</td><td>342.4</td><td>7.1</td><td>$29,299</td><td>$12,730</td><td>$16,569</td><td>$48.39</td></tr>
+<tr><td>20</td><td>564.0</td><td>11.8</td><td>$48,832</td><td>$20,838</td><td>$27,994</td><td>$49.63</td></tr>
+</table>
+
+<p>The received wisdom says self-managing makes sense when small and stops making sense as you scale. The arithmetic says the opposite and then something stranger. The hourly rate climbs from $22.81 at one door to $46.88 at eight, because the fixed 10 hours of bookkeeping and the $568 of software and dues spread across more units. Then it stops climbing. It goes to $48.39, then $49.63, and it will never reach $52 no matter how many doors you buy.</p>
+
+<p>The ceiling is not a coincidence. It is the marginal saving per door divided by the marginal hours per door, and you can compute it directly. Strip the fixed costs out first.</p>
+
+<p><code>=(B63-B46-B50)/B5</code></p>
+
+<p>That returns $1,013.50 of variable self-managed cost per door against $2,441.60 of manager cost per door, so each additional door saves $1,428.10. Each additional door also costs 27.7 hours.</p>
+
+<p><code>=(B44-B37)/B5</code></p>
+
+<p>Divide one by the other and you have the number that actually decides this.</p>
+
+<p><code>=B72/B73</code></p>
+
+<p>The ceiling is $51.56 an hour, $39.19 after tax. Buying more doors does not raise it. It only sells you more hours at the same wage. That reframes the whole question: the door count never decides whether to self-manage, it only decides how many hours of your life you are selling at a rate you already know.</p>
+
+<p>So test the rate against your alternative. Put the value of your next best hour in B15 and let the sheet say it out loud.</p>
+
+<p><code>=IF(B74&lt;B15,"Hire it out","Self-manage")</code></p>
+
+<p>For a salaried professional at $95,000 who cannot sell a marginal hour to anyone, the honest value of hour 121 is close to zero, and $51 is excellent pay. For an investor who converts hours into deals, the comparison is brutal: 342 hours of sourcing that produce one BRRRR with $22,000 of trapped equity beat 342 hours of self-managing 12 doors for $16,569. For a contractor with a full backlog billing $85 of shop time, every hour spent chasing a garbage disposal is a $33 loss.</p>
+
+<h3>Stress the hours before you trust the answer</h3>
+
+<p>The 27.7 hours per door in this model is a systematized landlord: online rent collection, a standing vendor list, a written lease, and tenants placed with real screening. Landlords with 1960s stock, deferred maintenance, or one chronic late payer report 45 hours a door and higher. Run that row.</p>
+
+<table>
+<tr><th>Scenario</th><th>Hours per door</th><th>Saving per door</th><th>Wage ceiling</th></tr>
+<tr><td>Base case</td><td>27.7</td><td>$1,428.10</td><td>$51.56</td></tr>
+<tr><td>You match the manager on days vacant</td><td>27.7</td><td>$2,076.10</td><td>$74.95</td></tr>
+<tr><td>Older stock, hands on, 45 hours a door</td><td>45.0</td><td>$1,428.10</td><td>$31.74</td></tr>
+<tr><td>Leasing outsourced, you keep the rest</td><td>24.1</td><td>$1,574.10</td><td>$65.32</td></tr>
+</table>
+
+<p>The spread between the best and worst row is $43 an hour, which is far wider than the spread between any two management companies you will interview. Your operating discipline moves this number more than the vendor does.</p>
+
+<h2>The Third Option Nobody Quotes You</h2>
+
+<p>Look at where the hours and the losses actually sit. Leasing is 9 hours per turn, it carries the fair housing and screening exposure, and failing at it produces the $2,592 vacancy gap. Rent collection, vendor dispatch, and bookkeeping are the cheap, low risk, systematizable parts, and they are what the monthly 8 percent mostly pays for.</p>
+
+<p>So unbundle. Hire placement only, at 75 to 100 percent of one month per turn, and keep everything else. Most management companies sell this as a standalone service even when it is not on the website, and a leasing focused agent will do it for one month of rent.</p>
+
+<p>At four doors, placement only costs $540 a door instead of $2,441.60, removes 3.6 hours a door, and closes the vacancy gap because filling units fast is the agent's entire job. Net saving rises to $5,728 on 106 hours, or $53.84 an hour, and the ceiling moves to $65.32. At 12 doors it is $61.23 an hour on 299 hours instead of $48.39 on 342.</p>
+
+<p>That holds even at the expensive end. If the only agent in your market charges a full month per placement, the ceiling is $57.85, still above the $51.56 you earn doing everything yourself. The hybrid wins because it buys back the hours that carry the most risk and the most lost rent per hour, which is the correct thing to outsource first.</p>
+
+<h2>What to Do With This</h2>
+
+<p>Build the fee stack before you compare, not the headline percentage. Then price your hours by event, book the vacancy gap and the risk provision as real expenses, and compute the ceiling. Three outcomes cover almost everyone.</p>
+
+<ul>
+<li>One to three doors, a normal job, and a wage ceiling above your realistic alternative: self-manage everything and put the saved fee toward the next down payment.</li>
+<li>Four to twelve doors and any intention of buying more: hire leasing out per turn, keep operations, and protect the hours that would otherwise go into showings.</li>
+<li>Any door count where your alternative hour is worth more than the ceiling, or where you cannot absorb a 15 hour turn week twice a year: hire full management and stop measuring it in percentage points.</li>
+</ul>
+
+<p>The one thing not to do is decide this from the 8 percent in the quote. It was never 8 percent, your hours were never free, and the number that settles the argument is a wage you can calculate in an afternoon.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> already carries the pieces this calculation needs: per unit rent rolls, vacancy assumptions, turnover, repair budgets, and an operating expense block where management fees, placement fees, and coordination markups each get their own line instead of one blended percentage. Add the hour ledger and the wage ceiling on a single tab, point them at the collected rent and turnover cells that are already there, and the self manage versus property manager question becomes an output of the model you use to underwrite, not a separate spreadsheet you rebuild every time somebody sends you a fee schedule.</p>`,
+  },
+  {
     slug: 'construction-trir-calculator-excel',
     title: 'Construction TRIR Calculator in Excel: Why a 1.0 Prequal Gate Means Zero Recordables',
     metaTitle: 'Construction TRIR Calculator Excel | SheetCraft',
