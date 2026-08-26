@@ -16,6 +16,198 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-eviction-cost-calculator-excel',
+    title: 'Rental Property Eviction Cost Calculator in Excel: The $185 Filing Fee That Costs $7,527',
+    metaTitle: 'Rental Eviction Cost Calculator Excel | SheetCraft',
+    metaDescription: 'Filing costs $185. The eviction costs $7,527. Build a rental property eviction cost calculator in Excel and price cash for keys against it.',
+    targetKeyword: 'rental property eviction cost calculator Excel',
+    secondaryKeywords: ['eviction cost spreadsheet', 'cash for keys vs eviction', 'landlord eviction expenses', 'eviction timeline calculator', 'tenant nonpayment tracker'],
+    excerpt: 'The $185 filing fee is the cheap part. Add 94 days of lost rent, legal costs, eviction condition make-ready, and a judgment you will probably never collect, and one nonpaying tenant costs $7,527. A rental property eviction cost calculator in Excel prices that against a cash for keys offer and shows the ceiling: $5,062 on this unit, which is what the landlord who refused to write a $1,200 check gave up.',
+    publishedAt: '2026-08-26',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-eviction-cost-calculator-excel.png',
+    imageAlt: 'Brass house key on a ring beside a new door lock cylinder, a blank envelope, and an hourglass on a wooden desk',
+    content: `<h1>Rental Property Eviction Cost Calculator in Excel: The $185 Filing Fee That Costs $7,527</h1>
+
+<p>A rental property eviction cost calculator in Excel exists for one reason. The number you make the decision with is not the number on the court's fee schedule. Filing costs $185 in most counties. The eviction costs $7,527. Everything between those two figures is time, and time is the part landlords refuse to price because it never arrives as an invoice.</p>
+
+<p>Here is the situation the calculator is built for. A single family rental outside Indianapolis rents for $1,450. The tenant is 19 months in and paid inside the grace period every month until June. June is short, July never comes, and by July 18 the balance is $2,900 and the texts stop getting answered. The owner holds a $1,450 deposit. On July 18 there are exactly two paths available, and the owner picks the courthouse on Monday because the tenant should not get away with it.</p>
+
+<p>That decision costs $3,862 more than the other one. Not because filing is expensive, but because the owner priced a lawsuit against zero instead of pricing it against the only real alternative.</p>
+
+<h2>The Filing Fee Is Two Percent of the Bill</h2>
+
+<p>Six buckets make up the cost of removing a nonpaying tenant. Landlords track the first one and eat the other five.</p>
+
+<ul>
+<li>Court and process costs: filing, service, and the writ of possession that puts a deputy at the door. Roughly $355 in a typical county, and the only line most people can quote.</li>
+<li>Legal: $650 flat for an uncontested nonpayment case in a mid-size market, $1,800 and up the moment the tenant raises a habitability defense or walks in with a legal aid attorney.</li>
+<li>Lost rent from decision day to the day a new tenant's rent starts. This is the whole ballgame and almost nobody counts it correctly.</li>
+<li>Your hours: notice posting, filing, two trips to a courthouse where your case is fourteenth on the docket, the lockout appointment, the inventory of what got left behind.</li>
+<li>Eviction condition make-ready, which is not turnover make-ready. Someone who is removed by a deputy does not touch up the walls on the way out.</li>
+<li>Property removal and storage, because in most states you cannot simply throw a stranger's belongings in a dumpster.</li>
+</ul>
+
+<p>One modeling rule matters more than any of the six, and getting it wrong is what makes eviction look cheap on paper. The clock starts on decision day, not on the day the tenant stopped paying. The $2,900 already owed is sunk. It is identical in every path available to you, so it does not belong in the comparison at all. It shows up in exactly one place, which is what you might recover later, and that is a much smaller number than the balance.</p>
+
+<h2>Build the Two Column Eviction Cost Calculator in Excel</h2>
+
+<p>Do not build a single column that totals what an eviction costs. A total by itself has no decision in it. Build two columns with identical rows, column B for the eviction path and column C for a cash for keys path, and let the difference between them be the output. Same line items, different values, one verdict.</p>
+
+<p>Inputs go in B4 through B8: monthly rent $1,450 in B4, balance owed today $2,900 in B6, deposit held $1,450 in B7, and your own hourly rate in B8, here $55. B5 converts rent into the unit the whole model runs on, which is a day.</p>
+
+<p><code>=B4*12/365</code></p>
+
+<p>That returns $47.67. Every day between the decision and a paying tenant costs $47.67, whether a judge, a contractor, or a listing photographer is responsible for it.</p>
+
+<h3>The clock is three segments, not one</h3>
+
+<p>Rows 11 through 13 hold the timeline, and splitting it into three segments is what stops the estimate from drifting. Row 11 is decision to possession: notice period, filing, hearing, and the gap between judgment and the deputy actually turning the lock. Column B gets 49 days, column C gets 7. Row 12 is make-ready, 21 days for eviction condition and 14 for a unit handed over broom clean. Row 13 is marketing and lease-up until rent starts, 24 days in both paths because the market does not care why the unit is empty.</p>
+
+<p><code>=SUM(B11:B13)</code></p>
+
+<p>Ninety-four days on the eviction path, 45 on the other. Row 15 turns that into money.</p>
+
+<p><code>=B14*$B$5</code></p>
+
+<p>Lost rent lands at $4,481 versus $2,145. Before a single legal dollar is spent, the two paths are already $2,336 apart.</p>
+
+<p>Verify those day counts against your own county rather than a state statute summary. Posted timelines describe a case where nothing happens, and something almost always happens. A continuance adds two to three weeks, a defective notice sends you back to the start, and a set-out date depends on a sheriff's civil division schedule that has nothing to do with the code. Two counties in the same state routinely differ by a month. Call the clerk, or ask an eviction attorney what the last three cases actually took.</p>
+
+<h3>Costs, hours, and the deposit</h3>
+
+<p>Rows 17 through 22 hold the spending. Court and process costs of $355 in B17 and $0 in C17. Legal at $650 in B18, and $150 in C18, because a cash for keys deal needs a written mutual termination and release drafted or reviewed by a lawyer, and paying for that is not optional. Property removal at $400 in B19 and $0 in C19. Hours in row 20, 12 for the eviction and 4 for the negotiation, priced in row 21.</p>
+
+<p><code>=B20*$B$8</code></p>
+
+<p>Make-ready in row 22 is where landlords flinch: $2,900 for the eviction path against $1,400 for a voluntary handover. That gap is not a guess and it is not punishment. A tenant who is being removed has no incentive to leave anything in good shape, and a tenant who is being paid at the door has every incentive, because you are going to inspect the unit before the money changes hands. Row 23 is the cash payment itself, $0 for eviction and $1,200 for the offer you are testing.</p>
+
+<p>Row 24 applies the deposit, once, in both paths.</p>
+
+<p><code>=-MIN($B$7,$B$6+B22)</code></p>
+
+<p>The MIN matters. You cannot apply more deposit than you hold, and you cannot apply it twice, once to unpaid rent and again to damage. This single row is where sloppy eviction math usually manufactures $1,450 out of nowhere.</p>
+
+<h3>The deposit deadline that turns $1,450 into a bigger liability</h3>
+
+<p>Every state puts a hard deadline on the itemized deposit statement, commonly 14 to 30 days after you take possession, and a meaningful number of them penalize a late or missing statement with two or three times the deposit plus the tenant's attorney fees. An eviction is the exact circumstance where that deadline gets missed, because possession comes on a random Tuesday from a deputy and nobody starts a clock.</p>
+
+<p>Put the possession date in B40, your state's deadline in days in B41, and the due date in B42 as a plain sum of the two. Then flag it.</p>
+
+<p><code>=IF(TODAY()>B42,"LATE","OK")</code></p>
+
+<p>Conditional formatting on that cell costs nothing and protects $1,450 to $4,350 depending on your state. Send the itemization to the tenant's last known address even when you have no forwarding address, because mailing it is usually what the statute requires, not delivering it.</p>
+
+<h3>The full comparison</h3>
+
+<p>Row 27 totals each column with a plain SUM over rows 15 through 25, and the sheet finally says something.</p>
+
+<table>
+<tr><th>Line item</th><th>Eviction path</th><th>Cash for keys path</th></tr>
+<tr><td>Days to a paying tenant</td><td>94</td><td>45</td></tr>
+<tr><td>Lost rent</td><td>$4,481</td><td>$2,145</td></tr>
+<tr><td>Court and process</td><td>$355</td><td>$0</td></tr>
+<tr><td>Legal</td><td>$650</td><td>$150</td></tr>
+<tr><td>Property removal and storage</td><td>$400</td><td>$0</td></tr>
+<tr><td>Your hours</td><td>$660</td><td>$220</td></tr>
+<tr><td>Make-ready</td><td>$2,900</td><td>$1,400</td></tr>
+<tr><td>Cash payment to tenant</td><td>$0</td><td>$1,200</td></tr>
+<tr><td>Deposit applied</td><td>($1,450)</td><td>($1,450)</td></tr>
+<tr><td>Expected judgment recovery</td><td>($469)</td><td>$0</td></tr>
+<tr><td>Total cost of the path</td><td>$7,527</td><td>$3,665</td></tr>
+</table>
+
+<p>The eviction is not $185. It is $7,527, and it is $3,862 worse than writing a check to the person you are angry at.</p>
+
+<h2>The Judgment Is Not Money Until Someone Collects It</h2>
+
+<p>The eviction column carries one credit the other does not, and it is the reason people file. You get a money judgment. Face value here is the balance plus court costs plus attorney fees where the lease and the state allow them.</p>
+
+<p>Put that face value in B29 as a sum of B6, B17, and B18, which is $3,905. Then put your collection rate in B30 and multiply into B31, which is the cell row 25 pulls from as a negative.</p>
+
+<p><code>=B29*B30</code></p>
+
+<p>The entire honesty of the model lives in B30. If you have never collected on an eviction judgment, the correct input is zero. Not 25 percent because a collections firm quoted you a contingency, not 50 percent because the judgment is legally valid for ten years. Zero, until your own bank statement proves otherwise. The model above uses 12 percent and produces $469, which is generous.</p>
+
+<p>Three things drive that number down. Collecting requires an asset you can reach, which in practice means a garnishable W-2 job or a bank account you can identify, and a tenant who could not cover $1,450 in rent frequently has neither. Debt buyers price these judgments at five to ten cents on the dollar, and a market price is a better estimate of value than a face amount. And the deterrent value of a filing is eroding: a growing number of states seal, expunge, or restrict the reporting of eviction records, so the threat that the filing follows the tenant for seven years is weaker every year, in exactly the markets where filings are most common.</p>
+
+<p>None of that means never file. It means a judgment is a lottery ticket with a positive but small expected value, and you should not trade 49 days of vacancy for it without saying out loud what it is worth.</p>
+
+<h2>Cash for Keys Is a Price You Set, Not a Concession</h2>
+
+<p>Landlords hear cash for keys and think reward. The sheet says it is a purchase. You are buying 49 days back at a price you control, and the calculator tells you the highest price that still makes sense. Put the ceiling in B33.</p>
+
+<p><code>=B27-C27+C23</code></p>
+
+<p>The ceiling is $5,062. Any offer below that beats filing on this unit, in this county, at this rent. The owner who refused to write a $1,200 check was not driving a hard bargain, they were declining a $3,862 discount on a service they were about to buy anyway.</p>
+
+<h3>Price the risk that the deal falls apart</h3>
+
+<p>The obvious objection is real: the tenant takes the offer, stays, and you have lost a week. Model it instead of arguing about it. Row 34 is the failure branch, which is the full eviction cost plus the days the negotiation consumed.</p>
+
+<p><code>=B27+$B$5*C11</code></p>
+
+<p>That is $7,861. Now split the expected value across two cells so each formula stays readable. Put your honest success probability in B35, say 80 percent. Row 36 holds the success side, row 37 the failure side, and row 38 adds them.</p>
+
+<p><code>=C27*$B$35</code></p>
+
+<p><code>=B34*(1-$B$35)</code></p>
+
+<p>The sum is $4,504, still $3,023 below filing. But the sharper output is the break-even probability, which is the success rate at which you would be indifferent.</p>
+
+<p><code>=(B34-B27)/(B34-C27)</code></p>
+
+<p>Eight percent. The offer has to work about eight times in a hundred to beat the courthouse. That is the number to remember when the next tenant stops paying, because almost nobody believes their odds are that bad, and almost everybody files anyway.</p>
+
+<h3>Structure the deal so the money follows the keys</h3>
+
+<p>The ceiling assumes the deal is written correctly. Four rules make the 80 percent realistic.</p>
+
+<ul>
+<li>Pay at handoff, never before, and never in installments. Money moves when keys are in your hand and you have walked the unit.</li>
+<li>Put the condition standard in writing: broom clean, all belongings removed, no holes, appliances present and working. Ambiguity is what turns a $1,400 make-ready back into $2,900.</li>
+<li>Use a mutual termination and release drafted by an attorney, not a text message. It ends the tenancy, waives the balance, and closes the door on a claim later.</li>
+<li>Set a hard expiration on the offer, usually 72 hours, and mean it. Without a deadline the offer becomes a free extension and you pay $47.67 a day for the privilege.</li>
+</ul>
+
+<p>Also file the case anyway if your state and lease allow you to dismiss it. A pending case is not a threat, it is a parallel timeline. If the tenant signs, you dismiss and lose the filing fee. If they do not, you never lost the days you spent negotiating, which cuts the failure branch by most of its cost.</p>
+
+<h3>Your ceiling is set by the court docket, not by your temper</h3>
+
+<p>The one variable that moves the ceiling is how long your county takes to give you possession. Everything else is roughly the same from case to case.</p>
+
+<table>
+<tr><th>Court speed</th><th>Days to possession</th><th>Total days empty</th><th>Eviction path total</th><th>Highest rational offer</th></tr>
+<tr><td>Fast docket, uncontested</td><td>28</td><td>73</td><td>$6,526</td><td>$4,061</td></tr>
+<tr><td>Typical, one continuance</td><td>49</td><td>94</td><td>$7,527</td><td>$5,062</td></tr>
+<tr><td>Slow county or set-out backlog</td><td>96</td><td>141</td><td>$9,768</td><td>$7,303</td></tr>
+<tr><td>Contested with tenant counsel</td><td>126</td><td>171</td><td>$12,348</td><td>$9,883</td></tr>
+</table>
+
+<p>In a fast county a $4,000 offer is your limit and $1,200 is a good deal. In a slow one, or anywhere a right to counsel program means the tenant has a lawyer, offering $5,000 to end it this week is not weakness, it is arithmetic. Landlords who own in two markets should keep two versions of this sheet, because the same tenant behavior justifies very different checks depending on which courthouse the case lands in.</p>
+
+<h2>What to Do the Week the Rent Does Not Arrive</h2>
+
+<p>Run the decision on day 11, not day 45. The cost of the eviction path grows every day you wait to choose it, and so does the size of the check you would need to write to avoid it.</p>
+
+<ol>
+<li>Day 1 to 5: normal collection. A text, a call, a written reminder of the late fee. Most late rent is late, not gone.</li>
+<li>Day 6: send the formal notice your state requires. Sending it does not commit you to filing, and not sending it delays every path by the length of the notice period.</li>
+<li>Day 10: open the sheet. Fill B4 through B8 from this unit, set row 11 from your county's real numbers, and read the ceiling in B33.</li>
+<li>Day 11: make the offer at 20 to 30 percent of the ceiling with a 72 hour expiration, in writing, with the release attached.</li>
+<li>Day 14: if there is no signed agreement, file. Then keep the offer alive until the hearing, because your ceiling is still above zero and every week of docket delay raises it.</li>
+</ol>
+
+<p>After the case closes, whichever way it went, write the actuals down. Keep a ledger tab with one row per cost, columns for case ID, category, date, and amount, then roll it up so next year's inputs come from your own history instead of a blog post.</p>
+
+<p><code>=SUMIFS(Ledger!$D:$D,Ledger!$A:$A,$A50,Ledger!$B:$B,"Legal")</code></p>
+
+<p>Do the same with days, using AVERAGEIFS over the possession dates of every case you have filed in that county. After three cases your day counts stop being estimates. That is when the calculator stops being an argument and becomes a policy: an offer amount you already know, ready the week rent goes missing, instead of a decision you make angry on a Monday.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> is where this belongs, because an eviction is not a standalone event, it is a hit to a specific unit's annual cash flow. The template already tracks per unit rent, vacancy assumptions, turnover cost, and an operating expense block, so the $7,527 has somewhere to land: it becomes the vacancy and legal line on that unit for the year, and you can see immediately what it does to cash on cash return instead of treating it as an unpleasant surprise. Point the eviction tab at the rent and deposit cells that are already in the model, add the two column comparison, and the next time a tenant stops paying you will be reading a ceiling off a spreadsheet in ten minutes instead of paying $3,862 to feel right.</p>`,
+  },
+  {
     slug: 'self-manage-vs-property-manager-calculator-excel',
     title: 'Self Manage vs Property Manager Calculator in Excel: Your Hourly Wage Has a Ceiling',
     metaTitle: 'Self Manage vs Property Manager Calculator | SheetCraft',
