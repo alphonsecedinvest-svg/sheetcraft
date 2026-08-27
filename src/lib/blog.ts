@@ -16,6 +16,199 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-tax-reassessment-after-purchase-calculator-excel',
+    title: 'Rental Property Tax Reassessment After Purchase: Model the Reset Before You Sign',
+    metaTitle: 'Tax Reassessment After Purchase Calculator | SheetCraft',
+    metaDescription: 'The seller\'s tax bill dies at closing. Build a rental property tax reassessment calculator in Excel that resets to your purchase price before you sign.',
+    targetKeyword: 'rental property tax reassessment after purchase calculator Excel',
+    secondaryKeywords: ['property tax reassessment on sale', 'rental property NOI property taxes', 'supplemental property tax bill', 'Michigan taxable value uncapping', 'DSCR property tax escrow'],
+    excerpt: 'A $1,896 tax line on a $385,000 duplex becomes $4,620 the moment the deed records, and $10,203 in a Michigan non-homestead county. Build the reassessment block before you sign, not at the first escrow analysis.',
+    publishedAt: '2026-08-27',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-tax-reassessment-after-purchase-calculator-excel.png',
+    imageAlt: 'Wooden model house between a short stack of blocks and a much taller stack, with a brass plumb bob and a rolled closed plan on an oak desk',
+    content: `<p>Underwriting a rental off the seller's tax bill is the most common way investors overstate net operating income, and a <strong>rental property tax reassessment after purchase calculator</strong> in Excel is the cheapest insurance against it. In much of the country the assessed value snaps to what you paid on the day the deed records. A line that reads $1,896 on the seller's operating statement becomes $4,620, and the duplex you modeled at an 8.3 cap is a 7.6 cap before you collect a single rent check.</p>
+
+<p>The number is not hidden. It sits on the county assessor's website, twenty minutes of work away. Investors skip it because the tax line looks like a fact rather than an assumption. It is printed on a government document, it carries a dollar sign, it has four digits and a due date. Every other line in the pro forma gets challenged. Rents get compared against the market, insurance gets a fresh quote, maintenance gets a percentage of gross. The tax line gets copied.</p>
+
+<h2>The seller's tax bill describes the seller, not the property</h2>
+
+<p>Assessed value and market value are different animals, and the gap between them is a record of how long the current owner has held the asset. A seller who bought in 2004 and has been protected by an annual growth cap is carrying an assessed value from a decade ago. The bill you are copying is the output of their holding period, not of your purchase.</p>
+
+<p>Three rule families cover nearly every county in the United States. Which one you are in decides whether the reset is immediate, gradual, or delayed by years.</p>
+
+<table>
+<thead>
+<tr><th>Rule family</th><th>What happens when you close</th><th>Example states</th><th>What the model should carry</th></tr>
+</thead>
+<tbody>
+<tr><td>Reset on transfer</td><td>Assessed value snaps to your purchase price or to full market value at the next assessment date. The seller's cap dies with the deed.</td><td>California, Michigan, Florida (non-homestead), South Carolina</td><td>Purchase price at the local rate. Discard the seller's bill entirely.</td></tr>
+<tr><td>Annual market value</td><td>The county already revalues every parcel each year. Your sale becomes evidence and a stale record gets corrected.</td><td>Texas, Georgia, Colorado, Washington</td><td>Purchase price at the local rate, then check whether a temporary cap softens year one.</td></tr>
+<tr><td>Cyclical revaluation</td><td>Nothing happens at closing. The jump lands one to three years out, when the cycle reaches your parcel.</td><td>Ohio, Illinois, Pennsylvania, Maryland</td><td>Old bill through the known cycle years, full reset after, both discounted to today.</td></tr>
+</tbody>
+</table>
+
+<p>California is the cleanest example of the first family. A change in ownership creates a new base year value equal to fair market value, which the assessor takes to be your purchase price in an arm's length sale, and growth is then capped at two percent a year until the next transfer. Florida resets non-homestead property to just value on January 1 following the sale, after which a ten percent annual cap applies to everything except school district levies. South Carolina treats the sale as an assessable transfer of interest, resets to fair market value, and moves the property from the four percent owner-occupied ratio to the six percent ratio if you rent it.</p>
+
+<p>The third family is the one that fools careful people. In a cyclical county the first year of ownership confirms the wrong number. You close, the bill arrives, it matches the seller's bill, and you conclude your underwriting was right. Two years later the reassessment cycle reaches your parcel and the bill doubles.</p>
+
+<h2>The reassessment block: nine cells that decide the deal</h2>
+
+<p>Put the reassessment on its own block above the operating statement, not buried inside the expense list. It is an assumption with two possible values and it deserves to be visible.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Duplex example</th><th>Where it comes from</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Purchase price</td><td>$385,000</td><td>Contract</td></tr>
+<tr><td>B5</td><td>Closing date</td><td>10/15/2026</td><td>Contract</td></tr>
+<tr><td>B6</td><td>Rule family</td><td>Reset on transfer</td><td>Assessor FAQ or state statute</td></tr>
+<tr><td>B7</td><td>Seller's assessed value</td><td>$158,000</td><td>Parcel record</td></tr>
+<tr><td>B8</td><td>Seller's annual tax</td><td>$1,896</td><td>Tax bill, not the pro forma</td></tr>
+<tr><td>B9</td><td>Assessment ratio</td><td>1.00</td><td>Assessed value divided by market value</td></tr>
+<tr><td>B10</td><td>Total effective rate</td><td>1.20%</td><td>Sum of every levy on the bill</td></tr>
+<tr><td>B11</td><td>Exemptions you lose</td><td>$0</td><td>Homestead, senior, veteran, agricultural</td></tr>
+<tr><td>B12</td><td>Months at the old bill</td><td>12</td><td>Rule family plus closing date</td></tr>
+</tbody>
+</table>
+
+<p>B9 is the cell people get wrong. Some states assess at full market value, so the ratio is 1.00. Michigan assesses at fifty percent of true cash value. South Carolina applies a six percent ratio to non-owner-occupied residential. Get the ratio from the parcel record by dividing the assessed value by a defensible market value, not from a blog post about your state.</p>
+
+<p>Your new assessed value is the purchase price scaled by the ratio:</p>
+
+<p><code>B15 =B4*B9</code></p>
+
+<p>Your new annual tax is that value at the full local rate, plus whatever exemptions you are about to lose:</p>
+
+<p><code>B16 =B15*B10+B11</code></p>
+
+<p>The delta is the number that matters, and the monthly version of it is the number your lender is about to get wrong:</p>
+
+<p><code>B17 =B16-B8</code> gives $2,724 a year. <code>B18 =B17/12</code> gives $227 a month.</p>
+
+<h3>The staleness flag that runs before you read anything</h3>
+
+<p>Before touching the statute, one ratio tells you whether the seller's bill is even plausible. Divide their tax by your price and compare it to the published rate:</p>
+
+<p><code>B14 =B8/B4</code></p>
+
+<p>In the duplex that returns 0.49 percent against a published rate of 1.20 percent. The seller is paying forty-one percent of the going rate, which means their assessed value is stale and a reset is coming regardless of which family you are in. Flag it automatically:</p>
+
+<p><code>B19 =IF(B14&lt;B10*0.75,"RESET RISK, MODEL IT","ASSESSMENT IS CURRENT")</code></p>
+
+<p>This single formula catches the case that costs the most money, because a seller whose bill is close to the going rate cannot hurt you much and a seller whose bill is half the going rate can end the deal.</p>
+
+<h3>Michigan and the double hit almost nobody models</h3>
+
+<p>Michigan deserves its own section because two separate things happen at once and most calculators catch only one of them.</p>
+
+<p>The first is uncapping. Proposal A caps annual growth in taxable value at the lesser of five percent or inflation, and a transfer of ownership removes the cap for the year following the transfer. Taxable value jumps to the state equalized value, which is half of true cash value. On a $385,000 purchase:</p>
+
+<p><code>B44 =B4/2</code> puts taxable value at $192,500, against the seller's capped $79,000.</p>
+
+<p>The second is the principal residence exemption. If you are buying a house the seller lived in, that exemption was shielding eighteen mills of school operating tax. A rental does not qualify. So you are not just paying the higher rate on a bigger number, you are paying a different rate. Split the millage calculation into two cells so the two effects stay legible:</p>
+
+<p><code>B46 =B44/1000</code> converts taxable value to thousands, then <code>B47 =B46*B45</code> applies the non-homestead millage.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Seller, homesteaded</th><th>You, non-homestead rental</th></tr>
+</thead>
+<tbody>
+<tr><td>Taxable value</td><td>$79,000</td><td>$192,500</td></tr>
+<tr><td>Millage</td><td>35.0</td><td>53.0</td></tr>
+<tr><td>Annual tax</td><td>$2,765</td><td>$10,203</td></tr>
+<tr><td>Effective rate on price</td><td>0.72%</td><td>2.65%</td></tr>
+</tbody>
+</table>
+
+<p>That is a 3.7 times increase on the same building, on the same street, in the same month. Pull the actual homestead and non-homestead millage from the local treasurer, because the spread between townships is wide enough to move a deal on its own.</p>
+
+<h2>The bill does not arrive when you think it does</h2>
+
+<p>Timing is where the reset does psychological damage. In most reset states the higher bill does not show up during the first twelve months of ownership, which means year one confirms your bad assumption and year two contradicts it.</p>
+
+<p>Michigan uncapping takes effect for the assessment year following the transfer. Close in October 2026 and the summer 2027 bill is the first one that carries the real number. Florida reassesses as of January 1 following the sale. California sends a supplemental bill covering the gap between the old and new base year values, prorated from the transfer date to the end of the fiscal year on June 30, and it typically lands three to nine months after closing as a separate bill that no escrow account is holding money for.</p>
+
+<p>For the duplex closing October 15, that supplemental covers eight and a half months of the $2,724 delta, roughly $1,930, payable on its own schedule. Model year one as a blend rather than a single number. Two cells, not one:</p>
+
+<p><code>B40 =B8/12*B12</code> is the portion still billed at the old rate.</p>
+
+<p><code>B41 =B16/12*(12-B12)</code> is the portion billed at the new one, and <code>B42 =B40+B41</code> is what actually leaves your account in year one.</p>
+
+<h3>The escrow shortage that reprices your mortgage payment</h3>
+
+<p>Lenders set up the initial escrow from the last known tax bill, which is the seller's. On the duplex they collect $158 a month against a real obligation of $385. Twelve months later the account is short $2,724, and the servicer does two things at once: it spreads the shortage over the next twelve months and it raises the ongoing collection to the correct level.</p>
+
+<p>Your payment goes up by $227 for the catch-up plus $227 for the new base, roughly $454 a month, before the cushion adjustment. That is a payment increase of twenty-four percent on a fixed rate loan, on a property where you did nothing wrong except trust the escrow analysis. Investors who did not model the reset read this letter as a servicer error and call to dispute it. It is not an error.</p>
+
+<h2>What the reset does to the loan, not just the return</h2>
+
+<p>Run the operating statement twice, in adjacent columns, and let the two versions sit next to each other permanently. The duplex carries $47,880 of effective gross income and $13,930 of operating expenses before taxes.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Seller's tax bill</th><th>Reset at 1.20%</th><th>Michigan non-homestead</th></tr>
+</thead>
+<tbody>
+<tr><td>Property taxes</td><td>$1,896</td><td>$4,620</td><td>$10,203</td></tr>
+<tr><td>Total operating expenses</td><td>$15,826</td><td>$18,550</td><td>$24,133</td></tr>
+<tr><td>Net operating income</td><td>$32,054</td><td>$29,330</td><td>$23,747</td></tr>
+<tr><td>Cap rate on price</td><td>8.33%</td><td>7.62%</td><td>6.17%</td></tr>
+<tr><td>Annual debt service</td><td>$23,053</td><td>$23,053</td><td>$23,053</td></tr>
+<tr><td>Cash flow before tax</td><td>$9,001</td><td>$6,277</td><td>$694</td></tr>
+<tr><td>Cash on cash</td><td>8.35%</td><td>5.82%</td><td>0.64%</td></tr>
+<tr><td>DSCR</td><td>1.39</td><td>1.27</td><td>1.03</td></tr>
+</tbody>
+</table>
+
+<p>The debt service assumes $288,750 at seven percent over thirty years, which is $1,921 a month. Cash on cash uses $107,800 of total cash in, being the $96,250 down payment plus three percent for closing and loan costs.</p>
+
+<p>The middle column is a worse deal that still funds. The right column does not fund at all, and that is the part investors discover at underwriting rather than at the closing table. A DSCR lender at a 1.20 minimum will size the loan off the real tax bill, not yours. Compute the ceiling directly:</p>
+
+<p><code>B31 =B27/B30</code> gives the annual loan constant, $23,053 of debt service per $288,750 of loan, or 0.0798.</p>
+
+<p><code>B32 =B25/1.2/B31</code> gives the maximum supportable loan, $247,900.</p>
+
+<p><code>B33 =B4-B32</code> is the required down payment of $137,100, and <code>B34 =B33-B35</code> is the $40,850 of additional cash you now need against the $96,250 you planned to bring.</p>
+
+<p>Forty thousand dollars is not a rounding error discovered two weeks before closing. It is the difference between a deal and a lost earnest money deposit, and it came from one line copied off a seller's statement.</p>
+
+<h2>Model the reset before you sign, not at the first escrow analysis</h2>
+
+<h3>The twenty minute lookup that settles it</h3>
+
+<p>Before you sign anything, do this on the county website:</p>
+
+<ul>
+<li>Pull the parcel record and write down the assessed value, the land and improvement split, and the year the current value was set.</li>
+<li>Pull the actual tax bill rather than the estimate in the listing, and read every line item. Special assessments, drainage districts, streetlight levies, and solid waste fees ride on the same bill and do not scale with value.</li>
+<li>Find the assessor's page on what happens after a sale. Search the county name with the phrase change of ownership. If the page says the property is reassessed at market value on transfer, you are in family one.</li>
+<li>Note every exemption on the record and whether it survives a sale to an investor. Homestead, senior freeze, veteran, and agricultural exemptions usually do not.</li>
+<li>Check whether your state runs a temporary cap on non-homestead property. Texas has applied a twenty percent circuit breaker on non-homestead real property appraised at $5 million or less, and limits of that kind carry expiration dates that decide whether your year three looks like your year one.</li>
+</ul>
+
+<h3>The three moves the second column unlocks</h3>
+
+<p>Once the model shows both columns, three moves become available that were not available before.</p>
+
+<p><strong>Reprice the offer.</strong> The reset column is a permanent reduction in NOI, so it is worth a permanent reduction in price. At a 7.6 percent cap, $2,724 of annual tax capitalizes to roughly $35,800 of value. That is your number in the negotiation, and it is defensible because it comes off the county's own website.</p>
+
+<p><strong>Appeal on the right basis, or not at all.</strong> After a sale your purchase price is the strongest possible evidence of market value, and it works against you. Appealing a reassessment that landed at your purchase price is usually a waste of a filing fee. What is worth appealing is a reassessment above your price, a wrong square footage or unit count on the record card, or a classification error. Ohio limits the reverse case as well: a school district can only file a complaint to raise your value based on a sale when the price exceeds the auditor's value by more than both ten percent and $500,000.</p>
+
+<p><strong>Claim the relief that exists but requires an application.</strong> South Carolina's assessable transfer of interest exemption can exclude a quarter of the reassessed value, and it does not apply automatically. Several states have similar programs that a buyer has to ask for, on a deadline, in the year of purchase.</p>
+
+<h3>The recommendation</h3>
+
+<p>The recommendation is narrow. Never carry a single tax number in a rental model. Carry two, in adjacent columns, with the reset column as the default for every decision that matters: the offer price, the loan sizing, the cash reserve, and the go or no go. The seller's number belongs in the model only as a historical reference, and it should be visibly labeled as such so nobody downstream mistakes it for a forecast.</p>
+
+<p>Every rental you underwrite has this exposure, and the counties that hit the hardest are the counties where the seller's bill looks the most attractive. A $1,896 line on a $385,000 duplex is not a bargain. It is a warning that the assessment is twenty years old and that the first bill in your name will be two and a half times larger.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> carries the reassessment block described here as a standard input set, with the two tax columns wired through NOI, cap rate, cash on cash, and DSCR so the reset scenario updates the loan ceiling and the required down payment at the same time. Enter the purchase price, the assessment ratio, and the local rate, and the model tells you what the lender is going to conclude before you spend the appraisal fee finding out.</p>`,
+  },
+  {
     slug: 'rental-property-eviction-cost-calculator-excel',
     title: 'Rental Property Eviction Cost Calculator in Excel: The $185 Filing Fee That Costs $7,527',
     metaTitle: 'Rental Eviction Cost Calculator Excel | SheetCraft',
