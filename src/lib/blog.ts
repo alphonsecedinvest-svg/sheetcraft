@@ -16,6 +16,199 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-escrow-analysis-tracker-excel',
+    title: 'Rental Property Escrow Analysis Tracker in Excel: The Payment Increase Nobody Underwrites',
+    metaTitle: 'Rental Property Escrow Analysis Tracker Excel | SheetCraft',
+    metaDescription: 'Your mortgage payment is not fixed. Build a rental property escrow analysis tracker in Excel to forecast the shortage and the payment jump before it lands.',
+    targetKeyword: 'rental property escrow analysis tracker Excel',
+    secondaryKeywords: ['escrow shortage repayment', 'landlord escrow account analysis', 'mortgage escrow increase rental property', 'escrow cushion RESPA', 'property tax and insurance escrow tracker'],
+    excerpt: 'Principal and interest are fixed. The escrow deposit that funds taxes and insurance gets recomputed every twelve months, and a $353 line can become $520.83 plus a catch-up repayment on thirty days of notice. Build the ledger that finds your low point before the servicer does.',
+    publishedAt: '2026-08-28',
+    readTime: 10,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-escrow-analysis-tracker-excel.png',
+    imageAlt: 'Brass balance scale with unequal coin stacks beside a white model house and a blank envelope on a walnut desk',
+    content: `<p>Your mortgage payment on a rental is not fixed. Principal and interest are fixed. The other line, the escrow deposit that funds property taxes and insurance, gets recomputed every twelve months by your servicer, and that recomputation can move the payment by several hundred dollars on thirty days of notice. A rental property escrow analysis tracker in Excel is the difference between seeing that letter coming and finding out in February that the property you underwrote at $204 a month of cash flow is now losing money.</p>
+
+<p>The math itself is simple. What makes it dangerous is the delivery: one new number, in a statement you did not request, at a moment you did not choose, on a property you already decided was profitable. Most landlords read the new payment, absorb it, and never learn that the increase had two separate components governed by two different federal rules, and that one of those rules lets the servicer compress the catch-up into two months instead of twelve.</p>
+
+<h2>The two thirds of your payment that are actually fixed</h2>
+
+<p>Take a single family rental bought for $265,000 with a $198,750 loan at 7.125 percent. Principal and interest come to $1,339 a month and will be $1,339 a month in 2054. At closing the lender set the escrow deposit off the seller's tax bill of $2,760 and a quoted landlord policy of $1,480, so $4,240 a year, $353 a month. Total payment $1,692.</p>
+
+<p>That $1,692 is what went into the underwriting model. It is also 79 percent fixed and 21 percent floating, and nobody wrote that down.</p>
+
+<p>In year two both floating pieces move at once. The county reassesses at the sale price and the tax bill goes to $3,910. The dwelling fire policy renews at $2,340 after two hard years in the property market. Annual disbursements are now $6,250 instead of $4,240, which is $520.83 a month instead of $353.</p>
+
+<p>The escrow deposit rose 47 percent. That alone is not the problem. The problem is that the account spent the whole year collecting $353 a month against bills that came in at $6,250, and somebody has to make up the difference.</p>
+
+<h2>What the servicer does in the annual escrow analysis</h2>
+
+<p>Once a year the servicer runs an escrow account analysis under Regulation X. It projects the next twelve months of disbursements, projects the month by month balance, and compares the lowest projected balance against a target. The target is the cushion, and federal rule caps it at one sixth of estimated annual disbursements, which is two months of deposits. The servicer then sends an annual escrow account statement within thirty days of the close of the computation year, and the new payment usually starts the following month.</p>
+
+<p>Three outcomes come out of that comparison, and they are not interchangeable:</p>
+
+<ul>
+<li><strong>Surplus.</strong> The projected balance exceeds the target. If the surplus is $50 or more the servicer refunds it within thirty days. Under $50 it can be refunded or credited forward.</li>
+<li><strong>Shortage.</strong> The balance is positive but below the target. If the shortage is one month's escrow payment or more, the servicer must let you repay it over at least twelve months.</li>
+<li><strong>Deficiency.</strong> The balance is negative. The servicer advanced its own money to pay your tax bill. Repayment can be demanded in as few as two monthly payments.</li>
+</ul>
+
+<p>That last line is the one nobody reads until it applies to them. A shortage buys you a twelve month spread by rule. A deficiency does not.</p>
+
+<h2>Building the rental property escrow analysis tracker in Excel</h2>
+
+<p>One tab per property, or one column per property if you are running more than six doors. The input block sits in column B and everything else derives from it.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Monthly principal and interest</td><td>$1,339.00</td></tr>
+<tr><td>B5</td><td>Current monthly escrow deposit</td><td>$353.00</td></tr>
+<tr><td>B6</td><td>Escrow balance at last statement</td><td>$706.00</td></tr>
+<tr><td>B7</td><td>Current annual property tax</td><td>$2,760.00</td></tr>
+<tr><td>B8</td><td>Current annual insurance premium</td><td>$1,480.00</td></tr>
+<tr><td>B9</td><td>Other escrowed annual items</td><td>$0.00</td></tr>
+<tr><td>B10</td><td>Expected tax change</td><td>41.7%</td></tr>
+<tr><td>B11</td><td>Expected insurance change</td><td>58.1%</td></tr>
+<tr><td>B12</td><td>Computation year ends</td><td>Dec 31</td></tr>
+</tbody>
+</table>
+
+<p>B10 and B11 are the only two cells requiring judgment, and they are where the work is. If you bought in a reassessment state, B10 is not a guess, it is the assessed value reset times the local millage, and the <a href="/blog/rental-property-tax-reassessment-after-purchase-calculator-excel">post purchase reassessment model</a> gives you the number directly. B11 comes from your carrier, not from a national average. Ask your agent for the renewal indication in month nine, not month twelve.</p>
+
+<p>Projected annual tax:</p>
+
+<p><code>B14 =B7*(1+B10)</code></p>
+
+<p>Projected annual insurance:</p>
+
+<p><code>B15 =B8*(1+B11)</code></p>
+
+<p>Then the four numbers that drive everything downstream. Projected annual disbursements in B16 with <code>=B14+B15+B9</code>, which returns $6,250. Required monthly deposit in B17 with <code>=B16/12</code>, which returns $520.83. The maximum cushion the servicer is allowed to hold in B18 with <code>=B16/6</code>, which returns $1,041.67. That cushion figure is the target your projected low point has to clear.</p>
+
+<h2>The twelve month ledger that finds your low point</h2>
+
+<p>The single number that decides your new payment is the lowest balance the account is projected to hit, and you cannot get it from an annual total. Taxes and insurance do not leave the account evenly. They leave in lumps, and the lump timing is what creates the hole.</p>
+
+<p>Lay out twelve rows, one per month, with beginning balance, deposit, disbursement, and ending balance. Ending balance in G25 is <code>=D25+E25-F25</code>, and the next row's beginning balance points at it. Here is the computation year for this property at the old $353 deposit, with the insurance renewal paid in June and the tax bill paid in December.</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Beginning</th><th>Deposit</th><th>Disbursement</th><th>Ending</th></tr>
+</thead>
+<tbody>
+<tr><td>January</td><td>$706</td><td>$353</td><td>$0</td><td>$1,059</td></tr>
+<tr><td>February</td><td>$1,059</td><td>$353</td><td>$0</td><td>$1,412</td></tr>
+<tr><td>March</td><td>$1,412</td><td>$353</td><td>$0</td><td>$1,765</td></tr>
+<tr><td>April</td><td>$1,765</td><td>$353</td><td>$0</td><td>$2,118</td></tr>
+<tr><td>May</td><td>$2,118</td><td>$353</td><td>$0</td><td>$2,471</td></tr>
+<tr><td>June</td><td>$2,471</td><td>$353</td><td>$2,340</td><td>$484</td></tr>
+<tr><td>July</td><td>$484</td><td>$353</td><td>$0</td><td>$837</td></tr>
+<tr><td>August</td><td>$837</td><td>$353</td><td>$0</td><td>$1,190</td></tr>
+<tr><td>September</td><td>$1,190</td><td>$353</td><td>$0</td><td>$1,543</td></tr>
+<tr><td>October</td><td>$1,543</td><td>$353</td><td>$0</td><td>$1,896</td></tr>
+<tr><td>November</td><td>$1,896</td><td>$353</td><td>$0</td><td>$2,249</td></tr>
+<tr><td>December</td><td>$2,249</td><td>$353</td><td>$3,910</td><td>-$1,308</td></tr>
+</tbody>
+</table>
+
+<p>Pull the low point into B20 with <code>=MIN(G25:G36)</code>. It returns negative $1,308. The account did not run thin, it ran through zero, because the December tax bill arrived $1,150 larger than the deposit schedule was built for and the June insurance renewal had already eaten $860 of the buffer.</p>
+
+<p>Total catch-up required in B21 is <code>=B18-B20</code>, the distance from where the account will be to where the rule says it has to be: $1,041.67 minus negative $1,308, which is $2,349.67.</p>
+
+<h2>Shortage or deficiency: the split that costs $545 a month</h2>
+
+<p>Here is where the tracker earns its keep, because that $2,349.67 is not one number to the servicer. It is two, and they are governed by different paragraphs.</p>
+
+<p>The deficiency is the negative part, computed in B22 with <code>=MAX(0,-B20)</code>, which is $1,308. That is money the servicer already advanced on your behalf. The shortage is the rest, B23 with <code>=B21-B22</code>, which is $1,041.67, the amount needed to rebuild the cushion.</p>
+
+<p>The shortage is at least one month's escrow deposit, so it gets spread over twelve months by rule: <code>=B23/12</code>, or $86.81. The deficiency is also at least one month's deposit, and the servicer may require it in as few as two payments: <code>=B22/2</code>, or $654.00.</p>
+
+<p>Model both outcomes, because you do not control which one you get. The generous servicer folds everything into a single twelve month line. The strict one runs the deficiency over two months. Same $2,349.67, two very different Februaries.</p>
+
+<table>
+<thead>
+<tr><th>Payment component</th><th>Year 1</th><th>Year 2, spread over 12</th><th>Year 2, first two months</th><th>Year 3 onward</th></tr>
+</thead>
+<tbody>
+<tr><td>Principal and interest</td><td>$1,339.00</td><td>$1,339.00</td><td>$1,339.00</td><td>$1,339.00</td></tr>
+<tr><td>Escrow deposit</td><td>$353.00</td><td>$520.83</td><td>$520.83</td><td>$520.83</td></tr>
+<tr><td>Catch-up repayment</td><td>$0.00</td><td>$195.81</td><td>$740.81</td><td>$0.00</td></tr>
+<tr><td><strong>Total payment</strong></td><td><strong>$1,692.00</strong></td><td><strong>$2,055.81</strong></td><td><strong>$2,600.64</strong></td><td><strong>$1,859.83</strong></td></tr>
+</tbody>
+</table>
+
+<p>The gap between the two year two columns is exactly $545 a month. That is not a rate change, a vacancy, or a repair. It is a paragraph of Regulation X, and it is knowable in advance if you have run the ledger.</p>
+
+<p>Put the worst case in B26 with <code>=B4+B17+B24+B25</code> and the spread case in B27 with <code>=B4+B17+B21/12</code>, then flag it. A reserve trigger like <code>=IF(B26-(B4+B5)&gt;400,"FUND RESERVE NOW","MONITOR")</code> turns the tracker into something that tells you to move money rather than something you have to remember to read.</p>
+
+<h2>What the reset does to cash flow and to your next refinance</h2>
+
+<p>The property rents for $2,450. After a 5 percent vacancy allowance, 8 percent management on collected rent, and a 10 percent maintenance and capital reserve, cash available for debt service is $1,896.30 a month. Against the original $1,692 payment that is $204.30 of monthly cash flow, or $2,451.60 a year. That is the number in the underwriting model.</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Monthly payment</th><th>Monthly cash flow</th><th>Annual cash flow</th></tr>
+</thead>
+<tbody>
+<tr><td>Year 1, as underwritten</td><td>$1,692.00</td><td>$204.30</td><td>$2,451.60</td></tr>
+<tr><td>Year 2, catch-up over 12 months</td><td>$2,055.81</td><td>-$159.51</td><td>-$1,914.12</td></tr>
+<tr><td>Year 2, first two months</td><td>$2,600.64</td><td>-$704.34</td><td>not applicable</td></tr>
+<tr><td>Year 3, steady state</td><td>$1,859.83</td><td>$36.47</td><td>$437.64</td></tr>
+</tbody>
+</table>
+
+<p>Read the last row before the middle two. Once the catch-up burns off, this property settles at $36.47 a month. It was never a $204 a month rental. It was a $36 a month rental with a tax and insurance assumption that had not been tested yet, and the escrow analysis is simply the moment the test gets graded.</p>
+
+<p>There is a second effect that lands later and hits harder. Your debt service coverage ratio does not care about the catch-up, because a catch-up repays a balance rather than an expense. It cares very much about the new tax and insurance figures inside net operating income. At year one levels, NOI is $18,515.60 against $16,068 of annual debt service, a DSCR of 1.15. At year two levels, NOI is $16,505.60 and DSCR is 1.03.</p>
+
+<p>Annual debt service is the one place the model needs principal and interest alone rather than the full payment, so keep it in its own cell:</p>
+
+<p><code>B31 =B4*12</code></p>
+
+<p>A DSCR of 1.03 is below the 1.20 or 1.25 minimum most portfolio lenders set. The escrow analysis did not just cost you a year of cash flow. It quietly closed the refinance you were planning for month eighteen, and you will discover that at application, months after the letter you filed away.</p>
+
+<h2>The portfolio view: stacked analysis dates</h2>
+
+<p>One property with a $364 payment increase is an annoyance. Four properties whose computation years all close on December 31 is a January you will remember. Servicers set the computation year from the origination date, so a year in which you bought aggressively produces a cluster of analyses in the same month.</p>
+
+<p>Add a roll-up tab with one row per property, the computation year end, and the projected catch-up. Sum the exposure by month with <code>=SUMIFS(Catchup,StatementMonth,"January")</code> so you are budgeting against a calendar rather than reacting to envelopes.</p>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Computation year ends</th><th>Statement due by</th><th>Projected catch-up</th><th>Monthly payment change</th></tr>
+</thead>
+<tbody>
+<tr><td>412 Larkspur</td><td>Dec 31</td><td>Jan 30</td><td>$2,349.67</td><td>+$363.81</td></tr>
+<tr><td>55 Orchard duplex</td><td>Dec 31</td><td>Jan 30</td><td>$3,015.00</td><td>+$489.25</td></tr>
+<tr><td>88 Fenton Ave</td><td>Feb 28</td><td>Mar 30</td><td>$1,180.00</td><td>+$194.33</td></tr>
+<tr><td>1204 Halstead</td><td>Mar 31</td><td>Apr 30</td><td>$410.00</td><td>+$71.17</td></tr>
+</tbody>
+</table>
+
+<p>Larkspur and Orchard reprice in the same month, $853.06 of additional monthly obligation starting in February, on a portfolio whose combined cash flow was budgeted at roughly half that. Nothing went wrong operationally. Occupancy is full, rent is collected, no capital item failed. The portfolio simply repriced its two floating line items on the same day, and no one wrote the date down.</p>
+
+<h2>What to do before your next escrow statement</h2>
+
+<p>Run this sequence on every financed property, in this order:</p>
+
+<ol>
+<li>Find the computation year end on last year's escrow statement. That is your date, and it varies by loan, not by calendar.</li>
+<li>Pull the actual tax bill, not the seller's, and the actual renewal quote, not last year's premium. Enter them in B7 and B8 as dollars, and set B10 and B11 to zero if you already have the real numbers.</li>
+<li>Build the twelve month ledger at your current deposit and read the low point. If it is negative, you have a deficiency and a two month demand is legal.</li>
+<li>Compute both catch-up scenarios and reserve for the worse one. The spread is not your choice.</li>
+<li>Recompute DSCR at the new tax and insurance figures before you count on any refinance in the next eighteen months.</li>
+<li>Sum the exposure by statement month across the portfolio and check for clusters.</li>
+</ol>
+
+<p>The reason this is worth an hour per property is that it converts a surprise into a scheduled event. A $364 monthly increase you funded in October is a line item. The same $364 arriving in February, alongside $489 from the duplex down the street, is how landlords end up selling a performing asset for liquidity reasons.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> carries the escrow block described here wired into the rest of the model, so the projected deposit, the cushion target, the low point ledger, and both catch-up scenarios flow straight through to monthly cash flow, DSCR, and cash on cash without you rebuilding the links per property. Enter the loan, the real tax bill, and the renewal quote, and it tells you what the January statement is going to say while there is still time to fund it.</p>`,
+  },
+  {
     slug: 'rental-property-tax-reassessment-after-purchase-calculator-excel',
     title: 'Rental Property Tax Reassessment After Purchase: Model the Reset Before You Sign',
     metaTitle: 'Tax Reassessment After Purchase Calculator | SheetCraft',
