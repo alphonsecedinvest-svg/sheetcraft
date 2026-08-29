@@ -16,6 +16,195 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'condo-hoa-fee-impact-on-rental-cash-flow-excel',
+    title: 'Condo HOA Fee Impact on Rental Cash Flow: The Excel Model That Prices the Reserve Study',
+    metaTitle: 'Condo HOA Fee Impact on Rental Cash Flow | SheetCraft',
+    metaDescription: 'Model the condo HOA fee impact on rental cash flow in Excel. Price the reserve study, the assessment year, and dues escalation before you offer.',
+    targetKeyword: 'condo HOA fee impact on rental cash flow Excel',
+    secondaryKeywords: ['condo reserve study analysis', 'HOA special assessment Excel', 'percent funded reserve', 'condo rental cash flow model', 'HOA dues escalation'],
+    excerpt: 'A condo that clears $90 a month at a $310 HOA fee stops clearing anything at $430. The reserve study tells you which building you are buying. This Excel model turns it into a deficit year and a dollar figure for your unit.',
+    publishedAt: '2026-08-29',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/condo-hoa-fee-impact-on-rental-cash-flow-excel.png',
+    imageAlt: 'Architectural scale model of a four story condominium building beside brass keys and a level on a concrete desk',
+    content: `<p>A condo that clears $90 a month at a $310 HOA fee stops clearing anything at $430. That is the whole problem with modeling the condo HOA fee impact on rental cash flow in Excel: most investors copy the fee off the listing, drop it into a single cell, and grow it 3 percent a year like every other line. The fee is not an input. It is the output of a reserve study you have not read, a board vote you were not at, and an insurance renewal nobody has priced yet.</p>
+
+<p>The $120 gap between those two numbers is not a rounding error. On a unit that nets $90 a month, it is the entire deal. And the number that tells you which building you are actually buying is not on the listing sheet. It sits on page four of the reserve study, in a column labeled percent funded.</p>
+
+<p>This builds the model that connects the two: a reserve schedule that projects the association's balance year by year, converts the first deficit into your unit's share, and prices the three different ways a board can cover it. Then it flags the outcome that costs more than any assessment, which is the building becoming unfinanceable while you own it.</p>
+
+<h2>The HOA line is the only expense you cannot control</h2>
+
+<p>Start with a real unit. A two bedroom condo at $255,000, 25 percent down, a $191,250 loan at 6.875 percent over 30 years, renting at $2,395. Everything below is the same unit in the same market. The only variable is the dues.</p>
+
+<table>
+<thead>
+<tr><th>Line item</th><th>HOA at $310</th><th>HOA at $430</th></tr>
+</thead>
+<tbody>
+<tr><td>Gross rent</td><td>$2,395</td><td>$2,395</td></tr>
+<tr><td>Vacancy at 5%</td><td>-$120</td><td>-$120</td></tr>
+<tr><td>Principal and interest</td><td>-$1,257</td><td>-$1,257</td></tr>
+<tr><td>Property tax</td><td>-$234</td><td>-$234</td></tr>
+<tr><td>HO-6 walls-in policy</td><td>-$52</td><td>-$52</td></tr>
+<tr><td>HOA dues</td><td>-$310</td><td>-$430</td></tr>
+<tr><td>Interior maintenance</td><td>-$85</td><td>-$85</td></tr>
+<tr><td>Capital reserve</td><td>-$55</td><td>-$55</td></tr>
+<tr><td>Management at 8%</td><td>-$192</td><td>-$192</td></tr>
+<tr><td><strong>Monthly cash flow</strong></td><td><strong>+$90</strong></td><td><strong>-$30</strong></td></tr>
+</tbody>
+</table>
+
+<p>Ninety dollars a month is $1,080 a year against $70,150 of cash in the deal, counting the down payment plus $6,400 of closing costs. That is a 1.5 percent cash-on-cash return, which is not a rental, it is a savings account with a tenant in it. At $430 the same unit runs $360 a year negative.</p>
+
+<p>The debt service coverage ratio moves too, and it moves somewhere that matters more than the cash flow. At $310 the unit produces $1,402 of net operating income against $1,257 of debt service, a DSCR of 1.12. At $430 it is 1.02. Most DSCR lenders want 1.20 to write the loan at par. So the honest read of the $310 column is not "thin but positive." It is "already below the threshold for the refinance you were planning in year three." The $430 column does not break the deal. It reveals that the deal was never financeable on the terms you assumed.</p>
+
+<h2>The reserve study prices the fee, not the listing</h2>
+
+<p>Every association with real components has a reserve study. It lists each major component, its replacement cost, its useful life, and how many years are left. Two derived numbers matter, and neither one appears in the marketing.</p>
+
+<p>The fully funded balance is what the reserve account would hold if the association had saved for every component in proportion to how much of its life is already gone. A roof with a 25 year life and 6 years left is 19 years used, so 76 percent of its replacement cost should already be sitting in the account. Build the component table in rows 12 to 17, with column C for replacement cost, D for useful life, and E for remaining life. One formula gives you the fully funded balance for the entire building.</p>
+
+<p><code>=SUMPRODUCT(C12:C17,(D12:D17-E12:E17)/D12:D17)</code></p>
+
+<table>
+<thead>
+<tr><th>Component</th><th>Replacement cost</th><th>Useful life</th><th>Years left</th><th>Effective age</th><th>Fully funded share</th></tr>
+</thead>
+<tbody>
+<tr><td>Roof membrane</td><td>$340,000</td><td>25</td><td>6</td><td>19</td><td>$258,400</td></tr>
+<tr><td>Elevators (2)</td><td>$290,000</td><td>30</td><td>9</td><td>21</td><td>$203,000</td></tr>
+<tr><td>Parking deck waterproofing</td><td>$180,000</td><td>15</td><td>4</td><td>11</td><td>$132,000</td></tr>
+<tr><td>Exterior paint and sealant</td><td>$95,000</td><td>8</td><td>3</td><td>5</td><td>$59,375</td></tr>
+<tr><td>Boilers</td><td>$120,000</td><td>22</td><td>11</td><td>11</td><td>$60,000</td></tr>
+<tr><td>Asphalt and curbing</td><td>$60,000</td><td>20</td><td>7</td><td>13</td><td>$39,000</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$1,085,000</strong></td><td></td><td></td><td></td><td><strong>$751,775</strong></td></tr>
+</tbody>
+</table>
+
+<p>Put the current reserve balance in B7 and the percent funded falls out of <code>=B7/B20</code>. This association holds $186,000 against a fully funded balance of $751,775, so it is 24.7 percent funded.</p>
+
+<p>Reserve analysts read that number in bands. Above 70 percent is strong, and special assessments are rare. Between 30 and 70 percent is fair, and assessments happen when a component fails early. Below 30 percent is weak, and the question stops being whether there is an assessment and becomes which component triggers it. At 24.7 percent, the $310 fee is not cheap. It is unfinished.</p>
+
+<h2>Build the projection the board has not run</h2>
+
+<p>The percent funded tells you the building is behind. It does not tell you when the bill arrives. For that you run the reserve forward. Set the inputs on the reserve sheet: B7 for the current balance of $186,000, B8 for the annual reserve contribution of $26,000, B9 for total annual assessment income of $178,560, B5 for contribution escalation at 4 percent, B6 for replacement cost inflation at 4 percent, and B4 for your unit's percentage of common interest, 2.10 percent in a 48 unit building.</p>
+
+<p>Lay the projection out from row 31 with one row per year: column A the year, B the opening balance, C the contribution, D the scheduled work in today's dollars, E the inflation factor, F the inflated cost, G the closing balance, H your share of any deficit.</p>
+
+<p>The opening balance in the first year pulls the current balance with <code>=B7</code>, and every year after that pulls the prior close with <code>=G31</code>.</p>
+
+<p>The contribution escalates on its own line: <code>=C31*(1+$B$5)</code></p>
+
+<p>The inflation factor gets its own column so the cost formula stays readable: <code>=(1+$B$6)^A31</code></p>
+
+<p>The inflated cost is then just <code>=D31*E31</code></p>
+
+<p>The closing balance is <code>=B31+C31-F31</code>, and your exposure in any deficit year is <code>=IF(G31&lt;0,-G31*$B$4,0)</code></p>
+
+<table>
+<thead>
+<tr><th>Year</th><th>Opening</th><th>Contribution</th><th>Work (today's $)</th><th>Inflated cost</th><th>Closing</th><th>Your share</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>$186,000</td><td>$26,000</td><td>$0</td><td>$0</td><td>$212,000</td><td>$0</td></tr>
+<tr><td>2</td><td>$212,000</td><td>$27,040</td><td>$0</td><td>$0</td><td>$239,040</td><td>$0</td></tr>
+<tr><td>3</td><td>$239,040</td><td>$28,122</td><td>$95,000</td><td>$106,862</td><td>$160,300</td><td>$0</td></tr>
+<tr><td>4</td><td>$160,300</td><td>$29,246</td><td>$180,000</td><td>$210,575</td><td>-$21,029</td><td>$442</td></tr>
+<tr><td>5</td><td>-$21,029</td><td>$30,416</td><td>$0</td><td>$0</td><td>$9,387</td><td>$0</td></tr>
+<tr><td>6</td><td>$9,387</td><td>$31,633</td><td>$340,000</td><td>$430,208</td><td>-$389,188</td><td>$8,173</td></tr>
+<tr><td>7</td><td>-$389,188</td><td>$32,898</td><td>$60,000</td><td>$78,956</td><td>-$435,246</td><td>$9,140</td></tr>
+<tr><td>8</td><td>-$435,246</td><td>$34,214</td><td>$0</td><td>$0</td><td>-$401,032</td><td>$8,422</td></tr>
+</tbody>
+</table>
+
+<p>Pull the first deficit year out with <code>=INDEX(A31:A38,MATCH(TRUE,INDEX(G31:G38&lt;0,0),0))</code>, which returns year 4. That one is small, $442 to your unit, and a board will usually absorb it by deferring the asphalt.</p>
+
+<p>Year 6 is the event. The roof costs $340,000 in today's dollars and $430,208 when it actually gets replaced, against a reserve holding $9,387. The association is $389,188 short and your unit owns 2.10 percent of that hole, which is $8,173. Notice what the inflation column did: the roof line in the reserve study says $340,000, and every owner in the building is quoting that number to each other. The real number is 27 percent higher, and the gap is pure arithmetic that nobody ran.</p>
+
+<h2>Three ways a board covers a deficit, three different hits to you</h2>
+
+<p>A $389,188 shortfall does not automatically mean a check for $8,173. Boards have three instruments, they pick between them by vote, and your model has to price all three because you do not get to choose.</p>
+
+<p>For the loan option, size the payment with <code>=PMT(B26/12,B27,-B25)</code> where B25 is the deficit, B26 is 7.5 percent and B27 is 144 months. That returns $4,107 a month for the association. Your share is <code>=B28*$B$4</code>, or $86.</p>
+
+<table>
+<thead>
+<tr><th>How the board covers $389,188</th><th>What you pay</th><th>Duration</th><th>Your cash flow while paying</th><th>Total you pay</th></tr>
+</thead>
+<tbody>
+<tr><td>Lump sum special assessment</td><td>$8,173 due in 60 days</td><td>One payment</td><td>+$90</td><td>$8,173</td></tr>
+<tr><td>24 month payment plan</td><td>$341 per month</td><td>24 months</td><td>-$251</td><td>$8,173</td></tr>
+<tr><td>Association loan, 12 years at 7.5%</td><td>$86 per month added to dues</td><td>144 months</td><td>+$4</td><td>$12,419</td></tr>
+</tbody>
+</table>
+
+<p>Boards pick the loan. It is the easiest vote in the room because it is the smallest monthly number, and the owner on a fixed income who cannot write an $8,173 check is the loudest voice at the meeting. It is also the option that costs you 52 percent more in total and follows the unit to closing. When you sell in year 9, your buyer's lender sees a permanent $86 dues add-on with 84 payments left, underwrites the higher fee against the buyer's ratios, and asks for the association loan documents. The dues on your listing will read $396 in a building where the comparable unit down the street reads $310.</p>
+
+<h2>Escalation is not CPI, and flat dues are the warning</h2>
+
+<p>The second modeling error is escalating HOA dues at the same rate as everything else. Dues are driven by the master insurance premium and by labor, not by a general price index, and coastal master policies have repriced hard. Pull the last three annual budgets, which most states require the association to hand over during the resale disclosure period, and compute the real rate with <code>=(B47/B44)^(1/3)-1</code>.</p>
+
+<p>Then read the answer against the percent funded, because the two numbers only mean something together.</p>
+
+<table>
+<thead>
+<tr><th>Diagnostic</th><th>Building A</th><th>Building B</th></tr>
+</thead>
+<tbody>
+<tr><td>Monthly dues</td><td>$310</td><td>$430</td></tr>
+<tr><td>Dues growth, last three budgets</td><td>2.1% a year</td><td>8.4% a year</td></tr>
+<tr><td>Percent funded</td><td>24.7%</td><td>71.0%</td></tr>
+<tr><td>Reserve allocation, share of assessment income</td><td>14.6%</td><td>22.0%</td></tr>
+<tr><td>First modeled deficit year</td><td>Year 4</td><td>None in 10 years</td></tr>
+<tr><td>Modeled assessment exposure, 10 years</td><td>$9,140</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Building A looks like the disciplined association and Building B looks like the one that cannot control costs. It is the reverse. A board holding dues at 2.1 percent growth while the reserve sits at 24.7 percent funded is not being efficient, it is deferring, and deferral is how you get an assessment instead of an increase. Building B's owners are already paying for their roof. Building A's owners are going to pay for theirs in one lump, plus 27 percent of construction inflation, plus interest if the board borrows.</p>
+
+<p>That does not automatically make B the better buy, and the model will tell you which one wins for your hold period. A's advantage is $120 a month, or $1,440 a year. A's exposure is $8,173 landing in year 6. The crossover is <code>=B50/(B51*12)</code>, or 5.7 years. Exit before then and A wins. Hold past it and B wins. The trap is that the exit you were counting on is precisely the exit that gets harder, which is the next section.</p>
+
+<h2>The financing test changed this month</h2>
+
+<p>On August 3, 2026, Fannie Mae retired the Limited Review process for established condo projects. Every established project now runs the Full Review, which means the lender reads the association's budget, its reserve line, and its pending repair disclosures on your specific deal. The low loan-to-value shortcut around a building's finances is gone.</p>
+
+<p>The threshold moves next. Effective January 4, 2027, a Full Review requires the association to allocate at least 15 percent of annual budgeted assessment income to replacement reserves, up from 10 percent. There is an alternative path: a reserve study completed within the past three years showing the association funds at or above the study's own recommendation.</p>
+
+<p>Run our building through both tests. The reserve allocation is <code>=B8/B9</code>, or $26,000 against $178,560 of assessment income, which is 14.6 percent. That clears the 10 percent rule today and fails the 15 percent rule in January. The reserve study escape hatch is closed too, because at 24.7 percent funded the association is nowhere near its own study's recommended funding level. Add the flag to your input block so the model says it out loud:</p>
+
+<p><code>=IF(AND(B22&gt;=0.15,B23="No"),"OK","REVIEW RISK")</code></p>
+
+<p>The harder failure is separate from the percentage. A project with unaddressed critical repairs, or with a special assessment tied to safety or structural work, can be ruled ineligible outright. Ineligible means no conventional mortgage, for you and for the person you eventually sell to.</p>
+
+<p>Florida investors have one more input. HB 913 took effect July 1, 2025. It moved the Structural Integrity Reserve Study deadline to December 31, 2025, raised the component replacement cost threshold from $10,000 to $25,000, and let boards pause reserve contributions for up to two consecutive budget years after a milestone inspection in order to fund critical repairs. Read that pause the way a lender reads it. Two years of zero contributions is two years of the funded percentage falling while the building keeps aging. If you are modeling a Florida condo of three habitable stories or more, set column C to $0 for those two years and watch the deficit year move toward you.</p>
+
+<p>Then price the outcome, because a stock rental model prices it at zero. If the project goes ineligible, your buyer pool narrows to cash and portfolio lenders, and non-warrantable units trade at a discount. Model a 5 to 10 percent haircut on the exit price. On a $255,000 unit that is $12,750 to $25,500, which is one and a half to three times the roof assessment that everyone in the building is arguing about. That range is an assumption, not a published figure, and you should test it against what non-warrantable units actually traded at in your market. But leaving the cell empty, which is what every default template does, is the one value you can be certain is wrong.</p>
+
+<h2>What to pull before you write the offer</h2>
+
+<p>None of this works without documents, and the documents are obtainable. Ask for all of these inside the inspection period, in writing, from the management company:</p>
+
+<ul>
+<li>The last three annual budgets, not just the current one. You need three points to compute the escalation rate.</li>
+<li>The full reserve study with the component table, not the one page update. The component table is the model.</li>
+<li>The reserve fund balance from the latest balance sheet, not the budgeted contribution. Budgets are intentions, balance sheets are facts.</li>
+<li>Twelve months of board meeting minutes. Roof bids appear in the minutes 12 to 18 months before the assessment vote. The seller has read them.</li>
+<li>The master insurance declaration page, including the wind and hail deductible. A 5 percent named storm deductible on a $12 million building is a $600,000 exposure the reserve does not cover.</li>
+<li>The delinquency report showing units 60 or more days past due. Delinquencies shift the assessment burden onto the owners who still pay.</li>
+<li>The owner occupancy split and any rental cap in the declaration. A cap that is already at its limit strands your unit as a rental.</li>
+<li>Pending litigation. Construction defect suits are how a building funds repairs, and how it becomes unfinanceable in the meantime.</li>
+<li>For Florida buildings of three habitable stories or more, the milestone inspection report and the SIRS.</li>
+</ul>
+
+<p>The recommendation is narrow, and it is not "avoid condos." It is this: stop entering one HOA number into your model. Enter three. The current dues, the escalation rate you computed from three budgets, and the modeled assessment exposure from the reserve projection. If the seller or the management company will not produce the reserve study and the minutes inside the inspection period, that refusal is your answer and you have saved yourself the analysis. In a building under 30 percent funded, underwrite the fee at the highest number the projection produces, because that is the number you will eventually pay.</p>
+
+<p>Run the projection before the offer, not after the board votes. Once the roof bid is on the agenda, the assessment is priced into nothing: not the listing, not the appraisal, and not the loan you were counting on.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> already breaks HOA out as its own operating expense line and runs a ten year projection with rent growth, expense growth, and mortgage paydown. That is the frame this reserve model plugs into. Put the escalation rate you computed from the three budgets on the HOA line instead of the blended rate you used for taxes and insurance, then drop the modeled assessment into the year the projection names. What comes back is the number this whole exercise is about: what the unit actually returns across your real hold period, with the special assessment inside the model instead of sitting next to it on a napkin. It takes fifteen minutes, and it is the difference between buying a $310 fee and buying a $430 fee that has not been announced yet.</p>`,
+  },
+  {
     slug: 'rental-property-escrow-analysis-tracker-excel',
     title: 'Rental Property Escrow Analysis Tracker in Excel: The Payment Increase Nobody Underwrites',
     metaTitle: 'Rental Property Escrow Analysis Tracker Excel | SheetCraft',
