@@ -21068,7 +21068,7 @@ LP + GP = Total Available Cash Flow</p>
     readTime: 9,
     relatedProduct: 'construction-budget-tracker',
     image: '/images/blog/construction-warranty-tracking-spreadsheet.png',
-    imageAlt: 'Construction warranty tracking spreadsheet on laptop with project documents and blueprints',
+    imageAlt: 'Brass hourglass beside a new door lever and a ring of keys on a birch workbench',
     content: `<article>
 
         <p>Last month, a roofing contractor in Denver received a $12,800 repair bill for a commercial membrane roof he installed 18 months ago. The leak wasn't his fault, a manufacturing defect in the membrane material. But because he missed the 12-month warranty registration deadline, the manufacturer denied the claim. That $12,800 came straight from his profit margin.</p>
@@ -28460,7 +28460,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
     readTime: 10,
     relatedProduct: 'rental-property-analyzer',
     image: '/images/blog/rental-property-mortgage-payoff-calculator-excel.png',
-    imageAlt: 'Real estate investor analyzing mortgage payoff timeline on laptop with Excel spreadsheet showing amortization schedule',
+    imageAlt: 'Matte white model house on a pale concrete surface with a single brass key beside it',
     content: `<p>Mark bought his first rental property in 2018. Six years later, he has no idea when the mortgage will be paid off. He knows the loan term is 30 years, but he has made extra payments, refinanced once, and the amortization schedule he received at closing is buried in a filing cabinet. When a tenant asks if he owns the property free and clear, he cannot answer with confidence.</p>
 
 <p>This scenario is more common than most investors want to admit. Rental property mortgages are often treated as background noise, an expense that gets deducted from rental income but never analyzed strategically. The question of when the property actually becomes debt-free rarely gets calculated, let alone optimized.</p>
