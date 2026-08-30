@@ -16,6 +16,209 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flipping-dealer-status-tax-calculator-excel',
+    title: 'House Flipping Dealer Status Tax Calculator: Price the Flip on After Tax Dollars',
+    metaTitle: 'House Flipping Dealer Status Tax Calculator | SheetCraft',
+    metaDescription: 'Build a house flipping dealer status tax calculator in Excel. Model self-employment tax, ordinary rates, and what a 13 month hold really costs.',
+    targetKeyword: 'house flipping dealer status tax calculator Excel',
+    secondaryKeywords: ['flip profit self-employment tax', 'dealer vs investor real estate tax', 'house flip after tax profit Excel', 'flip tax calculator spreadsheet', 'Section 1221 dealer property'],
+    excerpt: 'Two flippers book the same $60,000 profit on the same house. One keeps $35,351, the other keeps $45,720. Dealer status is decided the day you buy, not the day you file, so price it into the offer.',
+    publishedAt: '2026-08-30',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flipping-dealer-status-tax-calculator-excel.png',
+    imageAlt: 'Antique brass balance scale with two empty pans beside a small wooden model house and a ring of brass keys on a walnut desk',
+    content: `<p>Two investors buy the same three bedroom ranch, spend the same $52,000 on the rehab, sell it seven months later for $349,000, and both book exactly $60,000 of profit. One keeps $35,351. The other keeps $45,720. Nothing about the construction was different. The difference is a tax classification decided the day they bought, and a house flipping dealer status tax calculator in Excel is the only way to see it before you sign the purchase agreement.</p>
+
+<p>The IRS does not have a checkbox for this. Dealer status falls out of Section 1221(a)(1), which defines a capital asset as anything you own except, among other things, property held primarily for sale to customers in the ordinary course of a trade or business. If your flip is inventory, the profit is ordinary income and it carries self employment tax. If it is a capital asset held more than twelve months, it is a long term capital gain. Same house, same profit, two tax bills about $10,000 apart.</p>
+
+<p>Most articles stop there and tell you to hold for a year. This one shows why that advice loses money in every bracket once you charge yourself for the carry.</p>
+
+<h2>Dealer status is not a holding period test</h2>
+
+<p>The most expensive misconception in flipping is that twelve months and a day buys you long term capital gains treatment. It does not. Holding period only matters if the property is a capital asset to begin with. If you are a dealer as to that property, the gain is ordinary at month seven and it is still ordinary at month twenty six.</p>
+
+<p>Courts decide it on facts. The standard factor list comes from United States v. Winthrop, a 1969 Fifth Circuit case, and the factor that carries the most weight, per Biedenharn Realty in 1976, is the frequency and substantiality of your sales. Four closings in a calendar year is not a hobby. It is a trade or business, and the file you built to get the loan says so in your own handwriting: an offer worksheet with an ARV, a scope of work, and a target exit date.</p>
+
+<p>Three consequences follow, and only the first one gets discussed:</p>
+
+<ul>
+<li>The profit is ordinary income, taxed at your marginal rate instead of 0, 15, or 20 percent.</li>
+<li>It is self employment income, so it carries 15.3 percent up to the Social Security wage base and 2.9 percent above it.</li>
+<li>Dealer property is excluded from Section 1031, and dealer dispositions are excluded from the installment method under Section 453(b)(2)(A).</li>
+</ul>
+
+<p>There is a fourth consequence that cuts the other way, and almost nobody models it: a dealer's losses are ordinary losses, and an ordinary loss is worth several times what a capital loss is worth. That gets its own section below.</p>
+
+<p>One thing dealer income does not carry is the 3.8 percent net investment income tax. Income from a trade or business you materially participate in is not net investment income. You pay self employment tax or you pay NIIT, not both. That single fact narrows the gap more than most spreadsheets show, and leaving it out is the fastest way to build a model that overstates the penalty.</p>
+
+<h2>Build the after tax profit sheet</h2>
+
+<p>The model has four blocks: the deal, your tax profile, the dealer path, and the investor path. Everything downstream reads from the first two, so you change one input and both tax bills move.</p>
+
+<table>
+<tr><th>Cell</th><th>Deal input</th><th>Example</th></tr>
+<tr><td>B4</td><td>Sale price</td><td>$349,000</td></tr>
+<tr><td>B5</td><td>Purchase price</td><td>$198,000</td></tr>
+<tr><td>B6</td><td>Rehab cost</td><td>$52,000</td></tr>
+<tr><td>B7</td><td>Total holding costs</td><td>$14,570</td></tr>
+<tr><td>B8</td><td>Selling cost percent</td><td>7.0%</td></tr>
+<tr><td>B11</td><td>Months held</td><td>7</td></tr>
+</table>
+
+<p>Selling costs come off the sale price, not off a guess. Put <code>=B4*B8</code> in B9 and you get $24,430 at 7 percent, which covers a 6 percent commission plus title, transfer tax, and the concession you will end up giving at inspection. Net profit before tax in B10 is <code>=B4-B5-B6-B7-B9</code>, which lands on $60,000.</p>
+
+<table>
+<tr><th>Cell</th><th>Tax profile input</th><th>Example</th></tr>
+<tr><td>B13</td><td>Marginal federal ordinary rate</td><td>24%</td></tr>
+<tr><td>B14</td><td>Long term capital gains rate</td><td>15%</td></tr>
+<tr><td>B16</td><td>NIIT rate, 0 if under the threshold</td><td>3.8%</td></tr>
+<tr><td>B17</td><td>State ordinary income rate</td><td>5.0%</td></tr>
+<tr><td>B18</td><td>Social Security wage base</td><td>$176,100</td></tr>
+<tr><td>B19</td><td>W-2 wages already taxed for Social Security</td><td>$0</td></tr>
+<tr><td>B20</td><td>QBI deduction available, 1 or 0</td><td>0</td></tr>
+</table>
+
+<p>Cell B18 is an input, not a constant. The wage base indexes every year, and hard coding last year's figure is how a model drifts without telling you. Cell B19 matters if you or a spouse already draws a salary: the 12.4 percent Social Security piece stops once the combined total crosses the base, so a flipper with a $150,000 day job pays materially less self employment tax on the same flip than one without.</p>
+
+<h3>The dealer path</h3>
+
+<p>Self employment income is not the whole profit. Start with <code>=B10*0.9235</code> in B23, which gives $55,410 on a $60,000 flip. The 92.35 percent factor exists because the employer half of the tax is not itself taxed.</p>
+
+<p>Split the two halves of the tax, because they cap differently. Put the remaining Social Security room in B24 with <code>=MAX(0,B18-B19)</code>, then the Social Security piece in B25 with <code>=MIN(B23,B24)*0.124</code>, which is $6,871 here.</p>
+
+<p>Medicare has no cap. B26 is <code>=B23*0.029</code> for $1,607, and total self employment tax in B27 is <code>=B25+B26</code>, or $8,478.</p>
+
+<p>Half of that is deductible above the line, so B28 holds <code>=B27*0.5</code> for $4,239. That deduction is the reason the ordinary income base is never the same as the profit.</p>
+
+<p>If the Section 199A deduction is available, B29 carries the qualified business income base and B30 takes twenty percent of it with <code>=B29*0.2</code>. Leave B20 at zero for the base case. At real flip volume the deduction is frequently limited, and the model that assumes it is the model that surprises you in April.</p>
+
+<p>Ordinary taxable amount in B31 is <code>=B10-B28-B30</code>, and federal income tax in B32 is <code>=B31*B13</code>, or $13,383 at 24 percent with the QBI switch off.</p>
+
+<p>State tax runs on a different base, because Section 199A is a below the line deduction that does not reduce adjusted gross income. B33 is <code>=B10-B28</code> and B34 is <code>=B33*B17</code>, or $2,788 at 5 percent.</p>
+
+<p>Total dealer tax in B35 is <code>=B27+B32+B34</code>, which is $24,649. After tax profit in B36 is <code>=B10-B35</code>, or $35,351.</p>
+
+<h3>The investor path</h3>
+
+<p>This side is shorter. B39 holds the holding period in months, B40 tests it with <code>=IF(B39>12,1,0)</code>, and B41 picks the rate with <code>=IF(B40=1,B14,B13)</code>. Federal tax on the gain in B42 is <code>=B10*B41</code>, or $9,000 at the long term rate.</p>
+
+<p>NIIT applies on this side, because a passive investor is not materially participating in a trade or business. B43 carries the gain subject to the surtax and B44 is <code>=B43*B16</code>, or $2,280.</p>
+
+<p>State tax in B45 is <code>=B10*B17</code> for $3,000. Total investor tax in B46 is <code>=B42+B44+B45</code> at $14,280, and after tax profit in B47 is <code>=B10-B46</code>, or $45,720.</p>
+
+<p>The number you actually care about lives in one cell: <code>=B47-B36</code>. On this deal, at this bracket, dealer status costs $10,369.</p>
+
+<h2>The same $60,000, taxed two ways</h2>
+
+<p>Run the model across brackets with the state rate held at 5 percent, the QBI switch off, and the investor holding thirteen months.</p>
+
+<table>
+<tr><th>Marginal ordinary bracket</th><th>Federal LTCG rate</th><th>Dealer total tax</th><th>Investor total tax</th><th>Dealer costs you</th></tr>
+<tr><td>22%</td><td>15%</td><td>$23,533</td><td>$14,280</td><td>$9,253</td></tr>
+<tr><td>24%</td><td>15%</td><td>$24,649</td><td>$14,280</td><td>$10,369</td></tr>
+<tr><td>32%</td><td>15%</td><td>$29,110</td><td>$14,280</td><td>$14,830</td></tr>
+<tr><td>35%</td><td>15%</td><td>$30,782</td><td>$14,280</td><td>$16,502</td></tr>
+<tr><td>37%</td><td>20%</td><td>$31,898</td><td>$17,280</td><td>$14,618</td></tr>
+</table>
+
+<p>Two things in that table matter more than the headline. First, the gap stops widening at the top, because the long term rate steps up to 20 percent once taxable income clears roughly $600,000 for a joint filer. The 37 percent row is a smaller penalty than the 35 percent row.</p>
+
+<p>Second, and this is what should change your underwriting: if you flip in under twelve months, there is no rate difference at all. Short term capital gains are taxed at ordinary rates. An investor who sells at month seven pays the same 24 percent the dealer pays. The entire cost of dealer status on a fast flip is the $8,478 of self employment tax. The $10,369 headline exists only because the investor column assumes a thirteen month hold.</p>
+
+<p>Which raises the obvious question. The obvious answer is wrong.</p>
+
+<h2>The hold it longer trap</h2>
+
+<p>Holding costs on this deal were $14,570 over seven months. Let the sheet derive the monthly carry in B51 with <code>=B7/B11</code>, which is $2,081, and the extra months in B50 with <code>=B39-B11</code>, which is six.</p>
+
+<p>Extra carry in B52 is <code>=B50*B51</code>, or $12,489. That is the cash price of converting a seven month flip into a thirteen month hold, and every dollar of it is hard cost: interest, property tax, insurance, utilities, and the lawn.</p>
+
+<table>
+<tr><th>Bracket</th><th>Tax saved by a 13 month hold</th><th>Six months extra carry</th><th>Net before risk</th><th>Net at 60% odds of winning the argument</th></tr>
+<tr><td>22%</td><td>$9,253</td><td>$12,489</td><td>minus $3,236</td><td>minus $6,937</td></tr>
+<tr><td>24%</td><td>$10,369</td><td>$12,489</td><td>minus $2,120</td><td>minus $6,268</td></tr>
+<tr><td>32%</td><td>$14,830</td><td>$12,489</td><td>plus $2,341</td><td>minus $3,591</td></tr>
+<tr><td>35%</td><td>$16,502</td><td>$12,489</td><td>plus $4,013</td><td>minus $2,588</td></tr>
+<tr><td>37%</td><td>$14,618</td><td>$12,489</td><td>plus $2,129</td><td>minus $3,718</td></tr>
+</table>
+
+<p>The last column decides it. You do not get the tax saving by holding longer. You get it by holding longer and then winning the dealer status argument, and a taxpayer with four closings in the same calendar year does not win that argument. Put your honest odds in B55, compute the weighted saving in B56 with <code>=B53*B55</code>, and net the carry in B57 with <code>=B56-B52</code>. Every bracket goes negative.</p>
+
+<p>That table is generous, too. It charges nothing for six more months of market exposure on a $349,000 asset, nothing for the $80,000 of equity you cannot redeploy into the next purchase, and nothing for the fact that a kitchen finished in March photographs worse in September. Price those in and the strategy is not close.</p>
+
+<h2>Score the deal before you write the offer</h2>
+
+<p>Since you cannot fix the classification after the fact, price it in at acquisition. Build a seven row scoring block, zero to three per factor, with the frequency row counted twice because that is how the courts weight it.</p>
+
+<table>
+<tr><th>Factor</th><th>What gets examined</th><th>Score 0 to 3</th><th>This flipper</th></tr>
+<tr><td>Frequency and substantiality of sales, counted twice</td><td>Closings this year and last</td><td>3</td><td>4 flips in 12 months</td></tr>
+<tr><td>Purpose at acquisition</td><td>What your own offer file says</td><td>3</td><td>ARV and resale date in writing</td></tr>
+<tr><td>Extent of improvement</td><td>Scope and cost of the rehab</td><td>3</td><td>Full gut at $52,000</td></tr>
+<tr><td>Sales effort</td><td>Listing, staging, marketing spend</td><td>2</td><td>MLS, staged, open houses</td></tr>
+<tr><td>Business organization</td><td>Office, staff, entity, systems</td><td>1</td><td>Home office, one LLC</td></tr>
+<tr><td>Time devoted</td><td>Hours per week on the activity</td><td>3</td><td>Full time</td></tr>
+<tr><td>Holding period</td><td>Months from close to close</td><td>3</td><td>7 months</td></tr>
+</table>
+
+<p>Total the block in B70 with <code>=SUM(B62:B68)+B62</code>, which double counts frequency and gives 21 out of a possible 24 here. Flag it in B71 with <code>=IF(B70>=12,"DEALER","INVESTOR ARGUABLE")</code>.</p>
+
+<p>A score of 21 does not mean you did anything wrong. It means you should stop modeling this deal at long term capital gains rates, because you are going to pay ordinary rates plus self employment tax, and the offer you write should say so. Underwriting this house at investor rates overstates your take home by $10,369, which is most of a rehab contingency.</p>
+
+<h2>Three moves that actually change the number</h2>
+
+<p>Holding longer is not a lever. These three are.</p>
+
+<h3>Pay yourself a salary through an S corporation</h3>
+
+<p>A sole proprietor or single member LLC pays self employment tax on 92.35 percent of everything. An S corporation pays payroll tax only on reasonable compensation, and distributions above that amount are not subject to it. On this single flip, $30,000 of reasonable W-2 compensation carries $4,590 of combined FICA against $8,478 of self employment tax, a $3,888 difference. Subtract roughly $1,700 for a payroll service and the extra 1120-S return and you net about $2,188.</p>
+
+<p>The lever gets much better with volume and then flattens. At $240,000 of annual net profit, self employment tax runs $28,264, while $90,000 of reasonable compensation costs $13,770 of FICA, a $14,494 spread that clears the compliance cost easily. Above roughly $180,000 of profit the 12.4 percent Social Security piece is already capped, so the only remaining benefit is the 2.9 percent Medicare piece and the curve goes flat. The S election earns its keep in the middle, call it $80,000 to $180,000 of net profit a year.</p>
+
+<h3>Treat the ordinary loss as an asset</h3>
+
+<p>Dealer status is a put option on your bad flips, and no underwriting model prices it. Compare a $38,000 loss under both treatments at a combined 29 percent federal and state rate.</p>
+
+<table>
+<tr><th>A $38,000 loss on one flip</th><th>Dealer</th><th>Investor</th></tr>
+<tr><td>Deductible against ordinary income this year</td><td>$38,000</td><td>$3,000</td></tr>
+<tr><td>Cash tax benefit this year</td><td>$11,020</td><td>$870</td></tr>
+<tr><td>Carried forward</td><td>$0</td><td>$35,000</td></tr>
+<tr><td>Years to absorb at $3,000 per year</td><td>0</td><td>12</td></tr>
+</table>
+
+<p>If one flip in five goes wrong, that $10,150 of accelerated benefit is a real offset against the ordinary income cost on the four that worked. It does not close the gap, but it is worth roughly a fifth of it, and it belongs in the model instead of in the footnotes.</p>
+
+<h3>Keep the flips away from the rentals</h3>
+
+<p>This is the expensive one. Section 1031 excludes real property held primarily for sale. If flips and a long term rental sit inside the same entity and you are a dealer, the argument that the rental is also dealer property is available to an examiner. A dead 1031 is not a rate difference. It is an entire deferral.</p>
+
+<p>On a rental with $180,000 of gain, $60,000 of which is unrecaptured Section 1250 depreciation, the bill runs about $15,000 at 25 percent on the recapture, $18,000 at 15 percent on the rest, $6,840 of NIIT, and $9,000 of state tax. Call it $48,840 that a working exchange would have deferred. That is nearly five flips worth of the dealer penalty, triggered by an entity decision that costs a few hundred dollars to get right at formation.</p>
+
+<h2>The estimated tax that arrives before the next closing</h2>
+
+<p>Ordinary income with self employment tax attached is due quarterly, and a flip that closes in April creates a June 15 obligation. On this deal that is $24,649 of federal and state tax, chasing a wire that already went out the door as the down payment on the next house.</p>
+
+<p>The underpayment penalty is the federal short term rate plus three points, which has run 7 to 8 percent in recent years. Miss $18,000 of federal tax for nine months at 8 percent and you paid $1,080 for the privilege of not modeling it.</p>
+
+<p>Build the safe harbor test into the same sheet. Prior year total tax goes in B80 and prior year AGI in B82. The multiplier in B81 is <code>=IF(B82>150000,1.1,1)</code>, the prior year safe harbor in B83 is <code>=B80*B81</code>, and the quarterly payment is <code>=B83/4</code>.</p>
+
+<p>The current year test in B85 is <code>=B35*0.9</code>, and what you have to pay in to stay penalty free is <code>=MIN(B83,B85)</code>.</p>
+
+<p>With $31,000 of prior year tax and $205,000 of prior year AGI, the prior year harbor is $34,100 and the current year test is $22,184, so the current year number governs. That is the practical rule for lumpy income: recompute the 90 percent test after every closing rather than wiring a fixed quarter of last year's tax into a year that may look nothing like it.</p>
+
+<p>One caveat worth stating plainly. Dealer status is decided on facts and circumstances, the figures above are federal rules layered with a flat 5 percent state rate for illustration, and the entity and compensation decisions here are the ones your CPA signs off on before you file. This model is for pricing the offer, not for preparing the return.</p>
+
+<h2>Price the offer on after tax dollars</h2>
+
+<p>Here is the recommendation as a number. Underwriting this deal at long term capital gains rates says you make $45,720. Dealer treatment says $35,351. If your minimum acceptable profit is $40,000, this is a deal at investor rates and it is not a deal at dealer rates, and the scoring block says you are a dealer.</p>
+
+<p>So run the score first, take the honest answer, and work backward. At a $40,000 after tax target in the 24 percent bracket, you need about $67,890 of pre tax profit. On this ARV and this rehab budget, that puts your maximum purchase price at $190,110 rather than $198,000. That $7,890 is what the tax model is actually for. It is not a filing question. It is an offer question, and by the time your CPA sees the deal in March, the offer was written ten months earlier.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already carries the deal block: purchase, rehab, holding costs broken out by month, selling costs, and the maximum allowable offer that falls out of a target profit. Add the tax profile block and the dealer path from this article and it stops being a pre tax model. The maximum allowable offer it prints becomes a number you can actually sign, because it is net of self employment tax and net of your real bracket. Every flipper underwrites to a profit target. Very few underwrite to a profit target they get to keep.</p>`,
+  },
+  {
     slug: 'condo-hoa-fee-impact-on-rental-cash-flow-excel',
     title: 'Condo HOA Fee Impact on Rental Cash Flow: The Excel Model That Prices the Reserve Study',
     metaTitle: 'Condo HOA Fee Impact on Rental Cash Flow | SheetCraft',
