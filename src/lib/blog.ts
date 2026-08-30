@@ -26870,6 +26870,8 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
     publishedAt: '2026-03-13',
     readTime: 9,
     relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-punch-list-template-excel.png',
+    imageAlt: 'Blue painter tape marking a patched drywall spot beside a tape roll, carpenter pencil and colored flag markers on a windowsill',
     content: `<p>A construction punch list template in Excel is not a checklist. It is a cash flow instrument. Most contractors treat punch lists as an afterthought, something you scribble on a clipboard during the final walkthrough. But here is the math that should change your mind: on a $500,000 commercial buildout with 5% retainage, that is $25,000 the owner is legally holding until you resolve every last item on the list. A disorganized punch list with missing photos, vague descriptions, and no accountability tracking does not just annoy the GC. It keeps your money locked up for weeks or months longer than necessary.</p>
 
 <p>The difference between a contractor who closes out in 10 days and one who drags it out over 6 weeks is rarely about the work itself. It is about the system. The fast contractor has a punch list that assigns every item to a responsible party, tracks completion status in real time, and calculates exactly how much retainage is at stake for each open category. The slow contractor has a yellow legal pad.</p>
