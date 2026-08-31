@@ -16,6 +16,195 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-auction-max-bid-calculator-excel',
+    title: 'Real Estate Auction Max Bid Calculator: The Ceiling You Can Shout at the Courthouse Steps',
+    metaTitle: 'Real Estate Auction Max Bid Calculator | SheetCraft',
+    metaDescription: 'Build a real estate auction max bid calculator in Excel. Price title risk and blind rehab you cannot inspect, then bid a ceiling that still profits.',
+    targetKeyword: 'real estate auction max bid calculator Excel',
+    secondaryKeywords: ['foreclosure auction bid calculator', 'max allowable offer auction Excel', 'sheriff sale bidding spreadsheet', 'trustee sale max bid formula', 'auction title risk reserve'],
+    excerpt: 'The 70 percent rule hands you a $151,500 ceiling on a house where the real ceiling is $101,000. At a foreclosure auction you bid blind, you inherit surviving liens, and you wire cash in 24 hours. Price all three before you raise your hand.',
+    publishedAt: '2026-08-31',
+    readTime: 12,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-auction-max-bid-calculator-excel.png',
+    imageAlt: 'Wooden auction gavel on its sound block beside a small wooden model house, a ring of old iron keys and a brass padlock on a dark walnut table',
+    content: `<p>The 70 percent rule works fine on a retail flip where you get an inspection, a title commitment, and 30 days to back out. At a foreclosure auction it will hand you a ceiling that loses money. You bid without seeing the inside, you take title subject to whatever survived the sale, and you wire the balance before a title company has finished the search. A real estate auction max bid calculator in Excel exists to price those three facts, because the number you shout at the courthouse steps is the only decision you get to make.</p>
+
+<p>Here is what that gap costs on a single house. Same property, same comps, same rehab scope, two ceilings.</p>
+
+<table>
+<tr><th>Line</th><th>70 percent rule bidder</th><th>Auction ceiling bidder</th></tr>
+<tr><td>ARV from comps</td><td>$285,000</td><td>$285,000</td></tr>
+<tr><td>Maximum hammer bid</td><td>$151,500</td><td>$101,000</td></tr>
+<tr><td>Buyer premium at 5 percent</td><td>$7,575</td><td>$5,050</td></tr>
+<tr><td>All in at the sale</td><td>$159,075</td><td>$106,050</td></tr>
+<tr><td>Rehab with blind contingency</td><td>$64,800</td><td>$64,800</td></tr>
+<tr><td>Holding, selling, taxes, title, eviction, funding</td><td>$62,850</td><td>$62,850</td></tr>
+<tr><td>Total cash out</td><td>$286,725</td><td>$233,700</td></tr>
+<tr><td>Profit at $285,000 resale</td><td>Loss of $1,725</td><td>$51,300</td></tr>
+</table>
+
+<p>The 70 percent bidder is not making a thin deal. That bidder is underwater by $1,725 before counting a single hour of their own time, and that is the good case where the rehab lands exactly on the contingency. The two ceilings are $50,500 apart on one house. Bid four auctions a year at the retail number and you have donated a year of income to the person who bid against you.</p>
+
+<h2>You are bidding on four unknowns, and they price separately</h2>
+
+<p>Retail acquisition has one unknown: what the rehab really costs once the walls are open. Auction acquisition has four, and lumping them into a single fudge factor is why most auction spreadsheets are useless.</p>
+
+<p><strong>Lien position.</strong> Not a reserve. A pass or fail gate. If you are bidding at a junior lienholder's sale, the senior debt survives and you buy a house plus a mortgage.</p>
+
+<p><strong>Condition.</strong> A dollar reserve sized off how much of the property you were actually able to see, which at most auctions is the front elevation from the sidewalk.</p>
+
+<p><strong>Title and encumbrances.</strong> A dollar reserve sized off how deep your search went, covering the small surviving items you did not find.</p>
+
+<p><strong>Time.</strong> Occupancy, eviction, and in many states a statutory redemption period during which you cannot deliver clean title to a retail buyer. Time is not a reserve either. It is an input to your holding months.</p>
+
+<p>Four unknowns, three different treatments. One is a gate, two are dollar reserves, one drives a duration input. Build the model that way and the ceiling stops being a guess.</p>
+
+<h2>Check lien position first, because no reserve covers a surviving first mortgage</h2>
+
+<p>The single most expensive auction mistake in the country is bidding at an HOA foreclosure and inheriting the first mortgage. The auction is real, the deed is real, and you own the house. You also own a $178,000 first lien that was never extinguished, because a foreclosure wipes out interests junior to the foreclosing lien and nothing senior to it.</p>
+
+<p>Run this as a gate before you open the calculator. In the model, cell B27 holds the position of the foreclosing lien and B28 holds whether you confirmed it from the recorded documents, not from the auction listing.</p>
+
+<p><code>=IF(OR(B27&lt;&gt;"Senior",B28&lt;&gt;"Confirmed"),"NO BID","PROCEED")</code></p>
+
+<p>That formula returns NO BID until you have pulled the recorded deed of trust or mortgage being foreclosed and confirmed it sits in first position. Auction listing sites routinely publish an "estimated opening bid" for an HOA sale that reads exactly like a first-position trustee sale. The listing is not the record.</p>
+
+<p>Once position is confirmed, you still do not own a clean house. Here is what typically survives a valid first-position foreclosure sale.</p>
+
+<table>
+<tr><th>Encumbrance</th><th>Survives senior foreclosure?</th><th>Typical exposure</th><th>Where to verify</th></tr>
+<tr><td>Delinquent property taxes</td><td>Yes</td><td>$2,000 to $15,000</td><td>County tax collector, online, free</td></tr>
+<tr><td>Municipal water and sewer liens</td><td>Usually yes</td><td>$400 to $4,000</td><td>City utility billing department</td></tr>
+<tr><td>Code enforcement and demolition liens</td><td>Yes</td><td>$1,000 to $30,000</td><td>City code enforcement records</td></tr>
+<tr><td>HOA super lien portion</td><td>Yes in roughly half the states</td><td>6 to 12 months of dues</td><td>HOA estoppel, state statute</td></tr>
+<tr><td>IRS federal tax lien</td><td>Extinguished, but with a 120 day federal redemption right</td><td>Time risk, not dollars</td><td>Recorded liens, IRC 7425</td></tr>
+<tr><td>Junior mortgages and judgments</td><td>No</td><td>Zero</td><td>Recorded index by date</td></tr>
+<tr><td>Easements and restrictions</td><td>Yes</td><td>Value impact, not cash</td><td>Recorded plat and deed</td></tr>
+</table>
+
+<p>The IRS line deserves a sentence of its own because it kills timelines, not budgets. When the United States holds a junior tax lien, the sale extinguishes it but the government keeps a 120 day right to redeem the property by paying you your bid plus expenses. You cannot sell clean inside that window. If you find a federal tax lien in the chain, add four months to your holding input and re-run the ceiling.</p>
+
+<h2>Size the blind rehab contingency off access, not optimism</h2>
+
+<p>Every auction buyer estimates rehab from the outside and every one of them underestimates. The fix is not a bigger number pulled from feel. It is a contingency percentage tied to how much of the property you actually observed.</p>
+
+<table>
+<tr><th>Access you actually got</th><th>Contingency on visible scope</th><th>Why</th></tr>
+<tr><td>Full interior walkthrough, utilities on</td><td>10 to 15 percent</td><td>Normal flip risk, you tested systems</td></tr>
+<tr><td>Interior seen, utilities off</td><td>20 to 25 percent</td><td>Plumbing and electrical untested</td></tr>
+<tr><td>Exterior plus window photos, vacant</td><td>25 to 35 percent</td><td>Layout known, mechanicals guessed</td></tr>
+<tr><td>Drive by only, occupied, blinds closed</td><td>40 to 60 percent</td><td>You are buying a floor plan from a plat map</td></tr>
+<tr><td>No access, boarded, vacant over a year</td><td>60 percent or no bid</td><td>Freeze damage and stripped copper are the base case</td></tr>
+</table>
+
+<p>In the model, B5 holds the visible rehab estimate and B6 holds the contingency percentage from that table. Total rehab exposure lives in B15.</p>
+
+<p><code>=B5*(1+B6)</code></p>
+
+<p>Four exterior signals justify jumping a full row on that table regardless of what the listing says. No condenser unit outside on a house that should have central air means the copper is gone and the interior lines probably went with it. Boarded windows on the second floor mean the roof leaked long enough that someone gave up. Standing water against the foundation after a dry week means a grading and drainage line item you have not budgeted. A meter pulled by the utility, visible as a locked ring or a missing meter can, means the service was condemned or the house has been dark through at least one winter.</p>
+
+<h2>Size the title curative reserve off diligence depth</h2>
+
+<p>The title reserve is not insurance against the surviving first mortgage. That is the gate. This reserve covers the small stuff you did not find: a municipal lien recorded in a separate index, a $3,100 sidewalk assessment, an old mechanic's lien that turns out to be senior by two weeks, and the attorney time to clear any of it before a buyer's lender will fund.</p>
+
+<table>
+<tr><th>Diligence you paid for</th><th>Reserve as percent of ARV</th><th>On a $285,000 ARV</th></tr>
+<tr><td>Full search by an abstractor, 40 year chain</td><td>0.5 to 1.0 percent</td><td>$1,400 to $2,900</td></tr>
+<tr><td>Your own pull of recorded docs plus tax and utility check</td><td>2.0 to 3.0 percent</td><td>$5,700 to $8,600</td></tr>
+<tr><td>Recorded docs only, no municipal check</td><td>4.0 to 5.0 percent</td><td>$11,400 to $14,300</td></tr>
+<tr><td>Trustee notice only</td><td>6 percent or no bid</td><td>$17,100 or walk</td></tr>
+</table>
+
+<p>Notice the arbitrage. A $300 abstractor search moves you from a $6,500 reserve to a $2,000 reserve, which raises your ceiling by roughly $4,000 on this property. Diligence is not a cost center at auction. It is the cheapest way to buy bidding room, and it is the reason a disciplined bidder can outbid a lazy one on the same house and still make more money.</p>
+
+<h2>Build the ceiling in Excel</h2>
+
+<p>Eleven inputs, seven calculated lines, one gate. Lay the input block down column B so every formula reads cleanly and every assumption is visible to whoever is standing next to you at the sale.</p>
+
+<table>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+<tr><td>B3</td><td>ARV from closed comps, not listings</td><td>$285,000</td></tr>
+<tr><td>B4</td><td>Target net margin on ARV</td><td>18 percent</td></tr>
+<tr><td>B5</td><td>Visible rehab estimate</td><td>$48,000</td></tr>
+<tr><td>B6</td><td>Blind rehab contingency</td><td>35 percent</td></tr>
+<tr><td>B7</td><td>Holding months including redemption period</td><td>6</td></tr>
+<tr><td>B8</td><td>Monthly carry: interest, taxes, insurance, utilities</td><td>$3,150</td></tr>
+<tr><td>B9</td><td>Selling costs as percent of ARV</td><td>7 percent</td></tr>
+<tr><td>B10</td><td>Buyer premium charged by the auctioneer</td><td>5 percent</td></tr>
+<tr><td>B11</td><td>Title curative reserve</td><td>$6,500</td></tr>
+<tr><td>B12</td><td>Occupancy, cash for keys, eviction</td><td>$4,500</td></tr>
+<tr><td>B13</td><td>Surviving taxes and municipal liens</td><td>$7,200</td></tr>
+<tr><td>B14</td><td>Recording, trustee fees, same day funding points</td><td>$5,800</td></tr>
+</table>
+
+<p>Now the calculated block. Keep each line in its own cell. Collapsing them into one long formula is how you end up unable to explain your ceiling to a partner at 9:45 in the morning.</p>
+
+<p>Total rehab exposure in B15: <code>=B5*(1+B6)</code></p>
+
+<p>Holding cost in B16: <code>=B7*B8</code></p>
+
+<p>Selling cost in B17: <code>=B3*B9</code></p>
+
+<p>Required profit in B18: <code>=B3*B4</code></p>
+
+<p>Everything you will spend that is not the bid, in B19: <code>=B15+B16+B17+B11+B12+B13+B14</code></p>
+
+<p>The gross ceiling, meaning the most you can hand the auctioneer in total, in B20: <code>=B3-B18-B19</code></p>
+
+<p>The buyer premium is charged on top of the hammer price, so the hammer number has to be backed out, not subtracted. Your maximum bid in B21, rounded down to the auctioneer's increment in B22: <code>=FLOOR(B20/(1+B10),B22)</code></p>
+
+<p>Then the sanity check, because a negative ceiling on a property you have already driven past twice is exactly when discipline fails: <code>=IF(B21&lt;=0,"NO BID: NO ROOM",TEXT(B21,"$#,##0"))</code></p>
+
+<p>Print cell B21 and the gate result on one sheet of paper. Not the laptop. Cell coverage is bad at most courthouses and you will not have time to open a file.</p>
+
+<h2>Run the numbers on a real property</h2>
+
+<p>Three bedroom, one and a half bath ranch, 1,340 square feet, built 1978. Foreclosing lien confirmed as a first-position deed of trust from the recorded documents. Occupied by the former owner. Visible from the street: original roof, no condenser unit on the pad, one boarded window. You pulled the recorded docs yourself and checked the tax collector and the city utility, so you are on the 2 to 3 percent title reserve row. Access was exterior only with the house occupied, and the missing condenser pushes you up a row, so contingency is 35 percent.</p>
+
+<table>
+<tr><th>Line</th><th>Cell</th><th>Value</th></tr>
+<tr><td>ARV</td><td>B3</td><td>$285,000</td></tr>
+<tr><td>Required profit at 18 percent</td><td>B18</td><td>$51,300</td></tr>
+<tr><td>Rehab with 35 percent contingency</td><td>B15</td><td>$64,800</td></tr>
+<tr><td>Holding, 6 months at $3,150</td><td>B16</td><td>$18,900</td></tr>
+<tr><td>Selling at 7 percent</td><td>B17</td><td>$19,950</td></tr>
+<tr><td>Title curative reserve</td><td>B11</td><td>$6,500</td></tr>
+<tr><td>Eviction and cash for keys</td><td>B12</td><td>$4,500</td></tr>
+<tr><td>Surviving taxes and municipal liens</td><td>B13</td><td>$7,200</td></tr>
+<tr><td>Recording, trustee, funding points</td><td>B14</td><td>$5,800</td></tr>
+<tr><td>Non bid cash out</td><td>B19</td><td>$127,650</td></tr>
+<tr><td>Gross ceiling</td><td>B20</td><td>$106,050</td></tr>
+<tr><td>Maximum hammer bid</td><td>B21</td><td>$101,000</td></tr>
+</table>
+
+<p>One hundred one thousand dollars. If the bidding reaches $101,500 you stop, and that is not a close call you get to talk yourself out of. At $101,500 plus premium you have given away $525 of the $51,300 you came for, which sounds survivable until you notice that the same reasoning is available at every increment after it.</p>
+
+<p>Now change one input. Suppose you had paid $300 for an abstractor's search and it came back clean, moving the title reserve from $6,500 to $2,000. Non bid cash out drops to $123,150, the gross ceiling rises to $110,550, and the maximum hammer bid becomes $105,285, which floors to $105,000 at a $500 increment. A $300 search bought $4,000 of bidding room on one property. That is the highest return line item in the entire model.</p>
+
+<h2>The discipline that makes the ceiling worth building</h2>
+
+<p>A ceiling you recompute in the crowd is not a ceiling. Two habits keep it real.</p>
+
+<p>First, log every auction you bid on, won or lost, with your ceiling, the winning hammer price, and the eventual outcome if you can find it. Six columns on a second tab. Over 20 auctions this tells you something no article can: whether your ceilings are systematically too low, too high, or correctly calibrated.</p>
+
+<p>Second, watch your win rate. Track outcome in column F and hammer prices in column H.</p>
+
+<p><code>=COUNTIFS(F2:F41,"Won")/COUNTA(F2:F41)</code></p>
+
+<p>If that number is above 20 percent, your ceiling is too high, not your judgment too sharp. Auctions are competitive and the properties that clear below a correctly built ceiling are the ones where everyone else saw something you missed. A bidder winning 10 to 15 percent of the sales they show up for is bidding correctly. A bidder winning half of them is the reason the other bidders went home happy.</p>
+
+<p>Then check whether the wins actually paid.</p>
+
+<p><code>=SUMIFS(H2:H41,F2:F41,"Won",G2:G41,"Sold")</code></p>
+
+<p>Compare that realized total against the profit your model promised on the same deals. A persistent gap of more than 15 percent means one input is wrong, and it is almost always the contingency or the holding months, not the ARV.</p>
+
+<p>The recommendation is narrow. Do not bid at a foreclosure auction off a 70 percent rule, off an "estimated resale value" printed by the auction platform, or off a number you carry in your head. Build the eleven inputs, confirm lien position from the recorded documents before anything else, size the two reserves off what you actually saw and actually searched rather than what you hope is true, print cell B21, and let the ceiling do the arguing when the bidding gets loud.</p>
+
+<p>If you would rather not build the model from a blank sheet, the <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already carries the ARV, rehab, holding, and selling structure this ceiling sits on top of, with the profit and margin math wired and tested. Add the four auction lines to it, the buyer premium, the title curative reserve, the surviving lien total, and the blind rehab contingency, and you have a bid ceiling you can defend on the courthouse steps in the ninety seconds the auctioneer gives you.</p>`,
+  },
+  {
     slug: 'house-flipping-dealer-status-tax-calculator-excel',
     title: 'House Flipping Dealer Status Tax Calculator: Price the Flip on After Tax Dollars',
     metaTitle: 'House Flipping Dealer Status Tax Calculator | SheetCraft',
