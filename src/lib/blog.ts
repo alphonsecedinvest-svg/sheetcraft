@@ -16,6 +16,269 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-price-reduction-decision-calculator-excel',
+    title: 'House Flip Price Reduction Decision Calculator in Excel: When a $5,000 Cut Beats a $10,000 Cut',
+    metaTitle: 'House Flip Price Reduction Calculator | SheetCraft',
+    metaDescription: 'Build a house flip price reduction decision calculator in Excel: weekly carry, staleness discount, search-filter cuts, and the offer in hand.',
+    targetKeyword: 'house flip price reduction decision calculator Excel',
+    secondaryKeywords: ['house flip carrying costs per week', 'when to reduce price on a flip', 'days on market price decay', 'flip break even price calculator', 'hard money extension fee'],
+    excerpt: 'A $5,000 price cut looks like 52 days of carry you are giving away. Run the same flip three ways and the cut that crosses a search filter earns $9,150 more than holding your number, while the $10,000 cut reaches the identical buyers and delivers $4,471 less. Here is the Excel model that prices the decision.',
+    publishedAt: '2026-09-01',
+    readTime: 12,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-price-reduction-decision-calculator-excel.png',
+    imageAlt: 'Light wood model house on a carpenter workbench beside a brass hourglass running low and a set of keys, representing the daily carrying cost of days on market for a house flip',
+    content: `<p>You listed the flip at $329,900 six weeks ago. You have had three showings in the last fourteen days and one offer at $309,000 that you called insulting out loud. Your agent wants to cut $10,000. You want to hold your number for another month. A house flip price reduction decision calculator in Excel settles that argument in about fifteen minutes, and it usually settles it against the person who wants to wait.</p>
+
+<p>It settles against waiting for a reason most flippers never price. Everyone knows a vacant house costs money every day. What nobody models is that the price the house can actually fetch is falling while you wait. The number you are protecting by holding out was never yours to protect, and the carry you are paying to protect it is real cash leaving a real account every Friday.</p>
+
+<p>Here is the model, built on one deal, with three paths priced side by side and a recommendation at the end that is not "it depends."</p>
+
+<h2>The number that decides this is not your monthly carry</h2>
+
+<p>Two framing errors make this decision go wrong before any math happens.</p>
+
+<p>The first is the unit. Carrying cost gets quoted monthly because that is how the mortgage statement arrives, but listing decisions get made weekly. Your agent calls on Monday with the weekend's showing count. A price change posts on a Tuesday and hits the alert feeds that night. When you think in months you round every decision to the next thirty days, and thirty days is exactly the increment that kills flip margins.</p>
+
+<p>The second is the basis. Flippers say "I have $265,000 in this house, I need $330,000 to make it work." The market has no interest in what you have in the house. Every dollar already spent on the purchase, the rehab, the permits, and the six months of interest is gone whichever path you pick. The only question the calculator answers is which path puts more money in your pocket from today forward. Your basis appears exactly once, at the very end, to convert a net proceeds number into a profit number. It never influences the choice.</p>
+
+<p>Start with the inputs. This is one sheet, one column of values, and everything downstream reads from it.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Current list price</td><td>$329,900</td></tr>
+<tr><td>B3</td><td>Days on market today</td><td>42</td></tr>
+<tr><td>B4</td><td>Cash in the deal to date</td><td>$265,938</td></tr>
+<tr><td>B5</td><td>Loan balance</td><td>$221,000</td></tr>
+<tr><td>B6</td><td>Loan rate, annual, interest only</td><td>11.5%</td></tr>
+<tr><td>B7</td><td>Property tax, annual</td><td>$4,320</td></tr>
+<tr><td>B8</td><td>Vacant property insurance, annual</td><td>$2,160</td></tr>
+<tr><td>B9</td><td>Utilities, monthly</td><td>$145</td></tr>
+<tr><td>B10</td><td>HOA, monthly</td><td>$0</td></tr>
+<tr><td>B11</td><td>Lawn, snow, and monitoring, monthly</td><td>$120</td></tr>
+<tr><td>B12</td><td>Selling costs, percent of price</td><td>7.0%</td></tr>
+<tr><td>B13</td><td>Months owned to date</td><td>6</td></tr>
+<tr><td>B14</td><td>Loan term, months</td><td>9</td></tr>
+<tr><td>B15</td><td>Extension cost, points on balance</td><td>2.0%</td></tr>
+</tbody>
+</table>
+
+<p>The 7 percent in B12 is not a commission rate. It is 3 percent listing side, 2.5 percent offered to the buyer's agent as a concession, and 1.5 percent for title, transfer tax, and the seller-paid closing costs that show up on every contract written by a buyer using financing. If you only budget the commission you will be short by roughly $5,000 on this deal.</p>
+
+<h2>Build the carry line, and run it to closing rather than to contract</h2>
+
+<p>Monthly interest, cell B17:</p>
+
+<p><code>=B5*B6/12</code></p>
+
+<p>Weekly carry, cell B22, which is the unit every later decision uses:</p>
+
+<p><code>=B21*12/52</code></p>
+
+<p>The rest of the block has no multiplication in it and can sit in a plain column.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Line</th><th>Formula</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B18</td><td>Monthly tax</td><td>=B7/12</td><td>$360</td></tr>
+<tr><td>B19</td><td>Monthly insurance</td><td>=B8/12</td><td>$180</td></tr>
+<tr><td>B20</td><td>Monthly other</td><td>=B9+B10+B11</td><td>$265</td></tr>
+<tr><td>B21</td><td>Total monthly carry</td><td>=SUM(B17:B20)</td><td>$2,923</td></tr>
+<tr><td>B22</td><td>Weekly carry</td><td>see above</td><td>$674.52</td></tr>
+<tr><td>B23</td><td>Daily carry</td><td>=B22/7</td><td>$96.36</td></tr>
+</tbody>
+</table>
+
+<p>Ninety-six dollars a day. That is the number to write on a sticky note and put on the monitor, because it converts every conversation about the listing into dollars without any further arithmetic. A week of "let's see what the weekend brings" is roughly $675. A month of holding your number is $2,923. The full carry math behind these lines, including the rehab period, is covered in our breakdown of <a href="/blog/house-flipping-holding-costs-calculator">house flipping holding costs</a>.</p>
+
+<p>Now the part almost every homemade version of this model gets wrong. Carry does not stop when you sign a contract. It stops when the deed records. A conventional buyer with a 30-day financing contingency takes five weeks from acceptance to funding once you count the appraisal, the underwriting conditions, and the two-day slip that happens on almost every file. A cash buyer takes two.</p>
+
+<p>Those five weeks are $3,373 of carry that lives on the wrong side of every mental model. Flippers celebrate the accepted offer and then keep paying interest for another thirty-five days. In the sheet, escrow weeks is its own input and it is added to weeks-to-contract before anything gets multiplied by the weekly rate.</p>
+
+<h2>Read the showing data before you touch the price</h2>
+
+<p>A price reduction is a diagnosis, not a reflex. Cutting a house that has a showing problem instead of a pricing problem burns real money and fixes nothing, because the new price attracts more buyers into the same disappointing walkthrough.</p>
+
+<p>The listing tells you which one you have if you record two numbers every Monday.</p>
+
+<table>
+<thead>
+<tr><th>Signal in the last 14 days</th><th>What it means</th><th>The move</th></tr>
+</thead>
+<tbody>
+<tr><td>0 to 2 showings</td><td>Priced above the search band, buyers never see it</td><td>Cut to cross the nearest filter</td></tr>
+<tr><td>3 to 6 showings, no offers</td><td>Priced roughly 3 to 5 percent high</td><td>Cut, and reshoot the photos</td></tr>
+<tr><td>7 or more showings, no offers</td><td>Condition or smell, not price</td><td>Fix the house before touching the price</td></tr>
+<tr><td>Offers 6 percent or more under list</td><td>The market has already priced it</td><td>Meet the market, it is not negotiating</td></tr>
+<tr><td>Offers within 3 percent of list</td><td>Normal negotiation</td><td>Hold and counter</td></tr>
+</tbody>
+</table>
+
+<p>Our deal has three showings in fourteen days and one offer 6.3 percent under list. That is row two crossed with row four. The house does not have a showing problem. It has a price that the few people who see it are discounting on arrival.</p>
+
+<p>The supply context matters too. Put active competing listings in the band in cell B54 and the count of comparable sales over the last ninety days in B55, then compute months of supply in B56:</p>
+
+<p><code>=B54/(B55/3)</code></p>
+
+<p>That is your competition divided by the average monthly absorption rate. Under four months of supply, a stale listing is your own fault. Over eight, the market is slow and the staleness penalty in the next section should be raised, not lowered, because buyers have more alternatives to compare you against.</p>
+
+<h2>Cut to cross a search filter, not to feel generous</h2>
+
+<p>This is the section that pays for the whole model, and almost nobody builds it.</p>
+
+<p>Buyers do not browse listings. They set a maximum price in a search filter and then look at what comes back. Those filters step in fixed increments, and in the $200,000 to $500,000 range the standard step on the major portals is $25,000. Your house at $329,900 is visible only to buyers whose ceiling is set at $350,000 or higher. Every buyer who typed $325,000 has never seen your listing, will never see your listing, and is not being stubborn about your price. They do not know the house exists.</p>
+
+<p>Find the boundary in cell B32:</p>
+
+<p><code>=FLOOR(B2,25000)</code></p>
+
+<p>That returns $325,000. The cut required to clear it, cell B33:</p>
+
+<p><code>=B2-B32+100</code></p>
+
+<p>That returns $5,000, which lands the new list price at $324,900, one hundred dollars under the filter. Cell B34:</p>
+
+<p><code>=B2-B33</code></p>
+
+<p>Now test any price your agent proposes against the boundary:</p>
+
+<p><code>=IF(B36&lt;B32,"CROSSES FILTER","INVISIBLE CUT")</code></p>
+
+<p>Run the $10,000 cut your agent suggested through that test. It lands at $319,900. It crosses the same boundary the $5,000 cut crossed. It reaches exactly the same buyers. The second $5,000 buys nothing, and as the worked example below shows, it costs $4,471 of net proceeds.</p>
+
+<p>The rule that comes out of this is short. A price cut is worth what it changes about who sees the house, not what it signals about your flexibility. A cut that does not cross a filter boundary is a donation.</p>
+
+<h2>Price the staleness discount, because your achievable price is not constant</h2>
+
+<p>The naive version of this decision compares a $5,000 cut against $675 a week of carry, concludes the cut equals seven and a half weeks of holding, and tells you to wait. That comparison is wrong because it assumes the house will still fetch $329,900 in seven weeks. It will not.</p>
+
+<p>Days on market is public. After a listing passes the local median, buyer agents start opening the conversation with "how long has this been sitting," and buyers write the offer with that number in mind. The achievable price decays, and the decay compounds with the carry rather than offsetting it.</p>
+
+<p>Model it as two components. A base negotiation gap that exists on day one, and a staleness term that grows with time past the median.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B25</td><td>Showings in the last 14 days</td><td>3</td></tr>
+<tr><td>B26</td><td>Offers received to date</td><td>1</td></tr>
+<tr><td>B27</td><td>Best offer in hand</td><td>$309,000</td></tr>
+<tr><td>B28</td><td>Median days on market in the band</td><td>24</td></tr>
+<tr><td>B29</td><td>Base list-to-close negotiation gap</td><td>2.0%</td></tr>
+<tr><td>B30</td><td>Staleness discount per 30 days past median</td><td>1.2%</td></tr>
+<tr><td>B31</td><td>Post-inspection retrade allowance</td><td>$3,500</td></tr>
+</tbody>
+</table>
+
+<p>Do not take the 1.2 percent on faith. Calibrate it from your own market in twenty minutes. Pull the last ninety days of sold listings in your price band, put original list price and final sale price and days on market in three columns, compute the ratio, and sort by days on market. The gap between the sub-median group and the group past sixty days is your local staleness rate. In most suburban markets it lands between 0.8 and 1.8 percent per thirty days. In a market with eight months of supply it runs higher.</p>
+
+<p>The scenario engine takes a list price in B36 and weeks to contract in B37, and prices the outcome. Days on market at contract, cell B39:</p>
+
+<p><code>=B3+B37*7</code></p>
+
+<p>Months past the median, cell B40:</p>
+
+<p><code>=MAX(0,(B39-B28)/30)</code></p>
+
+<p>Staleness discount, cell B41:</p>
+
+<p><code>=B40*B30</code></p>
+
+<p>Total discount, cell B42:</p>
+
+<p><code>=B41+B29</code></p>
+
+<p>Expected closing price, cell B43:</p>
+
+<p><code>=B36*(1-B42)</code></p>
+
+<p>Selling costs, cell B44:</p>
+
+<p><code>=B43*B12</code></p>
+
+<p>Carry through closing, cell B45, where B38 holds the escrow weeks:</p>
+
+<p><code>=(B37+B38)*B22</code></p>
+
+<p>Net at closing, cell B48, after the extension fee from the next section:</p>
+
+<p><code>=B43-B44-B45-B47</code></p>
+
+<p>Forward profit, cell B49:</p>
+
+<p><code>=B48-B4</code></p>
+
+<h2>Loan maturity is a cliff, not a slope</h2>
+
+<p>Carry is linear. Hard money is not. The loan on this deal is a nine-month note and the property has been owned six months, so maturity is thirteen weeks out. Past that date the lender charges two points to extend and usually steps the rate up as well.</p>
+
+<p>Months owned at closing, cell B46:</p>
+
+<p><code>=B13+(B37+B38)/4.333</code></p>
+
+<p>Extension fee, cell B47:</p>
+
+<p><code>=IF(B46&gt;B14,B5*B15,0)</code></p>
+
+<p>On a $221,000 balance, two points is $4,420. That is not a rounding item. It is six and a half weeks of carry arriving in a single wire, triggered by crossing one date.</p>
+
+<p>The cliff produces the single most useful date in the model. Closing takes five weeks, so a contract signed after week eight closes past maturity. Week eight from today is day 98 on market. That is the last week you can go under contract without paying $4,420 for the privilege, and it belongs in your calendar, not in a spreadsheet cell you never look at again.</p>
+
+<h2>Run the three paths on the real deal</h2>
+
+<p>Same house, same day, three decisions. Path A holds the line at $329,900 and expects ten more weeks to contract given the current showing rate. Path B cuts $5,000 to $324,900 today, crosses the filter, and expects four weeks. Path C accepts the $309,000 offer sitting on the table.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>A: hold at $329,900</th><th>B: cut to $324,900</th><th>C: take $309,000</th></tr>
+</thead>
+<tbody>
+<tr><td>Weeks to contract</td><td>10</td><td>4</td><td>0</td></tr>
+<tr><td>Days on market at contract</td><td>112</td><td>70</td><td>42</td></tr>
+<tr><td>Total discount applied</td><td>5.52%</td><td>3.84%</td><td>n/a</td></tr>
+<tr><td>Expected closing price</td><td>$311,690</td><td>$312,424</td><td>$309,000</td></tr>
+<tr><td>Selling costs at 7%</td><td>$21,818</td><td>$21,870</td><td>$21,630</td></tr>
+<tr><td>Carry through closing</td><td>$10,118</td><td>$6,071</td><td>$3,373</td></tr>
+<tr><td>Retrade allowance</td><td>$0</td><td>$0</td><td>$3,500</td></tr>
+<tr><td>Loan extension fee</td><td>$4,420</td><td>$0</td><td>$0</td></tr>
+<tr><td>Net at closing</td><td>$275,333</td><td>$284,483</td><td>$280,497</td></tr>
+<tr><td>Forward profit over $265,938 in</td><td>$9,396</td><td>$18,546</td><td>$14,560</td></tr>
+</tbody>
+</table>
+
+<p>Read the fourth row again. The path with the lower list price closes for $734 more than the path that holds the higher list price. That is not a typo and it is not a trick. Six extra weeks of staleness takes more off the closing price than the $5,000 you refused to cut, so the cut is free at the closing table and the six weeks of carry and the extension fee are pure loss on top.</p>
+
+<p>Cutting $5,000 earns $9,150 more than holding your number. Not "saves." Earns.</p>
+
+<p>And the $10,000 cut your agent wanted, run through the same engine at $319,900 with the same four weeks, closes at $307,616 and nets $280,012, for a forward profit of $14,075. It reaches the identical buyer pool as the $5,000 cut and delivers $4,471 less. The boundary did the work. The extra dollars did not.</p>
+
+<h2>The real output is a probability, not a price</h2>
+
+<p>Path B looks like the obvious winner until you ask what happens when it does not work. Four weeks is an estimate, not a fact. Run the same engine with nine weeks to contract instead of four and the picture changes hard: days on market reaches 105, the discount widens to 5.24 percent, closing lands at $307,875, the loan crosses maturity, and forward profit falls to $6,523.</p>
+
+<p>So Path B is not worth $18,546. It is worth $18,546 if the cut converts fast and $6,523 if it does not. Path C is worth $14,560 with a signed contract already in hand. The question is no longer which number is biggest. It is how confident you have to be to turn down a real offer for a possible one.</p>
+
+<p>Park the three outcomes in D2, D3, and D4, the offer in hand at $14,560, the slow version of the cut at $6,523, and the fast version at $18,546. Then solve for the break-even confidence:</p>
+
+<p><code>=(D2-D3)/(D4-D3)</code></p>
+
+<p>That returns 0.668. You need to be 67 percent confident the repriced listing goes under contract within four weeks to justify rejecting $309,000 today.</p>
+
+<p>Now look back at the input sheet and ask whether three showings in fourteen days supports 67 percent confidence in a four-week contract. It does not. Two showings a week is the bottom of the diagnostic table. The honest read is that the cut probably needs six to eight weeks, not four, which puts the expected value of Path B below the offer already on the table.</p>
+
+<p>The recommendation on this deal is to counter the $309,000 offer once, at $317,500, with a seven-day expiry, and to have the price change to $324,900 already drafted in the MLS so it posts the morning the counter dies. That sequence captures most of Path B's upside without giving up Path C, because the buyer who wrote a 6.3 percent under-list offer at day 42 is the same buyer who watches for the price change.</p>
+
+<p>There is a case where the model says hold, and it is worth stating so the tool does not read as an argument for always cutting. A listing at day 12 with fourteen showings and two offers within 3 percent of list is not stale, it is in price discovery, and the staleness term in B41 returns zero because days on market has not passed the median. The model only turns against you once the market has had enough time to speak and has said no.</p>
+
+<p>Build this once and it takes fifteen minutes to run on every deal after that. If you would rather not start from a blank sheet, the <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already carries the purchase, rehab, carry, and selling-cost structure this model sits on top of, with the profit and margin math wired and tested. Add the six lines that turn it into a price reduction decision, the filter boundary, the median days on market, the staleness rate, the escrow weeks, the extension trigger, and the break-even confidence, and you will stop arguing about the list price and start pricing the decision instead.</p>`,
+  },
+  {
     slug: 'real-estate-auction-max-bid-calculator-excel',
     title: 'Real Estate Auction Max Bid Calculator: The Ceiling You Can Shout at the Courthouse Steps',
     metaTitle: 'Real Estate Auction Max Bid Calculator | SheetCraft',
