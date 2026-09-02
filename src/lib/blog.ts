@@ -16,6 +16,287 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'builders-risk-insurance-cost-calculator-vacant-property-excel',
+    title: 'Builders Risk Insurance Cost Calculator: What a Vacant Flip Actually Needs',
+    metaTitle: 'Builders Risk Insurance Cost Calculator | SheetCraft',
+    metaDescription: 'Price builders risk and vacant property coverage in Excel. Model insurable value, coinsurance, and the 90 day cutoff that ends coverage early.',
+    targetKeyword: 'builders risk insurance cost calculator vacant property Excel',
+    secondaryKeywords: ['builders risk insurance renovation', 'vacant home insurance cost', 'house flip insurance calculator', 'builders risk coinsurance penalty', 'vacant dwelling policy Excel'],
+    excerpt: 'A flipper budgeted $600 for insurance on a $182,000 rehab. The right number was $1,724, and the gap removed a $71,337 coinsurance haircut plus 47 days holding a vacant house with no coverage at all.',
+    publishedAt: '2026-09-02',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/builders-risk-insurance-cost-calculator-vacant-property-excel.png',
+    imageAlt: 'Empty living room of a suburban ranch house mid-renovation with bare drywall, an open step ladder, canvas drop cloths and stacked cartons',
+    content: `<p>A builders risk insurance cost calculator for a vacant property is not a premium quote tool. It is a coverage-days ledger. The premium is the small number in this decision. The big numbers are the days you hold the house with no coverage at all, and the claim haircut you take when the policy limit was built on the wrong value.</p>
+
+<p>Here is the deal this article models throughout. A 1968 ranch, 1,540 square feet, Midwest metro. Purchased for $182,000, closed March 9. Rehab budget $68,000. Replacement cost of the existing structure, which is the number the carrier cares about and it is neither the purchase price nor the ARV, is $214,000. Target sale price $319,000.</p>
+
+<p>The insurance line in that deal's budget said $600. The correct number was $1,724. That gap is not the point. The point is what the $1,124 was buying: it removes a $71,337 coinsurance haircut, 47 days of zero coverage on a $214,000 structure, and $16,400 of cabinets and HVAC sitting in the garage outside the theft sublimit.</p>
+
+<h2>Why the Seller's Policy and Your Homeowners Policy Both Fail on a Flip</h2>
+
+<p>The common version of this warning is that a homeowners policy voids after 60 days of vacancy. That is roughly true and mostly beside the point, and the flippers who rely on it get a surprise at the claim anyway.</p>
+
+<p>Three separate failures, in the order they actually happen:</p>
+
+<p><strong>The seller's policy does not transfer.</strong> It terminates at the sale. Between the recording of your deed and the inception of your own policy, whatever the seller had is gone. This is the gap nobody budgets, and on a purchase where the underwriter wants a photo set on a 1968 structure before binding, it runs three to five business days.</p>
+
+<p><strong>An HO-3 requires you to live there.</strong> The named insured has to occupy the residence premises. A house you bought to renovate and sell has never been your residence. This is not a vacancy problem, it is a misrepresentation problem, and the remedy is rescission rather than a reduced payment. The policy is treated as though it never existed and the premium comes back to you.</p>
+
+<p><strong>The vacancy exclusion is narrower than people quote and worse than they expect.</strong> Under the standard HO-3 form, vandalism and malicious mischief are excluded once the dwelling has been vacant more than 60 consecutive days. There is a carve-out stating that a dwelling being constructed is not considered vacant. Flippers hear that carve-out and relax. Do not. It contemplates new construction. Whether a cosmetic rehab qualifies is an argument, and it is an argument you have after the fire, with the burden on you, while the lender is asking when the loan gets repaid.</p>
+
+<p>What a flip actually needs is a builders risk policy sized to the whole building, and a vacant dwelling policy or endorsement covering the window between "done" and "sold." Those are two different products with two different termination triggers, and the handoff between them is where the money leaks.</p>
+
+<h2>What Builders Risk Costs on a Renovation, and Why the Cheap Quote Is the Expensive One</h2>
+
+<p>Builders risk on a renovation of an older structure prices in the range of $3.50 to $5.50 per $1,000 of insured value for a twelve month term, non-coastal. Most admitted carriers also carry a minimum premium around $425, which matters more than the rate on small projects.</p>
+
+<p>Everything depends on what number you put in front of the rate. On a renovation you have a choice the carrier will let you make and will not warn you about: insure the work only, or insure the work plus the existing structure.</p>
+
+<table>
+<thead>
+<tr><th>Approach</th><th>Insured value</th><th>Rate per $1,000</th><th>Annual premium</th></tr>
+</thead>
+<tbody>
+<tr><td>Work only</td><td>$68,000</td><td>$4.20</td><td>$425 (minimum premium)</td></tr>
+<tr><td>Work plus existing structure</td><td>$282,000</td><td>$4.20</td><td>$1,184</td></tr>
+</tbody>
+</table>
+
+<p>The first quote comes back at $425 because the rated premium of $286 falls under the carrier's floor. It looks like a bargain. It is the single most expensive decision in the file, because builders risk forms carry the equivalent of a 100 percent coinsurance clause. If the limit you carry is short of the value you should have carried, every claim is reduced by that same ratio, whether it is a total loss or a $3,000 water event.</p>
+
+<p>Run the fire. A June kitchen fire spreads into the adjacent wall and the attic above it. Restoration bid: $94,000.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Insured work only</th><th>Insured work plus structure</th></tr>
+</thead>
+<tbody>
+<tr><td>Limit carried</td><td>$68,000</td><td>$282,000</td></tr>
+<tr><td>Value required</td><td>$282,000</td><td>$282,000</td></tr>
+<tr><td>Coinsurance ratio</td><td>24.1%</td><td>100%</td></tr>
+<tr><td>Loss</td><td>$94,000</td><td>$94,000</td></tr>
+<tr><td>Applied ratio</td><td>$22,663</td><td>$94,000</td></tr>
+<tr><td>Less deductible</td><td>$2,500</td><td>$2,500</td></tr>
+<tr><td>Check you receive</td><td>$20,163</td><td>$91,500</td></tr>
+</tbody>
+</table>
+
+<p>The shortfall is $71,337. The premium difference that would have prevented it is $759. That is a 94 to 1 return on the most boring line in the budget, and it is the reason the calculator below starts with valuation and not with rate shopping.</p>
+
+<h3>The deductible is two numbers, not one</h3>
+
+<p>Builders risk deductibles are usually written as a flat amount for most perils and a percentage for wind and hail. A $2,500 flat deductible with a 2 percent named-storm deductible on $282,000 of insured value means your hail claim carries a $5,640 retention, not $2,500. Model both. If you flip in a hail corridor, the percentage deductible is the one that shows up.</p>
+
+<h2>Building the Coverage Calculator in Excel</h2>
+
+<p>One sheet, three blocks: valuation, premium, timeline. The timeline block is the one that earns its keep and the one no carrier quote page gives you.</p>
+
+<p>Valuation and premium inputs, column A labels and column B values:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B4</td><td>Purchase price</td><td>$182,000</td></tr>
+<tr><td>B5</td><td>Existing structure replacement cost</td><td>$214,000</td></tr>
+<tr><td>B6</td><td>Renovation hard cost</td><td>$68,000</td></tr>
+<tr><td>B7</td><td>Required insurable value</td><td>$282,000</td></tr>
+<tr><td>B8</td><td>Limit actually carried</td><td>$282,000</td></tr>
+<tr><td>B9</td><td>Rate per $1,000, 12 month term</td><td>4.20</td></tr>
+<tr><td>B10</td><td>Carrier minimum premium</td><td>$425</td></tr>
+<tr><td>B11</td><td>Premium charged</td><td>$1,184</td></tr>
+<tr><td>B12</td><td>Flat deductible</td><td>$2,500</td></tr>
+<tr><td>B13</td><td>Wind and hail deductible percent</td><td>2.0%</td></tr>
+</tbody>
+</table>
+
+<p>Required insurable value in B7 is the sum of the existing structure and the work, not the purchase price:</p>
+
+<p><code>=B5+B6</code></p>
+
+<p>Premium in B11 applies the rate and then respects the carrier floor:</p>
+
+<p><code>=MAX(B10,B8/1000*B9)</code></p>
+
+<p>The coinsurance ratio in B14 is the number that decides what a claim is worth. Cap it at 1 so an over-insured file does not show a phantom bonus:</p>
+
+<p><code>=MIN(1,B8/B7)</code></p>
+
+<p>Put a flag next to it in B15 so the file argues with you before the adjuster does:</p>
+
+<p><code>=IF(B14&lt;1,"UNDERINSURED: claims cut to "&amp;TEXT(B14,"0.0%"),"OK")</code></p>
+
+<p>Then model a loss. Put the restoration estimate in B16 and the net check in B17:</p>
+
+<p><code>=MAX(0,B16*B14-B12)</code></p>
+
+<p>Two things about that formula. It multiplies the loss by the coinsurance ratio before subtracting the deductible, which is the order carriers apply it, and it floors at zero so a small loss under the deductible does not display as a negative recovery you might mistake for a number you owe.</p>
+
+<h3>The materials block</h3>
+
+<p>Builders risk covers materials once they are permanently installed. Materials sitting in the garage waiting on a subcontractor are covered under a separate, much smaller sublimit, and copper, cabinets, and condensing units are the exact categories that walk off a job site.</p>
+
+<table>
+<thead>
+<tr><th>Item stored on site</th><th>Peak value</th></tr>
+</thead>
+<tbody>
+<tr><td>Kitchen cabinets and tops</td><td>$9,400</td></tr>
+<tr><td>Condenser and air handler</td><td>$6,100</td></tr>
+<tr><td>LVP flooring, 1,540 sq ft</td><td>$3,800</td></tr>
+<tr><td>Water heater</td><td>$900</td></tr>
+<tr><td>Fixtures and hardware</td><td>$1,200</td></tr>
+<tr><td>Peak exposure</td><td>$21,400</td></tr>
+<tr><td>Standard sublimit</td><td>$5,000</td></tr>
+<tr><td>Uninsured</td><td>$16,400</td></tr>
+</tbody>
+</table>
+
+<p>Track peak exposure in B20 and the sublimit in B21, then show the gap in B22 with <code>=MAX(0,B20-B21)</code>. Raising that sublimit from $5,000 to $25,000 costs roughly $140 at binding. Nobody asks for it, because the delivery date and the install date are on the schedule and the two weeks between them are not.</p>
+
+<h2>The 90 Day Cliff That Ends Your Policy While You Still Own the House</h2>
+
+<p>This is the part of the coverage that flippers do not know exists, and it is written into the standard builders risk form.</p>
+
+<p>Coverage ends at the earliest of several triggers, not at the policy expiration date. On the ISO builders risk coverage form, those triggers are: the policy expires or is cancelled, the property is accepted by the purchaser, your interest in the property ceases, construction is abandoned, 90 days after construction is complete, or 60 days after the building is occupied in whole or in part.</p>
+
+<p>Read that again with a flip in mind. You buy a twelve month policy. You finish the rehab in month three. Ninety days later your coverage terminates by its own terms while you are still on title, still on the hard money note, and the house is empty and staged and getting showings. The premium is fully earned, so there is no refund for the months you paid for and did not receive.</p>
+
+<p>Worse, "construction is complete" is not a date you declare. It is a date an adjuster reconstructs after the loss, from your permit final, your contractor's final invoice, and your MLS listing date. Your own file establishes the day your coverage ended.</p>
+
+<p>Here is the timeline block. Dates in column B, day counts calculated:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Event</th><th>Example date</th></tr>
+</thead>
+<tbody>
+<tr><td>B26</td><td>Purchase closing</td><td>Mar 9, 2026</td></tr>
+<tr><td>B27</td><td>Policy inception (bind date)</td><td>Mar 13, 2026</td></tr>
+<tr><td>B28</td><td>Policy expiration</td><td>Mar 13, 2027</td></tr>
+<tr><td>B29</td><td>Construction complete</td><td>Jun 12, 2026</td></tr>
+<tr><td>B30</td><td>Post-completion cutoff</td><td>Sep 10, 2026</td></tr>
+<tr><td>B31</td><td>Listed</td><td>Jun 18, 2026</td></tr>
+<tr><td>B32</td><td>Sale closes</td><td>Oct 27, 2026</td></tr>
+</tbody>
+</table>
+
+<p>The post-completion cutoff in B30 is the trigger the form imposes on you:</p>
+
+<p><code>=B29+90</code></p>
+
+<p>Effective coverage end in B33 is the earliest live trigger:</p>
+
+<p><code>=MIN(B28,B30,B32)</code></p>
+
+<p>Now the four numbers that make this a decision tool instead of a quote. Days of coverage purchased in B34, days actually received in B35, the front gap in B36, and the back gap in B37:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Measure</th><th>Formula</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>B34</td><td>Days purchased</td><td><code>=B28-B27</code></td><td>365</td></tr>
+<tr><td>B35</td><td>Days of coverage received</td><td><code>=B33-B27</code></td><td>181</td></tr>
+<tr><td>B36</td><td>Front gap, closing to bind</td><td><code>=MAX(0,B27-B26)</code></td><td>4</td></tr>
+<tr><td>B37</td><td>Back gap, cutoff to sale</td><td><code>=MAX(0,B32-B33)</code></td><td>47</td></tr>
+<tr><td>B38</td><td>Total days held</td><td><code>=B32-B26</code></td><td>232</td></tr>
+<tr><td>B39</td><td>Days held uninsured</td><td><code>=B36+B37</code></td><td>51</td></tr>
+</tbody>
+</table>
+
+<p>Cost per covered day in B40 divides the fully earned premium by the days you actually received, not by the days you bought:</p>
+
+<p><code>=B11/B35</code></p>
+
+<p>That is $6.54 per covered day. The number the flipper believes he is paying, premium divided by days held, is $5.10. And the premium spent on days that were never delivered, in B41:</p>
+
+<p><code>=B11/B34*(B34-B35)</code></p>
+
+<p>That is $597 of a $1,184 policy. Half the premium bought nothing, and 51 of the 232 days on title, 22 percent of the hold, had no coverage on a $214,000 structure.</p>
+
+<h3>Closing the back gap costs $325 if you ask at the right time</h3>
+
+<p>There are two ways to cover the window between completion and sale, and they are not close in price.</p>
+
+<table>
+<thead>
+<tr><th>Option</th><th>When you ask</th><th>Cost</th><th>Gap on handoff</th></tr>
+</thead>
+<tbody>
+<tr><td>Endorsement removing the post-completion cutoff</td><td>At binding, day 0</td><td>$325 flat</td><td>None, same policy</td></tr>
+<tr><td>Separate vacant dwelling policy</td><td>Day 85, in a hurry</td><td>$1,029 (3 month minimum, fully earned)</td><td>Inspection and bind lag</td></tr>
+</tbody>
+</table>
+
+<p>The endorsement is $704 cheaper and has no handoff date to fumble. The catch is entirely about timing. On day 0 you are asking an underwriter to extend coverage on a project he is already writing. On day 85 you are asking him to write a completed, empty, listed house, which is a different risk class that gets surcharged or declined. Same request, same house, two very different answers, separated only by when you made the call.</p>
+
+<p>If you already blew past day 90 and need the vacant policy now, buy it anyway. The 3 month minimum premium of $1,029 works out to $21.89 per day for the 47 days you actually need, which reads as expensive until you set it against $214,000 of structure and the fact that a copper strip on an empty staged house runs $6,800 before anyone touches drywall.</p>
+
+<h2>Six Month or Twelve Month Term: The Argument That Does Not Matter</h2>
+
+<p>This is where most builders risk advice spends its energy, and it is worth about $131.</p>
+
+<p>Term pricing is not linear. A six month term typically runs 65 to 75 percent of the twelve month premium, because the fixed cost of underwriting the file does not shrink with the term. On this deal at 70 percent, six months costs $829 against $1,184 for twelve.</p>
+
+<table>
+<thead>
+<tr><th>Path</th><th>Premium</th><th>Extension if it runs long</th><th>Expected cost</th></tr>
+</thead>
+<tbody>
+<tr><td>Six month term</td><td>$829</td><td>$373 for 3 months, re-underwritten</td><td>$1,053</td></tr>
+<tr><td>Twelve month term</td><td>$1,184</td><td>None needed</td><td>$1,184</td></tr>
+</tbody>
+</table>
+
+<p>Expected cost on the six month path assumes a 60 percent chance of running past six months, which is what this operator's last five projects actually did. Compute it in B44 as <code>=B42+B43*0.6</code> and set the probability from your own closed files, not from your plan.</p>
+
+<p>The six month path wins by $131. Take the twelve month term anyway, and not for the reason people usually give.</p>
+
+<p>An extension request is a re-underwriting event. The underwriter looking at your file in month six is looking at a project that ran long, on a vacant structure, possibly with an open claim. Extensions on stalled projects get surcharged and sometimes get declined. Paying $131 to remove a decision point where somebody else gets a vote on whether you stay insured is the cheapest option in this entire article. It is the same logic as locking a longer rate lock on a rehab loan: you are not buying a lower price, you are buying the removal of a renewal conversation at the worst possible moment.</p>
+
+<h2>The Three Line Fix and What It Buys</h2>
+
+<p>Everything above collapses into three changes you make at binding, before the policy is issued, when they are cheap.</p>
+
+<table>
+<thead>
+<tr><th>Fix</th><th>Cost</th><th>Exposure removed</th></tr>
+</thead>
+<tbody>
+<tr><td>Insure work plus existing structure, not work alone</td><td>$759</td><td>$71,337 coinsurance haircut on a $94,000 fire</td></tr>
+<tr><td>Endorse away the 90 day post-completion cutoff</td><td>$325</td><td>47 days of zero coverage on a $214,000 structure</td></tr>
+<tr><td>Raise uninstalled materials sublimit to $25,000</td><td>$140</td><td>$16,400 of cabinets, HVAC and flooring in the garage</td></tr>
+<tr><td>Total added to the budget line</td><td>$1,224</td><td></td></tr>
+</tbody>
+</table>
+
+<p>The insurance line goes from $500 to $1,724. On a deal underwritten to $38,000 of net profit, that is 3.2 percent of the profit, and it is the last 3.2 percent anyone should be shaving. Every one of these three is priced at binding and unavailable later. The endorsement gets declined at day 85. The sublimit increase is not retroactive to the cabinets that already walked. And the coinsurance ratio is fixed the moment the policy is issued, so the first person who tells you the limit was low will be the adjuster.</p>
+
+<h3>Front gap checklist for the next closing</h3>
+
+<ul>
+<li>Request the builders risk quote when the purchase contract is signed, not when the deed records. Underwriting a 1968 structure takes three to five business days and the seller's policy dies at the closing table.</li>
+<li>Give the agent the replacement cost of the existing structure, not the purchase price and not the ARV. A $182,000 purchase on a $214,000 replacement cost is normal, and the gap is where the coinsurance penalty lives.</li>
+<li>Ask for the post-completion cutoff endorsement in the same email as the quote request.</li>
+<li>Name the hard money lender as mortgagee on the binder before your funding deadline, because the lender's forced-place policy protects the lender's balance, not your equity.</li>
+<li>Photograph the structure the day you take title. The vacancy and condition argument is won or lost with dated photos.</li>
+</ul>
+
+<h2>Where This Sits in the Deal</h2>
+
+<p>Insurance is a holding cost, and holding costs are the line flippers under-model most consistently. A $1,724 policy across a 232 day hold is $7.43 per day, which sits alongside the interest, the utilities, the taxes, and the lawn service in your <a href="/blog/house-flipping-holding-costs-calculator">holding cost calculator</a>. It is not a separate category and it should not live on a separate spreadsheet.</p>
+
+<p>The number that connects this article to the rest of the deal is the 47 day back gap. Those are days on market, and days on market is the variable that decides both your carrying cost and your <a href="/blog/house-flip-price-reduction-decision-calculator-excel">price reduction decision</a>. A project that sells in 20 days never hits the 90 day cliff. A project that sits 96 days hits it with 47 days to spare on the wrong side. You do not know which one you have when you bind the policy, which is precisely why you buy the endorsement instead of betting on a fast sale.</p>
+
+<p>Build the coverage-days ledger once and it takes four minutes per deal after that: five dates, two values, one rate. What you get back is a premium line you can defend, a coinsurance flag that fires before the adjuster does, and an uncovered-days count that turns an abstract policy exclusion into a number you can put in the deal.</p>
+
+<p>If you would rather not build the timeline logic and the coinsurance flag from scratch, the <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already carries the holding cost engine this plugs into: monthly carry by category, day-count driven, with the hold period feeding straight through to net profit and cash-on-cash. Add the insurable value, the bind date, and the completion date as three inputs, wire the coinsurance ratio to the flag, and your insurance line stops being a $600 placeholder and starts being the only line in the budget with a 94 to 1 return.</p>`,
+  },
+  {
     slug: 'house-flip-price-reduction-decision-calculator-excel',
     title: 'House Flip Price Reduction Decision Calculator in Excel: When a $5,000 Cut Beats a $10,000 Cut',
     metaTitle: 'House Flip Price Reduction Calculator | SheetCraft',
