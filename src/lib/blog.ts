@@ -16,6 +16,222 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'contractor-cash-conversion-cycle-calculator-excel',
+    title: 'Contractor Cash Conversion Cycle Calculator in Excel: Why Profitable Jobs Run You Out of Money',
+    metaTitle: 'Contractor Cash Conversion Cycle Calculator | SheetCraft',
+    metaDescription: 'Your cash cycle, not your margin, caps how much work you can take. Build a contractor cash conversion cycle calculator in Excel and size the line you need.',
+    targetKeyword: 'contractor cash conversion cycle calculator Excel',
+    secondaryKeywords: ['construction working capital calculator', 'contractor cash flow forecast Excel', 'construction retainage tracking', 'days sales outstanding construction', 'construction pay application schedule'],
+    excerpt: 'Two $480,000 jobs at the same 15 percent margin. One needs $134,400 of working capital, the other $48,000. A contractor cash conversion cycle calculator in Excel finds the gap before you sign, and turns it into a hard limit on how much work you can run at once.',
+    publishedAt: '2026-09-03',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-cash-conversion-cycle-calculator-excel.png',
+    imageAlt: 'Contractor workbench with a padlocked steel strongbox, a brass balance scale and a yellow hard hat in morning light',
+    content: `<p>A commercial interiors contractor closed last year at $2.4 million in revenue and a 15 percent gross margin. In February he turned down a $480,000 tenant improvement because his line of credit was drawn to the ceiling and payroll cleared on Friday. Every job on his board was profitable. He was still out of money. That distance between a profitable job and a funded job is exactly what a <strong>contractor cash conversion cycle calculator in Excel</strong> measures, and the number it produces is the one that decides how much work you can actually take.</p>
+
+<p>Here is the timing that creates the hole. You order material on day 5 and the supplier bills net 30. Your crew works all month and payroll clears every Friday. The billing period closes on day 30, you submit the pay application on day 35, the architect certifies it on day 42, and the owner pays 30 days after that. Cash arrives on day 72. You funded 72 days of production with money you did not have, and 10 percent of what you earned sits in a retainage account you will not touch for another six months.</p>
+
+<h2>Why the Textbook Formula Breaks on a Construction Job</h2>
+
+<p>The cash conversion cycle came out of manufacturing. It reads days inventory outstanding, plus days sales outstanding, minus days payable outstanding. Drop a construction job into that formula and three things go wrong at once.</p>
+
+<p>There is no inventory. What sits between spending money and sending an invoice is work in progress, and the clock on it is not driven by how fast you build. It is driven by the billing period in your contract. You could finish a floor in nine days and still wait until the twenty-fifth of the month to bill it.</p>
+
+<p>Days payable outstanding is not one number. It is four, and they are wildly different. Labor is paid in about 7 days because payroll runs weekly. Material sits at 30 days from the supplier invoice. Equipment rental runs monthly at net 30. Subcontractors, on a pay-when-paid clause, are not paid until after the owner pays you, which makes their days payable longer than your days sales outstanding. Blend those into a single company average and you erase the only distinction that matters.</p>
+
+<p>And retainage does not appear anywhere. It is not a receivable that ages through a 30, 60, 90 bucket. It is a separate long-dated asset that leaves your accounts receivable report looking healthy while a third of your annual profit sits in someone else's bank account.</p>
+
+<h2>Build the Cycle Calculator in Excel</h2>
+
+<p>Start with one job, not the company. Company-level averages are the reason this metric gets ignored: they produce a number nobody can act on. A per-job model produces a dollar figure you can compare to your line of credit before you sign.</p>
+
+<p>Lay out the contract terms in column B.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Contract value</td><td>$480,000</td></tr>
+<tr><td>B3</td><td>Duration in months</td><td>5</td></tr>
+<tr><td>B4</td><td>Retainage percent</td><td>10%</td></tr>
+<tr><td>B5</td><td>Line of credit rate</td><td>12%</td></tr>
+<tr><td>B18</td><td>Work performed to pay application, days</td><td>20</td></tr>
+<tr><td>B19</td><td>Architect certification, days</td><td>7</td></tr>
+<tr><td>B20</td><td>Owner payment terms, days</td><td>30</td></tr>
+</tbody>
+</table>
+
+<p>B18 is the input most contractors get wrong. It is not the gap between month end and the pay application date. It is the gap between the <em>average</em> day work is performed and the day you bill it. Work spread evenly across the month averages out to the fifteenth, and if the application goes out on day 35 then your average work-to-billing lag is 20 days, not 5.</p>
+
+<p>Total days from work performed to cash in hand goes in B21:</p>
+
+<p><code>=B18+B19+B20</code></p>
+
+<p>That returns 57 days. Now the cost mix, with a payment lag for each line in column C.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Cost type</th><th>Amount</th><th>Payment lag (days)</th><th>Float days</th><th>Cash tied up</th></tr>
+</thead>
+<tbody>
+<tr><td>B8</td><td>Labor including burden</td><td>$216,000</td><td>7</td><td>50</td><td>$72,000</td></tr>
+<tr><td>B9</td><td>Material</td><td>$96,000</td><td>20</td><td>37</td><td>$23,680</td></tr>
+<tr><td>B10</td><td>Subcontractors</td><td>$72,000</td><td>64</td><td>-7</td><td>-$3,360</td></tr>
+<tr><td>B11</td><td>Equipment and other</td><td>$24,000</td><td>30</td><td>27</td><td>$4,320</td></tr>
+<tr><td>B12</td><td>Total cost</td><td>$408,000</td><td></td><td></td><td>$96,640</td></tr>
+</tbody>
+</table>
+
+<p>The labor lag of 7 days is weekly payroll. The material lag of 20 days is a net 30 supplier invoice on material delivered about 10 days ahead of installation. The subcontractor lag of 64 days is your 57 days to cash plus the 7 days you have to pay them after you are paid, which is the federal standard under FAR 52.232-27 and the model most private subcontracts copy.</p>
+
+<p>Float days in column D is how long each dollar is out the door before the matching dollar comes back:</p>
+
+<p><code>=$B$21-C8</code></p>
+
+<p>Cash tied up in column E converts float days into dollars at your monthly burn rate:</p>
+
+<p><code>=B8/$B$3*D8/30</code></p>
+
+<p>Note the subcontractor line runs negative. On a pay-when-paid clause your subs are lending you money, which is the single most important fact in this entire model and the one nobody puts in a spreadsheet.</p>
+
+<p>Now the headline metric. Weighted days payable in B23 has to be weighted by dollars, never averaged across the four types:</p>
+
+<p><code>=SUMPRODUCT(B8:B11,C8:C11)/SUM(B8:B11)</code></p>
+
+<p>That returns 21.5 days. The cycle itself goes in B24:</p>
+
+<p><code>=B21-B23</code></p>
+
+<p>Thirty-five and a half days. That is how long the average dollar of cost is out of your account before the customer's dollar replaces it.</p>
+
+<h2>Two Jobs, Same Margin, One Needs Nearly Three Times the Cash</h2>
+
+<p>Here is where the model earns its keep. Take the $480,000 job above, which is labor heavy because the contractor self-performs. Now take a second $480,000 job at the identical 15 percent margin and the identical 5 month duration, built almost entirely with subcontractors.</p>
+
+<table>
+<thead>
+<tr><th>Cost line</th><th>Job A, self-perform</th><th>Job B, sub heavy</th></tr>
+</thead>
+<tbody>
+<tr><td>Labor including burden</td><td>$216,000</td><td>$48,000</td></tr>
+<tr><td>Material</td><td>$96,000</td><td>$48,000</td></tr>
+<tr><td>Subcontractors</td><td>$72,000</td><td>$288,000</td></tr>
+<tr><td>Equipment and other</td><td>$24,000</td><td>$24,000</td></tr>
+<tr><td>Total cost</td><td>$408,000</td><td>$408,000</td></tr>
+<tr><td>Gross margin</td><td>$72,000</td><td>$72,000</td></tr>
+<tr><td>Weighted days payable</td><td>21.5</td><td>50.1</td></tr>
+<tr><td>Cash conversion cycle</td><td>35.5 days</td><td>6.9 days</td></tr>
+</tbody>
+</table>
+
+<p>Same revenue, same profit, same schedule. One job has a cycle five times longer than the other. Now run both through a month by month cash position, where cash from work performed in month one arrives in month three, and subcontractors billed in month one are paid in month three.</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Job A cash out</th><th>Job A cash in</th><th>Job A position</th><th>Job B position</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>$67,200</td><td>$0</td><td>-$67,200</td><td>-$24,000</td></tr>
+<tr><td>2</td><td>$67,200</td><td>$0</td><td>-$134,400</td><td>-$48,000</td></tr>
+<tr><td>3</td><td>$81,600</td><td>$86,400</td><td>-$129,600</td><td>-$43,200</td></tr>
+<tr><td>4</td><td>$81,600</td><td>$86,400</td><td>-$124,800</td><td>-$38,400</td></tr>
+<tr><td>5</td><td>$81,600</td><td>$86,400</td><td>-$120,000</td><td>-$33,600</td></tr>
+<tr><td>6</td><td>$14,400</td><td>$86,400</td><td>-$48,000</td><td>-$4,800</td></tr>
+<tr><td>7</td><td>$14,400</td><td>$86,400</td><td>$24,000</td><td>$24,000</td></tr>
+<tr><td>10</td><td>$0</td><td>$48,000</td><td>$72,000</td><td>$72,000</td></tr>
+</tbody>
+</table>
+
+<p>Job A needs $134,400 of working capital at its worst point. Job B needs $48,000. That is $86,400 of difference on two jobs a banker would call identical, and it is the reason the self-perform decision is a financing decision as much as a cost decision. If you are weighing that trade, the loaded cost comparison belongs in its own model: see <a href="/blog/self-perform-vs-subcontract-cost-analysis-excel">self-perform vs subcontract cost analysis</a> for the margin side of the same question, and make sure the labor number carries full burden, not base wage.</p>
+
+<p>One check before you trust any version of this table. Both columns have to land on $72,000 at the end, because that is the gross margin. If your cumulative position does not close on gross margin after the last retainage check clears, you have double counted something. This is the cheapest error trap in the whole build.</p>
+
+<h2>Retainage Is a Third of Your Cycle and It Is Not in the Formula</h2>
+
+<p>Everything above excludes retainage. Add it and the picture changes again. Retainage on this job is:</p>
+
+<p><code>=B2*B4</code></p>
+
+<p>That is $48,000, accumulated across five months and released roughly 90 days after substantial completion. Call it day 240 on a job that finished on day 150.</p>
+
+<p>Spread across the contract, that $48,000 held for an extra 180 days adds 18 days to the cycle. The real number for Job A is not 35.5 days. It is 53.5 days, and the third of it that comes from retainage is the third that never shows up in a standard accounts receivable aging report.</p>
+
+<p>Run the same arithmetic at company level. On $2.4 million of revenue, accounts receivable of $295,000 gives a days sales outstanding of 44.9 days, which any lender would call excellent. Add $138,000 of retainage receivable and the real figure is 65.9 days. The 21 day difference is the difference between comfortable and calling your banker on a Thursday.</p>
+
+<h2>The Lever That Moves the Peak Is Not the One You Negotiate</h2>
+
+<p>Most contractors attack this by pushing on payment terms. It is the obvious move and, on this job, it does almost nothing. Cutting owner terms from net 30 to net 21 pulls first cash from day 72 to day 63. Both are still inside month three, so the month two low point does not change at all. You negotiated hard and moved the peak by zero.</p>
+
+<p>The peak is set by one thing: how long you fund production before the <em>first</em> dollar arrives. To move it you have to get a dollar in the door earlier, and the way to do that is to bill more often.</p>
+
+<p>Switch to semi-monthly pay applications. The first period closes on day 15, the application goes out on day 20, certification lands on day 27, and the owner pays on day 57. That first receipt is:</p>
+
+<p><code>=B2/B3/2*(1-B4)</code></p>
+
+<p>It returns $43,200, and it arrives inside month two.</p>
+
+<table>
+<thead>
+<tr><th>Change</th><th>Peak working capital</th><th>Improvement</th></tr>
+</thead>
+<tbody>
+<tr><td>Baseline, monthly billing</td><td>$134,400</td><td>-</td></tr>
+<tr><td>Owner terms cut from 30 to 21 days</td><td>$134,400</td><td>$0</td></tr>
+<tr><td>Semi-monthly pay applications</td><td>$91,200</td><td>$43,200</td></tr>
+<tr><td>Semi-monthly plus $40,000 mobilization line</td><td>$67,200</td><td>$67,200</td></tr>
+</tbody>
+</table>
+
+<p>A mobilization or general conditions line item in the schedule of values, billed in the first application, is the cheapest working capital available to a contractor. It carries no interest, no personal guarantee, and no covenant. Load $40,000 of legitimate early-cost value into the first application and $36,000 net of retainage lands with the first check.</p>
+
+<p>Together those two clauses cut the requirement from $134,400 to $67,200. Exactly half, from contract language that costs nothing. And $67,200 is the floor: it is one month of production cost, which you have to fund before you can bill anything at all under any billing arrangement.</p>
+
+<h2>When Making the Cycle Worse Makes You Money</h2>
+
+<p>A metric you can push on is a metric you can push the wrong way, and this one has an obvious trap. Paying suppliers later always improves the cycle. It is not always the right call.</p>
+
+<p>Your material supplier offers 2/10 net 30. Taking the discount means paying on day 10 instead of day 30, which lengthens your float by 20 days and makes every number in this model worse. Price it anyway:</p>
+
+<p><code>=B31/(1-B31)*(365/B32)</code></p>
+
+<p>With 2 percent in B31 and 20 days in B32, that returns 37.2 percent annualized. On the $96,000 of material in Job A, the discount is worth $1,920 and the 20 days of extra borrowing on a 12 percent line costs $631. You clear $1,289 by making your cash conversion cycle worse.</p>
+
+<p>The rule this produces is simple and worth writing on the wall: borrow on the line to take any discount above your line rate, and stretch every payable that carries no discount. The cycle is a diagnostic, not a target. Optimize the dollars, not the days.</p>
+
+<h2>Turn the Cycle Into a Bidding Rule</h2>
+
+<p>The output of this model is not a number of days. It is an answer to the only question that matters when the phone rings with another job: can I fund this one on top of what I am already running?</p>
+
+<p>Put your available capital in B39 and the peak requirement per job in B38, and the capacity answer is:</p>
+
+<p><code>=FLOOR(B39/B38,1)</code></p>
+
+<table>
+<thead>
+<tr><th>Job profile</th><th>Peak per job</th><th>Concurrent jobs on a $150,000 line</th><th>Contract value you can run</th></tr>
+</thead>
+<tbody>
+<tr><td>Job A, self-perform, monthly billing</td><td>$134,400</td><td>1</td><td>$480,000</td></tr>
+<tr><td>Job A, semi-monthly plus mobilization</td><td>$67,200</td><td>2</td><td>$960,000</td></tr>
+<tr><td>Job B, sub heavy</td><td>$48,000</td><td>3</td><td>$1,440,000</td></tr>
+</tbody>
+</table>
+
+<p>The same $150,000 line supports $480,000 or $1,440,000 of simultaneous work depending on how the jobs are built and billed. Nothing in that table is about winning more bids. It is all cost mix and contract clauses, and it explains why contractors who chase growth through sales alone hit a wall they cannot see in their profit and loss statement.</p>
+
+<p>Two rules fall out of it. First, when the bid schedule gets crowded, favor the sub-heavy job even at a point less margin, because it consumes a fraction of the capital. Second, if a job is going to eat more than about 60 percent of your available capital at its peak, either fix the billing terms before signing or do not sign. The pay application schedule is negotiable at bid time and unnegotiable the day after.</p>
+
+<h2>Run the Number Before You Sign, Not After</h2>
+
+<p>The cash conversion cycle is worth calculating once for the diagnosis and then never again on its own. What you keep is the peak working capital figure per job, because that is the number you compare to the line of credit before you commit a crew. Get it in front of the decision instead of behind it and the questions change. You stop asking whether a job is profitable, which it almost always is, and start asking whether you can afford to be right about it for 72 days.</p>
+
+<p>Three inputs drive everything: the cost mix, the days from work performed to first cash, and the retainage percentage. Everything else is arithmetic. The failure mode is not bad math, it is never running the math until the job is underway and the terms are locked.</p>
+
+<p>Building this from a blank workbook means wiring the job cost mix, the pay application calendar, the retainage schedule and the cash position table together and keeping them tied to actual job costs as they post. Our <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries the cost-code structure, the pay application schedule and the retainage tracking these formulas depend on, so you drop in the cost mix and the billing terms and get the peak working capital figure per job without rebuilding the plumbing. Run your next three bids through it before you price them, and you will turn down at least one job for the right reason.</p>`,
+  },
+  {
     slug: 'builders-risk-insurance-cost-calculator-vacant-property-excel',
     title: 'Builders Risk Insurance Cost Calculator: What a Vacant Flip Actually Needs',
     metaTitle: 'Builders Risk Insurance Cost Calculator | SheetCraft',
