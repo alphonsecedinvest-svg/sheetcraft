@@ -16,6 +16,233 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-overtime-premium-vs-second-crew-calculator-excel',
+    title: 'Construction Overtime Premium vs Second Crew: An Excel Calculator That Prices Both',
+    metaTitle: 'Construction Overtime vs Second Crew | SheetCraft',
+    metaDescription: 'Construction overtime looks like time and a half. Burdened it is 23 percent, but by week six it costs $305 per earned hour. Compare it to a second crew.',
+    targetKeyword: 'construction overtime premium vs second crew calculator Excel',
+    secondaryKeywords: ['overtime productivity loss construction', 'construction acceleration cost calculator', 'labor burden rate Excel', 'second crew vs overtime schedule compression', 'earned hours tracking construction'],
+    excerpt: 'Eight people, eleven weeks, and 4,800 hours of work left in the ground. Sixty-hour weeks look like they close the gap on paper and finish 643 earned hours short, because the efficiency curve eats 1,123 hours nobody put in the schedule. Here is the Excel model that prices both paths and finds the crossover.',
+    publishedAt: '2026-09-04',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-overtime-premium-vs-second-crew-calculator-excel.png',
+    imageAlt: 'Portable LED work light illuminating an unfinished office fit-out at dusk, with two hard hats and a coiled extension cord resting on a sawhorse',
+    content: `<p>You are eleven weeks from a hard completion date with fifteen weeks of work left in the ground. The superintendent wants to push the crew to sixty hours. The project manager wants to bring in a second crew. Somebody says "overtime is time and a half" and everyone nods, because that number sounds like it settles the argument. It does not settle anything. A construction overtime premium vs second crew calculator in Excel exists to replace that one number with the two numbers that actually decide it: what a burdened overtime hour really costs, and how much finished work that hour produces in week nine versus week one.</p>
+
+<p>Those two numbers move in opposite directions, and that is the whole problem. The cost of an overtime hour is lower than most contractors think. The output of an overtime hour is far lower than any of them think. By the time the second effect catches the first, you have spent forty thousand dollars buying negative production.</p>
+
+<p>This walks through the model, cell by cell, on a real interior fit-out. The scope is 4,800 remaining earned hours of framing and drywall on a 22,000 square foot office. The crew is eight. The base rate is $34.00 an hour. There are eleven weeks left and the work needs fifteen.</p>
+
+<h2>Overtime Is Not Time and a Half</h2>
+
+<p>The 50 percent premium applies to the wage. It does not apply to the cost of the employee, and the gap between those two things is larger than most estimators carry in their heads.</p>
+
+<p>Three components of labor burden behave differently on an overtime hour. Payroll taxes scale with the full overtime wage. Workers compensation and general liability, in most states, do not: under the NCCI Basic Manual payroll rules, the excess pay portion of overtime, the extra half, is excluded from the premium basis as long as your records break it out separately. And the fixed weekly cost of having a person on the payroll at all, health insurance, truck allowance, small tools, does not increase by one dollar when that person works ten more hours.</p>
+
+<p>Start with the straight-time variable rate in cell B17:</p>
+
+<p><code>=B5*(1+B11+B12+B13+B14)</code></p>
+
+<p>where B5 is the $34.00 base wage, B11 is FICA at 7.65 percent, B12 is FUTA and SUTA at 3.20 percent, B13 is workers compensation at 11.50 percent, and B14 is general liability at 1.80 percent. That returns $42.21. Then add the fixed cost in B18 with <code>=B17+B15/B6</code>, where B15 is $290 per employee per week and B6 is 40 hours. A straight-time hour costs $49.46.</p>
+
+<p>Now build the overtime hour in three separate cells rather than one. The split matters because each piece carries a different rule, and a single stacked formula hides exactly the thing you are trying to see. B19 holds the overtime wage:</p>
+
+<p><code>=B5*1.5</code></p>
+
+<p>B20 applies only the taxes that follow the full wage:</p>
+
+<p><code>=B19*(1+B11+B12)</code></p>
+
+<p>B21 applies workers comp and general liability to the base wage only, because the premium half is excluded:</p>
+
+<p><code>=B5*(B13+B14)</code></p>
+
+<p>Then B22 is <code>=B20+B21</code>, and the true multiplier is <code>=B22/B18</code>.</p>
+
+<table>
+<thead>
+<tr><th>Component</th><th>Straight-time hour</th><th>Overtime hour</th></tr>
+</thead>
+<tbody>
+<tr><td>Wage</td><td>$34.00</td><td>$51.00</td></tr>
+<tr><td>FICA 7.65%</td><td>$2.60</td><td>$3.90</td></tr>
+<tr><td>FUTA and SUTA 3.20%</td><td>$1.09</td><td>$1.63</td></tr>
+<tr><td>Workers comp 11.50%</td><td>$3.91</td><td>$3.91</td></tr>
+<tr><td>General liability 1.80%</td><td>$0.61</td><td>$0.61</td></tr>
+<tr><td>Fixed per employee, per hour</td><td>$7.25</td><td>$0.00</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$49.46</strong></td><td><strong>$61.06</strong></td></tr>
+</tbody>
+</table>
+
+<p>The burdened premium is 23 percent, not 50. On a job with a high workers comp class code and a rich benefits package, it drops closer to 15 percent. This is why overtime feels cheap when you price it, and it is genuinely cheap for the first two weeks. The mistake is not in this table. The mistake is in stopping here.</p>
+
+<p>Two caveats before you use these figures. FUTA and SUTA cap out early in the year, so if you are accelerating in the fourth quarter the marginal payroll tax on an overtime hour is 7.65 percent and the multiplier falls further. And on a Davis-Bacon job the overtime premium is computed on the basic hourly rate, not on base plus fringe, while the fringe itself is owed on every hour worked. Getting that backward on a prevailing wage payroll is a common and expensive audit finding.</p>
+
+<h2>The Input Nobody Has: Earned Hours</h2>
+
+<p>Every calculation past this point depends on a number that most contractors do not track. Not paid hours. Earned hours.</p>
+
+<p>An earned hour is the budgeted labor content of the work you actually installed. If your estimate carried 18,400 square feet of board at 0.052 hours per square foot, the drywall scope holds 957 earned hours. Hang 6,200 square feet this week and you earned 322 hours, whatever the timesheet says. In cell F12:</p>
+
+<p><code>=D12*E12</code></p>
+
+<p>with quantity installed in D12 and the budgeted unit rate in E12. Your performance factor is <code>=F12/G12</code>, earned over actual. Above 1.00 you are beating the estimate. At 0.84 you burned a hundred hours to install eighty-four hours of work.</p>
+
+<p>This means the weekly input to the model is a quantity survey, not a payroll report. Somebody walks the job every Friday and counts: linear feet of track set, sheets hung, corners taped. It takes twenty minutes. Without it the entire overtime question is unanswerable, because paid hours will tell you the crew worked fifty hours and say nothing at all about whether the building moved.</p>
+
+<p>This is also the reason so many acceleration disputes die. If the owner directed the acceleration and you want the cost back, you have to show a productivity loss, and a productivity loss is a comparison between an earned rate before and an earned rate after. A stack of certified payrolls proves you spent the money. It does not prove you got less for it.</p>
+
+<h2>The Overtime Efficiency Curve</h2>
+
+<p>The Business Roundtable published Report C-2, "Scheduled Overtime Effect on Construction Projects," in November 1980, and forty-five years later nobody has produced data that overturns it. On a 50-hour schedule, productivity falls about 10 percent in the early weeks and roughly 30 percent by the end of twelve continuous weeks. On schedules of 60 hours or more sustained past about two months, the report found the cumulative loss large enough that the job finishes later than the same crew would have finished on a 40-hour week.</p>
+
+<p>Read that last sentence again, because it is the finding the whole industry ignores. Not more expensive. Later.</p>
+
+<p>Build the curve as a lookup table. Rows are hours per week, columns are week bands, cells are efficiency factors:</p>
+
+<table>
+<thead>
+<tr><th>Hours per week</th><th>Weeks 1-2</th><th>Weeks 3-4</th><th>Weeks 5-8</th><th>Weeks 9-12</th><th>Week 13+</th></tr>
+</thead>
+<tbody>
+<tr><td>40</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+<tr><td>50</td><td>0.95</td><td>0.90</td><td>0.84</td><td>0.76</td><td>0.70</td></tr>
+<tr><td>60</td><td>0.92</td><td>0.85</td><td>0.77</td><td>0.68</td><td>0.62</td></tr>
+</tbody>
+</table>
+
+<p>Pull the factor with an INDEX and MATCH pair against a helper column that maps the week number to a band, using <code>=INDEX($H$5:$L$7,MATCH($B$30,$G$5:$G$7,0),MATCH($C24,$H$4:$L$4,0))</code>. If you have three years of your own weekly earned-hour history, replace these numbers with yours. Most contractors do not, and the published curve beats the assumption of 1.00 that is currently sitting in your schedule.</p>
+
+<p>Now the weekly grid. Paid hours in column D are <code>=B24*C24</code>, crew size times hours per person. Earned hours in column F are:</p>
+
+<p><code>=D24*E24</code></p>
+
+<p>Sum column F and compare it to the scope. That single comparison is the most useful cell in the workbook, and it is a pass or fail test that runs before any cost question:</p>
+
+<p><code>=IF(SUM(F24:F34)&lt;B3,"SHORT BY "&amp;TEXT(B3-SUM(F24:F34),"#,##0")&amp;" HOURS","CLOSES")</code></p>
+
+<h3>Running the capacity test first</h3>
+
+<p>Eight people, eleven weeks, 4,800 earned hours needed. The 40-hour baseline produces 320 earned hours per week, or 3,520 over eleven weeks. You are 1,280 earned hours short. That is the hole overtime has to fill.</p>
+
+<p>Push to sixty hours for all eleven weeks. On paper that is 8 times 60 times 11, or 5,280 paid hours against 4,800 needed, which reads as 480 hours of cushion. Run it through the curve instead:</p>
+
+<table>
+<thead>
+<tr><th>Weeks</th><th>Factor at 60 hrs</th><th>Earned hours per week</th><th>Band total</th></tr>
+</thead>
+<tbody>
+<tr><td>1 to 2</td><td>0.92</td><td>441.6</td><td>883.2</td></tr>
+<tr><td>3 to 4</td><td>0.85</td><td>408.0</td><td>816.0</td></tr>
+<tr><td>5 to 8</td><td>0.77</td><td>369.6</td><td>1,478.4</td></tr>
+<tr><td>9 to 11</td><td>0.68</td><td>326.4</td><td>979.2</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td><strong>4,156.8</strong></td></tr>
+</tbody>
+</table>
+
+<p>Six ten-hour days for eleven consecutive weeks, and you finish 643 hours short. The apparent cushion of 480 hours and the actual shortfall of 643 hours are separated by 1,123 hours of production that never existed. That is 23 percent of the entire remaining scope, evaporated into a factor nobody put in the schedule.</p>
+
+<p>Look at the last row. In weeks nine through eleven the sixty-hour crew produces 326.4 earned hours a week. A forty-hour crew produces 320. You are paying for twenty extra hours per person per week to gain six earned hours across the entire crew. At 50 hours the same weeks produce 304 earned hours, which is less than the forty-hour crew, while costing 25 percent more in payroll. The Business Roundtable said the job finishes later. This is the arithmetic of how.</p>
+
+<h2>Pricing the Second Crew Honestly</h2>
+
+<p>The second crew side of the model is where most comparisons cheat, because it is tempting to price four more people at the same rate as the first eight and call it done. Four things make a mobilized crew cost more than its wages.</p>
+
+<ul>
+<li>A learning curve. A crew landing on a running job runs at roughly 65 percent in week one, 80 percent in week two, 90 percent in week three, and 95 percent from week four. They are learning the layout, the submittal set, the gate rules, and where the material is stacked.</li>
+<li>Supervision. One superintendent covering two work faces is a superintendent covering neither. Carry a working lead at a higher rate, in this model $41.00 an hour for one of the four.</li>
+<li>Mobilization. A second set of stilts, screwguns, a laser, consumables, and in this case a scissor lift on monthly rental. Call it $2,400 in tools and $1,150 a month for the lift.</li>
+<li>The full fixed cost per employee, all $290 a week of it, which overtime does not trigger at all.</li>
+</ul>
+
+<p>Mobilize four people in week two and they run ten productive weeks:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Basis</th><th>Cost</th></tr>
+</thead>
+<tbody>
+<tr><td>3 journeymen, 10 weeks</td><td>1,200 paid hrs at $42.21</td><td>$50,653</td></tr>
+<tr><td>1 working lead, 10 weeks</td><td>400 paid hrs at $50.90</td><td>$20,361</td></tr>
+<tr><td>Fixed per employee</td><td>4 people, 10 weeks, $290</td><td>$11,600</td></tr>
+<tr><td>Tools and consumables</td><td>one time</td><td>$2,400</td></tr>
+<tr><td>Scissor lift</td><td>2.5 months at $1,150</td><td>$2,875</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>1,600 paid hours</strong></td><td><strong>$87,889</strong></td></tr>
+</tbody>
+</table>
+
+<p>Through the learning curve, those 1,600 paid hours deliver 1,440 earned hours: 104 in week two, 128 in week three, 144 in week four, then 152 a week through week eleven.</p>
+
+<p>Before any of that means anything, the model needs a gate that has nothing to do with money. How many independent work faces does the job have? Put the count in B40 and the test in B41:</p>
+
+<p><code>=IF(B40&lt;2,"ONE FACE: OVERTIME OR RESEQUENCE","SECOND CREW ELIGIBLE")</code></p>
+
+<p>Two crews stacked on one work face do not produce two crews of work. They produce trip hazards, material congestion, and a congestion factor around 0.88 applied to both. If the remaining scope is a single sequential run of corridor framing, the second crew is not an option at any price and the honest answer is to resequence or renegotiate the date. The second gate is availability. Four qualified people you cannot hire is a spreadsheet answer, not a plan.</p>
+
+<h2>The Three Paths, Side by Side</h2>
+
+<p>Original crew at forty hours holds efficiency at 1.00 and produces its full 3,520 earned hours. Add the second crew's 1,440 and the combined total is 4,960 against 4,800 needed.</p>
+
+<table>
+<thead>
+<tr><th>Path</th><th>Paid hours</th><th>Earned hours</th><th>Total labor cost</th><th>Cost per earned hour</th><th>Outcome</th></tr>
+</thead>
+<tbody>
+<tr><td>Baseline, 40 hrs, 15 weeks</td><td>4,800</td><td>4,800</td><td>$237,413</td><td>$49.46</td><td>Four weeks late</td></tr>
+<tr><td>Overtime, 60 hrs, 11 weeks</td><td>5,280</td><td>4,157</td><td>$281,560</td><td>$67.74</td><td>643 hours short, still late</td></tr>
+<tr><td>Second crew, 40 hrs, 11 weeks</td><td>5,120</td><td>4,960</td><td>$261,992</td><td>$52.82</td><td>On time, 160 hour cushion</td></tr>
+</tbody>
+</table>
+
+<p>The overtime path costs $19,569 more than the second crew path and still misses the date. It is not a cheaper way to hit the schedule. It is a more expensive way to miss it, and it arrives at the miss in week ten with a crew too burned out to run the punch list.</p>
+
+<p>Acceleration cost above baseline is $24,579 for the second crew, which buys the full four weeks of compression at $6,145 a week. The overtime path spends $44,148 to buy roughly two and a half weeks, then hands you the liquidated damages anyway.</p>
+
+<h2>The Crossover Is Three Weeks</h2>
+
+<p>Averages hide the decision. What you want is the cost of the next earned hour, not the average cost of all of them. Incremental cost divided by incremental earned hours, band by band, at fifty hours with eight people:</p>
+
+<table>
+<thead>
+<tr><th>Week band</th><th>Earned hrs per week</th><th>Gain over 40-hr week</th><th>Extra cost per week</th><th>Cost per incremental earned hour</th></tr>
+</thead>
+<tbody>
+<tr><td>1 to 2</td><td>380</td><td>+60</td><td>$4,884</td><td>$81</td></tr>
+<tr><td>3 to 4</td><td>360</td><td>+40</td><td>$4,884</td><td>$122</td></tr>
+<tr><td>5 to 8</td><td>336</td><td>+16</td><td>$4,884</td><td>$305</td></tr>
+<tr><td>9 to 12</td><td>304</td><td>-16</td><td>$4,884</td><td>No price exists</td></tr>
+<tr><td>Second crew, week 4 on</td><td>152</td><td>+152</td><td>$8,261</td><td>$58</td></tr>
+</tbody>
+</table>
+
+<p>An incremental earned hour costs $81 in week one and $305 in week six. From week nine there is no cost per incremental hour because there is no incremental hour: you pay $4,884 a week and the building moves backward relative to a normal schedule. Meanwhile the second crew delivers its incremental hours at $58 all the way through, or $62 once mobilization is amortized across the ten weeks.</p>
+
+<p>Run the same comparison cumulatively and the crossover appears. Overtime is cheaper per incremental earned hour through week three, at $81 then $81 then $92, against the second crew's $130 in its first week and $94 in its second. In week four the second crew reaches $80 while overtime has climbed to $98, and the two never touch again. By week eleven the cumulative figures are $249 for overtime and $61 for the second crew.</p>
+
+<p>That gives a decision rule you can apply in a meeting without opening the file. <strong>If the compression window is three weeks or less, run overtime.</strong> The crew is still fresh, there is no mobilization to absorb, and you can stop on any Friday. <strong>If it is four weeks or more, mobilize.</strong> Every week past the crossover, overtime costs multiples of the alternative and the multiple grows.</p>
+
+<h2>What the Model Cannot Price</h2>
+
+<p>Three things belong in the decision and not in the spreadsheet, and pretending otherwise is how a good model produces a bad call.</p>
+
+<p>Overtime is reversible. You can end it Friday afternoon at zero cost. A mobilized crew carries a commitment, and if the owner's inspection slips two weeks you are paying four people to look for work. On a schedule that is genuinely uncertain, that option has real value, and it is the strongest honest argument for a short overtime push.</p>
+
+<p>Overtime concentrates knowledge. On a punch-heavy or detail-heavy scope, eight people who know the job can outrun twelve where four are still asking questions. The 95 percent steady-state factor in the model is a planning number; on a complicated close-out it can be lower.</p>
+
+<p>And overtime burns the crew you need for the next job. Two of eight quitting in week eight is not a line item in this workbook, but replacing them costs about 26 earned hours each in ramp-up, plus recruiting, plus whatever the first job's schedule does while you are short-handed. Contractors who run sustained sixty-hour weeks tend to discover the bill on the job after this one.</p>
+
+<h2>Build It Before You Need It</h2>
+
+<p>The reason this decision usually gets made badly is timing. It comes up on a Tuesday afternoon in week nine with an owner on the phone, and nobody is going to build an efficiency curve and a burden model in that moment. So the crew goes to sixty hours, because it is the decision that requires no work to make.</p>
+
+<p>The inputs are not exotic. Base wage, four burden percentages, one fixed weekly cost per employee, a published efficiency curve, a learning curve, and a weekly quantity walk. Set it up on a job that is running fine, populate the earned hours column every Friday for a month, and you will have a live model and a real performance factor before the schedule pressure arrives. Then the answer takes ninety seconds and comes with a number you can put in front of the owner.</p>
+
+<p>The one habit that makes all of it work is the Friday quantity walk. Without earned hours you cannot see the efficiency loss, you cannot price the next hour, and you cannot recover a dime of a directed acceleration.</p>
+
+<p>If you want the labor burden, the crew tracking, and the weekly cost roll-up already wired together instead of starting from an empty sheet, our <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> carries the burdened rate calculation, the crew and cost code structure, and the committed versus actual reporting that this analysis plugs into. Add the efficiency curve and the earned hours column from this article and you have the full acceleration model on top of a budget that is already tracking the job. It is a considerably shorter path than building both halves during week nine.</p>`,
+  },
+  {
     slug: 'contractor-cash-conversion-cycle-calculator-excel',
     title: 'Contractor Cash Conversion Cycle Calculator in Excel: Why Profitable Jobs Run You Out of Money',
     metaTitle: 'Contractor Cash Conversion Cycle Calculator | SheetCraft',
