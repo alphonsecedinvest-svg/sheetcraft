@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>with quantity installed in D12 and the budgeted unit rate in E12. Your performance factor is <code>=F12/G12</code>, earned over actual. Above 1.00 you are beating the estimate. At 0.84 you burned a hundred hours to install eighty-four hours of work.</p>
 
-<p>This means the weekly input to the model is a quantity survey, not a payroll report. Somebody walks the job every Friday and counts: linear feet of track set, sheets hung, corners taped. It takes twenty minutes. Without it the entire overtime question is unanswerable, because paid hours will tell you the crew worked fifty hours and say nothing at all about whether the building moved.</p>
+<p>This means the weekly input to the model is a quantity survey, not a payroll report. Somebody walks the job every Friday and counts: linear feet of track set, sheets hung, corners taped. It takes twenty minutes. Without it the entire overtime question is unanswerable, because paid hours will tell you the crew worked fifty hours and say nothing at all about whether the building moved. If you are not tracking installed quantities yet, start with a <a href="/blog/construction-crew-productivity-rate-tracker-excel">crew productivity rate tracker</a> and let it run for a month before you need it for a decision like this one.</p>
 
 <p>This is also the reason so many acceleration disputes die. If the owner directed the acceleration and you want the cost back, you have to show a productivity loss, and a productivity loss is a comparison between an earned rate before and an earned rate after. A stack of certified payrolls proves you spent the money. It does not prove you got less for it.</p>
 
