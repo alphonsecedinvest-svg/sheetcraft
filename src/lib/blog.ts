@@ -16,6 +16,184 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-small-tools-consumables-cost-allocation-excel',
+    title: 'Construction Small Tools and Consumables Cost Allocation in Excel',
+    metaTitle: 'Construction Consumables Allocation Excel | SheetCraft',
+    metaDescription: 'Blades and bits run 2.6% of labor and hide in overhead. Allocate consumables by work type in Excel, then read the ticket count costing $28,390 a year.',
+    targetKeyword: 'construction small tools and consumables cost allocation Excel',
+    secondaryKeywords: ['small tools and consumables percentage of labor', 'construction consumables cost code', 'allocate consumables to jobs Excel', 'contractor supply run cost', 'construction job cost consumables tracking'],
+    excerpt: 'A commercial interiors sub spends $38,600 a year on blades, bits, and fuel cells, and none of it touches a job cost code. Building the allocation rate in Excel corrects a demo job by $1,476. The variance it exposes, 322 counter runs at $88.17 each, is worth $17,956 a year.',
+    publishedAt: '2026-09-05',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-small-tools-consumables-cost-allocation-excel.png',
+    imageAlt: 'Bare steel drill bits in a galvanized bin beside a chalk line reel, loose screws, and plain steel cutting discs on a plywood workbench',
+    content: `<p>Open any contractor's general ledger and you will find an account called "shop supplies" or "job materials, miscellaneous." It holds saw blades, drill bits, abrasive wheels, fuel cells for the gas nailers, layout paint, chalk, construction adhesive, sanding media, and the $14 box of screws somebody grabbed at the counter on Tuesday afternoon. On most commercial subcontractors it runs between 1.5 and 3 percent of direct labor cost. It almost never gets charged to a job. Construction small tools and consumables cost allocation in Excel is the standard fix for that, and it is worth doing.</p>
+
+<p>It is also worth roughly a tenth of what the exercise actually gives you.</p>
+
+<p>Here is the argument this article makes. Getting the allocation right moves a job's cost by one to two thousand dollars. That is real, and we will build it. But the moment you start charging consumables to jobs, the ledger starts answering a question nobody asked it: how often is a crew running out of material in the middle of a task and sending somebody to the supply house? On the company modeled below, that question is worth $17,956 a year, and it is invisible on the profit and loss statement because the dollars land in exactly the same account either way.</p>
+
+<p>The company: a commercial interiors subcontractor doing metal stud framing, drywall, and finish. Revenue $4.2 million. Fourteen field employees, 30,800 field hours a year, $1,480,000 of burdened field labor, which works out to $48.05 per field hour. Consumables spend for the year: $38,600, or 2.6 percent of labor cost.</p>
+
+<h2>Set the boundary before you set the rate</h2>
+
+<p>Most attempts at this die in week two, when somebody asks whether the $340 rotary hammer belongs in the pool. Settle it first, with a written rule, because the IRS already made you write one if you are expensing anything.</p>
+
+<p>A consumable is consumed by use. It has no resale value, its life is measured in days or weeks, and nobody would notice if it walked off the job. Blades, bits, abrasives, fasteners, fuel cells, glue, gloves, layout paint, string line, and blades again. These go in the pool and get allocated to jobs.</p>
+
+<p>A small tool has a life measured in months, it has a name or a number on it, and somebody gets annoyed when it disappears. Cordless drills, lasers, hammer drills, drywall lifts. These do not belong in a consumable pool. They belong in a tool pool with an internal rental rate, or on the fixed asset schedule, and the reason is that mixing them in makes the consumable rate jump every time somebody buys a laser, which destroys the signal you are building the rate for in the first place.</p>
+
+<p>The tax line is separate from the accounting line and worth knowing so you do not confuse the two. Under the de minimis safe harbor election in Treasury Regulation 1.263(a)-1(f), a taxpayer without an applicable financial statement can expense tangible property up to $2,500 per invoice or per item rather than capitalizing it, and $5,000 with an applicable financial statement. It requires a written accounting policy in place at the start of the tax year and a statement attached to the timely filed return. That threshold tells you what you can deduct now. It does not tell you what belongs in a consumable rate, and a $2,400 laser is deductible and still not a consumable.</p>
+
+<p>In the spreadsheet, the boundary is one column and one formula on the purchase register: <code>=IF(AND(D4&lt;$B$2,E4="consumed"),"CONSUMABLE","TOOL POOL")</code>, where B2 holds your own threshold, which for most subcontractors is somewhere between $75 and $200 and has nothing to do with the tax number.</p>
+
+<h2>Allocate on hours, not on labor dollars</h2>
+
+<p>The common advice is to allocate consumables as a percentage of direct labor cost. That is the wrong base, and the reason is physical.</p>
+
+<p>Blades wear out per hour of cutting. Bits dull per hole drilled. Fuel cells empty per shift of nailing. None of that has any relationship to what you pay the person holding the tool. Allocate on labor dollars and a crew running a $38 per hour foreman consumes 22 percent more blades, on paper, than an identical crew running a $31 per hour foreman doing the identical work. Give the whole field a raise in March and every job after March looks like it burned more consumables. It did not. The base moved.</p>
+
+<p>Allocate on field labor hours and the rate stays put when wages move, which means a rate you set in January is still meaningful in November. That is the entire test of a good allocation base.</p>
+
+<p>Blended rate, laid out at the top of the rate sheet:</p>
+
+<table>
+<tr><th>Cell</th><th>Item</th><th>Value</th></tr>
+<tr><td>B3</td><td>Field labor hours, trailing 12 months</td><td>30,800</td></tr>
+<tr><td>B4</td><td>Consumable pool, trailing 12 months</td><td>$38,600</td></tr>
+<tr><td>B5</td><td>Blended rate per field hour <code>=B4/B3</code></td><td>$1.25</td></tr>
+<tr><td>B6</td><td>Burdened labor cost per field hour</td><td>$48.05</td></tr>
+<tr><td>B7</td><td>Consumables as percent of labor <code>=B4/(B3&#42;B6)</code></td><td>2.6%</td></tr>
+</table>
+
+<p>A dollar twenty-five an hour. That is the number most contractors are missing from their bids entirely, and on a 2,000 hour job it is $2,500 that currently comes out of your fee.</p>
+
+<h2>Build the rate table in Excel</h2>
+
+<p>One rate for the whole company is better than no rate, and it is still wrong in a way that costs you work. Demolition eats blades. Taping eats almost nothing. If you carry one blended rate, every demo hour you bid is subsidized by every taping hour you bid, and you will win demo work you should have priced higher.</p>
+
+<p>Split the pool by work type. You need two things from your accounting system to do it: consumable purchases coded to a work type, and field hours coded to the same work types. If your job cost codes already split framing from hanging from finishing, you have both and did not know it.</p>
+
+<table>
+<tr><th>Work type</th><th>Field hours</th><th>Consumable spend</th><th>Rate per hour</th><th>vs blended</th></tr>
+<tr><td>Demolition and selective demo</td><td>3,400</td><td>$9,850</td><td>$2.90</td><td>2.3x</td></tr>
+<tr><td>Metal stud framing</td><td>8,900</td><td>$14,200</td><td>$1.60</td><td>1.3x</td></tr>
+<tr><td>Board hang</td><td>7,600</td><td>$8,400</td><td>$1.11</td><td>0.9x</td></tr>
+<tr><td>Tape and finish</td><td>7,300</td><td>$4,900</td><td>$0.67</td><td>0.5x</td></tr>
+<tr><td>Punch and layout</td><td>3,600</td><td>$1,250</td><td>$0.35</td><td>0.3x</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>30,800</strong></td><td><strong>$38,600</strong></td><td><strong>$1.25</strong></td><td><strong>1.0x</strong></td></tr>
+</table>
+
+<p>Each rate is <code>=C9/B9</code> filled down. The spread from $0.35 to $2.90 is a factor of eight, which is why the blended number is a poor tool for pricing a specific scope.</p>
+
+<p>To price a job, enter estimated hours by work type and let the sheet do the rest with <code>=SUMPRODUCT($C$9:$C$13,$D$9:$D$13)</code>, where column C carries the job's hours by type and column D carries the rates. One cell, no manual math, and it updates every time you refresh the rate table.</p>
+
+<h2>What one blended rate hides</h2>
+
+<p>Two jobs from the same year, same company, same crews. Job A is a hospital corridor: heavy selective demolition, then reframe, then a little board. Job B is a tenant finish-out: mostly hang and tape.</p>
+
+<table>
+<tr><th>Job</th><th>Hours</th><th>Blended at $1.25</th><th>By work type</th><th>Miss</th></tr>
+<tr><td>A, hospital corridor demo and reframe</td><td>1,850</td><td>$2,313</td><td>$3,789</td><td>Under by $1,476</td></tr>
+<tr><td>B, tenant finish-out</td><td>2,400</td><td>$3,000</td><td>$2,177</td><td>Over by $823</td></tr>
+</table>
+
+<p>The blended rate takes $823 out of the finish-out job's margin and hands it to the demo job, then reports both numbers to you as fact. Bid enough demo work off that picture and you build a backlog of jobs that price well on paper and finish thin.</p>
+
+<p>Now hold that thought, because $1,476 on a job is worth having and it is not the reason to build this. It is a 0.5 percent correction on a $310,000 job. If that were the whole payoff, you would be right to leave consumables in overhead and go sell something. The payoff is in the next section.</p>
+
+<p>This is also the point where consumables stop being a special case and become one pool among several. The same logic applies to supervision, the trailer, the dumpsters, and the truck fleet, and the choice of allocation base drives all of it. That larger question is worked through in <a href="/blog/construction-overhead-allocation-by-job-excel">allocating construction overhead by job in Excel</a>, which shows a $110,400 winner reported as a $6,500 loser purely on the choice of base.</p>
+
+<h2>The variance nobody reads is the ticket count</h2>
+
+<p>Once every job carries an expected consumable cost, every job also carries a variance. Most contractors look at the dollar variance, shrug because it is small, and stop.</p>
+
+<p>Look at a different column. Count the tickets.</p>
+
+<p>Thirty-eight thousand six hundred dollars of consumables delivered in 41 wholesale orders is a supply chain. The identical $38,600 delivered in 390 counter tickets from the box store down the road is 390 trips. The general ledger cannot tell these apart. The account balance is the same to the penny. The difference between them is about thirty thousand dollars of field labor that nobody has ever put a number on, because it is not sitting in the shop supplies account. It is sitting in your production labor cost codes, disguised as work.</p>
+
+<p>Two formulas turn the purchase register into that signal. Dollars per job: <code>=SUMIFS(Buy!$F:$F,Buy!$B:$B,$A18,Buy!$G:$G,"CONSUMABLE")</code>. Unplanned counter runs per job: <code>=COUNTIFS(Buy!$B:$B,$A18,Buy!$H:$H,"COUNTER",Buy!$F:$F,"&lt;"&amp;$B$25)</code>, where column H flags the vendor type and B25 holds a small-ticket threshold, typically $250.</p>
+
+<p>The flag that makes it a management tool rather than a report: <code>=IF(F18/E18&gt;1.4,"REVIEW","OK")</code> on the ratio of actual to expected. Anything above 1.4 is either a scope you mispriced or a crew that is buying its way through the week one trip at a time, and the ticket count tells you which.</p>
+
+<h2>What a supply run actually costs</h2>
+
+<p>Price the trip once, honestly, and put the number in a cell.</p>
+
+<table>
+<tr><th>Cell</th><th>Component</th><th>Value</th></tr>
+<tr><td>B31</td><td>Drive time, round trip</td><td>0.73 hr</td></tr>
+<tr><td>B32</td><td>Counter and parking time</td><td>0.25 hr</td></tr>
+<tr><td>B33</td><td>Crew drag on paired tasks while one person is gone</td><td>0.75 hr</td></tr>
+<tr><td>B34</td><td>Burdened labor rate</td><td>$48.05</td></tr>
+<tr><td>B35</td><td>Round trip miles</td><td>18</td></tr>
+<tr><td>B36</td><td>Marginal vehicle cost per mile</td><td>$0.28</td></tr>
+</table>
+
+<p>Labor cost of one run: <code>=(B31+B32+B33)&#42;B34</code>, which returns $83.13.</p>
+
+<p>Vehicle cost of one run: <code>=B35&#42;B36</code>, which returns $5.04.</p>
+
+<p>Total cost of one unplanned supply run, cell B39: <code>=B37+B38</code>, which returns <strong>$88.17</strong>.</p>
+
+<p>The crew drag line is the one people argue about and it is the one that matters. Hanging board is a two person task. When one of the two leaves for an hour, the other does not produce at his normal rate, he produces at maybe a quarter of it, and on a four person crew the effect ripples. Three quarters of an hour of drag per run is conservative on paired work and generous on solo work. Measure your own if you want, but do not set it to zero, because zero is the assumption that has been hiding this cost for the entire life of your company.</p>
+
+<p>Now count the year. The purchase register showed 322 counter tickets under $250 across all jobs.</p>
+
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Unplanned counter runs, trailing 12 months</td><td>322</td></tr>
+<tr><td>Cost per run</td><td>$88.17</td></tr>
+<tr><td>Annual cost of running out</td><td>$28,390</td></tr>
+<tr><td>Field hours consumed by supply runs</td><td>557</td></tr>
+<tr><td>Share of all field hours</td><td>1.8%</td></tr>
+<tr><td>Annual consumable pool, for comparison</td><td>$38,600</td></tr>
+<tr><td>Cost of running out, as share of the pool</td><td>73%</td></tr>
+</table>
+
+<p>The cost of running out of a $6 blade is 73 percent as large as every blade, bit, wheel, and cartridge the company bought all year. Cell for cell: <code>=B40&#42;B39</code> where B40 is the ticket count.</p>
+
+<p>And it is worse than a straight cash number, because those 557 hours were charged to production cost codes. They are inside your historical unit rates. When you pull last year's hours per 1,000 square feet of board to price next month's bid, you are pricing 1.8 percent of driving into the work and calling it production. You then either lose the job to somebody who is not carrying that freight, or you win it at a price that assumes you keep doing this.</p>
+
+<h2>The fix costs $7,000 of float and returns $17,956</h2>
+
+<p>The fix is not a policy memo about planning ahead. It is inventory, and inventory costs money, so price it like any other decision.</p>
+
+<p>Stock a sealed consumables box on each crew's truck: a defined list of blades, bits, wheels, fuel cells, tape, and fasteners, replenished weekly by a delivery from your wholesale supplier off a count sheet the shop hand fills out. Five crews, about $1,400 of stock per crew, so $7,000 of working capital sitting in trucks. That is the entire investment.</p>
+
+<table>
+<tr><th>Line</th><th>Amount</th></tr>
+<tr><td>Counter runs eliminated (322 down to 90)</td><td>232 runs</td></tr>
+<tr><td>Labor and vehicle recovered, 232 runs at $88.17</td><td>$20,455</td></tr>
+<tr><td>Shop hand time to run replenishment, 3 hr per week at $34.20</td><td>($4,720)</td></tr>
+<tr><td>Counter pricing premium recovered, 21% on the shifted volume</td><td>$2,221</td></tr>
+<tr><td><strong>Net annual return</strong></td><td><strong>$17,956</strong></td></tr>
+<tr><td>One time working capital float</td><td>$7,000</td></tr>
+</table>
+
+<p>The counter pricing line is the part contractors forget. Retail counter pricing on blades and abrasives runs roughly 20 percent above the wholesale sheet. This company put about $17,760 through counter tickets last year, which carries around $3,082 of pure premium, and shifting 72 percent of that volume to wholesale recovers $2,221 of it. You do not get all of it because some runs are genuinely unavoidable.</p>
+
+<p>Ninety runs a year survive on purpose. Special order items, tool failures, a scope change on Wednesday. Do not budget for zero. Budget for ninety, put the number in the sheet, and treat month over month drift above it as a signal rather than a moral failing.</p>
+
+<p>Set against the allocation refinement from earlier, the ranking is not close. Fixing the rate table is worth about $1,476 of accuracy on a demo job. Fixing what the rate table revealed is worth $17,956 a year and takes 401 field hours out of your unit rates, which is 1.3 percent off every labor number you bid.</p>
+
+<h2>Do this before your next bid goes out</h2>
+
+<p>Four things, in order, and none of them require new software.</p>
+
+<ol>
+<li>Export twelve months of purchases from the shop supplies account. Add two columns: vendor type (wholesale or counter) and work type. An afternoon.</li>
+<li>Build the rate table. Field hours by work type in one column, consumable spend by work type in the next, divide. You now have five rates instead of one guess.</li>
+<li>Count the counter tickets under $250 and multiply by your own trip cost. Do not use $88.17. Use your drive times, your burdened rate, your crew sizes. The number will not be small.</li>
+<li>Put the per hour rate into your estimate template as a line, not as a percentage buried in overhead. A bid that carries $2,500 of consumables as an explicit line survives a value engineering conversation. A bid that hides it in a markup does not.</li>
+</ol>
+
+<p>The reason this works is not that consumables are expensive. They are not. It is that consumables are the only cost on a construction project that gets bought in small amounts, frequently, by the person who is supposed to be building something. Every one of those purchases is a stopped tool, and the ledger entry is the only receipt you get for it.</p>
+
+<p>The tedious part is not the arithmetic, it is the structure: a purchase register that codes vendor type and work type, a rate table that recalculates when you refresh it, a per job variance that flags itself, and a trip cost that feeds off your own burdened labor rate instead of a number from an article. Our <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with that structure already wired, including the cost code framework, the committed versus actual variance logic, and the labor hour tracking that the consumable rate divides into. You point it at your last twelve months of purchases and you have five rates and a trip count by Friday, instead of building the sheet from a blank workbook and abandoning it in week two like the last three attempts.</p>`,
+  },
+  {
     slug: 'construction-overtime-premium-vs-second-crew-calculator-excel',
     title: 'Construction Overtime Premium vs Second Crew: An Excel Calculator That Prices Both',
     metaTitle: 'Construction Overtime vs Second Crew | SheetCraft',
