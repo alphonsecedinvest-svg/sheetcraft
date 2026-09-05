@@ -220,21 +220,21 @@ export const blogPosts: BlogPost[] = [
 
 <p>Start with the straight-time variable rate in cell B17:</p>
 
-<p><code>=B5*(1+B11+B12+B13+B14)</code></p>
+<p><code>=B5&#42;(1+B11+B12+B13+B14)</code></p>
 
 <p>where B5 is the $34.00 base wage, B11 is FICA at 7.65 percent, B12 is FUTA and SUTA at 3.20 percent, B13 is workers compensation at 11.50 percent, and B14 is general liability at 1.80 percent. That returns $42.21. Then add the fixed cost in B18 with <code>=B17+B15/B6</code>, where B15 is $290 per employee per week and B6 is 40 hours. A straight-time hour costs $49.46.</p>
 
 <p>Now build the overtime hour in three separate cells rather than one. The split matters because each piece carries a different rule, and a single stacked formula hides exactly the thing you are trying to see. B19 holds the overtime wage:</p>
 
-<p><code>=B5*1.5</code></p>
+<p><code>=B5&#42;1.5</code></p>
 
 <p>B20 applies only the taxes that follow the full wage:</p>
 
-<p><code>=B19*(1+B11+B12)</code></p>
+<p><code>=B19&#42;(1+B11+B12)</code></p>
 
 <p>B21 applies workers comp and general liability to the base wage only, because the premium half is excluded:</p>
 
-<p><code>=B5*(B13+B14)</code></p>
+<p><code>=B5&#42;(B13+B14)</code></p>
 
 <p>Then B22 is <code>=B20+B21</code>, and the true multiplier is <code>=B22/B18</code>.</p>
 
@@ -263,7 +263,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>An earned hour is the budgeted labor content of the work you actually installed. If your estimate carried 18,400 square feet of board at 0.052 hours per square foot, the drywall scope holds 957 earned hours. Hang 6,200 square feet this week and you earned 322 hours, whatever the timesheet says. In cell F12:</p>
 
-<p><code>=D12*E12</code></p>
+<p><code>=D12&#42;E12</code></p>
 
 <p>with quantity installed in D12 and the budgeted unit rate in E12. Your performance factor is <code>=F12/G12</code>, earned over actual. Above 1.00 you are beating the estimate. At 0.84 you burned a hundred hours to install eighty-four hours of work.</p>
 
@@ -292,9 +292,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Pull the factor with an INDEX and MATCH pair against a helper column that maps the week number to a band, using <code>=INDEX($H$5:$L$7,MATCH($B$30,$G$5:$G$7,0),MATCH($C24,$H$4:$L$4,0))</code>. If you have three years of your own weekly earned-hour history, replace these numbers with yours. Most contractors do not, and the published curve beats the assumption of 1.00 that is currently sitting in your schedule.</p>
 
-<p>Now the weekly grid. Paid hours in column D are <code>=B24*C24</code>, crew size times hours per person. Earned hours in column F are:</p>
+<p>Now the weekly grid. Paid hours in column D are <code>=B24&#42;C24</code>, crew size times hours per person. Earned hours in column F are:</p>
 
-<p><code>=D24*E24</code></p>
+<p><code>=D24&#42;E24</code></p>
 
 <p>Sum column F and compare it to the scope. That single comparison is the most useful cell in the workbook, and it is a pass or fail test that runs before any cost question:</p>
 
@@ -497,7 +497,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Cash tied up in column E converts float days into dollars at your monthly burn rate:</p>
 
-<p><code>=B8/$B$3*D8/30</code></p>
+<p><code>=B8/$B$3&#42;D8/30</code></p>
 
 <p>Note the subcontractor line runs negative. On a pay-when-paid clause your subs are lending you money, which is the single most important fact in this entire model and the one nobody puts in a spreadsheet.</p>
 
@@ -557,7 +557,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Everything above excludes retainage. Add it and the picture changes again. Retainage on this job is:</p>
 
-<p><code>=B2*B4</code></p>
+<p><code>=B2&#42;B4</code></p>
 
 <p>That is $48,000, accumulated across five months and released roughly 90 days after substantial completion. Call it day 240 on a job that finished on day 150.</p>
 
@@ -573,7 +573,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Switch to semi-monthly pay applications. The first period closes on day 15, the application goes out on day 20, certification lands on day 27, and the owner pays on day 57. That first receipt is:</p>
 
-<p><code>=B2/B3/2*(1-B4)</code></p>
+<p><code>=B2/B3/2&#42;(1-B4)</code></p>
 
 <p>It returns $43,200, and it arrives inside month two.</p>
 
@@ -599,7 +599,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Your material supplier offers 2/10 net 30. Taking the discount means paying on day 10 instead of day 30, which lengthens your float by 20 days and makes every number in this model worse. Price it anyway:</p>
 
-<p><code>=B31/(1-B31)*(365/B32)</code></p>
+<p><code>=B31/(1-B31)&#42;(365/B32)</code></p>
 
 <p>With 2 percent in B31 and 20 days in B32, that returns 37.2 percent annualized. On the $96,000 of material in Job A, the discount is worth $1,920 and the 20 days of extra borrowing on a 12 percent line costs $631. You clear $1,289 by making your cash conversion cycle worse.</p>
 
@@ -740,7 +740,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Premium in B11 applies the rate and then respects the carrier floor:</p>
 
-<p><code>=MAX(B10,B8/1000*B9)</code></p>
+<p><code>=MAX(B10,B8/1000&#42;B9)</code></p>
 
 <p>The coinsurance ratio in B14 is the number that decides what a claim is worth. Cap it at 1 so an over-insured file does not show a phantom bonus:</p>
 
@@ -752,7 +752,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Then model a loss. Put the restoration estimate in B16 and the net check in B17:</p>
 
-<p><code>=MAX(0,B16*B14-B12)</code></p>
+<p><code>=MAX(0,B16&#42;B14-B12)</code></p>
 
 <p>Two things about that formula. It multiplies the loss by the coinsurance ratio before subtracting the deductible, which is the order carriers apply it, and it floors at zero so a small loss under the deductible does not display as a negative recovery you might mistake for a number you owe.</p>
 
@@ -835,7 +835,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>That is $6.54 per covered day. The number the flipper believes he is paying, premium divided by days held, is $5.10. And the premium spent on days that were never delivered, in B41:</p>
 
-<p><code>=B11/B34*(B34-B35)</code></p>
+<p><code>=B11/B34&#42;(B34-B35)</code></p>
 
 <p>That is $597 of a $1,184 policy. Half the premium bought nothing, and 51 of the 232 days on title, 22 percent of the hold, had no coverage on a $214,000 structure.</p>
 
@@ -873,7 +873,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>Expected cost on the six month path assumes a 60 percent chance of running past six months, which is what this operator's last five projects actually did. Compute it in B44 as <code>=B42+B43*0.6</code> and set the probability from your own closed files, not from your plan.</p>
+<p>Expected cost on the six month path assumes a 60 percent chance of running past six months, which is what this operator's last five projects actually did. Compute it in B44 as <code>=B42+B43&#42;0.6</code> and set the probability from your own closed files, not from your plan.</p>
 
 <p>The six month path wins by $131. Take the twelve month term anyway, and not for the reason people usually give.</p>
 
@@ -974,11 +974,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Monthly interest, cell B17:</p>
 
-<p><code>=B5*B6/12</code></p>
+<p><code>=B5&#42;B6/12</code></p>
 
 <p>Weekly carry, cell B22, which is the unit every later decision uses:</p>
 
-<p><code>=B21*12/52</code></p>
+<p><code>=B21&#42;12/52</code></p>
 
 <p>The rest of the block has no multiplication in it and can sit in a plain column.</p>
 
@@ -1082,7 +1082,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The scenario engine takes a list price in B36 and weeks to contract in B37, and prices the outcome. Days on market at contract, cell B39:</p>
 
-<p><code>=B3+B37*7</code></p>
+<p><code>=B3+B37&#42;7</code></p>
 
 <p>Months past the median, cell B40:</p>
 
@@ -1090,7 +1090,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Staleness discount, cell B41:</p>
 
-<p><code>=B40*B30</code></p>
+<p><code>=B40&#42;B30</code></p>
 
 <p>Total discount, cell B42:</p>
 
@@ -1098,15 +1098,15 @@ export const blogPosts: BlogPost[] = [
 
 <p>Expected closing price, cell B43:</p>
 
-<p><code>=B36*(1-B42)</code></p>
+<p><code>=B36&#42;(1-B42)</code></p>
 
 <p>Selling costs, cell B44:</p>
 
-<p><code>=B43*B12</code></p>
+<p><code>=B43&#42;B12</code></p>
 
 <p>Carry through closing, cell B45, where B38 holds the escrow weeks:</p>
 
-<p><code>=(B37+B38)*B22</code></p>
+<p><code>=(B37+B38)&#42;B22</code></p>
 
 <p>Net at closing, cell B48, after the extension fee from the next section:</p>
 
@@ -1126,7 +1126,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Extension fee, cell B47:</p>
 
-<p><code>=IF(B46&gt;B14,B5*B15,0)</code></p>
+<p><code>=IF(B46&gt;B14,B5&#42;B15,0)</code></p>
 
 <p>On a $221,000 balance, two points is $4,420. That is not a rounding item. It is six and a half weeks of carry arriving in a single wire, triggered by crossing one date.</p>
 
@@ -1265,7 +1265,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>In the model, B5 holds the visible rehab estimate and B6 holds the contingency percentage from that table. Total rehab exposure lives in B15.</p>
 
-<p><code>=B5*(1+B6)</code></p>
+<p><code>=B5&#42;(1+B6)</code></p>
 
 <p>Four exterior signals justify jumping a full row on that table regardless of what the listing says. No condenser unit outside on a house that should have central air means the copper is gone and the interior lines probably went with it. Boarded windows on the second floor mean the roof leaked long enough that someone gave up. Standing water against the foundation after a dry week means a grading and drainage line item you have not budgeted. A meter pulled by the utility, visible as a locked ring or a missing meter can, means the service was condemned or the house has been dark through at least one winter.</p>
 
@@ -1305,13 +1305,13 @@ export const blogPosts: BlogPost[] = [
 
 <p>Now the calculated block. Keep each line in its own cell. Collapsing them into one long formula is how you end up unable to explain your ceiling to a partner at 9:45 in the morning.</p>
 
-<p>Total rehab exposure in B15: <code>=B5*(1+B6)</code></p>
+<p>Total rehab exposure in B15: <code>=B5&#42;(1+B6)</code></p>
 
-<p>Holding cost in B16: <code>=B7*B8</code></p>
+<p>Holding cost in B16: <code>=B7&#42;B8</code></p>
 
-<p>Selling cost in B17: <code>=B3*B9</code></p>
+<p>Selling cost in B17: <code>=B3&#42;B9</code></p>
 
-<p>Required profit in B18: <code>=B3*B4</code></p>
+<p>Required profit in B18: <code>=B3&#42;B4</code></p>
 
 <p>Everything you will spend that is not the bid, in B19: <code>=B15+B16+B17+B11+B12+B13+B14</code></p>
 
@@ -1420,7 +1420,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B11</td><td>Months held</td><td>7</td></tr>
 </table>
 
-<p>Selling costs come off the sale price, not off a guess. Put <code>=B4*B8</code> in B9 and you get $24,430 at 7 percent, which covers a 6 percent commission plus title, transfer tax, and the concession you will end up giving at inspection. Net profit before tax in B10 is <code>=B4-B5-B6-B7-B9</code>, which lands on $60,000.</p>
+<p>Selling costs come off the sale price, not off a guess. Put <code>=B4&#42;B8</code> in B9 and you get $24,430 at 7 percent, which covers a 6 percent commission plus title, transfer tax, and the concession you will end up giving at inspection. Net profit before tax in B10 is <code>=B4-B5-B6-B7-B9</code>, which lands on $60,000.</p>
 
 <table>
 <tr><th>Cell</th><th>Tax profile input</th><th>Example</th></tr>
@@ -1437,29 +1437,29 @@ export const blogPosts: BlogPost[] = [
 
 <h3>The dealer path</h3>
 
-<p>Self employment income is not the whole profit. Start with <code>=B10*0.9235</code> in B23, which gives $55,410 on a $60,000 flip. The 92.35 percent factor exists because the employer half of the tax is not itself taxed.</p>
+<p>Self employment income is not the whole profit. Start with <code>=B10&#42;0.9235</code> in B23, which gives $55,410 on a $60,000 flip. The 92.35 percent factor exists because the employer half of the tax is not itself taxed.</p>
 
-<p>Split the two halves of the tax, because they cap differently. Put the remaining Social Security room in B24 with <code>=MAX(0,B18-B19)</code>, then the Social Security piece in B25 with <code>=MIN(B23,B24)*0.124</code>, which is $6,871 here.</p>
+<p>Split the two halves of the tax, because they cap differently. Put the remaining Social Security room in B24 with <code>=MAX(0,B18-B19)</code>, then the Social Security piece in B25 with <code>=MIN(B23,B24)&#42;0.124</code>, which is $6,871 here.</p>
 
-<p>Medicare has no cap. B26 is <code>=B23*0.029</code> for $1,607, and total self employment tax in B27 is <code>=B25+B26</code>, or $8,478.</p>
+<p>Medicare has no cap. B26 is <code>=B23&#42;0.029</code> for $1,607, and total self employment tax in B27 is <code>=B25+B26</code>, or $8,478.</p>
 
-<p>Half of that is deductible above the line, so B28 holds <code>=B27*0.5</code> for $4,239. That deduction is the reason the ordinary income base is never the same as the profit.</p>
+<p>Half of that is deductible above the line, so B28 holds <code>=B27&#42;0.5</code> for $4,239. That deduction is the reason the ordinary income base is never the same as the profit.</p>
 
-<p>If the Section 199A deduction is available, B29 carries the qualified business income base and B30 takes twenty percent of it with <code>=B29*0.2</code>. Leave B20 at zero for the base case. At real flip volume the deduction is frequently limited, and the model that assumes it is the model that surprises you in April.</p>
+<p>If the Section 199A deduction is available, B29 carries the qualified business income base and B30 takes twenty percent of it with <code>=B29&#42;0.2</code>. Leave B20 at zero for the base case. At real flip volume the deduction is frequently limited, and the model that assumes it is the model that surprises you in April.</p>
 
-<p>Ordinary taxable amount in B31 is <code>=B10-B28-B30</code>, and federal income tax in B32 is <code>=B31*B13</code>, or $13,383 at 24 percent with the QBI switch off.</p>
+<p>Ordinary taxable amount in B31 is <code>=B10-B28-B30</code>, and federal income tax in B32 is <code>=B31&#42;B13</code>, or $13,383 at 24 percent with the QBI switch off.</p>
 
-<p>State tax runs on a different base, because Section 199A is a below the line deduction that does not reduce adjusted gross income. B33 is <code>=B10-B28</code> and B34 is <code>=B33*B17</code>, or $2,788 at 5 percent.</p>
+<p>State tax runs on a different base, because Section 199A is a below the line deduction that does not reduce adjusted gross income. B33 is <code>=B10-B28</code> and B34 is <code>=B33&#42;B17</code>, or $2,788 at 5 percent.</p>
 
 <p>Total dealer tax in B35 is <code>=B27+B32+B34</code>, which is $24,649. After tax profit in B36 is <code>=B10-B35</code>, or $35,351.</p>
 
 <h3>The investor path</h3>
 
-<p>This side is shorter. B39 holds the holding period in months, B40 tests it with <code>=IF(B39>12,1,0)</code>, and B41 picks the rate with <code>=IF(B40=1,B14,B13)</code>. Federal tax on the gain in B42 is <code>=B10*B41</code>, or $9,000 at the long term rate.</p>
+<p>This side is shorter. B39 holds the holding period in months, B40 tests it with <code>=IF(B39>12,1,0)</code>, and B41 picks the rate with <code>=IF(B40=1,B14,B13)</code>. Federal tax on the gain in B42 is <code>=B10&#42;B41</code>, or $9,000 at the long term rate.</p>
 
-<p>NIIT applies on this side, because a passive investor is not materially participating in a trade or business. B43 carries the gain subject to the surtax and B44 is <code>=B43*B16</code>, or $2,280.</p>
+<p>NIIT applies on this side, because a passive investor is not materially participating in a trade or business. B43 carries the gain subject to the surtax and B44 is <code>=B43&#42;B16</code>, or $2,280.</p>
 
-<p>State tax in B45 is <code>=B10*B17</code> for $3,000. Total investor tax in B46 is <code>=B42+B44+B45</code> at $14,280, and after tax profit in B47 is <code>=B10-B46</code>, or $45,720.</p>
+<p>State tax in B45 is <code>=B10&#42;B17</code> for $3,000. Total investor tax in B46 is <code>=B42+B44+B45</code> at $14,280, and after tax profit in B47 is <code>=B10-B46</code>, or $45,720.</p>
 
 <p>The number you actually care about lives in one cell: <code>=B47-B36</code>. On this deal, at this bracket, dealer status costs $10,369.</p>
 
@@ -1486,7 +1486,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Holding costs on this deal were $14,570 over seven months. Let the sheet derive the monthly carry in B51 with <code>=B7/B11</code>, which is $2,081, and the extra months in B50 with <code>=B39-B11</code>, which is six.</p>
 
-<p>Extra carry in B52 is <code>=B50*B51</code>, or $12,489. That is the cash price of converting a seven month flip into a thirteen month hold, and every dollar of it is hard cost: interest, property tax, insurance, utilities, and the lawn.</p>
+<p>Extra carry in B52 is <code>=B50&#42;B51</code>, or $12,489. That is the cash price of converting a seven month flip into a thirteen month hold, and every dollar of it is hard cost: interest, property tax, insurance, utilities, and the lawn.</p>
 
 <table>
 <tr><th>Bracket</th><th>Tax saved by a 13 month hold</th><th>Six months extra carry</th><th>Net before risk</th><th>Net at 60% odds of winning the argument</th></tr>
@@ -1497,7 +1497,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>37%</td><td>$14,618</td><td>$12,489</td><td>plus $2,129</td><td>minus $3,718</td></tr>
 </table>
 
-<p>The last column decides it. You do not get the tax saving by holding longer. You get it by holding longer and then winning the dealer status argument, and a taxpayer with four closings in the same calendar year does not win that argument. Put your honest odds in B55, compute the weighted saving in B56 with <code>=B53*B55</code>, and net the carry in B57 with <code>=B56-B52</code>. Every bracket goes negative.</p>
+<p>The last column decides it. You do not get the tax saving by holding longer. You get it by holding longer and then winning the dealer status argument, and a taxpayer with four closings in the same calendar year does not win that argument. Put your honest odds in B55, compute the weighted saving in B56 with <code>=B53&#42;B55</code>, and net the carry in B57 with <code>=B56-B52</code>. Every bracket goes negative.</p>
 
 <p>That table is generous, too. It charges nothing for six more months of market exposure on a $349,000 asset, nothing for the $80,000 of equity you cannot redeploy into the next purchase, and nothing for the fact that a kitchen finished in March photographs worse in September. Price those in and the strategy is not close.</p>
 
@@ -1556,9 +1556,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>The underpayment penalty is the federal short term rate plus three points, which has run 7 to 8 percent in recent years. Miss $18,000 of federal tax for nine months at 8 percent and you paid $1,080 for the privilege of not modeling it.</p>
 
-<p>Build the safe harbor test into the same sheet. Prior year total tax goes in B80 and prior year AGI in B82. The multiplier in B81 is <code>=IF(B82>150000,1.1,1)</code>, the prior year safe harbor in B83 is <code>=B80*B81</code>, and the quarterly payment is <code>=B83/4</code>.</p>
+<p>Build the safe harbor test into the same sheet. Prior year total tax goes in B80 and prior year AGI in B82. The multiplier in B81 is <code>=IF(B82>150000,1.1,1)</code>, the prior year safe harbor in B83 is <code>=B80&#42;B81</code>, and the quarterly payment is <code>=B83/4</code>.</p>
 
-<p>The current year test in B85 is <code>=B35*0.9</code>, and what you have to pay in to stay penalty free is <code>=MIN(B83,B85)</code>.</p>
+<p>The current year test in B85 is <code>=B35&#42;0.9</code>, and what you have to pay in to stay penalty free is <code>=MIN(B83,B85)</code>.</p>
 
 <p>With $31,000 of prior year tax and $205,000 of prior year AGI, the prior year harbor is $34,100 and the current year test is $22,184, so the current year number governs. That is the practical rule for lumpy income: recompute the 90 percent test after every closing rather than wiring a fixed quarter of last year's tax into a year that may look nothing like it.</p>
 
@@ -1652,13 +1652,13 @@ export const blogPosts: BlogPost[] = [
 
 <p>The opening balance in the first year pulls the current balance with <code>=B7</code>, and every year after that pulls the prior close with <code>=G31</code>.</p>
 
-<p>The contribution escalates on its own line: <code>=C31*(1+$B$5)</code></p>
+<p>The contribution escalates on its own line: <code>=C31&#42;(1+$B$5)</code></p>
 
 <p>The inflation factor gets its own column so the cost formula stays readable: <code>=(1+$B$6)^A31</code></p>
 
-<p>The inflated cost is then just <code>=D31*E31</code></p>
+<p>The inflated cost is then just <code>=D31&#42;E31</code></p>
 
-<p>The closing balance is <code>=B31+C31-F31</code>, and your exposure in any deficit year is <code>=IF(G31&lt;0,-G31*$B$4,0)</code></p>
+<p>The closing balance is <code>=B31+C31-F31</code>, and your exposure in any deficit year is <code>=IF(G31&lt;0,-G31&#42;$B$4,0)</code></p>
 
 <table>
 <thead>
@@ -1684,7 +1684,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>A $389,188 shortfall does not automatically mean a check for $8,173. Boards have three instruments, they pick between them by vote, and your model has to price all three because you do not get to choose.</p>
 
-<p>For the loan option, size the payment with <code>=PMT(B26/12,B27,-B25)</code> where B25 is the deficit, B26 is 7.5 percent and B27 is 144 months. That returns $4,107 a month for the association. Your share is <code>=B28*$B$4</code>, or $86.</p>
+<p>For the loan option, size the payment with <code>=PMT(B26/12,B27,-B25)</code> where B25 is the deficit, B26 is 7.5 percent and B27 is 144 months. That returns $4,107 a month for the association. Your share is <code>=B28&#42;$B$4</code>, or $86.</p>
 
 <table>
 <thead>
@@ -1721,7 +1721,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Building A looks like the disciplined association and Building B looks like the one that cannot control costs. It is the reverse. A board holding dues at 2.1 percent growth while the reserve sits at 24.7 percent funded is not being efficient, it is deferring, and deferral is how you get an assessment instead of an increase. Building B's owners are already paying for their roof. Building A's owners are going to pay for theirs in one lump, plus 27 percent of construction inflation, plus interest if the board borrows.</p>
 
-<p>That does not automatically make B the better buy, and the model will tell you which one wins for your hold period. A's advantage is $120 a month, or $1,440 a year. A's exposure is $8,173 landing in year 6. The crossover is <code>=B50/(B51*12)</code>, or 5.7 years. Exit before then and A wins. Hold past it and B wins. The trap is that the exit you were counting on is precisely the exit that gets harder, which is the next section.</p>
+<p>That does not automatically make B the better buy, and the model will tell you which one wins for your hold period. A's advantage is $120 a month, or $1,440 a year. A's exposure is $8,173 landing in year 6. The crossover is <code>=B50/(B51&#42;12)</code>, or 5.7 years. Exit before then and A wins. Hold past it and B wins. The trap is that the exit you were counting on is precisely the exit that gets harder, which is the next section.</p>
 
 <h2>The financing test changed this month</h2>
 
@@ -1827,11 +1827,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Projected annual tax:</p>
 
-<p><code>B14 =B7*(1+B10)</code></p>
+<p><code>B14 =B7&#42;(1+B10)</code></p>
 
 <p>Projected annual insurance:</p>
 
-<p><code>B15 =B8*(1+B11)</code></p>
+<p><code>B15 =B8&#42;(1+B11)</code></p>
 
 <p>Then the four numbers that drive everything downstream. Projected annual disbursements in B16 with <code>=B14+B15+B9</code>, which returns $6,250. Required monthly deposit in B17 with <code>=B16/12</code>, which returns $520.83. The maximum cushion the servicer is allowed to hold in B18 with <code>=B16/6</code>, which returns $1,041.67. That cushion figure is the target your projected low point has to clear.</p>
 
@@ -1913,7 +1913,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Annual debt service is the one place the model needs principal and interest alone rather than the full payment, so keep it in its own cell:</p>
 
-<p><code>B31 =B4*12</code></p>
+<p><code>B31 =B4&#42;12</code></p>
 
 <p>A DSCR of 1.03 is below the 1.20 or 1.25 minimum most portfolio lenders set. The escrow analysis did not just cost you a year of cash flow. It quietly closed the refinance you were planning for month eighteen, and you will discover that at application, months after the letter you filed away.</p>
 
@@ -2017,11 +2017,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Your new assessed value is the purchase price scaled by the ratio:</p>
 
-<p><code>B15 =B4*B9</code></p>
+<p><code>B15 =B4&#42;B9</code></p>
 
 <p>Your new annual tax is that value at the full local rate, plus whatever exemptions you are about to lose:</p>
 
-<p><code>B16 =B15*B10+B11</code></p>
+<p><code>B16 =B15&#42;B10+B11</code></p>
 
 <p>The delta is the number that matters, and the monthly version of it is the number your lender is about to get wrong:</p>
 
@@ -2035,7 +2035,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>In the duplex that returns 0.49 percent against a published rate of 1.20 percent. The seller is paying forty-one percent of the going rate, which means their assessed value is stale and a reset is coming regardless of which family you are in. Flag it automatically:</p>
 
-<p><code>B19 =IF(B14&lt;B10*0.75,"RESET RISK, MODEL IT","ASSESSMENT IS CURRENT")</code></p>
+<p><code>B19 =IF(B14&lt;B10&#42;0.75,"RESET RISK, MODEL IT","ASSESSMENT IS CURRENT")</code></p>
 
 <p>This single formula catches the case that costs the most money, because a seller whose bill is close to the going rate cannot hurt you much and a seller whose bill is half the going rate can end the deal.</p>
 
@@ -2049,7 +2049,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The second is the principal residence exemption. If you are buying a house the seller lived in, that exemption was shielding eighteen mills of school operating tax. A rental does not qualify. So you are not just paying the higher rate on a bigger number, you are paying a different rate. Split the millage calculation into two cells so the two effects stay legible:</p>
 
-<p><code>B46 =B44/1000</code> converts taxable value to thousands, then <code>B47 =B46*B45</code> applies the non-homestead millage.</p>
+<p><code>B46 =B44/1000</code> converts taxable value to thousands, then <code>B47 =B46&#42;B45</code> applies the non-homestead millage.</p>
 
 <table>
 <thead>
@@ -2073,9 +2073,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>For the duplex closing October 15, that supplemental covers eight and a half months of the $2,724 delta, roughly $1,930, payable on its own schedule. Model year one as a blend rather than a single number. Two cells, not one:</p>
 
-<p><code>B40 =B8/12*B12</code> is the portion still billed at the old rate.</p>
+<p><code>B40 =B8/12&#42;B12</code> is the portion still billed at the old rate.</p>
 
-<p><code>B41 =B16/12*(12-B12)</code> is the portion billed at the new one, and <code>B42 =B40+B41</code> is what actually leaves your account in year one.</p>
+<p><code>B41 =B16/12&#42;(12-B12)</code> is the portion billed at the new one, and <code>B42 =B40+B41</code> is what actually leaves your account in year one.</p>
 
 <h3>The escrow shortage that reprices your mortgage payment</h3>
 
@@ -2187,7 +2187,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Inputs go in B4 through B8: monthly rent $1,450 in B4, balance owed today $2,900 in B6, deposit held $1,450 in B7, and your own hourly rate in B8, here $55. B5 converts rent into the unit the whole model runs on, which is a day.</p>
 
-<p><code>=B4*12/365</code></p>
+<p><code>=B4&#42;12/365</code></p>
 
 <p>That returns $47.67. Every day between the decision and a paying tenant costs $47.67, whether a judge, a contractor, or a listing photographer is responsible for it.</p>
 
@@ -2199,7 +2199,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Ninety-four days on the eviction path, 45 on the other. Row 15 turns that into money.</p>
 
-<p><code>=B14*$B$5</code></p>
+<p><code>=B14&#42;$B$5</code></p>
 
 <p>Lost rent lands at $4,481 versus $2,145. Before a single legal dollar is spent, the two paths are already $2,336 apart.</p>
 
@@ -2209,7 +2209,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Rows 17 through 22 hold the spending. Court and process costs of $355 in B17 and $0 in C17. Legal at $650 in B18, and $150 in C18, because a cash for keys deal needs a written mutual termination and release drafted or reviewed by a lawyer, and paying for that is not optional. Property removal at $400 in B19 and $0 in C19. Hours in row 20, 12 for the eviction and 4 for the negotiation, priced in row 21.</p>
 
-<p><code>=B20*$B$8</code></p>
+<p><code>=B20&#42;$B$8</code></p>
 
 <p>Make-ready in row 22 is where landlords flinch: $2,900 for the eviction path against $1,400 for a voluntary handover. That gap is not a guess and it is not punishment. A tenant who is being removed has no incentive to leave anything in good shape, and a tenant who is being paid at the door has every incentive, because you are going to inspect the unit before the money changes hands. Row 23 is the cash payment itself, $0 for eviction and $1,200 for the offer you are testing.</p>
 
@@ -2256,7 +2256,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Put that face value in B29 as a sum of B6, B17, and B18, which is $3,905. Then put your collection rate in B30 and multiply into B31, which is the cell row 25 pulls from as a negative.</p>
 
-<p><code>=B29*B30</code></p>
+<p><code>=B29&#42;B30</code></p>
 
 <p>The entire honesty of the model lives in B30. If you have never collected on an eviction judgment, the correct input is zero. Not 25 percent because a collections firm quoted you a contingency, not 50 percent because the judgment is legally valid for ten years. Zero, until your own bank statement proves otherwise. The model above uses 12 percent and produces $469, which is generous.</p>
 
@@ -2276,13 +2276,13 @@ export const blogPosts: BlogPost[] = [
 
 <p>The obvious objection is real: the tenant takes the offer, stays, and you have lost a week. Model it instead of arguing about it. Row 34 is the failure branch, which is the full eviction cost plus the days the negotiation consumed.</p>
 
-<p><code>=B27+$B$5*C11</code></p>
+<p><code>=B27+$B$5&#42;C11</code></p>
 
 <p>That is $7,861. Now split the expected value across two cells so each formula stays readable. Put your honest success probability in B35, say 80 percent. Row 36 holds the success side, row 37 the failure side, and row 38 adds them.</p>
 
-<p><code>=C27*$B$35</code></p>
+<p><code>=C27&#42;$B$35</code></p>
 
-<p><code>=B34*(1-$B$35)</code></p>
+<p><code>=B34&#42;(1-$B$35)</code></p>
 
 <p>The sum is $4,504, still $3,023 below filing. But the sharper output is the break-even probability, which is the success rate at which you would be indifferent.</p>
 
@@ -2362,23 +2362,23 @@ export const blogPosts: BlogPost[] = [
 
 <p>Start with the rent base. Put monthly rent in B4 and door count in B5, then compute gross scheduled rent per door.</p>
 
-<p><code>=B4*12</code></p>
+<p><code>=B4&#42;12</code></p>
 
 <p>That returns $21,600. Multiply by doors in B18 for the portfolio total of $86,400. Managers bill on collected rent, not scheduled rent, so B7 holds the vacancy rate you expect under professional management, here 5 percent.</p>
 
-<p><code>=B18*(1-B7)</code></p>
+<p><code>=B18&#42;(1-B7)</code></p>
 
 <p>Collected rent lands at $82,080, and the management fee in B20 comes off that number.</p>
 
-<p><code>=B19*B8</code></p>
+<p><code>=B19&#42;B8</code></p>
 
 <p>Now the three charges nobody quotes. Turnover drives two of them, so B11 holds your annual turnover rate, here 40 percent, meaning a tenant stays about 30 months.</p>
 
-<p><code>=B5*B11</code></p>
+<p><code>=B5&#42;B11</code></p>
 
 <p>That is 1.6 turns a year across four doors. Each turn triggers a tenant placement fee, typically 50 to 100 percent of one month of rent. At 75 percent in B9, the fee per turn is $1,350, and the annual placement cost is $2,160. Every door that does not turn generates a renewal fee instead, usually $150 to $300.</p>
 
-<p><code>=(B5-B21)*B10</code></p>
+<p><code>=(B5-B21)&#42;B10</code></p>
 
 <p>The last one is the quiet one. Most managers add a coordination markup of 8 to 12 percent on every repair invoice they process. On $1,400 of annual repairs per door, a 10 percent markup is $140 a door, and it never appears on a fee schedule as a percentage of rent.</p>
 
@@ -2421,11 +2421,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Two of those rows deserve a formula rather than a typed total, because they scale differently. Turn work scales with turnover.</p>
 
-<p><code>=(B31+B32)*B21</code></p>
+<p><code>=(B31+B32)&#42;B21</code></p>
 
 <p>Recurring work scales with doors, and monthly hours have to be annualized before anything else touches them.</p>
 
-<p><code>=(B33*12)+B34+B35</code></p>
+<p><code>=(B33&#42;12)+B34+B35</code></p>
 
 <p>That returns 19.3 hours per door per year, which multiplied by B5 gives 77.2. Add turn hours, renewal hours, and the books, and the four door portfolio costs 120.8 hours. Divide by 48 working weeks and it reads as 2.5 hours a week, which is exactly why the number feels small and is not.</p>
 
@@ -2443,7 +2443,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Put your realistic self-managed vacancy rate in B6 and the managed rate in B7, then price the spread.</p>
 
-<p><code>=B18*B54</code></p>
+<p><code>=B18&#42;B54</code></p>
 
 <p>With B54 holding the 3 point gap between 8 percent and 5 percent, the answer is $2,592 a year on four doors. That is 40 percent of the entire management fee, paid in rent you never collected, and it appears nowhere in your bank statement because you cannot see money that did not arrive.</p>
 
@@ -2455,7 +2455,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Security deposit statutes are the most common trap. Miss the itemization deadline in your state and courts routinely award the tenant two to three times the deposit plus fees. Model a 4 percent chance per move out against a $4,500 exposure.</p>
 
-<p><code>=B56*B57</code></p>
+<p><code>=B56&#42;B57</code></p>
 
 <p>That is $180 per turn, or $288 a year at 1.6 turns. Add a per door provision of $35.50 for a defective eviction notice that has to be refiled, and the total risk provision is $430 a year across four doors.</p>
 
@@ -2473,7 +2473,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>That is $42.59 an hour before tax. Apply your marginal rate in B14, because avoided fees are additional taxable rental income and are not sheltered unless depreciation covers them.</p>
 
-<p><code>=B65*(1-B14)</code></p>
+<p><code>=B65&#42;(1-B14)</code></p>
 
 <p>At 24 percent, the real answer is $32.37 an hour. Now extend the model across door counts and something counterintuitive shows up.</p>
 
@@ -2572,7 +2572,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>TRIR is the count of OSHA recordable cases per 100 full time workers per year. The formula standardizes on 200,000 hours, which is 100 people working 40 hours a week for 50 weeks.</p>
 
-<p><code>=(B5*200000)/B4</code></p>
+<p><code>=(B5&#42;200000)/B4</code></p>
 
 <p>B5 is your recordable case count for the year. B4 is total hours actually worked by every employee. That is the whole calculation, and its weakness is the denominator. At 200,000 hours the formula behaves like a rate. At 72,100 hours it behaves like a coin flip with a $3.1 million payout.</p>
 
@@ -2631,7 +2631,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>DART is the count of cases involving days away, restricted work, or transfer, and most prequal systems weight it more heavily than TRIR because it separates a laceration from a back injury.</p>
 
-<p><code>=(B8*200000)/B4</code></p>
+<p><code>=(B8&#42;200000)/B4</code></p>
 
 <p>Brennan's 2025 numbers make the point better than any explanation. TRIR of 2.77 with a DART rate of 0.00. Not one hour of work was lost. The number that gates the bid list cannot tell the difference.</p>
 
@@ -2639,11 +2639,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>This is the tab that changes behavior, because it converts an abstract threshold into a case count you can hold in your head in March. B14 holds the owner's threshold. B15 converts it into cases you are allowed at your current hour volume.</p>
 
-<p><code>=FLOOR(B14*B4/200000,1)</code></p>
+<p><code>=FLOOR(B14&#42;B4/200000,1)</code></p>
 
 <p>B16 subtracts your actual case count to give headroom. Brennan at a 2.3 gate: 0.83 cases allowed, floored to 0, minus 1 recorded, equals negative one. B17 answers the other useful question, which is how many hours you would have needed for the cases you already have to clear the threshold.</p>
 
-<p><code>=B5*200000/B14</code></p>
+<p><code>=B5&#42;200000/B14</code></p>
 
 <p>One case at a 2.3 gate needs 86,957 hours, about 41 full time employees. One case at a 1.0 gate needs 200,000 hours. Print that number and hand it to whoever negotiates your prequal packages, because it is the entire argument for asking an owner to use a DART gate or an industry comparison instead of a flat TRIR number.</p>
 
@@ -2689,7 +2689,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The composite is total cases over total hours, scaled once.</p>
 
-<p><code>=(SUM(C5:C7)*200000)/SUM(B5:B7)</code></p>
+<p><code>=(SUM(C5:C7)&#42;200000)/SUM(B5:B7)</code></p>
 
 <p>The other number is <code>=AVERAGE(D5:D7)</code>, which treats 2023 as equally important as 2025 even though 2023 carried 40 percent fewer hours. Brennan's 2023 was a slow year with a short backlog. One case in a thin year produces a rate of 4.81, and a straight average carries that distortion forward at full weight for three years.</p>
 
@@ -2839,11 +2839,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Daily exposure per open decision. Extended general conditions in R5:</p>
 
-<p><code>=N5*$B$3</code></p>
+<p><code>=N5&#42;$B$3</code></p>
 
 <p>Liquidated damages exposure in S5:</p>
 
-<p><code>=N5*$B$4</code></p>
+<p><code>=N5&#42;$B$4</code></p>
 
 <h3>The Rollup Nobody Can Argue With</h3>
 
@@ -3004,7 +3004,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Column H pulls the material tax status the same way, from column 5. Column J is the tax that should have been paid on this line, zero when the job is exempt:</p>
 
-<p><code>=IF(H9="EXEMPT",0,F9*I9)</code></p>
+<p><code>=IF(H9="EXEMPT",0,F9&#42;I9)</code></p>
 
 <p>Column K is what you owe the state, meaning the tax due less whatever the vendor already charged in column G. Never negative, because a vendor overcharge is a refund claim against the vendor, not a credit against your accrual:</p>
 
@@ -3031,7 +3031,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The use tax only triggers when the material leaves an exempt job for a taxable one, so let the formula decide instead of the person holding the clipboard:</p>
 
-<p><code>=IF(AND(H12="EXEMPT",I12="TAXABLE"),E12*F12,0)</code></p>
+<p><code>=IF(AND(H12="EXEMPT",I12="TAXABLE"),E12&#42;F12,0)</code></p>
 
 <p>Where H12 and I12 are VLOOKUPs of the from job and to job status. Then push the result into the purchase log as a synthetic line, coded TRF, so it flows into the monthly return with everything else. If your yard runs material requisitions on paper, add two boxes to the form: from job and to job. That is the entire process change, and it is the one that would have saved Ridgeline $1,559 of tax and about $20,000 of projection.</p>
 
@@ -3055,15 +3055,15 @@ export const blogPosts: BlogPost[] = [
 
 <p>Penalty rate in B13, penalty dollars in B14:</p>
 
-<p><code>=B12*B13</code></p>
+<p><code>=B12&#42;B13</code></p>
 
 <p>Annual interest rate in B15, one year of interest in B16:</p>
 
-<p><code>=B12*B15</code></p>
+<p><code>=B12&#42;B15</code></p>
 
 <p>Years exposed in B17, interest to date in B18:</p>
 
-<p><code>=B16*B17</code></p>
+<p><code>=B16&#42;B17</code></p>
 
 <p>Total exposure in B19:</p>
 
@@ -3123,7 +3123,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>In the workbook, B6 holds the hours you expect to spend, B7 your loaded rate, and B8 the direct costs. B9 computes what walking into this bid costs you:</p>
 
-<p><code>=B6*B7+B8</code></p>
+<p><code>=B6&#42;B7+B8</code></p>
 
 <p>Their weighted average across 46 bids was $4,840, so total 2025 estimating spend was $222,640. Gross profit produced by the entire company that year was $669,600. Estimating consumed 33 cents of every gross profit dollar. That ratio is why a scorecard is not paperwork. Bid selection is the second largest controllable cost in the business after field labor, and it is the only one most contractors never measure.</p>
 
@@ -3183,7 +3183,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The weighted points in D22, filled down to D29:</p>
 
-<p><code>=B22*C22</code></p>
+<p><code>=B22&#42;C22</code></p>
 
 <p>The score itself in B31, which converts 800 possible weighted points back to a 1 to 5 scale that people can hold in their head:</p>
 
@@ -3199,11 +3199,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Gross margin dollars at target, in B35:</p>
 
-<p><code>=B4*B33</code></p>
+<p><code>=B4&#42;B33</code></p>
 
 <p>Expected contribution in B36, which is that margin discounted by the odds of winning:</p>
 
-<p><code>=B35*B34</code></p>
+<p><code>=B35&#42;B34</code></p>
 
 <p>Return on estimating spend in B37 is <code>=B36/B9</code>, and the decision in B38 requires both a real score and a real return:</p>
 
@@ -3343,16 +3343,16 @@ export const blogPosts: BlogPost[] = [
 <p>The four backward formulas, starting in row 4:</p>
 
 <p><strong>Release by</strong> (M4), the date the approved submittal has to be at the factory:<br>
-<code>=D4-(E4+F4)*7</code></p>
+<code>=D4-(E4+F4)&#42;7</code></p>
 
 <p><strong>Approve by</strong> (L4):<br>
-<code>=WORKDAY(M4,-G4*5,Holidays)</code></p>
+<code>=WORKDAY(M4,-G4&#42;5,Holidays)</code></p>
 
 <p><strong>Submit by</strong> (K4):<br>
-<code>=WORKDAY(L4,-H4*5,Holidays)</code></p>
+<code>=WORKDAY(L4,-H4&#42;5,Holidays)</code></p>
 
 <p><strong>Award by</strong> (J4):<br>
-<code>=WORKDAY(K4,-I4*5,Holidays)</code></p>
+<code>=WORKDAY(K4,-I4&#42;5,Holidays)</code></p>
 
 <p>The mix of plain subtraction and <code>WORKDAY</code> is deliberate. Fabrication runs on calendar time. A factory in Wisconsin building your switchgear does not stop for Presidents Day, so column F gets multiplied by 7 and subtracted straight. The paperwork chain runs on business days, and the engineer of record absolutely does stop for Thanksgiving. Name a range of federal holidays plus your own shutdown days <code>Holidays</code> and feed it to every <code>WORKDAY</code> call. On the Columbus job that single argument moved the switchgear award by date from January 6 to January 2, four days that a naive chain would have quietly given away.</p>
 
@@ -3384,7 +3384,7 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Cell</th><th>Formula</th><th>Columbus job, week one</th></tr>
 <tr><td>B1</td><td><code>=COUNTIF(S4:S30,"&lt;0")</code></td><td>3 items with negative float</td></tr>
 <tr><td>C1</td><td><code>=MIN(S4:S30)</code></td><td>-8.4 weeks, worst case</td></tr>
-<tr><td>D1</td><td><code>=IF(MIN(S4:S30)&lt;0,-MIN(S4:S30)*B2,0)</code></td><td>$197,800 of exposure</td></tr>
+<tr><td>D1</td><td><code>=IF(MIN(S4:S30)&lt;0,-MIN(S4:S30)&#42;B2,0)</code></td><td>$197,800 of exposure</td></tr>
 </table>
 
 <p>B2 on this job held $23,550, which is $10,600 of weekly general conditions plus $12,950 of weekly liquidated damages. That number is not precise and does not need to be. It needs to be defensible enough to survive the sentence "our switchgear position is worth about $198,000 of risk and I need a decision on it this week."</p>
@@ -3531,7 +3531,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Percent bought out and variance to date are backward looking. The number that changes behavior is the projected final buyout position:</p>
 
-<p><code>=SUMIFS($J$4:$J$28,$K$4:$K$28,"Executed")+SUMIFS($C$4:$C$28,$K$4:$K$28,"&lt;&gt;Executed")*$B$6</code></p>
+<p><code>=SUMIFS($J$4:$J$28,$K$4:$K$28,"Executed")+SUMIFS($C$4:$C$28,$K$4:$K$28,"&lt;&gt;Executed")&#42;$B$6</code></p>
 
 <p>Cell B6 holds your company's historical buyout rate, which you get by dividing total buyout variance by total subcontract budget across your last ten or twelve closed jobs. For this contractor it is positive 0.6 percent. Not a guess, a measured average.</p>
 
@@ -3666,7 +3666,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B10</td><td><strong>Daily carry rate</strong></td><td><strong>$86.63</strong></td></tr>
 </table>
 
-<p><code>=(B4*B5/365)+(B6/365)+(B7/365)+((B8+B9)*12/365)</code></p>
+<p><code>=(B4&#42;B5/365)+(B6/365)+(B7/365)+((B8+B9)&#42;12/365)</code></p>
 
 <p>The rule for what belongs in this cell: include only costs that accrue because the house is still yours today. Origination points, title, and commission are real money but they do not care how long you own the house, so they stay out. A partner preferred return that accrues daily belongs in. Get this wrong in the generous direction and you will talk yourself out of paying for the expedited review that would have saved you four times its price.</p>
 
@@ -3687,7 +3687,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Days over target is calendar, not business, because interest does not take Saturdays off: <code>=MAX(0,IF(G4="",TODAY(),G4)-F4)</code>. The <code>IF(G4="")</code> is the part that matters. A permit still in review keeps accruing against today, so the number grows while you watch it instead of sitting frozen until someone remembers to update the sheet.</p>
 
-<p>Delay cost charges only permits on the critical path: <code>=IF(H4="Y",I4*Carry!$B$10,0)</code>, and the project total is <code>=SUM(J4:J40)</code>.</p>
+<p>Delay cost charges only permits on the critical path: <code>=IF(H4="Y",I4&#42;Carry!$B$10,0)</code>, and the project total is <code>=SUM(J4:J40)</code>.</p>
 
 <p>That single column changes behavior. On this job the three trade permits ran two days late each and cost exactly nothing, because the building permit was gating all of them anyway. Late is not the same as expensive. Only serial delay costs money, which is why the first question at the permit desk should be whether trade permits can be filed concurrently with the building permit rather than after issuance.</p>
 
@@ -3705,7 +3705,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Plenty of jurisdictions send a resubmittal to the back of the queue rather than back to the same reviewer. That means a correction cycle does not cost you three days. It costs you a full review period, again.</p>
 
-<p>Price it in a cell so it stops being abstract: <code>=E4*1.4*Carry!$B$10</code>. Fifteen business days converts to roughly 21 calendar days, times $86.63, is $1,819 per cycle. Two correction cycles on one permit is $3,639 spent before a single wall comes down.</p>
+<p>Price it in a cell so it stops being abstract: <code>=E4&#42;1.4&#42;Carry!$B$10</code>. Fifteen business days converts to roughly 21 calendar days, times $86.63, is $1,819 per cycle. Two correction cycles on one permit is $3,639 spent before a single wall comes down.</p>
 
 <p>Against that, paying your drafter or architect $400 to $900 for a pre-submittal completeness check is not an expense. It is a bet that pays 2 to 1 if it removes a single cycle, and the most common corrections are boring and preventable: missing energy compliance sheet, no structural detail for the beam you called out, egress dimensions not labeled on the plan.</p>
 
@@ -3724,7 +3724,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Total</strong></td><td></td><td></td><td></td><td></td><td><strong>24.2</strong></td></tr>
 </table>
 
-<p>Expected drag per inspection is <code>=B4+(C4*E4)</code>, and the total is <code>=SUM(F4:F9)</code>. Twenty-four business days is about 34 calendar days, or $2,945 at your carry rate. That is the schedule cost of a job where nothing goes wrong, where every inspection either passes or fails at a completely normal rate.</p>
+<p>Expected drag per inspection is <code>=B4+(C4&#42;E4)</code>, and the total is <code>=SUM(F4:F9)</code>. Twenty-four business days is about 34 calendar days, or $2,945 at your carry rate. That is the schedule cost of a job where nothing goes wrong, where every inspection either passes or fails at a completely normal rate.</p>
 
 <p>This is why the 90-day flip becomes a 124-day flip. Not incompetence, not a bad contractor. Thirty-four days of inspection drag that were never in the schedule to begin with. Put them in the Gantt as their own line items and your draw schedule stops lying to your lender.</p>
 
@@ -3749,7 +3749,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>A $10,403 spread on identical work. That is larger than the contingency line most flippers carry, and it is knowable before you sign anything.</p>
 
-<p>So put it in the offer math. The standard 70% rule, <code>=(ARV*0.7)-Rehab</code>, quietly assumes permits are free. Make them explicit: <code>=(ARV*0.7)-Rehab-PermitFees-PermitCarry</code>. On a $385,000 ARV with $65,000 in rehab, the lazy version gives you a maximum offer of $204,500. In the historic-district jurisdiction the honest version gives you $192,670, and you can defend the difference line by line to the listing agent.</p>
+<p>So put it in the offer math. The standard 70% rule, <code>=(ARV&#42;0.7)-Rehab</code>, quietly assumes permits are free. Make them explicit: <code>=(ARV&#42;0.7)-Rehab-PermitFees-PermitCarry</code>. On a $385,000 ARV with $65,000 in rehab, the lazy version gives you a maximum offer of $204,500. In the historic-district jurisdiction the honest version gives you $192,670, and you can defend the difference line by line to the listing agent.</p>
 
 <h3>Six Questions Before You Offer</h3>
 
@@ -3896,9 +3896,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Read that in plain English: past the full ARV date, the appraisal counts. Before it, the lender uses the lower of the appraisal and your cost basis under whichever definition that program uses. Column P turns it into a loan, and handles the delayed financing case where the cap lands on the loan instead of the value:</p>
 
-<p><code>=IF(TODAY()&lt;$K4,0,IF(XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$H$4:$H$8)="Loan amount",ROUND(MIN($E4+$F4,$N4*XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8)),0),ROUND($O4*XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8),0)))</code></p>
+<p><code>=IF(TODAY()&lt;$K4,0,IF(XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$H$4:$H$8)="Loan amount",ROUND(MIN($E4+$F4,$N4&#42;XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8)),0),ROUND($O4&#42;XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8),0)))</code></p>
 
-<p>Column Q is the same calculation at full appraised value, <code>=ROUND($N4*XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8),0)</code>. Column R is trapped capital right now, <code>=MAX(0,$H4-$P4)</code>. That column is the one to sort by.</p>
+<p>Column Q is the same calculation at full appraised value, <code>=ROUND($N4&#42;XLOOKUP($I4,Rules!$A$4:$A$8,Rules!$E$4:$E$8),0)</code>. Column R is trapped capital right now, <code>=MAX(0,$H4-$P4)</code>. That column is the one to sort by.</p>
 
 <h3>The status flag that tells you what to do</h3>
 
@@ -4021,7 +4021,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Then give every closing cost line four columns: description in B, type in C, rate in D, flat amount in E. The amount in F computes itself:</p>
 
-<p><code>=IF(C19="Flat",E19,D19*IFS(C19="% of purchase",$B$3,C19="% of sale",$B$4,C19="% of loan",$B$3*$B$6))</code></p>
+<p><code>=IF(C19="Flat",E19,D19&#42;IFS(C19="% of purchase",$B$3,C19="% of sale",$B$4,C19="% of loan",$B$3&#42;$B$6))</code></p>
 
 <p>Now the sheet reprices itself. Drop the sale price in B4 from $315,000 to $299,000 and commission, transfer tax, the buyer credit, and the owner's title policy all fall at once. The flat fees do not move, because they never do. That distinction is the entire point, and it is what lets you answer the only question that matters during a price reduction: what does this cut actually cost me?</p>
 
@@ -4083,7 +4083,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The harder part is direction. In an arrears state you owe the buyer for every day you held the property, and it comes out of your proceeds. In an advance state the taxes were already paid, and the buyer reimburses you for the unused days, so it comes in. Same input, opposite sign, and the error is worth twice the number if you get it backwards.</p>
 
-<p><code>=IF($B$16="Arrears",-1,1)*($B$10/365)*$B$9</code></p>
+<p><code>=IF($B$16="Arrears",-1,1)&#42;($B$10/365)&#42;$B$9</code></p>
 
 <p>At $3,960 a year and 158 days held, that is $1,714 leaving the table in an arrears state. Put the state's convention in a dropdown so nobody has to remember it.</p>
 
@@ -4091,7 +4091,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Nearly every hard money note carries a minimum interest period, usually 90 days, sometimes six months. Finish in 71 days and you will still be billed for 90. The flippers who get hit by this are the good ones, the crews who turn a cosmetic rehab in ten weeks and expect to be rewarded for it.</p>
 
-<p><code>=IF($B$9&lt;$B$17,($B$17-$B$9)*(($B$3*$B$6)*($B$7/365)),0)</code></p>
+<p><code>=IF($B$9&lt;$B$17,($B$17-$B$9)&#42;(($B$3&#42;$B$6)&#42;($B$7/365)),0)</code></p>
 
 <p>On this note the daily interest on the acquisition loan alone is $49.54. Sell on day 71 against a 90 day minimum and the shortfall line prints $941 for money you did not use. It is not a reason to go slower. It is a reason to know the number before you accept an early offer, and a reason to ask for a 60 day minimum when you sign the note.</p>
 
@@ -4099,7 +4099,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>You bought an owner's title policy at purchase for $1,065. Five months later you pay for the buyer's owner's policy at $1,545. Most underwriters offer a reissue or substitution rate when the prior policy on the same parcel is under 24 months old, commonly 30 to 50 percent off the standard premium. It is not automatic. You have to hand the title company a copy of your own policy and ask.</p>
 
-<p><code>=IF($B$9&lt;=730,$E$40*(1-$B$18),$E$40)</code></p>
+<p><code>=IF($B$9&lt;=730,$E$40&#42;(1-$B$18),$E$40)</code></p>
 
 <p>At a 40 percent reissue credit that is $618 back on a single deal. Run six flips a year and you left $3,708 with the underwriter for not sending an email.</p>
 
@@ -4123,7 +4123,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Verify your own rate with the title company that will actually close the deal, and put it in the input block rather than inside a formula. Two things move it that a table cannot capture: the contract overrides local custom, so a split that is customary is not a split that is guaranteed, and a buyer using FHA or a down payment assistance program will often push the whole transfer tax onto the seller as a condition of the offer. Model the version where you pay all of it, then negotiate down from there.</p>
 
-<p><code>=XLOOKUP($B$19,RateTable[Jurisdiction],RateTable[SellerRate],0)*$B$4</code></p>
+<p><code>=XLOOKUP($B$19,RateTable[Jurisdiction],RateTable[SellerRate],0)&#42;$B$4</code></p>
 
 <h2>What the Model Is Actually For: Choosing Between Two Offers</h2>
 
@@ -4136,7 +4136,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Offer A is $7,000 higher. Most sellers take it without a calculator. Set up a comparison block with price in C, credit percent in D, and days to close in E, then compute net proceeds in F:</p>
 
-<p><code>=C61*(1-$B$11-$B$12-$B$14-$B$15-D61)-$B$20-(E61*$B$21)</code></p>
+<p><code>=C61&#42;(1-$B$11-$B$12-$B$14-$B$15-D61)-$B$20-(E61&#42;$B$21)</code></p>
 
 <p>B20 is the sum of the flat sell side fees, $3,720 here, and B21 is your all in daily cost, which is loan interest plus utilities plus the daily tax accrual. On this deal that is $49.54 plus $9.77 of draw interest plus $4.87 of utilities plus $10.85 of tax, or $75.03 a day. Do not put the tax proration in B20 as well, or you will charge it twice.</p>
 
@@ -4227,7 +4227,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Lay this out with the shop data in columns A through I starting at row 12, headers in row 11. The concession adjusted rent goes in column J:</p>
 
-<p><code>=C12*(E12-D12)/E12</code></p>
+<p><code>=C12&#42;(E12-D12)/E12</code></p>
 
 <p>That spreads the free months across the full term. The Preston's $1,725 sign becomes $1,525.96, because 1.5 free months on a 13 month lease is an 11.5 percent discount, not the 12.5 percent you get if you sloppily divide by 12.</p>
 
@@ -4274,7 +4274,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Column L is the adjusted comparable, what each comp implies your unit is worth:</p>
 
-<p><code>=K12 + ($B$2-B12)*$B$3 + ($B$5-H12)*$B$4</code></p>
+<p><code>=K12 + ($B$2-B12)&#42;$B$3 + ($B$5-H12)&#42;$B$4</code></p>
 
 <p>With column H holding 1 or 0 for the washer and dryer. Marlow Station at $1,607 cost of occupancy is 65 SF larger and has a W/D, so it adjusts down by $55.25 and $45 to $1,507. The Grove at $1,750 adjusts to $1,701.</p>
 
@@ -4301,7 +4301,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>What the Wrong Number Actually Costs</h2>
 
-<p>At a $1,557 market rent, one day of vacancy costs <code>=1557*12/365</code>, or $51.19. Being $118 over effective market does not lose you $118. It loses you the days.</p>
+<p>At a $1,557 market rent, one day of vacancy costs <code>=1557&#42;12/365</code>, or $51.19. Being $118 over effective market does not lose you $118. It loses you the days.</p>
 
 <table>
   <thead><tr><th>Scenario</th><th>Days on market</th><th>Vacancy cost</th><th>Rent achieved</th><th>Year 1 collections</th></tr></thead>
@@ -4321,7 +4321,7 @@ export const blogPosts: BlogPost[] = [
 
 <p><strong>Option A, the rate cut.</strong> Post $1,557, no concession, 12 month lease. Clean and honest.</p>
 
-<p><strong>Option B, the concession.</strong> Post $1,687 with one month free on a 13 month lease. Effective rent is <code>=1687*12/13</code>, or $1,557. Identical to Option A.</p>
+<p><strong>Option B, the concession.</strong> Post $1,687 with one month free on a 13 month lease. Effective rent is <code>=1687&#42;12/13</code>, or $1,557. Identical to Option A.</p>
 
 <p>Same money in year one. Now renew both at 4 percent, dropping the concession at renewal as everyone does:</p>
 
@@ -4340,7 +4340,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Concessions attract rate shoppers, and rate shoppers churn. If Option B renews meaningfully worse than Option A, the higher base is worth nothing because nobody stays to pay it. Model it per 100 leases, with a $2,417 turnover cost covering 14 days vacancy, make-ready, and leasing:</p>
 
-<p><code>=IF(B22*1620 &gt; (0.58-B22)*2417, "CONCESSION", "RATE CUT")</code></p>
+<p><code>=IF(B22&#42;1620 &gt; (0.58-B22)&#42;2417, "CONCESSION", "RATE CUT")</code></p>
 
 <p>Where B22 is your trailing twelve month renewal rate on concession leases and 0.58 is your renewal rate on straight leases. Solve it and the break-even lands at a 34.7 percent renewal rate. Option B wins unless concessions drop your renewal rate from 58 percent to below 35 percent, a 23 point collapse. Real world concession leases renew four to eight points lower, not twenty three.</p>
 
@@ -4379,7 +4379,7 @@ export const blogPosts: BlogPost[] = [
 
 <ol>
   <li>Shop five comps for concessions, mandatory fees, parking, and billbacks. Two phone calls each, one hour total.</li>
-  <li>Compute cost of occupancy with <code>=C12*(E12-D12)/E12 + F12/E12 + G12 + I12</code>.</li>
+  <li>Compute cost of occupancy with <code>=C12&#42;(E12-D12)/E12 + F12/E12 + G12 + I12</code>.</li>
   <li>Adjust to your unit for SF and amenities, take the median, subtract your own billback.</li>
   <li>Compare against your current asking rent. Under 3 percent apart, hold, that is noise. More than 5 percent over, move, and move with a concession unless your renewal rate is under 45 percent.</li>
   <li>Gate the median on freshness so the sheet refuses to answer with stale data.</li>
@@ -4442,10 +4442,10 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B6</td><td>Non-submeterable share of the bill</td><td>18%</td></tr>
 <tr><td>B7</td><td>Current annual recovery from tenants</td><td>$0</td></tr>
 <tr><td>B9</td><td>Install cost per unit (quoted)</td><td>$625</td></tr>
-<tr><td>B10</td><td>Total install <code>=B4*B9</code></td><td>$15,000</td></tr>
+<tr><td>B10</td><td>Total install <code>=B4&#42;B9</code></td><td>$15,000</td></tr>
 <tr><td>B11</td><td>Billing fee per unit per month</td><td>$4.25</td></tr>
 <tr><td>B12</td><td>Meter replacement reserve per unit per year</td><td>$12</td></tr>
-<tr><td>B13</td><td>Annual program cost <code>=B4*(B11*12+B12)</code></td><td>$1,512</td></tr>
+<tr><td>B13</td><td>Annual program cost <code>=B4&#42;(B11&#42;12+B12)</code></td><td>$1,512</td></tr>
 <tr><td>B14</td><td>Billing recovery rate on metered usage</td><td>96%</td></tr>
 <tr><td>B15</td><td>Usage reduction once tenants are billed</td><td>18%</td></tr>
 </tbody>
@@ -4462,10 +4462,10 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Cell</th><th>Calculation</th><th>Formula</th><th>Result</th></tr>
 </thead>
 <tbody>
-<tr><td>B17</td><td>Submeterable load</td><td><code>=B5*(1-B6)</code></td><td>$17,712</td></tr>
-<tr><td>B18</td><td>Submeterable load after conservation</td><td><code>=B17*(1-B15)</code></td><td>$14,524</td></tr>
-<tr><td>B19</td><td>New annual recovery</td><td><code>=B18*B14</code></td><td>$13,943</td></tr>
-<tr><td>B20</td><td>Master bill after conservation</td><td><code>=B5-(B17*B15)</code></td><td>$18,412</td></tr>
+<tr><td>B17</td><td>Submeterable load</td><td><code>=B5&#42;(1-B6)</code></td><td>$17,712</td></tr>
+<tr><td>B18</td><td>Submeterable load after conservation</td><td><code>=B17&#42;(1-B15)</code></td><td>$14,524</td></tr>
+<tr><td>B19</td><td>New annual recovery</td><td><code>=B18&#42;B14</code></td><td>$13,943</td></tr>
+<tr><td>B20</td><td>Master bill after conservation</td><td><code>=B5-(B17&#42;B15)</code></td><td>$18,412</td></tr>
 <tr><td>B21</td><td>Net utility cost today</td><td><code>=B5-B7</code></td><td>$21,600</td></tr>
 <tr><td>B22</td><td>Net utility cost after submetering</td><td><code>=B20-B19+B13</code></td><td>$5,981</td></tr>
 </tbody>
@@ -4621,7 +4621,7 @@ export const blogPosts: BlogPost[] = [
 <p>Put original balance in column B, note rate in C, amortization years in D, origination date in E, maturity date in F. Then three calculated columns do the work.</p>
 
 <p><strong>Monthly principal and interest (column G):</strong></p>
-<p><code>=-PMT(C4/12, D4*12, B4)</code></p>
+<p><code>=-PMT(C4/12, D4&#42;12, B4)</code></p>
 
 <p>The leading minus sign flips Excel's cash flow convention so the payment reads as a positive number. Cedar returns $4,380.</p>
 
@@ -4660,12 +4660,12 @@ export const blogPosts: BlogPost[] = [
 <p>Now stress. Put the rate shock in a single input cell so you can flex it: <code>$B$2</code> = 3.00%. Three points is not arbitrary. It is roughly the gap between small balance commercial paper written in 2023 and 2024 and where that same paper prices today, which means it is the shock that already happened to anyone who matured this year.</p>
 
 <p><strong>Stressed payment on the refinanced balance (column M):</strong></p>
-<p><code>=-PMT((C4+$B$2)/12, L4*12, I4)</code></p>
+<p><code>=-PMT((C4+$B$2)/12, L4&#42;12, I4)</code></p>
 
 <p>Column L is the new amortization the lender will offer, which is often shorter than what you have now. Do not assume you get 30 years back.</p>
 
 <p><strong>Stressed DSCR (column P):</strong></p>
-<p><code>=N4/(M4*12)</code></p>
+<p><code>=N4/(M4&#42;12)</code></p>
 
 <p>Column N is projected NOI at the maturity year, not today's NOI. Grow it at your real trailing rate, not 3 percent because 3 percent sounds reasonable.</p>
 
@@ -4673,12 +4673,12 @@ export const blogPosts: BlogPost[] = [
 <p><code>=IF(P4&lt;1.20, "CASH CALL", IF(P4&lt;1.35, "TIGHT", "OK"))</code></p>
 
 <p><strong>Break-even rate, the number worth the whole exercise (column R):</strong></p>
-<p><code>=RATE(L4*12, -(N4/1.20/12), I4)*12</code></p>
+<p><code>=RATE(L4&#42;12, -(N4/1.20/12), I4)&#42;12</code></p>
 
 <p>This inverts the DSCR test and returns the highest rate at which the property still supports a 1.20 loan on its balloon balance. It converts a vague fear into a threshold you can watch against the 10 year Treasury every quarter.</p>
 
 <p><strong>Cash required at closing (column S):</strong></p>
-<p><code>=MAX(0, I4 - PV((C4+$B$2)/12, L4*12, -(N4/1.20/12)))</code></p>
+<p><code>=MAX(0, I4 - PV((C4+$B$2)/12, L4&#42;12, -(N4/1.20/12)))</code></p>
 
 <p>The PV function returns the largest loan the property can carry at the stressed rate and a 1.20 coverage floor. Subtract that from the balloon balance and you have the check you write to close.</p>
 
@@ -4733,7 +4733,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>So the rollup is not the test. The rollup is the funding plan. Its job is to tell you where the cash for the flagged loans comes from, and whether the portfolio still services debt after every reprice lands. Use both formulas:</p>
 
-<p><code>=SUM(N4:N20)/SUM(M4:M20)*12</code> for global coverage, and per loan <code>=Q4</code> for the flags. The first tells you whether you survive. The second tells you what you have to do about it and when.</p>
+<p><code>=SUM(N4:N20)/SUM(M4:M20)&#42;12</code> for global coverage, and per loan <code>=Q4</code> for the flags. The first tells you whether you survive. The second tells you what you have to do about it and when.</p>
 
 <h3>Stress More Than the Rate</h3>
 
@@ -4801,14 +4801,14 @@ export const blogPosts: BlogPost[] = [
 <p>Set that up as your Subject tab, because every other formula in the file points at it. Valuation date in <code>B2</code>, notice date in <code>B3</code>, deadline in <code>B4</code>, building square feet in <code>B5</code>, unit count in <code>B6</code>, assessor market value in <code>B7</code>, ratio in <code>B8</code>, levy in <code>B10</code>. Then three derived cells that you will reference constantly:</p>
 
 <ul>
-<li><code>=B7*B8</code> in <code>B9</code> for assessed value, because in a fractional assessment state the number on the notice is not the number the ratio is applied to.</li>
-<li><code>=B9*B10</code> in <code>B11</code> for the annual bill. This is the cell your savings estimate comes from.</li>
+<li><code>=B7&#42;B8</code> in <code>B9</code> for assessed value, because in a fractional assessment state the number on the notice is not the number the ratio is applied to.</li>
+<li><code>=B9&#42;B10</code> in <code>B11</code> for the annual bill. This is the cell your savings estimate comes from.</li>
 <li><code>=B7/B5</code> in <code>B12</code> for assessment per square foot. At $189.69 per square foot, this single cell is the one you will compare against everything else in the file.</li>
 </ul>
 
 <h3>Check the record card before you build anything</h3>
 
-<p>Pull the property record card from the assessor site first. It lists the square footage, unit count, year built, and bath count the model used. Errors are common and they are the fastest win in this entire process, because a data correction usually gets handled at the counter without a hearing. If the card says 6,750 square feet and the building is 6,400, the gap is worth <code>=(6750-6400)*B12</code>, which is $66,392 of value and $1,394 a year in tax. Fix the record before you argue about value, or you will win the appeal and still be assessed on a building that does not exist.</p>
+<p>Pull the property record card from the assessor site first. It lists the square footage, unit count, year built, and bath count the model used. Errors are common and they are the fastest win in this entire process, because a data correction usually gets handled at the counter without a hearing. If the card says 6,750 square feet and the building is 6,400, the gap is worth <code>=(6750-6400)&#42;B12</code>, which is $66,392 of value and $1,394 a year in tax. Fix the record before you argue about value, or you will win the appeal and still be assessed on a building that does not exist.</p>
 
 <h2>Why Mass Appraisal Misses Hardest on Small Multifamily</h2>
 
@@ -4826,7 +4826,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Build a Comps tab with one row per arm's length sale in the eighteen months before your valuation date. Columns: address, sale date, units, building square feet, sale price. Then five formula columns that turn a list of sales into a value.</p>
 
-<p>Months from sale to valuation date in <code>F4</code>: <code>=DATEDIF(B4,Subject!$B$2,"M")</code>. Time adjusted price in <code>G4</code>: <code>=E4*(1+Subject!$B$14)^F4</code>, where <code>B14</code> holds your monthly market trend, 0.35 percent here. Condition adjustment in <code>H4</code> as a dollar figure you can defend out loud. Adjusted price in <code>I4</code>: <code>=G4+H4</code>. Adjusted price per square foot in <code>J4</code>: <code>=I4/D4</code>.</p>
+<p>Months from sale to valuation date in <code>F4</code>: <code>=DATEDIF(B4,Subject!$B$2,"M")</code>. Time adjusted price in <code>G4</code>: <code>=E4&#42;(1+Subject!$B$14)^F4</code>, where <code>B14</code> holds your monthly market trend, 0.35 percent here. Condition adjustment in <code>H4</code> as a dollar figure you can defend out loud. Adjusted price in <code>I4</code>: <code>=G4+H4</code>. Adjusted price per square foot in <code>J4</code>: <code>=I4/D4</code>.</p>
 
 <p>Then the column that keeps you honest, net adjustment in <code>L4</code>: <code>=(I4-E4)/E4</code>, flagged in <code>M4</code> with <code>=IF(ABS(L4)&gt;0.15,"WEAK, EXCLUDE","USE")</code>. Any comp you had to move more than 15 percent is not a comp, it is an argument. Boards notice, and one stretched comp costs you credibility on the four good ones.</p>
 
@@ -4843,7 +4843,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>Comp 5 was an REO in gut condition. Adjusting it up by $240,000 is a 25.6 percent net adjustment, so the flag drops it out of the calculation instead of you quietly deleting the row later. Indicated value: <code>=MEDIAN(FILTER(J4:J8,M4:M8="USE"))*Subject!$B$5</code>, which is $162.36 per square foot times 6,400 square feet, or $1,039,000. Use median rather than average so one outlier cannot carry the number. On Excel versions without <code>FILTER</code>, put <code>=IF(M4="USE",J4,"")</code> in a helper column and take the median of that.</p>
+<p>Comp 5 was an REO in gut condition. Adjusting it up by $240,000 is a 25.6 percent net adjustment, so the flag drops it out of the calculation instead of you quietly deleting the row later. Indicated value: <code>=MEDIAN(FILTER(J4:J8,M4:M8="USE"))&#42;Subject!$B$5</code>, which is $162.36 per square foot times 6,400 square feet, or $1,039,000. Use median rather than average so one outlier cannot carry the number. On Excel versions without <code>FILTER</code>, put <code>=IF(M4="USE",J4,"")</code> in a helper column and take the median of that.</p>
 
 <h3>Test 2: the equity test, which wins the appeals your comps cannot</h3>
 
@@ -4866,7 +4866,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>Median of the six in <code>F11</code>: <code>=MEDIAN(F4:F9)</code>, or $159.84. Subject premium: <code>=Subject!$B$12/F11-1</code>, which returns 18.7 percent. That percentage is the sentence you say at the hearing. Equity indicated value: <code>=F11*Subject!$B$5</code>, or $1,023,000. When you present this, bring the printed assessment cards for all six, not a summary you typed. The board will not take your table at face value and should not.</p>
+<p>Median of the six in <code>F11</code>: <code>=MEDIAN(F4:F9)</code>, or $159.84. Subject premium: <code>=Subject!$B$12/F11-1</code>, which returns 18.7 percent. That percentage is the sentence you say at the hearing. Equity indicated value: <code>=F11&#42;Subject!$B$5</code>, or $1,023,000. When you present this, bring the printed assessment cards for all six, not a summary you typed. The board will not take your table at face value and should not.</p>
 
 <h3>Test 3: the income approach, with the tax load nobody applies</h3>
 
@@ -4879,9 +4879,9 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Cell</th><th>Line</th><th>Amount</th><th>Formula</th></tr>
 </thead>
 <tbody>
-<tr><td>B4</td><td>Gross scheduled rent</td><td>$139,200</td><td><code>=Subject!$B$6*B3*12</code></td></tr>
+<tr><td>B4</td><td>Gross scheduled rent</td><td>$139,200</td><td><code>=Subject!$B$6&#42;B3&#42;12</code></td></tr>
 <tr><td>B5</td><td>Other income</td><td>$4,200</td><td>Actual, from the P and L</td></tr>
-<tr><td>B7</td><td>Vacancy and credit loss at 6 percent</td><td>$8,352</td><td><code>=B4*B6</code></td></tr>
+<tr><td>B7</td><td>Vacancy and credit loss at 6 percent</td><td>$8,352</td><td><code>=B4&#42;B6</code></td></tr>
 <tr><td>B8</td><td>Effective gross income</td><td>$135,048</td><td><code>=B4+B5-B7</code></td></tr>
 <tr><td>B9</td><td>Operating expenses, property tax excluded</td><td>$43,200</td><td>Actual, trailing 12</td></tr>
 <tr><td>B10</td><td>NOI before property tax</td><td>$91,848</td><td><code>=B8-B9</code></td></tr>
@@ -4930,7 +4930,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Everyone quotes one year of tax savings. That number is wrong twice, and both errors run in your favor.</p>
 
-<p>At a reconciled $1,033,000, the bill drops to $21,693 and the annual saving is <code>=(Subject!$B$7-B22)*Subject!$B$10</code>, or $3,801. Error one: assessments in this county run on a three year cycle, so the reduction repeats until the next revaluation. That is $11,403, not $3,801. Error two, and the bigger one: property tax is an operating expense, so cutting it raises NOI permanently. At the 6.75 percent cap you just used in Test 3, <code>=B26/Income!$B$11</code> puts $56,311 of value on the balance sheet. A one hour analysis moved the sale price of the building by more than fifty thousand dollars.</p>
+<p>At a reconciled $1,033,000, the bill drops to $21,693 and the annual saving is <code>=(Subject!$B$7-B22)&#42;Subject!$B$10</code>, or $3,801. Error one: assessments in this county run on a three year cycle, so the reduction repeats until the next revaluation. That is $11,403, not $3,801. Error two, and the bigger one: property tax is an operating expense, so cutting it raises NOI permanently. At the 6.75 percent cap you just used in Test 3, <code>=B26/Income!$B$11</code> puts $56,311 of value on the balance sheet. A one hour analysis moved the sale price of the building by more than fifty thousand dollars.</p>
 
 <p>Now the contingency question, priced properly.</p>
 
@@ -5116,7 +5116,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>A promise to pay should suppress the action column, and only while the tenant is actually current on the promise. With the installment in J5, the plan start date in K5, and the number of installments due to date in L5:</p>
 
-<p><code>=IF(AND($J5&gt;0,SUMIFS(Payments!$D:$D,Payments!$C:$C,$A5,Payments!$A:$A,"&gt;="&amp;$K5)&gt;=$J5*$L5),"Plan current, hold",I5)</code></p>
+<p><code>=IF(AND($J5&gt;0,SUMIFS(Payments!$D:$D,Payments!$C:$C,$A5,Payments!$A:$A,"&gt;="&amp;$K5)&gt;=$J5&#42;$L5),"Plan current, hold",I5)</code></p>
 
 <p>The instant a payment is missed, the original trigger returns on its own. No meeting, no judgment call, no memory required. That is the difference between a plan and a delay.</p>
 
@@ -5253,7 +5253,7 @@ export const blogPosts: BlogPost[] = [
 <p>Column A building code, B address, C unadjusted basis, D placed in service date. Then the small taxpayer math:</p>
 
 <ul>
-<li>Ceiling: <code>=MIN(10000,0.02*C2)</code></li>
+<li>Ceiling: <code>=MIN(10000,0.02&#42;C2)</code></li>
 <li>Year to date spend: <code>=SUMIFS(Log!$G:$G,Log!$B:$B,$A2,Log!$A:$A,"&gt;="&amp;DATE(Settings!$B$1,1,1),Log!$A:$A,"&lt;="&amp;DATE(Settings!$B$1,12,31))</code></li>
 <li>Headroom: <code>=E2-F2</code></li>
 <li>Status: <code>=IF(F2&gt;E2,"SHST LOST",IF(F2/E2&gt;0.8,"WATCH","OK"))</code></li>
@@ -5288,9 +5288,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Year one deduction, column N, using the mid-month convention that applies to residential rental property:</p>
 
-<p><code>=IF(LEFT(M2,7)="Expense",G2,G2/27.5*(12.5-MONTH($A2))/12)</code></p>
+<p><code>=IF(LEFT(M2,7)="Expense",G2,G2/27.5&#42;(12.5-MONTH($A2))/12)</code></p>
 
-<p>Then the two columns that make this a decision tool instead of a ledger. Year one tax value: <code>=N2*Settings!$B$2*(Settings!$B$5="Y")</code>. And exposure, meaning what this position costs you if it gets reclassified on exam: <code>=IF(LEFT(M2,7)="Expense",(G2-G2/27.5*(12.5-MONTH($A2))/12)*Settings!$B$2*(Settings!$B$5="Y"),0)</code></p>
+<p>Then the two columns that make this a decision tool instead of a ledger. Year one tax value: <code>=N2&#42;Settings!$B$2&#42;(Settings!$B$5="Y")</code>. And exposure, meaning what this position costs you if it gets reclassified on exam: <code>=IF(LEFT(M2,7)="Expense",(G2-G2/27.5&#42;(12.5-MONTH($A2))/12)&#42;Settings!$B$2&#42;(Settings!$B$5="Y"),0)</code></p>
 
 <p>Here is a real year on the Maple and Elm buildings.</p>
 
@@ -5326,9 +5326,9 @@ export const blogPosts: BlogPost[] = [
 <tr><td>New roof cost</td><td>B4</td><td>$34,000</td><td></td></tr>
 <tr><td>PPI ratio, 2026 over 2019</td><td>B5</td><td>1.46</td><td></td></tr>
 <tr><td>Estimated original roof cost</td><td>B6</td><td>$23,288</td><td><code>=B4/B5</code></td></tr>
-<tr><td>Depreciation already taken</td><td>B7</td><td>$5,928</td><td><code>=B6*(YEARFRAC(B2,B3)/27.5)</code></td></tr>
+<tr><td>Depreciation already taken</td><td>B7</td><td>$5,928</td><td><code>=B6&#42;(YEARFRAC(B2,B3)/27.5)</code></td></tr>
 <tr><td>Loss on disposition</td><td>B8</td><td><strong>$17,360</strong></td><td><code>=B6-B7</code></td></tr>
-<tr><td>Tax value at 32%</td><td>B9</td><td><strong>$5,555</strong></td><td><code>=B8*Settings!$B$2</code></td></tr>
+<tr><td>Tax value at 32%</td><td>B9</td><td><strong>$5,555</strong></td><td><code>=B8&#42;Settings!$B$2</code></td></tr>
 </tbody>
 </table>
 
@@ -5398,7 +5398,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Overmanning is the second factor. Crew goes from 20 to 30, a 50% increase over planned peak, and the supervision ratio degrades with it. <code>=LOOKUP($B$10/$B$5-1,{0;0.11;0.26;0.51},{0;0.05;0.1;0.18})</code> returns 10%. Trade stacking is the third and it is a judgment input, 5% here for three trades in the same ceiling corridor.</p>
 
-<p>Compound them, do not add them. <code>=(1-C15)*(1-C16)*(1-C17)</code> returns a composite efficiency of 0.727, a 27.3% loss. Required clock hours become <code>=B3/B18</code>, or 13,210. Available capacity at 30 fitters is <code>=B10*B11*B9</code>, or 13,200, and the guard <code>=IF(B10*B11*B9&gt;=B19,"OK","SHORT "&amp;ROUND(B19-B10*B11*B9,0)&amp;" HRS")</code> flags the 10 hour gap so somebody has to decide about a Saturday instead of discovering the shortfall in week 7.</p>
+<p>Compound them, do not add them. <code>=(1-C15)&#42;(1-C16)&#42;(1-C17)</code> returns a composite efficiency of 0.727, a 27.3% loss. Required clock hours become <code>=B3/B18</code>, or 13,210. Available capacity at 30 fitters is <code>=B10&#42;B11&#42;B9</code>, or 13,200, and the guard <code>=IF(B10&#42;B11&#42;B9&gt;=B19,"OK","SHORT "&amp;ROUND(B19-B10&#42;B11&#42;B9,0)&amp;" HRS")</code> flags the 10 hour gap so somebody has to decide about a Saturday instead of discovering the shortfall in week 7.</p>
 
 <h3>Where the delta actually sits</h3>
 
@@ -5419,7 +5419,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Of that $280,800, the overtime premium is $93,600. The other $187,200 is 3,600 clock hours of pure lost productivity, hours that produced nothing beyond the original 9,600 earned hours. Two thirds of the claim is the part nobody bills, because it never shows up as a premium on a payroll register. It shows up as hours, and hours look like your problem unless you priced them in advance.</p>
 
-<p>Then the costs that ride along. Split the overtime hours with <code>=MAX(0,$B$11-40)*$B$10*$B$9</code> and straight time with <code>=MIN($B$11,40)*$B$10*$B$9</code>, then add the rest as separate claim lines.</p>
+<p>Then the costs that ride along. Split the overtime hours with <code>=MAX(0,$B$11-40)&#42;$B$10&#42;$B$9</code> and straight time with <code>=MIN($B$11,40)&#42;$B$10&#42;$B$9</code>, then add the rest as separate claim lines.</p>
 
 <table>
 <thead>
@@ -5562,7 +5562,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The instinct at this point is to average the column and be done. That is where most self-built cost history dies, because there are two defensible averages and they disagree badly.</p>
 
-<p>Average the eleven ratios: <code>=AVERAGE(E2:E12)</code> gives 2.89 hours per 100 square feet. Divide total hours by total quantity instead: <code>=SUM(D2:D12)/SUM(C2:C12)*100</code> gives 2.29. Same eleven jobs, same time cards, 26 percent apart. The simple average weights a 2,850 square foot pad the same as a 22,400 square foot dock. The weighted average lets the three big jobs, which are 57 percent of the square footage, drown out the eight small ones.</p>
+<p>Average the eleven ratios: <code>=AVERAGE(E2:E12)</code> gives 2.89 hours per 100 square feet. Divide total hours by total quantity instead: <code>=SUM(D2:D12)/SUM(C2:C12)&#42;100</code> gives 2.29. Same eleven jobs, same time cards, 26 percent apart. The simple average weights a 2,850 square foot pad the same as a 22,400 square foot dock. The weighted average lets the three big jobs, which are 57 percent of the square footage, drown out the eight small ones.</p>
 
 <p>Both numbers are wrong, and they are wrong in a specific way that matters more than the gap between them. Unit cost is not a constant. It is a curve against quantity, because mobilization, layout, edge to area ratio, and the crew standing around waiting for the truck are roughly fixed per pour and get spread over whatever you place that day. Store one number per cost code and you have averaged away the only structure in the data.</p>
 
@@ -5594,12 +5594,12 @@ export const blogPosts: BlogPost[] = [
 <p>That single decision splits the database into two mechanisms that behave differently, which is exactly right, because labor and material behave differently.</p>
 
 <ul>
-<li><strong>Labor</strong> is stored as hours per unit and repriced with the current burdened crew rate: <code>=Hours_Per_Unit*XLOOKUP(Crew,Rates!$A:$A,Rates!$B:$B)</code>. No index, no escalation guess. Redline's concrete crew composite is $52.80 fully burdened today, so 3.71 hours per 100 square feet becomes $1.96 per square foot, and it becomes something else automatically the day the rate cell changes.</li>
-<li><strong>Material and sub dollars</strong> are stored as spent and escalated forward with an index, because you cannot reprice a 2023 concrete delivery from first principles: <code>=Mat_Per_Unit*Idx_Today/XLOOKUP(JobID,Jobs!$A:$A,Jobs!$H:$H)</code>.</li>
+<li><strong>Labor</strong> is stored as hours per unit and repriced with the current burdened crew rate: <code>=Hours_Per_Unit&#42;XLOOKUP(Crew,Rates!$A:$A,Rates!$B:$B)</code>. No index, no escalation guess. Redline's concrete crew composite is $52.80 fully burdened today, so 3.71 hours per 100 square feet becomes $1.96 per square foot, and it becomes something else automatically the day the rate cell changes.</li>
+<li><strong>Material and sub dollars</strong> are stored as spent and escalated forward with an index, because you cannot reprice a 2023 concrete delivery from first principles: <code>=Mat_Per_Unit&#42;Idx_Today/XLOOKUP(JobID,Jobs!$A:$A,Jobs!$H:$H)</code>.</li>
 <li><strong>Equipment</strong> follows whichever convention you actually use. Owned equipment on an internal hourly rate behaves like labor. Rented pumps and lasers behave like material.</li>
 </ul>
 
-<p>The material side is where the money hides. Redline's ready-mix ran $148 per cubic yard in the second quarter of 2023 and runs $181 today, up 22.3 percent. A 6 inch slab at 5 percent over-pour is 0.01944 cubic yards per square foot. On the Kemper job the as-spent material read $2.88 per square foot. Average that raw against 2026 jobs and you produce a bid number that is 65 cents per square foot light on concrete alone. Normalize it, <code>=2.88*122.3/100</code>, and it reads $3.52, which is what the truck will actually cost you next month.</p>
+<p>The material side is where the money hides. Redline's ready-mix ran $148 per cubic yard in the second quarter of 2023 and runs $181 today, up 22.3 percent. A 6 inch slab at 5 percent over-pour is 0.01944 cubic yards per square foot. On the Kemper job the as-spent material read $2.88 per square foot. Average that raw against 2026 jobs and you produce a bid number that is 65 cents per square foot light on concrete alone. Normalize it, <code>=2.88&#42;122.3/100</code>, and it reads $3.52, which is what the truck will actually cost you next month.</p>
 
 <h3>The index does not have to be sophisticated</h3>
 
@@ -5665,9 +5665,9 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li>Hours per unit: <code>=IF(E2=0,"",G2/E2)</code>. The guard matters, because a job that got coded before the quantity was captured will otherwise fill your file with divide errors that break every downstream FILTER.</li>
 <li>Quantity variance: <code>=IF(D2=0,"",E2/D2-1)</code>.</li>
-<li>Material per unit at today: <code>=IF(E2=0,"",H2/E2*Idx_Today/XLOOKUP(A2,Jobs!$A:$A,Jobs!$H:$H))</code>.</li>
+<li>Material per unit at today: <code>=IF(E2=0,"",H2/E2&#42;Idx_Today/XLOOKUP(A2,Jobs!$A:$A,Jobs!$H:$H))</code>.</li>
 <li>Size band, with the breaks stored per code rather than hard coded, because 5,000 means nothing to a code measured in linear feet: <code>=IFS(E2&lt;XLOOKUP(B2,Codes!$A:$A,Codes!$D:$D),"S",E2&lt;XLOOKUP(B2,Codes!$A:$A,Codes!$E:$E),"M",TRUE,"L")</code>.</li>
-<li>Labor dollars per unit at today's rate: <code>=M2*XLOOKUP(XLOOKUP(B2,Codes!$A:$A,Codes!$G:$G),Rates!$A:$A,Rates!$B:$B)</code>.</li>
+<li>Labor dollars per unit at today's rate: <code>=M2&#42;XLOOKUP(XLOOKUP(B2,Codes!$A:$A,Codes!$G:$G),Rates!$A:$A,Rates!$B:$B)</code>.</li>
 </ul>
 
 <h3>Lookup tab, the face the estimator actually uses</h3>
@@ -5681,16 +5681,16 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B4</td><td>Band</td><td><code>=IFS(B3&lt;XLOOKUP(B2,Codes!$A:$A,Codes!$D:$D),"S",...)</code></td><td>S</td></tr>
 <tr><td>B5</td><td>Sample count</td><td><code>=COUNTIFS(CostLines!$B:$B,B2,UnitHistory!$Q:$Q,B4,CostLines!$K:$K,1)</code></td><td>5</td></tr>
-<tr><td>B6</td><td>p50 hours per unit</td><td><code>=PERCENTILE.INC(FILTER(UnitHistory!M:M,(CostLines!B:B=B2)*(UnitHistory!Q:Q=B4)*(CostLines!K:K=1)),0.5)</code></td><td>0.0371</td></tr>
+<tr><td>B6</td><td>p50 hours per unit</td><td><code>=PERCENTILE.INC(FILTER(UnitHistory!M:M,(CostLines!B:B=B2)&#42;(UnitHistory!Q:Q=B4)&#42;(CostLines!K:K=1)),0.5)</code></td><td>0.0371</td></tr>
 <tr><td>B7</td><td>p75 hours per unit</td><td>same FILTER, 0.75</td><td>0.0385</td></tr>
 <tr><td>B9</td><td>Coefficient of variation</td><td><code>=STDEV.S(FILTER(...))/AVERAGE(FILTER(...))</code></td><td>9.4%</td></tr>
 <tr><td>B10</td><td>Data flag</td><td><code>=IF(B5&lt;4,"THIN: "&amp;B5&amp;" JOBS, USE PUBLISHED",IF(B9&gt;0.30,"SCOPE MISMATCH, READ NOTES","OK"))</code></td><td>OK</td></tr>
-<tr><td>B11</td><td>Labor $ on this bid</td><td><code>=B6*Rate*B3</code></td><td>$8,227</td></tr>
-<tr><td>B14</td><td>Cost of bidding p75 instead</td><td><code>=(B7-B6)*Rate*B3</code></td><td>$311</td></tr>
+<tr><td>B11</td><td>Labor $ on this bid</td><td><code>=B6&#42;Rate&#42;B3</code></td><td>$8,227</td></tr>
+<tr><td>B14</td><td>Cost of bidding p75 instead</td><td><code>=(B7-B6)&#42;Rate&#42;B3</code></td><td>$311</td></tr>
 </tbody>
 </table>
 
-<p>Wrap every FILTER in <code>=IFERROR(...,"NO DATA")</code>, because FILTER on an empty match returns a hard error that will cascade through the tab. On Excel 2019 and earlier, swap FILTER for <code>=MEDIAN(IF((CostLines!$B$2:$B$400=$B$2)*(UnitHistory!$Q$2:$Q$400=$B$4)*(CostLines!$K$2:$K$400=1),UnitHistory!$M$2:$M$400))</code> entered with Ctrl+Shift+Enter, and use SUMPRODUCT for the count.</p>
+<p>Wrap every FILTER in <code>=IFERROR(...,"NO DATA")</code>, because FILTER on an empty match returns a hard error that will cascade through the tab. On Excel 2019 and earlier, swap FILTER for <code>=MEDIAN(IF((CostLines!$B$2:$B$400=$B$2)&#42;(UnitHistory!$Q$2:$Q$400=$B$4)&#42;(CostLines!$K$2:$K$400=1),UnitHistory!$M$2:$M$400))</code> entered with Ctrl+Shift+Enter, and use SUMPRODUCT for the count.</p>
 
 <p>Cell B10 is the most valuable cell in the file. It is the one that stops the sheet from lying with confidence. When it says THIN, the estimator uses published data for that line and the sheet has still done its job by telling him which line to distrust.</p>
 
@@ -5806,13 +5806,13 @@ export const blogPosts: BlogPost[] = [
 
 <p>This is where two thirds of the industry quietly disagrees with itself. There are two bases and they are not interchangeable.</p>
 
-<p><strong>Add-on basis.</strong> Waste is expressed as a percentage of what you install. Order <code>=Net*(1+Waste)</code>. Ten percent on 1,000 square feet gives 1,100.</p>
+<p><strong>Add-on basis.</strong> Waste is expressed as a percentage of what you install. Order <code>=Net&#42;(1+Waste)</code>. Ten percent on 1,000 square feet gives 1,100.</p>
 
 <p><strong>Yield basis.</strong> Waste is expressed as a percentage of what you buy, which is how a tile carton or a stick of lumber actually behaves, because the offcut is a fraction of the piece you purchased. Order <code>=Net/(1-Waste)</code>. Ten percent on 1,000 square feet gives 1,111.</p>
 
 <table>
 <thead>
-<tr><th>Stated waste</th><th>Add-on: <code>=1000*(1+w)</code></th><th>Yield: <code>=1000/(1-w)</code></th><th>Shortfall if you use the wrong one</th></tr>
+<tr><th>Stated waste</th><th>Add-on: <code>=1000&#42;(1+w)</code></th><th>Yield: <code>=1000/(1-w)</code></th><th>Shortfall if you use the wrong one</th></tr>
 </thead>
 <tbody>
 <tr><td>5%</td><td>1,050</td><td>1,053</td><td>3 units</td></tr>
@@ -5831,7 +5831,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>A hall bath with 48 square feet of floor, ten percent add-on, cartons that cover 12.5 square feet:</p>
 
-<p><code>=CEILING.MATH(D4*(1+E4)/F4,1)*F4</code></p>
+<p><code>=CEILING.MATH(D4&#42;(1+E4)/F4,1)&#42;F4</code></p>
 
 <p>That is 48 times 1.10, or 52.8 square feet, divided by 12.5, rounded up to 5 cartons, times 12.5, for 62.5 square feet purchased. The real waste factor on that room is 30.2 percent, not ten. Nobody made a mistake. The math simply does not care what your allowance says once the package size is bigger than the remainder. Run that same formula across every small room in a house and your tile waste is 25 percent before a single tile gets cut wrong, which is exactly what Kestrel's sheet shows.</p>
 
@@ -5841,7 +5841,7 @@ export const blogPosts: BlogPost[] = [
 
 <h3>Tab 2: Orders</h3>
 
-<p>One row per delivery ticket, not per purchase order. Purchase orders get revised, split, and partially filled. The ticket is what actually came off the truck, and it is the only quantity you can defend. Column A date, B job, C material ID, D ticket number, E quantity in purchase units, F unit cost, G extended <code>=E2*F2</code>, H returned quantity, I net received <code>=E2-H2</code>.</p>
+<p>One row per delivery ticket, not per purchase order. Purchase orders get revised, split, and partially filled. The ticket is what actually came off the truck, and it is the only quantity you can defend. Column A date, B job, C material ID, D ticket number, E quantity in purchase units, F unit cost, G extended <code>=E2&#42;F2</code>, H returned quantity, I net received <code>=E2-H2</code>.</p>
 
 <h3>Tab 3: Installed</h3>
 
@@ -5855,14 +5855,14 @@ export const blogPosts: BlogPost[] = [
 <p><code>=SUMIFS(Installed!$C:$C,Installed!$A:$A,$A4,Installed!$B:$B,$B4)</code></p>
 
 <p>Ordered, converted from purchase units into measure units so the two columns are comparable:</p>
-<p><code>=SUMIFS(Orders!$I:$I,Orders!$B:$B,$A4,Orders!$C:$C,$B4)*XLOOKUP($B4,Materials!$A:$A,Materials!$F:$F)</code></p>
+<p><code>=SUMIFS(Orders!$I:$I,Orders!$B:$B,$A4,Orders!$C:$C,$B4)&#42;XLOOKUP($B4,Materials!$A:$A,Materials!$F:$F)</code></p>
 
 <p>Column F is leftover returned to stock, entered at closeout. Column G is consumed, <code>=E4-F4</code>. That subtraction matters more than it looks. Eleven full sheets of drywall and three unopened cartons of tile going back to your shop are inventory, not waste, and a sheet that counts them as waste will overstate your factor on this job and then watch you buy them again for the next one. If you already run <a href="/blog/construction-stored-materials-tracking-spreadsheet">stored materials tracking</a>, column F is a lookup rather than a field entry.</p>
 
 <p>Actual waste on the add-on basis, <code>=(G4-D4)/D4</code>. Allowance, <code>=XLOOKUP($B4,Materials!$A:$A,Materials!$I:$I)</code>. Variance in points, <code>=H4-I4</code>.</p>
 
 <p>Then the column that drives every decision, dollars over allowance, converting the excess measure units back into purchase units and pricing them:</p>
-<p><code>=(G4-D4*(1+I4))/XLOOKUP($B4,Materials!$A:$A,Materials!$F:$F)*XLOOKUP($B4,Materials!$A:$A,Materials!$G:$G)</code></p>
+<p><code>=(G4-D4&#42;(1+I4))/XLOOKUP($B4,Materials!$A:$A,Materials!$F:$F)&#42;XLOOKUP($B4,Materials!$A:$A,Materials!$G:$G)</code></p>
 
 <p>And the flag, driven by a dollar threshold rather than a percentage threshold:</p>
 <p><code>=IF(K4&gt;Settings!$B$2,"REVIEW",IF(K4&lt;-Settings!$B$2,"PADDED","OK"))</code></p>
@@ -6001,7 +6001,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The NCCI experience rating formula is used in roughly thirty eight states. California, Pennsylvania, New Jersey, New York, Delaware, Michigan, North Carolina, Texas, and Wisconsin run independent bureaus with their own parameters, so pull your own worksheet before you trust any published example, including this one. The structure is the same everywhere:</p>
 
-<p><code>Mod = (Ap + B + W * Ae + (1 - W) * Ee) / (Ep + B)</code></p>
+<p><code>Mod = (Ap + B + W &#42; Ae + (1 - W) &#42; Ee) / (Ep + B)</code></p>
 
 <p>Six terms, and the whole model turns on understanding what each one is doing to you.</p>
 
@@ -6027,7 +6027,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Set actual losses to zero and the formula does not return zero. It returns the best mod your payroll and class codes will ever produce:</p>
 
-<p><code>=(Ballast+(1-W)*Expected_excess)/(Expected_losses+Ballast)</code></p>
+<p><code>=(Ballast+(1-W)&#42;Expected_excess)/(Expected_losses+Ballast)</code></p>
 
 <p>For Harbor that is ($115,000 + 0.68 * $296,800) / $486,000, or 0.65. A perfect year, an empty claim run, zero recordables, and the best they can buy is a 35 percent credit. Everything below 0.65 is not available at any price.</p>
 
@@ -6064,7 +6064,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>One row per class code per policy year. Column A holds the policy period start date, not the text "2022", so the same date criteria work on this tab and the claims tab.</p>
 
-<p>Expected losses in F: <code>=C4/100*D4</code>, payroll divided by one hundred times the expected loss rate. Expected primary in G: <code>=F4*E4</code>, using the D-ratio. Expected excess in H: <code>=F4-G4</code>.</p>
+<p>Expected losses in F: <code>=C4/100&#42;D4</code>, payroll divided by one hundred times the expected loss rate. Expected primary in G: <code>=F4&#42;E4</code>, using the D-ratio. Expected excess in H: <code>=F4-G4</code>.</p>
 
 <table>
 <thead>
@@ -6083,7 +6083,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>One row per claim, pulled from the loss run your carrier will email you within a day of being asked. Column F is incurred, meaning paid plus reserve, not paid.</p>
 
-<p>Rated value in G: <code>=IF(E4="Medical only",F4*Inputs!$B$8,F4)</code>. In most NCCI states a medical-only claim is discounted 70 percent for experience rating purposes. Primary in H: <code>=MIN(G4,Inputs!$B$5)</code>. Excess in I: <code>=G4-H4</code>. Valuation date in J: <code>=EDATE(C4,18)</code>. And the column that earns the whole model, K: <code>=IF(AND(D4="Open",J4&gt;TODAY(),J4-TODAY()&lt;=90),"REVIEW NOW","")</code>.</p>
+<p>Rated value in G: <code>=IF(E4="Medical only",F4&#42;Inputs!$B$8,F4)</code>. In most NCCI states a medical-only claim is discounted 70 percent for experience rating purposes. Primary in H: <code>=MIN(G4,Inputs!$B$5)</code>. Excess in I: <code>=G4-H4</code>. Valuation date in J: <code>=EDATE(C4,18)</code>. And the column that earns the whole model, K: <code>=IF(AND(D4="Open",J4&gt;TODAY(),J4-TODAY()&lt;=90),"REVIEW NOW","")</code>.</p>
 
 <table>
 <thead>
@@ -6111,17 +6111,17 @@ export const blogPosts: BlogPost[] = [
 
 <p>Repeat for excess against column I, and for expected losses and expected primary against the exposure tab. Then the mod itself, in B9:</p>
 
-<p><code>=(B3+Inputs!$B$6+Inputs!$B$7*B4+(1-Inputs!$B$7)*B7)/(B5+Inputs!$B$6)</code></p>
+<p><code>=(B3+Inputs!$B$6+Inputs!$B$7&#42;B4+(1-Inputs!$B$7)&#42;B7)/(B5+Inputs!$B$6)</code></p>
 
 <p>Harbor's numerator is $73,640 + $115,000 + $35,360 + $201,824, or $425,824. Divided by $486,000 it gives 0.8762, which the bureau publishes as 0.88.</p>
 
 <p>Now build the two lines that turn a calculator into a decision tool. Cost per $1,000 of primary loss across the full three year window, in B12:</p>
 
-<p><code>=1000/(B5+Inputs!$B$6)*Inputs!$B$9*3</code></p>
+<p><code>=1000/(B5+Inputs!$B$6)&#42;Inputs!$B$9&#42;3</code></p>
 
 <p>And the same for excess loss, in B13, which multiplies by the weight:</p>
 
-<p><code>=1000/(B5+Inputs!$B$6)*Inputs!$B$7*Inputs!$B$9*3</code></p>
+<p><code>=1000/(B5+Inputs!$B$6)&#42;Inputs!$B$7&#42;Inputs!$B$9&#42;3</code></p>
 
 <p>For Harbor those come out at $1,782 and $570. Every dollar of primary loss costs $1.78 in future premium. Every dollar of excess loss costs $0.57. That 3.1 to 1 ratio is the most useful number in the model and it drives everything in the next section.</p>
 
@@ -6299,8 +6299,8 @@ export const blogPosts: BlogPost[] = [
 <tr><td>E</td><td>Gross profit</td><td><code>=C4-D4</code> &rarr; $78,000</td></tr>
 <tr><td>F</td><td>Gross margin</td><td><code>=E4/C4</code> &rarr; 16.3%</td></tr>
 <tr><td>G</td><td>Self-perform field hours</td><td><code>=SUMIFS(Time!$D:$D,Time!$A:$A,$A4)</code> &rarr; 5,200</td></tr>
-<tr><td>H</td><td>Field support allocated</td><td><code>=G4*Pools!$B$5</code> &rarr; $110,188</td></tr>
-<tr><td>I</td><td>G&amp;A allocated</td><td><code>=D4*Pools!$B$9</code> &rarr; $33,286</td></tr>
+<tr><td>H</td><td>Field support allocated</td><td><code>=G4&#42;Pools!$B$5</code> &rarr; $110,188</td></tr>
+<tr><td>I</td><td>G&amp;A allocated</td><td><code>=D4&#42;Pools!$B$9</code> &rarr; $33,286</td></tr>
 <tr><td>J</td><td>Total overhead allocated</td><td><code>=H4+I4</code> &rarr; $143,474</td></tr>
 <tr><td>K</td><td>Net profit</td><td><code>=E4-J4</code> &rarr; -$65,474</td></tr>
 <tr><td>L</td><td>Net margin</td><td><code>=K4/C4</code> &rarr; -13.6%</td></tr>
@@ -6432,7 +6432,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>K</td><td>Notice status</td><td>TIMELY</td></tr>
 <tr><td>L</td><td>Direct cost</td><td>$1,258.00</td></tr>
 <tr><td>M</td><td>Markup per contract</td><td>10%</td></tr>
-<tr><td>N</td><td>Total charged</td><td><code>=L4*(1+M4)</code> &rarr; $1,383.80</td></tr>
+<tr><td>N</td><td>Total charged</td><td><code>=L4&#42;(1+M4)</code> &rarr; $1,383.80</td></tr>
 <tr><td>O</td><td>Status</td><td>Deducted</td></tr>
 <tr><td>P</td><td>Pay app deducted on</td><td>PA-11</td></tr>
 <tr><td>Q</td><td>Amount deducted</td><td>$1,383.80</td></tr>
@@ -6467,7 +6467,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>Replacement board</td><td>4 sheets 5/8 type X</td><td>$88.00</td></tr>
 <tr><td><strong>Direct cost (L4)</strong></td><td></td><td><strong>$1,258.00</strong></td></tr>
 <tr><td>Markup (M4)</td><td>Subcontract art. 8.3, 10%</td><td>$125.80</td></tr>
-<tr><td><strong>Total charged (N4)</strong></td><td><code>=L4*(1+M4)</code></td><td><strong>$1,383.80</strong></td></tr>
+<tr><td><strong>Total charged (N4)</strong></td><td><code>=L4&#42;(1+M4)</code></td><td><strong>$1,383.80</strong></td></tr>
 </tbody>
 </table>
 
@@ -6531,7 +6531,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>So the number that belongs in the forecast is not the gross. It is this:</p>
 
-<p><code>=SUMIFS($N:$N,$K:$K,"TIMELY")*0.82+SUMIFS($N:$N,$K:$K,"LATE")*0.08</code></p>
+<p><code>=SUMIFS($N:$N,$K:$K,"TIMELY")&#42;0.82+SUMIFS($N:$N,$K:$K,"LATE")&#42;0.08</code></p>
 
 <p>Rows reading BLOWN contribute nothing, which is accurate and which is also the only report that makes anyone care about the notice clock. On this job the defensible credit was roughly $25,000, so a forecast carrying $71,400 overstated the result by $46,500 for eleven months. It was discovered on the final pay application, when there were no months left to recover it in.</p>
 
@@ -6638,11 +6638,11 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>B24</td><td>Gross sale price</td><td><code>=B7</code></td><td>$272,000</td></tr>
-<tr><td>B25</td><td>Commissions</td><td><code>=B7*B10</code></td><td>$13,600</td></tr>
-<tr><td>B26</td><td>Buyer concessions</td><td><code>=B7*B11</code></td><td>$5,440</td></tr>
-<tr><td>B27</td><td>Seller-side closing costs</td><td><code>=B7*B12</code></td><td>$3,264</td></tr>
+<tr><td>B25</td><td>Commissions</td><td><code>=B7&#42;B10</code></td><td>$13,600</td></tr>
+<tr><td>B26</td><td>Buyer concessions</td><td><code>=B7&#42;B11</code></td><td>$5,440</td></tr>
+<tr><td>B27</td><td>Seller-side closing costs</td><td><code>=B7&#42;B12</code></td><td>$3,264</td></tr>
 <tr><td>B28</td><td>Make-ready</td><td><code>=B8</code></td><td>$12,500</td></tr>
-<tr><td>B29</td><td>Carry</td><td><code>=B13*(B9/30)</code></td><td>$900</td></tr>
+<tr><td>B29</td><td>Carry</td><td><code>=B13&#42;(B9/30)</code></td><td>$900</td></tr>
 <tr><td>B30</td><td>Extension and per diem</td><td><code>=B14</code></td><td>$1,000</td></tr>
 <tr><td>B31</td><td>Legal and doc prep</td><td><code>=B15</code></td><td>$750</td></tr>
 <tr><td>B32</td><td>Seller net</td><td><code>=B4</code></td><td>$196,000</td></tr>
@@ -6686,7 +6686,7 @@ export const blogPosts: BlogPost[] = [
 
 <h3>Return on capital at risk keeps novation in its lane</h3>
 
-<p>B39 says the $15,150 you put at risk returns 130.7 percent over 46 extra days, which annualizes past 1,000 percent on <code>=(B36/B37)*(365/B38)</code>. That is the honest argument for novation and it is a strong one. It is also the number that stops you from novating a deal where the make-ready is $60,000, because at that scope you are running a flip on someone else's title with none of the upside and all of the exposure. If B37 climbs above about a third of B33, you are not novating anymore, you should be buying the house.</p>
+<p>B39 says the $15,150 you put at risk returns 130.7 percent over 46 extra days, which annualizes past 1,000 percent on <code>=(B36/B37)&#42;(365/B38)</code>. That is the honest argument for novation and it is a strong one. It is also the number that stops you from novating a deal where the make-ready is $60,000, because at that scope you are running a flip on someone else's title with none of the upside and all of the exposure. If B37 climbs above about a third of B33, you are not novating anymore, you should be buying the house.</p>
 
 <h2>Where Novation Deals Die</h2>
 
@@ -6761,7 +6761,7 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>B4</td><td>Purchase price</td><td>$118,000</td></tr>
-<tr><td>B5</td><td>Purchase loan at 85% LTP</td><td><code>=B4*0.85</code> &rarr; $100,300</td></tr>
+<tr><td>B5</td><td>Purchase loan at 85% LTP</td><td><code>=B4&#42;0.85</code> &rarr; $100,300</td></tr>
 <tr><td>B6</td><td>Down payment</td><td><code>=B4-B5</code> &rarr; $17,700</td></tr>
 <tr><td>B7</td><td>Purchase closing costs</td><td>$3,400</td></tr>
 <tr><td>B8</td><td>Rehab paid from your account</td><td>$42,000</td></tr>
@@ -6792,12 +6792,12 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B17</td><td>Rate</td><td>7.25%</td></tr>
 <tr><td>B18</td><td>Term in years</td><td>30</td></tr>
 <tr><td>B19</td><td>Refinance closing costs</td><td>$4,600</td></tr>
-<tr><td>B21</td><td>New loan amount</td><td><code>=B15*B16</code> &rarr; $161,250</td></tr>
+<tr><td>B21</td><td>New loan amount</td><td><code>=B15&#42;B16</code> &rarr; $161,250</td></tr>
 <tr><td>B22</td><td>Payoff of purchase loan</td><td><code>=B5</code> &rarr; $100,300</td></tr>
 <tr><td>B23</td><td>Net cash to you at closing</td><td><code>=B21-B22-B19</code> &rarr; $56,350</td></tr>
 <tr><td>B24</td><td><strong>Cash left in deal</strong></td><td><code>=B12-B23</code> &rarr; $20,750</td></tr>
 <tr><td>B25</td><td>Capital recycle rate</td><td><code>=B23/B12</code> &rarr; 73%</td></tr>
-<tr><td>B26</td><td>Reserves held (6 months PITIA)</td><td><code>=6*B40</code> &rarr; $8,430</td></tr>
+<tr><td>B26</td><td>Reserves held (6 months PITIA)</td><td><code>=6&#42;B40</code> &rarr; $8,430</td></tr>
 <tr><td>B27</td><td><strong>Total capital committed</strong></td><td><code>=B24+B26</code> &rarr; $29,180</td></tr>
 </tbody>
 </table>
@@ -6814,19 +6814,19 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B30</td><td>Monthly rent</td><td>$1,895</td></tr>
 <tr><td>B31</td><td>Property taxes</td><td>$210</td></tr>
 <tr><td>B32</td><td>Insurance</td><td>$95</td></tr>
-<tr><td>B33</td><td>Management at 9%</td><td><code>=B30*0.09</code> &rarr; $171</td></tr>
+<tr><td>B33</td><td>Management at 9%</td><td><code>=B30&#42;0.09</code> &rarr; $171</td></tr>
 <tr><td>B34</td><td>Maintenance and capex</td><td>$190</td></tr>
-<tr><td>B35</td><td>Vacancy at 6%</td><td><code>=B30*0.06</code> &rarr; $114</td></tr>
+<tr><td>B35</td><td>Vacancy at 6%</td><td><code>=B30&#42;0.06</code> &rarr; $114</td></tr>
 <tr><td>B36</td><td>Total operating expenses</td><td><code>=SUM(B31:B35)</code> &rarr; $780</td></tr>
 <tr><td>B37</td><td>Monthly NOI</td><td><code>=B30-B36</code> &rarr; $1,115</td></tr>
-<tr><td>B38</td><td>New principal and interest</td><td><code>=-PMT(B17/12,B18*12,B21)</code> &rarr; $1,100</td></tr>
+<tr><td>B38</td><td>New principal and interest</td><td><code>=-PMT(B17/12,B18&#42;12,B21)</code> &rarr; $1,100</td></tr>
 <tr><td>B39</td><td>Monthly cash flow</td><td><code>=B37-B38</code> &rarr; $15</td></tr>
 <tr><td>B40</td><td>PITIA for lender test</td><td><code>=B38+B31+B32</code> &rarr; $1,405</td></tr>
 <tr><td>B41</td><td>Lender DSCR</td><td><code>=B30/B40</code> &rarr; 1.35</td></tr>
 </tbody>
 </table>
 
-<p>Now the two return lines that most spreadsheets skip. Cash-on-cash return on trapped capital is <code>=IFERROR(B39*12/B24,"No cash trapped")</code>, which returns 0.9 percent here. The honest version adds first-year principal paydown, since that is a real return on the dollars you left behind: <code>=IFERROR((B39*12+B38*12+CUMIPMT(B17/12,B18*12,B21,1,12,0))/B24,"")</code> gives $1,740 against $20,750, or 8.4 percent. That is the number to compare against what the same $20,750 would earn as the down payment on your next deal. If your next BRRRR returns 20 percent cash-on-cash, leaving $20,750 here to earn 8.4 percent costs you roughly $2,400 a year in opportunity, every year, until you sell or refinance again.</p>
+<p>Now the two return lines that most spreadsheets skip. Cash-on-cash return on trapped capital is <code>=IFERROR(B39&#42;12/B24,"No cash trapped")</code>, which returns 0.9 percent here. The honest version adds first-year principal paydown, since that is a real return on the dollars you left behind: <code>=IFERROR((B39&#42;12+B38&#42;12+CUMIPMT(B17/12,B18&#42;12,B21,1,12,0))/B24,"")</code> gives $1,740 against $20,750, or 8.4 percent. That is the number to compare against what the same $20,750 would earn as the down payment on your next deal. If your next BRRRR returns 20 percent cash-on-cash, leaving $20,750 here to earn 8.4 percent costs you roughly $2,400 a year in opportunity, every year, until you sell or refinance again.</p>
 
 <h2>Zero Cash Left In Is the Wrong Target</h2>
 
@@ -6954,7 +6954,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B5</td><td>Gross spread</td><td><code>=B4-B3</code></td><td>$32,500</td></tr>
 <tr><td>B11</td><td>Transactional funding rate</td><td>input</td><td>2.00%</td></tr>
 <tr><td>B12</td><td>Funder minimum fee</td><td>input</td><td>$2,500</td></tr>
-<tr><td>B13</td><td>Funding fee charged</td><td><code>=MAX(B12,B3*B11)</code></td><td>$3,640</td></tr>
+<tr><td>B13</td><td>Funding fee charged</td><td><code>=MAX(B12,B3&#42;B11)</code></td><td>$3,640</td></tr>
 <tr><td>B14</td><td>Funder doc and wire fee</td><td>input</td><td>$495</td></tr>
 <tr><td>B15</td><td>Owner's title policy, A to B</td><td>input</td><td>$1,050</td></tr>
 <tr><td>B16</td><td>Lender's policy, simultaneous issue</td><td>input</td><td>$200</td></tr>
@@ -6976,9 +6976,9 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>B22</td><td>Settlement and escrow fee, B to C</td><td>input</td><td>$650</td></tr>
-<tr><td>B23</td><td>Owner's title policy, B to C, full rate</td><td><code>=B4*0.00566</code></td><td>$1,215</td></tr>
-<tr><td>B24</td><td>Reissue credit, prior policy under 90 days</td><td><code>=IF(B6&lt;=90,-B23*0.6,0)</code></td><td>-$729</td></tr>
-<tr><td>B25</td><td>Deed transfer tax you pay as seller</td><td><code>=B4/100*B8</code></td><td>$1,502</td></tr>
+<tr><td>B23</td><td>Owner's title policy, B to C, full rate</td><td><code>=B4&#42;0.00566</code></td><td>$1,215</td></tr>
+<tr><td>B24</td><td>Reissue credit, prior policy under 90 days</td><td><code>=IF(B6&lt;=90,-B23&#42;0.6,0)</code></td><td>-$729</td></tr>
+<tr><td>B25</td><td>Deed transfer tax you pay as seller</td><td><code>=B4/100&#42;B8</code></td><td>$1,502</td></tr>
 <tr><td>B26</td><td>Recording, deed B to C</td><td>input</td><td>$86</td></tr>
 <tr><td>B27</td><td>Wires, courier, e-recording</td><td>input</td><td>$165</td></tr>
 <tr><td>B28</td><td><strong>B to C subtotal</strong></td><td><code>=SUM(B22:B27)</code></td><td><strong>$2,889</strong></td></tr>
@@ -6993,9 +6993,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Model it explicitly so a delay never surprises you:</p>
 
-<p><code>=IF(B6=0,0,B3*B31/365*B6)</code> for the carry, where B6 is days between closings and B31 is your bridge rate.</p>
+<p><code>=IF(B6=0,0,B3&#42;B31/365&#42;B6)</code> for the carry, where B6 is days between closings and B31 is your bridge rate.</p>
 
-<p><code>=IF(B6=0,0,B6*18)</code> for the daily burn of a vacant insured property.</p>
+<p><code>=IF(B6=0,0,B6&#42;18)</code> for the daily burn of a vacant insured property.</p>
 
 <p>At 12 percent on $182,000, every day between closings costs $59.84 in interest plus $18 in carry. A two week gap is $1,096. That is not fatal, but it means a delayed double close on a $15,000 spread has eaten another 7 percent of it while you waited.</p>
 
@@ -7027,8 +7027,8 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B42</td><td>Probability the deal survives a disclosed fee</td><td>input</td><td>70%</td></tr>
 <tr><td>B43</td><td>Probability the double close actually completes</td><td>input</td><td>95%</td></tr>
-<tr><td>B44</td><td>Expected value, assign</td><td><code>=B39*B42</code></td><td>$22,400</td></tr>
-<tr><td>B45</td><td>Expected value, double close</td><td><code>=B37*B43</code></td><td>$22,297</td></tr>
+<tr><td>B44</td><td>Expected value, assign</td><td><code>=B39&#42;B42</code></td><td>$22,400</td></tr>
+<tr><td>B45</td><td>Expected value, double close</td><td><code>=B37&#42;B43</code></td><td>$22,297</td></tr>
 <tr><td>B46</td><td>Decision</td><td><code>=IF(B45&gt;B44,"DOUBLE CLOSE","ASSIGN")</code></td><td>ASSIGN</td></tr>
 </tbody>
 </table>
@@ -7039,7 +7039,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Rather than guessing at probabilities every time, solve for the threshold once:</p>
 
-<p><code>=1-(B37*B43)/B39</code></p>
+<p><code>=1-(B37&#42;B43)/B39</code></p>
 
 <p>On this deal that returns 30.3 percent. Read it as a rule: if you believe there is more than a 30.3 percent chance this end buyer blows up the deal after seeing a $32,500 assignment fee, double close. If not, assign and keep the $9,030.</p>
 
@@ -7097,7 +7097,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Run the assignment as the default. It is cheaper by definition and there is no version of this math where the double close produces more gross dollars. Build the cost stack anyway, because you need the break-even walk risk number sitting in the sheet before you are on the phone with a buyer arguing about your fee.</p>
 
-<p>Then use three rules. Under $12,000 of spread, never double close, because the fixed costs eat it. Over $60,000 of spread, plan on double closing, because you are paying 10 to 15 percent of the profit to remove the single largest reason a big wholesale deal collapses. In the middle, compute <code>=1-(B37*B43)/B39</code> and be honest about whether this specific buyer, who has walked from two deals already this quarter, clears that threshold.</p>
+<p>Then use three rules. Under $12,000 of spread, never double close, because the fixed costs eat it. Over $60,000 of spread, plan on double closing, because you are paying 10 to 15 percent of the profit to remove the single largest reason a big wholesale deal collapses. In the middle, compute <code>=1-(B37&#42;B43)/B39</code> and be honest about whether this specific buyer, who has walked from two deals already this quarter, clears that threshold.</p>
 
 <p>And always claim the reissue rate on the second policy. On the deal in this article it is $729, which is 8 percent of the entire cost of the double close, available for the price of one email to the closer.</p>
 
@@ -7128,7 +7128,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Hard money term sheets stack two constraints, and the tighter one wins. Take the deal: purchase $148,000, rehab budget $86,000, ARV $325,000. Advance rate is 90 percent of purchase and 100 percent of rehab, but total loan is capped at 65 percent of ARV.</p>
 
-<p>Requested loan is <code>=B3*B6+B4*B7</code>, which is $133,200 plus $86,000, or $219,200. The ARV ceiling is <code>=B5*B8</code>, or $211,250. The lender funds <code>=MIN(B17,B18)</code>, which is $211,250. The purchase advance is protected because it funds first, so the entire $7,950 shortfall comes out of the rehab holdback. Your 100 percent rehab financing is actually 90.76 percent, and you find out at the closing table if you find out at all.</p>
+<p>Requested loan is <code>=B3&#42;B6+B4&#42;B7</code>, which is $133,200 plus $86,000, or $219,200. The ARV ceiling is <code>=B5&#42;B8</code>, or $211,250. The lender funds <code>=MIN(B17,B18)</code>, which is $211,250. The purchase advance is protected because it funds first, so the entire $7,950 shortfall comes out of the rehab holdback. Your 100 percent rehab financing is actually 90.76 percent, and you find out at the closing table if you find out at all.</p>
 
 <p>Put the flag directly in the model so it cannot be skimmed past:</p>
 
@@ -7158,9 +7158,9 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B5</td><td>ARV</td><td>input</td><td>$325,000</td></tr>
 <tr><td>B6</td><td>Purchase advance rate</td><td>input</td><td>90%</td></tr>
 <tr><td>B8</td><td>Max loan to ARV</td><td>input</td><td>65%</td></tr>
-<tr><td>B15</td><td>Purchase advance requested</td><td><code>=B3*B6</code></td><td>$133,200</td></tr>
-<tr><td>B17</td><td>Loan requested</td><td><code>=B15+B4*B7</code></td><td>$219,200</td></tr>
-<tr><td>B18</td><td>ARV ceiling</td><td><code>=B5*B8</code></td><td>$211,250</td></tr>
+<tr><td>B15</td><td>Purchase advance requested</td><td><code>=B3&#42;B6</code></td><td>$133,200</td></tr>
+<tr><td>B17</td><td>Loan requested</td><td><code>=B15+B4&#42;B7</code></td><td>$219,200</td></tr>
+<tr><td>B18</td><td>ARV ceiling</td><td><code>=B5&#42;B8</code></td><td>$211,250</td></tr>
 <tr><td>B19</td><td>Loan actually funded</td><td><code>=MIN(B17,B18)</code></td><td>$211,250</td></tr>
 <tr><td>B21</td><td>Rehab funded</td><td><code>=MAX(0,B19-B20)</code></td><td>$78,050</td></tr>
 <tr><td>B22</td><td>Unfunded rehab</td><td><code>=B4-B21</code></td><td>$7,950</td></tr>
@@ -7178,12 +7178,12 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>Down payment</td><td><code>=B3-B20</code></td><td>$14,800</td></tr>
-<tr><td>Origination, 2 points</td><td><code>=B19*B10</code></td><td>$4,225</td></tr>
+<tr><td>Origination, 2 points</td><td><code>=B19&#42;B10</code></td><td>$4,225</td></tr>
 <tr><td>Appraisal, underwriting, doc prep</td><td>flat</td><td>$1,950</td></tr>
 <tr><td>Title, escrow, recording, attorney</td><td>flat</td><td>$2,900</td></tr>
-<tr><td>Transfer tax, 0.7%</td><td><code>=B3*0.007</code></td><td>$1,036</td></tr>
+<tr><td>Transfer tax, 0.7%</td><td><code>=B3&#42;0.007</code></td><td>$1,036</td></tr>
 <tr><td>Builders risk and liability, 12 months prepaid</td><td>quote</td><td>$2,650</td></tr>
-<tr><td>Interest prepaid to month end</td><td><code>=B20*B9/12</code></td><td>$1,276</td></tr>
+<tr><td>Interest prepaid to month end</td><td><code>=B20&#42;B9/12</code></td><td>$1,276</td></tr>
 <tr><td><strong>Cash to close</strong></td><td><code>=SUM(B27:B33)</code></td><td><strong>$28,837</strong></td></tr>
 </tbody>
 </table>
@@ -7208,7 +7208,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>Column D is <code>=ROUND(C5*Deal!$B$23,0)</code> and column E is <code>=C5-D5</code>. Absolute reference on B23 so you can drag it. Add a column H for the week funds land, <code>=G5+F5/7</code>, where G is the week you paid the invoice. That single column is what turns a static budget into a timeline.</p>
+<p>Column D is <code>=ROUND(C5&#42;Deal!$B$23,0)</code> and column E is <code>=C5-D5</code>. Absolute reference on B23 so you can drag it. Add a column H for the week funds land, <code>=G5+F5/7</code>, where G is the week you paid the invoice. That single column is what turns a static budget into a timeline.</p>
 
 <p>Ask the lender for the days to fund in writing before you sign, and ask for the worst case, not the average. A lender who says "usually about a week" is quoting you their processing time, not the inspector's calendar. Seventeen days on draw 4 is what a real schedule looks like when the inspection lands the week of a holiday.</p>
 
@@ -7251,7 +7251,7 @@ export const blogPosts: BlogPost[] = [
 
 <h3>The interest line has two versions and the term sheet will not tell you which</h3>
 
-<p>Some lenders charge interest on the full committed loan from day one, including the undrawn rehab holdback. Others charge only on the drawn balance. Same 11.5 percent, very different bill. Full balance is <code>=$B$19*$B$9/12</code>, a flat $2,024 a month, $14,168 over seven months. Drawn balance accrues daily against the actual outstanding, <code>=F6*Deal!$B$9/365*((A6-A5)*7)</code> down a balance column, which totals about $12,299. The difference is $1,869 you either budget for or discover. Ask which structure applies, and put the answer in a toggle cell.</p>
+<p>Some lenders charge interest on the full committed loan from day one, including the undrawn rehab holdback. Others charge only on the drawn balance. Same 11.5 percent, very different bill. Full balance is <code>=$B$19&#42;$B$9/12</code>, a flat $2,024 a month, $14,168 over seven months. Drawn balance accrues daily against the actual outstanding, <code>=F6&#42;Deal!$B$9/365&#42;((A6-A5)&#42;7)</code> down a balance column, which totals about $12,299. The difference is $1,869 you either budget for or discover. Ask which structure applies, and put the answer in a toggle cell.</p>
 
 <h2>Stress Test the Gap Before You Sign, Not After</h2>
 
@@ -7287,7 +7287,7 @@ export const blogPosts: BlogPost[] = [
 <li>Confirm your liquid reserve covers the peak plus the contingency, in cash, in an account you can reach in 48 hours. Not a HELOC you have not drawn, not a partner who has verbally agreed.</li>
 </ol>
 
-<p>For this deal the reserve requirement is <code>=ROUNDUP((-MIN(E5:E30)+B4*0.12)/1000,0)*1000</code>, which is $75,000. The lender described this as 10 percent down on a $148,000 house. The number in your head was $14,800. The number that keeps you solvent is five times that.</p>
+<p>For this deal the reserve requirement is <code>=ROUNDUP((-MIN(E5:E30)+B4&#42;0.12)/1000,0)&#42;1000</code>, which is $75,000. The lender described this as 10 percent down on a $148,000 house. The number in your head was $14,800. The number that keeps you solvent is five times that.</p>
 
 <p>The recommendation: do not sign a hard money term sheet until the peak of your running position, plus a full unfunded contingency, sits liquid in an account you control. If it does not, the fix is not a better contractor or a faster lender. It is a smaller deal. A flip you can carry through week 16 at 26 percent returns beats a flip you cannot carry at 45 percent, because the second one never reaches the closing table.</p>
 
@@ -7360,23 +7360,23 @@ export const blogPosts: BlogPost[] = [
 <p>Six formulas turn those inputs into a revenue number that reflects how the asset actually gets used.</p>
 
 <ul>
-<li><strong>B12, average contract length:</strong> <code>=B5+(B6*B7)</code> returns 116.2 days. This is the blended stay, not the advertised one, and it is the number your tax classification depends on later.</li>
+<li><strong>B12, average contract length:</strong> <code>=B5+(B6&#42;B7)</code> returns 116.2 days. This is the blended stay, not the advertised one, and it is the number your tax classification depends on later.</li>
 <li><strong>B13, full cycle length:</strong> <code>=B12+B8</code> returns 134.2 days. One occupied stretch plus one turnover.</li>
 <li><strong>B14, contracts per year:</strong> <code>=365/B13</code> returns 2.72. Use the fraction, not <code>ROUNDDOWN</code>. Contracts do not respect January 1.</li>
-<li><strong>B15, booked days:</strong> <code>=365*(B12/B13)</code> returns 316.</li>
+<li><strong>B15, booked days:</strong> <code>=365&#42;(B12/B13)</code> returns 316.</li>
 <li><strong>B17, booked months:</strong> <code>=B15/30.4167</code> returns 10.39. This is the honest answer to "how many months of rent do I collect," and it is 1.61 months short of what the listing rate implies.</li>
-<li><strong>B18, mid term gross:</strong> <code>=B17*B4</code> returns $23,898.</li>
+<li><strong>B18, mid term gross:</strong> <code>=B17&#42;B4</code> returns $23,898.</li>
 </ul>
 
-<p>Add one more cell you will use in every negotiation. <strong>B19, daily equivalent rate:</strong> <code>=ROUND(B4*12/365,2)</code> returns $75.62. A 91-day contract is 2.99 months, not 3, so the correct invoice is <code>=91*B19</code>, or $6,881. Quoting "three months at $2,300" hands the tenant $19 and hands you an argument about the last four days.</p>
+<p>Add one more cell you will use in every negotiation. <strong>B19, daily equivalent rate:</strong> <code>=ROUND(B4&#42;12/365,2)</code> returns $75.62. A 91-day contract is 2.99 months, not 3, so the correct invoice is <code>=91&#42;B19</code>, or $6,881. Quoting "three months at $2,300" hands the tenant $19 and hands you an argument about the last four days.</p>
 
 <h3>The long term benchmark</h3>
 
 <p>Give the comparison strategy the same rigor, otherwise you are comparing a modeled number to a fantasy. Long term units turn too.</p>
 
 <ul>
-<li><strong>B23, vacancy factor:</strong> <code>=1-(B22/(B21*30.4167))</code> with a 24-month turn cycle (B21) and 21 vacant days per turn (B22) returns 0.9712.</li>
-<li><strong>B24, effective gross:</strong> <code>=B3*12*B23</code> returns $16,899.</li>
+<li><strong>B23, vacancy factor:</strong> <code>=1-(B22/(B21&#42;30.4167))</code> with a 24-month turn cycle (B21) and 21 vacant days per turn (B22) returns 0.9712.</li>
+<li><strong>B24, effective gross:</strong> <code>=B3&#42;12&#42;B23</code> returns $16,899.</li>
 <li><strong>Turn cost, annualized:</strong> <code>=600/(B21/12)</code> returns $300 a year on a $600 paint-and-clean turn.</li>
 </ul>
 
@@ -7391,12 +7391,12 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Annual line</th><th>Long term</th><th>Mid term</th><th>Formula</th></tr>
 </thead>
 <tbody>
-<tr><td>Utilities, gas, electric, water, trash</td><td>$0</td><td>$1,980</td><td><code>=B27*12</code></td></tr>
-<tr><td>Internet</td><td>$0</td><td>$960</td><td><code>=B28*12</code></td></tr>
-<tr><td>Turnover cleaning</td><td>$300</td><td>$503</td><td><code>=B14*185</code></td></tr>
+<tr><td>Utilities, gas, electric, water, trash</td><td>$0</td><td>$1,980</td><td><code>=B27&#42;12</code></td></tr>
+<tr><td>Internet</td><td>$0</td><td>$960</td><td><code>=B28&#42;12</code></td></tr>
+<tr><td>Turnover cleaning</td><td>$300</td><td>$503</td><td><code>=B14&#42;185</code></td></tr>
 <tr><td>Furniture replacement reserve</td><td>$0</td><td>$2,280</td><td><code>=B9/B10</code></td></tr>
 <tr><td>Listing and platform fees</td><td>$0</td><td>$394</td><td>flat listing plus 3% on off-platform bookings</td></tr>
-<tr><td>Linens, supplies, consumables</td><td>$0</td><td>$480</td><td><code>=B14*176</code></td></tr>
+<tr><td>Linens, supplies, consumables</td><td>$0</td><td>$480</td><td><code>=B14&#42;176</code></td></tr>
 <tr><td>Insurance delta for furnished occupancy</td><td>$0</td><td>$420</td><td>carrier quote</td></tr>
 <tr><td><strong>Total</strong></td><td><strong>$300</strong></td><td><strong>$7,017</strong></td><td></td></tr>
 </tbody>
@@ -7414,9 +7414,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Model it as a threshold test, not an assumption:</p>
 
-<p><code>=IF(B12&lt;B30, B18*B31, 0)</code></p>
+<p><code>=IF(B12&lt;B30, B18&#42;B31, 0)</code></p>
 
-<p>B30 is the local threshold in days, B31 the combined state, county, and city rate. In a six-month-threshold state, 116-day average contracts are fully taxable. At an 11 percent combined rate, that is <code>=23898*0.11</code>, or $2,629 a year. Mid term net drops from $16,881 to $14,252, which is $2,347 <em>below</em> the long term lease. The strategy does not just get worse, it inverts, and you find out when the assessment arrives with penalties on the back-filed months.</p>
+<p>B30 is the local threshold in days, B31 the combined state, county, and city rate. In a six-month-threshold state, 116-day average contracts are fully taxable. At an 11 percent combined rate, that is <code>=23898&#42;0.11</code>, or $2,629 a year. Mid term net drops from $16,881 to $14,252, which is $2,347 <em>below</em> the long term lease. The strategy does not just get worse, it inverts, and you find out when the assessment arrives with penalties on the back-filed months.</p>
 
 <h3>Moving from short term to mid term can cost you the depreciation deduction</h3>
 
@@ -7483,7 +7483,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Flag it so the sheet argues with you:</p>
 
-<p><code>=IF(MTR_net&lt;LTR_net*1.15,"PREMIUM TOO THIN, LEASE IT LONG","FURNISH IT")</code></p>
+<p><code>=IF(MTR_net&lt;LTR_net&#42;1.15,"PREMIUM TOO THIN, LEASE IT LONG","FURNISH IT")</code></p>
 
 <p>The 15 percent buffer is not arbitrary. Mid term is more work: more inquiries, more turnovers, more calls about the dishwasher. If the model shows a 2 percent edge, that edge is your unpaid labor.</p>
 
@@ -7501,7 +7501,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>D</td><td>Occupied days</td><td><code>=C2-B2+1</code></td></tr>
 <tr><td>E</td><td>Gap before this contract</td><td><code>=IF(ROW()=2,0,B2-C1-1)</code></td></tr>
 <tr><td>F</td><td>Monthly rate</td><td>entered</td></tr>
-<tr><td>G</td><td>Contract revenue</td><td><code>=D2*(F2*12/365)</code></td></tr>
+<tr><td>G</td><td>Contract revenue</td><td><code>=D2&#42;(F2&#42;12/365)</code></td></tr>
 </tbody>
 </table>
 
@@ -7574,7 +7574,7 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B3</td><td>Units</td><td>12</td></tr>
 <tr><td>B4</td><td>Average monthly rent</td><td>$1,250</td></tr>
-<tr><td>B5</td><td>Gross potential rent, annual <code>=B3*B4*12</code></td><td>$180,000</td></tr>
+<tr><td>B5</td><td>Gross potential rent, annual <code>=B3&#42;B4&#42;12</code></td><td>$180,000</td></tr>
 <tr><td>B6</td><td>Physical vacancy rate</td><td>6.0%</td></tr>
 <tr><td>B7</td><td>Expected default events per year</td><td>1.0</td></tr>
 <tr><td>B8</td><td>Months billed and unpaid before lockout</td><td>4.0</td></tr>
@@ -7588,11 +7588,11 @@ export const blogPosts: BlogPost[] = [
 <p>The calculation block sits directly underneath:</p>
 
 <ul>
-<li><strong>B14, gross cost per event:</strong> <code>=(B8*B4)+B4+B9+B10-B11</code> returns $7,900. The lone <code>B4</code> in the middle is the turn month after lockout, which most models forget because the tenant is already gone by then.</li>
-<li><strong>B15, net cost per event:</strong> <code>=B14*(1-B12)</code> returns $7,268. Set B12 from your own history, not from what the collection agency claims. Eight percent is generous for a judgment against someone who just spent four months not paying rent.</li>
-<li><strong>B16, annual bad debt allowance:</strong> <code>=B7*B15</code> returns $7,268.</li>
+<li><strong>B14, gross cost per event:</strong> <code>=(B8&#42;B4)+B4+B9+B10-B11</code> returns $7,900. The lone <code>B4</code> in the middle is the turn month after lockout, which most models forget because the tenant is already gone by then.</li>
+<li><strong>B15, net cost per event:</strong> <code>=B14&#42;(1-B12)</code> returns $7,268. Set B12 from your own history, not from what the collection agency claims. Eight percent is generous for a judgment against someone who just spent four months not paying rent.</li>
+<li><strong>B16, annual bad debt allowance:</strong> <code>=B7&#42;B15</code> returns $7,268.</li>
 <li><strong>B17, allowance as a percent of GPR:</strong> <code>=B16/B5</code> returns 4.04%.</li>
-<li><strong>B18, vacancy loss:</strong> <code>=B5*B6</code> returns $10,800, and it stays on its own line forever.</li>
+<li><strong>B18, vacancy loss:</strong> <code>=B5&#42;B6</code> returns $10,800, and it stays on its own line forever.</li>
 </ul>
 
 <p>Total economic loss on this building is 10.0% of gross potential rent. The combined 5% line was off by half, and half of $180,000 is not a rounding difference.</p>
@@ -7661,11 +7661,11 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>The cumulative column is one formula copied down: <code>=PRODUCT(D5:$D$9)</code>. The mixed anchor makes each row multiply its own roll rate by every roll rate below it. Reserve per row is <code>=B5*E5</code>, and the total allowance is <code>=SUMPRODUCT(B5:B9,E5:E9)</code>.</p>
+<p>The cumulative column is one formula copied down: <code>=PRODUCT(D5:$D$9)</code>. The mixed anchor makes each row multiply its own roll rate by every roll rate below it. Reserve per row is <code>=B5&#42;E5</code>, and the total allowance is <code>=SUMPRODUCT(B5:B9,E5:E9)</code>.</p>
 
 <p>Your balance sheet says $15,250 is owed to you. About $7,463 of that is not money, it is a story about money. Booking the reserve is what keeps you from spending it twice, once in your distribution and once in your refinance package.</p>
 
-<p>The operational payoff is the trigger. The $3,600 sitting in the 90-plus bucket was current five months ago, and the roll rate flagged it in month two. Put a decision rule on the sheet instead of on your calendar: <code>=IF(F9&gt;B4*2,"START FILING","HOLD")</code>. When the reserve on the oldest bucket passes two months of rent, negotiating is over and the only variable left is how many more months you fund.</p>
+<p>The operational payoff is the trigger. The $3,600 sitting in the 90-plus bucket was current five months ago, and the roll rate flagged it in month two. Put a decision rule on the sheet instead of on your calendar: <code>=IF(F9&gt;B4&#42;2,"START FILING","HOLD")</code>. When the reserve on the oldest bucket passes two months of rent, negotiating is over and the only variable left is how many more months you fund.</p>
 
 <h2>Where the Number Goes and What It Changes</h2>
 
@@ -7706,7 +7706,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>That last row is worth a cell of its own. On a Section 8 unit, the housing authority pays 65% to 75% of contract rent by direct deposit and defaults on essentially none of it. Only the tenant portion carries credit risk. Blend it: <code>=(1-B22)*B23</code>, where B22 is the HAP share and B23 is the class rate for the tenant portion. A C-class building at a 4.0% class rate with 70% HAP coverage prices out at a 1.2% allowance. Underwriting voucher rent at the same risk as market rent is how buyers argue themselves out of the most reliable cash flow on the block.</p>
+<p>That last row is worth a cell of its own. On a Section 8 unit, the housing authority pays 65% to 75% of contract rent by direct deposit and defaults on essentially none of it. Only the tenant portion carries credit risk. Blend it: <code>=(1-B22)&#42;B23</code>, where B22 is the HAP share and B23 is the class rate for the tenant portion. A C-class building at a 4.0% class rate with 70% HAP coverage prices out at a 1.2% allowance. Underwriting voucher rent at the same risk as market rent is how buyers argue themselves out of the most reliable cash flow on the block.</p>
 
 <h2>Build It This Week</h2>
 
@@ -7918,7 +7918,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Five inputs drive everything downstream. B1 is your blended turnover cost, $3,200 for the building in this example, covering make-ready, lost rent during the vacancy, and leasing. B2 is the added probability that a market-rate increase pushes a tenant out, 25 percent. B3 is the minimum increase that justifies taking that risk:</p>
 
-<p><code>=ROUND(B1*B2/12,0)</code></p>
+<p><code>=ROUND(B1&#42;B2/12,0)</code></p>
 
 <p>At $3,200 and 25 percent, that returns $67. Any gap smaller than $67 a month is not upside. It is a rounding error you are considering paying $3,200 for a shot at. B4 holds your cap rate, 6.0 percent, and B5 holds the management fee, 8 percent, so the valuation math at the bottom stays honest.</p>
 
@@ -7928,7 +7928,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Column I converts an advertised rent into a rent someone actually pays:</p>
 
-<p><code>=ROUND(G8*(12-H8)/12,0)</code></p>
+<p><code>=ROUND(G8&#42;(12-H8)/12,0)</code></p>
 
 <p>Column J is the calculation itself, with the guard that stops the double count:</p>
 
@@ -7940,7 +7940,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>A gap you cannot touch for eleven months is not the same asset as a gap you can reprice with a 60-day notice. Column L counts whole months to the lease expiration and treats a blank expiration as month to month:</p>
 
-<p><code>=IF(E8="",0,MAX(0,(YEAR(E8)-YEAR(TODAY()))*12+MONTH(E8)-MONTH(TODAY())))</code></p>
+<p><code>=IF(E8="",0,MAX(0,(YEAR(E8)-YEAR(TODAY()))&#42;12+MONTH(E8)-MONTH(TODAY())))</code></p>
 
 <p>Use this rather than DATEDIF, which throws an error the moment a lease date falls in the past, and expired leases are exactly the rows you most need to see. Column M turns the gap and the clock into an instruction:</p>
 
@@ -7948,7 +7948,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Column N converts the instruction into dollars that hit this year's P&amp;L, because a unit repricing in month six delivers half a year of the gap, not a full year:</p>
 
-<p><code>=IF(OR(M8="HOLD FLAT",M8="RESETS DOWN"),0,J8*(12-L8))</code></p>
+<p><code>=IF(OR(M8="HOLD FLAT",M8="RESETS DOWN"),0,J8&#42;(12-L8))</code></p>
 
 <h2>Three Reasons the Number Is Smaller Than It Looks</h2>
 
@@ -7975,7 +7975,7 @@ export const blogPosts: BlogPost[] = [
 
 <h3>Asking rent is not market rent when the comps are giving away a month</h3>
 
-<p>The $1,525 one-bedroom comps down the street are advertising half a month free on a 12-month lease. That means the rent a tenant actually pays over the year is <code>=ROUND(1525*(12-0.5)/12,0)</code>, or $1,461, not $1,525. Every dollar of loss to lease measured against the advertised number is 64 dollars of fiction per one-bedroom.</p>
+<p>The $1,525 one-bedroom comps down the street are advertising half a month free on a 12-month lease. That means the rent a tenant actually pays over the year is <code>=ROUND(1525&#42;(12-0.5)/12,0)</code>, or $1,461, not $1,525. Every dollar of loss to lease measured against the advertised number is 64 dollars of fiction per one-bedroom.</p>
 
 <p>Restate the four one-bedrooms against $1,461 and the picture changes character. Unit 103 still has a real $221 gap. Unit 101 drops to $66. Unit 203 drops to $11. And unit 102, signed at $1,525 during a hot spring, is now $64 above achievable market, which means at renewal it does not go up, it resets down or the tenant leaves and you re-lease at $1,461 with a concession attached. That is gain to lease, and most spreadsheets hide it by wrapping the formula in MAX(0, ...). Do not. A portfolio with a handful of gain-to-lease units is not a portfolio at market. It is a portfolio with pending rent cuts you have not budgeted for.</p>
 
@@ -8037,11 +8037,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Two formulas at the bottom of the sheet keep both numbers in front of you. Capturable value:</p>
 
-<p><code>=SUMIFS($J$8:$J$15,$M$8:$M$15,"&lt;&gt;HOLD FLAT",$M$8:$M$15,"&lt;&gt;RESETS DOWN")*12*(1-$B$5)/$B$4</code></p>
+<p><code>=SUMIFS($J$8:$J$15,$M$8:$M$15,"&lt;&gt;HOLD FLAT",$M$8:$M$15,"&lt;&gt;RESETS DOWN")&#42;12&#42;(1-$B$5)/$B$4</code></p>
 
 <p>And the timing shortfall the memo never shows:</p>
 
-<p><code>=SUM(J8:J15)*12-SUM(N8:N15)</code></p>
+<p><code>=SUM(J8:J15)&#42;12-SUM(N8:N15)</code></p>
 
 <h3>Test the seller's market rent before you believe it</h3>
 
@@ -8142,9 +8142,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>If your state or city requires interest, put the annual rate in column F as a decimal (1.5% is 0.015) and let the sheet accrue it against the days held:</p>
 
-<p><code>=ROUND(D4*F4*(H4/365),2)</code></p>
+<p><code>=ROUND(D4&#42;F4&#42;(H4/365),2)</code></p>
 
-<p>For a $1,650 deposit held 400 days at a required 1.5%, that is <code>1650 * 0.015 * (400/365)</code>, or $27.12 you owe the tenant on top of the deposit. It is a small number until you skip it on ten units for three years and a tenant attorney adds every missed dollar into a demand letter with penalties attached. Total owed is just the deposit plus the interest:</p>
+<p>For a $1,650 deposit held 400 days at a required 1.5%, that is <code>1650 &#42; 0.015 &#42; (400/365)</code>, or $27.12 you owe the tenant on top of the deposit. It is a small number until you skip it on ten units for three years and a tenant attorney adds every missed dollar into a demand letter with penalties attached. Total owed is just the deposit plus the interest:</p>
 
 <p><code>=D4+I4</code></p>
 
@@ -8302,7 +8302,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Fixed cost per operating hour is <code>=G2/H2</code>. Look at the dozer. Its $38,000 of ownership cost lands on just 620 hours of work, so every hour that machine runs carries $61.29 of ownership burden before fuel, before the operator, before a single wear part. The excavator, worked hard at 1,850 hours, carries $12.97. You own both. One is a tool. The other is a $61-an-hour anchor you built a yard around.</p>
 
-<p>You can also price the waste directly. Idle ownership cost is the fixed money you paid for hours the machine did not work: <code>=G2*(1-F2)</code>, where F2 is the utilization rate. The dozer at 27 percent utilization burned roughly $27,700 of its $38,000 ownership cost on hours it sat still. That is not a metaphor. That is a check you wrote for iron that stayed parked.</p>
+<p>You can also price the waste directly. Idle ownership cost is the fixed money you paid for hours the machine did not work: <code>=G2&#42;(1-F2)</code>, where F2 is the utilization rate. The dozer at 27 percent utilization burned roughly $27,700 of its $38,000 ownership cost on hours it sat still. That is not a metaphor. That is a check you wrote for iron that stayed parked.</p>
 
 <h2>The Rent, Own, or Sell Decision</h2>
 
@@ -8323,7 +8323,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>The verdict flag is <code>=IF(AnnualHours>=Breakeven,"KEEP",IF(AnnualHours>=0.6*Breakeven,"REVIEW","SELL/RENT"))</code>. It keeps machines that clear their own breakeven, flags the ones running 60 to 100 percent of breakeven for a hard look, and calls out the ones that are nowhere close. The dozer at 620 hours against a 1,450 hour breakeven is not a maybe. Renting a D6 for the three or four months a year you actually need it, at roughly $9,000 a month, runs about $30,000 against $38,000 in fixed ownership cost, and it frees up the six-figure capital the machine has frozen on your balance sheet.</p>
+<p>The verdict flag is <code>=IF(AnnualHours>=Breakeven,"KEEP",IF(AnnualHours>=0.6&#42;Breakeven,"REVIEW","SELL/RENT"))</code>. It keeps machines that clear their own breakeven, flags the ones running 60 to 100 percent of breakeven for a hard look, and calls out the ones that are nowhere close. The dozer at 620 hours against a 1,450 hour breakeven is not a maybe. Renting a D6 for the three or four months a year you actually need it, at roughly $9,000 a month, runs about $30,000 against $38,000 in fixed ownership cost, and it frees up the six-figure capital the machine has frozen on your balance sheet.</p>
 
 <h3>When low utilization is not a sell signal</h3>
 
@@ -8397,7 +8397,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>The gap is $3.93 an hour, which is nothing more than the 21 percent burden you avoided on the $18.75 fringe. On 1,000 hours it is $3,930. On a job that runs 6,000 labor hours across your prevailing wage crew, it is about $23,600 of cost that lives or dies on one decision nobody in the bid room made on purpose. In the calculator, the loaded cost per hour is <code>=Base*(1+Burden)+CashFringe*(1+Burden)+PlanFringe</code>, where cash fringe and plan fringe add up to the required fringe rate. Move a dollar from cash fringe to plan fringe and the cell drops by the burden on that dollar, in real time.</p>
+<p>The gap is $3.93 an hour, which is nothing more than the 21 percent burden you avoided on the $18.75 fringe. On 1,000 hours it is $3,930. On a job that runs 6,000 labor hours across your prevailing wage crew, it is about $23,600 of cost that lives or dies on one decision nobody in the bid room made on purpose. In the calculator, the loaded cost per hour is <code>=Base&#42;(1+Burden)+CashFringe&#42;(1+Burden)+PlanFringe</code>, where cash fringe and plan fringe add up to the required fringe rate. Move a dollar from cash fringe to plan fringe and the cell drops by the burden on that dollar, in real time.</p>
 
 <p>This is why bidding the total prevailing rate as if it were all cash quietly overprices your labor. If a competitor funds real benefit plans and you bid the all-cash number, you are $3.93 an hour high on every prevailing wage line. Either you lose the award, or you win it, later fund the plans anyway, and the burden you priced but never spent becomes a windfall you left in the estimate instead of the bid.</p>
 
@@ -8566,7 +8566,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>Retention and net billed calculate themselves so you never fat-finger the 10 percent. In row 2, retention held is <code>=[@[Billed this app]]*[@[Retention %]]</code> and net billed is <code>=[@[Billed this app]]-[@[Retention held]]</code>. Net billed is the number that matters, because retention is money you will not touch until closeout regardless of what the owner does this month.</p>
+<p>Retention and net billed calculate themselves so you never fat-finger the 10 percent. In row 2, retention held is <code>=[@[Billed this app]]&#42;[@[Retention %]]</code> and net billed is <code>=[@[Billed this app]]-[@[Retention held]]</code>. Net billed is the number that matters, because retention is money you will not touch until closeout regardless of what the owner does this month.</p>
 
 <h3>Project the real pay date, not the hopeful one</h3>
 
@@ -8700,9 +8700,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>With bid quantity in D, unit price in E, and installed to date in G, a handful of formulas do the whole job. Every one of them exists to answer a question you are about to be asked on a pay application.</p>
 
-<p>Earned to date, the cumulative value of everything installed: <code>=G5*E5</code>. Installed quantity times the contract unit price. For the water main that is 4,540 feet times $62, or $281,480, which already exceeds the $260,400 bid amount because you are 340 feet into overrun. This is the number that belongs on your schedule of values, not the bid amount, and the difference is revenue you would otherwise never invoice.</p>
+<p>Earned to date, the cumulative value of everything installed: <code>=G5&#42;E5</code>. Installed quantity times the contract unit price. For the water main that is 4,540 feet times $62, or $281,480, which already exceeds the $260,400 bid amount because you are 340 feet into overrun. This is the number that belongs on your schedule of values, not the bid amount, and the difference is revenue you would otherwise never invoice.</p>
 
-<p>This period billing, what goes on this month's pay application: <code>=(G5-H5)*E5</code>. Installed to date minus what you billed through last period, times the unit price. It returns $22,320 on the pipe and it is self-correcting, because if you under-measured last month, the catch-up flows automatically into this period's number instead of vanishing.</p>
+<p>This period billing, what goes on this month's pay application: <code>=(G5-H5)&#42;E5</code>. Installed to date minus what you billed through last period, times the unit price. It returns $22,320 on the pipe and it is self-correcting, because if you under-measured last month, the catch-up flows automatically into this period's number instead of vanishing.</p>
 
 <p>Quantity variance and variance percent, the two cells that tell you where the ground disagreed with the engineer: <code>=G5-D5</code> and <code>=(G5-D5)/D5</code>. The pipe is 340 feet over, 8.1 percent. Positive is overrun you must submit or eat. Negative is underrun, revenue you planned on that is not coming, and it belongs in your cash forecast the day you see it, not at closeout when the shortfall is a surprise.</p>
 
@@ -8716,7 +8716,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The rock item is the case that matters. Bid at 300 CY, installed at 520 CY, that is a 73 percent overrun, far past the 15 percent line. You cannot assume all 220 extra yards bill at $145. The tracker has to split the overrun into the part that bills clean and the part that is up for negotiation.</p>
 
-<p>Quantity that bills at the contract price, up to the 115 percent threshold: <code>=MAX(0,MIN(G5,D5*1.15)-D5)</code>. For the rock that is 45 CY, the band between the 300 estimate and the 345 threshold, and it invoices at $145 with no argument. Quantity above the threshold, subject to repricing: <code>=MAX(0,G5-D5*1.15)</code>, which returns 175 CY. Those 175 yards still get paid, but the price is a conversation, and the sheet flags it so you open that conversation with the engineer before you install them, not after.</p>
+<p>Quantity that bills at the contract price, up to the 115 percent threshold: <code>=MAX(0,MIN(G5,D5&#42;1.15)-D5)</code>. For the rock that is 45 CY, the band between the 300 estimate and the 345 threshold, and it invoices at $145 with no argument. Quantity above the threshold, subject to repricing: <code>=MAX(0,G5-D5&#42;1.15)</code>, which returns 175 CY. Those 175 yards still get paid, but the price is a conversation, and the sheet flags it so you open that conversation with the engineer before you install them, not after.</p>
 
 <p>Grade every row automatically so the flag reads itself: <code>=IF(ABS(M5)&gt;0.15,IF(M5&gt;0,"OVERRUN: REPRICE","UNDERRUN: REPRICE"),"AT PRICE")</code>. Anything inside 15 percent bills at the contract unit price and needs no action. Anything past it, in either direction, is a pricing event with real money attached. On the water main job that flag fires on the rock overrun and on the pavement restoration, where the city extended an adjacent paving contract and your 3,500 square yard item installed at 2,900, a 17 percent underrun. That underrun is your opening to request a higher unit price on the restoration you did perform, because your fixed cost was spread across 3,500 yards and you only got to bill 2,900.</p>
 
@@ -8796,7 +8796,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>Column J is the only formula in the log and it runs on every row: <code>=F2*G2+H2+I2</code>. Burdened labor hours times the loaded rate, plus material, plus equipment. That is the honest all-in cost of the event, not just the wages, because the payroll taxes, the pump you re-rented, and the small tools all belong to the second attempt too.</p>
+<p>Column J is the only formula in the log and it runs on every row: <code>=F2&#42;G2+H2+I2</code>. Burdened labor hours times the loaded rate, plus material, plus equipment. That is the honest all-in cost of the event, not just the wages, because the payroll taxes, the pump you re-rented, and the small tools all belong to the second attempt too.</p>
 
 <p>Two columns carry the weight. Column E, root cause, is what turns the log from an accounting record into a management tool. Keep the list short and forced: <code>Workmanship</code>, <code>Design/RFI</code>, <code>Damage by others</code>, <code>Material defect</code>, <code>Owner change</code>. A defect caused by a bad detail on the drawings is not the sub's fault and should not count against his quality score. A defect caused by his crew is. Column K, chargeback status, splits rework into <code>Recoverable</code> money you can back-charge to a sub and <code>Absorbed</code> money the job eats. Those are two different problems and you cannot fix either one if they sit in the same pile.</p>
 
@@ -8917,15 +8917,15 @@ export const blogPosts: BlogPost[] = [
 
 <p>Net liquidated damages days, after the time extensions the owner has actually approved in writing: <code>=MAX(0,(B11-B9)-B12)</code>. This is the number that costs money, 14 days, because the 4 excused weather days do not count against you. If you are not submitting extension requests as delays happen, B12 stays at zero and you pay for delays that were never your fault.</p>
 
-<p>Gross exposure, before any contract cap: <code>=B16*B6</code>, which is 14 days times $2,500, or $35,000. With your net LD days in B16 and the rate in B6, that one cell is the honest answer to "what does finishing on the forecast date cost me."</p>
+<p>Gross exposure, before any contract cap: <code>=B16&#42;B6</code>, which is 14 days times $2,500, or $35,000. With your net LD days in B16 and the rate in B6, that one cell is the honest answer to "what does finishing on the forecast date cost me."</p>
 
-<p>Capped exposure, because a well-drafted clause limits total LDs to a share of the contract: <code>=MIN(B16*B6,B8)</code>. On this job the cap is $160,000 and you are nowhere near it, so the capped number equals the gross. On a job that slips for months, the cap is the only thing between you and an unbounded deduction, which is exactly why the first thing you check in the clause is whether one exists.</p>
+<p>Capped exposure, because a well-drafted clause limits total LDs to a share of the contract: <code>=MIN(B16&#42;B6,B8)</code>. On this job the cap is $160,000 and you are nowhere near it, so the capped number equals the gross. On a job that slips for months, the cap is the only thing between you and an unbounded deduction, which is exactly why the first thing you check in the clause is whether one exists.</p>
 
 <p>Margin after LDs, the number that tells you whether the job still pays: <code>=B5-B18</code>. It drops from $192,000 to $157,000. Still profitable, but you just handed back 18 percent of your margin to a clause you could have priced at bid.</p>
 
 <p>The last formula is the reason to build the whole model. Break-even slip, the count of net late days that erases your entire margin: <code>=B5/B6</code>. Here that is 76.8 days. That single figure reframes the job. You are not gambling the whole margin on the schedule. You are gambling it on being more than 76 days late, and now you know the exact edge.</p>
 
-<p>Add a status flag so the sheet grades itself instead of making you read numbers every week: <code>=IF(B16=0,"ON TIME",IF(B18&gt;=0.5*B5,"UNDERWATER RISK",IF(B18&gt;=0.25*B5,"FLAG","WATCH")))</code>. It turns the running exposure into one word your project manager reads at a glance. Fill the forecast date down a range and the model draws your risk curve, the table to put in front of the owner's rep and your bond agent both.</p>
+<p>Add a status flag so the sheet grades itself instead of making you read numbers every week: <code>=IF(B16=0,"ON TIME",IF(B18&gt;=0.5&#42;B5,"UNDERWATER RISK",IF(B18&gt;=0.25&#42;B5,"FLAG","WATCH")))</code>. It turns the running exposure into one word your project manager reads at a glance. Fill the forecast date down a range and the model draws your risk curve, the table to put in front of the owner's rep and your bond agent both.</p>
 
 <table>
 <thead><tr><th>Net LD days</th><th>LD owed at $2,500/day</th><th>Margin remaining</th><th>Flag</th></tr></thead>
@@ -9069,7 +9069,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>If you run Excel 365 or 2021, skip the manual scan entirely and pull the matches into a clean list with one formula. On the deal sheet, put this below your inputs:</p>
 
-<p><code>=FILTER(Buyers!A2:M200,($B$3>=Buyers!F2:F200)*($B$3&lt;=Buyers!G2:G200)*(ISNUMBER(SEARCH($B$4,Buyers!H2:H200)))*($B$6&lt;=Buyers!I2:I200)*($B$5=Buyers!D2:D200),"No buyer fits, widen the box or the fee")</code></p>
+<p><code>=FILTER(Buyers!A2:M200,($B$3>=Buyers!F2:F200)&#42;($B$3&lt;=Buyers!G2:G200)&#42;(ISNUMBER(SEARCH($B$4,Buyers!H2:H200)))&#42;($B$6&lt;=Buyers!I2:I200)&#42;($B$5=Buyers!D2:D200),"No buyer fits, widen the box or the fee")</code></p>
 
 <p>The multiplication of the conditions is a logical AND: each test returns TRUE or FALSE, TRUE acts as 1, and any 0 in the chain zeroes the row out. What returns is only the buyers who fit, in a spill range you can call from the top down. The last argument catches the case that should stop you cold, zero matches, and tells you to loosen a constraint before you lock a deal you cannot move. Want to know how deep your bench is before you even sign? Count the pool:</p>
 
@@ -9081,7 +9081,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>A list of matches is progress, but three matches are not equal. One closed four deals with you and funds in seven days with proof of funds on file. Another you met at a meetup last month and have never seen close. You call the first one first. Encode that judgment in a Fit Score column, say column O, so the strongest buyer floats to the top on its own. Put this next to the Match flag:</p>
 
-<p><code>=IF(N2&lt;>"MATCH",0,IF(J2="Y",30,0)+IF(K2&lt;=10,25,IF(K2&lt;=21,15,5))+MIN(M2*5,25)+MAX(20-ABS($B$3-(F2+G2)/2)/((G2-F2)/2)*20,0))</code></p>
+<p><code>=IF(N2&lt;>"MATCH",0,IF(J2="Y",30,0)+IF(K2&lt;=10,25,IF(K2&lt;=21,15,5))+MIN(M2&#42;5,25)+MAX(20-ABS($B$3-(F2+G2)/2)/((G2-F2)/2)&#42;20,0))</code></p>
 
 <p>The score tops out at 100 and rewards the four things that actually decide whether a buyer closes:</p>
 
@@ -9226,11 +9226,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Now the calculation rows. Each one is written for column C (Lender A) and copies straight across to D and E, because all the lender inputs sit in the same rows. That copy-across behavior is why the column layout matters.</p>
 
-<p><strong>Loan Amount</strong> in C16: <code>=C10*($B$3+$B$4)</code></p>
+<p><strong>Loan Amount</strong> in C16: <code>=C10&#42;($B$3+$B$4)</code></p>
 
 <p>Loan to cost times total project cost. Lock the purchase and rehab cells with dollar signs so they hold when you copy across. Lender A: 0.80 times $285,000 = $228,000.</p>
 
-<p><strong>Points Cost</strong> in C17: <code>=C16*C12/100</code></p>
+<p><strong>Points Cost</strong> in C17: <code>=C16&#42;C12/100</code></p>
 
 <p>Points as a percentage of the loan, paid at close. Lender A: $228,000 times 3.5 divided by 100 = $7,980.</p>
 
@@ -9238,7 +9238,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>This is the reserve trap in one formula. You pay interest for the greater of the reserve months or your actual hold, because lenders rarely refund an unused reserve. Lender A forces a six-month reserve on a five-month hold, so it charges six. Lenders B and C have no reserve, so they charge the five months you actually hold.</p>
 
-<p><strong>Interest Cost</strong> in C19: <code>=C16*$B$7*(C11/12)*C18</code></p>
+<p><strong>Interest Cost</strong> in C19: <code>=C16&#42;$B$7&#42;(C11/12)&#42;C18</code></p>
 
 <p>Loan amount times average outstanding percentage times the monthly rate times the effective months. Lender A: $228,000 times 0.80 times (0.0999/12) times 6 = $9,111. Notice the 9.99 percent lender pays more interest than the 10.75 percent lender here, purely because the reserve forces an extra month on the meter.</p>
 
@@ -9389,23 +9389,23 @@ export const blogPosts: BlogPost[] = [
 
 <p>Now the efficiency numbers. Total spend for the list is pieces times cost per piece:</p>
 
-<p><code>=B4*B5</code></p>
+<p><code>=B4&#42;B5</code></p>
 
 <p>Cost per lead is spend over leads, wrapped so an unmailed or brand-new list does not throw a divide-by-zero and scare you:</p>
 
-<p><code>=IF(B6=0, "no leads yet", (B4*B5)/B6)</code></p>
+<p><code>=IF(B6=0, "no leads yet", (B4&#42;B5)/B6)</code></p>
 
 <p>Cost per deal is the number that ends arguments. Spend over deals, guarded the same way, because a list with zero deals has an undefined cost per deal, not a good one:</p>
 
-<p><code>=IF(B7=0, "no deal yet", (B4*B5)/B7)</code></p>
+<p><code>=IF(B7=0, "no deal yet", (B4&#42;B5)/B7)</code></p>
 
 <p>Return on investment ties profit back to what the list cost you, so you are comparing money made to money spent, not response rates to each other:</p>
 
-<p><code>=IF(B4*B5=0, "", (B8-B4*B5)/(B4*B5))</code></p>
+<p><code>=IF(B4&#42;B5=0, "", (B8-B4&#42;B5)/(B4&#42;B5))</code></p>
 
 <p>Then the line that makes the sheet worth building, a flag that tells you to kill or scale before you write the next check. It says: if the list has spent real money on volume and still has no deal, kill it, and if it does have deals but each one is costing more than your $3,000 ceiling, kill it, otherwise scale:</p>
 
-<p><code>=IF(AND(B7=0, B4&gt;=2000), "KILL, no deal on 2000+ pieces", IF(B7=0, "WAIT, still early", IF((B4*B5)/B7&gt;3000, "KILL, cost per deal too high", "SCALE")))</code></p>
+<p><code>=IF(AND(B7=0, B4&gt;=2000), "KILL, no deal on 2000+ pieces", IF(B7=0, "WAIT, still early", IF((B4&#42;B5)/B7&gt;3000, "KILL, cost per deal too high", "SCALE")))</code></p>
 
 <p>That single cell converts a quarter of mailing into one word per list. No meeting, no debate, no "but it feels like it's picking up." The sheet already knows.</p>
 
@@ -9532,7 +9532,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The monthly spread is the number that keeps you solvent. Rent minus PITI minus reserves:</p>
 
-<p><code>=B13 - (B5 + B6/12 + B7/12) - (B13*B14)</code></p>
+<p><code>=B13 - (B5 + B6/12 + B7/12) - (B13&#42;B14)</code></p>
 
 <p>That is $2,150 minus $1,585 minus $323, which leaves <strong>$242 a month</strong> in cash flow. Positive, but thin, and the reserve line is doing real work here. Drop the reserve and the sheet flatters you.</p>
 
@@ -9542,11 +9542,11 @@ export const blogPosts: BlogPost[] = [
 
 <p><code>PMT</code> takes the monthly rate, the number of payments, and the loan amount as a negative, and returns the payment. At 7.25 percent over 30 years, $250,000 costs $1,705 a month, so this formula returns <strong>$582</strong>. That is what the seller's old rate saves you every single month. Annualize it and multiply by your hold:</p>
 
-<p><code>=(PMT(B11/12, 360, -B3) - B5) * 60</code></p>
+<p><code>=(PMT(B11/12, 360, -B3) - B5) &#42; 60</code></p>
 
 <p>Over a five-year hold that is roughly <strong>$34,900</strong> you keep because you did not originate a new loan. Cash-on-cash return ties the spread back to the cash you risked:</p>
 
-<p><code>=((B13 - (B5 + B6/12 + B7/12) - (B13*B14)) * 12) / (B8 + B9 + B10)</code></p>
+<p><code>=((B13 - (B5 + B6/12 + B7/12) - (B13&#42;B14)) &#42; 12) / (B8 + B9 + B10)</code></p>
 
 <p>That is $2,904 of annual cash flow on $28,000 in, or <strong>10.4 percent</strong>, before the equity capture and the loan paydown even enter the picture.</p>
 
@@ -9581,13 +9581,13 @@ export const blogPosts: BlogPost[] = [
 
 <p><strong>The due-on-sale clause.</strong> When title transfers, the lender has the contractual right to call the entire loan due. It does not happen on most deals, but it can, and the only defense is being able to refinance or sell fast if the letter arrives. Price it by holding a reserve of at least six months of PITI in cash and flagging any deal that cannot cover it:</p>
 
-<p><code>=IF(reserve_cash &lt; B5*6, "THIN, build reserve", "OK")</code></p>
+<p><code>=IF(reserve_cash &lt; B5&#42;6, "THIN, build reserve", "OK")</code></p>
 
 <p><strong>Insurance and the loan staying in the seller's name.</strong> The policy has to be rewritten to name you as the insured with the seller's lender as mortgagee, or a claim gets denied and the lender gets nervous. And because the loan reports on the seller's credit, one late payment is his problem before it is yours. Both of these are reputation and paperwork risks, not spreadsheet risks, but the reserve line is what buys you time to fix them.</p>
 
 <p><strong>No exit.</strong> A subject to deal with no plan to refinance or sell is a deal you can be forced out of on the lender's timeline instead of yours. Model at least one exit. The cleanest is a refinance in year three or four once rents have risen and the balance has paid down, or a sale that harvests the captured equity. Add an exit flag that checks the spread survives a refinance stress test at today's rate:</p>
 
-<p><code>=IF((B13*(1-B14)) - PMT(B11/12,360,-B3) - B6/12 - B7/12 &gt; 0, "REFI SURVIVES", "REFI KILLS CASH FLOW")</code></p>
+<p><code>=IF((B13&#42;(1-B14)) - PMT(B11/12,360,-B3) - B6/12 - B7/12 &gt; 0, "REFI SURVIVES", "REFI KILLS CASH FLOW")</code></p>
 
 <p>In this deal that formula returns REFI KILLS CASH FLOW, because at 7.25 percent the payment eats the rent. That is not a reason to skip the deal, it is a reason to hold the low rate as long as you legally can and plan your exit around a sale or a future rate drop, not a near-term refinance. The flag makes that decision explicit instead of a surprise in year three.</p>
 
@@ -9643,7 +9643,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B</td><td>Approved budget</td><td>Lender-approved amount, the hard cap on this line</td></tr>
 <tr><td>C</td><td>Actual paid to date</td><td>What you have really spent on this line</td></tr>
 <tr><td>D</td><td>% complete (installed)</td><td>Inspector-verifiable, not deposits paid</td></tr>
-<tr><td>E</td><td>Earned to date</td><td><code>=B4*D4</code></td></tr>
+<tr><td>E</td><td>Earned to date</td><td><code>=B4&#42;D4</code></td></tr>
 <tr><td>F</td><td>Previously funded</td><td>Sum of all prior draws on this line</td></tr>
 <tr><td>G</td><td>Eligible this draw</td><td><code>=MAX(0,E4-F4)</code></td></tr>
 <tr><td>H</td><td>Out of pocket</td><td><code>=C4-(F4+G4)</code></td></tr>
@@ -9710,7 +9710,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Every draw costs you. A $250 draw fee plus a $150 inspection is $400, and six draws on a project is $2,400 in pure friction. The instinct is to batch, submit fewer and larger draws to save the fees. The counter-instinct is to submit early and often to keep cash flowing back to you. The right answer is a rule, not a feeling.</p>
 
-<p>Submit a draw when the eligible amount clears a threshold that makes the fee worth it, or when your out-of-pocket is climbing toward the most cash you can float. A single decision cell handles it: <code>=IF(OR(G20&gt;10000,H20&gt;CashCeiling*0.8),"SUBMIT DRAW","WAIT")</code>, where G20 is your gross eligible draw and H20 is current out-of-pocket. That formula says draw when you have at least $10,000 of completed work to reimburse, so the $400 in fees is under 4 percent, or draw sooner if your cash gap is approaching 80 percent of what you can float, whichever comes first. It turns the batch-versus-cash-flow question into a number the sheet answers for you.</p>
+<p>Submit a draw when the eligible amount clears a threshold that makes the fee worth it, or when your out-of-pocket is climbing toward the most cash you can float. A single decision cell handles it: <code>=IF(OR(G20&gt;10000,H20&gt;CashCeiling&#42;0.8),"SUBMIT DRAW","WAIT")</code>, where G20 is your gross eligible draw and H20 is current out-of-pocket. That formula says draw when you have at least $10,000 of completed work to reimburse, so the $400 in fees is under 4 percent, or draw sooner if your cash gap is approaching 80 percent of what you can float, whichever comes first. It turns the batch-versus-cash-flow question into a number the sheet answers for you.</p>
 
 <p>Put the two approaches side by side on the same $75,000 rehab:</p>
 
@@ -9793,7 +9793,7 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>B6</td><td>Gross potential rent</td><td>$96,000</td><td>All units, full year, market or in-place rent</td></tr>
-<tr><td>B7</td><td>Vacancy and credit loss</td><td>$6,720</td><td><code>=B6*0.07</code> at a 7% vacancy assumption</td></tr>
+<tr><td>B7</td><td>Vacancy and credit loss</td><td>$6,720</td><td><code>=B6&#42;0.07</code> at a 7% vacancy assumption</td></tr>
 <tr><td>B8</td><td>Other income</td><td>$3,600</td><td>Laundry, parking, pet and storage fees</td></tr>
 <tr><td>B9</td><td>Effective gross income</td><td>$92,880</td><td><code>=B6-B7+B8</code></td></tr>
 </tbody>
@@ -9808,12 +9808,12 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B12</td><td>Property taxes (reassessed)</td><td>$11,600</td><td>Recompute at your purchase price, not the seller's basis</td></tr>
 <tr><td>B13</td><td>Insurance</td><td>$4,200</td><td>Get a real quote, premiums have jumped</td></tr>
-<tr><td>B14</td><td>Property management</td><td>$7,430</td><td><code>=B9*0.08</code>, count it even if you self-manage</td></tr>
+<tr><td>B14</td><td>Property management</td><td>$7,430</td><td><code>=B9&#42;0.08</code>, count it even if you self-manage</td></tr>
 <tr><td>B15</td><td>Repairs and maintenance</td><td>$8,000</td><td>$1,000 per unit as a floor on older stock</td></tr>
 <tr><td>B16</td><td>Utilities (owner-paid)</td><td>$6,600</td><td>Water, sewer, trash, common-area electric</td></tr>
 <tr><td>B17</td><td>Landscaping and snow</td><td>$2,400</td><td>Contracted or your own time valued honestly</td></tr>
 <tr><td>B18</td><td>Turnover and leasing</td><td>$2,800</td><td>Paint, clean, list, screen between tenants</td></tr>
-<tr><td>B19</td><td>Capital reserves</td><td>$2,400</td><td><code>=300*8</code>, roughly $250 to $350 per unit per year</td></tr>
+<tr><td>B19</td><td>Capital reserves</td><td>$2,400</td><td><code>=300&#42;8</code>, roughly $250 to $350 per unit per year</td></tr>
 <tr><td>B23</td><td>Total operating expenses</td><td>$45,430</td><td><code>=SUM(B12:B22)</code></td></tr>
 </tbody>
 </table>
@@ -9928,7 +9928,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B3</td><td>Trash bill</td><td>60</td></tr>
 <tr><td>B4</td><td>Total utility bill</td><td><code>=B2+B3</code> gives 1,240</td></tr>
 <tr><td>B5</td><td>Common-area and loss factor</td><td>15%</td></tr>
-<tr><td>B6</td><td>Amount allocable to tenants</td><td><code>=B4*(1-B5)</code> gives 1,054</td></tr>
+<tr><td>B6</td><td>Amount allocable to tenants</td><td><code>=B4&#42;(1-B5)</code> gives 1,054</td></tr>
 </tbody>
 </table>
 
@@ -9964,8 +9964,8 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li>Occupancy weight in E10: <code>=IF(D10=1,B10/$B$20,0)</code></li>
 <li>Square-footage weight in F10: <code>=IF(D10=1,C10/$C$20,0)</code></li>
-<li>Blended share in G10: <code>=0.6*E10+0.4*F10</code></li>
-<li>Monthly charge in H10: <code>=$B$6*G10</code></li>
+<li>Blended share in G10: <code>=0.6&#42;E10+0.4&#42;F10</code></li>
+<li>Monthly charge in H10: <code>=$B$6&#42;G10</code></li>
 </ul>
 
 <p>Drag those four down through row 17 and every unit is priced. The blended share weights bodies at 60% and floor area at 40%, which is why unit 102, with four people, carries the biggest bill even though it is not the only 950-square-foot unit. Change the 0.6 and 0.4 to 0.5 and 0.5 and you have a pure half-and-half blend. Set the occupancy weight to 1 and the square-footage weight to 0 and you have straight occupancy billing. The model flexes to whatever method your state allows.</p>
@@ -10190,9 +10190,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>That formula does one job in plain business terms. If you forgot to write down why you drove, it screams <code>CHECK</code> so you fix it before tax season. If the trip was a capital improvement or a personal errand, it marks it <code>No</code>, because those miles are not a current deduction. Everything else is a <code>Yes</code>. Then F2 applies the rate only to the qualifying trips:</p>
 
-<p><code>=IF(E2="Yes",D2*Rate,0)</code></p>
+<p><code>=IF(E2="Yes",D2&#42;Rate,0)</code></p>
 
-<p>Your annual deductible mileage total is a single sum at the top of column F, or if you prefer to see it two ways, <code>=SUMIF(E:E,"Yes",D:D)*Rate</code> gives you the same number straight from the qualifying miles.</p>
+<p>Your annual deductible mileage total is a single sum at the top of column F, or if you prefer to see it two ways, <code>=SUMIF(E:E,"Yes",D:D)&#42;Rate</code> gives you the same number straight from the qualifying miles.</p>
 
 <h3>The One Column Landlords Always Forget</h3>
 
@@ -10588,7 +10588,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B2</td><td>Bid production rate (SF per labor hour)</td><td><code>=B1/B3</code></td><td>50.0</td></tr>
 <tr><td>B3</td><td>Bid labor hours</td><td>600</td><td>600</td></tr>
 <tr><td>B4</td><td>Loaded labor rate ($ per hour)</td><td>34</td><td>$34.00</td></tr>
-<tr><td>B5</td><td>Bid labor cost</td><td><code>=B3*B4</code></td><td>$20,400</td></tr>
+<tr><td>B5</td><td>Bid labor cost</td><td><code>=B3&#42;B4</code></td><td>$20,400</td></tr>
 </tbody>
 </table>
 
@@ -10604,7 +10604,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>So the flag has a guard built in. If the week number is in column B and the cumulative factor is in column G, the flag in column H is <code>=IF(AND(B11>=2,G11<0.9),"BEHIND - INVESTIGATE",IF(G11>1.05,"AHEAD",""))</code>. It stays silent through week one, then fires the moment two or more weeks of data land under 90 percent. Ninety percent is a reasonable trigger for finish trades; tighten it to 0.95 on thin-margin work, loosen it to 0.85 where your bid rates are conservative. The point is that the sheet nags you, so you are not relying on a project manager to notice a trend buried in a timesheet.</p>
 
-<p>When the flag fires, the number that forces action is the forecast. Estimate at completion in hours is <code>=B3/G11</code>, your bid hours divided by the pace you are actually running. The forecast dollar overrun is <code>=(B3/G11-B3)*B4</code>. Watch what those formulas do to a real job.</p>
+<p>When the flag fires, the number that forces action is the forecast. Estimate at completion in hours is <code>=B3/G11</code>, your bid hours divided by the pace you are actually running. The forecast dollar overrun is <code>=(B3/G11-B3)&#42;B4</code>. Watch what those formulas do to a real job.</p>
 
 <table>
 <thead>
@@ -10725,17 +10725,17 @@ export const blogPosts: BlogPost[] = [
 
 <p>Depreciation is the value the machine loses while you own it, spread evenly across the years you keep it. In B13, put \`=(B2-B3)/B4\`. With the example inputs that is ($68,000 minus $27,200) divided by 5, or $8,160 a year. This is the number that matters, not the purchase price, because the $27,200 you expect at resale is capital you recover.</p>
 
-<p>Cost of capital is the money you give up by tying $68,000 into a machine instead of leaving it in the business or paying down a loan. Averaging the investment across its life, put \`=((B2+B3)/2)*B5\` in B14. That returns ($68,000 plus $27,200) divided by 2, times 8%, or $3,808 a year. If you financed the purchase this is close to your real interest bill. If you paid cash, it is the return that money could have earned elsewhere, and ignoring it is how cash-rich contractors talk themselves into machines they should have rented.</p>
+<p>Cost of capital is the money you give up by tying $68,000 into a machine instead of leaving it in the business or paying down a loan. Averaging the investment across its life, put \`=((B2+B3)/2)&#42;B5\` in B14. That returns ($68,000 plus $27,200) divided by 2, times 8%, or $3,808 a year. If you financed the purchase this is close to your real interest bill. If you paid cash, it is the return that money could have earned elsewhere, and ignoring it is how cash-rich contractors talk themselves into machines they should have rented.</p>
 
 <p>Now total the annual cost of ownership in B15 with \`=B13+B14+B6+B7+B8\`. That sums depreciation, cost of capital, insurance, storage, and maintenance to $15,568 a year. This is what the machine costs you every twelve months even if it never leaves the yard.</p>
 
 <h3>The rental side and the break-even</h3>
 
-<p>Rental is simpler because it is purely variable. Your annual rental cost in B17 is \`=B9*B10\`, the monthly rate times the months you actually use it. At 5 months that is $12,000. The number that ends the argument sits in B16, the break-even utilization: \`=B15/B9\`. That divides your annual ownership cost by the monthly rental rate and returns 6.49 months. Read it out loud. If this machine works more than about 6.5 months a year, buying is cheaper. Less than that, renting wins. Every rent-or-buy decision you have ever agonized over collapses into that one cell.</p>
+<p>Rental is simpler because it is purely variable. Your annual rental cost in B17 is \`=B9&#42;B10\`, the monthly rate times the months you actually use it. At 5 months that is $12,000. The number that ends the argument sits in B16, the break-even utilization: \`=B15/B9\`. That divides your annual ownership cost by the monthly rental rate and returns 6.49 months. Read it out loud. If this machine works more than about 6.5 months a year, buying is cheaper. Less than that, renting wins. Every rent-or-buy decision you have ever agonized over collapses into that one cell.</p>
 
 <h3>The decision flag</h3>
 
-<p>Stop eyeballing it. In B18, put \`=IF(B10>B16,"BUY","RENT")\`. It compares your real utilization against the break-even and prints the verdict. With 5 months of use against a 6.49 month break-even it returns RENT. To build in a margin of safety, since utilization estimates are optimistic, widen it: \`=IF(B10>B16*1.15,"BUY",IF(B10<B16*0.85,"RENT","BORDERLINE - RENT WITH OPTION"))\`. That flags the fuzzy middle where the math is too close to bet six figures on, and tells you to keep your options open rather than commit.</p>
+<p>Stop eyeballing it. In B18, put \`=IF(B10>B16,"BUY","RENT")\`. It compares your real utilization against the break-even and prints the verdict. With 5 months of use against a 6.49 month break-even it returns RENT. To build in a margin of safety, since utilization estimates are optimistic, widen it: \`=IF(B10>B16&#42;1.15,"BUY",IF(B10<B16&#42;0.85,"RENT","BORDERLINE - RENT WITH OPTION"))\`. That flags the fuzzy middle where the math is too close to bet six figures on, and tells you to keep your options open rather than commit.</p>
 
 <h2>A Worked Example: The Mini Excavator</h2>
 
@@ -10825,7 +10825,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Crew-hours lost in column J should be computed, not eyeballed, so a partial day never gets rounded up to a full one:</p>
 
-<p><code>=IF(H5="Lost", I5*8, IF(H5="Partial", I5*4, 0))</code></p>
+<p><code>=IF(H5="Lost", I5&#42;8, IF(H5="Partial", I5&#42;4, 0))</code></p>
 
 <p>Now the part that most contractors miss and most owners lean on. A contract rarely grants a day for every adverse day. It grants days for adverse days beyond what the climate normally delivers. So you count your flagged days in the month, then subtract the anticipated baseline pulled from the nearest NOAA station's climate normals for days with measurable precipitation. Count the month first:</p>
 
@@ -10890,7 +10890,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The per-day cost drops out of the same inputs so you can defend every line:</p>
 
-<p><code>=SiteGC + (CrewSize * CrewRate * ShowUpHrs) + IdleEquip</code></p>
+<p><code>=SiteGC + (CrewSize &#42; CrewRate &#42; ShowUpHrs) + IdleEquip</code></p>
 
 <p>Now the comparison that should end the argument about whether the log is worth the five minutes a day. Same winter, same 5 excusable January days, two contractors.</p>
 
@@ -10960,11 +10960,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>A flat slab is length times width times thickness, divided by 27 to convert cubic feet to cubic yards. The only trap is thickness, which lives in inches on the plans and has to become feet before it multiplies. Lay it out so the formula reads the inches directly:</p>
 
-<p>With length in <code>B2</code> (40 ft), width in <code>C2</code> (60 ft), and thickness in inches in <code>D2</code> (5 in), the slab volume in <code>E2</code> is <code>=(B2*C2*(D2/12))/27</code>. That returns 37.0 cubic yards. The <code>D2/12</code> converts the 5-inch slab to 0.417 feet, and the <code>/27</code> converts cubic feet to yards. Change the thickness to 6 inches and the number moves to 44.4 without you touching anything else, which is exactly the kind of what-if that catches a design change before it catches your margin.</p>
+<p>With length in <code>B2</code> (40 ft), width in <code>C2</code> (60 ft), and thickness in inches in <code>D2</code> (5 in), the slab volume in <code>E2</code> is <code>=(B2&#42;C2&#42;(D2/12))/27</code>. That returns 37.0 cubic yards. The <code>D2/12</code> converts the 5-inch slab to 0.417 feet, and the <code>/27</code> converts cubic feet to yards. Change the thickness to 6 inches and the number moves to 44.4 without you touching anything else, which is exactly the kind of what-if that catches a design change before it catches your margin.</p>
 
 <h3>Footings, turndowns, and columns</h3>
 
-<p>The turndown edge is the line item that turns a profitable slab into a break-even one because it is easy to miss and never small. Model it as a cross-section times a run. A 12-inch by 12-inch thickened edge around a 40 by 60 slab has a perimeter of 200 linear feet. Put width in inches in <code>B3</code> (12), depth in inches in <code>C3</code> (8, the part below the slab), and run in feet in <code>D3</code> (200). The volume in <code>E3</code> is <code>=(B3/12)*(C3/12)*D3/27</code>, which returns 3.3 cubic yards. That is nearly $600 of concrete plus the placement to go with it, sitting in a line item the guess never opens.</p>
+<p>The turndown edge is the line item that turns a profitable slab into a break-even one because it is easy to miss and never small. Model it as a cross-section times a run. A 12-inch by 12-inch thickened edge around a 40 by 60 slab has a perimeter of 200 linear feet. Put width in inches in <code>B3</code> (12), depth in inches in <code>C3</code> (8, the part below the slab), and run in feet in <code>D3</code> (200). The volume in <code>E3</code> is <code>=(B3/12)&#42;(C3/12)&#42;D3/27</code>, which returns 3.3 cubic yards. That is nearly $600 of concrete plus the placement to go with it, sitting in a line item the guess never opens.</p>
 
 <p>Stack every element the same way and total them. If your slab is in <code>E2</code> and your turndown is in <code>E3</code>, the total needed in <code>E7</code> is <code>=SUM(E2:E6)</code>, which leaves rows for columns, piers, or a second slab. The needed number here is 40.3 cubic yards, and it is the number you place, not the number you order. Those are two different figures, and confusing them is the single most common way a concrete estimating spreadsheet in Excel still loses money.</p>
 
@@ -10972,9 +10972,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Concrete has spillage, over-excavation, form deflection, and the simple fact that you cannot place the last shovel of a load with a trowel. The real world eats 5 to 10 percent of what you batch, more on rough subgrade or hand-placed footings. Set the waste factor as its own cell so it is a decision, not an accident. Put 8% in <code>B10</code>, then compute the order in <code>E10</code>:</p>
 
-<p><code>=CEILING(E7*(1+$B$10),0.5)</code>. That takes 40.3 needed yards, adds 8% to reach 43.5, and rounds up to the nearest half yard the supplier will actually batch, giving 44 yards ordered. Locking the waste factor in one cell also lets you tune it by job type. Slab-on-grade over a laser-screeded base might run 5%. Footings in trench with a pump might run 12%. You change one number and the order updates, which beats carrying three different mental rules for three different pours.</p>
+<p><code>=CEILING(E7&#42;(1+$B$10),0.5)</code>. That takes 40.3 needed yards, adds 8% to reach 43.5, and rounds up to the nearest half yard the supplier will actually batch, giving 44 yards ordered. Locking the waste factor in one cell also lets you tune it by job type. Slab-on-grade over a laser-screeded base might run 5%. Footings in trench with a pump might run 12%. You change one number and the order updates, which beats carrying three different mental rules for three different pours.</p>
 
-<p>Now protect yourself from the short-load fee with a flag instead of a memory. The fee triggers on deliveries under the supplier threshold, so test the order against it. With the threshold in <code>B11</code> (8 yards), put <code>=IF(E10&lt;$B$11,"SHORT LOAD FEE LIKELY","FULL LOADS")</code> in <code>F10</code>. On a 44-yard pour that reads FULL LOADS. On a 5-yard equipment pad it reads SHORT LOAD FEE LIKELY, and you add the fee to the bid before you lose it on the ticket. The second flag watches your over-order: <code>=IF((E10-E7)*$B$12&gt;300,"REVIEW WASTE","OK")</code>, where <code>B12</code> holds the $175 unit cost. If the yards you ordered but do not need cost more than $300, the sheet tells you to look again before you pour money into the wash rack.</p>
+<p>Now protect yourself from the short-load fee with a flag instead of a memory. The fee triggers on deliveries under the supplier threshold, so test the order against it. With the threshold in <code>B11</code> (8 yards), put <code>=IF(E10&lt;$B$11,"SHORT LOAD FEE LIKELY","FULL LOADS")</code> in <code>F10</code>. On a 44-yard pour that reads FULL LOADS. On a 5-yard equipment pad it reads SHORT LOAD FEE LIKELY, and you add the fee to the bid before you lose it on the ticket. The second flag watches your over-order: <code>=IF((E10-E7)&#42;$B$12&gt;300,"REVIEW WASTE","OK")</code>, where <code>B12</code> holds the $175 unit cost. If the yards you ordered but do not need cost more than $300, the sheet tells you to look again before you pour money into the wash rack.</p>
 
 <h2>Rebar and Placement Labor, the Line Items That Sink Bids</h2>
 
@@ -10982,11 +10982,11 @@ export const blogPosts: BlogPost[] = [
 
 <h3>Reinforcing steel</h3>
 
-<p>Rebar in a slab is a grid, and a grid is countable. For #4 bar at 18 inches on center each way in a 40 by 60 slab, count the bars in each direction and multiply by their length. Bars running the long way sit across the 40-foot width: <code>=(ROUNDUP(B2/($B$14/12),0)+1)*C2</code>, where <code>B14</code> holds the 18-inch spacing. That returns 27 bars times 60 feet, or 1,620 linear feet. Bars the short way run across the 60-foot length: <code>=(ROUNDUP(C2/($B$14/12),0)+1)*B2</code>, giving 41 bars times 40 feet, or 1,640 linear feet. Sum them for 3,260 linear feet, then add lap splices: <code>=(3260)*(1+$B$15)</code> at a 10% lap factor lands near 3,586 linear feet. At $0.85 per foot for fabricated grade 60 material, that is roughly $3,048 of steel, a number you never want to discover after you signed.</p>
+<p>Rebar in a slab is a grid, and a grid is countable. For #4 bar at 18 inches on center each way in a 40 by 60 slab, count the bars in each direction and multiply by their length. Bars running the long way sit across the 40-foot width: <code>=(ROUNDUP(B2/($B$14/12),0)+1)&#42;C2</code>, where <code>B14</code> holds the 18-inch spacing. That returns 27 bars times 60 feet, or 1,620 linear feet. Bars the short way run across the 60-foot length: <code>=(ROUNDUP(C2/($B$14/12),0)+1)&#42;B2</code>, giving 41 bars times 40 feet, or 1,640 linear feet. Sum them for 3,260 linear feet, then add lap splices: <code>=(3260)&#42;(1+$B$15)</code> at a 10% lap factor lands near 3,586 linear feet. At $0.85 per foot for fabricated grade 60 material, that is roughly $3,048 of steel, a number you never want to discover after you signed.</p>
 
 <h3>Placement crew hours</h3>
 
-<p>Labor is yards divided by a production rate, times crew size, times a loaded wage. A five-man crew placing and finishing a flatwork slab with a line pump runs around 5 cubic yards per crew-hour on the placing side. Needed yards in <code>E7</code>, production rate in <code>B17</code> (5), crew size in <code>B18</code> (5), and loaded wage in <code>B19</code> ($55) give man-hours in one cell: <code>=(E7/B17)*B18</code>, which returns 40 man-hours, and cost as <code>=(E7/B17)*B18*B19</code>, or $2,200. Loaded wage means the real cost of the man on the job: base pay plus payroll taxes, workers comp, and burden, not the number on his check. Bid the check rate and you are financing your own crew.</p>
+<p>Labor is yards divided by a production rate, times crew size, times a loaded wage. A five-man crew placing and finishing a flatwork slab with a line pump runs around 5 cubic yards per crew-hour on the placing side. Needed yards in <code>E7</code>, production rate in <code>B17</code> (5), crew size in <code>B18</code> (5), and loaded wage in <code>B19</code> ($55) give man-hours in one cell: <code>=(E7/B17)&#42;B18</code>, which returns 40 man-hours, and cost as <code>=(E7/B17)&#42;B18&#42;B19</code>, or $2,200. Loaded wage means the real cost of the man on the job: base pay plus payroll taxes, workers comp, and burden, not the number on his check. Bid the check rate and you are financing your own crew.</p>
 
 <h2>The Bid Sheet That Ties It Together</h2>
 
@@ -11010,7 +11010,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>Total the direct costs with <code>=SUM(E20:E26)</code>, apply markup with <code>=E27*(1+$B$28)</code> where <code>B28</code> holds 0.20, and you have $19,330 before you round the bid to $19,500. Now add the sanity check the guess never has. Cost per placed yard is <code>=E29/E7</code>, or $479 per cubic yard on the 40.3 you actually pour. Set your floor and flag it: <code>=IF(E29/E7&lt;$B$30,"TOO LOW, REVIEW","OK")</code>, with your break-even per yard in <code>B30</code>. If a fat-fingered dimension or a missed line drops you under the floor, the sheet says so in red before the number leaves your truck, not after the GC accepts it.</p>
+<p>Total the direct costs with <code>=SUM(E20:E26)</code>, apply markup with <code>=E27&#42;(1+$B$28)</code> where <code>B28</code> holds 0.20, and you have $19,330 before you round the bid to $19,500. Now add the sanity check the guess never has. Cost per placed yard is <code>=E29/E7</code>, or $479 per cubic yard on the 40.3 you actually pour. Set your floor and flag it: <code>=IF(E29/E7&lt;$B$30,"TOO LOW, REVIEW","OK")</code>, with your break-even per yard in <code>B30</code>. If a fat-fingered dimension or a missed line drops you under the floor, the sheet says so in red before the number leaves your truck, not after the GC accepts it.</p>
 
 <h3>Run the guess against the takeoff</h3>
 
@@ -11085,13 +11085,13 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B2</td><td>After repair value (sale price)</td><td>285,000</td><td>$285,000</td></tr>
 <tr><td>B3</td><td>Purchase price</td><td>150,000</td><td>$150,000</td></tr>
 <tr><td>B4</td><td>Rehab budget</td><td>45,000</td><td>$45,000</td></tr>
-<tr><td>B5</td><td>Rehab actual (15% contingency)</td><td><code>=B4*1.15</code></td><td>$51,750</td></tr>
-<tr><td>B6</td><td>Purchase closing costs (2%)</td><td><code>=B3*0.02</code></td><td>$3,000</td></tr>
-<tr><td>B7</td><td>Loan amount (90% of purchase, rehab paid cash)</td><td><code>=B3*0.9</code></td><td>$135,000</td></tr>
-<tr><td>B8</td><td>Financing points (2 pts)</td><td><code>=B7*0.02</code></td><td>$2,700</td></tr>
-<tr><td>B9</td><td>Interest (11%, 5 months)</td><td><code>=B7*0.11*(5/12)</code></td><td>$6,188</td></tr>
-<tr><td>B10</td><td>Holding (taxes, insurance, utilities)</td><td><code>=650*5</code></td><td>$3,250</td></tr>
-<tr><td>B11</td><td>Selling costs (6% of ARV)</td><td><code>=B2*0.06</code></td><td>$17,100</td></tr>
+<tr><td>B5</td><td>Rehab actual (15% contingency)</td><td><code>=B4&#42;1.15</code></td><td>$51,750</td></tr>
+<tr><td>B6</td><td>Purchase closing costs (2%)</td><td><code>=B3&#42;0.02</code></td><td>$3,000</td></tr>
+<tr><td>B7</td><td>Loan amount (90% of purchase, rehab paid cash)</td><td><code>=B3&#42;0.9</code></td><td>$135,000</td></tr>
+<tr><td>B8</td><td>Financing points (2 pts)</td><td><code>=B7&#42;0.02</code></td><td>$2,700</td></tr>
+<tr><td>B9</td><td>Interest (11%, 5 months)</td><td><code>=B7&#42;0.11&#42;(5/12)</code></td><td>$6,188</td></tr>
+<tr><td>B10</td><td>Holding (taxes, insurance, utilities)</td><td><code>=650&#42;5</code></td><td>$3,250</td></tr>
+<tr><td>B11</td><td>Selling costs (6% of ARV)</td><td><code>=B2&#42;0.06</code></td><td>$17,100</td></tr>
 <tr><td>B12</td><td>Net flip profit</td><td><code>=B2-B3-B5-B6-B8-B9-B10-B11</code></td><td>$51,012</td></tr>
 </tbody>
 </table>
@@ -11133,9 +11133,9 @@ export const blogPosts: BlogPost[] = [
 <tr><td>Net profit</td><td><code>=C4</code> / <code>=B12</code></td><td>$14,750</td><td>$51,012</td></tr>
 <tr><td>Days to cash</td><td><code>=C6</code> / 150</td><td>12</td><td>150</td></tr>
 <tr><td>Dollars per day</td><td><code>=Net/Days</code></td><td>$1,229</td><td>$340</td></tr>
-<tr><td>Cash at risk</td><td><code>=C5</code> / <code>=B3*0.1+B5+B6</code></td><td>$1,000</td><td>$69,750</td></tr>
+<tr><td>Cash at risk</td><td><code>=C5</code> / <code>=B3&#42;0.1+B5+B6</code></td><td>$1,000</td><td>$69,750</td></tr>
 <tr><td>Return on cash</td><td><code>=Net/CashAtRisk</code></td><td>1,475%</td><td>73%</td></tr>
-<tr><td>Annualized return</td><td><code>=(Net/CashAtRisk)*(365/Days)</code></td><td>44,860%</td><td>178%</td></tr>
+<tr><td>Annualized return</td><td><code>=(Net/CashAtRisk)&#42;(365/Days)</code></td><td>44,860%</td><td>178%</td></tr>
 </tbody>
 </table>
 
@@ -11143,9 +11143,9 @@ export const blogPosts: BlogPost[] = [
 
 <h3>The tiebreaker most investors miss</h3>
 
-<p>Here is the row that actually decides it, and almost nobody builds it: deal replacement. The flip ties up your capital and your calendar for five months. In those same five months, how many wholesale deals can your pipeline realistically produce? Add a cell for that. If you can source and assign a comparable deal every five weeks, five months of wholesaling is four fees, roughly <code>=C4*4</code> or $59,000, against the single flip's $51,012, with a hundredth of the capital at risk and none of the rehab exposure. Put it in one line:</p>
+<p>Here is the row that actually decides it, and almost nobody builds it: deal replacement. The flip ties up your capital and your calendar for five months. In those same five months, how many wholesale deals can your pipeline realistically produce? Add a cell for that. If you can source and assign a comparable deal every five weeks, five months of wholesaling is four fees, roughly <code>=C4&#42;4</code> or $59,000, against the single flip's $51,012, with a hundredth of the capital at risk and none of the rehab exposure. Put it in one line:</p>
 
-<p><code>=IF(C4*Deals_Per_5mo&gt;B12,"WHOLESALE PIPELINE WINS","FLIP WINS")</code></p>
+<p><code>=IF(C4&#42;Deals_Per_5mo&gt;B12,"WHOLESALE PIPELINE WINS","FLIP WINS")</code></p>
 
 <p>If your pipeline is dry and you have idle cash sitting in the bank earning nothing, the flip is the better home for that money and the $51,012 is real. If your pipeline is full and your cash is thin or already working, wholesaling the same effort four or five times beats one flip on total dollars and crushes it on risk. The comparison is never flip versus wholesale in the abstract. It is this flip, against what your pipeline can actually replace it with, using the cash you actually have.</p>
 
@@ -11234,7 +11234,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Compute the material portion of any line by hand so you can sanity check a contractor who is way off. Flooring is the classic. At a $3.50 per square foot material and install target across 1,450 square feet:</p>
 
-<p><code>=E12*D12</code></p>
+<p><code>=E12&#42;D12</code></p>
 
 <p>where E12 is 1,450 and D12 is $3.50 returns $5,075. If a contractor's flooring line comes in at $2,900, he is not more efficient, he is on the $1.79 product, and the sheet shows it before you sign. Set an allowance on flooring, cabinets, counters, appliances, fixtures, and interior doors at minimum. Those are the lines contractors cut when they are trying to win on price.</p>
 
@@ -11359,12 +11359,12 @@ export const blogPosts: BlogPost[] = [
 
 <p>Now the sheet does the arithmetic. The two percentage lines key off the sale price, so they update the moment you test a new price:</p>
 
-<p><code>B11 =B2*B6</code> commission, returns $20,400</p>
-<p><code>B12 =B2*B7</code> transfer tax, returns $2,550</p>
+<p><code>B11 =B2&#42;B6</code> commission, returns $20,400</p>
+<p><code>B12 =B2&#42;B7</code> transfer tax, returns $2,550</p>
 
 <p>Title and escrow, the buyer concession, and the recording and warranty bucket are flat numbers you enter from your title company quote and the purchase contract. The one line people fumble is the property tax proration. In most states the seller owes property tax for the part of the year they owned the home but has not paid yet, and that balance is deducted at closing. Compute it as the annual tax divided by 365, times the days you are on the hook for:</p>
 
-<p><code>B15 =B8/365*B9</code></p>
+<p><code>B15 =B8/365&#42;B9</code></p>
 
 <p>That returns $4,200 divided by 365, times 183 days, which is $2,105. Direction matters. In some states taxes are paid in arrears and this is a credit to the buyer that comes out of your side, in others they are prepaid and the buyer reimburses you, which flips the sign. Match your state, but never leave the line at zero, because a full year of taxes is real money. Then total the deductions:</p>
 
@@ -11465,7 +11465,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The buyer's ceiling is the most they will pay for the whole deal, your contract price plus your fee combined. With the 70 percent rule it is the after repair value times the rule, minus the rehab the buyer has to fund:</p>
 
-<p><code>B7 =B2*B4-B3</code></p>
+<p><code>B7 =B2&#42;B4-B3</code></p>
 
 <p>That returns $300,000 times 0.70 minus $45,000, which is $165,000. That is the wall. No disciplined buyer pays more, because above it their profit and costs stop adding up. Your assignment fee is simply the space between that wall and what you owe the seller:</p>
 
@@ -11491,7 +11491,7 @@ export const blogPosts: BlogPost[] = [
 
 <table>
 <thead>
-<tr><th>Buyer's rule</th><th>Buyer ceiling <code>=B2*rule-B3</code></th><th>Your fee <code>=ceiling-150,000</code></th><th>Verdict</th></tr>
+<tr><th>Buyer's rule</th><th>Buyer ceiling <code>=B2&#42;rule-B3</code></th><th>Your fee <code>=ceiling-150,000</code></th><th>Verdict</th></tr>
 </thead>
 <tbody>
 <tr><td>65% (tight market)</td><td>$150,000</td><td>$0</td><td>KILL</td></tr>
@@ -11705,11 +11705,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>The probability in column C is the one number you supply by judgment, and the next section gives you a method for it. With those two in place, column D computes the expected gain if the tenant stays, which is the extra rent collected over twelve months weighted by the odds they accept:</p>
 
-<p><code>D9 =(1-C9)*A9*12</code></p>
+<p><code>D9 =(1-C9)&#42;A9&#42;12</code></p>
 
 <p>Column E captures what happens if they leave. This is the part every simple calculator skips. When a tenant leaves you pay the turnover cost, but you also re-rent at market, so the new tenant pays the market gap for the months they occupy. The expected value of leaving is the recaptured market gap minus the turnover cost, weighted by the odds they go:</p>
 
-<p><code>E9 =C9*(($B$3-$B$2)*(12-$B$5)-$B$4)</code></p>
+<p><code>E9 =C9&#42;(($B$3-$B$2)&#42;(12-$B$5)-$B$4)</code></p>
 
 <p>Add the two outcomes and you have the expected net annual value of that increase compared to doing nothing:</p>
 
@@ -11763,7 +11763,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Then nudge the number for the things the gap alone does not capture. A tenant in year three or four has roots and a higher switching cost, so shave a few points off. A high local vacancy rate gives them options and easy comps, so add points. Winter renewals see less movement than summer ones, so a December lease end leans toward staying. If the tenant has already grumbled about price or mentioned a job change, raise the probability regardless of the math. You can encode the tenure adjustment directly so you do not forget it:</p>
 
-<p><code>=MAX(0.02,C9-MIN(0.08,(TenureYears-1)*0.02))</code></p>
+<p><code>=MAX(0.02,C9-MIN(0.08,(TenureYears-1)&#42;0.02))</code></p>
 
 <p>That formula trims up to eight points off the base probability for a long-tenured tenant and never lets it fall below 2%, because no tenant is a guaranteed renewal. The goal is not a perfect number. The goal is a number you can defend, because even a rough probability beats the silent assumption of zero that aggressive renewal advice depends on.</p>
 
@@ -11771,7 +11771,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The model has a second use that flips the usual instinct. Look at the expected value of leaving in column E. It is negative in the example because the market gap, $150 a month, does not earn back the $4,000 turnover cost within the year. But widen the gap and the sign flips. If your current rent is $1,500 and market is genuinely $1,900, the recaptured gap is $400 times the occupied months, which can exceed the turnover cost. At that point turnover is net positive, and pushing the rent toward market is the correct move even though it raises flight risk. A single flag tells you which regime you are in:</p>
 
-<p><code>=IF(($B$3-$B$2)*(12-$B$5)>$B$4,"Gap exceeds turnover cost: push toward market","Turnover costs more than the gap: protect the tenant")</code></p>
+<p><code>=IF(($B$3-$B$2)&#42;(12-$B$5)>$B$4,"Gap exceeds turnover cost: push toward market","Turnover costs more than the gap: protect the tenant")</code></p>
 
 <p>When that flag says protect the tenant, a small increase or even a flat renewal is the disciplined choice, and you should be grateful for a payer who stays. When it says push toward market, you have been under-renting badly enough that the turnover is worth eating, and the renewal increase becomes a tool to reset the rent to where it should have been all along. Most renewals fall in the first camp, which is exactly why the blanket advice to raise to market every year costs landlords money.</p>
 
@@ -11839,7 +11839,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Now build the outputs underneath. The first formula converts monthly rent to a daily figure and multiplies by vacancy days, because lost rent is a daily problem, not a monthly one:</p>
 
-<p><code>B10 =ROUND(B2/30.4*B4,0)</code></p>
+<p><code>B10 =ROUND(B2/30.4&#42;B4,0)</code></p>
 
 <p>That gives you lost rent during vacancy. Using 30.4 as the average days in a month keeps the daily rate accurate across the year instead of overstating it with a flat 30. Next, total the entire turnover cost by adding lost rent to the hard costs:</p>
 
@@ -11847,7 +11847,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>With the example inputs, B11 returns $4,900. This is the number that should drive the renewal decision, not the rent figure on the lease. Now compare it against what the rent increase actually earns. The annual gain is the increase times twelve:</p>
 
-<p><code>B12 =B3*12</code></p>
+<p><code>B12 =B3&#42;12</code></p>
 
 <p>That is $600. The most important output is the break-even, the number of months the rent increase needs to run just to pay back the turnover it caused:</p>
 
@@ -11997,11 +11997,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>Knowing the monthly reserve tells you what to set aside going forward. It does not tell you whether you are already behind, and on an older property you usually are. Reserve studies answer this with the fully funded balance: the amount that should already be sitting in your reserve account today, given how much life each component has already used up.</p>
 
-<p>For each component, the fully funded balance is its replacement cost times the fraction of its life already spent. In column H, use <code>=B2*MIN(D2/C2,1)</code>. The MIN caps it at 100 percent so a component past its life does not overstate the balance. For the roof at age 12 of 25, that is <code>=14000*MIN(12/25,1)</code>, or $6,720 that should already be earmarked for the roof alone. Total the column with <code>=SUM(H2:H10)</code> to get what the whole building should have in reserve right now.</p>
+<p>For each component, the fully funded balance is its replacement cost times the fraction of its life already spent. In column H, use <code>=B2&#42;MIN(D2/C2,1)</code>. The MIN caps it at 100 percent so a component past its life does not overstate the balance. For the roof at age 12 of 25, that is <code>=14000&#42;MIN(12/25,1)</code>, or $6,720 that should already be earmarked for the roof alone. Total the column with <code>=SUM(H2:H10)</code> to get what the whole building should have in reserve right now.</p>
 
 <p>Then compute your funded ratio, the single number that tells you if you are exposed. If your actual reserve balance is in B14, the ratio is <code>=B14/SUM(H2:H10)</code> formatted as a percentage. Below 70 percent is the danger zone, where one normal failure forces money out of your own pocket or out of next month's rent. A landlord who bought this duplex with $3,000 in the bank against a fully funded balance near $38,000 is sitting at 8 percent funded, which is exactly why a single furnace blew up his year.</p>
 
-<p>One refinement worth adding once the base model works: replacement costs rise. The $6,000 furnace you replace in five years will not cost $6,000. Inflate the future cost with <code>=B2*(1+0.04)^MAX(C2-D2,1)</code> using a 4 percent construction inflation assumption, and reserve against that larger number. It nudges every reserve up by 10 to 20 percent depending on the timeline, and it keeps you from being right on paper and short in cash.</p>
+<p>One refinement worth adding once the base model works: replacement costs rise. The $6,000 furnace you replace in five years will not cost $6,000. Inflate the future cost with <code>=B2&#42;(1+0.04)^MAX(C2-D2,1)</code> using a 4 percent construction inflation assumption, and reserve against that larger number. It nudges every reserve up by 10 to 20 percent depending on the timeline, and it keeps you from being right on paper and short in cash.</p>
 
 <h2>Make the Call</h2>
 
@@ -12074,25 +12074,25 @@ export const blogPosts: BlogPost[] = [
 
 <h3>The buy side: equity, tax, and the cost of selling</h3>
 
-<p>Compute the down payment, the loan, and the monthly payment first. The down payment is <code>=B2*B3</code>, the loan amount is <code>=B2-(B2*B3)</code>, and the monthly principal and interest comes from <code>=PMT(B5/12, B6*12, -(B2-(B2*B3)))</code>. PMT returns the level payment that retires the loan over the term. The loan goes in negative so the result comes back as a positive number you can read.</p>
+<p>Compute the down payment, the loan, and the monthly payment first. The down payment is <code>=B2&#42;B3</code>, the loan amount is <code>=B2-(B2&#42;B3)</code>, and the monthly principal and interest comes from <code>=PMT(B5/12, B6&#42;12, -(B2-(B2&#42;B3)))</code>. PMT returns the level payment that retires the loan over the term. The loan goes in negative so the result comes back as a positive number you can read.</p>
 
-<p>The reason most homemade calculators fall apart is the equity math. You do not need a 360-row amortization schedule. Excel ships two functions that do it in one cell. Cumulative principal paid from month 1 through the end of year N is <code>=-CUMPRINC(B5/12, B6*12, B2-(B2*B3), 1, N*12, 0)</code>, and your remaining loan balance is just the original loan minus that. Cumulative interest, which is the part of your payments that builds nothing, is <code>=-CUMIPMT(B5/12, B6*12, B2-(B2*B3), 1, N*12, 0)</code>. Both come back negative by convention, so the minus sign flips them positive.</p>
+<p>The reason most homemade calculators fall apart is the equity math. You do not need a 360-row amortization schedule. Excel ships two functions that do it in one cell. Cumulative principal paid from month 1 through the end of year N is <code>=-CUMPRINC(B5/12, B6&#42;12, B2-(B2&#42;B3), 1, N&#42;12, 0)</code>, and your remaining loan balance is just the original loan minus that. Cumulative interest, which is the part of your payments that builds nothing, is <code>=-CUMIPMT(B5/12, B6&#42;12, B2-(B2&#42;B3), 1, N&#42;12, 0)</code>. Both come back negative by convention, so the minus sign flips them positive.</p>
 
-<p>The home value in year N is <code>=B2*(1+B14)^N</code>. When you sell, you net the value minus selling costs minus whatever loan is left: <code>=(B2*(1+B14)^N)*(1-B13)-(loan_balance)</code>. That selling cost line is exactly what bit the Denver couple. On a $414,000 sale, 6 percent is almost $25,000 gone before the loan is even paid off.</p>
+<p>The home value in year N is <code>=B2&#42;(1+B14)^N</code>. When you sell, you net the value minus selling costs minus whatever loan is left: <code>=(B2&#42;(1+B14)^N)&#42;(1-B13)-(loan_balance)</code>. That selling cost line is exactly what bit the Denver couple. On a $414,000 sale, 6 percent is almost $25,000 gone before the loan is even paid off.</p>
 
-<p>One more line in your favor: the tax deduction. If you itemize, the mortgage interest and property tax are deductible, so your real cost is lower by your marginal rate. Cumulative tax savings through year N is <code>=(cumulative_interest + B2*B8*N)*B15</code>. Many filers take the standard deduction and get none of this, so make it a switch you can turn off.</p>
+<p>One more line in your favor: the tax deduction. If you itemize, the mortgage interest and property tax are deductible, so your real cost is lower by your marginal rate. Cumulative tax savings through year N is <code>=(cumulative_interest + B2&#42;B8&#42;N)&#42;B15</code>. Many filers take the standard deduction and get none of this, so make it a switch you can turn off.</p>
 
 <h3>The rent side: total rent paid minus what the down payment earned</h3>
 
-<p>Rent is simpler but has its own trap. Rent grows, so do not just multiply by twelve. Total rent paid through year N with annual increases is <code>=E2*12*((1+E3)^N-1)/E3</code>, which is the closed form for a growing payment stream. Add renters insurance with <code>=E4*12*N</code>.</p>
+<p>Rent is simpler but has its own trap. Rent grows, so do not just multiply by twelve. Total rent paid through year N with annual increases is <code>=E2&#42;12&#42;((1+E3)^N-1)/E3</code>, which is the closed form for a growing payment stream. Add renters insurance with <code>=E4&#42;12&#42;N</code>.</p>
 
-<p>Now the part that almost no free calculator includes. The renter never spent the $80,000 down payment or the $12,000 in closing costs, so that $92,000 stays invested. Its value in year N is <code>=(B2*B3+B2*B12)*(1+E5)^N</code>. The investment gain, which offsets the rent, is that value minus the original $92,000. This is the opportunity cost of buying, and it is the single biggest reason a short stay favors renting.</p>
+<p>Now the part that almost no free calculator includes. The renter never spent the $80,000 down payment or the $12,000 in closing costs, so that $92,000 stays invested. Its value in year N is <code>=(B2&#42;B3+B2&#42;B12)&#42;(1+E5)^N</code>. The investment gain, which offsets the rent, is that value minus the original $92,000. This is the opportunity cost of buying, and it is the single biggest reason a short stay favors renting.</p>
 
 <h2>Find the Breakeven Year, the One Number That Decides</h2>
 
 <p>Now you combine both sides into a net cost for each path, assuming you sold or moved at the end of each year.</p>
 
-<p>Net cost to own through year N is every dollar that left your pocket (down payment, closing costs, and all the payments, tax, insurance, and maintenance) minus what you get back when you sell minus your tax savings: <code>=(B2*B3+B2*B12) + cumulative_carrying_costs - net_sale_proceeds - cumulative_tax_savings</code>. Net cost to rent through year N is total rent and renters insurance paid minus the investment gain on the money you kept: <code>=cumulative_rent - investment_gain</code>. The own advantage is simply <code>=net_rent_cost - net_own_cost</code>. When that flips from negative to positive, owning has won. Find the first year it crosses with <code>=MATCH(TRUE, own_advantage_range>0, 0)</code>.</p>
+<p>Net cost to own through year N is every dollar that left your pocket (down payment, closing costs, and all the payments, tax, insurance, and maintenance) minus what you get back when you sell minus your tax savings: <code>=(B2&#42;B3+B2&#42;B12) + cumulative_carrying_costs - net_sale_proceeds - cumulative_tax_savings</code>. Net cost to rent through year N is total rent and renters insurance paid minus the investment gain on the money you kept: <code>=cumulative_rent - investment_gain</code>. The own advantage is simply <code>=net_rent_cost - net_own_cost</code>. When that flips from negative to positive, owning has won. Find the first year it crosses with <code>=MATCH(TRUE, own_advantage_range>0, 0)</code>.</p>
 
 <p>Run the numbers above and the table tells a clear story.</p>
 
@@ -12179,7 +12179,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>The extended cost in column E is the rate times the duration. For a time-driven row, that is the monthly rate times the number of months on the job: <code>=C2*D2</code>. Fill that single formula down the whole column and every line item, monthly or one-time, calculates the same way. The total general conditions is one more cell: <code>=SUM(E2:E13)</code>, which lands at $135,260.</p>
+<p>The extended cost in column E is the rate times the duration. For a time-driven row, that is the monthly rate times the number of months on the job: <code>=C2&#42;D2</code>. Fill that single formula down the whole column and every line item, monthly or one-time, calculates the same way. The total general conditions is one more cell: <code>=SUM(E2:E13)</code>, which lands at $135,260.</p>
 
 <p>That is the first lesson the line-item method teaches. The honest general conditions number for this job is $135,260, not the $100,000 a 10% markup would have produced. The percentage method was underbidding by $35,260 before the schedule ever slipped.</p>
 
@@ -12198,9 +12198,9 @@ export const blogPosts: BlogPost[] = [
 
 <p><code>=SUMIFS(C:C,B:B,"Time")</code> gives $15,320 per month.</p>
 
-<p>That is what the jobsite costs to keep open for thirty days with no production at all. Now the cost of a schedule slip stops being a surprise and becomes a calculation. A six-week overrun is 1.5 months: <code>=15320*1.5</code> equals $22,980 of general conditions that the percentage method never budgeted, because a percentage of direct cost does not move when the calendar does.</p>
+<p>That is what the jobsite costs to keep open for thirty days with no production at all. Now the cost of a schedule slip stops being a surprise and becomes a calculation. A six-week overrun is 1.5 months: <code>=15320&#42;1.5</code> equals $22,980 of general conditions that the percentage method never budgeted, because a percentage of direct cost does not move when the calendar does.</p>
 
-<p>This number changes how you bid. If your superintendent is splitting time across two jobs and one of them always runs long, you know exactly what that habit costs. If an owner wants a phased schedule that stretches the job by two months for their convenience, you can put a real price on it: <code>=15320*2</code>, or $30,640, instead of waving it through. The monthly burn rate turns "the schedule slipped" from a vague excuse into a line on the change order.</p>
+<p>This number changes how you bid. If your superintendent is splitting time across two jobs and one of them always runs long, you know exactly what that habit costs. If an owner wants a phased schedule that stretches the job by two months for their convenience, you can put a real price on it: <code>=15320&#42;2</code>, or $30,640, instead of waving it through. The monthly burn rate turns "the schedule slipped" from a vague excuse into a line on the change order.</p>
 
 <p>Add one guardrail so a bad estimate cannot leave the spreadsheet. Put the general conditions total over direct cost in a ratio cell, then flag it:</p>
 
@@ -12492,7 +12492,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>You do not bill the raw variance. Most contracts let you mark up an owner's upgrade, but credits go back at cost with no markup taken off. That asymmetry has to live in the formula or you will hand back margin you were entitled to keep. Column K:</p>
 
-<p><code>=IF(I5&gt;0, I5*(1+J5), I5)</code></p>
+<p><code>=IF(I5&gt;0, I5&#42;(1+J5), I5)</code></p>
 
 <p>When the variance is positive, it multiplies the overage by one plus your markup percent in J5, so a $4,800 flooring overage at 10 percent becomes a $5,280 charge. When the variance is negative, it passes the credit straight through at cost. Add a plain-language flag in the next column so a field PM reads it without parsing the math: <code>=IF(I5&gt;0,"BILL OWNER","CREDIT")</code>.</p>
 
@@ -12591,11 +12591,11 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>The sticky-note version of this change was material plus unburdened labor plus the sub, times 1.15. That math is <code>=(6200+40*32+2800)*1.15</code>, which lands at $11,822. The defensible version is $15,995. The gap is $4,173, and that gap is not padding. It is the labor burden the contractor pays to the IRS and the comp carrier, the crane that showed up, the three days the job ran long, and the bond premium on the added value. Price the sticky note and you do not lose the change order. You win it and pay $4,173 for the privilege.</p>
+<p>The sticky-note version of this change was material plus unburdened labor plus the sub, times 1.15. That math is <code>=(6200+40&#42;32+2800)&#42;1.15</code>, which lands at $11,822. The defensible version is $15,995. The gap is $4,173, and that gap is not padding. It is the labor burden the contractor pays to the IRS and the comp carrier, the crane that showed up, the three days the job ran long, and the bond premium on the added value. Price the sticky note and you do not lose the change order. You win it and pay $4,173 for the privilege.</p>
 
 <h3>Layer 2 is where the burden hides</h3>
 
-<p>The most common error is pricing change order labor at the bare wage. A carpenter at $32 does not cost $32 when he hangs your beam. Load payroll taxes, workers comp, liability, and benefits and he costs closer to $44. The formula <code>=B4*B5*(1+B6)</code> turns 40 hours at $32 into $1,766 instead of $1,280 by applying a 38 percent burden in cell B6. If your calculator prices change order hours at the raw wage, every change order quietly donates the burden to the owner. Build the burden rate once, per trade, and reference it on every change.</p>
+<p>The most common error is pricing change order labor at the bare wage. A carpenter at $32 does not cost $32 when he hangs your beam. Load payroll taxes, workers comp, liability, and benefits and he costs closer to $44. The formula <code>=B4&#42;B5&#42;(1+B6)</code> turns 40 hours at $32 into $1,766 instead of $1,280 by applying a 38 percent burden in cell B6. If your calculator prices change order hours at the raw wage, every change order quietly donates the burden to the owner. Build the burden rate once, per trade, and reference it on every change.</p>
 
 <h2>The Schedule Impact Line Everyone Skips</h2>
 
@@ -12737,11 +12737,11 @@ export const blogPosts: BlogPost[] = [
 
 <h3>The core formulas</h3>
 
-<p>Annual gross wage in B8 multiplies wage by paid hours: <code>=B2*B3</code>. This is the $52,000 base everything else loads onto.</p>
+<p>Annual gross wage in B8 multiplies wage by paid hours: <code>=B2&#42;B3</code>. This is the $52,000 base everything else loads onto.</p>
 
-<p>Statutory taxes in B9 stack FICA, federal unemployment, and state unemployment, each on its correct base: <code>=B8*0.0765+MIN(7000,B8)*0.006+MIN(14000,B8)*0.035</code>. The <code>MIN</code> functions stop the unemployment taxes from running on the full wage, which is the cap most quick formulas get wrong.</p>
+<p>Statutory taxes in B9 stack FICA, federal unemployment, and state unemployment, each on its correct base: <code>=B8&#42;0.0765+MIN(7000,B8)&#42;0.006+MIN(14000,B8)&#42;0.035</code>. The <code>MIN</code> functions stop the unemployment taxes from running on the full wage, which is the cap most quick formulas get wrong.</p>
 
-<p>Insurance in B10 combines comp and general liability against gross wage: <code>=B8*(B5+B6)</code>. Because B5 is the comp rate, you change one cell to reprice the entire sheet for roofing, steel, or clerical work instead of rebuilding it per trade.</p>
+<p>Insurance in B10 combines comp and general liability against gross wage: <code>=B8&#42;(B5+B6)</code>. Because B5 is the comp rate, you change one cell to reprice the entire sheet for roofing, steel, or clerical work instead of rebuilding it per trade.</p>
 
 <p>Total annual cost in B11 adds wage, taxes, insurance, and benefits: <code>=B8+B9+B10+B7</code>. With the example inputs this returns $72,634.</p>
 
@@ -12874,17 +12874,17 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Cell</th><th>Category</th><th>Weight</th><th>Raw (1-5)</th><th>Weighted</th></tr>
 </thead>
 <tbody>
-<tr><td>Row 16</td><td>Financial strength and bond headroom</td><td>0.25</td><td>4</td><td><code>=C16*D16</code> = 1.00</td></tr>
-<tr><td>Row 17</td><td>Safety (EMR, recordables, written program)</td><td>0.20</td><td>5</td><td><code>=C17*D17</code> = 1.00</td></tr>
-<tr><td>Row 18</td><td>Relevant experience, last 3 years</td><td>0.20</td><td>4</td><td><code>=C18*D18</code> = 0.80</td></tr>
-<tr><td>Row 19</td><td>Manpower capacity versus backlog</td><td>0.15</td><td>3</td><td><code>=C19*D19</code> = 0.45</td></tr>
-<tr><td>Row 20</td><td>References and payment history</td><td>0.20</td><td>5</td><td><code>=C20*D20</code> = 1.00</td></tr>
+<tr><td>Row 16</td><td>Financial strength and bond headroom</td><td>0.25</td><td>4</td><td><code>=C16&#42;D16</code> = 1.00</td></tr>
+<tr><td>Row 17</td><td>Safety (EMR, recordables, written program)</td><td>0.20</td><td>5</td><td><code>=C17&#42;D17</code> = 1.00</td></tr>
+<tr><td>Row 18</td><td>Relevant experience, last 3 years</td><td>0.20</td><td>4</td><td><code>=C18&#42;D18</code> = 0.80</td></tr>
+<tr><td>Row 19</td><td>Manpower capacity versus backlog</td><td>0.15</td><td>3</td><td><code>=C19&#42;D19</code> = 0.45</td></tr>
+<tr><td>Row 20</td><td>References and payment history</td><td>0.20</td><td>5</td><td><code>=C20&#42;D20</code> = 1.00</td></tr>
 </tbody>
 </table>
 
 <p>Total the weighted column and put it on a 100 scale so it reads like a grade. In E22:</p>
 
-<p><code>=SUMPRODUCT(C16:C20,D16:D20)/5*100</code></p>
+<p><code>=SUMPRODUCT(C16:C20,D16:D20)/5&#42;100</code></p>
 
 <p>This sub scores 85. Now turn the number into the actual award decision in E23 so nobody has to argue about what 85 means:</p>
 
@@ -13097,7 +13097,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Now build the engine below the inputs. Start with the denominator everything is measured against, gross potential rent for the year:</p>
 
-<p><code>=B3*12</code></p>
+<p><code>=B3&#42;12</code></p>
 
 <p>That puts $17,400 in B10. Next, convert tenancy length into a turnover frequency, because vacancy is a function of how often you turn, not just how long each turn takes. Turnovers per year in B11:</p>
 
@@ -13105,15 +13105,15 @@ export const blogPosts: BlogPost[] = [
 
 <p>A 26-month tenancy gives 0.46 turns a year. Multiply that by the days each turn costs you to get annual vacant days in B12, then divide by 365 for the physical vacancy rate in B13:</p>
 
-<p><code>=B5*B11</code> gives 17.5 vacant days, and <code>=B12/365</code> gives a 4.8 percent physical vacancy rate. The dollar loss in B14 is <code>=B10*B13</code>, or $835. So far this looks like the 5 percent everyone assumes, which is exactly why people stop here. They should not.</p>
+<p><code>=B5&#42;B11</code> gives 17.5 vacant days, and <code>=B12/365</code> gives a 4.8 percent physical vacancy rate. The dollar loss in B14 is <code>=B10&#42;B13</code>, or $835. So far this looks like the 5 percent everyone assumes, which is exactly why people stop here. They should not.</p>
 
 <p>Now add the losses the percentage forgets. Concessions in B15 cost you the free weeks times the weekly rent times how often you re-lease:</p>
 
-<p><code>=(B6/4.33)*B3*B11</code></p>
+<p><code>=(B6/4.33)&#42;B3&#42;B11</code></p>
 
 <p>Two free weeks per turn works out to $309 a year. Bad debt in B16 is the simplest line, a percentage of potential rent for the months a non-paying tenant occupies before you regain the unit:</p>
 
-<p><code>=B10*B7</code></p>
+<p><code>=B10&#42;B7</code></p>
 
 <p>That is $261. Total economic vacancy loss lands in B17 as <code>=B14+B15+B16</code>, or $1,405, and the rate that actually belongs in your pro forma sits in B18:</p>
 
@@ -13154,7 +13154,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The naive physical vacancy is just total empty days over total available days, <code>=SUM(C2:C5)/SUM(D2:D5)</code>, which returns 4.5 percent. But that treats a vacant day in your cheapest unit the same as one in your most expensive, and they are not worth the same. The number that matters is dollar-weighted, because losing a high-rent unit for three weeks hurts more than losing a low-rent unit for the same span. Compute the actual rent lost with one formula:</p>
 
-<p><code>=SUMPRODUCT(C2:C5,(B2:B5*12)/365)</code></p>
+<p><code>=SUMPRODUCT(C2:C5,(B2:B5&#42;12)/365)</code></p>
 
 <p>That multiplies each unit's vacant days by its own daily rent and sums the result, returning $2,347 of lost rent. Divide by gross potential rent for the building, <code>=SUMPRODUCT(B2:B5,12)</code> or $54,000, and your true economic vacancy from operations is 4.3 percent for the year. If that comes in well under your 8.1 percent forward budget, good, you are reserving enough. If it comes in higher, your turnover or screening is the problem and the spreadsheet just told you before your bank account did.</p>
 
@@ -13214,7 +13214,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>In a spreadsheet this becomes a clean signed formula. Put your subject's value for a feature in one cell and the comp's in another, and the adjustment is always the difference times the dollar rate. For square footage, with the subject's living area in <code>$B$4</code>, a comp's in <code>C4</code>, and your contributory rate per foot in <code>$B$13</code>:</p>
 
-<p><code>=($B$4-C4)*$B$13</code></p>
+<p><code>=($B$4-C4)&#42;$B$13</code></p>
 
 <p>If your house is bigger, the subject-minus-comp difference is positive, the comp is inferior on size, and the formula adds. If the comp is bigger, the difference goes negative and it subtracts. The sign takes care of itself, which is exactly why a spreadsheet beats doing this in your head, where the direction is easy to flip and a flipped sign is a $9,000 error.</p>
 
@@ -13255,11 +13255,11 @@ export const blogPosts: BlogPost[] = [
 <p>Below the facts, build the adjustment rows. Each cell restates the difference between the subject and that comp in dollars. For Comp 1 in column C, with the sale price in <code>C7</code> and the feature rows running down:</p>
 
 <ul>
-<li><strong>Living area</strong> in <code>C20</code>: <code>=($B$8-C8)*$B$13</code> gives (1,500 - 1,560) x $40 = <strong>-$2,400</strong>.</li>
-<li><strong>Full baths</strong> in <code>C21</code>: <code>=($B$9-C9)*$B$14</code> gives (2 - 2) x $5,000 = <strong>$0</strong>.</li>
-<li><strong>Half baths</strong> in <code>C22</code>: <code>=($B$10-C10)*$B$15</code>.</li>
-<li><strong>Garage</strong> in <code>C23</code>: <code>=($B$11-C11)*$B$16</code>.</li>
-<li><strong>Condition</strong> in <code>C24</code>: <code>=($B$12-C12)*$B$17</code>.</li>
+<li><strong>Living area</strong> in <code>C20</code>: <code>=($B$8-C8)&#42;$B$13</code> gives (1,500 - 1,560) x $40 = <strong>-$2,400</strong>.</li>
+<li><strong>Full baths</strong> in <code>C21</code>: <code>=($B$9-C9)&#42;$B$14</code> gives (2 - 2) x $5,000 = <strong>$0</strong>.</li>
+<li><strong>Half baths</strong> in <code>C22</code>: <code>=($B$10-C10)&#42;$B$15</code>.</li>
+<li><strong>Garage</strong> in <code>C23</code>: <code>=($B$11-C11)&#42;$B$16</code>.</li>
+<li><strong>Condition</strong> in <code>C24</code>: <code>=($B$12-C12)&#42;$B$17</code>.</li>
 </ul>
 
 <p>Then three summary rows do the work. Net adjustment in <code>C25</code> sums the signed adjustments: <code>=SUM(C20:C24)</code>. The adjusted value in <code>C26</code> is the comp's sale price plus that net: <code>=C7+C25</code>. The gross adjustment in <code>C27</code> sums the absolute values, which you need for the quality check: <code>=SUMPRODUCT(ABS(C20:C24))</code>. Copy the C column across to D and E and the whole grid recalculates. Here is what the three comps produce.</p>
@@ -13305,7 +13305,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>That returns about <strong>$310,000</strong>, weighted toward the comp that barely needed adjusting. Compare it to the price-per-foot guess this article opened with, $307,500, and to a naive average of the three raw sales, $314,000. The spread between the lazy methods is more than $6,000, and neither tells you which end is right. The grid does.</p>
 
-<p>Now make the number do work. Wire your maximum allowable offer straight off the reconciled ARV with the 70 percent rule and your rehab budget in <code>B32</code>: <code>=ROUND(0.7*ARV-B32,-3)</code>. With a $50,000 rehab, that is 0.70 x $310,000 - $50,000 = <strong>$167,000</strong>. Move the ARV to the $307,500 guess and the offer drops to $165,000. Inflate it to $325,000 and the offer jumps to $178,000, which is the exact $11,000 overpay that turns a 14 percent margin into a break-even. The whole point of the grid is that this number stops being a feeling.</p>
+<p>Now make the number do work. Wire your maximum allowable offer straight off the reconciled ARV with the 70 percent rule and your rehab budget in <code>B32</code>: <code>=ROUND(0.7&#42;ARV-B32,-3)</code>. With a $50,000 rehab, that is 0.70 x $310,000 - $50,000 = <strong>$167,000</strong>. Move the ARV to the $307,500 guess and the offer drops to $165,000. Inflate it to $325,000 and the offer jumps to $178,000, which is the exact $11,000 overpay that turns a 14 percent margin into a break-even. The whole point of the grid is that this number stops being a feeling.</p>
 
 <table>
 <thead>
@@ -13374,7 +13374,7 @@ export const blogPosts: BlogPost[] = [
 
 <ul>
 <li><strong>Beginning balance</strong> (B11): <code>=B2</code> for the first row, then <code>=E11</code> in B12 to carry last month's ending balance forward.</li>
-<li><strong>Interest for the period</strong> (C11): <code>=B11*$B$3/12</code>. The lender charges interest on the current balance, not the original loan, which is why early payments are almost all interest.</li>
+<li><strong>Interest for the period</strong> (C11): <code>=B11&#42;$B$3/12</code>. The lender charges interest on the current balance, not the original loan, which is why early payments are almost all interest.</li>
 <li><strong>Principal paid including extra</strong> (D11): <code>=MIN($B$6-C11+$B$5,B11)</code>. Scheduled principal is the payment minus interest, then you add the extra $300. The <code>MIN</code> against the balance stops the final payment from overshooting into a negative balance.</li>
 <li><strong>Ending balance</strong> (E11): <code>=B11-D11</code>.</li>
 </ul>
@@ -13423,7 +13423,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>You spend roughly $69,800 of extra principal over those 19 years and avoid about $123,300 of interest. On the surface that is a fat, guaranteed win. But read it the way an investor has to. The interest you avoid is a 6.5 percent return, and on a rental that interest was deductible, so the after-tax yield on prepaying is closer to <code>=B3*(1-0.24)</code>, or about 4.9 percent in a 24 percent bracket. Safe, guaranteed, and completely illiquid. That last word is the catch, and it is why the calculator alone cannot make this decision for you.</p>
+<p>You spend roughly $69,800 of extra principal over those 19 years and avoid about $123,300 of interest. On the surface that is a fat, guaranteed win. But read it the way an investor has to. The interest you avoid is a 6.5 percent return, and on a rental that interest was deductible, so the after-tax yield on prepaying is closer to <code>=B3&#42;(1-0.24)</code>, or about 4.9 percent in a 24 percent bracket. Safe, guaranteed, and completely illiquid. That last word is the catch, and it is why the calculator alone cannot make this decision for you.</p>
 
 <h2>Prepay or Redeploy: The Decision the Sheet Hands Back to You</h2>
 
@@ -13513,7 +13513,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B6</td><td>After-repair value (ARV)</td><td>$335,000</td></tr>
 <tr><td>B7</td><td>Selling cost percentage</td><td>7%</td></tr>
 <tr><td>B9</td><td>All-in cost basis</td><td><code>=B2+B3+B4+B5</code> &rarr; $273,000</td></tr>
-<tr><td>B10</td><td>Net profit</td><td><code>=B6-(B6*B7)-B9</code> &rarr; $38,550</td></tr>
+<tr><td>B10</td><td>Net profit</td><td><code>=B6-(B6&#42;B7)-B9</code> &rarr; $38,550</td></tr>
 </tbody>
 </table>
 
@@ -13585,7 +13585,7 @@ export const blogPosts: BlogPost[] = [
 
 <ul>
 <li><strong>The inputs must be on the same worksheet.</strong> A data table can only point its row and column input cells at cells on the same sheet as the table. If your model lives on a "Pro Forma" tab and you build the table on an "Analysis" tab, it returns errors. Keep the table next to the model.</li>
-<li><strong>The corner cell references the output, it does not repeat the formula.</strong> Put <code>=B10</code> in the corner, not <code>=B6-(B6*B7)-B9</code>. Retyping the formula is the most common reason a table fills with identical numbers in every cell.</li>
+<li><strong>The corner cell references the output, it does not repeat the formula.</strong> Put <code>=B10</code> in the corner, not <code>=B6-(B6&#42;B7)-B9</code>. Retyping the formula is the most common reason a table fills with identical numbers in every cell.</li>
 <li><strong>Recalculation can go stale.</strong> Data tables are heavy, so Excel often sets calculation to "Automatic except for data tables." If your table shows old values after you change an input, that is why. Press <code>F9</code> to force a full recalc, or set calculation back to Automatic under Formulas, Calculation Options.</li>
 <li><strong>You cannot edit one cell of the result.</strong> The filled cells are a single array, shown as <code>{=TABLE(B3,B6)}</code>. To change the table you delete the whole result block and rebuild it. Trying to clear one cell throws an error.</li>
 <li><strong>Lock your input references.</strong> Always use absolute references like <code>$B$6</code> for the input cells so the table does not drift if you move it.</li>
@@ -13656,19 +13656,19 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>B16</td><td>Monthly NOI</td><td><code>=B10-B11</code> &rarr; $1,225</td></tr>
-<tr><td>B17</td><td>LTV-capped loan</td><td><code>=B7*B8</code> &rarr; $150,000</td></tr>
+<tr><td>B17</td><td>LTV-capped loan</td><td><code>=B7&#42;B8</code> &rarr; $150,000</td></tr>
 <tr><td>B18</td><td>Max payment at min DSCR</td><td><code>=B16/B12</code> &rarr; $1,021</td></tr>
-<tr><td>B19</td><td>DSCR-capped loan</td><td><code>=-PV(B9/12,B14*12,B18)</code> &rarr; $146,000</td></tr>
+<tr><td>B19</td><td>DSCR-capped loan</td><td><code>=-PV(B9/12,B14&#42;12,B18)</code> &rarr; $146,000</td></tr>
 <tr><td>B20</td><td>Approved loan</td><td><code>=MIN(B17,B19)</code> &rarr; $146,000</td></tr>
-<tr><td>B21</td><td>New monthly P and I</td><td><code>=-PMT(B9/12,B14*12,B20)</code> &rarr; $1,021</td></tr>
+<tr><td>B21</td><td>New monthly P and I</td><td><code>=-PMT(B9/12,B14&#42;12,B20)</code> &rarr; $1,021</td></tr>
 <tr><td>B22</td><td>Net cash returned</td><td><code>=B20-B13</code> &rarr; $142,000</td></tr>
 <tr><td>B23</td><td>Cash left in deal</td><td><code>=B5-B22</code> &rarr; $6,000</td></tr>
 <tr><td>B24</td><td>Monthly cash flow</td><td><code>=B16-B21</code> &rarr; $204</td></tr>
-<tr><td>B25</td><td>Cash-on-cash return</td><td><code>=IF(B23&lt;=0,"INFINITE",B24*12/B23)</code> &rarr; 40.8%</td></tr>
+<tr><td>B25</td><td>Cash-on-cash return</td><td><code>=IF(B23&lt;=0,"INFINITE",B24&#42;12/B23)</code> &rarr; 40.8%</td></tr>
 </tbody>
 </table>
 
-<p>Read what the formulas are actually telling you. <code>=-PV(B9/12,B14*12,B18)</code> in B19 reverse-engineers the largest loan whose payment stays inside the lender's coverage rule. It asks, if the most this rent can support is a $1,021 monthly payment at 7.5 percent over 30 years, how big a loan is that? The answer is $146,000. Then <code>=MIN(B17,B19)</code> in B20 is the entire point of the model: even though the appraisal supports a $150,000 loan, the rent only supports $146,000, so the DSCR cap binds and your real loan is $146,000. The lender lends the smaller of what the building is worth and what the rent can carry, and most BRRRR spreadsheets only ever check the first one.</p>
+<p>Read what the formulas are actually telling you. <code>=-PV(B9/12,B14&#42;12,B18)</code> in B19 reverse-engineers the largest loan whose payment stays inside the lender's coverage rule. It asks, if the most this rent can support is a $1,021 monthly payment at 7.5 percent over 30 years, how big a loan is that? The answer is $146,000. Then <code>=MIN(B17,B19)</code> in B20 is the entire point of the model: even though the appraisal supports a $150,000 loan, the rent only supports $146,000, so the DSCR cap binds and your real loan is $146,000. The lender lends the smaller of what the building is worth and what the rent can carry, and most BRRRR spreadsheets only ever check the first one.</p>
 
 <p>The output that runs your business is B23, cash left in deal. At a full $200,000 appraisal you leave $6,000 in and earn 40.8 percent cash-on-cash, which is excellent, and you have $142,000 back to deploy. Add a flag so the sheet judges the result for you instead of making you eyeball it: <code>=IF(B23&gt;15000,"CAPITAL TRAPPED",IF(B23&gt;0,"MOSTLY RECYCLED","FULL PULL"))</code>. When that cell turns to TRAPPED, the deal stopped being a BRRRR and became a rental you happened to rehab.</p>
 
@@ -13769,7 +13769,7 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Cell</th><th>Output</th><th>Formula</th><th>Result</th></tr>
 </thead>
 <tbody>
-<tr><td>B13</td><td>Max loan (LTV)</td><td><code>=B2*B8</code></td><td>$300,000</td></tr>
+<tr><td>B13</td><td>Max loan (LTV)</td><td><code>=B2&#42;B8</code></td><td>$300,000</td></tr>
 <tr><td>B14</td><td>New P and I</td><td><code>=-PMT(B9/12,360,B13)</code></td><td>$2,047</td></tr>
 <tr><td>B15</td><td>Cash to you</td><td><code>=B13-B3-B10</code></td><td>$82,500</td></tr>
 <tr><td>B16</td><td>New cash flow</td><td><code>=B7-B14</code></td><td>-$107</td></tr>
@@ -13789,7 +13789,7 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Constraint</th><th>Formula</th><th>Max loan</th><th>Cash to you</th><th>New cash flow</th></tr>
 </thead>
 <tbody>
-<tr><td>A. Pull max LTV (75%)</td><td><code>=B2*0.75</code></td><td>$300,000</td><td>$82,500</td><td>-$107</td></tr>
+<tr><td>A. Pull max LTV (75%)</td><td><code>=B2&#42;0.75</code></td><td>$300,000</td><td>$82,500</td><td>-$107</td></tr>
 <tr><td>B. Hold DSCR at 1.25</td><td><code>=-PV(B9/12,360,B7/1.25)</code></td><td>$227,500</td><td>$10,000</td><td>$388</td></tr>
 <tr><td>C. Keep cash flow at $400</td><td><code>=-PV(B9/12,360,B7-400)</code></td><td>$225,700</td><td>$8,200</td><td>$400</td></tr>
 </tbody>
@@ -13825,7 +13825,7 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
 </thead>
 <tbody>
-<tr><td>B20</td><td>True cost of pulled cash</td><td><code>=(B14-B4)*12/B15</code></td><td>13.0%</td></tr>
+<tr><td>B20</td><td>True cost of pulled cash</td><td><code>=(B14-B4)&#42;12/B15</code></td><td>13.0%</td></tr>
 <tr><td>B21</td><td>Expected return on new deal</td><td>input</td><td>11.0%</td></tr>
 <tr><td>B22</td><td>Worth it?</td><td><code>=IF(B21&gt;B20,"PULL","KEEP THE LOW RATE")</code></td><td>KEEP THE LOW RATE</td></tr>
 </tbody>
@@ -13858,7 +13858,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>What the 50 Percent Rule Actually Claims</h2>
 
-<p>The rule makes one assertion: for a typical rental, the sum of operating expenses equals roughly 50 percent of gross rent. Operating expenses means taxes, insurance, vacancy, repairs, capital reserves, property management, and the small stuff like turnover and lawn care. It deliberately excludes your mortgage payment, because debt is a financing choice, not a property cost. So the rule is really a shortcut to net operating income: <code>=Rent*0.5</code> is your NOI, and whatever is left after the mortgage is your cash flow.</p>
+<p>The rule makes one assertion: for a typical rental, the sum of operating expenses equals roughly 50 percent of gross rent. Operating expenses means taxes, insurance, vacancy, repairs, capital reserves, property management, and the small stuff like turnover and lawn care. It deliberately excludes your mortgage payment, because debt is a financing choice, not a property cost. So the rule is really a shortcut to net operating income: <code>=Rent&#42;0.5</code> is your NOI, and whatever is left after the mortgage is your cash flow.</p>
 
 <p>That is the appeal. You can estimate NOI on a listing in the time it takes to read the rent. No itemizing, no per-property tax lookup, no guessing the insurance bill. For screening a stack of deals it is fast, and fast has real value when you are working through forty listings before lunch. The problem is what the 50 percent gets averaged over. It blends a new build in low-tax Idaho with a 1962 triple-decker in New Jersey, a no-HOA single-family with a coastal Florida condo carrying $400 a month in wind insurance. Those properties do not have the same expense ratio. They are not close. The rule hands all of them the same number anyway.</p>
 
@@ -13873,9 +13873,9 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B2</td><td>Purchase price</td><td>input</td><td>$260,000</td></tr>
 <tr><td>B3</td><td>Monthly rent</td><td>input</td><td>$2,900</td></tr>
-<tr><td>B4</td><td>Rule expenses</td><td><code>=B3*0.5</code></td><td>$1,450</td></tr>
+<tr><td>B4</td><td>Rule expenses</td><td><code>=B3&#42;0.5</code></td><td>$1,450</td></tr>
 <tr><td>B5</td><td>Rule NOI</td><td><code>=B3-B4</code></td><td>$1,450</td></tr>
-<tr><td>B6</td><td>Monthly P and I</td><td><code>=-PMT(0.075/12,360,B2*0.8)</code></td><td>$1,454</td></tr>
+<tr><td>B6</td><td>Monthly P and I</td><td><code>=-PMT(0.075/12,360,B2&#42;0.8)</code></td><td>$1,454</td></tr>
 <tr><td>B7</td><td>Rule cash flow</td><td><code>=B5-B6</code></td><td>-$4</td></tr>
 <tr><td>B8</td><td>Verdict</td><td><code>=IF(B7&gt;0,"LOOK CLOSER","SKIP")</code></td><td>SKIP</td></tr>
 </tbody>
@@ -13925,13 +13925,13 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>B10</td><td>Property tax rate</td><td>input</td><td>2.2%</td></tr>
-<tr><td>B11</td><td>Monthly tax</td><td><code>=B2*B10/12</code></td><td>$477</td></tr>
+<tr><td>B11</td><td>Monthly tax</td><td><code>=B2&#42;B10/12</code></td><td>$477</td></tr>
 <tr><td>B12</td><td>Insurance / mo</td><td>input</td><td>$165</td></tr>
 <tr><td>B13</td><td>Vacancy %</td><td>input</td><td>7%</td></tr>
 <tr><td>B14</td><td>Repairs %</td><td>input</td><td>8%</td></tr>
 <tr><td>B15</td><td>CapEx reserve %</td><td>input</td><td>9%</td></tr>
 <tr><td>B16</td><td>Management %</td><td>input</td><td>9%</td></tr>
-<tr><td>B17</td><td>Percentage costs</td><td><code>=B3*(B13+B14+B15+B16)</code></td><td>$957</td></tr>
+<tr><td>B17</td><td>Percentage costs</td><td><code>=B3&#42;(B13+B14+B15+B16)</code></td><td>$957</td></tr>
 <tr><td>B18</td><td>Real monthly expenses</td><td><code>=B11+B12+B17</code></td><td>$1,599</td></tr>
 <tr><td>B19</td><td>Real expense ratio</td><td><code>=B18/B3</code></td><td>55%</td></tr>
 <tr><td>B20</td><td>Real NOI</td><td><code>=B3-B18</code></td><td>$1,301</td></tr>
@@ -13940,7 +13940,7 @@ export const blogPosts: BlogPost[] = [
 </tbody>
 </table>
 
-<p>The engine is B18. <code>=B11+B12+B17</code> adds the two dollar costs the rule cannot see, real property tax computed off value and the actual insurance bill, to the percentage costs in B17 that genuinely do scale with rent. B17 itself, <code>=B3*(B13+B14+B15+B16)</code>, is where you set vacancy, repairs, reserves, and management per property instead of accepting a national blend. B19 then tells you the truth the 50 percent rule was guessing at: this property runs a 55 percent expense ratio, not 50, and on a deal this thin those five points are the difference between a verdict of CASH FLOWS and BLEEDS in B22.</p>
+<p>The engine is B18. <code>=B11+B12+B17</code> adds the two dollar costs the rule cannot see, real property tax computed off value and the actual insurance bill, to the percentage costs in B17 that genuinely do scale with rent. B17 itself, <code>=B3&#42;(B13+B14+B15+B16)</code>, is where you set vacancy, repairs, reserves, and management per property instead of accepting a national blend. B19 then tells you the truth the 50 percent rule was guessing at: this property runs a 55 percent expense ratio, not 50, and on a deal this thin those five points are the difference between a verdict of CASH FLOWS and BLEEDS in B22.</p>
 
 <p>Two inputs carry the whole fix. B11 pulls the real tax dollar from value and rate, so a New Jersey deal and a Colorado one stop scoring the same. And B14 through B16 let you raise the repair and reserve lines on an old building, so a 1962 duplex is not handed the same maintenance budget as a house built last year. Notice this stays fast. It is still one verdict, still under a minute, and it is no longer fooled by the three things the flat average cannot account for.</p>
 
@@ -14000,12 +14000,12 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B3</td><td>Monthly rent</td><td>input</td><td>$1,650</td></tr>
 <tr><td>B4</td><td>1% ratio</td><td><code>=B3/B2</code></td><td>1.10%</td></tr>
 <tr><td>B5</td><td>Rule verdict</td><td><code>=IF(B4&gt;=0.01,"PASS","FAIL")</code></td><td>PASS</td></tr>
-<tr><td>B6</td><td>Gross rent multiplier</td><td><code>=B2/(B3*12)</code></td><td>7.6</td></tr>
-<tr><td>B7</td><td>Rent needed to pass</td><td><code>=B2*0.01</code></td><td>$1,500</td></tr>
+<tr><td>B6</td><td>Gross rent multiplier</td><td><code>=B2/(B3&#42;12)</code></td><td>7.6</td></tr>
+<tr><td>B7</td><td>Rent needed to pass</td><td><code>=B2&#42;0.01</code></td><td>$1,500</td></tr>
 </tbody>
 </table>
 
-<p>Cell B5 is the screen. <code>=IF(B4&gt;=0.01,"PASS","FAIL")</code> returns one word, and one word is all you want when you are working through 40 listings before lunch. B7 is the quiet workhorse: <code>=B2*0.01</code> tells you the exact rent a property needs to clear the bar, so the moment an agent quotes a price you already know in your head what rent makes it worth a second look. Drag those formulas down a table and you can screen an entire market in the time it takes to paste in the prices. That is the legitimate use of a 1 percent rule rental property calculator, and for rental property screening at volume, nothing is faster.</p>
+<p>Cell B5 is the screen. <code>=IF(B4&gt;=0.01,"PASS","FAIL")</code> returns one word, and one word is all you want when you are working through 40 listings before lunch. B7 is the quiet workhorse: <code>=B2&#42;0.01</code> tells you the exact rent a property needs to clear the bar, so the moment an agent quotes a price you already know in your head what rent makes it worth a second look. Drag those formulas down a table and you can screen an entire market in the time it takes to paste in the prices. That is the legitimate use of a 1 percent rule rental property calculator, and for rental property screening at volume, nothing is faster.</p>
 
 <p>That batch view is where the rule earns its keep. A column of PASS and FAIL cuts your reading pile in half before you open a single set of photos. But the rule has a second column it never shows you, and that column is where it starts to lie.</p>
 
@@ -14059,15 +14059,15 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B13</td><td>HOA / mo</td><td>input</td><td>$350</td></tr>
 <tr><td>B14</td><td>Vacancy + maint + mgmt %</td><td>input</td><td>22%</td></tr>
 <tr><td>B15</td><td>Down payment %</td><td>input</td><td>20%</td></tr>
-<tr><td>B16</td><td>Loan amount</td><td><code>=B9*(1-B15)</code></td><td>$120,000</td></tr>
+<tr><td>B16</td><td>Loan amount</td><td><code>=B9&#42;(1-B15)</code></td><td>$120,000</td></tr>
 <tr><td>B17</td><td>Interest rate</td><td>input</td><td>7.5%</td></tr>
 <tr><td>B18</td><td>Monthly P and I</td><td><code>=-PMT(B17/12,360,B16)</code></td><td>$839</td></tr>
-<tr><td>B19</td><td>Monthly cash flow</td><td><code>=B3-(B3*B14)-(B9*B11/12)-B12-B13-B18</code></td><td>-$327</td></tr>
+<tr><td>B19</td><td>Monthly cash flow</td><td><code>=B3-(B3&#42;B14)-(B9&#42;B11/12)-B12-B13-B18</code></td><td>-$327</td></tr>
 <tr><td>B20</td><td>Verdict</td><td><code>=IF(B19&gt;0,"CASH FLOWS","BLEEDS")</code></td><td>BLEEDS</td></tr>
 </tbody>
 </table>
 
-<p>The engine is B19. <code>=B3-(B3*B14)-(B9*B11/12)-B12-B13-B18</code> takes the rent, strips out the percentage costs that scale with it (vacancy, maintenance, and management rolled into B14), subtracts the monthly property tax computed off real value, then the fixed insurance and HOA dollars, then the loan payment. What is left is roughly what hits your bank account each month. B20 turns that into the single word you actually wanted from the 1% rule and never got: does this thing make money or not.</p>
+<p>The engine is B19. <code>=B3-(B3&#42;B14)-(B9&#42;B11/12)-B12-B13-B18</code> takes the rent, strips out the percentage costs that scale with it (vacancy, maintenance, and management rolled into B14), subtracts the monthly property tax computed off real value, then the fixed insurance and HOA dollars, then the loan payment. What is left is roughly what hits your bank account each month. B20 turns that into the single word you actually wanted from the 1% rule and never got: does this thing make money or not.</p>
 
 <p>Two details carry the whole fix. B9 uses all-in cost, not list price, so the rehab lie from earlier cannot slip through, and the BRRRR house gets judged on its real $135,000 basis instead of its flattering $90,000 sticker. And B11 is a tax rate you pull per property, not a national guess, because that one input is what separates a Newark deal from a Denver one. The PMT function in B18 carries your actual rate and down payment, which kills the financing lie. You now have a screen that is still fast, still one verdict, and no longer fooled by the three things the bare ratio cannot see.</p>
 
@@ -14117,15 +14117,15 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B2</td><td>Purchase price</td><td>$420,000</td></tr>
 <tr><td>B3</td><td>Down payment %</td><td>3.5%</td></tr>
-<tr><td>B4</td><td>Down payment $ <code>=B2*B3</code></td><td>$14,700</td></tr>
+<tr><td>B4</td><td>Down payment $ <code>=B2&#42;B3</code></td><td>$14,700</td></tr>
 <tr><td>B5</td><td>Base loan <code>=B2-B4</code></td><td>$405,300</td></tr>
-<tr><td>B6</td><td>FHA upfront MIP <code>=B5*1.75%</code></td><td>$7,093</td></tr>
+<tr><td>B6</td><td>FHA upfront MIP <code>=B5&#42;1.75%</code></td><td>$7,093</td></tr>
 <tr><td>B7</td><td>Financed loan <code>=B5+B6</code></td><td>$412,393</td></tr>
 <tr><td>B8</td><td>Interest rate</td><td>6.75%</td></tr>
 <tr><td>B9</td><td>Term (months)</td><td>360</td></tr>
 <tr><td>B10</td><td>Monthly P&amp;I <code>=-PMT(B8/12,B9,B7)</code></td><td>$2,675</td></tr>
 <tr><td>B11</td><td>Annual MIP rate</td><td>0.55%</td></tr>
-<tr><td>B12</td><td>Monthly MIP <code>=B7*B11/12</code></td><td>$189</td></tr>
+<tr><td>B12</td><td>Monthly MIP <code>=B7&#42;B11/12</code></td><td>$189</td></tr>
 <tr><td>B13</td><td>Property tax / yr</td><td>$5,400</td></tr>
 <tr><td>B14</td><td>Insurance / yr</td><td>$1,800</td></tr>
 <tr><td>B15</td><td>Total monthly payment <code>=B10+B12+(B13+B14)/12</code></td><td>$3,464</td></tr>
@@ -14164,14 +14164,14 @@ export const blogPosts: BlogPost[] = [
 <tr><th>Cell</th><th>Line</th><th>Formula</th><th>Result</th></tr>
 </thead>
 <tbody>
-<tr><td>B26</td><td>Annual gross rent</td><td><code>=B19*12</code></td><td>$41,400</td></tr>
-<tr><td>B27</td><td>Vacancy (6%)</td><td><code>=B26*6%</code></td><td>$2,484</td></tr>
-<tr><td>B28</td><td>Maintenance (8%)</td><td><code>=B26*8%</code></td><td>$3,312</td></tr>
-<tr><td>B29</td><td>CapEx reserve (6%)</td><td><code>=B26*6%</code></td><td>$2,484</td></tr>
-<tr><td>B30</td><td>Management (8%)</td><td><code>=B26*8%</code></td><td>$3,312</td></tr>
+<tr><td>B26</td><td>Annual gross rent</td><td><code>=B19&#42;12</code></td><td>$41,400</td></tr>
+<tr><td>B27</td><td>Vacancy (6%)</td><td><code>=B26&#42;6%</code></td><td>$2,484</td></tr>
+<tr><td>B28</td><td>Maintenance (8%)</td><td><code>=B26&#42;8%</code></td><td>$3,312</td></tr>
+<tr><td>B29</td><td>CapEx reserve (6%)</td><td><code>=B26&#42;6%</code></td><td>$2,484</td></tr>
+<tr><td>B30</td><td>Management (8%)</td><td><code>=B26&#42;8%</code></td><td>$3,312</td></tr>
 <tr><td>B31</td><td>Taxes + insurance</td><td><code>=B13+B14</code></td><td>$7,200</td></tr>
 <tr><td>B32</td><td>Net operating income</td><td><code>=B26-SUM(B27:B31)</code></td><td>$22,608</td></tr>
-<tr><td>B33</td><td>Annual debt service</td><td><code>=(B10+B12)*12</code></td><td>$34,368</td></tr>
+<tr><td>B33</td><td>Annual debt service</td><td><code>=(B10+B12)&#42;12</code></td><td>$34,368</td></tr>
 <tr><td>B34</td><td>Annual cash flow</td><td><code>=B32-B33</code></td><td>-$11,760</td></tr>
 <tr><td>B35</td><td>Monthly cash flow</td><td><code>=B34/12</code></td><td>-$980</td></tr>
 <tr><td>B36</td><td>DSCR</td><td><code>=B32/B33</code></td><td>0.66</td></tr>
@@ -14294,14 +14294,14 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B5</td><td>Bare wages</td><td>$46,000</td></tr>
 <tr><td>B6</td><td>Burden multiplier</td><td>1.46</td></tr>
-<tr><td>B7</td><td>Burdened labor <code>=B5*B6</code></td><td>$67,160</td></tr>
+<tr><td>B7</td><td>Burdened labor <code>=B5&#42;B6</code></td><td>$67,160</td></tr>
 <tr><td>B8</td><td>Materials</td><td>$52,000</td></tr>
 <tr><td>B9</td><td>Equipment (pump, trowels, fuel)</td><td>$13,500</td></tr>
 <tr><td>B10</td><td>Small tools + consumables</td><td>$2,800</td></tr>
 <tr><td>B11</td><td>Supervision + PM time</td><td>$8,200</td></tr>
 <tr><td>B12</td><td>Direct subtotal <code>=B7+SUM(B8:B11)</code></td><td>$143,660</td></tr>
 <tr><td>B13</td><td>Risk reserve %</td><td>7%</td></tr>
-<tr><td>B14</td><td>Risk reserve <code>=B12*B13</code></td><td>$10,056</td></tr>
+<tr><td>B14</td><td>Risk reserve <code>=B12&#42;B13</code></td><td>$10,056</td></tr>
 <tr><td>B15</td><td><strong>Total self-perform cost</strong> <code>=B12+B14</code></td><td><strong>$153,716</strong></td></tr>
 </tbody>
 </table>
@@ -14339,7 +14339,7 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B26</td><td>Crew-weeks tied up</td><td>6</td></tr>
 <tr><td>B27</td><td>Margin per crew-week elsewhere</td><td>$2,500</td></tr>
-<tr><td>B28</td><td>Opportunity cost <code>=B26*B27</code></td><td>$15,000</td></tr>
+<tr><td>B28</td><td>Opportunity cost <code>=B26&#42;B27</code></td><td>$15,000</td></tr>
 <tr><td>B29</td><td>Net advantage of self-perform <code>=B22-B28</code></td><td>-$5,916</td></tr>
 <tr><td>B30</td><td><strong>Decision</strong> <code>=IF(B29&gt;0,"SELF-PERFORM","SUBCONTRACT")</code></td><td><strong>SUBCONTRACT</strong></td></tr>
 </tbody>
@@ -14555,8 +14555,8 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B9</td><td>Current bonded backlog (cost to complete)</td><td>$3,600,000</td></tr>
 <tr><td>B10</td><td>Single job multiplier</td><td>10</td></tr>
 <tr><td>B11</td><td>Aggregate multiplier</td><td>15</td></tr>
-<tr><td>B12</td><td>Single job limit</td><td><code>=B5*B10</code></td></tr>
-<tr><td>B13</td><td>Aggregate program limit</td><td><code>=B5*B11</code></td></tr>
+<tr><td>B12</td><td>Single job limit</td><td><code>=B5&#42;B10</code></td></tr>
+<tr><td>B13</td><td>Aggregate program limit</td><td><code>=B5&#42;B11</code></td></tr>
 <tr><td>B14</td><td>Available aggregate capacity</td><td><code>=B13-B9</code></td></tr>
 </tbody>
 </table>
@@ -14584,8 +14584,8 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>Working capital</td><td><code>=B3-B4</code></td><td>$330,000</td></tr>
 <tr><td>Net worth</td><td><code>=B6-B7</code></td><td>$500,000</td></tr>
-<tr><td>Single job limit</td><td><code>=B5*10</code></td><td>$3,300,000</td></tr>
-<tr><td>Aggregate program limit</td><td><code>=B5*15</code></td><td>$4,950,000</td></tr>
+<tr><td>Single job limit</td><td><code>=B5&#42;10</code></td><td>$3,300,000</td></tr>
+<tr><td>Aggregate program limit</td><td><code>=B5&#42;15</code></td><td>$4,950,000</td></tr>
 <tr><td>Current backlog</td><td>Manual entry</td><td>$3,600,000</td></tr>
 <tr><td>Available aggregate</td><td><code>=B13-B9</code></td><td>$1,350,000</td></tr>
 <tr><td>Job he wants to bid</td><td>Manual entry</td><td>$2,000,000</td></tr>
@@ -14605,7 +14605,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The opposite case trips up growing contractors. Picture a firm with no backlog at all, $200,000 of working capital, and a shot at a $3 million job. Their aggregate program is wide open, so available capacity is not the issue. But at a 10 times single job multiplier, their single job limit is only $2 million:</p>
 
-<p><code>=B5*B10</code></p>
+<p><code>=B5&#42;B10</code></p>
 
 <p>The $3 million job fails on size, not on volume. The flag reads STOP because the job in B16 exceeds the single job limit in B12, even with an empty book. This is the classic too-small-to-grow wall. You cannot bond the job that would build the balance sheet that would let you bond the job.</p>
 
@@ -14675,7 +14675,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The core formula lives in column E. It compounds the annual escalation rate over the fractional number of years until purchase:</p>
 
-<p><code>=B2*(1+D2)^(C2/12)</code></p>
+<p><code>=B2&#42;(1+D2)^(C2/12)</code></p>
 
 <p>This takes the base cost, applies the annual rate, and raises it to the power of months divided by 12 so a 7-month lag escalates by seven-twelfths of the annual compound. For structural steel at $320,000, 9 percent annual, 7 months out, that returns $336,776. Column F isolates the dollars you actually need to add to your bid:</p>
 
@@ -14740,7 +14740,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Model it the same way. Track the index value at bid and the index value at purchase, and compute the adjustment only on movement past the threshold:</p>
 
-<p><code>=IF(ABS(Idx_buy/Idx_bid-1)&gt;0.05,Base*(Idx_buy/Idx_bid-1),0)</code></p>
+<p><code>=IF(ABS(Idx_buy/Idx_bid-1)&gt;0.05,Base&#42;(Idx_buy/Idx_bid-1),0)</code></p>
 
 <p>This says: if the index moved more than 5 percent in either direction, adjust the base material cost by the full percentage change, otherwise adjust nothing. A 5 percent deadband keeps both parties out of the spreadsheet over noise. The same formula handles deflation, so if steel drops the owner gets the credit, which is what makes the clause fair enough to sign. A two-way clause closes faster than a one-way clause that only ever costs the owner money.</p>
 
@@ -14757,7 +14757,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>The Bottom Line</h2>
 
-<p>Escalation is not a market problem you have to accept. It is an estimating discipline you can systematize. Build one row per commodity, escalate each by its own rate over its own lag with <code>=B2*(1+D2)^(C2/12)</code>, flag the lines worth locking, and carry the true total instead of a flat pad that loses both ways. On a typical $1.8 million job that is the difference between protecting your full margin and watching a quarter of it disappear at the steel mill in month seven.</p>
+<p>Escalation is not a market problem you have to accept. It is an estimating discipline you can systematize. Build one row per commodity, escalate each by its own rate over its own lag with <code>=B2&#42;(1+D2)^(C2/12)</code>, flag the lines worth locking, and carry the true total instead of a flat pad that loses both ways. On a typical $1.8 million job that is the difference between protecting your full margin and watching a quarter of it disappear at the steel mill in month seven.</p>
 
 <p>If you would rather not rebuild this from scratch every bid, the <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> has the escalation model, the per-commodity lock flags, and the index-clause adjustment already wired in alongside your budget, bids, change orders, and draw schedule. You enter base costs and procurement timing, and it tells you exactly how much escalation to carry and which three materials to lock before you sign. It is built to live in the same workbook where you already track the job, so the escalation contingency is never a separate number you forget to update.</p>`,
   },
@@ -15016,7 +15016,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Work backward from when you need the thing on site. Subtract lead time. Subtract a buffer of 5 business days for shipping and receiving.</p>
 
-<pre><code>=WORKDAY(F4,-(G4*5)-5)</code></pre>
+<pre><code>=WORKDAY(F4,-(G4&#42;5)-5)</code></pre>
 
 <p>WORKDAY counts in business days. Lead time in weeks gets multiplied by 5 to convert. This is the drop-dead date for the architect to issue an approval. If today is past this date and the submittal is still pending, you have a problem.</p>
 
@@ -15153,7 +15153,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>This is the number your billings get measured against. Percentage of completion (call it column G) times contract value.</p>
 
-<p><code>=G4*B4</code></p>
+<p><code>=G4&#42;B4</code></p>
 
 <p>Job A: 65% times 1,200,000 = $780,000 earned. You have done $780,000 worth of the contract whether or not you billed for it.</p>
 
@@ -15169,7 +15169,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Gross profit at completion is contract minus estimated cost. Earned profit is the slice you have recognized so far.</p>
 
-<p><code>=B4-C4</code> for total estimated profit, then <code>=G4*(B4-C4)</code> for profit earned to date.</p>
+<p><code>=B4-C4</code> for total estimated profit, then <code>=G4&#42;(B4-C4)</code> for profit earned to date.</p>
 
 <p>Job A expects $240,000 profit, a 20% margin, and has earned 65% of it, or $156,000.</p>
 
@@ -15206,7 +15206,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>An overbilled job is only dangerous if the overbilling is large relative to the cost left to spend. Compare the two, with overbilling in K4 and remaining cost as <code>C4-D4</code>:</p>
 
-<p><code>=IF(K4&gt;(C4-D4)*0.5,"REVIEW","OK")</code></p>
+<p><code>=IF(K4&gt;(C4-D4)&#42;0.5,"REVIEW","OK")</code></p>
 
 <p>This flags any job where overbilling exceeds half the remaining estimated cost. Job C trips it. That is your cue to check whether the job is really as complete as the billing implies, or whether you front-loaded and now have a cash gap coming.</p>
 
@@ -15299,7 +15299,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <h3>4. Overtime computed the Davis-Bacon way</h3>
 
-<p>Under the Contract Work Hours and Safety Standards Act (CWHSSA), overtime past 40 hours is paid at 1.5 times the <em>basic</em> rate. The fringe is added on top at straight time for every hour, including overtime hours, but the fringe itself is not multiplied by 1.5. Get this backwards and you either underpay the worker or overstate your cost. The correct overtime rate is <code>(base * 1.5) + fringe</code>.</p>
+<p>Under the Contract Work Hours and Safety Standards Act (CWHSSA), overtime past 40 hours is paid at 1.5 times the <em>basic</em> rate. The fringe is added on top at straight time for every hour, including overtime hours, but the fringe itself is not multiplied by 1.5. Get this backwards and you either underpay the worker or overstate your cost. The correct overtime rate is <code>(base &#42; 1.5) + fringe</code>.</p>
 
 <h2>Building the certified payroll calculator in Excel</h2>
 
@@ -15369,9 +15369,9 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Gross earned in P12 applies the Davis-Bacon overtime rule:</p>
 
-<p><code>=L12*(N12+O12) + M12*(N12*1.5+O12)</code></p>
+<p><code>=L12&#42;(N12+O12) + M12&#42;(N12&#42;1.5+O12)</code></p>
 
-<p>Read it in business terms. Straight-time hours earn base plus fringe. Overtime hours earn time-and-a-half on the base, plus fringe at straight time. With the example values: <code>40*(34.20+15.40) + 4*(34.20*1.5+15.40) = 40*49.60 + 4*66.70 = 1984.00 + 266.80 = $2,250.80</code>. Note the difference from the naive method. If you wrongly compute overtime as 1.5x the full package, you get <code>4*49.60*1.5 = $297.60</code> for those 4 hours instead of $266.80, overstating cost by $30.80 on one worker for one week. Across a crew of 12 over nine months, that single formula error moves five figures.</p>
+<p>Read it in business terms. Straight-time hours earn base plus fringe. Overtime hours earn time-and-a-half on the base, plus fringe at straight time. With the example values: <code>40&#42;(34.20+15.40) + 4&#42;(34.20&#42;1.5+15.40) = 40&#42;49.60 + 4&#42;66.70 = 1984.00 + 266.80 = $2,250.80</code>. Note the difference from the naive method. If you wrongly compute overtime as 1.5x the full package, you get <code>4&#42;49.60&#42;1.5 = $297.60</code> for those 4 hours instead of $266.80, overstating cost by $30.80 on one worker for one week. Across a crew of 12 over nine months, that single formula error moves five figures.</p>
 
 <h2>The compliance checks that keep you out of trouble</h2>
 
@@ -15403,7 +15403,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Two situations break a naive spreadsheet, and they are exactly the situations DOL flags most.</p>
 
-<p>First, apprentices. An apprentice can be paid below journeyman scale only if registered in a DOL-approved or state-approved program, and only at the percentage of journeyman rate their program step allows. If you run more apprentices than your ratio permits (say one apprentice per five journeymen), the extra apprentices must be paid full journeyman scale. Add a column for program step percentage and compute the apprentice rate as <code>=VLOOKUP(C12,$B$4:$E$7,2,FALSE)*R12</code> where R12 holds the step percentage. Then run a ratio check against your journeyman count for that classification. If the count of apprentice lines exceeds the allowed ratio, flag the overflow worker to journeyman scale.</p>
+<p>First, apprentices. An apprentice can be paid below journeyman scale only if registered in a DOL-approved or state-approved program, and only at the percentage of journeyman rate their program step allows. If you run more apprentices than your ratio permits (say one apprentice per five journeymen), the extra apprentices must be paid full journeyman scale. Add a column for program step percentage and compute the apprentice rate as <code>=VLOOKUP(C12,$B$4:$E$7,2,FALSE)&#42;R12</code> where R12 holds the step percentage. Then run a ratio check against your journeyman count for that classification. If the count of apprentice lines exceeds the allowed ratio, flag the overflow worker to journeyman scale.</p>
 
 <p>Second, split classifications. A worker who frames in the morning and digs in the afternoon is a carpenter for those hours and a laborer for the rest. The WH-347 wants two lines, one per classification, with hours and rates split. Do not blend them into one average rate. Build the grid so the same name can appear on two rows with different classifications in column C, and the VLOOKUP handles the rest automatically. The total hours across both lines should reconcile to the worker's timecard.</p>
 
@@ -15501,23 +15501,23 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The contract rent is the lower of the payment standard and the unit's reasonable rent as determined by the PHA. Most PHAs cap at payment standard, so use:</p>
 
-<p><code>=MIN(B5*B6, B7*1.15)</code></p>
+<p><code>=MIN(B5&#42;B6, B7&#42;1.15)</code></p>
 
-<p>That formula says: the PHA will pay no more than the payment standard, and no more than 115% of the comparable market rent (PHA "rent reasonableness" check). Put this in C5 as <strong>Effective Section 8 Contract Rent</strong>. With the example values: <code>MIN(1180*0.90, 1050*1.15) = MIN(1062, 1207.50) = $1,062</code>.</p>
+<p>That formula says: the PHA will pay no more than the payment standard, and no more than 115% of the comparable market rent (PHA "rent reasonableness" check). Put this in C5 as <strong>Effective Section 8 Contract Rent</strong>. With the example values: <code>MIN(1180&#42;0.90, 1050&#42;1.15) = MIN(1062, 1207.50) = $1,062</code>.</p>
 
 <h3>Annualized gross income with vacancy</h3>
 
 <p>For the Section 8 unit (cell C20):</p>
 
-<p><code>=C5*12*(1-B15) - (C5/30)*B8</code></p>
+<p><code>=C5&#42;12&#42;(1-B15) - (C5/30)&#42;B8</code></p>
 
-<p>This takes 12 months of contract rent, applies the lower Section 8 vacancy rate, then subtracts the lost rent during initial inspection delay (only relevant in year 1, but most landlords model it in for honest underwriting). Result: <code>1062*12*(1-0.02) - (1062/30)*38 = 12489 - 1345 = $11,144</code>.</p>
+<p>This takes 12 months of contract rent, applies the lower Section 8 vacancy rate, then subtracts the lost rent during initial inspection delay (only relevant in year 1, but most landlords model it in for honest underwriting). Result: <code>1062&#42;12&#42;(1-0.02) - (1062/30)&#42;38 = 12489 - 1345 = $11,144</code>.</p>
 
 <p>For the market-rate scenario (cell C21):</p>
 
-<p><code>=B7*12*(1-B14)</code></p>
+<p><code>=B7&#42;12&#42;(1-B14)</code></p>
 
-<p>Result: <code>1050*12*(1-0.07) = $11,718</code>.</p>
+<p>Result: <code>1050&#42;12&#42;(1-0.07) = $11,718</code>.</p>
 
 <p>Notice what happened. Even though Section 8 pays $12 per month more than market rent, the inspection delay in year 1 plus vacancy normalization makes market-rate the higher gross income in year 1. In stabilized year 2 onward, you would remove the initial inspection drag. Build a separate "stabilized" column to see both.</p>
 
@@ -15525,25 +15525,25 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>HQS reinspection failures cost real money. Put the expected annual cost in C22:</p>
 
-<p><code>=B9*B10</code></p>
+<p><code>=B9&#42;B10</code></p>
 
-<p>Result: <code>0.22 * 640 = $140.80</code>. Small, but real, and it compounds over a 10-year hold.</p>
+<p>Result: <code>0.22 &#42; 640 = $140.80</code>. Small, but real, and it compounds over a 10-year hold.</p>
 
 <p>Turnover cost with longer re-lease (C23):</p>
 
-<p><code>=B13*(B11/30)*C5</code></p>
+<p><code>=B13&#42;(B11/30)&#42;C5</code></p>
 
-<p>This is the expected lost rent during voucher turnover. Result: <code>0.20*(45/30)*1062 = $318.60</code>. Compare to market: <code>=B13*(B12/30)*B7</code> = <code>0.20*(14/30)*1050 = $98</code>. The voucher unit loses about $220 more per year to turnover friction.</p>
+<p>This is the expected lost rent during voucher turnover. Result: <code>0.20&#42;(45/30)&#42;1062 = $318.60</code>. Compare to market: <code>=B13&#42;(B12/30)&#42;B7</code> = <code>0.20&#42;(14/30)&#42;1050 = $98</code>. The voucher unit loses about $220 more per year to turnover friction.</p>
 
 <h3>Net operating income comparison</h3>
 
 <p>For Section 8 NOI (C25):</p>
 
-<p><code>=C20 - B16 - (C5*12*B17) - (C5*12*B18) - C22 - C23</code></p>
+<p><code>=C20 - B16 - (C5&#42;12&#42;B17) - (C5&#42;12&#42;B18) - C22 - C23</code></p>
 
 <p>For market NOI (C26):</p>
 
-<p><code>=C21 - B16 - (B7*12*B17) - (B7*12*B18) - (B13*(B12/30)*B7)</code></p>
+<p><code>=C21 - B16 - (B7&#42;12&#42;B17) - (B7&#42;12&#42;B18) - (B13&#42;(B12/30)&#42;B7)</code></p>
 
 <p>Subtract management, maintenance reserve, property tax and insurance, and turnover friction. The delta between C25 and C26 is your honest answer about whether Section 8 wins in this specific ZIP for this specific property.</p>
 
@@ -15551,7 +15551,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>In C28, put a flag:</p>
 
-<p><code>=IF(C25&gt;C26*1.05, "GO Section 8", IF(C25&lt;C26*0.95, "GO Market", "Either, run more analysis"))</code></p>
+<p><code>=IF(C25&gt;C26&#42;1.05, "GO Section 8", IF(C25&lt;C26&#42;0.95, "GO Market", "Either, run more analysis"))</code></p>
 
 <p>The 5% buffer matters. If the two scenarios are within 5% of each other, the deal is not being made or broken by the Section 8 decision. It is being made or broken by something else (purchase price, financing, neighborhood trajectory). Do not let the voucher question dominate a marginal call.</p>
 
@@ -15722,11 +15722,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>For underwriting or refinancing, you need to project rent five years out. If the escalation is a fixed percentage, the formula for year N is straightforward:</p>
 
-<p><code>=J4*(1+Q4)^N</code></p>
+<p><code>=J4&#42;(1+Q4)^N</code></p>
 
 <p>Where J4 is current annual rent and Q4 is the annual escalator. For CPI-linked rent with a cap, assume the cap (most leases bump to the cap in any year with normal inflation):</p>
 
-<p><code>=J4*(1+MIN(R4,S4))^N</code></p>
+<p><code>=J4&#42;(1+MIN(R4,S4))^N</code></p>
 
 <p>Where R4 is the cap and S4 is your assumed CPI. Underwriting against the cap rather than projected CPI is the conservative move and the one acquisition committees actually approve.</p>
 
@@ -15910,11 +15910,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>In B19, calculate the 20 percent QBI amount:</p>
 
-<p><code>=B18*0.2</code></p>
+<p><code>=B18&#42;0.2</code></p>
 
 <p>In B20, calculate the taxable income limit:</p>
 
-<p><code>=(B4-B7)*0.2</code></p>
+<p><code>=(B4-B7)&#42;0.2</code></p>
 
 <p>In B21, the tentative deduction is the smaller of the two:</p>
 
@@ -15928,11 +15928,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>In B23, the 50 percent wage test:</p>
 
-<p><code>=B8*0.5</code></p>
+<p><code>=B8&#42;0.5</code></p>
 
 <p>In B24, the wage-plus-UBIA test:</p>
 
-<p><code>=B8*0.25+B9*0.025</code></p>
+<p><code>=B8&#42;0.25+B9&#42;0.025</code></p>
 
 <p>In B25, the wage and UBIA limit:</p>
 
@@ -16120,16 +16120,16 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Calculate the dollar value going into each bucket. In cell B12 calculate depreciable basis:</p>
 
-<p><code>=B3*(1-B4)</code></p>
+<p><code>=B3&#42;(1-B4)</code></p>
 
 <p>This strips out land, which is not depreciable. For the $385,000 example with 20 percent land, B12 returns $308,000.</p>
 
 <p>In rows 13 through 15, calculate dollars per asset class:</p>
 
 <ul>
-  <li>B13 (5-year basis): <code>=B12*B8</code> returns $21,560</li>
-  <li>B14 (15-year basis): <code>=B12*B9</code> returns $40,040</li>
-  <li>B15 (27.5-year basis): <code>=B12*B10</code> returns $246,400</li>
+  <li>B13 (5-year basis): <code>=B12&#42;B8</code> returns $21,560</li>
+  <li>B14 (15-year basis): <code>=B12&#42;B9</code> returns $40,040</li>
+  <li>B15 (27.5-year basis): <code>=B12&#42;B10</code> returns $246,400</li>
 </ul>
 
 <p>Add a check formula in B16 to verify allocations sum to 100 percent:</p>
@@ -16142,13 +16142,13 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p><strong>5-year MACRS year 1 depreciation (cell B18):</strong></p>
 
-<p><code>=B13*B7+B13*(1-B7)*0.2</code></p>
+<p><code>=B13&#42;B7+B13&#42;(1-B7)&#42;0.2</code></p>
 
 <p>This applies bonus depreciation to the full 5-year basis, then applies the standard 20 percent first-year MACRS rate to the remaining unbonused portion. For $21,560 in 5-year basis with 60 percent bonus, that returns $14,798.</p>
 
 <p><strong>15-year MACRS year 1 depreciation (cell B19):</strong></p>
 
-<p><code>=B14*B7+B14*(1-B7)*0.05</code></p>
+<p><code>=B14&#42;B7+B14&#42;(1-B7)&#42;0.05</code></p>
 
 <p>Same logic, but the 15-year half-year first-year rate is 5 percent. For $40,040 in 15-year basis with 60 percent bonus, that returns $24,825.</p>
 
@@ -16156,7 +16156,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The 27.5-year residential class does not qualify for bonus depreciation. It uses a mid-month convention, meaning if you placed the property in service in July, you get 5.5 months of depreciation in year 1, not 6. To keep the calculator simple, assume mid-year placement, which yields roughly 1.667 percent in year 1:</p>
 
-<p><code>=B15*0.01667</code></p>
+<p><code>=B15&#42;0.01667</code></p>
 
 <p>For $246,400 in 27.5-year basis, that returns $4,108. If you know the exact month placed in service, refine by replacing 0.01667 with the correct mid-month factor from IRS publication 946 table A-6.</p>
 
@@ -16170,19 +16170,19 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The cash impact is what matters. In cell B23 calculate straight-line year 1:</p>
 
-<p><code>=B12*0.03636</code></p>
+<p><code>=B12&#42;0.03636</code></p>
 
 <p>The 3.636 percent reflects a full year of 27.5-year straight-line depreciation, which is what most CPAs apply without thinking. For $308,000, that is $11,200.</p>
 
 <p>In B24, the year-1 tax savings from cost seg versus the lazy approach:</p>
 
-<p><code>=(B21-B23)*B5</code></p>
+<p><code>=(B21-B23)&#42;B5</code></p>
 
 <p>For our example: ($43,731 - $11,200) times 32% equals $10,410 in cash kept in year one.</p>
 
 <p>Add a stress test row. In B25, model what happens if you are wrong about your allocation by 30 percent:</p>
 
-<p><code>=B24*0.7</code></p>
+<p><code>=B24&#42;0.7</code></p>
 
 <p>If you are aggressive on the percentages and the IRS audits you down to 5 percent 5-year and 9 percent 15-year, you still capture $7,287 in year 1. The downside of a defensible cost seg attempt is still better than ignoring it.</p>
 
@@ -16279,7 +16279,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The monthly interest-only payment formula, assuming the rate is in column G as a decimal:</p>
 
-<p><code>=ROUND(F2*(G2/12),2)</code></p>
+<p><code>=ROUND(F2&#42;(G2/12),2)</code></p>
 
 <p>For amortizing notes, use the standard payment formula. Assume term in months in column N:</p>
 
@@ -16303,7 +16303,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The interest accrual formula for a partial-month payment, where E2 is days covered and the rate is annual:</p>
 
-<p><code>=ROUND(F2*(G2/365)*E2,2)</code></p>
+<p><code>=ROUND(F2&#42;(G2/365)&#42;E2,2)</code></p>
 
 <p>Some lenders use a 360-day year (Actual/360), which is more common in commercial lending and yields slightly more interest. Pick one, write it into your note, and stick to it. The IRS does not care which you pick, but they care that you are consistent.</p>
 
@@ -16448,23 +16448,23 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Build a tab called <code>Cost_Breakdown</code>. Each row is one cost component, each column is a lender scenario.</p>
 
-<p><strong>Loan Amount</strong> in B3: <code>=Inputs!B6*(Inputs!B3+Inputs!B4)</code></p>
+<p><strong>Loan Amount</strong> in B3: <code>=Inputs!B6&#42;(Inputs!B3+Inputs!B4)</code></p>
 
 <p>This calculates loan to cost against total project cost (purchase plus rehab). For the example, 0.85 times ($200,000 + $50,000) = $212,500.</p>
 
-<p><strong>Points Cost</strong> in B4: <code>=B3*(Inputs!B8/100)</code></p>
+<p><strong>Points Cost</strong> in B4: <code>=B3&#42;(Inputs!B8/100)</code></p>
 
 <p>Points are a percentage of the loan amount, paid at close. 4 points on $212,500 = $8,500. Add the flat origination on the next row: <code>=Inputs!B9</code>.</p>
 
-<p><strong>Monthly Interest</strong> in B6: <code>=B3*Inputs!B13*(Inputs!B7/12)</code></p>
+<p><strong>Monthly Interest</strong> in B6: <code>=B3&#42;Inputs!B13&#42;(Inputs!B7/12)</code></p>
 
 <p>This is where most calculators get it wrong. Loan amount times average outstanding percentage times monthly rate. For Lender A: $212,500 times 0.85 times (0.10/12) = $1,505. Note that this is the average monthly interest across the hold period, not the maximum monthly payment.</p>
 
-<p><strong>Total Interest Paid</strong> in B7: <code>=IF(Inputs!B12>0,B6*MAX(Inputs!B12,Inputs!B11),B6*Inputs!B11)</code></p>
+<p><strong>Total Interest Paid</strong> in B7: <code>=IF(Inputs!B12>0,B6&#42;MAX(Inputs!B12,Inputs!B11),B6&#42;Inputs!B11)</code></p>
 
 <p>If the lender requires an interest reserve, you pay the larger of the reserve months or the actual hold months (because most lenders do not refund unused reserve). If you pay monthly, you pay only for the months you held.</p>
 
-<p><strong>Prepay Penalty (additional)</strong> in B8: <code>=IF(Inputs!B11<Inputs!B14,MAX(0,(Inputs!B14-Inputs!B11-IF(Inputs!B12>=Inputs!B14,Inputs!B14,0))*B6),0)</code></p>
+<p><strong>Prepay Penalty (additional)</strong> in B8: <code>=IF(Inputs!B11<Inputs!B14,MAX(0,(Inputs!B14-Inputs!B11-IF(Inputs!B12>=Inputs!B14,Inputs!B14,0))&#42;B6),0)</code></p>
 
 <p>If you pay off earlier than the prepay floor and the reserve does not already cover that floor, you owe additional months of interest. This nested IF handles the common cases without breaking when reserve covers the penalty.</p>
 
@@ -16480,7 +16480,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p><strong>Gross Sale Price</strong> in B3: <code>=Inputs!B5</code> (your ARV, assuming you sell at appraisal).</p>
 
-<p><strong>Selling Costs</strong> in B4: <code>=B3*0.08</code></p>
+<p><strong>Selling Costs</strong> in B4: <code>=B3&#42;0.08</code></p>
 
 <p>Realtor commissions, title, transfer tax, closing costs typically run 7 to 9 percent of sale price. Use 8 percent as a baseline unless you have hard numbers for your market.</p>
 
@@ -16492,7 +16492,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p><strong>Cash to Seller (You)</strong> in B7: <code>=B5-B6</code></p>
 
-<p><strong>Cash Invested</strong> in B9: <code>=(Inputs!B3+Inputs!B4)-Cost_Breakdown!B3+Cost_Breakdown!B10+Inputs!B4*0.10</code></p>
+<p><strong>Cash Invested</strong> in B9: <code>=(Inputs!B3+Inputs!B4)-Cost_Breakdown!B3+Cost_Breakdown!B10+Inputs!B4&#42;0.10</code></p>
 
 <p>Your down payment (project cost minus loan amount) plus the total cost of capital (points, origination, interest reserve) plus a 10 percent rehab contingency you funded out of pocket. Most flippers underestimate this because they only count the down payment.</p>
 
@@ -16510,7 +16510,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Build a tab called <code>Scenarios</code>. Three columns: Base Case, ARV Miss (8 percent low), Hold Extension (3 extra months). The formulas reference the same inputs but override key cells.</p>
 
-<p>For ARV Miss, override B3 on Net_Profit: <code>=Inputs!B5*0.92</code>. Watch what happens. On the Lender A scenario, an 8 percent ARV miss takes net profit from $23,878 down to roughly $135. The deal becomes a break-even instead of a 38 percent return. On Lender B, the same ARV miss takes net profit from $30,500 to $6,750, still a positive return on cash.</p>
+<p>For ARV Miss, override B3 on Net_Profit: <code>=Inputs!B5&#42;0.92</code>. Watch what happens. On the Lender A scenario, an 8 percent ARV miss takes net profit from $23,878 down to roughly $135. The deal becomes a break-even instead of a 38 percent return. On Lender B, the same ARV miss takes net profit from $30,500 to $6,750, still a positive return on cash.</p>
 
 <p>For Hold Extension, override B11 in Inputs to 8 months instead of 5. Recalculate. Lender A interest reserve covered 6 months, so you pay 2 additional months at $1,505 each plus extension fees of 1 point per month = $3,010 + $4,250 = $7,260 of additional cost. Lender B adds 3 months of interest at roughly $1,800 plus 0.5 point per month extension = $5,400 + $3,375 = $8,775.</p>
 
@@ -16539,7 +16539,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Add an IRR cell to your Net_Profit tab. Build a simple cash flow row: month 0 (negative cash invested), months 1 through hold-1 (zero, because nothing comes back during the flip), and month hold (positive cash to seller minus loan payoff plus return of any contingency not spent).</p>
 
-<p>Formula: <code>=IRR(CashFlow_Range)*12</code> gives you annualized IRR.</p>
+<p>Formula: <code>=IRR(CashFlow_Range)&#42;12</code> gives you annualized IRR.</p>
 
 <p>This is how you compare a 5-month flip return to a 9-month flip return honestly. The shorter deal with a lower headline return is often the better use of capital because you can redeploy.</p>
 
@@ -16625,13 +16625,13 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Build a separate tab called <code>MACRS_Schedule</code> with these percentages in column B, years 1 through 6 in column A. Then in your equipment sheet, build a depreciation block.</p>
 
-<p>For year 1 tax depreciation in column J: <code>=D2*VLOOKUP(1,MACRS_Schedule!$A$2:$B$7,2,FALSE)</code></p>
+<p>For year 1 tax depreciation in column J: <code>=D2&#42;VLOOKUP(1,MACRS_Schedule!$A$2:$B$7,2,FALSE)</code></p>
 
 <p>For book value at end of year 1: <code>=D2-J2</code></p>
 
 <p>This gives you the IRS book value, which is what shows up on your balance sheet and what you need for any financing application or sale. For the CAT 259D3 at $58,000, year 1 MACRS depreciation = $11,600. Book value end of year 1 = $46,400. Year 2 depreciation = $18,560. Book value = $27,840. By end of year 6, book value is zero.</p>
 
-<p>One trap: bonus depreciation. Section 168(k) lets you write off a percentage in year 1 on top of MACRS. For 2024 it was 60%, for 2025 it dropped to 40%, and for 2026 it is 20%. If you took bonus depreciation, your year 1 number is much bigger and the remaining schedule shifts. Add a <code>Bonus_Pct</code> column and modify the formula: <code>=D2*K2+D2*(1-K2)*VLOOKUP(1,MACRS_Schedule!$A$2:$B$7,2,FALSE)</code> where K2 holds the bonus percentage taken in year 1.</p>
+<p>One trap: bonus depreciation. Section 168(k) lets you write off a percentage in year 1 on top of MACRS. For 2024 it was 60%, for 2025 it dropped to 40%, and for 2026 it is 20%. If you took bonus depreciation, your year 1 number is much bigger and the remaining schedule shifts. Add a <code>Bonus_Pct</code> column and modify the formula: <code>=D2&#42;K2+D2&#42;(1-K2)&#42;VLOOKUP(1,MACRS_Schedule!$A$2:$B$7,2,FALSE)</code> where K2 holds the bonus percentage taken in year 1.</p>
 
 <h2>True Hourly Cost: The Number Your Bid Sheet Actually Needs</h2>
 
@@ -16656,11 +16656,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 <p>Build this as a calculated section on the equipment sheet:</p>
 
 <ul>
-<li>Cell L2 (economic depreciation/hr): <code>=(D2-E2)/(G2*H2)</code></li>
-<li>Cell M2 (fuel/hr): <code>=N2*O2</code> where N2 is gal/hr and O2 is fuel price</li>
+<li>Cell L2 (economic depreciation/hr): <code>=(D2-E2)/(G2&#42;H2)</code></li>
+<li>Cell M2 (fuel/hr): <code>=N2&#42;O2</code> where N2 is gal/hr and O2 is fuel price</li>
 <li>Cell P2 (maintenance/hr): <code>=Q2/H2</code> where Q2 is annual maintenance cost</li>
 <li>Cell R2 (insurance/hr): <code>=S2/H2</code> where S2 is annual insurance</li>
-<li>Cell T2 (capital cost/hr): <code>=((D2+(D2-SUM(J2:J7)))/2)*U2/H2</code> where U2 is your borrowing rate</li>
+<li>Cell T2 (capital cost/hr): <code>=((D2+(D2-SUM(J2:J7)))/2)&#42;U2/H2</code> where U2 is your borrowing rate</li>
 <li>Cell V2 (total true hourly cost): <code>=L2+M2+P2+R2+T2</code></li>
 </ul>
 
@@ -16686,7 +16686,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Build a decision cell on each equipment row. Call it <code>Replace_Flag</code>:</p>
 
-<p><code>=IF(V2>X2*1.15,"REPLACE",IF(V2>X2,"WATCH","KEEP"))</code></p>
+<p><code>=IF(V2>X2&#42;1.15,"REPLACE",IF(V2>X2,"WATCH","KEEP"))</code></p>
 
 <p>Where V2 is current true hourly cost and X2 is the projected true hourly cost of buying a new equivalent machine. The 15 percent buffer accounts for transaction costs of selling old and buying new, dealer markup, and downtime during transition.</p>
 
@@ -16824,7 +16824,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Some owners want a percentage. Column R gives you one based on the four endorsement columns.</p>
 
-<pre><code>=(COUNTIF(L2:O2,"Yes")/4)*100</code></pre>
+<pre><code>=(COUNTIF(L2:O2,"Yes")/4)&#42;100</code></pre>
 
 <p>Anything below 100 is a gap. Use this for monthly reports to owners on OCIP or CCIP projects where compliance scoring is contractually required.</p>
 
@@ -16840,7 +16840,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Build a separate tab listing every sub whose policy expires in the next 30 days, so you can batch outreach instead of chasing one at a time.</p>
 
-<pre><code>=FILTER(A:I,(P:P&lt;=30)*(P:P&gt;0))</code></pre>
+<pre><code>=FILTER(A:I,(P:P&lt;=30)&#42;(P:P&gt;0))</code></pre>
 
 <p>If you are on a version of Excel without dynamic arrays, the SUMIFS and INDEX/MATCH combos work too, but FILTER is cleaner and updates in real time.</p>
 
@@ -16967,7 +16967,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>In cells, if direct cost is in C5, job duration in weeks is in C6, fixed OH rate is in C7, weekly variable OH rate is in C8, and target profit % on price is in C9:</p>
 
-<p><code>=(C5 + C5*C7 + C6*C8) / (1 - C9)</code></p>
+<p><code>=(C5 + C5&#42;C7 + C6&#42;C8) / (1 - C9)</code></p>
 
 <p>That single formula does the work most contractors do with three separate guesses.</p>
 
@@ -17281,7 +17281,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 </tbody>
 </table>
 
-<p>The monthly spend for each cost code is then <code>=Budget*Weight</code>. The total monthly spend at the bottom of each column is <code>=SUMPRODUCT(Budgets,Weights_For_That_Month)</code>.</p>
+<p>The monthly spend for each cost code is then <code>=Budget&#42;Weight</code>. The total monthly spend at the bottom of each column is <code>=SUMPRODUCT(Budgets,Weights_For_That_Month)</code>.</p>
 
 <p>For example, if budgets are in D8:D24 and the month 4 weights are in H8:H24, the formula for total month 4 spend is:</p>
 
@@ -17314,11 +17314,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Build the draw schedule with these formulas:</p>
 
-<p><code>Draw_Amount = Spend_That_Month * (1 - Retainage_Pct)</code></p>
+<p><code>Draw_Amount = Spend_That_Month &#42; (1 - Retainage_Pct)</code></p>
 
-<p>For the month 4 example: <code>=412000*(1-0.10) = $370,800</code></p>
+<p>For the month 4 example: <code>=412000&#42;(1-0.10) = $370,800</code></p>
 
-<p>The retainage release happens at month 10 (post substantial completion): <code>=SUM(All_Monthly_Spends)*Retainage_Pct = $240,100</code></p>
+<p>The retainage release happens at month 10 (post substantial completion): <code>=SUM(All_Monthly_Spends)&#42;Retainage_Pct = $240,100</code></p>
 
 <p>Now layer in the timing offset. Spend hits month 4. Draw hits month 4 day 8 to 12. For cash flow purposes, the draw lands in the same month if your draw cycle is monthly and you bill on schedule. If you bill biweekly, half the draw lands in the current month and half in the next. Model whichever cycle your loan agreement specifies.</p>
 
@@ -17326,11 +17326,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Loan interest on a construction loan accrues on the cumulative drawn balance, not the committed loan amount. This is where the linear-forecast builder loses thousands. The construction loan on this $2.4M project is $1.8M at 9.5%. The interest formula is:</p>
 
-<p><code>Monthly_Interest = Cumulative_Drawn_Balance * (Rate / 12)</code></p>
+<p><code>Monthly_Interest = Cumulative_Drawn_Balance &#42; (Rate / 12)</code></p>
 
-<p>For month 4, cumulative drawn through month 3 is roughly $522,000. Interest in month 4 is <code>=522000*(0.095/12) = $4,132</code>. By month 7, cumulative drawn climbs to $1.83M and monthly interest hits <code>=1830000*(0.095/12) = $14,488</code>. Total carry interest over the 9-month build clocks in around $74,000.</p>
+<p>For month 4, cumulative drawn through month 3 is roughly $522,000. Interest in month 4 is <code>=522000&#42;(0.095/12) = $4,132</code>. By month 7, cumulative drawn climbs to $1.83M and monthly interest hits <code>=1830000&#42;(0.095/12) = $14,488</code>. Total carry interest over the 9-month build clocks in around $74,000.</p>
 
-<p>The builder who used a 50% average balance shortcut to estimate carry would have projected <code>=(1800000/2)*(0.095/12)*9 = $64,125</code>. The S-curve model produces a number 15% higher. On a $2.4M project that is $10,000 of unaccounted carry. Repeat across four projects a year and the GC is leaving $40,000 on the table because nobody bothered to model the draw curve properly.</p>
+<p>The builder who used a 50% average balance shortcut to estimate carry would have projected <code>=(1800000/2)&#42;(0.095/12)&#42;9 = $64,125</code>. The S-curve model produces a number 15% higher. On a $2.4M project that is $10,000 of unaccounted carry. Repeat across four projects a year and the GC is leaving $40,000 on the table because nobody bothered to model the draw curve properly.</p>
 
 <h2>The Cash Gap Output and the Working Capital Decision</h2>
 
@@ -17499,7 +17499,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 </tbody>
 </table>
 
-<p>Each line total uses <code>=Quantity*Unit_Cost</code>. The subtotal at row 70 is <code>=SUM(D30:D69)</code>. The garage line is <code>=B5*B9</code>. Contingency is <code>=B11*SUM(D30:D70)</code>. Total hard cost on this build pencils to roughly $150 per heated SF using <code>=Total_Hard/B4</code>, not the $175 the builder quoted. A below-line cost per SF on the same build sequence is a six-figure swing on a portfolio.</p>
+<p>Each line total uses <code>=Quantity&#42;Unit_Cost</code>. The subtotal at row 70 is <code>=SUM(D30:D69)</code>. The garage line is <code>=B5&#42;B9</code>. Contingency is <code>=B11&#42;SUM(D30:D70)</code>. Total hard cost on this build pencils to roughly $150 per heated SF using <code>=Total_Hard/B4</code>, not the $175 the builder quoted. A below-line cost per SF on the same build sequence is a six-figure swing on a portfolio.</p>
 
 <h2>Soft Costs and Carry: The Items That Sink Margin</h2>
 
@@ -17520,9 +17520,9 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>On a $97,800 lot plus $360,948 hard, soft costs at 9% land near $41,300. The carry calculation is where most builders blow it. A 7-month build plus 3-month marketing window on a $367,000 construction loan at 9% with 50% average outstanding balance produces:</p>
 
-<p><code>=(Loan_Amount/2)*(Rate/12)*Total_Months</code></p>
+<p><code>=(Loan_Amount/2)&#42;(Rate/12)&#42;Total_Months</code></p>
 
-<p>Or numerically: <code>=(367000/2)*(0.09/12)*10 = $13,762</code></p>
+<p>Or numerically: <code>=(367000/2)&#42;(0.09/12)&#42;10 = $13,762</code></p>
 
 <p>The 50% average balance assumption is fine for a screening pro forma. For the bank submission, build a draw schedule that maps to the construction sequence (foundation in month 1, framing in months 2 to 3, mechanicals in 4, finishes in 5 to 6, punch in 7) and calculate interest on the cumulative drawn balance month by month. The real-world interest on this kind of build is typically 15% to 25% higher than the average-balance shortcut suggests.</p>
 
@@ -17536,7 +17536,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 </thead>
 <tbody>
 <tr><td>Total project cost</td><td><code>=Acquisition+Hard+Soft+Carry</code></td><td>$513,810</td></tr>
-<tr><td>Net sale proceeds</td><td><code>=Sale_Price*(1-Comm-Conc-Closing)</code></td><td>$565,800</td></tr>
+<tr><td>Net sale proceeds</td><td><code>=Sale_Price&#42;(1-Comm-Conc-Closing)</code></td><td>$565,800</td></tr>
 <tr><td>Gross profit</td><td><code>=Net_Sale-Total_Cost</code></td><td>$51,990</td></tr>
 <tr><td>Margin on cost</td><td><code>=Gross_Profit/Total_Cost</code></td><td>10.1%</td></tr>
 <tr><td>Margin on revenue</td><td><code>=Gross_Profit/Sale_Price</code></td><td>8.5%</td></tr>
@@ -17659,9 +17659,9 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 <tbody>
 <tr><td>B4</td><td>Total acres (gross)</td><td>22.5</td></tr>
 <tr><td>B5</td><td>Yield (lots per acre, net)</td><td>2.7</td></tr>
-<tr><td>B6</td><td>Total lots</td><td><code>=ROUNDDOWN(B4*B5,0)</code></td></tr>
+<tr><td>B6</td><td>Total lots</td><td><code>=ROUNDDOWN(B4&#42;B5,0)</code></td></tr>
 <tr><td>B7</td><td>Land price per acre</td><td>$95,000</td></tr>
-<tr><td>B8</td><td>Total land cost</td><td><code>=B4*B7</code></td></tr>
+<tr><td>B8</td><td>Total land cost</td><td><code>=B4&#42;B7</code></td></tr>
 <tr><td>B9</td><td>Avg lot sale price</td><td>$92,000</td></tr>
 <tr><td>B10</td><td>Hard cost per finished lot</td><td>$58,000</td></tr>
 <tr><td>B11</td><td>Soft cost as % of hard</td><td>15%</td></tr>
@@ -17675,7 +17675,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 </tbody>
 </table>
 
-<p>Lock B6 as a calculated cell using <code>=ROUNDDOWN(B4*B5,0)</code> because lot count is a function of net density, not a guess. Total land cost in B8 is <code>=B4*B7</code>. Every downstream formula references these cells, never the raw numbers.</p>
+<p>Lock B6 as a calculated cell using <code>=ROUNDDOWN(B4&#42;B5,0)</code> because lot count is a function of net density, not a guess. Total land cost in B8 is <code>=B4&#42;B7</code>. Every downstream formula references these cells, never the raw numbers.</p>
 
 <h2>Hard Cost Build-Up</h2>
 
@@ -17703,7 +17703,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 </tbody>
 </table>
 
-<p>The contingency line uses <code>=B12*SUM(D5:D15)</code> where B12 is the contingency percentage and D5:D15 holds the line item totals. Every off-site allowance, every bond, every dry utility tap fee belongs as its own line. If you cannot point to the cell that holds "stormwater detention", the underwriter will not believe your number.</p>
+<p>The contingency line uses <code>=B12&#42;SUM(D5:D15)</code> where B12 is the contingency percentage and D5:D15 holds the line item totals. Every off-site allowance, every bond, every dry utility tap fee belongs as its own line. If you cannot point to the cell that holds "stormwater detention", the underwriter will not believe your number.</p>
 
 <h2>Soft Costs and Pre-Development Float</h2>
 
@@ -17720,7 +17720,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The float matters because soft costs hit BEFORE the development loan funds. You are paying engineers and lawyers out of equity for 8 to 14 months before the first dirt moves. Model this in a monthly cash flow column. The formula for cumulative pre-development equity outlay:</p>
 
-<p><code>=SUMPRODUCT((Month_Range&lt;=Current_Month)*Soft_Cost_Range)</code></p>
+<p><code>=SUMPRODUCT((Month_Range&lt;=Current_Month)&#42;Soft_Cost_Range)</code></p>
 
 <p>This tells you, at any month in the hold, how much equity is already locked in. If your investor expects a $500K capital call and your model shows $720K outlaid by month 9, you have a margin call coming.</p>
 
@@ -17730,11 +17730,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The right way to model interest: build a monthly draw schedule that mirrors the construction sequence (clearing in months 8 to 9, sewer in 10 to 12, paving in 14 to 15), then calculate interest as:</p>
 
-<p><code>=Cumulative_Drawn_Balance*(Annual_Rate/12)</code></p>
+<p><code>=Cumulative_Drawn_Balance&#42;(Annual_Rate/12)</code></p>
 
 <p>For a screening view, use average outstanding balance:</p>
 
-<p><code>=((Total_Loan/2)*Annual_Rate)*(Hold_Months/12)</code></p>
+<p><code>=((Total_Loan/2)&#42;Annual_Rate)&#42;(Hold_Months/12)</code></p>
 
 <p>The simplified version is fine for a screening proforma. For a bank submission, build the full draw-by-draw schedule. The difference between the two methods on a $4M loan over 24 months can be $60K to $120K, which is the difference between an approved deal and a re-trade at the term sheet stage.</p>
 
@@ -17754,7 +17754,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 </tbody>
 </table>
 
-<p>Use <code>=IF(SUM($C$15:C15)&gt;=$B$6,0,Absorption_Rate)</code> to cap lots sold at total inventory. Net revenue per month becomes <code>=Lots_Sold*Avg_Price*(1-Commission_Pct-Closing_Pct)</code>. These monthly nets feed the cumulative cash flow waterfall, which feeds the IRR calculation at the bottom of the model.</p>
+<p>Use <code>=IF(SUM($C$15:C15)&gt;=$B$6,0,Absorption_Rate)</code> to cap lots sold at total inventory. Net revenue per month becomes <code>=Lots_Sold&#42;Avg_Price&#42;(1-Commission_Pct-Closing_Pct)</code>. These monthly nets feed the cumulative cash flow waterfall, which feeds the IRR calculation at the bottom of the model.</p>
 
 <h2>The Exit Math: IRR, Margin, and Max Land Price</h2>
 
@@ -17852,7 +17852,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>The two columns that earn their keep are H and I. Receipt Link points to a PDF or photo in your Google Drive or Dropbox. Personal Use % is a number from 0 to 100. Deductible Amount in column J is then a single formula:</p>
 
-<p><code>=F2*(1-I2/100)</code></p>
+<p><code>=F2&#42;(1-I2/100)</code></p>
 
 <p>Suppose on June 14 you bought $342 of patio furniture for the rental. You also use the patio yourself when you stay there 8 days a year out of 320 rental days. Personal use is 8/(320+8) = 2.4%. Your deductible amount is $333.79. That precision matters when the IRS asks you to defend it.</p>
 
@@ -18040,7 +18040,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>If this returns more than your cleaner's daily capacity (usually 2 for one cleaner), conditional formatting paints the cell red. You see the conflict before the booking calendar gets there. To forecast pressure across the next 30 days:</p>
 
-<p><code>=SUMPRODUCT((Operations!A:A>=TODAY())*(Operations!A:A<=TODAY()+30)*(Operations!C:C="Cleaning turnover"))</code></p>
+<p><code>=SUMPRODUCT((Operations!A:A>=TODAY())&#42;(Operations!A:A<=TODAY()+30)&#42;(Operations!C:C="Cleaning turnover"))</code></p>
 
 <p>Divide by 30 to get average daily turnover demand. If this is above your cleaner's daily capacity, you have a structural problem. Either hire a second cleaner, raise minimum night requirements, or accept that some weekends will have unbookable nights.</p>
 
@@ -18132,11 +18132,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 <p>Now compute monthly gross potential income, splitting it cleanly between lot revenue and home revenue. The split matters for valuation later.</p>
 
 <p><strong>Lot revenue (Cell B13):</strong><br>
-<code>=(B5+B6)*B9+B8*B9</code><br>
+<code>=(B5+B6)&#42;B9+B8&#42;B9</code><br>
 This counts lot rent from tenant-owned occupied pads, lot rent embedded in occupied POH (always count it as lot revenue, not home revenue), and lot rent from vacant POH (still your land asset, just not currently producing). Vacant pads with no home contribute zero until infilled.</p>
 
 <p><strong>Home revenue (Cell B14):</strong><br>
-<code>=B6*(B10-B11)</code><br>
+<code>=B6&#42;(B10-B11)</code><br>
 This is the premium over lot rent that the home itself generates. For 8 occupied POH at $850 with $325 embedded lot rent, that is 8 x $525 = $4,200 per month of home revenue.</p>
 
 <p><strong>Physical occupancy (Cell B15):</strong><br>
@@ -18192,7 +18192,7 @@ Where B30 is your discount rate (12% is a fair starting point for MHP value-add)
 </ul>
 
 <p><strong>Annual recovered utility income (B46):</strong><br>
-<code>=B40*12*B43</code><br>
+<code>=B40&#42;12&#42;B43</code><br>
 At $2,400 monthly water expense and 80% recovery, that is $23,040 per year of new income with no rent increase required.</p>
 
 <p><strong>RUBS payback period (B47):</strong><br>
@@ -18226,7 +18226,7 @@ Where B49 is your exit cap rate. At a 7.5% exit cap, $23,040 of new NOI creates 
 <p>Your blended valuation formula sits at the bottom of the model:</p>
 
 <p><strong>Asset value (B60):</strong><br>
-<code>=B13*12/B61+B14*12/B62+B46/B63+F25</code><br>
+<code>=B13&#42;12/B61+B14&#42;12/B62+B46/B63+F25</code><br>
 Where B61, B62, B63 are the cap rates for lot rent, POH home revenue, and RUBS, and F25 is the infill NPV from earlier.</p>
 
 <p>For our 80-pad example: $325 lot rent x 60 occupied x 12 months / 7.0% = $3,343,000 from lot rent. Plus $4,200 monthly POH premium x 12 / 12% = $420,000. Plus $23,040 RUBS / 7.5% = $307,000. Plus $180,000 infill NPV. Total fair value: $4.25M before assumed financing terms.</p>
@@ -18302,12 +18302,12 @@ Where B61, B62, B63 are the cap rates for lot rent, POH home revenue, and RUBS, 
 <tr><td>B6</td><td>Trailing 12 month physical occupancy</td><td>87%</td></tr>
 <tr><td>B7</td><td>Underwritten physical occupancy</td><td>85%</td></tr>
 <tr><td>B8</td><td>Economic occupancy adjustment</td><td>92%</td></tr>
-<tr><td>B9</td><td>Effective economic occupancy</td><td><code>=B7*B8</code> (78.2%)</td></tr>
+<tr><td>B9</td><td>Effective economic occupancy</td><td><code>=B7&#42;B8</code> (78.2%)</td></tr>
 <tr><td>B10</td><td>Average street rate per sq ft</td><td>$14.40</td></tr>
 <tr><td>B11</td><td>Collected rate discount to street</td><td>18%</td></tr>
-<tr><td>B12</td><td>Effective collected rate per sq ft</td><td><code>=B10*(1-B11)</code> ($11.81)</td></tr>
-<tr><td>B13</td><td>Gross potential rent</td><td><code>=B4*B12</code> ($501,925)</td></tr>
-<tr><td>B14</td><td>Effective rental income</td><td><code>=B13*B9</code> ($392,506)</td></tr>
+<tr><td>B12</td><td>Effective collected rate per sq ft</td><td><code>=B10&#42;(1-B11)</code> ($11.81)</td></tr>
+<tr><td>B13</td><td>Gross potential rent</td><td><code>=B4&#42;B12</code> ($501,925)</td></tr>
+<tr><td>B14</td><td>Effective rental income</td><td><code>=B13&#42;B9</code> ($392,506)</td></tr>
 <tr><td>B15</td><td>Tenant insurance income</td><td>$24,000</td></tr>
 <tr><td>B16</td><td>Late fees and admin</td><td>$11,500</td></tr>
 <tr><td>B17</td><td>Other ancillary (boxes, locks)</td><td>$6,800</td></tr>
@@ -18334,7 +18334,7 @@ Where B61, B62, B63 are the cap rates for lot rent, POH home revenue, and RUBS, 
 <tr><th>Cell</th><th>Expense Line</th><th>Per Sq Ft</th><th>Annual ($)</th></tr>
 </thead>
 <tbody>
-<tr><td>B22</td><td>Property management (6% of EGI)</td><td><code>=B18*0.06/B4</code></td><td>$26,088</td></tr>
+<tr><td>B22</td><td>Property management (6% of EGI)</td><td><code>=B18&#42;0.06/B4</code></td><td>$26,088</td></tr>
 <tr><td>B23</td><td>On-site labor</td><td>$0.85</td><td>$36,125</td></tr>
 <tr><td>B24</td><td>Property insurance</td><td>$0.42</td><td>$17,850</td></tr>
 <tr><td>B25</td><td>Property tax (post-reassessment)</td><td>$1.35</td><td>$57,375</td></tr>
@@ -18465,7 +18465,7 @@ Where B61, B62, B63 are the cap rates for lot rent, POH home revenue, and RUBS, 
 </tbody>
 </table>
 
-<p>That $210,000 is not yours. When the LP's accountant reconciles the model against the operating agreement, you write a check for the difference plus interest plus legal fees. The Excel cell that should have read <code>=B5*((1+B8)^A15-1)</code> instead read <code>=B5*B8*A15</code>. One formula. Six figures.</p>
+<p>That $210,000 is not yours. When the LP's accountant reconciles the model against the operating agreement, you write a check for the difference plus interest plus legal fees. The Excel cell that should have read <code>=B5&#42;((1+B8)^A15-1)</code> instead read <code>=B5&#42;B8&#42;A15</code>. One formula. Six figures.</p>
 
 <h2>Building the Equity Waterfall Model Cell by Cell</h2>
 
@@ -18524,11 +18524,11 @@ Where B61, B62, B63 are the cap rates for lot rent, POH home revenue, and RUBS, 
 
 <p><strong>Column D, LP Preferred Return.</strong> The cumulative pref owed at the end of year N on $4M at 8 percent compounding is:</p>
 
-<p><code>=$B$5*((1+$B$8)^A15-1)</code></p>
+<p><code>=$B$5&#42;((1+$B$8)^A15-1)</code></p>
 
 <p>This year's pref payment equals whatever cash remains after Tier 1, capped by the cumulative pref owed minus pref already paid. In cell D15:</p>
 
-<p><code>=MIN(B15-C15, MAX(0, $B$5*((1+$B$8)^A15-1) - SUM($D$14:D14)))</code></p>
+<p><code>=MIN(B15-C15, MAX(0, $B$5&#42;((1+$B$8)^A15-1) - SUM($D$14:D14)))</code></p>
 
 <p>Note the compounding base. Some agreements pay pref on contributed capital (the original $4M, never decreasing). Others pay pref on unreturned capital (whatever is still outstanding after returns of capital, which falls as you distribute). The latter requires a more complex formula tracking the running unreturned balance year by year.</p>
 
@@ -18536,14 +18536,14 @@ Where B61, B62, B63 are the cap rates for lot rent, POH home revenue, and RUBS, 
 
 <p>In cell E15:</p>
 
-<p><code>=MIN(B15-C15-D15, MAX(0, SUM($D$14:D15)*0.25 - SUM($E$14:E14)))</code></p>
+<p><code>=MIN(B15-C15-D15, MAX(0, SUM($D$14:D15)&#42;0.25 - SUM($E$14:E14)))</code></p>
 
 <p>Read this carefully. The denominator for the catch-up target is LP pref paid, not LP capital. This is the most common formula error in amateur waterfall models.</p>
 
 <p><strong>Columns F and G, Promote Split.</strong> Whatever remains after Tier 3 splits per the promote schedule. With a 70/30 promote:</p>
 
-<p>F15 (LP promote): <code>=(B15-C15-D15-E15)*$B$11</code><br>
-G15 (GP promote): <code>=(B15-C15-D15-E15)*(1-$B$11)</code></p>
+<p>F15 (LP promote): <code>=(B15-C15-D15-E15)&#42;$B$11</code><br>
+G15 (GP promote): <code>=(B15-C15-D15-E15)&#42;(1-$B$11)</code></p>
 
 <h3>Block 4: Summary Metrics</h3>
 
@@ -18564,7 +18564,7 @@ GP total cash received: <code>=SUM(E15:E19)+SUM(G15:G19)+B6</code></p>
 
 <p>The operating agreement says "8 percent preferred return." That is almost always cumulative. If year 1 pays no distribution, the LP is owed 16.64 percent (compounded) by end of year 2, not 8 percent. A non-cumulative pref disappears if you do not pay it. Most LPs assume cumulative because that is the market standard. If your spreadsheet treats it as non-cumulative, you are underpaying them on paper, then overpaying yourself.</p>
 
-<p>Test: in your model, set year 1 distribution to zero. Year 2 pref payment should equal <code>=B5*((1.08)^2-1)</code> = $665,600, not <code>=B5*0.08</code> = $320,000.</p>
+<p>Test: in your model, set year 1 distribution to zero. Year 2 pref payment should equal <code>=B5&#42;((1.08)^2-1)</code> = $665,600, not <code>=B5&#42;0.08</code> = $320,000.</p>
 
 <h3>2. Pref Base: Contributed vs Unreturned Capital</h3>
 
@@ -18872,7 +18872,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 </tbody>
 </table>
 
-<p>Your effective rent calculation needs to account for tenant concessions: <code>=B3*(B4/100)*B2*(1-(B6/12))</code></p>
+<p>Your effective rent calculation needs to account for tenant concessions: <code>=B3&#42;(B4/100)&#42;B2&#42;(1-(B6/12))</code></p>
 
 <p>This formula takes your base rent, multiplies by occupancy rate and total square footage, then reduces it by the free rent percentage. A $35/sq ft rent with 3 months free rent is really $26.25/sq ft effective.</p>
 
@@ -18923,7 +18923,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 </tbody>
 </table>
 
-<p>Calculate percentage rent with this formula: <code>=MAX(0,(B32*B28*(B29/100))-B27*B2)</code> where B32 is actual sales PSF.</p>
+<p>Calculate percentage rent with this formula: <code>=MAX(0,(B32&#42;B28&#42;(B29/100))-B27&#42;B2)</code> where B32 is actual sales PSF.</p>
 
 <p>If tenant sales hit $450/sq ft, they pay percentage rent on the $50 above breakpoint: $450 - $400 = $50 × 6% = $3/sq ft additional rent.</p>
 
@@ -18974,7 +18974,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 </tbody>
 </table>
 
-<p>Industrial rent calculation: <code>=B52*C52+B53*C53+(B54*B55*12)</code> where C52 and C53 are warehouse and office square footage respectively.</p>
+<p>Industrial rent calculation: <code>=B52&#42;C52+B53&#42;C53+(B54&#42;B55&#42;12)</code> where C52 and C53 are warehouse and office square footage respectively.</p>
 
 <h2>Cash Flow Timing and Vacancy Risk</h2>
 
@@ -19033,7 +19033,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 <li><strong>Industrial</strong>: 5-10% vacancy risk (high demand, limited supply)</li>
 </ul>
 
-<p>Calculate expected vacancy cost with: <code>=B3*B2*(E75/100)</code> where E75 is your vacancy risk percentage.</p>
+<p>Calculate expected vacancy cost with: <code>=B3&#42;B2&#42;(E75/100)</code> where E75 is your vacancy risk percentage.</p>
 
 <p>A $35/sq ft office building with 20% vacancy risk has an expected annual loss of $7/sq ft just from vacancy. That's $175,000 annually on a 25,000 sq ft building.</p>
 
@@ -19073,7 +19073,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 <li><strong>Total: $2.50-7.50 PSF annually</strong></li>
 </ul>
 
-<p>Use these ranges in your model with: <code>=IF(B1="Office",B2*12,IF(B1="Retail",B2*18,B2*5))</code> where B1 is property type and B2 is square footage.</p>
+<p>Use these ranges in your model with: <code>=IF(B1="Office",B2&#42;12,IF(B1="Retail",B2&#42;18,B2&#42;5))</code> where B1 is property type and B2 is square footage.</p>
 
 <h2>Market Rent Analysis and Rent Growth</h2>
 
@@ -19087,7 +19087,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 <li><strong>Industrial</strong>: 4-8% annually (supply shortage driving growth)</li>
 </ul>
 
-<p>Project future NOI with compounding rent growth: <code>=B3*(1+C20)^A20</code> where C20 is annual rent growth percentage and A20 is year number.</p>
+<p>Project future NOI with compounding rent growth: <code>=B3&#42;(1+C20)^A20</code> where C20 is annual rent growth percentage and A20 is year number.</p>
 
 <p>Industrial properties with 6% annual rent growth turn a $8/sq ft base rent into $12.76/sq ft by year 8. Office properties with 2% growth only reach $9.37/sq ft by year 8.</p>
 
@@ -19134,7 +19134,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 </tbody>
 </table>
 
-<p>Calculate cap rate with: <code>=(B3-B7)*B2/(150*B2)</code> where B3 is rent PSF, B7 is operating expense PSF, and 150 is purchase price PSF.</p>
+<p>Calculate cap rate with: <code>=(B3-B7)&#42;B2/(150&#42;B2)</code> where B3 is rent PSF, B7 is operating expense PSF, and 150 is purchase price PSF.</p>
 
 <p>The industrial warehouse shows the highest cap rate, but that doesn't account for tenant improvement costs or vacancy risk differences between property types.</p>
 
@@ -19150,7 +19150,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 <li><strong>Full Service</strong>: Landlord pays all expenses</li>
 </ul>
 
-<p>Calculate recovered expenses with: <code>=IF(D5="NNN",C8*B2,IF(D5="Modified",MAX(0,(C8-C9)*B2),0))</code> where D5 is lease type, C8 is current operating expenses PSF, C9 is base year expenses PSF, and B2 is square footage.</p>
+<p>Calculate recovered expenses with: <code>=IF(D5="NNN",C8&#42;B2,IF(D5="Modified",MAX(0,(C8-C9)&#42;B2),0))</code> where D5 is lease type, C8 is current operating expenses PSF, C9 is base year expenses PSF, and B2 is square footage.</p>
 
 <h3>Rent Escalation Modeling</h3>
 
@@ -19162,9 +19162,9 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 <li><strong>CPI adjustments</strong>: Tied to inflation index</li>
 </ul>
 
-<p>Formula for year 5 rent with fixed escalations: <code>=B3+(A20*C25)</code> where A20 is year number and C25 is fixed annual increase.</p>
+<p>Formula for year 5 rent with fixed escalations: <code>=B3+(A20&#42;C25)</code> where A20 is year number and C25 is fixed annual increase.</p>
 
-<p>Formula for percentage escalations: <code>=B3*(1+C26/100)^A20</code> where C26 is annual percentage increase.</p>
+<p>Formula for percentage escalations: <code>=B3&#42;(1+C26/100)^A20</code> where C26 is annual percentage increase.</p>
 
 <h2>Warning Signs Your NOI Calculator Should Flag</h2>
 
@@ -19300,13 +19300,13 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 
 <h3>Revenue Impact Assessment</h3>
 
-<p>Column H estimates potential revenue loss if renewal fails: <code>=IF(F4<0.5,I4*2,I4*0.5)</code></p>
+<p>Column H estimates potential revenue loss if renewal fails: <code>=IF(F4<0.5,I4&#42;2,I4&#42;0.5)</code></p>
 
 <p>This formula assumes tenants with below 50% renewal probability will cost two months of rent to replace (vacancy plus re-leasing costs). Higher-probability renewals only risk half a month if negotiations fail.</p>
 
 <h3>Action Priority Score</h3>
 
-<p>Column J combines urgency and revenue risk: <code>=(91-D4)*I4*F4</code></p>
+<p>Column J combines urgency and revenue risk: <code>=(91-D4)&#42;I4&#42;F4</code></p>
 
 <p>This multiplies urgency (91 minus days remaining), monthly rent, and renewal probability. Higher scores demand immediate attention. Sort by this column to prioritize your renewal efforts.</p>
 
@@ -19400,7 +19400,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 
 <ul>
 <li><strong>Average Days to Expiration</strong>: <code>=AVERAGE(D:D)</code></li>
-<li><strong>Total At-Risk Revenue</strong>: <code>=SUMIF(E:E,"URGENT",I:I)*2</code></li>
+<li><strong>Total At-Risk Revenue</strong>: <code>=SUMIF(E:E,"URGENT",I:I)&#42;2</code></li>
 <li><strong>Expected Renewal Count</strong>: <code>=SUMPRODUCT(F:F,1)</code> (sum of all probabilities)</li>
 </ul>
 
@@ -19903,7 +19903,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 </tbody>
 </table>
 
-<p>Interest calculation: <code>=C2*(1+E2/100)*((TODAY()-B2)/365)</code></p>
+<p>Interest calculation: <code>=C2&#42;(1+E2/100)&#42;((TODAY()-B2)/365)</code></p>
 
 <p>This compounds the security deposit at the specified interest rate for the number of days the tenant has occupied the unit. Some states require interest on deposits, others don't. Know your local laws.</p>
 
@@ -20030,7 +20030,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 </tbody>
 </table>
 
-<p>Net profit formula: <code>=B2-C2+D2-(E2*50)</code></p>
+<p>Net profit formula: <code>=B2-C2+D2-(E2&#42;50)</code></p>
 
 <p>This assumes you value your management time at $50/hour. Williams generated $20,100 in rent but cost you $800 in maintenance plus 12 hours of your time dealing with violations and late payments. His true value: $18,850 versus $24,800 for hassle-free Maria.</p>
 
@@ -20130,7 +20130,7 @@ Add these summary calculations below your data:
 
 **Total Monthly Rent:** \`=SUMIF(H:H,"Occupied",E:E)\`  
 **Occupancy Rate:** \`=COUNTIF(H:H,"Occupied")/COUNTA(A:A)-1\`  
-**Average Rent per Sq Ft:** \`=SUMPRODUCT((H2:H20="Occupied")*(E2:E20/G2:G20))/COUNTIF(H2:H20,"Occupied")\`
+**Average Rent per Sq Ft:** \`=SUMPRODUCT((H2:H20="Occupied")&#42;(E2:E20/G2:G20))/COUNTIF(H2:H20,"Occupied")\`
 
 ## Example: 8-Unit Building Rent Roll
 
@@ -20168,7 +20168,7 @@ This rent roll immediately tells a lender several things: the building is 75% oc
 
 **Rent increase projections:** Calculate potential income after renewals: \`=IF(K2>0,E2+MIN(K2,50),E2)\`. This formula increases rent by the lesser of market variance or $50.
 
-**Days of rent collected:** Track which tenants pay early vs. late: \`=DATEDIF(C2,TODAY(),"D")/365*12*E2\`. This shows total rent collected from each tenant since move-in.
+**Days of rent collected:** Track which tenants pay early vs. late: \`=DATEDIF(C2,TODAY(),"D")/365&#42;12&#42;E2\`. This shows total rent collected from each tenant since move-in.
 
 **Tenant quality score:** Combine payment history, lease length, and deposit amount into a single metric for tenant evaluation.
 
@@ -20232,7 +20232,7 @@ READ_TIME: 8
 
 <p>Your construction project cost report template must show percentage variances for every major cost category. Banks specifically look for variance thresholds that trigger automatic notifications. Here's the formula structure they expect:</p>
 
-<p><strong>Variance Percentage:</strong> <code>=(Actual_Cost-Budget_Cost)/Budget_Cost*100</code></p>
+<p><strong>Variance Percentage:</strong> <code>=(Actual_Cost-Budget_Cost)/Budget_Cost&#42;100</code></p>
 
 <p><strong>Alert Flag:</strong> <code>=IF(ABS(variance_percentage)>10,"REVIEW REQUIRED","")</code></p>
 
@@ -20282,9 +20282,9 @@ READ_TIME: 8
 
 <p>Banks fund construction projects through periodic draws, not lump sum payments. Your cost report must show exactly when you'll request funds and what percentage of work will be complete. The standard formula banks use:</p>
 
-<p><strong>Draw Amount:</strong> <code>=Total_Contract_Value*Percentage_Complete-Previous_Draws</code></p>
+<p><strong>Draw Amount:</strong> <code>=Total_Contract_Value&#42;Percentage_Complete-Previous_Draws</code></p>
 
-<p><strong>Projected Completion Date:</strong> <code>=Start_Date+Duration_Days*(Budgeted_Cost/Spent_To_Date)</code></p>
+<p><strong>Projected Completion Date:</strong> <code>=Start_Date+Duration_Days&#42;(Budgeted_Cost/Spent_To_Date)</code></p>
 
 <h3>Contingency Utilization Tracking</h3>
 
@@ -20353,7 +20353,7 @@ READ_TIME: 8
 
 <p>Weather delays cost contractors an average of $4,300 per week in the Pacific Northwest. This formula calculates the financial impact:</p>
 
-<p><strong>Delay Cost:</strong> <code>=Crew_Daily_Rate*Delay_Days+Equipment_Standby*Delay_Days+Overhead_Daily</code></p>
+<p><strong>Delay Cost:</strong> <code>=Crew_Daily_Rate&#42;Delay_Days+Equipment_Standby&#42;Delay_Days+Overhead_Daily</code></p>
 
 <h3>Subcontractor Performance Tracking</h3>
 
@@ -20361,13 +20361,13 @@ READ_TIME: 8
 
 <p><strong>Reliability Score:</strong> <code>=IF(Actual_Cost<=Budget_Cost,1,0)+IF(Completion_Date<=Planned_Date,1,0)</code></p>
 
-<p><strong>Performance Rating:</strong> <code>=AVERAGE(Last_5_Projects_Reliability_Scores)*100</code></p>
+<p><strong>Performance Rating:</strong> <code>=AVERAGE(Last_5_Projects_Reliability_Scores)&#42;100</code></p>
 
 <h3>Material Price Escalation Protection</h3>
 
 <p>Lumber prices fluctuated 340% in 2021-2022. This formula helps protect your margins:</p>
 
-<p><strong>Price Protection Trigger:</strong> <code>=IF(Current_Material_Cost>Original_Estimate*1.15,"RENEGOTIATE","PROCEED")</code></p>
+<p><strong>Price Protection Trigger:</strong> <code>=IF(Current_Material_Cost>Original_Estimate&#42;1.15,"RENEGOTIATE","PROCEED")</code></p>
 
 <h2>Common Reporting Mistakes That Cost Money</h2>
 
@@ -20810,7 +20810,7 @@ Stop guessing about your investment timeline. Get the rental property analyzer a
 
 <p>Labor pricing requires three components: base hours, productivity factors, and fully loaded rates. Most contractors only calculate the first one.</p>
 
-<p>Your Excel formula should be: \`=Base_Hours*Productivity_Factor*Loaded_Rate\`</p>
+<p>Your Excel formula should be: \`=Base_Hours&#42;Productivity_Factor&#42;Loaded_Rate\`</p>
 
 <p>For framing work:
 - Base hours: 0.12 hours per square foot (your historical data)
@@ -20818,7 +20818,7 @@ Stop guessing about your investment timeline. Get the rental property analyzer a
 - Loaded rate: $65/hour (wages + burden + small tools)</p>
 
 <p>For a 2,400 sq ft house renovation:
-\`=2400*0.12*1.35*65\` = $25,272</p>
+\`=2400&#42;0.12&#42;1.35&#42;65\` = $25,272</p>
 
 <p>The productivity factor accounts for real-world conditions. New construction on a clean site runs at base productivity. Renovation work in occupied buildings or tight spaces requires the 1.35 multiplier.</p>
 
@@ -20826,7 +20826,7 @@ Stop guessing about your investment timeline. Get the rental property analyzer a
 
 <p>Material pricing needs waste factors, delivery costs, and price escalation buffers built in. Your Excel template should calculate material costs as:</p>
 
-<p>\`=Quantity*Unit_Price*(1+Waste_Factor)+Delivery_Cost\`</p>
+<p>\`=Quantity&#42;Unit_Price&#42;(1+Waste_Factor)+Delivery_Cost\`</p>
 
 <p>Example for framing lumber:
 - Quantity: 8,500 board feet
@@ -20834,9 +20834,9 @@ Stop guessing about your investment timeline. Get the rental property analyzer a
 - Waste factor: 0.08 (8% typical for framing)
 - Delivery cost: $150</p>
 
-<p>Formula: \`=8500*0.85*(1+0.08)+150\` = $7,946</p>
+<p>Formula: \`=8500&#42;0.85&#42;(1+0.08)+150\` = $7,946</p>
 
-<p>Price escalation is critical for jobs starting more than 60 days out. Add a time-based multiplier: \`=IF(Start_Date>TODAY()+60,Material_Cost*1.03,Material_Cost)\` to add 3% buffer for materials on delayed starts.</p>
+<p>Price escalation is critical for jobs starting more than 60 days out. Add a time-based multiplier: \`=IF(Start_Date>TODAY()+60,Material_Cost&#42;1.03,Material_Cost)\` to add 3% buffer for materials on delayed starts.</p>
 
 <h2>Advanced Pricing Strategies in Excel</h2>
 
@@ -20881,7 +20881,7 @@ Stop guessing about your investment timeline. Get the rental property analyzer a
 </tr>
 </table>
 
-<p>Your pricing formula becomes: \`=MAX(Cost*1.18, Target_Price*0.95)\` This ensures you never bid below an 18% markup while staying competitive within your target range.</p>
+<p>Your pricing formula becomes: \`=MAX(Cost&#42;1.18, Target_Price&#42;0.95)\` This ensures you never bid below an 18% markup while staying competitive within your target range.</p>
 
 <h3>Risk Assessment Calculations</h3>
 
@@ -20894,7 +20894,7 @@ Stop guessing about your investment timeline. Get the rental property analyzer a
 - Weather exposure
 - Permit complexity</p>
 
-<p>Your risk adjustment formula: \`=Base_Price*(1+(Risk_Score-3)*0.02)\` 
+<p>Your risk adjustment formula: \`=Base_Price&#42;(1+(Risk_Score-3)&#42;0.02)\` 
 
 This adds 2% for each risk point above neutral (3). A high-risk job (average score 4.5) gets a 3% price increase. A low-risk job (average score 2) gets a 2% discount.</p>
 
@@ -20945,7 +20945,7 @@ This adds 2% for each risk point above neutral (3). A high-risk job (average sco
 </tr>
 </table>
 
-<p>Use \`=Profit*Win_Probability\` to calculate expected profit for each scenario.</p>
+<p>Use \`=Profit&#42;Win_Probability\` to calculate expected profit for each scenario.</p>
 
 <h2>Proposal Formatting and Professional Presentation</h2>
 
@@ -20965,7 +20965,7 @@ This adds 2% for each risk point above neutral (3). A high-risk job (average sco
 - Progress payments at 25%, 50%, 75%, 90% completion
 - Final 10% at substantial completion</p>
 
-<p>Formula for progress payments: \`=Total_Contract*Payment_Percentage*Completion_Factor\`
+<p>Formula for progress payments: \`=Total_Contract&#42;Payment_Percentage&#42;Completion_Factor\`
 
 Where Completion_Factor is \`=SUMPRODUCT(WBS_Values,Completion_Status)/SUM(WBS_Values)\`</p>
 
@@ -20974,7 +20974,7 @@ Where Completion_Factor is \`=SUMPRODUCT(WBS_Values,Completion_Status)/SUM(WBS_V
 <p>Build change order pricing into your original template. When scope changes occur, you already have unit prices established:
 - Additional electrical outlets: \`=$85 per outlet\`
 - Upgraded finishes: \`=Premium_Cost-Standard_Cost per unit\`
-- Schedule acceleration: \`=Standard_Labor*1.5 for overtime hours\`</p>
+- Schedule acceleration: \`=Standard_Labor&#42;1.5 for overtime hours\`</p>
 
 <h2>Quality Control and Error Prevention</h2>
 
@@ -20984,7 +20984,7 @@ Where Completion_Factor is \`=SUMPRODUCT(WBS_Values,Completion_Status)/SUM(WBS_V
 
 <p>Use Excel's data validation and conditional formatting to highlight potential errors:
 - Labor rates outside normal ranges: \`=IF(OR(Labor_Rate<$45,Labor_Rate>$85),"CHECK","OK")\`
-- Material quantities that seem high: \`=IF(Material_SF>Building_SF*1.15,"VERIFY","")\`
+- Material quantities that seem high: \`=IF(Material_SF>Building_SF&#42;1.15,"VERIFY","")\`
 - Missing line items: \`=IF(COUNTBLANK(Cost_Range)>0,"INCOMPLETE","READY")\`</p>
 
 <h3>Historical Comparison Checks</h3>
@@ -20998,8 +20998,8 @@ Where Completion_Factor is \`=SUMPRODUCT(WBS_Values,Completion_Status)/SUM(WBS_V
 <h3>Competitor Intelligence Integration</h3>
 
 <p>Track competitor pricing patterns in a separate sheet. When you know Company X typically bids 12% below market on remodels, factor that into your strategy:
-- Expected competitor bid: \`=Your_Cost*1.12 for Company X\`
-- Your competitive position: \`=IF(Your_Bid<Competitor_Estimate*1.05,"COMPETITIVE","HIGH")\`</p>
+- Expected competitor bid: \`=Your_Cost&#42;1.12 for Company X\`
+- Your competitive position: \`=IF(Your_Bid<Competitor_Estimate&#42;1.05,"COMPETITIVE","HIGH")\`</p>
 
 <h2>Implementation Checklist</h2>
 
@@ -21090,7 +21090,7 @@ Your lease option targets tenants with credit scores in the 580-620 range, but y
 <tr><td>Total Expenses</td><td>$1,872</td><td>=SUM(B11:B15)</td></tr>
 </table>
 
-<p>The maintenance reserve formula \`=B8*0.01\` assumes 1% of property value annually. For a $150,000 property, that's $1,500/year or $125/month. Adjust this based on property age and condition.</p>
+<p>The maintenance reserve formula \`=B8&#42;0.01\` assumes 1% of property value annually. For a $150,000 property, that's $1,500/year or $125/month. Adjust this based on property age and condition.</p>
 
 <p>Your monthly cash flow calculation becomes:
 <br><code>=B10-(B16+B17)</code>
@@ -21108,7 +21108,7 @@ Your lease option targets tenants with credit scores in the 580-620 range, but y
 </table>
 
 <p>Use this formula for future value calculation:
-<br><code>=B20*(1+B21)^(B22/12)</code>
+<br><code>=B20&#42;(1+B21)^(B22/12)</code>
 <br>Where B20 is current value, B21 is annual appreciation rate, and B22 is months in the future.</p>
 
 <p>Critical insight: In the bear case, your tenant walks away. You keep their option fee and accumulated rent, but you're left owning a property worth less than your strike price.</p>
@@ -21117,7 +21117,7 @@ Your lease option targets tenants with credit scores in the 580-620 range, but y
 
 <p>Most investors skip this step, but it's crucial. Weight your scenarios by probability:</p>
 
-<p><code>=B25*0.25+B26*0.50+B27*0.25</code></p>
+<p><code>=B25&#42;0.25+B26&#42;0.50+B27&#42;0.25</code></p>
 
 <p>This assumes 25% chance of bull case, 50% base case, 25% bear case. Adjust probabilities based on local market conditions and economic indicators.</p>
 
@@ -21126,12 +21126,12 @@ Your lease option targets tenants with credit scores in the 580-620 range, but y
 <p>These formulas separate amateur from professional lease option analysis:</p>
 
 <p><strong>Tenant Exercise Probability</strong><br>
-<code>=IF(B30>B31,MIN(0.85,0.45+((B30-B31)/B30)*0.40),0.15)</code></p>
+<code>=IF(B30>B31,MIN(0.85,0.45+((B30-B31)/B30)&#42;0.40),0.15)</code></p>
 
 <p>This formula estimates exercise probability based on how much equity the tenant would gain. If the property value (B30) exceeds the strike price (B31) by 10% or more, exercise probability approaches 85%. Below strike price, it drops to 15%.</p>
 
 <p><strong>Time-Value Adjusted Option Fee</strong><br>
-<code>=B35*((1+B36)^(B37/12))</code></p>
+<code>=B35&#42;((1+B36)^(B37/12))</code></p>
 
 <p>Where B35 is the option fee collected upfront, B36 is your required rate of return, and B37 is months until potential exercise. This shows what that option fee needs to grow to in order to justify tying up the property.</p>
 
@@ -21171,10 +21171,10 @@ Your lease option targets tenants with credit scores in the 580-620 range, but y
 <h2>Key Decision Points in Lease Option Evaluation</h2>
 
 <p><strong>Minimum Option Fee Rule</strong><br>
-Set your option fee at minimum 6 months of negative cash flow plus $2,500 transaction cost buffer. In our example: \`=(222*6)+2500 = $3,832\`. Round up to $4,000 minimum.</p>
+Set your option fee at minimum 6 months of negative cash flow plus $2,500 transaction cost buffer. In our example: \`=(222&#42;6)+2500 = $3,832\`. Round up to $4,000 minimum.</p>
 
 <p><strong>Strike Price Positioning</strong><br>
-Your strike price should exceed projected market value by at least 5% to ensure profit after transaction costs. Use: <code>=B50*(1+B51)^2*1.05</code> where B50 is current value and B51 is expected appreciation rate.</p>
+Your strike price should exceed projected market value by at least 5% to ensure profit after transaction costs. Use: <code>=B50&#42;(1+B51)^2&#42;1.05</code> where B50 is current value and B51 is expected appreciation rate.</p>
 
 <p><strong>Credit Score Thresholds</strong><br>
 Set minimum credit requirements based on exercise probability data:</p>
@@ -21199,7 +21199,7 @@ Lease option tenants often defer maintenance since they're not building equity. 
 Commercial properties appreciate differently. Use cap rate compression/expansion models instead of residential comps.</p>
 
 <p><strong>Mistake 4: Not Modeling Interest Rate Changes</strong><br>
-If you're carrying a variable rate loan, rising rates destroy your cash flow projections. Use sensitivity analysis: <code>=PMT((B60+0.02)/12,B61*12,-B62)</code> to model payments with rates 2% higher.</p>
+If you're carrying a variable rate loan, rising rates destroy your cash flow projections. Use sensitivity analysis: <code>=PMT((B60+0.02)/12,B61&#42;12,-B62)</code> to model payments with rates 2% higher.</p>
 
 <h2>Technology Integration for Lease Option Analysis</h2>
 
@@ -21362,7 +21362,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Most commercial and many residential contracts include retainage (typically 5-10% held until project completion). Your billing formula needs to account for this:</p>
 
-<p><code>=B15*B16*(1-B17)-B18</code></p>
+<p><code>=B15&#42;B16&#42;(1-B17)-B18</code></p>
 
 <p>Where:</p>
 <ul>
@@ -21431,9 +21431,9 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Change orders complicate progress billing because they alter both the total contract value and completion percentages. Build change order tracking into your template from the start.</p>
 
-<p>Original contract formula: <code>=B4*B5</code> (Base contract × completion %)</p>
+<p>Original contract formula: <code>=B4&#42;B5</code> (Base contract × completion %)</p>
 
-<p>With change orders: <code>=(B4+B6)*B5-B7</code> Where B6 contains approved change order amounts.</p>
+<p>With change orders: <code>=(B4+B6)&#42;B5-B7</code> Where B6 contains approved change order amounts.</p>
 
 <p>Example scenario: Original electrical contract $28,000, change order for additional outlets $3,500, 60% complete.</p>
 
@@ -21452,7 +21452,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 <p><strong>High completion, low visible progress:</strong> <code>=IF(AND(G4>0.8,H4="No"),"REVIEW","OK")</code></p>
 <p>Where column H tracks whether recent site visits confirm the reported progress.</p>
 
-<p><strong>Front-loaded billing:</strong> <code>=IF(G4>0.5*I4,"CAUTION","OK")</code></p>
+<p><strong>Front-loaded billing:</strong> <code>=IF(G4>0.5&#42;I4,"CAUTION","OK")</code></p>
 <p>Where column I contains the expected completion percentage based on project timeline.</p>
 
 <p>These flags don't prevent payment, but they trigger verification before processing invoices.</p>
@@ -21478,7 +21478,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Run a monthly reconciliation to catch discrepancies before they compound. Compare your completion percentages to actual project spending and timeline progress.</p>
 
-<p>Budget comparison formula: <code>=B4*B5/B6</code></p>
+<p>Budget comparison formula: <code>=B4&#42;B5/B6</code></p>
 <p>Where B4 is original budget, B5 is completion percentage, and B6 is actual spending to date.</p>
 
 <p>If this ratio significantly exceeds 1.0, you're either over budget or reporting inflated completion percentages. A ratio below 0.8 suggests under-billing or ahead-of-budget performance.</p>
@@ -21487,7 +21487,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Your progress billing template works best when connected to your overall project schedule. Use Excel's conditional logic to prevent billing for work that can't realistically be complete:</p>
 
-<p><code>=IF(TODAY()<B12,"CANNOT_BILL",IF(B5="COMPLETE",B4*B6,0))</code></p>
+<p><code>=IF(TODAY()<B12,"CANNOT_BILL",IF(B5="COMPLETE",B4&#42;B6,0))</code></p>
 
 <p>This prevents billing for electrical work (B5) before the scheduled start date (B12), even if someone mistakenly marks it complete.</p>
 
@@ -21623,9 +21623,9 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 <p>Track mileage or actual vehicle expenses (not both). For 2024, mileage rate is $0.67/mile for business use.</p>
 
 <p>Formula to calculate annual mileage deduction:</p>
-<p><code>=B2*0.67</code> where B2 contains total business miles</p>
+<p><code>=B2&#42;0.67</code> where B2 contains total business miles</p>
 
-<p>If you drive 3,000 miles annually for rental property business, that's <code>=3000*0.67</code> = $2,010 deduction.</p>
+<p>If you drive 3,000 miles annually for rental property business, that's <code>=3000&#42;0.67</code> = $2,010 deduction.</p>
 
 <h3>Professional Services</h3>
 
@@ -21676,7 +21676,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
   <li><strong>Amount (E):</strong> Dollar amount</li>
   <li><strong>Receipt (F):</strong> File name or photo reference</li>
   <li><strong>Business % (G):</strong> Percentage business use</li>
-  <li><strong>Deductible Amount (H):</strong> <code>=E2*G2</code></li>
+  <li><strong>Deductible Amount (H):</strong> <code>=E2&#42;G2</code></li>
 </ul>
 
 <p>Example row:</p>
@@ -21719,7 +21719,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 <p><code>=SUMIFS(Input!H:H,Input!C:C,"Insurance",Input!A:A,">="&DATE(2024,1,1),Input!A:A,"<="&DATE(2024,3,31))</code></p>
 
 <p>Monthly mileage tracking:</p>
-<p><code>=SUMIFS(Input!E:E,Input!C:C,"Mileage",Input!A:A,">="&DATE(2024,3,1),Input!A:A,"<"&DATE(2024,4,1))*0.67</code></p>
+<p><code>=SUMIFS(Input!E:E,Input!C:C,"Mileage",Input!A:A,">="&DATE(2024,3,1),Input!A:A,"<"&DATE(2024,4,1))&#42;0.67</code></p>
 
 <h3>Depreciation Schedule Automation</h3>
 
@@ -21782,7 +21782,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Calculate estimated tax liability to avoid underpayment penalties:</p>
 
-<p><code>=MAX((Taxable_Income*Tax_Rate-Withholdings)/4,Previous_Year_Tax*1.1/4)</code></p>
+<p><code>=MAX((Taxable_Income&#42;Tax_Rate-Withholdings)/4,Previous_Year_Tax&#42;1.1/4)</code></p>
 
 <p>This compares 90% of current year tax vs. 110% of prior year tax, using the higher amount for safe harbor.</p>
 
@@ -21815,7 +21815,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 <p>Calculate business percentage carefully for mixed-use expenses:</p>
 
 <p><strong>Home office percentage:</strong></p>
-<p><code>=(Office_Square_Feet/Total_Home_Square_Feet)*Hours_Used_for_Rental_Business/Total_Hours_Used</code></p>
+<p><code>=(Office_Square_Feet/Total_Home_Square_Feet)&#42;Hours_Used_for_Rental_Business/Total_Hours_Used</code></p>
 
 <p><strong>Vehicle business use:</strong></p>
 <p><code>=Rental_Business_Miles/Total_Annual_Miles</code></p>
@@ -21912,7 +21912,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Concrete can't be poured in freezing weather. Roofing crews don't work in storms. Paint doesn't cure properly in high humidity. Weather delays aren't "unexpected" - they're predictable seasonal risks that require buffer time.</p>
 
-<p>Formula to calculate weather buffer: <code>=IF(AND(MONTH(B3)>=11,MONTH(B3)<=2),C3*1.3,IF(AND(MONTH(B3)>=6,MONTH(B3)<=8),C3*1.15,C3))</code></p>
+<p>Formula to calculate weather buffer: <code>=IF(AND(MONTH(B3)>=11,MONTH(B3)<=2),C3&#42;1.3,IF(AND(MONTH(B3)>=6,MONTH(B3)<=8),C3&#42;1.15,C3))</code></p>
 
 <p>This formula adds 30% buffer time for outdoor work in winter months (Nov-Feb) and 15% for summer months (Jun-Aug) when afternoon storms are common.</p>
 
@@ -22039,7 +22039,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Track the cost of delays in real time:</p>
 
-<p>Current delay cost: <code>=SUMPRODUCT((actual_duration-planned_duration)*daily_cost)</code></p>
+<p>Current delay cost: <code>=SUMPRODUCT((actual_duration-planned_duration)&#42;daily_cost)</code></p>
 
 <p>Projected final cost: <code>=original_budget+current_delay_cost+projected_remaining_delays</code></p>
 
@@ -22200,7 +22200,7 @@ Shortfall: $40,000</p>
 
 <p>The critical formulas for year 1 (row 10):</p>
 
-<p>Cumulative Preferred Owed: <code>=B3*B4*A10</code> (Total Equity × Pref Rate × Years)<br/>
+<p>Cumulative Preferred Owed: <code>=B3&#42;B4&#42;A10</code> (Total Equity × Pref Rate × Years)<br/>
 Preferred Payment This Year: <code>=MIN(B10,MAX(0,C10-D9))</code> (Lesser of available cash or remaining shortfall)<br/>
 Cumulative Preferred Paid: <code>=D9+E10</code> (Previous total plus this year's payment)<br/>
 Preferred Shortfall: <code>=C10-D10</code> (What's still owed)</p>
@@ -22211,7 +22211,7 @@ Preferred Shortfall: <code>=C10-D10</code> (What's still owed)</p>
 
 <p>For a 20% promote, the GP needs to receive 25% of what LPs received (20%/80% = 25%) to get to the agreed split ratio.</p>
 
-<p>GP Catch-Up Owed: <code>=D10*0.25</code> (25% of LP preferred distributions)<br/>
+<p>GP Catch-Up Owed: <code>=D10&#42;0.25</code> (25% of LP preferred distributions)<br/>
 GP Catch-Up Payment: <code>=MIN(B10-E10,MAX(0,F10-G9))</code> (Available cash minus preferred, up to remaining catch-up)<br/>
 Remaining for Split: <code>=B10-E10-H10</code> (Cash left after preferred and catch-up)</p>
 
@@ -22219,8 +22219,8 @@ Remaining for Split: <code>=B10-E10-H10</code> (Cash left after preferred and ca
 
 <p>Any remaining cash gets split according to the promote percentages:</p>
 
-<p>LP Additional Distribution: <code>=I10*0.8</code> (80% of remaining cash)<br/>
-GP Promote Distribution: <code>=I10*0.2</code> (20% of remaining cash)</p>
+<p>LP Additional Distribution: <code>=I10&#42;0.8</code> (80% of remaining cash)<br/>
+GP Promote Distribution: <code>=I10&#42;0.2</code> (20% of remaining cash)</p>
 
 <h3>Sale Proceeds Waterfall</h3>
 
@@ -22236,8 +22236,8 @@ Remaining for Waterfall: <code>=Sale_Proceeds-B3</code></p>
 
 <h3>Mistake 1: Calculating Preferred Returns Annually Instead of Cumulatively</h3>
 
-<p>Wrong: <code>=B10*0.08</code> (This year's cash × 8%)<br/>
-Right: <code>=B3*0.08*A10-D9</code> (Cumulative owed minus already paid)</p>
+<p>Wrong: <code>=B10&#42;0.08</code> (This year's cash × 8%)<br/>
+Right: <code>=B3&#42;0.08&#42;A10-D9</code> (Cumulative owed minus already paid)</p>
 
 <h3>Mistake 2: Ignoring the Catch-Up Mechanism</h3>
 
@@ -22410,14 +22410,14 @@ LP + GP = Total Available Cash Flow</p>
         (Office rent + Insurance + Equipment + Staff + Professional services)</p>
 
         <p><strong>Annual Fixed Overhead (Cell B11):</strong><br>
-        <code>=B5*12</code></p>
+        <code>=B5&#42;12</code></p>
 
         <p><strong>Variable Overhead Rate (Cell B12):</strong><br>
         <code>=(B13+B14+B15)/B16</code><br>
         (Project mgmt + Permits + Collection costs ÷ Average job size)</p>
 
         <p><strong>Total Overhead Percentage (Cell B17):</strong><br>
-        <code>=(B11/B18)+(B12*100)</code><br>
+        <code>=(B11/B18)+(B12&#42;100)</code><br>
         (Annual fixed overhead ÷ Annual revenue target) + Variable rate</p>
 
         <h3>Real Example Calculation</h3>
@@ -23003,7 +23003,7 @@ LP + GP = Total Available Cash Flow</p>
         </table>
 
         <p><strong>ROI Calculation:</strong></p>
-        <p><code>=SUM(F:F)/SUM(E:E)*100</code></p>
+        <p><code>=SUM(F:F)/SUM(E:E)&#42;100</code></p>
 
         <p>Where column E tracks time invested in warranty management and column F tracks value recovered. Most contractors see 10-20x ROI on warranty tracking time.</p>
 
@@ -23212,11 +23212,11 @@ But here's where most trackers stop. They list the data without connecting it to
 
 Add these calculated columns:
 
-**Cash-on-Cash Return**: \`=(Monthly Rent*12-Property Tax-Insurance-HOA*12-Loan Payment*12)/Down Payment\`
+**Cash-on-Cash Return**: \`=(Monthly Rent&#42;12-Property Tax-Insurance-HOA&#42;12-Loan Payment&#42;12)/Down Payment\`
 
-This formula tells you the actual return on your invested capital. For 123 Oak St: \`=(2100*12-245*12-125*12-1140*12)/57000 = 7.2%\`
+This formula tells you the actual return on your invested capital. For 123 Oak St: \`=(2100&#42;12-245&#42;12-125&#42;12-1140&#42;12)/57000 = 7.2%\`
 
-**Debt Service Coverage Ratio**: \`=(Monthly Rent*12)/(Loan Payment*12)\`
+**Debt Service Coverage Ratio**: \`=(Monthly Rent&#42;12)/(Loan Payment&#42;12)\`
 
 This shows how well rent covers mortgage payments. Anything below 1.2 is risky territory.
 
@@ -23235,12 +23235,12 @@ Use this structure for each property:
 \`\`\`
 Property: 123 Oak St
 Gross Rent: $2,100
-Vacancy (5%): \`=$B2*0.05\` = $105
-Maintenance (8%): \`=$B2*0.08\` = $168  
-Property Mgmt (10%): \`=$B2*0.10\` = $210
+Vacancy (5%): \`=$B2&#42;0.05\` = $105
+Maintenance (8%): \`=$B2&#42;0.08\` = $168  
+Property Mgmt (10%): \`=$B2&#42;0.10\` = $210
 NOI: \`=$B2-$B3-$B4-$B5\` = $1,617
 Mortgage Payment: $1,140
-Capital Reserves (5%): \`=$B2*0.05\` = $105
+Capital Reserves (5%): \`=$B2&#42;0.05\` = $105
 Net Cash Flow: \`=$B6-$B7-$B8\` = $372
 \`\`\`
 
@@ -23282,7 +23282,7 @@ Build decision triggers into your tracker using conditional formatting and alert
 
 **Refinancing Trigger**: \`=IF(Current_Rate<(Original_Rate-0.5),"REFINANCE","HOLD")\`
 
-**Sale Consideration**: \`=IF(AND(Years_Owned>2,Total_ROI<Market_Average*0.8),"CONSIDER SALE","HOLD")\`
+**Sale Consideration**: \`=IF(AND(Years_Owned>2,Total_ROI<Market_Average&#42;0.8),"CONSIDER SALE","HOLD")\`
 
 **Acquisition Alert**: \`=IF(Cash_Available>Down_Payment_Target,"READY TO BUY","ACCUMULATE")\`
 
@@ -23312,7 +23312,7 @@ Use conditional formatting to highlight when any category exceeds your risk tole
 
 Build 12-month cash flow projections using rent growth assumptions:
 
-**Projected Monthly CF**: \`=Current_CF*(1+Annual_Rent_Growth/12)^Month_Number\`
+**Projected Monthly CF**: \`=Current_CF&#42;(1+Annual_Rent_Growth/12)^Month_Number\`
 
 This helps with liquidity planning and investment timing.
 
@@ -23574,7 +23574,7 @@ Column I: Sign-off</p>
 <li>OSHA recordable status</li>
 </ul>
 
-<p>Calculate incident rates automatically: <code>=COUNTA('Incidents'!A:A)*200000/B1</code> where B1 contains total hours worked. This gives you the OSHA Incident Rate for reporting purposes.</p>
+<p>Calculate incident rates automatically: <code>=COUNTA('Incidents'!A:A)&#42;200000/B1</code> where B1 contains total hours worked. This gives you the OSHA Incident Rate for reporting purposes.</p>
 
 <h3>Equipment Inspection Schedule</h3>
 
@@ -23729,7 +23729,7 @@ This formula calculates the monthly principal and interest payment for a standar
 ### Advanced Calculations for Creative Terms
 
 For interest-only periods, modify the calculation:
-\`=IF(A8<=B7,B4*B5/12,PMT(B5/12,B6-B7,B4-B3))\`
+\`=IF(A8<=B7,B4&#42;B5/12,PMT(B5/12,B6-B7,B4-B3))\`
 
 Where:
 - A8 = Payment number
@@ -23796,7 +23796,7 @@ This means you need to refinance or pay $137,404 after 10 years.
 Some sellers agree to interest-only periods to reduce initial payments:
 
 **Year 1-3: Interest Only**
-Monthly payment: \`=B4*B5/12\` = $170,000 × 6% ÷ 12 = $850
+Monthly payment: \`=B4&#42;B5/12\` = $170,000 × 6% ÷ 12 = $850
 
 **Year 4-30: Principal + Interest**
 Remaining term: 27 years
@@ -23811,9 +23811,9 @@ Your Excel calculator becomes a negotiation tool. When a seller proposes terms, 
 "Mr. Smith, at 6.5% over 20 years, my monthly payment is $1,508. If we adjust to 6% over 25 years, my payment drops to $1,357, improving my cash flow by $151 monthly. This extra cushion makes me more likely to close on time and reduces my default risk."
 
 Run scenarios in real-time during negotiations:
-- \`=PMT(B5/12,B6*12,B4-B3)\` for different rates and terms
-- \`=PV(B5/12,B6-60,-PMT(B5/12,B6*12,B4-B3))\` for 5-year balloon amounts
-- \`=(PMT(B5/12,B6*12,B4-B3)*B6*12)+B3-B4\` for total interest over loan life
+- \`=PMT(B5/12,B6&#42;12,B4-B3)\` for different rates and terms
+- \`=PV(B5/12,B6-60,-PMT(B5/12,B6&#42;12,B4-B3))\` for 5-year balloon amounts
+- \`=(PMT(B5/12,B6&#42;12,B4-B3)&#42;B6&#42;12)+B3-B4\` for total interest over loan life
 
 ## Tax Implications and Documentation
 
@@ -23855,7 +23855,7 @@ Your amortization schedule should show:
 ## Advanced Features for Complex Deals
 
 **Graduated Payment Mortgages**: Payments that increase over time
-\`=PMT(B5/12,B6,B4-B3)*(1+B8)^ROUNDDOWN((A10-1)/12,0)\`
+\`=PMT(B5/12,B6,B4-B3)&#42;(1+B8)^ROUNDDOWN((A10-1)/12,0)\`
 
 **Seasonal Payment Adjustments**: Different payments during peak/off seasons
 \`=IF(MOD(A10,12)<=B9,B10,B11)\` where B9, B10, B11 define seasonal parameters
@@ -23934,7 +23934,7 @@ Your Excel system needs to capture time data daily, not weekly. Here's a proven 
 <tr><td>4/1/2026</td><td>Dave Chen</td><td>7:00 AM</td><td>6:00 PM</td><td>0.5</td><td>=((D3-C3)*24)-E3</td></tr>
 </table>
 
-The formula \`=((D2-C2)*24)-E2\` automatically calculates billable hours, including overtime detection. Add this formula in column G for automatic overtime flagging:
+The formula \`=((D2-C2)&#42;24)-E2\` automatically calculates billable hours, including overtime detection. Add this formula in column G for automatic overtime flagging:
 
 \`=IF(F2>8,F2-8,0)\`
 
@@ -23960,14 +23960,14 @@ Equipment billing often gets missed because it's not tracked systematically. Cre
 <tr><td>Generator - 15kW</td><td>4/1/2026</td><td>8.0</td><td>$35.00</td><td>=C3*D3</td><td>=C3*2.25</td></tr>
 </table>
 
-The fuel surcharge formula \`=C2*8.50\` adds realistic fuel costs that are often forgotten in manual billing.
+The fuel surcharge formula \`=C2&#42;8.50\` adds realistic fuel costs that are often forgotten in manual billing.
 
 ## Automated Weekly Billing Summaries
 
 Your Excel system should automatically generate weekly billing summaries that feed directly into invoices. Create a summary sheet that pulls data from your daily tracking:
 
 ### Labor Summary Formula
-\`=SUMIFS(TimeSheet[Total Hours],TimeSheet[Date],">="&WEEKSTART,TimeSheet[Date],"<="&WEEKEND,TimeSheet[Employee],A2)*B2\`
+\`=SUMIFS(TimeSheet[Total Hours],TimeSheet[Date],">="&WEEKSTART,TimeSheet[Date],"<="&WEEKEND,TimeSheet[Employee],A2)&#42;B2\`
 
 This formula totals hours for each employee within the billing week and multiplies by their rate.
 
@@ -24034,7 +24034,7 @@ Use conditional formatting to highlight discrepancies between calculated and ver
 
 Create clear scope definitions for each change order and track work against them:
 
-\`=IF(SUMPRODUCT((TimeSheet[CO Number]=A2)*TimeSheet[Total Hours])>D2,"OVER SCOPE","IN SCOPE")\`
+\`=IF(SUMPRODUCT((TimeSheet[CO Number]=A2)&#42;TimeSheet[Total Hours])>D2,"OVER SCOPE","IN SCOPE")\`
 
 This flags when labor hours exceed change order estimates.
 
@@ -24494,7 +24494,7 @@ Stop burning hours on deals that fail basic math. Screen fast, analyze smart, bu
 
 <p>The formula that saves retention releases:</p>
 
-<p>\`=SUMPRODUCT((ComplianceRange="Complete")*(AmountRange))\`</p>
+<p>\`=SUMPRODUCT((ComplianceRange="Complete")&#42;(AmountRange))\`</p>
 
 <p>This calculates the dollar value of completed compliance items. When this equals your total retention amount, you're ready for release.</p>
 
@@ -24516,7 +24516,7 @@ Stop burning hours on deals that fail basic math. Screen fast, analyze smart, bu
 <td>Paint</td>
 <td>4</td>
 <td>$65</td>
-<td>\`=C2*D2\`</td>
+<td>\`=C2&#42;D2\`</td>
 <td>\`=TODAY()-F2\`</td>
 </tr>
 <tr>
@@ -24524,7 +24524,7 @@ Stop burning hours on deals that fail basic math. Screen fast, analyze smart, bu
 <td>Carpenter</td>
 <td>2</td>
 <td>$85</td>
-<td>\`=C3*D3\`</td>
+<td>\`=C3&#42;D3\`</td>
 <td>\`=TODAY()-F3\`</td>
 </tr>
 <tr>
@@ -24532,12 +24532,12 @@ Stop burning hours on deals that fail basic math. Screen fast, analyze smart, bu
 <td>Electric</td>
 <td>3</td>
 <td>$75</td>
-<td>\`=C4*D4\`</td>
+<td>\`=C4&#42;D4\`</td>
 <td>\`=TODAY()-F4\`</td>
 </tr>
 </table>
 
-<p>The cost column \`=C2*D2\` shows the direct expense. The days open column \`=TODAY()-F2\` shows the opportunity cost. A $260 punch list item that's been open for 12 days has cost you more in project management time than the original work.</p>
+<p>The cost column \`=C2&#42;D2\` shows the direct expense. The days open column \`=TODAY()-F2\` shows the opportunity cost. A $260 punch list item that's been open for 12 days has cost you more in project management time than the original work.</p>
 
 ## Automated Escalation Systems
 
@@ -24620,8 +24620,8 @@ Monthly Profit Split = Total Profit * 0.5
 \`\`\`
 
 Example: $2,400 monthly rental income, $1,800 expenses = $600 profit.
-- Partner A gets: \`=$B$10*0.5\` = $300
-- Partner B gets: \`=$B$10*0.5\` = $300
+- Partner A gets: \`=$B$10&#42;0.5\` = $300
+- Partner B gets: \`=$B$10&#42;0.5\` = $300
 
 | Metric | Partner A | Partner B |
 |--------|-----------|-----------|
@@ -24665,7 +24665,7 @@ Ownership % = Adjusted Investment / Total Adjusted Investment
 Real scenario: Partner A invests $80K cash. Partner B invests $40K cash plus 100 hours at $25/hour.
 
 - Partner A total contribution: $80,000
-- Partner B total contribution: \`=40000+(100*25)\` = $42,500
+- Partner B total contribution: \`=40000+(100&#42;25)\` = $42,500
 - Total contributions: \`=B6+C6\` = $122,500
 - Partner A ownership: \`=B6/D6\` = 65.3%
 - Partner B ownership: \`=C6/D6\` = 34.7%
@@ -24683,8 +24683,8 @@ Required Contribution = Current Ownership % * Total Capital Need
 \`\`\`
 
 Example: $10,000 roof repair needed.
-- Partner A (65.3% owner): \`=10000*0.653\` = $6,530
-- Partner B (34.7% owner): \`=10000*0.347\` = $3,470
+- Partner A (65.3% owner): \`=10000&#42;0.653\` = $6,530
+- Partner B (34.7% owner): \`=10000&#42;0.347\` = $3,470
 
 ### Disproportionate Contributions
 
@@ -24702,7 +24702,7 @@ Interest Owed = Unpaid Amount * Interest Rate * Time
 
 If Partner B can't pay their $3,470 share:
 - Partner A pays full $10,000
-- Partner B owes: \`=3470*1.08*1\` = $3,748 after one year at 8% interest
+- Partner B owes: \`=3470&#42;1.08&#42;1\` = $3,748 after one year at 8% interest
 
 ## Advanced Split Scenarios: Profit Waterfalls and Preferred Returns
 
@@ -24719,10 +24719,10 @@ Split Remaining = Remaining Profit * Ownership %
 \`\`\`
 
 Example with $8,000 annual profit:
-- Partner A preferred: \`=80000*0.08\` = $6,400
+- Partner A preferred: \`=80000&#42;0.08\` = $6,400
 - Remaining profit: \`=8000-6400\` = $1,600
-- Partner A additional: \`=1600*0.653\` = $1,045
-- Partner B gets: \`=1600*0.347\` = $555
+- Partner A additional: \`=1600&#42;0.653\` = $1,045
+- Partner B gets: \`=1600&#42;0.347\` = $555
 
 | Distribution Layer | Partner A | Partner B |
 |-------------------|-----------|-----------|
@@ -24767,13 +24767,13 @@ Example: Property bought for $200K, sold for $280K after two years.
 |-----------|--------|---------|
 | Sale Price | $280,000 | Given |
 | Outstanding Debt | $120,000 | Given |
-| Selling Costs (6%) | $16,800 | \`=B2*0.06\` |
+| Selling Costs (6%) | $16,800 | \`=B2&#42;0.06\` |
 | Net Proceeds | $143,200 | \`=B2-B3-B4\` |
 | Partner A Capital | $80,000 | Given |
 | Partner B Capital | $42,500 | Given |
 | Remaining Profit | $20,700 | \`=B5-B6-B7\` |
-| Partner A Profit Share | $13,517 | \`=B8*0.653\` |
-| Partner B Profit Share | $7,183 | \`=B8*0.347\` |
+| Partner A Profit Share | $13,517 | \`=B8&#42;0.653\` |
+| Partner B Profit Share | $7,183 | \`=B8&#42;0.347\` |
 
 ## Common Partnership Calculator Mistakes That Cost Money
 
@@ -24803,7 +24803,7 @@ A complete real estate partnership calculator needs these core worksheets:
 
 **Tax Planning:** Depreciation tracking, recapture calculations, 1099 preparation.
 
-Link worksheets with formulas like \`='Initial Investment'!B12*'Monthly Ops'!C8\` to ensure data consistency across scenarios.
+Link worksheets with formulas like \`='Initial Investment'!B12&#42;'Monthly Ops'!C8\` to ensure data consistency across scenarios.
 
 ---
 
@@ -24933,13 +24933,13 @@ Stop arguing about money. Start calculating it.`,
 
 <p>In cell G2 (Total Burden %), use this formula to calculate the percentage burden:</p>
 
-<p><code>=C2+D2+F2+(E2/B2)*100</code></p>
+<p><code>=C2+D2+F2+(E2/B2)&#42;100</code></p>
 
 <p>This formula adds your percentage-based costs (payroll tax, workers comp, PTO) plus converts your fixed benefits cost to a percentage of the bare rate.</p>
 
 <p>In cell H2 (Loaded Rate), calculate the final loaded hourly rate:</p>
 
-<p><code>=B2*(1+G2/100)+E2</code></p>
+<p><code>=B2&#42;(1+G2/100)+E2</code></p>
 
 <p>This multiplies your bare rate by (1 + burden percentage) and adds any fixed hourly benefits.</p>
 
@@ -24956,9 +24956,9 @@ Stop arguing about money. Start calculating it.`,
 
 <p>Use these formulas:</p>
 
-<p>Payroll tax dollars: <code>=B2*(C2/100)</code></p>
-<p>Workers comp dollars: <code>=B2*(D2/100)</code></p>
-<p>PTO cost dollars: <code>=B2*(F2/100)</code></p>
+<p>Payroll tax dollars: <code>=B2&#42;(C2/100)</code></p>
+<p>Workers comp dollars: <code>=B2&#42;(D2/100)</code></p>
+<p>PTO cost dollars: <code>=B2&#42;(F2/100)</code></p>
 <p>Total burden dollars: <code>=I2+J2+K2+E2</code></p>
 
 <h2>Real-World Labor Cost Examples</h2>
@@ -25017,7 +25017,7 @@ Stop arguing about money. Start calculating it.`,
 </tbody>
 </table>
 
-<p>Excel formula for this calculation: <code>=32*(1+0.1765+0.085+0.06)+6.25+1.50</code></p>
+<p>Excel formula for this calculation: <code>=32&#42;(1+0.1765+0.085+0.06)+6.25+1.50</code></p>
 
 <h3>Residential Laborer Calculation</h3>
 
@@ -25084,7 +25084,7 @@ Stop arguing about money. Start calculating it.`,
 
 <p>Factor in seasonal work patterns and regional cost variations. If your crews work 46 weeks per year instead of 52, your true hourly burden increases:</p>
 
-<p>Adjusted loaded rate: <code>=H2*(52/46)</code></p>
+<p>Adjusted loaded rate: <code>=H2&#42;(52/46)</code></p>
 
 <p>This accounts for covering annual costs across fewer working hours.</p>
 
@@ -25113,7 +25113,7 @@ Stop arguing about money. Start calculating it.`,
 
 <p>If you regularly work overtime, factor this into your burden calculation. Overtime premium adds 50% to both the base rate and percentage-based burdens:</p>
 
-<p>Overtime loaded rate: <code>=H2*1.5</code></p>
+<p>Overtime loaded rate: <code>=H2&#42;1.5</code></p>
 
 <h3>Ignoring Non-Productive Time</h3>
 
@@ -25275,7 +25275,7 @@ Stop arguing about money. Start calculating it.`,
 
 <p>Every experienced flipper builds buffer time into critical milestones. Your formula should add contingency based on task complexity:</p>
 
-<p>\`=IF(C2<=2,C2*1.1,IF(C2<=5,C2*1.2,C2*1.3))\` adds 10% buffer for simple tasks, 20% for medium complexity, and 30% for complex work like full kitchen renovations.</p>
+<p>\`=IF(C2<=2,C2&#42;1.1,IF(C2<=5,C2&#42;1.2,C2&#42;1.3))\` adds 10% buffer for simple tasks, 20% for medium complexity, and 30% for complex work like full kitchen renovations.</p>
 
 <p>Weather delays, permit issues, and material shortages happen. Your timeline should absorb these without derailing the entire project.</p>
 
@@ -25283,7 +25283,7 @@ Stop arguing about money. Start calculating it.`,
 
 <p>Link your timeline directly to holding costs. If your monthly expenses total $2,400 (mortgage, insurance, utilities, property taxes), each day of delay costs $80.</p>
 
-<p>Add a "Delay Cost" column: \`=IF(TODAY()>D2,(TODAY()-D2)*80,0)\`. This calculates the financial impact of late tasks in real time.</p>
+<p>Add a "Delay Cost" column: \`=IF(TODAY()>D2,(TODAY()-D2)&#42;80,0)\`. This calculates the financial impact of late tasks in real time.</p>
 
 <p>When your flooring contractor asks for an extra week, you see immediately that this delay costs $560 in additional holding costs. Sometimes paying a premium for faster completion saves money overall.</p>
 
@@ -25775,7 +25775,7 @@ A4: Gross Annual Income
 \`\`\`
 
 In cell B4, use this formula to calculate total annual income:
-\`=(B2+B3)*12\`
+\`=(B2+B3)&#42;12\`
 
 This accounts for both rental income and ancillary revenue streams that lenders recognize.
 
@@ -25793,7 +25793,7 @@ A11: Total Annual Expenses
 \`\`\`
 
 In cell B11, calculate total expenses with this formula:
-\`=(B4*B6/100)+(B4*B7/100)+B8+B9+(B2*12*0.05)\`
+\`=(B4&#42;B6/100)+(B4&#42;B7/100)+B8+B9+(B2&#42;12&#42;0.05)\`
 
 This formula handles vacancy as a percentage of gross income, management fees, fixed costs, and a 5% maintenance reserve.
 
@@ -25818,11 +25818,11 @@ A20: Monthly Payment
 A21: Annual Debt Service
 \`\`\`
 
-Calculate loan amount in B17: \`=B15*(1-B16/100)\`
+Calculate loan amount in B17: \`=B15&#42;(1-B16/100)\`
 
-For monthly payment in B20: \`=PMT(B18/12/100,B19*12,-B17)\`
+For monthly payment in B20: \`=PMT(B18/12/100,B19&#42;12,-B17)\`
 
-Annual debt service in B21: \`=B20*12\`
+Annual debt service in B21: \`=B20&#42;12\`
 
 ### DSCR Calculation
 
@@ -25849,12 +25849,12 @@ Let's test this calculator with three common real estate scenarios:
 | Loan Term | 30 years |
 
 **DSCR Calculation:**
-- Gross Annual Income: \`=$1,850*12\` = $22,200
-- Total Expenses: \`=($22,200*0.06)+($22,200*0.08)+$2,220+$1,200+($1,850*12*0.05)\` = $6,865
+- Gross Annual Income: \`=$1,850&#42;12\` = $22,200
+- Total Expenses: \`=($22,200&#42;0.06)+($22,200&#42;0.08)+$2,220+$1,200+($1,850&#42;12&#42;0.05)\` = $6,865
 - Net Operating Income: \`=$22,200-$6,865\` = $15,335
-- Loan Amount: \`=$185,000*0.75\` = $138,750
+- Loan Amount: \`=$185,000&#42;0.75\` = $138,750
 - Monthly Payment: \`=PMT(7.5%/12,360,-138750)\` = $970
-- Annual Debt Service: \`=$970*12\` = $11,640
+- Annual Debt Service: \`=$970&#42;12\` = $11,640
 - **DSCR: \`=$15,335/$11,640\` = 1.32**
 
 This property passes the 1.25 minimum threshold.
@@ -25933,8 +25933,8 @@ Formula fix: Always calculate NOI first with \`=GrossIncome-TotalExpenses\`
 
 Some investors only include interest in their debt service calculation. Lenders include both principal and interest.
 
-Wrong formula: \`=LoanAmount*(InterestRate/12)\`
-Right formula: \`=PMT(InterestRate/12,LoanTerm*12,-LoanAmount)\`
+Wrong formula: \`=LoanAmount&#42;(InterestRate/12)\`
+Right formula: \`=PMT(InterestRate/12,LoanTerm&#42;12,-LoanAmount)\`
 
 ### Ignoring Vacancy and Maintenance
 
@@ -26111,7 +26111,7 @@ Buy-and-hold investors need additional columns for cash flow analysis:
 BRRRR investors add refinance tracking columns:
 - **Rehab Budget vs Actual**: \`=Rehab_Actual-Rehab_Budget\`
 - **Post-Rehab Value**: Market value after improvements
-- **Refinance Amount**: \`=Post_Rehab_Value*0.75\` (assuming 75% LTV)
+- **Refinance Amount**: \`=Post_Rehab_Value&#42;0.75\` (assuming 75% LTV)
 - **Capital Recovery**: \`=Refinance_Amount-Total_Investment\`
 
 ## Pipeline Performance Metrics
@@ -26200,7 +26200,7 @@ Start with a comprehensive equipment database. Create columns for:
 </ul>
 
 For depreciation tracking, use this formula in your Current Book Value column:
-\`=PurchasePrice*(1-AnnualDepreciationRate)^YEARFRAC(PurchaseDate,TODAY())\`
+\`=PurchasePrice&#42;(1-AnnualDepreciationRate)^YEARFRAC(PurchaseDate,TODAY())\`
 
 This calculates declining balance depreciation, giving you real-time asset values for financial reporting and insurance purposes.
 
@@ -26344,7 +26344,7 @@ Year 5: 11.52% depreciation
 Year 6: 5.76% depreciation
 
 Create a depreciation calculator:
-\`=PurchasePrice*VLOOKUP(YEAR(TODAY())-YEAR(PurchaseDate)+1,MacrsTable,2,FALSE)\`
+\`=PurchasePrice&#42;VLOOKUP(YEAR(TODAY())-YEAR(PurchaseDate)+1,MacrsTable,2,FALSE)\`
 
 This formula automatically calculates annual depreciation based on the asset's age and MACRS schedules.
 
@@ -26364,10 +26364,10 @@ For <strong>equipment rental tracking</strong>, separate tabs help manage extern
 </ul>
 
 Calculate rental costs in real-time:
-\`=IF(ISBLANK(ActualReturnDate),(TODAY()-RentalStartDate)*DailyRate,(ActualReturnDate-RentalStartDate)*DailyRate)\`
+\`=IF(ISBLANK(ActualReturnDate),(TODAY()-RentalStartDate)&#42;DailyRate,(ActualReturnDate-RentalStartDate)&#42;DailyRate)\`
 
 Add late return penalties:
-\`=IF(ActualReturnDate>PlannedReturnDate,(ActualReturnDate-PlannedReturnDate)*LateReturnRate,0)\`
+\`=IF(ActualReturnDate>PlannedReturnDate,(ActualReturnDate-PlannedReturnDate)&#42;LateReturnRate,0)\`
 
 Set up automatic alerts for upcoming return dates:
 \`=IF(PlannedReturnDate-TODAY()<=3,"RETURN SOON","")\`
@@ -26502,7 +26502,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 
 <h3>The Bidding Race to the Bottom</h3>
 
-<p>Commercial contractors face intense competition where the lowest bid often wins. Without understanding their true minimum viable margin, contractors slash prices to win work, only to discover they're operating at a loss. The calculation \`=((Revenue - Total_Costs) / Revenue) * 100\` reveals the harsh reality when margins drop below breakeven.</p>
+<p>Commercial contractors face intense competition where the lowest bid often wins. Without understanding their true minimum viable margin, contractors slash prices to win work, only to discover they're operating at a loss. The calculation \`=((Revenue - Total_Costs) / Revenue) &#42; 100\` reveals the harsh reality when margins drop below breakeven.</p>
 
 ## Building Your Contractor Profit Margin Calculator
 
@@ -26513,10 +26513,10 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <p>Your calculator should include these core formulas:</p>
 
 <p><strong>Gross Profit Margin:</strong><br>
-\`=((Total_Revenue - Direct_Costs) / Total_Revenue) * 100\`</p>
+\`=((Total_Revenue - Direct_Costs) / Total_Revenue) &#42; 100\`</p>
 
 <p><strong>Net Profit Margin:</strong><br>
-\`=((Total_Revenue - Total_Costs) / Total_Revenue) * 100\`</p>
+\`=((Total_Revenue - Total_Costs) / Total_Revenue) &#42; 100\`</p>
 
 <p><strong>Markup Calculation:</strong><br>
 \`=(Total_Costs / (1 - Desired_Profit_Margin)) - Total_Costs\`</p>
@@ -26531,10 +26531,10 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <table>
 <tr><th>Cost Category</th><th>Examples</th><th>Calculation Method</th></tr>
 <tr><td>Direct Materials</td><td>Lumber, concrete, fixtures</td><td>Vendor quotes + 5-10% waste factor</td></tr>
-<tr><td>Direct Labor</td><td>Carpenter hours, electrician time</td><td>\`=Hours * Rate * (1 + Burden_Rate)\`</td></tr>
+<tr><td>Direct Labor</td><td>Carpenter hours, electrician time</td><td>\`=Hours &#42; Rate &#42; (1 + Burden_Rate)\`</td></tr>
 <tr><td>Equipment Costs</td><td>Excavator rental, tool depreciation</td><td>Daily/weekly rates + transport</td></tr>
 <tr><td>Subcontractor Costs</td><td>Plumbing, HVAC, roofing</td><td>Fixed bids + change order buffer</td></tr>
-<tr><td>Overhead Allocation</td><td>Office rent, insurance, utilities</td><td>\`=Annual_Overhead / Annual_Revenue * Project_Revenue\`</td></tr>
+<tr><td>Overhead Allocation</td><td>Office rent, insurance, utilities</td><td>\`=Annual_Overhead / Annual_Revenue &#42; Project_Revenue\`</td></tr>
 <tr><td>Contingency</td><td>Weather delays, material price increases</td><td>5-15% of direct costs</td></tr>
 </table>
 
@@ -26553,7 +26553,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <li>Target profit: $60,000 (15%)</li>
 </ul>
 
-<p>The formula \`=(400000 - 340000) / 400000 * 100\` confirms a 15% net margin, which provides adequate buffer for typical residential construction risks.</p>
+<p>The formula \`=(400000 - 340000) / 400000 &#42; 100\` confirms a 15% net margin, which provides adequate buffer for typical residential construction risks.</p>
 
 <h3>Commercial Renovation Projects</h3>
 
@@ -26588,7 +26588,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <p>Implement risk scoring that adjusts your base margin requirements:</p>
 
 <p><strong>Risk Multiplier Formula:</strong><br>
-\`=Base_Margin * (1 + (Risk_Score / 100))\`</p>
+\`=Base_Margin &#42; (1 + (Risk_Score / 100))\`</p>
 
 <p>Where Risk_Score considers factors like:</p>
 
@@ -26614,7 +26614,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <p>Include formulas that adjust pricing based on your current workload:</p>
 
 <p><strong>Capacity Adjustment:</strong><br>
-\`=Base_Price * (1 + ((Current_Utilization - Target_Utilization) / 100))\`</p>
+\`=Base_Price &#42; (1 + ((Current_Utilization - Target_Utilization) / 100))\`</p>
 
 <p>When you're at 90% capacity, you can afford to bid higher. When utilization drops to 60%, you might accept lower margins to maintain cash flow.</p>
 
@@ -26635,7 +26635,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <li>Total burden: $35-43/hour</li>
 </ul>
 
-<p>The formula \`=Base_Wage * (1 + Total_Burden_Percentage)\` ensures you capture all labor-related costs.</p>
+<p>The formula \`=Base_Wage &#42; (1 + Total_Burden_Percentage)\` ensures you capture all labor-related costs.</p>
 
 <h3>Inadequate Overhead Allocation</h3>
 
@@ -26644,7 +26644,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <p><strong>Overhead Rate:</strong><br>
 \`=Annual_Overhead_Costs / Annual_Direct_Labor_Costs\`</p>
 
-<p>Apply this rate to every project: \`=Direct_Labor_Cost * Overhead_Rate\`</p>
+<p>Apply this rate to every project: \`=Direct_Labor_Cost &#42; Overhead_Rate\`</p>
 
 <h3>Static Margin Requirements</h3>
 
@@ -26679,7 +26679,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 <p>Your contractor profit margin calculator needs regular calibration based on actual project outcomes. Monthly reviews should compare:</p>
 
 <p><strong>Estimate vs. Actual Variance:</strong><br>
-\`=((Actual_Cost - Estimated_Cost) / Estimated_Cost) * 100\`</p>
+\`=((Actual_Cost - Estimated_Cost) / Estimated_Cost) &#42; 100\`</p>
 
 <p>Consistent variances above 10% indicate the need for calculator adjustments.</p>
 
@@ -26800,7 +26800,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 </tbody>
 </table>
 
-<p>The Excel formula for Gross Revenue in cell F2 is: <code>=D2*E2*B2</code> where D2 is Available Nights, E2 is Booked Nights (calculated as <code>=D2*C2</code>), and B2 is your ADR.</p>
+<p>The Excel formula for Gross Revenue in cell F2 is: <code>=D2&#42;E2&#42;B2</code> where D2 is Available Nights, E2 is Booked Nights (calculated as <code>=D2&#42;C2</code>), and B2 is your ADR.</p>
 
 <p>Advanced calculators include platform-specific fee deductions. If Airbnb charges 3% host fees and VRBO charges 5%, your net revenue formulas need to account for booking source distribution.</p>
 
@@ -26864,7 +26864,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 </tbody>
 </table>
 
-<p>Your Excel formula for total monthly expenses in cell D7 should be: <code>=B7+(C7*BookingsThisMonth)</code> where BookingsThisMonth references your occupancy calculation from the revenue table.</p>
+<p>Your Excel formula for total monthly expenses in cell D7 should be: <code>=B7+(C7&#42;BookingsThisMonth)</code> where BookingsThisMonth references your occupancy calculation from the revenue table.</p>
 
 <p>Smart investors track expense ratios month-over-month. If cleaning costs exceed 15% of gross revenue, you need higher ADR or more efficient cleaning protocols. If maintenance exceeds 6%, you're either undercharging or facing property condition issues.</p>
 
@@ -26902,7 +26902,7 @@ Optimistic Annual Net Income = (Average Monthly Revenue * 1.15 * 12) - Total Ann
 
 <p><strong>Cap Rate:</strong> <code>=Net_Operating_Income / Property_Purchase_Price</code></p>
 
-<p><strong>Break-Even Occupancy Rate:</strong> <code>=Total_Annual_Expenses / (Average_Daily_Rate * 365)</code></p>
+<p><strong>Break-Even Occupancy Rate:</strong> <code>=Total_Annual_Expenses / (Average_Daily_Rate &#42; 365)</code></p>
 
 <p>Example calculation for a $350,000 lake house with $70,000 down payment:</p>
 
@@ -27042,7 +27042,7 @@ An effective construction retainage tracking spreadsheet monitors five critical 
 | Release Date | 45 days post-completion | When money becomes collectible |
 | Collection Status | Submitted/Pending/Paid | Current stage in collection process |
 
-The spreadsheet uses formulas to calculate retention automatically. For each progress payment, use: \`=PaymentAmount*RetentionRate\`. Running retention balance becomes: \`=SUM(PreviousRetention)+CurrentRetention-ReleasedAmounts\`.
+The spreadsheet uses formulas to calculate retention automatically. For each progress payment, use: \`=PaymentAmount&#42;RetentionRate\`. Running retention balance becomes: \`=SUM(PreviousRetention)+CurrentRetention-ReleasedAmounts\`.
 
 ## Building Your Retainage Calculation System
 
@@ -27050,7 +27050,7 @@ Start with a master project list that links to individual project tracking sheet
 
 Each project sheet needs these calculated columns:
 
-**Monthly Retention:** \`=IF(PaymentAmount>0,PaymentAmount*RetentionPercent,0)\`
+**Monthly Retention:** \`=IF(PaymentAmount>0,PaymentAmount&#42;RetentionPercent,0)\`
 
 **Cumulative Retention:** \`=SUM($E$2:E2)\` (where E2 is your first retention amount)
 
@@ -27071,7 +27071,7 @@ Different projects have different retention release terms. Some release half at 
 | Split Release | Final completion + 30 days | 50% ($10,500) | $300,000 @ 7% |
 | Progressive Release | 90% completion | 25% ($5,250) | $300,000 @ 7% |
 
-Use conditional logic to handle multiple release points: \`=IF(CompletionDate>0,IF(TODAY()>CompletionDate+ReleaseDays,RetentionBalance*ReleasePercent,0),0)\`.
+Use conditional logic to handle multiple release points: \`=IF(CompletionDate>0,IF(TODAY()>CompletionDate+ReleaseDays,RetentionBalance&#42;ReleasePercent,0),0)\`.
 
 For split releases, create separate rows for each release event with formulas that reference the appropriate trigger dates and percentages.
 
@@ -27083,7 +27083,7 @@ The most valuable feature of a retainage tracking spreadsheet is automated colle
 **Submitted Pending:** Claims submitted but not yet paid, with days outstanding
 **Overdue Collections:** Claims past their payment terms that need immediate attention
 
-Use this formula to calculate collection priority scores: \`=DaysPastDue*RetentionAmount/1000\`. This weights larger amounts and longer delays, helping you focus collection efforts where they'll have the biggest cash flow impact.
+Use this formula to calculate collection priority scores: \`=DaysPastDue&#42;RetentionAmount/1000\`. This weights larger amounts and longer delays, helping you focus collection efforts where they'll have the biggest cash flow impact.
 
 Set up conditional formatting to highlight overdue items in red and ready-to-submit items in yellow. This visual system makes it impossible to miss collection opportunities.
 
@@ -27134,10 +27134,10 @@ Start with these key formulas in Excel:
 Cell B5: \`=B2-B3\` (Sale Price minus Adjusted Basis)
 
 **Depreciation Recapture:**
-Cell B6: \`=MIN(B4,B5)*0.25\` (Lesser of depreciation taken or gain, times 25%)
+Cell B6: \`=MIN(B4,B5)&#42;0.25\` (Lesser of depreciation taken or gain, times 25%)
 
 **Capital Gains Tax:**
-Cell B7: \`=MAX(0,B5-B4)*0.15\` (Gain minus depreciation, times 15%)
+Cell B7: \`=MAX(0,B5-B4)&#42;0.15\` (Gain minus depreciation, times 15%)
 
 **Total Tax Without Exchange:**
 Cell B8: \`=B6+B7\`
@@ -27171,8 +27171,8 @@ Let's work through Maria's actual 1031 exchange. She's selling a fourplex in Aus
 Her Excel calculator shows:
 
 **Tax Calculation Without 1031:**
-- Depreciation Recapture: \`=MIN(75000,325000)*0.25 = $18,750\`
-- Capital Gains Tax: \`=MAX(0,325000-75000)*0.15 = $37,500\`
+- Depreciation Recapture: \`=MIN(75000,325000)&#42;0.25 = $18,750\`
+- Capital Gains Tax: \`=MAX(0,325000-75000)&#42;0.15 = $37,500\`
 - **Total Tax Due: $56,250**
 
 **1031 Exchange Requirements:**
@@ -27205,7 +27205,7 @@ When using financing on replacement properties, track debt requirements:
 
 Original Property Debt: $300,000
 Replacement Property Value: $750,000
-New Debt Needed: \`=MAX(300000, 750000*0.8)\` = $600,000
+New Debt Needed: \`=MAX(300000, 750000&#42;0.8)\` = $600,000
 Cash Required: \`=750000-600000\` = $150,000
 
 ## Timeline Management: Where Most Exchanges Fail
@@ -27341,7 +27341,7 @@ Create cost categories:
 - **Delay costs**: Daily overhead burn rate for affected activities
 - **Acceleration costs**: Overtime or additional resources needed to recover schedule
 
-For delay cost calculations, use: \`=IF(E2="Critical",F2*500,IF(E2="High",F2*200,0))\`. This assumes critical path delays cost $500/day and high-priority delays cost $200/day in extended overhead. Adjust these rates based on your project economics.
+For delay cost calculations, use: \`=IF(E2="Critical",F2&#42;500,IF(E2="High",F2&#42;200,0))\`. This assumes critical path delays cost $500/day and high-priority delays cost $200/day in extended overhead. Adjust these rates based on your project economics.
 
 Sum total exposure with: \`=SUMIF(G:G,"Pending",J:J)\` where column J contains your cost impact calculations. This shows current financial exposure from open RFIs.
 
@@ -27487,7 +27487,7 @@ Total Hours: =SUM(Labor_Hours_Range)
 Productivity Score: =Units_Completed/Target_Units
 \`\`\`
 
-**Productivity Score Formula**: \`=C15/D15*100\` gives you a percentage. Anything below 85% needs investigation.
+**Productivity Score Formula**: \`=C15/D15&#42;100\` gives you a percentage. Anything below 85% needs investigation.
 
 ### Labor Tracking Section
 
@@ -27560,14 +27560,14 @@ This prevents typos that make data analysis impossible later.
 
 Set up conditional formatting to highlight problems automatically:
 
-**Red Flag Formula**: \`=OR(C40<B40*0.85,D40>B40*1.15)\`
+**Red Flag Formula**: \`=OR(C40<B40&#42;0.85,D40>B40&#42;1.15)\`
 
 This highlights tasks that are more than 15% behind schedule or over budget.
 
 ### Material Waste Tracking
 
 Track material efficiency with this formula:
-\`=((Materials_Ordered-Materials_Used)/Materials_Ordered)*100\`
+\`=((Materials_Ordered-Materials_Used)/Materials_Ordered)&#42;100\`
 
 Industry standard waste is 2-5%. Anything above 8% indicates problems.
 
@@ -27678,7 +27678,7 @@ Your Excel analysis needs to nail these four metrics:
 ### 1. Actual Net Operating Income (NOI)
 
 Start with realistic gross income:
-\`=Monthly_Rent*12*(1-Vacancy_Rate)\`
+\`=Monthly_Rent&#42;12&#42;(1-Vacancy_Rate)\`
 
 Then subtract every real expense:
 - Property taxes (get exact amounts from tax records)
@@ -27691,22 +27691,22 @@ Then subtract every real expense:
 
 ### 2. Cap Rate (Purchase vs Market)
 
-\`=(Net_Operating_Income/Purchase_Price)*100\`
+\`=(Net_Operating_Income/Purchase_Price)&#42;100\`
 
 But also calculate what cap rate you'd need to break even:
-\`=(Your_NOI_Calculation/Purchase_Price)*100\`
+\`=(Your_NOI_Calculation/Purchase_Price)&#42;100\`
 
 If your calculated cap rate is 2+ points below market cap rates for similar properties, walk away.
 
 ### 3. Cash-on-Cash Return
 
-\`=(Annual_Cash_Flow/Total_Cash_Invested)*100\`
+\`=(Annual_Cash_Flow/Total_Cash_Invested)&#42;100\`
 
 This shows your actual return on the cash you put in. Include everything: down payment, closing costs, immediate repairs, and initial capital reserves.
 
 ### 4. Debt Coverage Ratio
 
-\`=Net_Operating_Income/(Annual_Debt_Service*12)\`
+\`=Net_Operating_Income/(Annual_Debt_Service&#42;12)\`
 
 Lenders want this above 1.2. Below 1.0 means the property can't cover its own mortgage.
 
@@ -27809,7 +27809,7 @@ If your rental property analysis shows expenses below these minimums, dig deeper
 
 ### Cash Flow Red Flags
 
-\`=IF(Cash_Flow<Purchase_Price*0.02,"INVESTIGATE","OK")\`
+\`=IF(Cash_Flow<Purchase_Price&#42;0.02,"INVESTIGATE","OK")\`
 
 If monthly cash flow is less than 2% of purchase price annually, you're buying at full retail prices.
 
@@ -27882,7 +27882,7 @@ Use CSI MasterFormat divisions (01-49) for consistency. This makes change orders
 Be specific enough to measure but broad enough to avoid 100+ line items. "Concrete foundations and slab-on-grade" works better than just "concrete."
 
 **Column C: Scheduled Value Formula**
-\`=ROUND(C2*$B$50,0)\` where B50 contains your total contract amount. This automatically calculates each line item as a percentage of total contract value.
+\`=ROUND(C2&#42;$B$50,0)\` where B50 contains your total contract amount. This automatically calculates each line item as a percentage of total contract value.
 
 **Column D: Previous Amount Complete**
 \`=E2\` from the previous month's application. This creates your running total.
@@ -27916,8 +27916,8 @@ Completion Percentage: \`=SUM(F:F)/SUM(C:C)\`
 
 **Retainage Calculation**
 Most projects hold 5-10% retainage. Add this formula:
-\`=SUM(F:F)*0.05\` for 5% retainage
-Net Payment This Period: \`=(SUM(E:E))-(SUM(E:E)*0.05)\`
+\`=SUM(F:F)&#42;0.05\` for 5% retainage
+Net Payment This Period: \`=(SUM(E:E))-(SUM(E:E)&#42;0.05)\`
 
 ## Real-World SOV Example: $650,000 Office Building
 
@@ -28058,7 +28058,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>Then your buyer runs the numbers properly. Using the 70% rule:</p>
 
-<p><code>=230000*0.70-35000-10000</code></p>
+<p><code>=230000&#42;0.70-35000-10000</code></p>
 
 <p>That's $116,000. Your contract is $39,000 over MAO. No serious flipper is buying that deal. You just wasted two weeks, burned a seller relationship, and your buyer list gets a little shorter.</p>
 
@@ -28086,11 +28086,11 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>The standard formula uses the 70% rule:</p>
 
-<p><code>=ARV * 0.70 - Repair Costs - Assignment Fee</code></p>
+<p><code>=ARV &#42; 0.70 - Repair Costs - Assignment Fee</code></p>
 
 <p>In Excel terms, if ARV is in B3, repairs in B4, and your desired assignment fee in B5:</p>
 
-<p><code>=B3*0.70-B4-B5</code></p>
+<p><code>=B3&#42;0.70-B4-B5</code></p>
 
 <p>The 70% factor exists because your end buyer (the flipper) needs roughly 30% of ARV to cover holding costs, closing costs on both ends, financing, and profit. Some experienced flippers work at 75%. Some conservative buyers want 65%. But 70% is the industry standard starting point.</p>
 
@@ -28106,15 +28106,15 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>In hot markets where flippers accept thinner margins, you might adjust to 75%:</p>
 
-<p><code>=B3*0.75-B4-B5</code></p>
+<p><code>=B3&#42;0.75-B4-B5</code></p>
 
 <p>In slow or rural markets where properties sit longer, drop to 65%:</p>
 
-<p><code>=B3*0.65-B4-B5</code></p>
+<p><code>=B3&#42;0.65-B4-B5</code></p>
 
 <p>Your spreadsheet should let you toggle this percentage. Put it in its own cell (B2) and reference it:</p>
 
-<p><code>=B3*B2-B4-B5</code></p>
+<p><code>=B3&#42;B2-B4-B5</code></p>
 
 <p>Now you can run the same deal at 65%, 70%, and 75% in seconds.</p>
 
@@ -28133,7 +28133,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 <tr><td>B4</td><td>Estimated Repairs</td><td>$32,000</td></tr>
 <tr><td>B5</td><td>Assignment Fee</td><td>$10,000</td></tr>
 <tr><td>B6</td><td>Closing Costs (est.)</td><td>$4,500</td></tr>
-<tr><td>B7</td><td>MAO</td><td><code>=B3*B2-B4-B5-B6</code></td></tr>
+<tr><td>B7</td><td>MAO</td><td><code>=B3&#42;B2-B4-B5-B6</code></td></tr>
 <tr><td>B8</td><td>Seller Asking Price</td><td>$110,000</td></tr>
 <tr><td>B9</td><td>Deal Verdict</td><td><code>=IF(B8&lt;=B7,"DEAL","PASS")</code></td></tr>
 <tr><td>B10</td><td>Spread (MAO - Ask)</td><td><code>=B7-B8</code></td></tr>
@@ -28161,7 +28161,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 <li>B6: $4,000 (estimated closing costs)</li>
 </ul>
 
-<p>MAO formula: <code>=198000*0.70-22000-8000-4000</code></p>
+<p>MAO formula: <code>=198000&#42;0.70-22000-8000-4000</code></p>
 
 <p>Result: <strong>$104,600</strong></p>
 
@@ -28171,7 +28171,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>You know your ceiling is $104,600. You could offer $100,000 to leave yourself a cushion. If the seller counters at $108,000, you can re-run the numbers with a reduced assignment fee:</p>
 
-<p><code>=198000*0.70-22000-5000-4000</code> = $107,600</p>
+<p><code>=198000&#42;0.70-22000-5000-4000</code> = $107,600</p>
 
 <p>At a $5,000 fee instead of $8,000, the deal works at $107,600. The seller at $108,000 is close enough to negotiate. You might split the difference at $105,000, keep your $5,000 fee, and close.</p>
 
@@ -28193,7 +28193,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>A $5,000 fee on a deal that closes beats a $12,000 fee on a deal that doesn't. Use your spreadsheet to test different fee levels:</p>
 
-<p><code>=B3*B2-B4-5000-B6</code> vs. <code>=B3*B2-B4-12000-B6</code></p>
+<p><code>=B3&#42;B2-B4-5000-B6</code> vs. <code>=B3&#42;B2-B4-12000-B6</code></p>
 
 <p>The difference in MAO is $7,000. That's often the gap between "PASS" and "DEAL."</p>
 
@@ -28282,7 +28282,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>This is where the punch list becomes a financial tool. Set up the following:</p>
 
-<table><thead><tr><th>Cell</th><th>Label</th><th>Formula</th><th>Example Output</th></tr></thead><tbody><tr><td>B2</td><td>Total Contract Value</td><td>(manual input)</td><td>$420,000</td></tr><tr><td>B3</td><td>Retainage %</td><td>(manual input)</td><td>5%</td></tr><tr><td>B4</td><td>Total Retainage Held</td><td><code>=B2*B3</code></td><td>$21,000</td></tr><tr><td>B6</td><td>Total Punch Items</td><td><code>=COUNTA('Punch List'!A2:A500)</code></td><td>47</td></tr><tr><td>B7</td><td>Items Complete</td><td><code>=COUNTIF('Punch List'!I2:I500,"Complete")</code></td><td>29</td></tr><tr><td>B8</td><td>Items Verified</td><td><code>=COUNTIF('Punch List'!I2:I500,"Verified")</code></td><td>22</td></tr><tr><td>B9</td><td>Items Still Open</td><td><code>=COUNTIFS('Punch List'!I2:I500,"&lt;&gt;Complete",'Punch List'!I2:I500,"&lt;&gt;Verified")</code></td><td>18</td></tr><tr><td>B10</td><td>% Complete</td><td><code>=(B7+B8)/B6</code></td><td>70%</td></tr><tr><td>B12</td><td>Est. Retainage per Item</td><td><code>=B4/B6</code></td><td>$447</td></tr><tr><td>B13</td><td>Retainage at Risk (Open Items)</td><td><code>=B12*B9</code></td><td>$8,043</td></tr></tbody></table>
+<table><thead><tr><th>Cell</th><th>Label</th><th>Formula</th><th>Example Output</th></tr></thead><tbody><tr><td>B2</td><td>Total Contract Value</td><td>(manual input)</td><td>$420,000</td></tr><tr><td>B3</td><td>Retainage %</td><td>(manual input)</td><td>5%</td></tr><tr><td>B4</td><td>Total Retainage Held</td><td><code>=B2&#42;B3</code></td><td>$21,000</td></tr><tr><td>B6</td><td>Total Punch Items</td><td><code>=COUNTA('Punch List'!A2:A500)</code></td><td>47</td></tr><tr><td>B7</td><td>Items Complete</td><td><code>=COUNTIF('Punch List'!I2:I500,"Complete")</code></td><td>29</td></tr><tr><td>B8</td><td>Items Verified</td><td><code>=COUNTIF('Punch List'!I2:I500,"Verified")</code></td><td>22</td></tr><tr><td>B9</td><td>Items Still Open</td><td><code>=COUNTIFS('Punch List'!I2:I500,"&lt;&gt;Complete",'Punch List'!I2:I500,"&lt;&gt;Verified")</code></td><td>18</td></tr><tr><td>B10</td><td>% Complete</td><td><code>=(B7+B8)/B6</code></td><td>70%</td></tr><tr><td>B12</td><td>Est. Retainage per Item</td><td><code>=B4/B6</code></td><td>$447</td></tr><tr><td>B13</td><td>Retainage at Risk (Open Items)</td><td><code>=B12&#42;B9</code></td><td>$8,043</td></tr></tbody></table>
 
 <p>That last number, Retainage at Risk, is the one you put in front of your project manager every Monday. It translates "18 open items" into "$8,043 you are not getting paid." Different conversation entirely.</p>
 
@@ -28298,7 +28298,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>The formula for Est. Retainage Held per trade:</p>
 
-<p><code>=COUNTIFS('Punch List'!D2:D500,"Electrical",'Punch List'!I2:I500,"Open")*$B$12</code></p>
+<p><code>=COUNTIFS('Punch List'!D2:D500,"Electrical",'Punch List'!I2:I500,"Open")&#42;$B$12</code></p>
 
 <h2>Running the Punch List Process</h2>
 
@@ -28458,7 +28458,7 @@ Set up your inputs (use yellow highlighting for input cells):
 Now the calculations:
 
 **Monthly hard money interest:**
-\`=B4*(B5/12)\`
+\`=B4&#42;(B5/12)\`
 
 On $228,000 at 11%, that is $2,090 per month in interest-only payments.
 
@@ -28495,7 +28495,7 @@ Now we are going to see what happens as the timeline stretches. Create a table:
 | 7 | $21,455 | -$21,455 |
 
 Formula for Cumulative column:
-\`=Months*Total_Monthly\`
+\`=Months&#42;Total_Monthly\`
 
 Now add a chart. Visualize the slope. It is relentless.
 
@@ -28513,7 +28513,7 @@ This is the tool you use when your contractor says, "We need two more weeks."
 | **Total Potential Delays** | **57 days** | **$5,814** |
 
 Formula:
-\`=Days_Delayed*Daily_Holding_Cost\`
+\`=Days_Delayed&#42;Daily_Holding_Cost\`
 
 This sheet makes the invisible visible. When your electrician says he cannot start for three weeks, you now know that delay costs you $2,142, not just inconvenience.
 
@@ -28897,7 +28897,7 @@ SheetCraft's [Construction Budget Tracker](/products/construction-budget-tracker
 
 2. **Organize by CSI MasterFormat.** It maps directly to subcontractor scopes, purchase orders, and cost codes, not just for the estimate, but for the entire project lifecycle.
 
-3. **Always apply waste factors using CEILING.** The formula \`=CEILING(E2*(1+F2),1)\` ensures you order enough without over-ordering, based on industry-standard waste percentages by material type.
+3. **Always apply waste factors using CEILING.** The formula \`=CEILING(E2&#42;(1+F2),1)\` ensures you order enough without over-ordering, based on industry-standard waste percentages by material type.
 
 4. **Build a quantity calculation sheet, not just a number list.** Trace every quantity directly to plan dimensions, wall by wall, opening by opening. This is your audit trail for bid disputes and change orders.
 
@@ -29866,7 +29866,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 <tr><td>B</td><td>Description</td><td>Work category name</td></tr>
 <tr><td>C</td><td>Budget</td><td>Original budget amount</td></tr>
 <tr><td>D</td><td>Percent Complete</td><td>Current completion percentage</td></tr>
-<tr><td>E</td><td>Earned Value</td><td><code>=C2*D2</code></td></tr>
+<tr><td>E</td><td>Earned Value</td><td><code>=C2&#42;D2</code></td></tr>
 <tr><td>F</td><td>Actual Cost</td><td>Costs incurred to date</td></tr>
 <tr><td>G</td><td>Planned Value</td><td>Budget planned for current date</td></tr>
 <tr><td>H</td><td>Cost Variance</td><td><code>=E2-F2</code></td></tr>
@@ -29913,7 +29913,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 <p><code>=Actual_Cost+(Budget_at_Completion-Earned_Value)</code></p>
 
 <p>Method 3: If both cost and schedule performance affect future work</p>
-<p><code>=Actual_Cost+((Budget_at_Completion-Earned_Value)/(CPI*SPI))</code></p>
+<p><code>=Actual_Cost+((Budget_at_Completion-Earned_Value)/(CPI&#42;SPI))</code></p>
 
 <p>Most construction projects use Method 1 or Method 3. Method 2 assumes problems were one-time events, which is rarely true.</p>
 
@@ -29948,7 +29948,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 <p>The best variance analysis systems alert you to problems automatically. Add these conditional formatting rules to your dashboard:</p>
 
 <p><strong>Critical Variance Alert:</strong></p>
-<p><code>=AND(ABS(CV)>Budget*0.05,CV<0)</code></p>
+<p><code>=AND(ABS(CV)>Budget&#42;0.05,CV<0)</code></p>
 <p>Flags any line item more than 5% over budget.</p>
 
 <p><strong>CPI Trend Alert:</strong></p>
@@ -30068,12 +30068,12 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 </table>
 
 <p><strong>Standard Monthly Payment Formula:</strong></p>
-<p><code>=PMT(Interest_Rate/12, Loan_Term*12, -Loan_Amount)</code></p>
+<p><code>=PMT(Interest_Rate/12, Loan_Term&#42;12, -Loan_Amount)</code></p>
 
 <p>For the example above: <code>=PMT(0.065/12, 360, -187500)</code> = $1,185.71</p>
 
 <p><strong>Calculate Total Interest Over Loan Life:</strong></p>
-<p><code>=(B7*B4*12)-B2</code></p>
+<p><code>=(B7&#42;B4&#42;12)-B2</code></p>
 
 <p>This shows the total interest paid if you make minimum payments only: $239,356 on a $187,500 loan. The calculator makes this visible, not hidden.</p>
 
@@ -30094,7 +30094,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p><strong>Key Formulas:</strong></p>
 
-<p>Interest for the month: <code>=Previous_Balance*(Interest_Rate/12)</code></p>
+<p>Interest for the month: <code>=Previous_Balance&#42;(Interest_Rate/12)</code></p>
 
 <p>Principal portion: <code>=Monthly_Payment-Interest</code></p>
 
@@ -30275,7 +30275,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p>Some loans (especially commercial and portfolio loans) have prepayment penalties. Your calculator should include a penalty calculation:</p>
 
-<p><code>=IF(Payoff_Year<Penalty_Period, Current_Balance*Penalty_Percentage, 0)</code></p>
+<p><code>=IF(Payoff_Year<Penalty_Period, Current_Balance&#42;Penalty_Percentage, 0)</code></p>
 
 <p>A 3% penalty on a $150,000 payoff = $4,500. This may change your strategy.</p>
 
