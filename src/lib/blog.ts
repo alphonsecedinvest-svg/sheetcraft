@@ -16,6 +16,210 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-temporary-utilities-cost-tracker-excel',
+    title: 'Construction Jobsite Temporary Utilities Cost Tracker in Excel',
+    metaTitle: 'Jobsite Temporary Utilities Cost Tracker | SheetCraft',
+    metaDescription: 'A construction jobsite temporary utilities cost tracker in Excel that prices a two month delay at $13,265, not the $8,748 an average burn rate gives you.',
+    targetKeyword: 'construction jobsite temporary utilities cost tracker Excel',
+    secondaryKeywords: ['temporary utilities construction cost', 'jobsite general conditions tracking Excel', 'temp power and heat cost tracking', 'construction delay cost calculation', 'heating degree day cost tracking'],
+    excerpt: 'Temporary utilities are the only jobsite cost that bills against the calendar instead of against production, and schedule extensions always land in the months where they cost the most. Split the category by driver and a two month winter delay prices at $13,265 instead of the $8,748 an average monthly burn suggests.',
+    publishedAt: '2026-09-06',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-temporary-utilities-cost-tracker-excel.png',
+    imageAlt: 'Coiled orange extension cord, glowing caged work light and propane cylinder on the concrete floor of an unfinished building shell',
+    content: `<p>Every cost on a construction project stops when the work stops. Labor stops when the crew goes home. Material stops when the last delivery lands. Equipment stops when you send the lift back. Temporary utilities do not stop. The temp power meter spins through a two week owner decision, the propane rig burns through a shutdown for a permit revision, and the portable toilet rental invoices on the first of the month whether anybody used it or not. A construction jobsite temporary utilities cost tracker in Excel exists for one reason: this is the only category on your job cost report that bills against the calendar instead of against production, and the calendar is the thing that slips.</p>
+
+<p>The lazy version of this tracker is a tab with five columns labeled power, heat, water, toilets, and dumpsters, a running total, and a comparison to budget. It tells you what you spent. It does not tell you what a delay costs, which is the only question anybody is going to ask you about this category, and it will get that question wrong by a factor of four in either direction.</p>
+
+<p>Here is what this article builds instead. One workbook, one classification rule that splits the category by what actually drives each line, and a delay formula that prices the months you are actually going to be there rather than the months you already survived. The reference job is a $8.4 million, 42,000 square foot medical office shell and fit-out, eleven months, February 1 start, December 31 substantial completion.</p>
+
+<h2>The Only Jobsite Cost That Keeps Billing When Nobody Is Working</h2>
+
+<p>Temporary utilities on this job budgeted at $48,115. That is 0.57 percent of contract value and about 5.7 percent of a ten percent general conditions bucket. Nobody loses sleep over it during the bid. Here is the actual monthly burn.</p>
+
+<table>
+<tr><th>Month</th><th>Phase</th><th>Temp power</th><th>Temp heat</th><th>Water</th><th>Toilets</th><th>Waste hauling</th><th>Total</th></tr>
+<tr><td>1 Feb</td><td>Sitework</td><td>$1,850</td><td>$0</td><td>$310</td><td>$290</td><td>$1,240</td><td>$3,690</td></tr>
+<tr><td>2 Mar</td><td>Foundations</td><td>$640</td><td>$0</td><td>$480</td><td>$435</td><td>$1,860</td><td>$3,415</td></tr>
+<tr><td>3 Apr</td><td>Structure</td><td>$810</td><td>$0</td><td>$520</td><td>$580</td><td>$2,480</td><td>$4,390</td></tr>
+<tr><td>4 May</td><td>Envelope</td><td>$940</td><td>$0</td><td>$390</td><td>$580</td><td>$1,860</td><td>$3,770</td></tr>
+<tr><td>5 Jun</td><td>Roofing, MEP rough</td><td>$1,120</td><td>$0</td><td>$340</td><td>$725</td><td>$1,240</td><td>$3,425</td></tr>
+<tr><td>6 Jul</td><td>MEP rough</td><td>$1,340</td><td>$0</td><td>$340</td><td>$725</td><td>$1,240</td><td>$3,645</td></tr>
+<tr><td>7 Aug</td><td>Drywall</td><td>$1,410</td><td>$0</td><td>$420</td><td>$725</td><td>$1,860</td><td>$4,415</td></tr>
+<tr><td>8 Sep</td><td>Drywall, finish</td><td>$1,280</td><td>$0</td><td>$380</td><td>$580</td><td>$1,240</td><td>$3,480</td></tr>
+<tr><td>9 Oct</td><td>Finishes</td><td>$1,190</td><td>$1,340</td><td>$300</td><td>$580</td><td>$1,240</td><td>$4,650</td></tr>
+<tr><td>10 Nov</td><td>Finishes, MEP trim</td><td>$1,240</td><td>$3,860</td><td>$260</td><td>$435</td><td>$620</td><td>$6,415</td></tr>
+<tr><td>11 Dec</td><td>Closeout</td><td>$980</td><td>$4,720</td><td>$210</td><td>$290</td><td>$620</td><td>$6,820</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>$12,800</strong></td><td><strong>$9,920</strong></td><td><strong>$3,950</strong></td><td><strong>$5,945</strong></td><td><strong>$15,500</strong></td><td><strong>$48,115</strong></td></tr>
+</table>
+
+<p>Divide $48,115 by the 334 calendar days between February 1 and December 31 and you get $144 a day. That number is in every project manager's head and it is useless. A June day on this job costs $122. A January day, which is where a delay actually lands, costs $224. The $144 average sits between them and describes neither: it overstates a June day by 18 percent and understates a January day by 36 percent, which is the direction that costs you money.</p>
+
+<p>The reason is structural, not seasonal. Schedule extensions do not happen in the middle of a job. They happen at the end, by definition, because the end date is the thing that moves. So the months you get paid for in a time extension are never the average months. They are the tail months, and on any job that finishes in the fourth quarter, the tail months are the most expensive temp utility months on the entire schedule.</p>
+
+<h2>Three Cost Drivers Hiding in One Budget Line</h2>
+
+<p>Split the category by what makes each line go up. There are exactly three drivers, and they behave completely differently when the schedule moves.</p>
+
+<p><strong>Calendar driven (C).</strong> Rental and standby charges that invoice on the first regardless of whether a single person shows up. Temp power service and distribution rental, the water meter and backflow assembly rental, the base portable toilet units, the trailer connection. A month of delay costs you one full month of these, every time, no exceptions.</p>
+
+<p><strong>Weather driven (W).</strong> Temporary heat in the north, temporary cooling and dehumidification in the south. These are not indexed to time. They are indexed to how cold or how humid it is during the months you are on site. Two months of delay in October costs a fraction of two months of delay in January, and the difference is not a judgment call, it is measurable.</p>
+
+<p><strong>Production driven (P).</strong> Waste hauling pulls, kilowatt hours above standby, toilet units above the base count, water consumption. These track the work, not the clock. A duration extension with no added scope does not increase them, because the same work is being done over a longer window, not more work.</p>
+
+<table>
+<tr><th>Cost line</th><th>Driver</th><th>11 month total</th><th>What a schedule extension does to it</th></tr>
+<tr><td>Temp power service and distribution rental</td><td>C</td><td>$3,740</td><td>Full monthly rate, every extension month</td></tr>
+<tr><td>Temp power consumption</td><td>P</td><td>$9,060</td><td>Drops to a standby trickle</td></tr>
+<tr><td>Temp heat, propane and equipment rental</td><td>W</td><td>$9,920</td><td>Scales with the extension months' degree days</td></tr>
+<tr><td>Temp water meter and backflow rental</td><td>C</td><td>$1,045</td><td>Full monthly rate</td></tr>
+<tr><td>Temp water consumption</td><td>P</td><td>$2,905</td><td>Near zero after concrete and drywall</td></tr>
+<tr><td>Portable toilets, two unit base</td><td>C</td><td>$3,190</td><td>Full monthly rate unless you cut units</td></tr>
+<tr><td>Portable toilets above base</td><td>P</td><td>$2,755</td><td>Falls with headcount</td></tr>
+<tr><td>Waste hauling</td><td>P</td><td>$15,500</td><td>Roughly zero unless scope was added</td></tr>
+</table>
+
+<p>The buckets come out at $7,975 calendar (16.6 percent), $9,920 weather (20.6 percent), and $30,220 production (62.8 percent). Read that split again, because it is the whole argument. Almost two thirds of what you spend on temporary utilities will not recur during a pure time extension. If you walk into the owner's office with a delay claim priced at the $4,374 average monthly burn, 63 percent of your number is a cost you are not going to incur, and the first thing the owner's rep does is ask for the utility bills.</p>
+
+<h2>The Tracker Layout and the Formulas That Do the Work</h2>
+
+<p>One sheet, one row per billing period per cost line. The column that makes this workbook different from a spending log is column C.</p>
+
+<table>
+<tr><th>Column</th><th>Field</th><th>Example</th><th>Why it is there</th></tr>
+<tr><td>A</td><td>Cost code</td><td>01-5100</td><td>Separate codes for power, heat, water, sanitary, waste</td></tr>
+<tr><td>B</td><td>Service period end</td><td>2026-11-24</td><td>The meter read date, never the invoice date</td></tr>
+<tr><td>C</td><td>Driver</td><td>W</td><td>C, W, or P. Everything downstream keys off this</td></tr>
+<tr><td>D</td><td>Meter reading</td><td>61,480</td><td>Blank on flat rate lines</td></tr>
+<tr><td>E</td><td>Budget for the period</td><td>$3,900</td><td>From the general conditions estimate</td></tr>
+<tr><td>F</td><td>Actual</td><td>$3,860</td><td>Invoice amount, or computed from the meter</td></tr>
+<tr><td>G</td><td>Invoice received</td><td>2026-12-16</td><td>The gap to column B is your accrual exposure</td></tr>
+<tr><td>H</td><td>Days in period</td><td>30</td><td>Turns any line into a daily rate</td></tr>
+</table>
+
+<p>Column B and column G being separate fields is not bookkeeping fussiness. The distance between them is the reason your job cost report is wrong, and section six is built entirely on that gap.</p>
+
+<p>Convert a meter read into dollars so you are not waiting on the utility to tell you what you spent:</p>
+
+<p><code>=(D9-D8)&#42;$H$9+$H$10</code> where H9 holds the blended rate per kilowatt hour, $0.112 on this job, and H10 holds the fixed monthly service charge of $46. Read the meter yourself on the last working day of the month. You now know your power cost three weeks before the bill arrives.</p>
+
+<p>Pull the calendar bucket into a monthly rate you can multiply by anything:</p>
+
+<p><code>=SUMIF($C$5:$C$60,"C",$F$5:$F$60)/$J$3</code> with J3 holding months elapsed. On this job it returns $725. That is the number that costs you money every single month of an extension, and it is the only piece of the category you can quote without doing any further work.</p>
+
+<p>Flag a period that ran hot before it becomes a pattern:</p>
+
+<p><code>=IF(AND(F12&gt;E12&#42;1.15,E12&gt;0),"OVER","OK")</code></p>
+
+<p>Get the cost of a single calendar day in the current month, which is the number a superintendent actually uses when deciding whether to work a Saturday to hold a date:</p>
+
+<p><code>=F12/DAY(EOMONTH($A12,0))</code></p>
+
+<h2>Price Temp Heat the Way the Weather Prices It</h2>
+
+<p>Temporary heat is the largest single swing in this category and the one everybody prices with a shrug. It is also the easiest of the three to forecast accurately, because somebody already publishes the index. A heating degree day is the gap between a base temperature, conventionally 65 degrees Fahrenheit, and the day's mean temperature, summed across the month. NOAA publishes monthly normals by station, and your propane supplier is already using them to plan deliveries.</p>
+
+<p>Calibrate against your own three months of actuals rather than a rule of thumb. This job's site normals and billed heat:</p>
+
+<table>
+<tr><th>Month</th><th>Temp heat billed</th><th>Heating degree days</th><th>Dollars per degree day</th></tr>
+<tr><td>October</td><td>$1,340</td><td>285</td><td>$4.70</td></tr>
+<tr><td>November</td><td>$3,860</td><td>820</td><td>$4.71</td></tr>
+<tr><td>December</td><td>$4,720</td><td>1,005</td><td>$4.70</td></tr>
+<tr><td><strong>Blended</strong></td><td><strong>$9,920</strong></td><td><strong>2,110</strong></td><td><strong>$4.70</strong></td></tr>
+</table>
+
+<p>Three months, three readings, a spread of one cent. That is what a real cost driver looks like. Contrast it with dollars per month, which moved from $1,340 to $4,720 across the same three months, a 252 percent swing, and which is the basis most delay claims actually use.</p>
+
+<p>Store the monthly normals in a lookup range and pull them by month number:</p>
+
+<p><code>=XLOOKUP(MONTH($A20),$L$5:$L$16,$M$5:$M$16)</code></p>
+
+<p>Then the rate itself, straight off the driver column:</p>
+
+<p><code>=SUMIF($C$5:$C$60,"W",$F$5:$F$60)/SUM($M$5:$M$15)</code></p>
+
+<p>January normals at this site are 1,100 degree days and February 985. At $4.70 that is $5,170 and $4,630. You now have a defensible temp heat number for two months you have not worked yet, built from your own invoices on this job, tied to a published index, in a form the owner's rep cannot argue with without arguing against the weather.</p>
+
+<p>South of the heating belt, run the same structure on cooling degree days and add the dehumidification rental. Flooring and millwork manufacturers publish an ambient temperature and relative humidity window that has to hold before, during, and after installation, so temporary conditioning in a Gulf Coast August is not a comfort item, it is a warranty condition on the finishes. Same driver, same math, different index.</p>
+
+<h2>What a Two Month Delay Actually Costs</h2>
+
+<p>The owner sits on a lobby finish selection and substantial completion moves from December 31 to February 28. Two months. Here is what the two methods produce.</p>
+
+<table>
+<tr><th>Bucket</th><th>Rule applied</th><th>January</th><th>February</th><th>Two month total</th></tr>
+<tr><td>Calendar</td><td>Monthly rate times months</td><td>$725</td><td>$725</td><td>$1,450</td></tr>
+<tr><td>Weather</td><td>Extension month degree days times $4.70</td><td>$5,170</td><td>$4,630</td><td>$9,800</td></tr>
+<tr><td>Production</td><td>Closeout minimum, no scope added</td><td>$1,050</td><td>$965</td><td>$2,015</td></tr>
+<tr><td><strong>Driver based total</strong></td><td></td><td><strong>$6,945</strong></td><td><strong>$6,320</strong></td><td><strong>$13,265</strong></td></tr>
+<tr><td>Average monthly burn</td><td>$4,374 times 2</td><td></td><td></td><td>$8,748</td></tr>
+</table>
+
+<p>The average method understates a winter extension by $4,517 on a category nobody was watching. That is 52 percent, and it is money you had a contractual right to and did not ask for.</p>
+
+<p>Now run the mirror. Same two month extension, but the delay hits in May and June instead. Calendar is still $1,450. Weather is zero, because the propane rig went back in April. Production adds maybe $593 in extra pulls and slow crew kilowatt hours. Driver based total: $2,043. The average method would have claimed $8,748 for the same two months, a 4.3 times overcharge.</p>
+
+<table>
+<tr><th>Method</th><th>Winter extension (Jan, Feb)</th><th>Spring extension (May, Jun)</th></tr>
+<tr><td>Average monthly burn</td><td>$8,748</td><td>$8,748</td></tr>
+<tr><td>Driver based</td><td>$13,265</td><td>$2,043</td></tr>
+<tr><td>Error</td><td>Understated by $4,517</td><td>Overstated by $6,705</td></tr>
+</table>
+
+<p>The overstatement is the more expensive mistake, and this is the part most articles on delay claims get backwards. A claim that is 52 percent light gets paid at 52 percent light. A claim that is 4.3 times heavy gets audited, and once the owner's rep pulls three utility invoices and proves your temp utilities line is padded, every other line in that claim gets the same treatment. You do not lose the $6,705. You lose the extended overhead, the supervision, and the equipment standby that were all correctly calculated.</p>
+
+<p>Two cells, keyed off the driver column, produce the defensible number:</p>
+
+<p><code>=$J$4&#42;$J$8</code> for the calendar portion, monthly rate times extension months.</p>
+
+<p><code>=$J$5&#42;SUM($N$20:$N$21)</code> for the weather portion, dollars per degree day times the degree days of the specific extension months.</p>
+
+<p>Production stays at whatever the closeout minimum actually is, and you say so in the claim narrative. Volunteering that 63 percent of your temporary utilities budget does not recur is the single most credible thing in the document, and it is what buys you the benefit of the doubt on the lines that do.</p>
+
+<h2>The Billing Lag That Hides Two Months of Spend</h2>
+
+<p>Utility invoices arrive three to six weeks after the service period ends. Waste hauling and propane are closer to two. Portable toilets bill in advance. Nothing in this category arrives in the month it belongs to, and none of it is under your control.</p>
+
+<p>The consequence is mechanical. On December 10, when you close November for the job cost report, the last temp power invoice in the system covers the period ending October 24. Your report is showing a category that is running $6,000 to $7,000 a month at roughly $4,000, and the missing piece is the piece that is growing. On an eleven month job, the final two months of utilities land after you have billed the final application, released the sub retention, and reported the margin to your surety.</p>
+
+<p>Accrue with the driver, not with a trailing average. On December 31, with the last read dated November 24, that is 37 unbilled days. The trailing three month average is September, October, and November, or $4,848 a month, which prorates to $5,980. The driver based accrual is $865 of calendar, $5,617 of weather at 1,195 degree days, and about $1,292 of closeout production, or $7,774. The trailing average leaves a $1,794 hole in a single month, and it opens the same hole in January, February, and March.</p>
+
+<p><code>=$J$6/30&#42;$J$7</code> gives you the flat rate version, daily rate times unbilled days, and it is fine for the calendar bucket. For the weather bucket, sum the actual degree days between column B's last read date and today and multiply by your calibrated rate. That is the whole difference between a WIP schedule that is right and one that gets restated at closeout.</p>
+
+<p>Pull the period actuals for any window with a single formula:</p>
+
+<p><code>=SUMIFS($F$5:$F$60,$B$5:$B$60,"&gt;="&amp;$J$10,$B$5:$B$60,"&lt;="&amp;$J$11)</code></p>
+
+<h2>Cutting the Burn Without Cutting the Job</h2>
+
+<p>Once you know the extension months cost $6,633 each, the mitigation list stops being housekeeping and starts being worth a project manager's afternoon. Ranked by dollars against the two month winter extension.</p>
+
+<table>
+<tr><th>Action</th><th>Two month saving</th><th>The catch</th></tr>
+<tr><td>Start permanent HVAC for temporary conditioning</td><td>Up to $9,800</td><td>Manufacturer warranty typically starts at first operation, so you burn two months of a twelve month term and you must install and log construction filter changes</td></tr>
+<tr><td>Energize permanent power, drop temp service</td><td>$680 rental plus consumption moves to the owner meter</td><td>Requires the utility release and a certificate of occupancy path most owners will not open early</td></tr>
+<tr><td>Switch waste hauling from scheduled to on call</td><td>$620</td><td>One missed pull during a punch push costs more in labor than the saving</td></tr>
+<tr><td>Cut portable toilets from two units to one</td><td>$290</td><td>Only after headcount is genuinely below the OSHA threshold for the crew size on site</td></tr>
+<tr><td>Return the second distribution panel and spare cord sets</td><td>$240</td><td>Re-delivery fees eat it if punch work spreads back out</td></tr>
+</table>
+
+<p>The permanent HVAC item is the only one on that list that moves real money, and it is a genuine trade, not a free win. Two months of a twelve month labor warranty is 17 percent of your coverage against $9,800 of temp heat you do not spend. On a fit-out where the mechanical contractor's warranty exposure is a few thousand dollars of service calls, take the trade. On a job with a chiller plant, do not. The tracker's job is to put the $9,800 on the table so that conversation happens in November instead of never.</p>
+
+<p>One more that is not on the list because it is not a saving, it is a recovery: if the owner takes beneficial occupancy of any portion of the building before substantial completion, install a check meter that day. Every kilowatt hour past that point is theirs, and without a meter reading dated to the occupancy you have no way to prove the split.</p>
+
+<h2>Track the Meter, Not the Month</h2>
+
+<p>Temporary utilities are a small line that behaves like no other line on the job. They bill against the calendar while everything else bills against production, they concentrate their spend in exactly the months where a schedule extension lands, and they invoice a month and a half after the money is gone. Those three properties together are why a category worth 0.57 percent of contract value can put a five figure hole in a delay claim.</p>
+
+<p>Do three things and the category is solved. Put a driver code on every line, because C, W, and P escalate on completely different rules and a single blended monthly rate is wrong against all three. Calibrate temp heat against degree days from your own invoices, because the dollars per month figure swings 252 percent across a season while the dollars per degree day figure holds within a penny. Accrue from the last meter read date instead of the last invoice date, because the gap between those two columns is where a restated job margin comes from.</p>
+
+<p>Temporary utilities are one line in a general conditions estimate that has a dozen more with the same problem. If you have not built the estimate side yet, our guide to the <a href="/blog/construction-general-conditions-cost-estimate-excel">construction general conditions cost estimate in Excel</a> covers the line item method that this tracker reports against, and the monthly burn rate logic the two share.</p>
+
+<p>Building this from a blank workbook is a weekend, and the part that kills it is not the arithmetic, it is the plumbing: cost codes that match your accounting system, budget versus actual by period rather than by job to date, a committed cost view that shows the rental contracts you have already signed, and an accrual column that survives a month end close. Our <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with that structure already wired, so you add a driver column and a degree day table to a workbook that already handles the cost codes, the period variance, and the committed versus actual logic. You point it at last month's utility invoices and you have a defensible extension number the first time an owner moves your completion date, instead of a spreadsheet you abandoned in week two.</p>`,
+  },
+  {
     slug: 'construction-small-tools-consumables-cost-allocation-excel',
     title: 'Construction Small Tools and Consumables Cost Allocation in Excel',
     metaTitle: 'Construction Consumables Allocation Excel | SheetCraft',
