@@ -12621,7 +12621,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The Ohio contractor who lost $14,000 did not have a scheduling problem. He had a coordination problem that a working look ahead would have surfaced three weeks early. The inspection would have shown up as a red FLAG, the constraint log would have named the owner and the date, and the Monday meeting would have closed it out. The drywall crew would have hung board on schedule and the project would have finished on time.</p>
 
-<p>Building the activity grid, the status engine, and the constraints log from scratch takes a few hours and a working knowledge of WORKDAY, IF, SUMIFS, and conditional formatting. If you would rather start with the structure already built and tested, SheetCraft's Construction Budget Tracker includes a short-interval look ahead module wired into the same workbook as your budget, bids, and change orders. Your constraints log, PPC tracking, and per-trade summaries are ready to fill in, so the only thing you bring is this week's plan. Stop running the next three weeks from memory and start running them off a sheet every trade can trust.</p>`,
+<p>Building the activity grid, the status engine, and the constraints log from scratch takes a few hours and a working knowledge of WORKDAY, IF, SUMIFS, and conditional formatting. If you would rather start with the structure already built and tested, SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> includes a short-interval look ahead module wired into the same workbook as your budget, bids, and change orders. Your constraints log, PPC tracking, and per-trade summaries are ready to fill in, so the only thing you bring is this week's plan. Stop running the next three weeks from memory and start running them off a sheet every trade can trust.</p>`,
   },
   {
     slug: 'construction-allowance-tracking-spreadsheet-excel',
@@ -12849,7 +12849,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Change orders are not bonus revenue. They are a second, faster, riskier estimating process that most contractors run on instinct. The contractor who prices the beam at $11,822 and the contractor who prices it at $15,995 are bidding the same work. One of them is going to closeout to find the margin he thought he had. The difference is four cost layers and ten minutes in a spreadsheet that already knows his burden rate, his general conditions per day, and his contract caps.</p>
 
-<p>Build the five-layer calculator once and every change order after it gets priced the same defensible way, fast enough to hand the crew an answer before they lose the afternoon. SheetCraft's Construction Budget Tracker has the change order pricing sheet built in, wired to a labor burden rate you set per trade, a general conditions daily rate that drives the schedule-impact line automatically, and contract markup caps that flag any change priced below breakeven. Stop pricing your change orders on a sticky note. Drop your costs into the tracker, hand the owner a build-up he cannot argue with, and keep the margin you actually earned.</p>`,
+<p>Build the five-layer calculator once and every change order after it gets priced the same defensible way, fast enough to hand the crew an answer before they lose the afternoon. SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> has the change order pricing sheet built in, wired to a labor burden rate you set per trade, a general conditions daily rate that drives the schedule-impact line automatically, and contract markup caps that flag any change priced below breakeven. Stop pricing your change orders on a sticky note. Drop your costs into the tracker, hand the owner a build-up he cannot argue with, and keep the margin you actually earned.</p>`,
   },
   {
     slug: 'construction-labor-burden-rate-calculator-excel',
@@ -12977,7 +12977,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Labor burden is the single most underbid line in construction, and it is underbid for a boring reason: the true rate is annoying to calculate and easy to fake. A flat markup is fast, it feels conservative, and it is wrong on exactly the trades that can sink you. The fix is not complicated math. It is a build-up of the components you actually pay, divided by the hours you actually bill, with a flag that yells when the answer is too clean to be true.</p>
 
-<p>If you would rather not wire the comp class codes, unemployment caps, and productive-hour logic by hand, the <a href="/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with a labor burden calculator already built per trade, feeding straight into job costing and bid pricing. You enter the wage, the comp rate, and the benefits, and it returns the fully burdened rate and the burden percentage with the sanity flags in place. Plug your trades in once, and every bid you write after that carries the real cost of an hour instead of a hopeful one.</p>`,
+<p>If you would rather not wire the comp class codes, unemployment caps, and productive-hour logic by hand, the <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with a labor burden calculator already built per trade, feeding straight into job costing and bid pricing. You enter the wage, the comp rate, and the benefits, and it returns the fully burdened rate and the burden percentage with the sanity flags in place. Plug your trades in once, and every bid you write after that carries the real cost of an hour instead of a hopeful one.</p>`,
   },
   {
     slug: 'subcontractor-prequalification-scorecard-excel',
@@ -18810,7 +18810,7 @@ GP total cash received: <code>=SUM(E15:E19)+SUM(G15:G19)+B6</code></p>
 
 <p>You can build all of this from scratch. It takes 8 to 12 hours the first time, longer if you hit the catch-up trap. Then you debug it across three deal scenarios and another four hours go away. By the time you have validated the math and built the IRR sensitivity table, you have spent more time on the spreadsheet than on the deal itself.</p>
 
-<p>Or you can start with a model that already encodes the four-tier structure, the cumulative compound pref, the proper catch-up logic with the right denominator, and the IRR-based promote splits. The SheetCraft Rental Property Analyzer includes a multifamily syndication module with the equity waterfall built in. Plug in your raise size, pref rate, and promote schedule. The LP/GP distributions calculate correctly across any cash flow projection, including downside scenarios. You spend the saved hours stress-testing the deal terms, not the spreadsheet logic.</p>`,
+<p>Or you can start with a model that already encodes the four-tier structure, the cumulative compound pref, the proper catch-up logic with the right denominator, and the IRR-based promote splits. The SheetCraft <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes a multifamily syndication module with the equity waterfall built in. Plug in your raise size, pref rate, and promote schedule. The LP/GP distributions calculate correctly across any cash flow projection, including downside scenarios. You spend the saved hours stress-testing the deal terms, not the spreadsheet logic.</p>`,
   },
   {
     slug: 'real-estate-irr-calculator-excel',
@@ -19655,7 +19655,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 
 <p>But Excel tracking is just one piece of profitable rental management. If you want to analyze cash flow, calculate optimal rent increases, estimate renovation ROI, and track all your property finances in one place, you need a comprehensive system that goes beyond simple lease tracking.</p>
 
-<p>The <a href="https://sheetcraft.com/templates/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes advanced lease management alongside complete financial analysis. It automatically calculates renewal strategies, compares market rents, tracks maintenance costs, and projects multi-year returns. Instead of building separate systems for different aspects of property management, get everything you need in one proven template that's already helped over 1,200 real estate investors make better decisions.</p>
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes advanced lease management alongside complete financial analysis. It automatically calculates renewal strategies, compares market rents, tracks maintenance costs, and projects multi-year returns. Instead of building separate systems for different aspects of property management, get everything you need in one proven template that's already helped over 1,200 real estate investors make better decisions.</p>
 
 <p>Your lease expiration tracker Excel spreadsheet prevents revenue losses. A complete rental analysis system helps you maximize profits from every property in your portfolio.</p>`,
   },
@@ -19862,7 +19862,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 
 <p>If your current tracking system can't answer these questions, you're not tracking maintenance - you're just collecting receipts.</p>
 
-<p>A professional rental property analyzer takes this foundation and adds cash flow projections, tax optimization, and performance comparisons across your entire portfolio. Instead of building every formula from scratch, you get proven systems that hundreds of successful landlords use to maximize their real estate returns.</p>`,
+<p>A professional <a href="/products/rental-property-analyzer">rental property analyzer</a> takes this foundation and adds cash flow projections, tax optimization, and performance comparisons across your entire portfolio. Instead of building every formula from scratch, you get proven systems that hundreds of successful landlords use to maximize their real estate returns.</p>`,
   },
   {
     slug: 'tenant-tracking-spreadsheet',
@@ -20266,7 +20266,7 @@ Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calc
 
 <p>If you're managing more than five units, build this system now. If you're managing 20+ units, this spreadsheet approach will work until you hit 50+ units and justify property management software costs.</p>
 
-<p>The <a href="https://sheetcraft.io/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes a complete tenant tracking module plus cash flow analysis, cap rate calculations, and expense tracking. It handles the complex formulas and formatting automatically, so you can focus on managing properties instead of building spreadsheets.</p>`,
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> includes a complete tenant tracking module plus cash flow analysis, cap rate calculations, and expense tracking. It handles the complex formulas and formatting automatically, so you can focus on managing properties instead of building spreadsheets.</p>`,
   },
   {
     slug: 'rent-roll-template-excel-lenders-buyers',
@@ -20400,7 +20400,7 @@ Professional investors use systems that automatically flag lease expirations 90 
 
 Your rent roll is financial documentation, not marketing material. Lenders want accuracy, consistency, and transparency. A well-formatted rent roll that clearly shows current performance and market positioning will get you better loan terms and faster approvals.
 
-The SheetCraft Rental Property Analyzer includes a professional rent roll template that automatically calculates occupancy rates, market variances, and DSCR metrics. It's designed specifically for real estate investors who need lender-ready documentation without manual calculation errors.`,
+The SheetCraft <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes a professional rent roll template that automatically calculates occupancy rates, market variances, and DSCR metrics. It's designed specifically for real estate investors who need lender-ready documentation without manual calculation errors.`,
   },
   {
     slug: 'construction-project-cost-report-template',
@@ -20666,7 +20666,7 @@ READ_TIME: 8
 
 <p>The upfront investment in a professional construction project cost report template pays for itself within the first project. Banks notice the difference. Clients appreciate the transparency. Your bottom line reflects the improved efficiency.</p>
 
-<p>Ready to build a cost reporting system that actually works? Our <a href="/construction-budget-tracker">Construction Budget Tracker template</a> includes all the formulas, formatting, and documentation tools discussed in this article. Stop losing projects to poor reporting and start winning them with professional financial transparency.</p>`,
+<p>Ready to build a cost reporting system that actually works? Our <a href="/products/construction-budget-tracker">Construction Budget Tracker template</a> includes all the formulas, formatting, and documentation tools discussed in this article. Stop losing projects to poor reporting and start winning them with professional financial transparency.</p>`,
   },
   {
     slug: 'rental-property-break-even-calculator',
@@ -20910,7 +20910,7 @@ Guessing when your rental properties will become profitable costs you time, mone
 
 Ready to build a complete rental property analysis system that tracks break-even, cash flow, and ROI across your entire portfolio? Our **Rental Property Analyzer** provides professional-grade Excel templates used by successful real estate investors to evaluate deals, track performance, and optimize their investment strategy.
 
-Stop guessing about your investment timeline. Get the rental property analyzer and know exactly when each property will pay off.`,
+Stop guessing about your investment timeline. Get the <a href="/products/rental-property-analyzer">rental property analyzer</a> and know exactly when each property will pay off.`,
   },
   {
     slug: 'construction-bid-proposal-template-excel',
@@ -21441,7 +21441,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Instead of spending 40 hours building formulas, get instant access to professional-grade analysis tools that have already evaluated thousands of lease option deals. Your next opportunity won't wait for you to debug Excel formulas.</p>
 
-<p><a href="https://sheetcraft.com/templates/flip-brrrr-calculator" target="_blank" rel="noopener">Download the Flip & BRRRR Calculator</a> and start making confident lease option decisions today.</p>`,
+<p><a href="/products/flip-brrrr-calculator" target="_blank" rel="noopener">Download the Flip & BRRRR Calculator</a> and start making confident lease option decisions today.</p>`,
   },
   {
     slug: 'construction-progress-billing-template-excel',
@@ -21713,7 +21713,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>Stop estimating completion percentages and start measuring them. Your bank account will notice the difference within 60 days.</p>
 
-<p>For a complete construction progress billing system that integrates with budget tracking, change orders, and payment schedules, check out SheetCraft's <a href="/templates/construction-budget-tracker">Construction Budget Tracker</a>. It includes pre-built milestone templates for 15 common trades, automatic retainage calculations, and progress billing reports that clients actually understand.</p>`,
+<p>For a complete construction progress billing system that integrates with budget tracking, change orders, and payment schedules, check out SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a>. It includes pre-built milestone templates for 15 common trades, automatic retainage calculations, and progress billing reports that clients actually understand.</p>`,
   },
   {
     slug: 'real-estate-tax-deduction-tracker-excel',
@@ -22068,7 +22068,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 
 <p>But building this system from scratch takes 20+ hours of setup time. The SheetCraft Rental Property Analyzer includes a complete tax deduction tracker, pre-built formulas, and automated reporting features. Download it today and start capturing every deduction you're legally entitled to claim.</p>
 
-<p><a href="https://sheetcraft.io/rental-property-analyzer">Get the Rental Property Analyzer →</a></p>`,
+<p><a href="/products/rental-property-analyzer">Get the Rental Property Analyzer →</a></p>`,
   },
   {
     slug: 'construction-project-gantt-chart-excel',
@@ -22539,7 +22539,7 @@ LP + GP = Total Available Cash Flow</p>
 
 <p>Building a bulletproof syndication waterfall calculator takes weeks of formula testing and scenario modeling. While Excel can absolutely handle the calculations, getting the structure right requires deep understanding of both real estate finance and advanced Excel techniques.</p>
 
-<p>If you're analyzing rental properties, syndications, or value-add deals regularly, you need tools that handle complex distribution waterfalls, IRR calculations, and sensitivity analysis automatically. The SheetCraft Rental Property Analyzer includes pre-built waterfall templates with the cumulative tracking logic outlined above, plus scenario modeling for different hold periods and exit strategies.</p>
+<p>If you're analyzing rental properties, syndications, or value-add deals regularly, you need tools that handle complex distribution waterfalls, IRR calculations, and sensitivity analysis automatically. The SheetCraft <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes pre-built waterfall templates with the cumulative tracking logic outlined above, plus scenario modeling for different hold periods and exit strategies.</p>
 
 <p>Stop rebuilding the same waterfall formulas for every deal. Get the professional template that handles preferred returns, catch-ups, and promote splits correctly from day one.</p>`,
   },
@@ -22813,7 +22813,7 @@ LP + GP = Total Available Cash Flow</p>
 
         <p>Instead of piecing together different spreadsheets and hoping they match, you get a proven system that construction professionals use to bid accurately, track costs in real time, and maintain profitable margins even when projects get complicated.</p>
 
-        <p><strong>Download the Construction Budget Tracker today</strong> and see how proper overhead calculations fit into a complete project management system. Your future self will thank you when that next "simple" job stays profitable instead of turning into a costly lesson.</p>
+        <p><strong>Download the <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> today</strong> and see how proper overhead calculations fit into a complete project management system. Your future self will thank you when that next "simple" job stays profitable instead of turning into a costly lesson.</p>
 
     </article>`,
   },
@@ -23558,34 +23558,7 @@ Update your tracker monthly, but review performance metrics weekly. The goal is 
 
 Your real estate portfolio tracker spreadsheet becomes your investment command center. It shows not just what you own, but what you should do next to optimize returns, minimize risk, and build lasting wealth through real estate investing.
 
-The difference between tracking properties and tracking profitable investments determines whether you build a real estate business or just collect rent. Choose wisely.
-
----
-
-## Article Metadata
-
-**Title**: How to Build a Real Estate Portfolio Tracker in Excel That Actually Makes Money
-
-**URL Slug**: real-estate-portfolio-tracker-spreadsheet-excel
-
-**Meta Title**: Real Estate Portfolio Tracker Excel | SheetCraft
-
-**Meta Description**: Build a real estate portfolio tracker spreadsheet that connects property data to investment performance. Track cash flow, ROI, and get actionable insights.
-
-**Secondary Keywords**:
-- real estate investment tracker
-- property portfolio spreadsheet
-- rental property cash flow analysis
-- real estate ROI calculator
-- investment property tracker
-
-**Excerpt**: Most real estate investors track properties but miss tracking profitable investments. This portfolio tracker spreadsheet connects property data to investment performance, showing which properties to hold, sell, or refinance for maximum returns.
-
-**Estimated Read Time**: 8 minutes
-
-**Hero Image Prompt**: Professional construction site with blueprints and calculator on wooden table, modern office building in background, warm lighting, business photography style, real estate investment concept
-
-**Image Alt Text**: Real estate portfolio tracker spreadsheet with calculator and property blueprints on construction site desk`,
+The difference between tracking properties and tracking profitable investments determines whether you build a real estate business or just collect rent. Choose wisely.`,
   },
   {
     slug: 'construction-safety-tracking-spreadsheet-osha-compliant',
@@ -23873,7 +23846,7 @@ Annual inspections: Fall protection equipment recertification</p>
 
 <h2>Ready-Made Solution</h2>
 
-<p>Building a comprehensive construction safety tracking spreadsheet OSHA system from scratch takes weeks of development and testing. Our Construction Budget Tracker includes pre-built safety tracking worksheets that integrate seamlessly with project cost management.</p>
+<p>Building a comprehensive construction safety tracking spreadsheet OSHA system from scratch takes weeks of development and testing. Our <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> includes pre-built safety tracking worksheets that integrate seamlessly with project cost management.</p>
 
 <p>The safety module includes all five core tracking areas: daily inspections, training records, incident logs, equipment maintenance, and safety meetings. Formulas are pre-built, data validation is configured, and conditional formatting highlights problems automatically.</p>
 
@@ -24311,7 +24284,7 @@ The contractors who master T&M billing don't just avoid revenue leaks. They crea
 
 Ready to stop losing money on time and materials billing? Our construction budget tracker template includes proven T&M billing worksheets, automatic overtime calculation, material markup formulas, and change order tracking that prevents scope creep disputes. Get the complete system that turns billing accuracy into competitive advantage.
 
-<a href="#" class="cta-button">Download Construction Budget Tracker Template →</a>`,
+<a href="/products/construction-budget-tracker" class="cta-button">Download Construction Budget Tracker Template →</a>`,
   },
   {
     slug: 'gross-rent-multiplier-calculator-excel',
@@ -24778,7 +24751,7 @@ Stop burning hours on deals that fail basic math. Screen fast, analyze smart, bu
 
 <p>Your construction closeout checklist Excel template isn't just project management. It's business development.</p>
 
-<p>Ready to build closeout systems that actually work? <a href="/templates/construction-budget-tracker">Download our construction project tracking template</a> and turn your closeout chaos into competitive advantage.</p>`,
+<p>Ready to build closeout systems that actually work? <a href="/products/construction-budget-tracker">Download our construction project tracking template</a> and turn your closeout chaos into competitive advantage.</p>`,
   },
   {
     slug: 'real-estate-partnership-split-calculator',
@@ -25331,7 +25304,7 @@ Stop arguing about money. Start calculating it.`,
 
 <p>Start with the formulas and examples in this article, but don't stop there. Track your actual costs against estimates and refine your calculations based on real project data. The contractors who survive and thrive are those who know their numbers cold.</p>
 
-<p>Ready to take your construction cost tracking to the next level? Our <a href="/construction-budget-tracker">construction budget tracker</a> includes pre-built labor burden calculators, job cost tracking, and profit analysis tools designed specifically for contractors who want to stop guessing and start knowing their true costs.</p>`,
+<p>Ready to take your construction cost tracking to the next level? Our <a href="/products/construction-budget-tracker">construction budget tracker</a> includes pre-built labor burden calculators, job cost tracking, and profit analysis tools designed specifically for contractors who want to stop guessing and start knowing their true costs.</p>`,
   },
   {
     slug: 'fix-flip-project-timeline-spreadsheet',
@@ -25584,7 +25557,7 @@ Stop arguing about money. Start calculating it.`,
 
 <p>The math is simple: projects that finish on schedule make more money. A 10-week flip earning $15,000 beats a 16-week flip earning $8,000 after extra holding costs. Your timeline spreadsheet is the difference.</p>
 
-<p>Ready to standardize your timeline planning across all your flips? The <a href="/templates/flip-brrrr-calculator">SheetCraft Flip & BRRRR Calculator</a> includes a complete project timeline template with built-in formulas for dependency tracking, cost analysis, and contractor coordination. Stop losing money to poor scheduling and start finishing projects on time, every time.</p>`,
+<p>Ready to standardize your timeline planning across all your flips? The <a href="/products/flip-brrrr-calculator">SheetCraft Flip & BRRRR Calculator</a> includes a complete project timeline template with built-in formulas for dependency tracking, cost analysis, and contractor coordination. Stop losing money to poor scheduling and start finishing projects on time, every time.</p>`,
   },
   {
     slug: 'construction-lien-waiver-tracking-excel',
@@ -25920,7 +25893,7 @@ For contractors ready to take their project management to the next level, consid
 
 The $50,000 mistake mentioned at the beginning of this article was preventable with proper systems and processes. Don't let poor lien waiver management become your expensive lesson. Implement systematic tracking today and protect your business from preventable legal disasters.
 
-<a href="https://sheetcraft.com/construction-budget-tracker" target="_blank">Get SheetCraft's Construction Budget Tracker with integrated lien waiver management →</a>`,
+<a href="/products/construction-budget-tracker" target="_blank">Get SheetCraft's Construction Budget Tracker with integrated lien waiver management →</a>`,
   },
   {
     slug: 'dscr-calculator-excel-real-estate',
@@ -26658,7 +26631,7 @@ Construction equipment represents your largest capital investment after labor. P
 
 Start with the frameworks outlined above. Begin tracking just 5-10 pieces of equipment, then expand as processes improve. The time investment pays immediate dividends through reduced rental overages, prevented breakdowns, and optimized utilization.
 
-Ready to take equipment tracking further? Explore our <a href="/construction-budget-tracker">construction budget tracker</a> for comprehensive project financial management that integrates equipment costs with labor, materials, and overhead tracking. Get complete visibility into project profitability while maintaining the detailed equipment oversight your projects demand.`,
+Ready to take equipment tracking further? Explore our <a href="/products/construction-budget-tracker">construction budget tracker</a> for comprehensive project financial management that integrates equipment costs with labor, materials, and overhead tracking. Get complete visibility into project profitability while maintaining the detailed equipment oversight your projects demand.`,
   },
   {
     slug: 'contractor-profit-margin-calculator-know-your-numbers',
@@ -26906,7 +26879,7 @@ Ready to take equipment tracking further? Explore our <a href="/construction-bud
 
 <p>Ready to take control of your project profitability? Our construction budget tracker template provides the framework for comprehensive margin tracking, complete with formulas for risk adjustment, overhead allocation, and cash flow analysis. Download your copy today and start building a more profitable construction business.</p>
 
-<p><strong>Start tracking your margins properly with our construction budget tracker template. Get accurate profit calculations for every project and stop leaving money on the table.</strong></p>`,
+<p><strong>Start tracking your margins properly with our <a href="/products/construction-budget-tracker">construction budget tracker</a> template. Get accurate profit calculations for every project and stop leaving money on the table.</strong></p>`,
   },
   {
     slug: 'vacation-rental-income-calculator-excel',
@@ -27203,7 +27176,7 @@ Target_Occupancy_Rate = (Annual_Financial_Goal + Total_Annual_Expenses) / (Avera
 
 <p>The rental property investors who build wealth consistently use systems that track every dollar and optimize every opportunity. Your vacation rental income calculator becomes your business intelligence tool for making decisions worth tens of thousands of dollars annually.</p>
 
-<p>Ready to build a professional-grade vacation rental income calculator that reveals hidden profit opportunities in your investment? Download our comprehensive <a href="/rental-property-analyzer">Rental Property Analyzer Excel template</a> that includes advanced formulas for vacation rental income forecasting, expense tracking, and ROI analysis. This battle-tested system has helped over 2,500 property investors optimize their cash flow and make data-driven expansion decisions.</p>`,
+<p>Ready to build a professional-grade vacation rental income calculator that reveals hidden profit opportunities in your investment? Download our comprehensive <a href="/products/rental-property-analyzer">Rental Property Analyzer Excel template</a> that includes advanced formulas for vacation rental income forecasting, expense tracking, and ROI analysis. This battle-tested system has helped over 2,500 property investors optimize their cash flow and make data-driven expansion decisions.</p>`,
   },
   {
     slug: 'construction-retainage-tracking-spreadsheet',
@@ -27297,7 +27270,7 @@ A construction retainage tracking spreadsheet transforms retention from a cash f
 
 The contractor who discovered his missing $47,000 implemented a tracking system and recovered $31,000 within 60 days. The remaining $16,000 was legitimately tied up in warranty periods, but now he knows exactly when those funds will be released.
 
-Your tracking system should integrate with your overall project financial management. Consider linking it to a comprehensive construction budget tracker that monitors all project finances, not just retainage.
+Your tracking system should integrate with your overall project financial management. Consider linking it to a comprehensive <a href="/products/construction-budget-tracker">construction budget tracker</a> that monitors all project finances, not just retainage.
 
 Start tracking your retainage today. Every day you wait is money that could be in your account instead of someone else's.`,
   },
@@ -28036,7 +28009,7 @@ That Phoenix investor I mentioned? He eventually sold the property for a $150,00
 
 Don't make the same error. Start with a conservative multifamily investment calculator that accounts for real vacancy rates, actual expenses, and proper reserves. Model different scenarios. Stress test your assumptions.
 
-If you want to skip the Excel learning curve and get started immediately, check out SheetCraft's rental property analyzer. It includes pre-built multifamily analysis templates with all the formulas I've shown you, plus advanced features like automated market comparisons and scenario modeling.
+If you want to skip the Excel learning curve and get started immediately, check out SheetCraft's <a href="/products/rental-property-analyzer">rental property analyzer</a>. It includes pre-built multifamily analysis templates with all the formulas I've shown you, plus advanced features like automated market comparisons and scenario modeling.
 
 The difference between a profitable multifamily investment and a monthly money pit often comes down to 90 minutes of proper analysis. Make sure you get it right.`,
   },
@@ -28415,7 +28388,7 @@ Ready to eliminate schedule of values headaches and protect your cash flow? Our 
 
 <p>Every dollar you leave on the table because of bad math is a dollar you worked for and didn't collect. Every deal you lose because your offer was too high or too low is a deal your competitor closed instead. A wholesale real estate deal calculator takes five minutes to build and saves you from the two most expensive mistakes in wholesaling: overpaying and underoffering.</p>
 
-<p>If you're analyzing multiple deals per week, flipping some yourself, or running BRRRR numbers alongside your wholesale pipeline, you need more than a single-formula spreadsheet. The <a href="https://sheetcraft.co/templates/flip-brrrr-calculator">SheetCraft Flip &amp; BRRRR Calculator</a> handles MAO calculations, rehab budgets, holding cost projections, and exit strategy comparisons in one workbook. It's built for investors who run real numbers on real deals, not for people who guess. Plug in your next lead and know in five minutes whether to make the call or move on.</p>`,
+<p>If you're analyzing multiple deals per week, flipping some yourself, or running BRRRR numbers alongside your wholesale pipeline, you need more than a single-formula spreadsheet. The <a href="/products/flip-brrrr-calculator">SheetCraft Flip &amp; BRRRR Calculator</a> handles MAO calculations, rehab budgets, holding cost projections, and exit strategy comparisons in one workbook. It's built for investors who run real numbers on real deals, not for people who guess. Plug in your next lead and know in five minutes whether to make the call or move on.</p>`,
   },
   {
     slug: 'construction-punch-list-template-excel',
@@ -30209,7 +30182,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p>Start with one project. Build the three-sheet workbook. Update it every Friday. Within a month, you will spot problems earlier, recover faster, and finish projects closer to budget than you thought possible.</p>
 
-<p>Ready to take project financial control further? SheetCraft's Construction Budget Tracker includes automated variance analysis, earned value calculations, and forecast modeling that updates in real time as you enter costs. Get the complete system that turns budget tracking from a monthly chore into a competitive advantage.</p>`
+<p>Ready to take project financial control further? SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> includes automated variance analysis, earned value calculations, and forecast modeling that updates in real time as you enter costs. Get the complete system that turns budget tracking from a monthly chore into a competitive advantage.</p>`
   },
   {
     slug: 'rental-property-mortgage-payoff-calculator-excel',
@@ -30505,7 +30478,7 @@ The cash-on-cash return calculator does not make that decision for you. It gives
 
 <p>That is the power of knowing your numbers. Build the calculator. Run the scenarios. Make informed decisions. Your future self will thank you.</p>
 
-<p>Ready to integrate mortgage payoff analysis with your complete rental property financial tracking? SheetCraft's Rental Property Analyzer includes automated amortization schedules, payoff projections, and portfolio-level debt management tools. Track all your properties in one workbook and see exactly when your rental income becomes pure cash flow.</p>`
+<p>Ready to integrate mortgage payoff analysis with your complete rental property financial tracking? SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes automated amortization schedules, payoff projections, and portfolio-level debt management tools. Track all your properties in one workbook and see exactly when your rental income becomes pure cash flow.</p>`
   },
 ];
 
