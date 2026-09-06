@@ -18986,7 +18986,7 @@ That $2.4M apartment building might generate strong cash flow, but without calcu
 
 Don't rely on the seller's projections or simple rules of thumb. Build your own real estate IRR calculator that accounts for your specific financing, tax situation, and exit strategy. The 30 minutes you spend building this tool could save you from years of subpar returns.
 
-Ready to analyze your next deal with confidence? The SheetCraft Real Estate Calculator includes pre-built IRR calculations for both levered and unlevered scenarios, sensitivity analysis tables, and cash flow projections that handle refinancing, improvements, and variable vacancy rates. Download it today and stop guessing at your real estate returns.`,
+Ready to analyze your next deal with confidence? Our <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> builds the dated cash flow row that XIRR needs straight out of a real deal, with the purchase, the rehab draws, the refinance proceeds, the rent, and the exit already sequenced, and levered and unlevered views running side by side off the same timeline. You stop rebuilding the cash flow sequence for every property and start comparing deals on one basis.`,
   },
   {
     slug: 'commercial-real-estate-noi-calculator-excel',
@@ -23558,7 +23558,9 @@ Update your tracker monthly, but review performance metrics weekly. The goal is 
 
 Your real estate portfolio tracker spreadsheet becomes your investment command center. It shows not just what you own, but what you should do next to optimize returns, minimize risk, and build lasting wealth through real estate investing.
 
-The difference between tracking properties and tracking profitable investments determines whether you build a real estate business or just collect rent. Choose wisely.`,
+The difference between tracking properties and tracking profitable investments determines whether you build a real estate business or just collect rent. Choose wisely.
+
+Building the dashboard is the easy half. The half that stalls is the per property engine underneath it: the cash flow statement, the debt schedule, and the return metrics that every roll-up column has to read from, built the same way for every property so the portfolio view compares like with like. Our <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> ships that engine already wired, so you add a property to a working model instead of rebuilding the same twelve formulas every time you buy.`,
   },
   {
     slug: 'construction-safety-tracking-spreadsheet-osha-compliant',
@@ -28824,7 +28826,9 @@ If you are using SheetCraft's Flip & BRRRR Calculator, the holding cost module i
 The best flippers do not just understand holding costs, they obsess over them. They know their daily burn rate by heart. They negotiate timelines with contractors knowing that every week of delay costs real money. They accept offers based on net proceeds, not just gross price.
 
 Build the calculator. Know your numbers. And stop letting time steal your profits.`
-  },
+  }
+
+Holding costs only mean something next to the rest of the deal. The same $100 a day is comfortable on a flip with a wide spread and fatal on a thin one, and you cannot tell which one you are holding until the purchase price, the rehab budget, the financing terms, and the ARV sit in the same model as the calendar. Our <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> puts them there, with the holding cost timeline running off the same schedule as the draws and the exit, so a two week slip reprices the whole deal instead of one line on a separate tab.,
   {
     slug: 'construction-material-takeoff-spreadsheet',
     title: 'How to Create a Material Takeoff Spreadsheet for Construction',
@@ -29953,7 +29957,9 @@ The benchmark that matters is your personal hurdle rate: what return would cause
 Most experienced rental investors set a minimum CoC target of 6-8% in today's rate environment. Deals that do not clear that threshold get passed unless there is a compelling appreciation story with specific, defensible assumptions behind it.
 
 The cash-on-cash return calculator does not make that decision for you. It gives you the honest number. What you do with it is the investment.`
-  },
+  }
+
+One honest number on one property is the start. The work is getting the same honest number on the next eight, with reserves, the capital expenditure allowance, and true cash invested assembled identically every time, because a CoC you calculated generously in March does not compare to one you calculated strictly in August. Our <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> fixes that input structure so every property runs through the same assumptions, and the portfolio view ranks them on a basis you can defend in front of a lender or a partner.,
   {
     slug: 'construction-budget-variance-analysis',
     title: 'Construction Budget Variance Analysis: Find Cost Overruns Before They Kill Your Project',
