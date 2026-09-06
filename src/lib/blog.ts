@@ -28825,10 +28825,10 @@ If you are using SheetCraft's Flip & BRRRR Calculator, the holding cost module i
 
 The best flippers do not just understand holding costs, they obsess over them. They know their daily burn rate by heart. They negotiate timelines with contractors knowing that every week of delay costs real money. They accept offers based on net proceeds, not just gross price.
 
-Build the calculator. Know your numbers. And stop letting time steal your profits.`
-  }
+Build the calculator. Know your numbers. And stop letting time steal your profits.
 
-Holding costs only mean something next to the rest of the deal. The same $100 a day is comfortable on a flip with a wide spread and fatal on a thin one, and you cannot tell which one you are holding until the purchase price, the rehab budget, the financing terms, and the ARV sit in the same model as the calendar. Our <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> puts them there, with the holding cost timeline running off the same schedule as the draws and the exit, so a two week slip reprices the whole deal instead of one line on a separate tab.,
+Holding costs only mean something next to the rest of the deal. The same $100 a day is comfortable on a flip with a wide spread and fatal on a thin one, and you cannot tell which one you are holding until the purchase price, the rehab budget, the financing terms, and the ARV sit in the same model as the calendar. Our <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> puts them there, with the holding cost timeline running off the same schedule as the draws and the exit, so a two week slip reprices the whole deal instead of one line on a separate tab.`
+  },
   {
     slug: 'construction-material-takeoff-spreadsheet',
     title: 'How to Create a Material Takeoff Spreadsheet for Construction',
@@ -29956,10 +29956,10 @@ The benchmark that matters is your personal hurdle rate: what return would cause
 
 Most experienced rental investors set a minimum CoC target of 6-8% in today's rate environment. Deals that do not clear that threshold get passed unless there is a compelling appreciation story with specific, defensible assumptions behind it.
 
-The cash-on-cash return calculator does not make that decision for you. It gives you the honest number. What you do with it is the investment.`
-  }
+The cash-on-cash return calculator does not make that decision for you. It gives you the honest number. What you do with it is the investment.
 
-One honest number on one property is the start. The work is getting the same honest number on the next eight, with reserves, the capital expenditure allowance, and true cash invested assembled identically every time, because a CoC you calculated generously in March does not compare to one you calculated strictly in August. Our <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> fixes that input structure so every property runs through the same assumptions, and the portfolio view ranks them on a basis you can defend in front of a lender or a partner.,
+One honest number on one property is the start. The work is getting the same honest number on the next eight, with reserves, the capital expenditure allowance, and true cash invested assembled identically every time, because a CoC you calculated generously in March does not compare to one you calculated strictly in August. Our <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> fixes that input structure so every property runs through the same assumptions, and the portfolio view ranks them on a basis you can defend in front of a lender or a partner.`
+  },
   {
     slug: 'construction-budget-variance-analysis',
     title: 'Construction Budget Variance Analysis: Find Cost Overruns Before They Kill Your Project',
