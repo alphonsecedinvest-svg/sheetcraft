@@ -16,6 +16,198 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-1099-nec-vendor-tracking-excel',
+    title: 'Rental Property 1099-NEC Vendor Tracking in Excel: The $600 Rule Expired',
+    metaTitle: 'Rental Property 1099-NEC Vendor Tracking Excel | SheetCraft',
+    metaDescription: 'The 1099-NEC threshold moved from $600 to $2,000 for 2026 payments. Build the Excel vendor log that catches the line in July, when it is still free to fix.',
+    targetKeyword: 'rental property 1099 NEC vendor tracking Excel',
+    secondaryKeywords: ['1099-NEC threshold 2026', 'landlord W-9 tracking spreadsheet', 'backup withholding rental property', 'vendor payment log Excel', 'Schedule E 1099 requirement'],
+    excerpt: 'The $600 rule you memorized applied through the 2025 tax year. For payments made after December 31, 2025, the 1099-NEC line is $2,000, and 24 percent backup withholding moved with it. Nine payees, $35,080 paid, four forms, and the two biggest checks of the year generate nothing.',
+    publishedAt: '2026-09-07',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-1099-nec-vendor-tracking-excel.png',
+    imageAlt: 'Five brass hooks on an oak wall board, each holding a different trade tool: hammer, pipe wrench, paint brush, pruning shears and tin snips',
+    content: `<p>Most rental property 1099-NEC vendor tracking in Excel is built around a number that expired. The $600 threshold every landlord memorized applied to payments made through December 31, 2025. For anything you paid a vendor after that date, the line is $2,000, and it indexes for inflation starting in 2027. If your spreadsheet has 600 typed into a formula, it is wrong in the direction that feels safe.</p>
+
+<p>The reasonable conclusion is that a higher threshold means fewer forms and less work. That is backwards. The threshold change removed exactly one form from the portfolio below and turned four settled answers into open questions that stayed open until the last week of December.</p>
+
+<h2>The line moved, and the 24 percent moved with it</h2>
+
+<p>The One Big Beautiful Bill Act amended Section 6041(a). The text now reads "$2,000 or more in any calendar year," effective for payments made after December 31, 2025. Section 6041(h) indexes that amount for calendar years after 2026, using 2025 as the base year. Two consequences you cannot skip:</p>
+
+<ul>
+<li>The threshold is a moving number. Hard-coding 2000 into a formula buys you fourteen months before it is stale. Put it in a cell.</li>
+<li>Backup withholding followed. Section 3406(b)(6) makes a payment reportable when "the aggregate amount of such payment and all previous payments" to that payee in the year "equals or exceeds the dollar amount in effect for such calendar year under section 6041(a)." The withholding trigger is not a separate number. It is the same number, and it moved on the same day.</li>
+</ul>
+
+<p>The wording is "or more," so a running total of exactly $2,000.00 is over the line, not under it.</p>
+
+<p>Here is why fewer forms means more exposure. At $600, almost every recurring vendor crossed by spring, so "when in doubt, send one" was a defensible policy and the answer was settled early. At $2,000 you get a wide band between $600 and $2,000 where the correct answer is genuinely no, and a thin band just underneath where one December call flips it. The number of vendors whose status you cannot determine in July went up, not down.</p>
+
+<h2>Nine payees, $35,080, four forms</h2>
+
+<p>A seven-door portfolio across four properties, $131,400 of gross scheduled rent, $35,080 paid out to vendors during calendar 2026. Here is every payee and what each one actually requires.</p>
+
+<table>
+<tr><th>Payee</th><th>Paid in 2026</th><th>How paid</th><th>W-9 line 3 classification</th><th>1099-NEC?</th><th>Why</th></tr>
+<tr><td>Mike Delgado, handyman</td><td>$2,410</td><td>Check, Zelle</td><td>Individual / sole proprietor</td><td>YES</td><td>Over the line, services, not a card payment</td></tr>
+<tr><td>Cardinal Plumbing LLC</td><td>$4,180</td><td>Check</td><td>LLC taxed as S corporation</td><td>No</td><td>Corporate classification</td></tr>
+<tr><td>Ramirez Lawn &amp; Snow</td><td>$3,600</td><td>ACH</td><td>Individual / sole proprietor</td><td>YES</td><td>$300 per month, crosses in July</td></tr>
+<tr><td>TruClean Turnovers LLC</td><td>$1,875</td><td>Check</td><td>Single-member LLC, disregarded</td><td>No</td><td>Under the line by $125. Would have been a form last year</td></tr>
+<tr><td>Northstar Roofing Inc.</td><td>$8,900</td><td>Check</td><td>C corporation</td><td>No</td><td>Corporate classification</td></tr>
+<tr><td>Whitfield &amp; Ross PC</td><td>$2,150</td><td>Check</td><td>C corporation</td><td>YES</td><td>Legal services. The corporate exemption does not apply</td></tr>
+<tr><td>Dana Pruitt, cleaner</td><td>$2,240</td><td>Credit card</td><td>Individual</td><td>No</td><td>Card processor reports it on 1099-K</td></tr>
+<tr><td>Kyle Boone, painter</td><td>$3,120</td><td>Check</td><td>Individual / sole proprietor</td><td>YES</td><td>Sat at $1,940 on December 1, then took a turnover</td></tr>
+<tr><td>Ridgeline Supply Co.</td><td>$6,605</td><td>Card, check</td><td>C corporation</td><td>No</td><td>Goods, not services</td></tr>
+</table>
+
+<p>Four forms, covering $11,280 of the $35,080. The two largest checks you wrote all year, $8,900 to the roofer and $6,605 to the supply house, produce nothing. The law firm, which most landlords assume is exempt because "PC" is a corporation, produces one. The IRS instructions are explicit: the exemption from reporting payments made to corporations does not apply to payments for legal services.</p>
+
+<p>Now run the same year under the old rule. By July 31, Mike was at $1,610, Ramirez at $2,100, TruClean at $1,120, Whitfield at $1,600, and Kyle at $1,520. Under $600, five of those answers were already locked. Under $2,000, exactly one was. That is the entire cost of the change, and it lands on the tracking, not on the filing.</p>
+
+<h2>How you paid decides before how much you paid</h2>
+
+<p>Amount is the second test. Payment method is the first, and it disqualifies payments before you ever total them.</p>
+
+<table>
+<tr><th>Payment method</th><th>Who reports it</th><th>What you do</th></tr>
+<tr><td>Check</td><td>You</td><td>Count it toward the line</td></tr>
+<tr><td>ACH or bank bill pay</td><td>You</td><td>Count it</td></tr>
+<tr><td>Zelle</td><td>You</td><td>Count it. Zelle moves money bank to bank and does not settle funds, so no 1099-K is issued and the obligation stays with you</td></tr>
+<tr><td>Cash</td><td>You</td><td>Count it, and keep a signed receipt</td></tr>
+<tr><td>Credit or debit card</td><td>The card processor, on Form 1099-K</td><td>Do not issue a form</td></tr>
+<tr><td>PayPal goods and services, Venmo business</td><td>The network, on Form 1099-K</td><td>Do not issue a form</td></tr>
+</table>
+
+<p>The Zelle row is the one that catches people. Venmo and PayPal look like Zelle on a phone screen and behave completely differently in the tax code. Dana Pruitt got $2,240 on a card and needs nothing from you. If you had paid her the identical $2,240 by Zelle, she needs a form.</p>
+
+<p>The goods rule has a wrinkle worth knowing. Materials billed alongside labor stay in the reportable amount when supplying them was incidental to the service. Mike Delgado's invoice for a $310 job that includes $84 of parts is $310 of reportable payment, not $226. Ridgeline Supply is different because Ridgeline sells you material and performs no service.</p>
+
+<h2>Build the vendor registry before you build the payment log</h2>
+
+<p>The failure mode is not arithmetic. It is that your books are organized by property and the IRS wants them organized by payee. Mike shows up in your records as "Mike" on Kessler in March, "Mike's Handyman" on Larkin in June, and "M. Delgado" on Fremont in October. No single property crosses $2,000. The payee does.</p>
+
+<p>Fix it at the source. Never type a vendor name into the payment log. Type an ID.</p>
+
+<table>
+<tr><th>Column</th><th>Field</th><th>What goes in it</th></tr>
+<tr><td>A</td><td>Vendor ID</td><td>V-001. The only thing the payment log ever references</td></tr>
+<tr><td>B</td><td>Legal name</td><td>Exactly as written on W-9 line 1</td></tr>
+<tr><td>C</td><td>Bank statement string</td><td>How the payee appears on your export. "ZELLE TO MIKE D"</td></tr>
+<tr><td>D</td><td>Tax classification</td><td>W-9 line 3, verbatim. For an LLC, the letter in the box</td></tr>
+<tr><td>E</td><td>Service type</td><td>Trade, Legal, or Goods</td></tr>
+<tr><td>F</td><td>W-9 received</td><td>Date. Blank is the state that costs money</td></tr>
+<tr><td>G</td><td>TIN certified</td><td>Y or N</td></tr>
+<tr><td>H</td><td>Reportable class</td><td>Formula, below</td></tr>
+</table>
+
+<p>Column H carries three states, not two:</p>
+
+<p><code>=IF(F4="","NO W-9",IF(E4="Legal","YES",IF(COUNTIF(CorpTypes,D4)&gt;0,"NO - corporate",IF(E4="Goods","NO - goods","YES"))))</code></p>
+
+<p><code>CorpTypes</code> is a named range holding the four classifications that exempt a payee: C Corporation, S Corporation, LLC taxed as C corp, LLC taxed as S corp. The order of the nesting is load-bearing. Legal is tested before corporate because the attorney rule overrides the corporate exemption, which is exactly the trap Whitfield &amp; Ross represents.</p>
+
+<p>"NO W-9" is not a no. It is an unknown, and unknown is the only state on this sheet with a price tag. A vendor you have decided is exempt costs you nothing. A vendor you have not classified costs you 24 percent of everything you pay them after they cross.</p>
+
+<h2>The payment log runs two tests, and you need to see which one failed</h2>
+
+<p>One flag column tells you a payment does not count. Two flag columns tell you why, which is what you need in December when somebody asks whether the answer would change.</p>
+
+<table>
+<tr><th>Column</th><th>Field</th><th>Formula or source</th></tr>
+<tr><td>A</td><td>Date</td><td>Payment date, not invoice date</td></tr>
+<tr><td>B</td><td>Vendor ID</td><td>Data validation list from Vendors column A</td></tr>
+<tr><td>C</td><td>Property</td><td>For your P&amp;L, irrelevant to the 1099</td></tr>
+<tr><td>D</td><td>Amount</td><td>Gross paid, including incidental materials</td></tr>
+<tr><td>E</td><td>Method</td><td>Check, ACH, Zelle, Cash, Card</td></tr>
+<tr><td>F</td><td>Services or Goods</td><td>Per line, not per vendor</td></tr>
+<tr><td>G</td><td>Payment qualifies</td><td><code>=IF(OR(E5="Card",F5="Goods"),"NO","YES")</code></td></tr>
+<tr><td>H</td><td>Payee qualifies</td><td><code>=XLOOKUP($B5,Vendors!$A:$A,Vendors!$H:$H,"UNKNOWN VENDOR")</code></td></tr>
+<tr><td>I</td><td>Countable amount</td><td><code>=IF(AND(G5="YES",LEFT(H5,3)="YES"),D5,0)</code></td></tr>
+</table>
+
+<p>Column I is the only column the threshold math ever reads. Everything above it is the audit trail that explains a zero.</p>
+
+<p>Two more columns turn this from a ledger into a warning system. Column J is a running total per payee, which is the whole trick:</p>
+
+<p><code>=SUMIFS($I$5:$I5,$B$5:$B5,$B5)</code></p>
+
+<p>The anchored start and relative end make the range grow as you fill down, so row 40 sums every countable payment to that vendor from row 5 through row 40. Column K prices the missing W-9 on the day you write the check:</p>
+
+<p><code>=IF(AND(J5&gt;=Threshold,XLOOKUP($B5,Vendors!$A:$A,Vendors!$G:$G)="N"),I5&#42;0.24,0)</code></p>
+
+<p>Once the running total crosses, it stays crossed, so this fires on the payment that crosses and on every payment after it, which is precisely what Section 3406(b)(6) says. If the vendor has certified a TIN, it returns zero and you ignore it. If not, the number in column K is real money you are about to hand over and should have kept.</p>
+
+<p>While you are in this log, add a column for whether the payment is a <a href="/blog/rental-property-repair-vs-improvement-classification-excel">repair or an improvement</a>. The same check gets classified twice for two unrelated reasons, and getting the 1099 answer right tells you nothing about whether the $9,000 roof section is deductible this year or capitalized over 27.5.</p>
+
+<h2>The 24 percent only exists while the year is still running</h2>
+
+<p>Here is the July 31 view of the threshold monitor, with the threshold sitting in cell <code>$C$3</code> so it can be updated when the indexed amount is published:</p>
+
+<p><code>=SUMIFS(Payments!$I:$I,Payments!$B:$B,$A4,Payments!$A:$A,"&gt;="&amp;$C$1,Payments!$A:$A,"&lt;="&amp;$C$2)</code></p>
+
+<p><code>=IF(C4&gt;=$C$3,"OVER - file",IF(C4&gt;=$C$3&#42;0.75,"WATCH - get W-9 now","under"))</code></p>
+
+<table>
+<tr><th>Payee</th><th>Countable through Jul 31</th><th>W-9 on file</th><th>Status</th><th>What July tells you</th></tr>
+<tr><td>Ramirez Lawn &amp; Snow</td><td>$2,100</td><td>No</td><td>OVER - file</td><td>Withhold 24% starting with the August check</td></tr>
+<tr><td>Mike Delgado</td><td>$1,610</td><td>Yes, 2023</td><td>WATCH</td><td>Will cross. Nothing to do</td></tr>
+<tr><td>Whitfield &amp; Ross PC</td><td>$1,600</td><td>Yes</td><td>WATCH</td><td>Will cross. Nothing to do</td></tr>
+<tr><td>Kyle Boone</td><td>$1,520</td><td>No</td><td>WATCH</td><td>Get the W-9 before the next job</td></tr>
+<tr><td>TruClean Turnovers LLC</td><td>$1,120</td><td>Yes</td><td>under</td><td>Ends the year at $1,875, no form</td></tr>
+<tr><td>Cardinal, Northstar, Dana, Ridgeline</td><td>$0 countable</td><td>Mixed</td><td>n/a</td><td>Disqualified by classification or method</td></tr>
+</table>
+
+<p>The WATCH band at 75 percent of the threshold is not a legal concept. It is operational. It gives you roughly $500 of runway to get a W-9 while you still have leverage, because the leverage is the next check and it expires when the work is done.</p>
+
+<p>Run the two undocumented vendors through to year end. Ramirez crosses on the July payment and receives six more $300 payments, so $1,800 of reportable payments should have had 24 percent withheld: $432. Kyle sits at $1,940 through November, takes a $1,180 turnover in December, and that single payment becomes reportable in full: $283.20.</p>
+
+<p>Catch it on July 31 and you withhold from checks you have not written yet. It costs you nothing. Catch it on January 20 and the money is gone, because you cannot withhold from a check that already cleared, and a payer who fails to withhold can be assessed the amount they failed to withhold.</p>
+
+<table>
+<tr><th>Line item</th><th>Caught July 31</th><th>Caught January 2027</th><th>Never caught</th></tr>
+<tr><td>Ramirez, withholding on $1,800</td><td>$0, taken from his checks</td><td>$432 out of your pocket</td><td>$432</td></tr>
+<tr><td>Kyle, withholding on $1,180</td><td>$0, W-9 before the job</td><td>$283 out of your pocket</td><td>$283</td></tr>
+<tr><td>Section 6721, 4 forms not filed</td><td>$0</td><td>$0 if you make the deadline</td><td>$1,360</td></tr>
+<tr><td>Section 6722, 4 statements not furnished</td><td>$0</td><td>$0 if you make the deadline</td><td>$1,360</td></tr>
+<tr><td>Schedule E, line B</td><td>Yes, truthfully</td><td>Yes, truthfully</td><td>No, or a false yes</td></tr>
+<tr><td>Cash cost</td><td>$0</td><td>$715</td><td>$3,435</td></tr>
+</table>
+
+<p>The penalty tiers for returns due in 2026 are $60 if you fix it within 30 days, $130 through August 1, and $340 after that. Section 6721 covers the copy that goes to the IRS and Section 6722 covers the copy that goes to the vendor, and they stack, so a form you never filed at all is $680. Intentional disregard runs $680 per section with no annual cap. On a seven-door portfolio, $3,435 is 2.6 percent of gross rent, produced by four pieces of paper.</p>
+
+<h2>January becomes a sort instead of a scramble</h2>
+
+<p>Forms 1099-NEC for 2026 payments are due to the recipient and to the IRS on the same day. January 31, 2027 is a Sunday, so the deadline is Monday, February 1, 2027. There is no split deadline the way there is for some other information returns and no automatic extension worth planning around.</p>
+
+<p>Four things the log should hand you on February 1 with no additional work:</p>
+
+<ol>
+<li><strong>The filing list.</strong> <code>=COUNTIF(Status,"OVER - file")</code>. If that number plus every other information return you file reaches 10 in aggregate, you must file electronically. A landlord with four 1099-NECs and six other returns is over the line.</li>
+<li><strong>A blocked list.</strong> <code>=IF(OR(TIN="",Address=""),"BLOCKED","ready")</code>. A vendor who is over the threshold with no TIN is not a filing problem, it is a withholding problem you already have.</li>
+<li><strong>TIN verification.</strong> Run the names and TINs through the IRS TIN Matching service before you transmit. A mismatch found in January is a correction. A mismatch found by the IRS is a CP2100 notice and a B-notice you have to send the vendor.</li>
+<li><strong>An honest answer to Schedule E.</strong> Line A asks whether you made payments that would require you to file Forms 1099, and line B asks whether you did or will file them. You sign that return under penalties of perjury. The log is what makes "yes" defensible.</li>
+</ol>
+
+<p>One thing the federal change does not do is settle your state. States set their own information return thresholds and are not required to follow the move to $2,000. Several still operate at $600. Keep the log at the lower of the two numbers and decide at filing time, which costs nothing, instead of discovering in April that your state wanted a form you never tracked.</p>
+
+<h2>Do this before the next check goes out</h2>
+
+<p>You are reading this in September. Roughly a third of the calendar year is left, which means the withholding remedy still works and the W-9 chase still has leverage. In January neither is true.</p>
+
+<ol>
+<li>List every payee you have paid in 2026 and collapse the aliases. One row per human or entity, not per name on a bank line.</li>
+<li>Pull the W-9 for each one and record line 3 verbatim. If you do not have it, that vendor's row starts with "NO W-9" and stays there until a PDF exists.</li>
+<li>Strike out every card payment and every goods-only payee. That is usually a third of the list and it is the cheapest work you will do all week.</li>
+<li>Total the survivors by payee, year to date. Anyone over $1,500 gets a W-9 request today, before the next job, while you still hold a check.</li>
+<li>Anyone already over $2,000 without a certified TIN: start withholding 24 percent on the next payment. Tell them why. "I cannot pay the full amount without a W-9" is a true sentence and the only version of this request that reliably works.</li>
+<li>Put 2000 in a cell, not in a formula, and label the cell with the year.</li>
+</ol>
+
+<p>The vendor log is one tab of a system that also has to produce cash flow, cap rate, depreciation schedules, and a Schedule E that ties to your bank. SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> ships with the payee-level expense ledger already wired to the property-level P&amp;L, so a single payment lands once and rolls up two ways: to the property for your returns analysis, and to the payee for the threshold monitor described here. The running-total and withholding columns drop into the vendor tab in about ten minutes. Build it in September and February is a sort. Build it in February and you are paying the 24 percent yourself.</p>`,
+  },
+  {
     slug: 'construction-temporary-utilities-cost-tracker-excel',
     title: 'Construction Jobsite Temporary Utilities Cost Tracker in Excel',
     metaTitle: 'Jobsite Temporary Utilities Cost Tracker | SheetCraft',
