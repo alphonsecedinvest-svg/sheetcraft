@@ -9290,10 +9290,10 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td>B3</td><td>Contract sum</td><td>3,200,000</td></tr>
 <tr><td>B4</td><td>Bid margin %</td><td>6%</td></tr>
-<tr><td>B5</td><td>Project margin $ =B3*B4</td><td>192,000</td></tr>
+<tr><td>B5</td><td>Project margin $ =B3&#42;B4</td><td>192,000</td></tr>
 <tr><td>B6</td><td>LD rate per calendar day</td><td>2,500</td></tr>
 <tr><td>B7</td><td>LD cap, % of contract</td><td>5%</td></tr>
-<tr><td>B8</td><td>LD cap $ =B3*B7</td><td>160,000</td></tr>
+<tr><td>B8</td><td>LD cap $ =B3&#42;B7</td><td>160,000</td></tr>
 <tr><td>B9</td><td>Contract completion date</td><td>6/1/2026</td></tr>
 <tr><td>B10</td><td>Your planned completion</td><td>5/17/2026</td></tr>
 <tr><td>B11</td><td>Forecast completion (live)</td><td>6/19/2026</td></tr>
@@ -12976,13 +12976,13 @@ export const blogPosts: BlogPost[] = [
 </thead>
 <tbody>
 <tr><td>1. Direct material</td><td>Beam, hardware, connectors</td><td>quoted</td><td>$6,200</td></tr>
-<tr><td>2. Direct labor (burdened)</td><td>40 hrs x $32 x 1.38 burden</td><td>=B4*B5*(1+B6)</td><td>$1,766</td></tr>
+<tr><td>2. Direct labor (burdened)</td><td>40 hrs x $32 x 1.38 burden</td><td>=B4&#42;B5&#42;(1+B6)</td><td>$1,766</td></tr>
 <tr><td>2. Equipment</td><td>Crane, half day</td><td>quoted</td><td>$1,400</td></tr>
-<tr><td>3. Overhead and profit</td><td>20% on self-performed</td><td>=B9*(B12+B13)</td><td>$1,873</td></tr>
+<tr><td>3. Overhead and profit</td><td>20% on self-performed</td><td>=B9&#42;(B12+B13)</td><td>$1,873</td></tr>
 <tr><td>3. Subcontractor</td><td>Welding and inspection</td><td>quoted</td><td>$2,800</td></tr>
-<tr><td>3. Markup on sub</td><td>10% on sub cost</td><td>=B10*B14</td><td>$280</td></tr>
-<tr><td>4. Schedule impact</td><td>3 added days x $480/day general conditions</td><td>=B15*B16</td><td>$1,440</td></tr>
-<tr><td>5. Bond and insurance</td><td>1.5% of subtotal</td><td>=B18*B17</td><td>$236</td></tr>
+<tr><td>3. Markup on sub</td><td>10% on sub cost</td><td>=B10&#42;B14</td><td>$280</td></tr>
+<tr><td>4. Schedule impact</td><td>3 added days x $480/day general conditions</td><td>=B15&#42;B16</td><td>$1,440</td></tr>
+<tr><td>5. Bond and insurance</td><td>1.5% of subtotal</td><td>=B18&#42;B17</td><td>$236</td></tr>
 <tr><td><strong>Total change order price</strong></td><td></td><td></td><td><strong>$15,995</strong></td></tr>
 </tbody>
 </table>
@@ -15255,8 +15255,8 @@ SPI = EV / PV</code></pre>
   <li><strong>BAC</strong> (Column C). Budget for this line.</li>
   <li><strong>Planned % Complete</strong> (Column D). From the baseline schedule, as of cutoff date.</li>
   <li><strong>Earned % Complete</strong> (Column E). Physical, as of cutoff date.</li>
-  <li><strong>PV</strong> (Column F). =C4*D4</li>
-  <li><strong>EV</strong> (Column G). =C4*E4</li>
+  <li><strong>PV</strong> (Column F). =C4&#42;D4</li>
+  <li><strong>EV</strong> (Column G). =C4&#42;E4</li>
   <li><strong>AC</strong> (Column H). Pulled from the G/L for this cost code.</li>
   <li><strong>CV</strong> (Column I). =G4-H4</li>
   <li><strong>SV</strong> (Column J). =G4-F4</li>
@@ -16062,7 +16062,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
         <tr>
             <td>J</td>
             <td>Current Annual Rent</td>
-            <td>=H4*I4</td>
+            <td>=H4&#42;I4</td>
             <td>Formula</td>
         </tr>
         <tr>
@@ -17038,11 +17038,11 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 <tr><th>Cost Component</th><th>How to Calculate</th><th>Example (CAT 259D3, 900 hr/yr)</th></tr>
 </thead>
 <tbody>
-<tr><td>Economic depreciation</td><td>(Purchase Price - Salvage) / (Useful Life * Annual Hours)</td><td>($58,000 - $12,000) / (7 * 900) = $7.30/hr</td></tr>
+<tr><td>Economic depreciation</td><td>(Purchase Price - Salvage) / (Useful Life &#42; Annual Hours)</td><td>($58,000 - $12,000) / (7 &#42; 900) = $7.30/hr</td></tr>
 <tr><td>Fuel</td><td>Gal/hr * $/gallon</td><td>2.8 gal * $3.75 = $10.50/hr</td></tr>
 <tr><td>Maintenance & repairs</td><td>Annual cost / Annual hours</td><td>$5,400 / 900 = $6.00/hr</td></tr>
 <tr><td>Insurance & registration</td><td>Annual cost / Annual hours</td><td>$1,800 / 900 = $2.00/hr</td></tr>
-<tr><td>Cost of capital</td><td>(Avg book value * interest rate) / Annual hours</td><td>($30,000 * 8%) / 900 = $2.67/hr</td></tr>
+<tr><td>Cost of capital</td><td>(Avg book value &#42; interest rate) / Annual hours</td><td>($30,000 &#42; 8%) / 900 = $2.67/hr</td></tr>
 <tr><td><strong>Total</strong></td><td></td><td><strong>$28.47/hr</strong></td></tr>
 </tbody>
 </table>
@@ -17086,7 +17086,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p>Where V2 is current true hourly cost and X2 is the projected true hourly cost of buying a new equivalent machine. The 15 percent buffer accounts for transaction costs of selling old and buying new, dealer markup, and downtime during transition.</p>
 
-<p>The CAT 259D3 in year 7 might be running you $42/hour all-in (high maintenance, low book value but lots of capital opportunity cost on the remaining value). A new equivalent at $72,000, depreciated over 7 years at 900 hours/year, runs $33/hour all-in. Your formula returns "REPLACE" because $42 > $33 * 1.15.</p>
+<p>The CAT 259D3 in year 7 might be running you $42/hour all-in (high maintenance, low book value but lots of capital opportunity cost on the remaining value). A new equivalent at $72,000, depreciated over 7 years at 900 hours/year, runs $33/hour all-in. Your formula returns "REPLACE" because $42 > $33 &#42; 1.15.</p>
 
 <p>One more decision input: utilization. If you only ran the machine 380 hours last year instead of the budgeted 900, your fixed costs are spreading over a smaller base. Annual utilization rate: <code>=I2/H2</code> (current hour meter / annual budget). If this drops below 60 percent for two years running, you should not own this machine. Rent it or sell it.</p>
 
@@ -18284,7 +18284,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <p><code>=C2/D2</code></p>
 
-<p>Pull the sum into your main category summary as DEPR. If you bought the property mid-year, prorate the first year using the IRS mid-month convention for real property and the half-year convention for personal property. A $400,000 building placed in service on June 15 gets $400,000 / 27.5 * (6.5/12) = $7,879 in year one, not the full $14,545.</p>
+<p>Pull the sum into your main category summary as DEPR. If you bought the property mid-year, prorate the first year using the IRS mid-month convention for real property and the half-year convention for personal property. A $400,000 building placed in service on June 15 gets $400,000 / 27.5 &#42; (6.5/12) = $7,879 in year one, not the full $14,545.</p>
 
 <h3>Mileage to the property</h3>
 
@@ -20980,7 +20980,7 @@ This gives you break-even time in months. For years, divide by 12:
 If your property appreciates at 3% annually, factor this into break-even:
 
 \`\`\`
-=B10/(C12+(B3*0.03/12))
+=B10/(C12+(B3&#42;0.03/12))
 \`\`\`
 
 Where B3 is your property value.
@@ -20989,7 +20989,7 @@ Where B3 is your property value.
 Depreciation and expense deductions reduce your effective investment cost:
 
 \`\`\`
-=B10-(B11*C13)
+=B10-(B11&#42;C13)
 \`\`\`
 
 Where:
@@ -21000,7 +21000,7 @@ Where:
 Compare to alternative investments:
 
 \`\`\`
-=B10/((C12+(B3*0.03/12))-(B10*0.08/12))
+=B10/((C12+(B3&#42;0.03/12))-(B10&#42;0.08/12))
 \`\`\`
 
 This subtracts what your initial investment would earn at 8% annually.
@@ -21478,11 +21478,11 @@ Your lease option targets tenants with credit scores in the 580-620 range, but y
 
 <table>
 <tr><th>Expense Category</th><th>Monthly Amount</th><th>Excel Formula</th></tr>
-<tr><td>Principal & Interest</td><td>$1,247</td><td>=PMT(B3/12,B4*12,-B2)</td></tr>
+<tr><td>Principal & Interest</td><td>$1,247</td><td>=PMT(B3/12,B4&#42;12,-B2)</td></tr>
 <tr><td>Property Taxes</td><td>$285</td><td>=B6/12</td></tr>
 <tr><td>Insurance</td><td>$95</td><td>=B7/12</td></tr>
-<tr><td>Maintenance Reserve</td><td>$150</td><td>=B8*0.01</td></tr>
-<tr><td>Management</td><td>$95</td><td>=B9*0.06</td></tr>
+<tr><td>Maintenance Reserve</td><td>$150</td><td>=B8&#42;0.01</td></tr>
+<tr><td>Management</td><td>$95</td><td>=B9&#42;0.06</td></tr>
 <tr><td>Total Expenses</td><td>$1,872</td><td>=SUM(B11:B15)</td></tr>
 </table>
 
@@ -21553,10 +21553,10 @@ Your lease option targets tenants with credit scores in the 580-620 range, but y
 <table>
 <tr><th>Analysis Component</th><th>Calculation</th><th>Result</th></tr>
 <tr><td>Monthly Cash Flow</td><td>=1650-(1247+285+95+150+95)</td><td>-$222</td></tr>
-<tr><td>24-Month Cash Shortage</td><td>=222*24</td><td>-$5,328</td></tr>
-<tr><td>Exercise Probability</td><td>=IF(182000>175000,MIN(0.85,0.45+((182000-175000)/182000)*0.40),0.15)</td><td>68%</td></tr>
-<tr><td>Expected Profit (Exercise)</td><td>=(175000-165000-5328)*0.68</td><td>$6,577</td></tr>
-<tr><td>Expected Loss (No Exercise)</td><td>=(5000-5328)*0.32</td><td>-$105</td></tr>
+<tr><td>24-Month Cash Shortage</td><td>=222&#42;24</td><td>-$5,328</td></tr>
+<tr><td>Exercise Probability</td><td>=IF(182000>175000,MIN(0.85,0.45+((182000-175000)/182000)&#42;0.40),0.15)</td><td>68%</td></tr>
+<tr><td>Expected Profit (Exercise)</td><td>=(175000-165000-5328)&#42;0.68</td><td>$6,577</td></tr>
+<tr><td>Expected Loss (No Exercise)</td><td>=(5000-5328)&#42;0.32</td><td>-$105</td></tr>
 <tr><td>Total Expected Return</td><td>=6577+(-105)</td><td>$6,472</td></tr>
 </table>
 
@@ -22338,9 +22338,9 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 <table>
 <tr><th>Column A</th><th>Column B</th><th>Column C</th><th>Column D</th><th>Column E</th><th>Column F</th></tr>
 <tr><td>Phase</td><td>Task</td><td>Base Duration</td><td>Weather Buffer</td><td>Permit Buffer</td><td>Total Duration</td></tr>
-<tr><td>Site Prep</td><td>Excavation</td><td>2</td><td>=C3*0.2</td><td>=C3*0.1</td><td>=C3+D3+E3</td></tr>
-<tr><td>Foundation</td><td>Forms & Pour</td><td>3</td><td>=C4*0.3</td><td>=C4*0.25</td><td>=C4+D4+E4</td></tr>
-<tr><td>Framing</td><td>Structural Frame</td><td>8</td><td>=C5*0.15</td><td>=C5*0.1</td><td>=C5+D5+E5</td></tr>
+<tr><td>Site Prep</td><td>Excavation</td><td>2</td><td>=C3&#42;0.2</td><td>=C3&#42;0.1</td><td>=C3+D3+E3</td></tr>
+<tr><td>Foundation</td><td>Forms & Pour</td><td>3</td><td>=C4&#42;0.3</td><td>=C4&#42;0.25</td><td>=C4+D4+E4</td></tr>
+<tr><td>Framing</td><td>Structural Frame</td><td>8</td><td>=C5&#42;0.15</td><td>=C5&#42;0.1</td><td>=C5+D5+E5</td></tr>
 </table>
 
 <h3>Step 2: Add Critical Path Dependencies</h3>
@@ -22366,7 +22366,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 <table>
 <tr><th>Column I</th><th>Column J</th><th>Column K</th><th>Column L</th></tr>
 <tr><td>Daily Labor Cost</td><td>Daily Equipment Cost</td><td>Delay Days</td><td>Delay Cost</td></tr>
-<tr><td>$2,400</td><td>$800</td><td>=MAX(0,H3-G3)</td><td>=(I3+J3)*K3</td></tr>
+<tr><td>$2,400</td><td>$800</td><td>=MAX(0,H3-G3)</td><td>=(I3+J3)&#42;K3</td></tr>
 </table>
 
 <h2>Real-World Example: 4-Unit Residential Build</h2>
@@ -22378,7 +22378,7 @@ Connect to Federal Reserve data to track interest rate trends that affect proper
 <table>
 <tr><th>Parameter</th><th>Value</th><th>Formula Reference</th></tr>
 <tr><td>Total Budget</td><td>$1,200,000</td><td>Cell B1</td></tr>
-<tr><td>Daily Carrying Cost</td><td>$600</td><td>=B1*0.08/365</td></tr>
+<tr><td>Daily Carrying Cost</td><td>$600</td><td>=B1&#42;0.08/365</td></tr>
 <tr><td>Peak Season</td><td>Mar-May, Sep-Nov</td><td>Conditional in weather buffer</td></tr>
 <tr><td>Inspection Backlog</td><td>2x normal in summer</td><td>Seasonal multiplier</td></tr>
 </table>
@@ -24301,8 +24301,8 @@ Your Excel system needs to capture time data daily, not weekly. Here's a proven 
 <table>
 <tr><th>Column A</th><th>Column B</th><th>Column C</th><th>Column D</th><th>Column E</th><th>Column F</th></tr>
 <tr><td>Date</td><td>Employee</td><td>Start Time</td><td>End Time</td><td>Break Hours</td><td>Total Hours</td></tr>
-<tr><td>4/1/2026</td><td>Mike Santos</td><td>7:00 AM</td><td>4:30 PM</td><td>0.5</td><td>=((D2-C2)*24)-E2</td></tr>
-<tr><td>4/1/2026</td><td>Dave Chen</td><td>7:00 AM</td><td>6:00 PM</td><td>0.5</td><td>=((D3-C3)*24)-E3</td></tr>
+<tr><td>4/1/2026</td><td>Mike Santos</td><td>7:00 AM</td><td>4:30 PM</td><td>0.5</td><td>=((D2-C2)&#42;24)-E2</td></tr>
+<tr><td>4/1/2026</td><td>Dave Chen</td><td>7:00 AM</td><td>6:00 PM</td><td>0.5</td><td>=((D3-C3)&#42;24)-E3</td></tr>
 </table>
 
 The formula \`=((D2-C2)&#42;24)-E2\` automatically calculates billable hours, including overtime detection. Add this formula in column G for automatic overtime flagging:
@@ -24315,8 +24315,8 @@ Materials need immediate entry with automatic markup calculation. Set up your ma
 
 <table>
 <tr><th>Date</th><th>Vendor</th><th>Description</th><th>Cost</th><th>Markup %</th><th>Billable Amount</th></tr>
-<tr><td>4/1/2026</td><td>Home Depot</td><td>2x4 Lumber - 50 pcs</td><td>$285.00</td><td>15%</td><td>=D2*(1+E2)</td></tr>
-<tr><td>4/1/2026</td><td>Ferguson</td><td>3/4" Copper Fittings</td><td>$156.78</td><td>20%</td><td>=D3*(1+E3)</td></tr>
+<tr><td>4/1/2026</td><td>Home Depot</td><td>2x4 Lumber - 50 pcs</td><td>$285.00</td><td>15%</td><td>=D2&#42;(1+E2)</td></tr>
+<tr><td>4/1/2026</td><td>Ferguson</td><td>3/4" Copper Fittings</td><td>$156.78</td><td>20%</td><td>=D3&#42;(1+E3)</td></tr>
 </table>
 
 Use different markup percentages for different material categories. Small items (fasteners, electrical) typically carry 20-25% markup, while large materials (lumber, pipe) use 10-15%.
@@ -24327,8 +24327,8 @@ Equipment billing often gets missed because it's not tracked systematically. Cre
 
 <table>
 <tr><th>Equipment</th><th>Date</th><th>Hours Used</th><th>Rate/Hour</th><th>Billable Amount</th><th>Fuel Surcharge</th></tr>
-<tr><td>Excavator - CAT 320</td><td>4/1/2026</td><td>6.5</td><td>$125.00</td><td>=C2*D2</td><td>=C2*8.50</td></tr>
-<tr><td>Generator - 15kW</td><td>4/1/2026</td><td>8.0</td><td>$35.00</td><td>=C3*D3</td><td>=C3*2.25</td></tr>
+<tr><td>Excavator - CAT 320</td><td>4/1/2026</td><td>6.5</td><td>$125.00</td><td>=C2&#42;D2</td><td>=C2&#42;8.50</td></tr>
+<tr><td>Generator - 15kW</td><td>4/1/2026</td><td>8.0</td><td>$35.00</td><td>=C3&#42;D3</td><td>=C3&#42;2.25</td></tr>
 </table>
 
 The fuel surcharge formula \`=C2&#42;8.50\` adds realistic fuel costs that are often forgotten in manual billing.
@@ -24353,7 +24353,7 @@ Change orders create the biggest billing disputes in T&M work. Your Excel system
 
 <table>
 <tr><th>Change Order #</th><th>Description</th><th>Approved Amount</th><th>Hours Used</th><th>Materials Used</th><th>Total Billed</th><th>Variance</th></tr>
-<tr><td>CO-001</td><td>Additional electrical outlets</td><td>$2,400</td><td>16.5</td><td>$485.00</td><td>=SUMPRODUCT((TimeSheet[CO Number]=A2)*TimeSheet[Billable Amount])+SUMPRODUCT((Materials[CO Number]=A2)*Materials[Billable Amount])</td><td>=F2-C2</td></tr>
+<tr><td>CO-001</td><td>Additional electrical outlets</td><td>$2,400</td><td>16.5</td><td>$485.00</td><td>=SUMPRODUCT((TimeSheet[CO Number]=A2)&#42;TimeSheet[Billable Amount])+SUMPRODUCT((Materials[CO Number]=A2)&#42;Materials[Billable Amount])</td><td>=F2-C2</td></tr>
 </table>
 
 The variance column immediately shows when you're approaching or exceeding change order limits.
@@ -24415,8 +24415,8 @@ Many contractors forget to bill for administrative time. Track these activities 
 
 <table>
 <tr><th>Activity</th><th>Date</th><th>Hours</th><th>Billable Rate</th><th>Amount</th></tr>
-<tr><td>Permit applications</td><td>4/1/2026</td><td>2.5</td><td>$85.00</td><td>=C2*D2</td></tr>
-<tr><td>Inspection coordination</td><td>4/1/2026</td><td>1.5</td><td>$85.00</td><td>=C3*D3</td></tr>
+<tr><td>Permit applications</td><td>4/1/2026</td><td>2.5</td><td>$85.00</td><td>=C2&#42;D2</td></tr>
+<tr><td>Inspection coordination</td><td>4/1/2026</td><td>1.5</td><td>$85.00</td><td>=C3&#42;D3</td></tr>
 </table>
 
 ## Weekly Billing Process Checklist
@@ -24530,7 +24530,7 @@ Create this screening system in Excel. You'll input basic property data and get 
 
 **GRM Calculation (Cell D2):**
 \`\`\`
-=B2/(C2*12)
+=B2/(C2&#42;12)
 \`\`\`
 
 This divides purchase price by annual rent. Lower numbers indicate better deals.
@@ -24589,7 +24589,7 @@ Where Column G contains property class (A-Class, B-Class, C-Class).
 
 **Cash-on-Cash Return Estimate (Cell H2):**
 \`\`\`
-=((C2*12)-(B2*0.012)-(B2*0.01)-(C2*0.08))/(B2*0.25)
+=((C2&#42;12)-(B2&#42;0.012)-(B2&#42;0.01)-(C2&#42;0.08))/(B2&#42;0.25)
 \`\`\`
 
 This estimates cash-on-cash return assuming:
@@ -24611,7 +24611,7 @@ Properties returning >8% cash-on-cash get priority analysis.
 
 **After-Repair GRM (Cell J2):**
 \`\`\`
-=(B2+K2)/(L2*12)
+=(B2+K2)/(L2&#42;12)
 \`\`\`
 
 Where:
@@ -24622,7 +24622,7 @@ Where:
 
 **Flip Profit Margin (Cell M2):**
 \`\`\`
-=((N2*0.95)-(B2+K2+O2))/B2
+=((N2&#42;0.95)-(B2+K2+O2))/B2
 \`\`\`
 
 Where:
@@ -24987,7 +24987,7 @@ The simplest structure. Each partner owns exactly half, regardless of contributi
 \`\`\`
 Partner A Ownership = 50%
 Partner B Ownership = 50%
-Monthly Profit Split = Total Profit * 0.5
+Monthly Profit Split = Total Profit &#42; 0.5
 \`\`\`
 
 Example: $2,400 monthly rental income, $1,800 expenses = $600 profit.
@@ -25028,7 +25028,7 @@ Using the same example:
 This structure values both cash and labor contributions. Set dollar values for sweat equity upfront.
 
 \`\`\`
-Sweat Equity Value = Hours Worked * Hourly Rate
+Sweat Equity Value = Hours Worked &#42; Hourly Rate
 Adjusted Investment = Cash + Sweat Equity Value
 Ownership % = Adjusted Investment / Total Adjusted Investment
 \`\`\`
@@ -25068,7 +25068,7 @@ New Ownership % = (Original Investment + New Contribution) / New Total Investmen
 
 **Option 2: Contributing partner gets loan terms**
 \`\`\`
-Interest Owed = Unpaid Amount * Interest Rate * Time
+Interest Owed = Unpaid Amount &#42; Interest Rate &#42; Time
 \`\`\`
 
 If Partner B can't pay their $3,470 share:
@@ -25084,9 +25084,9 @@ High-stakes partnerships often use waterfall distributions. Partners get paid in
 Partner A (money partner) gets 8% preferred return before any profit sharing.
 
 \`\`\`
-Preferred Return = Initial Investment * Preferred Rate
+Preferred Return = Initial Investment &#42; Preferred Rate
 Remaining Profit = Total Profit - Preferred Return
-Split Remaining = Remaining Profit * Ownership %
+Split Remaining = Remaining Profit &#42; Ownership %
 \`\`\`
 
 Example with $8,000 annual profit:
@@ -25129,7 +25129,7 @@ Typical priority order:
 Net Proceeds = Sale Price - Outstanding Debt - Selling Costs
 Capital Recovery = MIN(Partner Investment, Available Proceeds)
 Profit = Net Proceeds - Total Capital Recovery
-Partner Profit Share = Profit * Ownership %
+Partner Profit Share = Profit &#42; Ownership %
 \`\`\`
 
 Example: Property bought for $200K, sold for $280K after two years.
@@ -25467,9 +25467,9 @@ Stop arguing about money. Start calculating it.`,
 <li>Column P: "Job Name"</li>
 <li>Column Q: "Estimated Hours"</li>
 <li>Column R: "Actual Hours"</li>
-<li>Column S: "Estimated Cost" (=Q2*H2)</li>
+<li>Column S: "Estimated Cost" (=Q2&#42;H2)</li>
 <li>Column T: "Actual Cost"</li>
-<li>Column U: "Variance %" (=(T2-S2)/S2*100)</li>
+<li>Column U: "Variance %" (=(T2-S2)/S2&#42;100)</li>
 </ul>
 
 <p>This helps you refine your burden calculations based on real project data.</p>
@@ -26060,7 +26060,7 @@ Link waiver status to payment authorization using Excel formulas that prevent pa
 Calculate the financial impact of waiver delays on project cash flow using time-value calculations:
 
 \`\`\`
-=PaymentAmount*(1+CarryingRate/365)^DaysOutstanding
+=PaymentAmount&#42;(1+CarryingRate/365)^DaysOutstanding
 \`\`\`
 
 This shows the real cost of waiver processing delays in terms of financing charges and opportunity costs.
@@ -26258,7 +26258,7 @@ This property falls short of the 1.25 minimum. You'd need to negotiate a lower p
 For commercial properties where tenants pay operating expenses, modify your NOI calculation:
 
 \`\`\`
-B13: =B4-B11+(B4*B25/100)
+B13: =B4-B11+(B4&#42;B25/100)
 \`\`\`
 
 Where B25 contains the percentage of expenses covered by tenants (often 80-100% for triple net leases).
@@ -26268,13 +26268,13 @@ Where B25 contains the percentage of expenses covered by tenants (often 80-100% 
 For properties with both residential and commercial tenants, create separate income streams:
 
 \`\`\`
-B4: =(B2*12)+(B26*12)
+B4: =(B2&#42;12)+(B26&#42;12)
 \`\`\`
 
 Where B2 is residential rent and B26 is commercial rent. Use different vacancy rates for each:
 
 \`\`\`
-B11: =(B2*12*B6/100)+(B26*12*B27/100)+B8+B9+(B4*0.05)
+B11: =(B2&#42;12&#42;B6/100)+(B26&#42;12&#42;B27/100)+B8+B9+(B4&#42;0.05)
 \`\`\`
 
 Where B27 is the commercial vacancy rate (typically lower than residential).
@@ -26284,7 +26284,7 @@ Where B27 is the commercial vacancy rate (typically lower than residential).
 For vacation rentals or seasonal properties, account for income fluctuations:
 
 \`\`\`
-B4: =(B2*B28)+(B29*B30)
+B4: =(B2&#42;B28)+(B29&#42;B30)
 \`\`\`
 
 Where:
@@ -26334,7 +26334,7 @@ This shows you the maximum price you can pay while maintaining a 1.25+ DSCR.
 Test different rental rates with this sensitivity analysis:
 
 \`\`\`
-=IF(B2*12*0.94-B11>=B21*1.25,"APPROVED","REJECTED")
+=IF(B2&#42;12&#42;0.94-B11>=B21&#42;1.25,"APPROVED","REJECTED")
 \`\`\`
 
 This formula tells you instantly whether a given rent level will generate loan approval.
@@ -26391,7 +26391,7 @@ Your real estate deal pipeline tracker spreadsheet needs eight core columns to p
 <tr><td>Next Action Date</td><td>Time-sensitive reminders</td><td>Date field</td></tr>
 <tr><td>Estimated Profit</td><td>Prioritize high-value deals</td><td>=IF(H2>0,H2-G2-I2,0)</td></tr>
 <tr><td>Probability Score</td><td>Weight deal likelihood</td><td>=IF(J2="Hot",0.8,IF(J2="Warm",0.5,0.2))</td></tr>
-<tr><td>Expected Value</td><td>Portfolio planning</td><td>=F2*G2</td></tr>
+<tr><td>Expected Value</td><td>Portfolio planning</td><td>=F2&#42;G2</td></tr>
 </table>
 
 The **Days in Stage** column prevents deals from going stale. Any deal over 14 days in "Initial Contact" or 7 days in "Awaiting Response" triggers immediate action.
@@ -26421,7 +26421,7 @@ Two formulas separate profitable tracking from busy work: Expected Value calcula
 
 **Expected Value Formula** (Column H):
 \`\`\`
-=IF(F2>0,F2*G2,0)
+=IF(F2>0,F2&#42;G2,0)
 \`\`\`
 
 This multiplies estimated profit by probability score, giving you weighted portfolio value. A $30,000 profit deal with 50% probability (0.5) shows $15,000 expected value.
@@ -26473,10 +26473,10 @@ Buy-and-hold investors need additional columns for cash flow analysis:
 
 <table>
 <tr><th>Metric</th><th>Formula</th><th>Business Impact</th></tr>
-<tr><td>Monthly Rent</td><td>=Property_Value*0.01</td><td>Initial cash flow estimate</td></tr>
-<tr><td>Debt Service</td><td>=Purchase_Price*0.8*(Rate/12)/(1-(1+(Rate/12))^(-360))</td><td>Mortgage payment calculation</td></tr>
+<tr><td>Monthly Rent</td><td>=Property_Value&#42;0.01</td><td>Initial cash flow estimate</td></tr>
+<tr><td>Debt Service</td><td>=Purchase_Price&#42;0.8&#42;(Rate/12)/(1-(1+(Rate/12))^(-360))</td><td>Mortgage payment calculation</td></tr>
 <tr><td>Cash Flow</td><td>=Monthly_Rent-Debt_Service-Property_Tax/12-Insurance/12</td><td>Monthly profit/loss</td></tr>
-<tr><td>Cash-on-Cash Return</td><td>=Cash_Flow*12/Down_Payment</td><td>Investment efficiency metric</td></tr>
+<tr><td>Cash-on-Cash Return</td><td>=Cash_Flow&#42;12/Down_Payment</td><td>Investment efficiency metric</td></tr>
 </table>
 
 BRRRR investors add refinance tracking columns:
@@ -26509,7 +26509,7 @@ Your deal tracker should reference market data for accurate valuations. Create s
 
 Link these reference sheets to your main tracker using \`VLOOKUP\` formulas:
 \`\`\`
-=VLOOKUP(Property_Zip,Rental_Comps,3,FALSE)*Square_Feet
+=VLOOKUP(Property_Zip,Rental_Comps,3,FALSE)&#42;Square_Feet
 \`\`\`
 
 This integration eliminates time spent researching the same markets repeatedly.
@@ -27250,9 +27250,9 @@ Ready to take equipment tracking further? Explore our <a href="/products/constru
 <p>Here's the scenario modeling structure:</p>
 
 \`\`\`excel
-Conservative Annual Net Income = (Average Monthly Revenue * 0.70 * 12) - Total Annual Expenses
-Expected Annual Net Income = (Average Monthly Revenue * 1.00 * 12) - Total Annual Expenses
-Optimistic Annual Net Income = (Average Monthly Revenue * 1.15 * 12) - Total Annual Expenses
+Conservative Annual Net Income = (Average Monthly Revenue &#42; 0.70 &#42; 12) - Total Annual Expenses
+Expected Annual Net Income = (Average Monthly Revenue &#42; 1.00 &#42; 12) - Total Annual Expenses
+Optimistic Annual Net Income = (Average Monthly Revenue &#42; 1.15 &#42; 12) - Total Annual Expenses
 \`\`\`
 
 <p>For a property with $4,500 average monthly revenue and $32,000 annual expenses:</p>
@@ -27298,7 +27298,7 @@ Optimistic Annual Net Income = (Average Monthly Revenue * 1.15 * 12) - Total Ann
 <p>Create a dynamic pricing formula that adjusts rates based on multiple variables:</p>
 
 \`\`\`excel
-Optimized_Daily_Rate = Base_Rate * Seasonality_Multiplier * Demand_Multiplier * Event_Premium
+Optimized_Daily_Rate = Base_Rate &#42; Seasonality_Multiplier &#42; Demand_Multiplier &#42; Event_Premium
 \`\`\`
 
 <p>For a mountain cabin with $180 base rate:</p>
@@ -27319,7 +27319,7 @@ Optimized_Daily_Rate = Base_Rate * Seasonality_Multiplier * Demand_Multiplier * 
 <p>Use this Excel formula to calculate target occupancy rate:</p>
 
 \`\`\`excel
-Target_Occupancy_Rate = (Annual_Financial_Goal + Total_Annual_Expenses) / (Average_Daily_Rate * 365)
+Target_Occupancy_Rate = (Annual_Financial_Goal + Total_Annual_Expenses) / (Average_Daily_Rate &#42; 365)
 \`\`\`
 
 <p>If you need $25,000 annual profit with $35,000 expenses and $220 ADR:</p>
@@ -28093,9 +28093,9 @@ B1: =SUMPRODUCT(Unit_Rents_Range)
 A2: Other Income (laundry, parking)
 B2: [Enter amount]
 A3: Gross Annual Income
-B3: =(B1+B2)*12
+B3: =(B1+B2)&#42;12
 A4: Vacancy Allowance (7%)
-B4: =B3*0.07
+B4: =B3&#42;0.07
 A5: Effective Gross Income
 B5: =B3-B4
 \`\`\`
@@ -28123,11 +28123,11 @@ Create detailed line items. Here's a real example for a 20-unit property in Dall
 A15: Net Operating Income
 B15: =Effective_Gross_Income-Total_Expenses
 A16: Annual Debt Service
-B16: =Monthly_Payment*12
+B16: =Monthly_Payment&#42;12
 A17: Before Tax Cash Flow
 B17: =B15-B16
 A18: Cash-on-Cash Return
-B18: =(B17/Total_Cash_Invested)*100
+B18: =(B17/Total_Cash_Invested)&#42;100
 \`\`\`
 
 ## Advanced Analysis for Serious Investors
@@ -28162,7 +28162,7 @@ B26: [Enter amount]
 A27: Capital Gains
 B27: =B26-B25
 A28: Tax Avoided (1031)
-B28: =B27*0.25
+B28: =B27&#42;0.25
 A29: Additional Investment Power
 B29: =B28
 \`\`\`
@@ -29100,9 +29100,9 @@ Create a master takeoff sheet with one row per material item. These columns give
 | D | Unit | EA |
 | E | Quantity (Raw) | 847 |
 | F | Waste Factor % | 5% |
-| G | Quantity (Ordered) | =CEILING(E2*(1+F2),1) |
+| G | Quantity (Ordered) | =CEILING(E2&#42;(1+F2),1) |
 | H | Unit Cost | $8.42 |
-| I | Total Cost | =G2*H2 |
+| I | Total Cost | =G2&#42;H2 |
 | J | Supplier | ABC Lumber |
 | K | Lead Time (days) | 3 |
 | L | Notes | Confirm species availability |
@@ -29110,7 +29110,7 @@ Create a master takeoff sheet with one row per material item. These columns give
 **The CEILING formula in column G is critical.** It rounds up to the next whole unit, ensuring you never order a fraction of a board. Round down and you're running back to the supplier mid-job.
 
 \`\`\`
-=CEILING(E2*(1+F2), 1)
+=CEILING(E2&#42;(1+F2), 1)
 \`\`\`
 
 This says: take the raw quantity, add the waste percentage, then round up to the nearest integer. For 847 studs with a 5% waste factor: CEILING(847 × 1.05, 1) = CEILING(889.35, 1) = **890 studs**.
@@ -29152,7 +29152,7 @@ For each major material category, create a calculation sheet that traces quantit
 
 **Stud base count formula:**
 \`\`\`
-=CEILING((Wall_Length_Ft * 12) / 16, 1) + 1
+=CEILING((Wall_Length_Ft &#42; 12) / 16, 1) + 1
 \`\`\`
 
 (Wall length in inches divided by 16" spacing, rounded up, plus one end stud)
@@ -30057,11 +30057,11 @@ Set up your input section with these labeled rows (highlight input cells in yell
 **Property Information**
 - B2: Purchase Price
 - B3: Down Payment Percentage
-- B4: Down Payment Amount (formula: =B2*B3)
+- B4: Down Payment Amount (formula: =B2&#42;B3)
 - B5: Loan Amount (formula: =B2-B4)
 - B6: Interest Rate
 - B7: Loan Term (years)
-- B8: Monthly Mortgage Payment (formula: =PMT(B6/12,B7*12,-B5))
+- B8: Monthly Mortgage Payment (formula: =PMT(B6/12,B7&#42;12,-B5))
 
 **Acquisition Costs**
 - B10: Closing Costs
@@ -30074,7 +30074,7 @@ Set up your input section with these labeled rows (highlight input cells in yell
 **Income**
 - B16: Monthly Gross Rent
 - B17: Vacancy Rate
-- B18: Effective Monthly Income (formula: =B16*(1-B17))
+- B18: Effective Monthly Income (formula: =B16&#42;(1-B17))
 
 **Operating Expenses (Monthly)**
 - B20: Property Taxes (Annual divided by 12)
@@ -30086,8 +30086,8 @@ Set up your input section with these labeled rows (highlight input cells in yell
 
 **Key Calculated Values**
 - B27: Monthly NOI (formula: =B18-SUM(B20:B25))
-- B28: Annual NOI (formula: =B27*12)
-- B29: Annual Debt Service (formula: =B8*12)
+- B28: Annual NOI (formula: =B27&#42;12)
+- B29: Annual Debt Service (formula: =B8&#42;12)
 - B30: Annual Cash Flow (formula: =B28-B29)
 
 ### Sheet 2: Results
@@ -30438,7 +30438,7 @@ One honest number on one property is the start. The work is getting the same hon
 <tr><td>Loan Term (Years)</td><td>Cell B4</td><td>30</td></tr>
 <tr><td>Origination Date</td><td>Cell B5</td><td>01/15/2024</td></tr>
 <tr><td>Current Balance</td><td>Cell B6</td><td>$183,200</td></tr>
-<tr><td>Monthly Payment (P&I)</td><td>Cell B7</td><td>=PMT(B3/12,B4*12,-B2)</td></tr>
+<tr><td>Monthly Payment (P&I)</td><td>Cell B7</td><td>=PMT(B3/12,B4&#42;12,-B2)</td></tr>
 </tbody>
 </table>
 
