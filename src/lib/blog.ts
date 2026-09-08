@@ -16,6 +16,184 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-pmi-removal-breakeven-calculator-excel',
+    title: 'Rental Property PMI Removal Calculator: Why 80 Percent LTV Is Not Your Number',
+    metaTitle: 'Rental Property PMI Removal Calculator | SheetCraft',
+    metaDescription: 'Rental property PMI removal runs on a 70 percent threshold, not 80. Build the breakeven in Excel and find the exact month to request cancellation.',
+    targetKeyword: 'rental property PMI removal breakeven calculator Excel',
+    secondaryKeywords: ['PMI removal investment property', 'cancel PMI rental property 70 LTV', 'Fannie Mae MI termination investment property', 'remove PMI without refinancing', 'PMI cancellation breakeven Excel'],
+    excerpt: 'The 80 percent LTV rule everyone quotes comes from a statute that covers principal residences only. On a rental the threshold is 70 percent and automatic cancellation waits until month 180. Here is the Excel model that dates all three exit routes.',
+    publishedAt: '2026-09-08',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-pmi-removal-breakeven-calculator-excel.png',
+    imageAlt: 'Wooden model house beside five descending stacks of brass coins and a door key on a walnut desk in morning light',
+    content: `<p>A $196 monthly PMI premium on a rental looks like a rounding error until you find out when it actually stops. If that house were your home, the premium would be canceled automatically in month 82 of the loan. Because it is a rental, the same loan, the same borrower and the same payment history carry mortgage insurance until month 180. That is 98 extra payments, $19,208, on a property that is doing nothing different. A rental property PMI removal breakeven calculator in Excel exists to find the month you can end that early, and just as importantly, to stop you from paying a valuation fee before you qualify.</p>
+
+<p>Every guide on removing PMI repeats the same two numbers: request cancellation at 80 percent LTV, automatic termination at 78 percent. Those numbers are real. They are also not yours. They come from the Homeowners Protection Act, and the HPA applies to a "residential mortgage transaction," which 12 U.S.C. 4901 defines as a security interest created "against a single-family dwelling that is the principal residence of the mortgagor." A rental is not a principal residence. The statute never reaches it.</p>
+
+<h2>The rules that actually govern a rental</h2>
+
+<p>When federal law does not apply, the loan investor's servicing guide does. For a conventional loan owned by Fannie Mae, that is Servicing Guide B-8.1-04, and it splits every borrower request into two rows. One row is for a one-unit principal residence or second home. The other row is for a one to four unit investment property or a two to four unit principal residence. Your rental sits in the second row, and the second row is worse in every column.</p>
+
+<table>
+<tr><th>Situation</th><th>One-unit principal residence or second home</th><th>1-4 unit investment property</th></tr>
+<tr><td>Automatic termination, no request needed</td><td>Balance first scheduled to reach 78% of original value</td><td>Midpoint of the original amortization period (month 180 of 360)</td></tr>
+<tr><td>Borrower request, original value basis</td><td>80% of original value</td><td>70% of original value</td></tr>
+<tr><td>Borrower request, current value basis</td><td>75% if seasoned 2 to 5 years, 80% if over 5 years</td><td>70%, and the loan must be seasoned more than 2 years</td></tr>
+<tr><td>Seasoning waived for borrower improvements</td><td>Yes, at 80% LTV</td><td>No such provision</td></tr>
+</table>
+
+<p>Two things in that table cost real money. The first is the automatic termination row. A homeowner who does nothing at all still gets the premium switched off when the scheduled balance hits 78 percent of original value. A landlord who does nothing waits for the midpoint of the amortization schedule, which on a 30-year loan is month 180 regardless of how fast the balance is falling. The second is the 10-point gap between the 80 percent request threshold and the 70 percent request threshold. On a $315,000 original value, that gap is $31,500 of extra principal you have to retire before anyone will take your call.</p>
+
+<p>Before you model anything, confirm who owns the loan. Fannie Mae, Freddie Mac and portfolio lenders each publish their own termination criteria, and a servicer is applying somebody's guide, not its own opinion. Call the servicer, ask who the investor is, and ask for the borrower-initiated MI termination requirements in writing. That call is free and it sets every threshold in the model below.</p>
+
+<h2>Three exit routes, three different dates</h2>
+
+<p>Work with a live example and keep it for the rest of the article. A single-family rental bought in March 2023 for $315,000 with 15 percent down. Original loan $267,750 at 7.25 percent on a 30-year fixed. Monthly principal and interest of $1,826.53. Monthly mortgage insurance of $196 straight off the statement. As of September 2026 the borrower has made 42 payments and the scheduled balance is $257,798, which is 81.8 percent of the original value.</p>
+
+<table>
+<tr><th>Route</th><th>What has to happen</th><th>Cancellation month</th><th>Out-of-pocket cost</th><th>MI paid from today</th></tr>
+<tr><td>Do nothing</td><td>Reach the midpoint of the amortization period</td><td>180</td><td>$0</td><td>$27,048</td></tr>
+<tr><td>Request on original value</td><td>Balance falls to 70% of $315,000, which is $220,500</td><td>144</td><td>$0 if the servicer's value check clears</td><td>$19,992</td></tr>
+<tr><td>Request on current value</td><td>Balance falls to 70% of a new appraised value, loan seasoned over 24 months</td><td>55 at 3% appreciation</td><td>$190 BPO, paid before it is ordered</td><td>$2,548</td></tr>
+</table>
+
+<p>The spread between the top row and the bottom row is $24,500 on one $190 decision. That is the whole argument for building the model. It is also why the common framing of this problem, "does the appraisal pay for itself," is the wrong question. A $190 fee against a $196 monthly premium pays for itself in 29 days. Nobody needs a spreadsheet to answer that.</p>
+
+<p>The question worth modeling is different: order the valuation in the wrong month and you are out $190 and you get a denial letter, and you will pay again when you reapply. The calculator's job is to date the month you become eligible, not to justify a fee that was never in doubt.</p>
+
+<h2>The input block that drives everything</h2>
+
+<p>Put every assumption in one column so a servicer's answer can be typed into a single cell and the whole model moves. Nothing below is hard-coded into a formula.</p>
+
+<table>
+<tr><th>Cell</th><th>Input</th><th>Example</th><th>Where it comes from</th></tr>
+<tr><td>B4</td><td>Original property value</td><td>$315,000</td><td>Lesser of purchase price or origination appraisal</td></tr>
+<tr><td>B5</td><td>Original loan amount</td><td>$267,750</td><td>Note</td></tr>
+<tr><td>B6</td><td>Note rate</td><td>7.25%</td><td>Note</td></tr>
+<tr><td>B7</td><td>Term in months</td><td>360</td><td>Note</td></tr>
+<tr><td>B8</td><td>First payment date</td><td>04/01/2023</td><td>Closing package</td></tr>
+<tr><td>B9</td><td>Monthly MI premium</td><td>$196</td><td>Mortgage statement, not an estimate</td></tr>
+<tr><td>B10</td><td>Evaluation date</td><td>09/01/2026</td><td>Today</td></tr>
+<tr><td>B11</td><td>Your value estimate</td><td>$352,000</td><td>Recent comps, not a Zestimate</td></tr>
+<tr><td>B12</td><td>Annual appreciation assumption</td><td>3.0%</td><td>Your submarket, kept conservative</td></tr>
+<tr><td>B13</td><td>Servicer valuation fee</td><td>$190</td><td>Quoted by the servicer in writing</td></tr>
+<tr><td>B14</td><td>Required LTV</td><td>70%</td><td>Investor guide for your property type</td></tr>
+<tr><td>B15</td><td>Seasoning required, months</td><td>24</td><td>Investor guide</td></tr>
+</table>
+
+<p>Row B9 is the one people get wrong. Do not use the annual MI rate from your closing disclosure and divide by twelve. Some policies bill on a declining balance, so the premium falls slightly every year and your old number overstates the savings. Open the statement and copy the line.</p>
+
+<h2>Route one is arithmetic, and it does not need an appraisal</h2>
+
+<p>The original-value route is the one nobody models, because it looks like waiting. It is not waiting, it is a date you can compute to the month today, and it costs nothing.</p>
+
+<p>The threshold is 70 percent of the value at origination, and that denominator never moves. So the cancellation month is a pure amortization question. Compute the payment, then ask how many payments it takes to grind the balance down to the target:</p>
+
+<p><code>B18 =PMT(B6/12,B7,-B5)</code> returns $1,826.53, the principal and interest payment the schedule is built on.</p>
+
+<p><code>B19 =DATEDIF(B8,B10,"m")+1</code> counts the payments made, which is 42 here.</p>
+
+<p><code>B20 =PV(B6/12,B7-B19,-B18)</code> returns the scheduled balance today, $257,798, as the present value of the payments still owed. This is cleaner than chaining a full amortization schedule and it matches the servicer's number to the dollar as long as you have made no extra payments.</p>
+
+<p><code>B22 =B4&#42;B14</code> sets the target balance at $220,500.</p>
+
+<p><code>B23 =CEILING(NPER(B6/12,-B18,B5,-B22),1)</code> returns month 144. That is the first payment at which the scheduled balance is at or below the threshold, and it is the date you can pick up the phone with nothing to prove but a payment history.</p>
+
+<p><code>B26 =(B7/2-B19)&#42;B9</code> is the cost of doing nothing, $27,048, because the automatic termination for an investment property is the midpoint of the term rather than a percentage.</p>
+
+<p><code>B27 =(B23-B19)&#42;B9</code> is the cost of taking route one, $19,992. The difference, $7,056, is what one phone call in month 144 is worth.</p>
+
+<p>One condition attaches to this route and it surprises people. The servicer still has to confirm the property has not lost value: the current value must be at least equal to the original value. The servicer pulls that from its automated valuation first, at no cost to you. Only if that check comes back low, or returns nothing at all, do you get asked to pay for a broker price opinion. In a market that has appreciated, route one is genuinely free.</p>
+
+<h2>Route two: the cushion test, and the month it opens</h2>
+
+<p>The current-value route is where appreciation counts, and it is the only route with a fee attached before you know the answer. Fannie Mae publishes the fee schedule, and the servicer orders nothing until it is paid.</p>
+
+<table>
+<tr><th>Valuation type</th><th>Cost to the borrower</th><th>When it applies</th></tr>
+<tr><td>Broker price opinion, interior and exterior</td><td>$190</td><td>One-unit properties</td></tr>
+<tr><td>Restricted appraisal, one unit</td><td>$450</td><td>One-unit where law requires an appraisal</td></tr>
+<tr><td>Appraisal, interior and exterior</td><td>$750</td><td>Two to four unit properties, always</td></tr>
+</table>
+
+<p>Now the test that saves the fee. Invert the LTV requirement to get the appraised value you need, then measure how far your estimate sits above it.</p>
+
+<p><code>B29 =B20/B14</code> gives the required value, $368,283.</p>
+
+<p><code>B30 =B11/B29-1</code> gives the cushion, which here is negative 4.4 percent.</p>
+
+<p><code>B31 =IF(AND(B19&gt;B15,B30&gt;=0.05),"ORDER IT","WAIT")</code> returns WAIT.</p>
+
+<p>Read that carefully, because it is the trap. The owner has a $352,000 estimate and a balance of $257,798. That feels like 73 percent LTV and comfortably under any threshold they have ever read about. It is not under 70. The property has to appraise at $368,283 and their own estimate is $16,283 short. Ordering the BPO today buys a denial letter for $190.</p>
+
+<p>The 5 percent cushion in that formula is not arbitrary. A BPO is one broker's opinion after an interior and exterior inspection, and brokers doing valuation work for a servicer have no reason to reach. If your number and the threshold are within a few thousand dollars, you are gambling the fee on a coin flip. Wait until the arithmetic is not close.</p>
+
+<p>To date the month the route opens, run a short projection. Put the month index in column A starting at <code>=B19+1</code>, then:</p>
+
+<table>
+<tr><th>Month</th><th>Scheduled balance</th><th>Projected value at 3%</th><th>LTV on current value</th><th>Eligible</th></tr>
+<tr><td>43</td><td>$257,530</td><td>$352,880</td><td>73.0%</td><td></td></tr>
+<tr><td>48</td><td>$256,159</td><td>$357,313</td><td>71.7%</td><td></td></tr>
+<tr><td>52</td><td>$255,034</td><td>$360,900</td><td>70.7%</td><td></td></tr>
+<tr><td>55</td><td>$254,171</td><td>$363,613</td><td>69.9%</td><td>YES</td></tr>
+<tr><td>60</td><td>$252,699</td><td>$368,181</td><td>68.6%</td><td>YES</td></tr>
+</table>
+
+<p>Column B is <code>=PV($B$6/12,$B$7-A43,-$B$18)</code>. Column C is <code>=$B$11&#42;(1+$B$12/12)^(A43-$B$19)</code>. Column D is <code>=B43/C43</code>. Column E is <code>=IF(AND(D43&lt;=$B$14,A43&gt;$B$15),"YES","")</code>. Then <code>B32 =INDEX(A43:A250,MATCH("YES",E43:E250,0))</code> pulls the first eligible month, 55, which is 13 months out.</p>
+
+<p>Thirteen months of patience against route one saves 89 months of premium, $17,444, for a $190 fee. It also means the honest answer today is not "order the appraisal." It is "put a reminder in October 2027, and pull fresh comps before you pay."</p>
+
+<p>Stress the appreciation cell before trusting the date. At 2 percent the route opens in month 59, at 4 percent in month 53. That six-month spread is the entire uncertainty in the model, and it is small enough that the decision does not change. Flat appreciation is the case that matters: at 0 percent, amortization alone gets you there in month 80, still 64 months ahead of route one. Even a dead market beats waiting.</p>
+
+<h2>What extra principal buys when the denominator is frozen</h2>
+
+<p>Route one has a property the other routes do not. Because the threshold is a fixed dollar balance, $220,500, and not a moving percentage of an appraisal, you can buy the date outright. Extra principal is the only lever in this whole problem with a guaranteed outcome.</p>
+
+<p>Model it with a second NPER that starts from today's balance and adds the extra payment:</p>
+
+<p><code>=CEILING(NPER(B6/12,-(B18+G4),B20,-B22),1)+B19</code> where G4 holds the extra monthly principal.</p>
+
+<table>
+<tr><th>Extra principal per month</th><th>Cancellation month</th><th>Months from today</th><th>MI months saved</th><th>MI dollars saved</th><th>Extra principal paid by then</th></tr>
+<tr><td>$0</td><td>144</td><td>102</td><td>0</td><td>$0</td><td>$0</td></tr>
+<tr><td>$150</td><td>114</td><td>72</td><td>30</td><td>$5,880</td><td>$10,800</td></tr>
+<tr><td>$250</td><td>102</td><td>60</td><td>42</td><td>$8,232</td><td>$15,000</td></tr>
+<tr><td>$400</td><td>91</td><td>49</td><td>53</td><td>$10,388</td><td>$19,600</td></tr>
+<tr><td>$600</td><td>81</td><td>39</td><td>63</td><td>$12,348</td><td>$23,400</td></tr>
+</table>
+
+<p>Read the last two columns together and do not confuse them. The extra principal is not spent, it is moved. Every dollar of it retires debt at 7.25 percent, which is the return you were getting anyway. The mortgage insurance saving is the bonus on top, and $400 a month produces $10,388 of it. Against $19,600 of capital parked for four years, that bonus alone is roughly 6 percent a year, stacked on the 7.25 percent the principal already earns. That is a real number and it is the argument for prepaying a high-rate loan carrying MI ahead of prepaying anything else you own. The mechanics of scheduling those payments are covered in our guide to <a href="/blog/mortgage-amortization-extra-payments-excel">modeling extra mortgage payments in Excel</a>.</p>
+
+<p>The catch is liquidity. Killing the premium outright today takes a $37,298 lump sum, and $37,298 of dead equity in a rental is a bad trade for the $19,992 of premiums it saves. Prepayment beats the lump sum here because it does not strand capital you might need for the next acquisition.</p>
+
+<h2>Two rules that catch investors out</h2>
+
+<p>The first one costs $560. The valuation fee is not a flat $190. A two to four unit property requires a full interior and exterior appraisal at $750, with no BPO option, because the guide says so for that property class. On a duplex the current-value route is a $750 bet rather than a $190 one, which means the cushion rule should be tighter. Below 8 percent of headroom on a two to four unit, wait.</p>
+
+<p>The second one costs more. Investors who rehabbed a property often assume the renovation earns them special treatment, because they have read that the two-year seasoning requirement can be waived when borrower improvements raised the value. It can. That waiver lives in the principal residence and second home row, at 80 percent LTV, and there is no matching provision in the investment property row. On a rental the requirement stays flat: 70 percent, seasoned more than two years, no exceptions for the new kitchen. The rehab still helps you, but through the appraised value in route two, not through the rule.</p>
+
+<p>One more classification point that surprises people. A two to four unit that you live in yourself is not on the friendly row either. The guide groups "a one to four unit investment property or a two to four unit principal residence" together at 70 percent. Buy a triplex, live in one door, and the mortgage insurance on it follows investment property rules even though it is your home. If that is your situation, price it in before you close, and see how it moves the rest of the math in our <a href="/blog/house-hacking-calculator-excel">house hacking calculator breakdown</a>.</p>
+
+<h2>What to do this month</h2>
+
+<p>Six steps, in this order, and none of them takes an afternoon.</p>
+
+<ul>
+<li>Call the servicer and ask who owns the loan, then request the borrower-initiated MI termination requirements for your property type in writing. Do not accept a verbal threshold.</li>
+<li>Copy the actual MI premium off the current statement into B9.</li>
+<li>Run <code>=CEILING(NPER(B6/12,-B18,B5,-B22),1)</code> and write the route-one month on your calendar. That date is yours for free and most investors do not know it exists.</li>
+<li>Compute the required appraised value with <code>=B20/B14</code> and compare it to three real comps, not an automated estimate.</li>
+<li>If the cushion is under 5 percent, do not order the valuation. Set a reminder for the projected eligibility month and pull comps again then.</li>
+<li>Check your payment history. Both routes require the loan to be current, with nothing 30 days late in the last 12 months and nothing 60 days late in the last 24. A single late payment last spring resets the clock on a $17,000 decision.</li>
+</ul>
+
+<p>The recommendation for the property in this example is specific: do not order anything today, prepay $400 a month if the cash flow supports it, and re-run the cushion test in October 2027. That sequence costs $190 once and saves somewhere between $17,000 and $24,500 depending on which route opens first.</p>
+
+<p>The reason this decision goes unmade for years is not that the math is difficult. It is that the mortgage insurance line is buried in an escrow analysis nobody reads, and the threshold that applies to a rental is not the threshold in any article you have read. The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> carries the amortization engine, the LTV thresholds by property type, and the cushion test already wired to the input block described above, so you can drop in a statement balance and a note rate and get the cancellation month for all three routes on one screen. Run it across every property you own. On a portfolio of four rentals still paying mortgage insurance, finding one that is already past the 70 percent line pays for the template several hundred times over.</p>`,
+  },
+  {
     slug: 'rental-property-1099-nec-vendor-tracking-excel',
     title: 'Rental Property 1099-NEC Vendor Tracking in Excel: The $600 Rule Expired',
     metaTitle: 'Rental Property 1099-NEC Vendor Tracking Excel | SheetCraft',
