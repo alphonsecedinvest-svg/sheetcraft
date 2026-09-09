@@ -16,6 +16,220 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-heloc-vs-cash-out-refinance-excel',
+    title: 'Rental Property HELOC vs Cash-Out Refinance: The Comparison Lenders Skip',
+    metaTitle: 'Rental Property HELOC vs Cash-Out Refi | SheetCraft',
+    metaDescription: 'Rental property HELOC vs cash out refinance comparison in Excel: the refi only wins if your rate is within 16 basis points of today\'s.',
+    targetKeyword: 'rental property HELOC vs cash out refinance comparison Excel',
+    secondaryKeywords: ['investment property HELOC rates', 'cash out refinance rental property', 'HELOC on investment property CLTV', 'interest tracing rules rental property', 'BRRRR financing comparison'],
+    excerpt: 'Refinancing a 4.10 percent rental loan to 7.75 percent costs $9,674 a year in re-pricing toll before the lender hands you a dollar of new money. A HELOC at 9.00 percent on $60,000 costs $5,400. Build both paths in Excel and the break-even turns out to be a rate, not a date.',
+    publishedAt: '2026-09-09',
+    readTime: 15,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-heloc-vs-cash-out-refinance-excel.png',
+    imageAlt: 'Brass balance scale weighing a wooden house model against a stack of coins, with two keys and a measuring tape on a desk',
+    content: `<p>Every rental property HELOC vs cash out refinance comparison Excel model you find online asks the wrong question first. It compares the two interest rates, notices that a home equity line on a rental costs more per drawn dollar than a first mortgage, and stops there. That comparison is arithmetically correct and financially useless, because the rate on the money you borrow is not the expensive part of a cash-out refinance. The expensive part is what the refinance does to the money you already borrowed years ago and were paying almost nothing for.</p>
+
+<p>Here is the number that should drive the decision, and almost no lender will put it on a term sheet: the annual cost of re-pricing your existing balance. If you owe $265,044 at 4.10 percent and a cash-out refinance moves that balance to 7.75 percent, you have just agreed to pay $9,674 every year, forever, before the lender hands you a single dollar of new money. A HELOC at 9.00 percent on $60,000 costs $5,400 a year, total. The line with the higher rate is cheaper by a factor of nearly two, and it is not close.</p>
+
+<p>This article builds both paths in one Excel sheet, with a break-even cell that answers the actual question: how close does my current rate have to be to today's rate before the refinance wins? On the deal below the answer is 16 basis points, and if that sounds absurdly tight, that is the finding.</p>
+
+<h2>Your Existing Rate Decides This, Not the HELOC Rate</h2>
+
+<p>A cash-out refinance is two transactions bundled into one loan, and lenders quote them as if they were one. Transaction one: you borrow new money at today's rate. Transaction two: you refinance your old balance at today's rate whether you wanted to or not. Transaction two is invisible on the closing disclosure because it does not appear as a fee. It appears as a slightly larger monthly payment, and the loan officer will tell you that the payment went up because you took cash out.</p>
+
+<p>Split it and the size of the problem becomes obvious. Call the existing balance B, the old rate r_old, the new rate r_new, and the new money N. The annual cost decomposes cleanly:</p>
+
+<ul>
+<li><strong>Cost of the new money:</strong> <code>N &#42; r_new</code>. This is the part you are actually buying.</li>
+<li><strong>Re-pricing toll:</strong> <code>B &#42; (r_new - r_old)</code>. This is the part you are paying for nothing.</li>
+</ul>
+
+<p>A HELOC has a toll of exactly zero by construction. It sits in second lien position behind your first mortgage and leaves that first mortgage untouched. Your 4.10 percent loan keeps running at 4.10 percent. That structural fact, not the headline rate, is what the comparison turns on.</p>
+
+<p>The 2020 to 2022 rate window makes this acute right now. If you bought a rental between 2019 and 2022 you are carrying a rate between 3 and 5 percent on a balance that is probably the largest single financial asset in your life. Refinancing it to access equity is not a neutral act. It is the permanent surrender of a below-market loan, priced in dollars per year, and almost nobody models it that way.</p>
+
+<h2>The Deal on the Table</h2>
+
+<p>A single-family rental bought in March 2021 for $370,000 with 20 percent down. The loan was $296,000 at 4.10 percent on a 30-year fixed. Sixty-six payments in, the balance is $265,044 and the monthly principal and interest is $1,430.27. The property appraises today at $455,000. You need $60,000 for the down payment and rehab on the next one.</p>
+
+<table>
+<tr><th>Input</th><th>Cell</th><th>Value</th></tr>
+<tr><td>Current appraised value</td><td>B3</td><td>$455,000</td></tr>
+<tr><td>Existing loan balance</td><td>B4</td><td>$265,044</td></tr>
+<tr><td>Existing rate</td><td>B5</td><td>4.10%</td></tr>
+<tr><td>Existing monthly P and I</td><td>B6</td><td>$1,430.27</td></tr>
+<tr><td>Months remaining on existing loan</td><td>B7</td><td>294</td></tr>
+<tr><td>Cash needed for the next deal</td><td>B8</td><td>$60,000</td></tr>
+</table>
+
+<p>Two live market constraints shape everything downstream, and both are worth checking before you build anything. Fannie Mae caps a cash-out refinance on a one-unit investment property at 75 percent loan to value, so your maximum new loan is <code>=B3 &#42; 0.75</code>, or $341,250. Investment property HELOCs cap in the same 70 to 75 percent combined LTV band, and most large retail banks will not write one at all on a non-owner-occupied property. The lenders that will are credit unions, community banks, and specialty non-QM shops, with FICO floors around 680 to 720 and six to twelve months of reserves.</p>
+
+<p>Pricing as of September 2026: the prime rate is 6.75 percent, so a primary-residence HELOC runs around 7.16 to 7.29 percent. An investment property HELOC prices 0.50 to 2.00 points above that. This model uses 9.00 percent, the top of the range, deliberately. If the HELOC still wins at its worst realistic price, the conclusion is not an artifact of a friendly assumption. Investment property mortgage rates run 7.4 to 7.9 percent, and a cash-out transaction adds roughly a quarter to a half point, so the refinance is modeled at 7.75 percent.</p>
+
+<h2>Build Both Paths in One Excel Sheet</h2>
+
+<p>The mistake in most spreadsheets is comparing monthly payments. A payment mixes interest, which is a cost, with principal, which is savings you are forced to make. Compare interest only, measured against the do-nothing baseline of keeping the existing loan and raising no cash at all.</p>
+
+<p>Refinance block. The loan has to be sized so that after closing costs you actually walk away with the $60,000, which means solving for the loan rather than assuming it:</p>
+
+<table>
+<tr><th>Cell</th><th>Formula</th><th>Result</th></tr>
+<tr><td>B11 Max LTV</td><td>0.75</td><td>75%</td></tr>
+<tr><td>B12 New rate</td><td>0.0775</td><td>7.75%</td></tr>
+<tr><td>B13 Closing cost rate</td><td>0.025</td><td>2.5%</td></tr>
+<tr><td>B14 Max loan permitted</td><td><code>=B3 &#42; B11</code></td><td>$341,250</td></tr>
+<tr><td>B15 Loan sized to net the cash</td><td><code>=(B4+B8)/(1-B13)</code></td><td>$333,400</td></tr>
+<tr><td>B16 LTV check</td><td><code>=IF(B15&gt;B14,"OVER CAP","OK")</code></td><td>OK</td></tr>
+<tr><td>B17 Closing costs</td><td><code>=B15 &#42; B13</code></td><td>$8,335</td></tr>
+<tr><td>B18 Net cash to you</td><td><code>=B15-B4-B17</code></td><td>$60,021</td></tr>
+<tr><td>B19 New monthly payment</td><td><code>=-PMT(B12/12,360,B15)</code></td><td>$2,388.52</td></tr>
+</table>
+
+<p>B16 matters more than it looks. On this deal the sized loan lands at 73.3 percent LTV and clears the cap with room. Raise the cash need to $85,000 and the formula returns $358,509, the check flips to OVER CAP, and the refinance is off the table entirely regardless of what it would have cost. Investors discover this on the phone with a loan officer three weeks into an application. One cell tells you on day one.</p>
+
+<p>Now the decomposition that the term sheet will not show you:</p>
+
+<table>
+<tr><th>Cell</th><th>Formula</th><th>Result</th></tr>
+<tr><td>B21 Re-pricing toll, annual</td><td><code>=B4 &#42; (B12-B5)</code></td><td>$9,674</td></tr>
+<tr><td>B22 Cost of the new money, annual</td><td><code>=(B15-B4) &#42; B12</code></td><td>$5,298</td></tr>
+<tr><td>B23 Total year-one carry</td><td><code>=B21+B22</code></td><td>$14,972</td></tr>
+<tr><td>B24 Share that buys nothing</td><td><code>=B21/B23</code></td><td>64.6%</td></tr>
+</table>
+
+<p>Sixty-five cents of every dollar of additional interest in year one is a toll on money you already had. Run the real amortization schedules and you get $14,989, seventeen dollars off the decomposition because of principal timing, which is close enough that the two-line split is the right way to think about it.</p>
+
+<p>HELOC block. Simpler, because there is no toll to compute:</p>
+
+<table>
+<tr><th>Cell</th><th>Formula</th><th>Result</th></tr>
+<tr><td>B27 Max CLTV</td><td>0.75</td><td>75%</td></tr>
+<tr><td>B28 HELOC rate</td><td>0.09</td><td>9.00%</td></tr>
+<tr><td>B29 Setup costs</td><td>1200</td><td>$1,200</td></tr>
+<tr><td>B30 Annual fee</td><td>75</td><td>$75</td></tr>
+<tr><td>B31 Line available</td><td><code>=B3 &#42; B27-B4</code></td><td>$76,206</td></tr>
+<tr><td>B32 Line check</td><td><code>=IF(B8&gt;B31,"LINE TOO SMALL","OK")</code></td><td>OK</td></tr>
+<tr><td>B33 Annual carry while drawn</td><td><code>=B8 &#42; B28</code></td><td>$5,400</td></tr>
+<tr><td>B34 Interest-only monthly</td><td><code>=B33/12</code></td><td>$450.00</td></tr>
+<tr><td>B35 Year-one total</td><td><code>=B33+B29+B30</code></td><td>$6,675</td></tr>
+</table>
+
+<p>Note what B33 does not contain. There is no reference to B4, B5, or B6 anywhere in the HELOC block, because the existing loan is not a variable in this path. That absence is the entire argument rendered as a formula dependency.</p>
+
+<h2>What the Sheet Says at One, Three, Five and Ten Years</h2>
+
+<p>For the refinance, cumulative extra interest is the new loan's interest minus the interest you would have paid anyway. Excel does both with <code>CUMIPMT</code>, and the baseline leg is the one people forget to build:</p>
+
+<p><code>=-CUMIPMT(B12/12,360,B15,1,60,0)</code> returns $126,133 of interest on the new loan through month 60.</p>
+
+<p><code>=-CUMIPMT(B5/12,B7,B4,1,60,0)</code> returns $50,941 on the loan you already have.</p>
+
+<p>The difference, $75,193, is what the refinance actually costs you over five years. The HELOC leg is <code>=B8 &#42; B28 &#42; Years+B29+B30 &#42; Years</code>.</p>
+
+<table>
+<tr><th>Horizon</th><th>Cash-out refinance</th><th>Investment HELOC</th><th>HELOC advantage</th></tr>
+<tr><td>1 year</td><td>$14,989</td><td>$6,675</td><td>$8,314</td></tr>
+<tr><td>3 years</td><td>$45,058</td><td>$17,625</td><td>$27,433</td></tr>
+<tr><td>5 years</td><td>$75,193</td><td>$28,575</td><td>$46,618</td></tr>
+<tr><td>10 years</td><td>$150,207</td><td>$55,950</td><td>$94,257</td></tr>
+</table>
+
+<p>At the five-year mark the HELOC has saved $46,618 on a $60,000 raise. You did not borrow the money more cheaply. You simply refused to reprice a 4.10 percent loan, and the refusal was worth more than three quarters of the amount you needed.</p>
+
+<h2>The Break-Even Is a Rate, Not a Date</h2>
+
+<p>The standard framing for this decision is duration: figure out how long the money will be out, and pick the cheaper carry over that window. That framing is backwards, and the sheet shows why in four cells.</p>
+
+<p>The refinance does have real advantages per dollar. It lends at 7.75 percent instead of 9.00 percent, and it carries no annual fee. But it also has to finance its own closing costs, and that is where the advantage goes:</p>
+
+<table>
+<tr><th>Cell</th><th>Component</th><th>Formula</th><th>Annual</th></tr>
+<tr><td>B38</td><td>Rate advantage on the $60,000</td><td><code>=B8 &#42; (B28-B12)</code></td><td>+$750</td></tr>
+<tr><td>B39</td><td>Carrying its own closing costs</td><td><code>=B17 &#42; B12</code></td><td>-$646</td></tr>
+<tr><td>B40</td><td>HELOC fees, credited to the refi</td><td><code>=B30+B29/5</code></td><td>+$315</td></tr>
+<tr><td>B41</td><td>Net structural advantage</td><td><code>=B38-B39+B40</code></td><td>+$419</td></tr>
+</table>
+
+<p>A 1.25 point rate advantage on $60,000 is worth $750 a year. Financing $8,335 of closing costs at 7.75 percent costs $646 a year. Roughly 86 percent of the refinance's rate advantage is consumed by the cost of the transaction that delivers it. What survives is $419 a year, and that is the entire budget available to absorb the toll.</p>
+
+<p>Which gives the break-even directly. Divide the surviving advantage by the balance being re-priced:</p>
+
+<p>B42, break-even spread: <code>=B41/B4</code> returns 0.158 percent, or 16 basis points.</p>
+
+<p>B43, break-even existing rate: <code>=B12-B42</code> returns 7.592 percent.</p>
+
+<p>B44, the verdict cell: <code>=IF(B5&gt;=B43,"CASH-OUT REFINANCE","HELOC")</code>.</p>
+
+<p>Read that again. The cash-out refinance is the cheaper instrument only if your existing rate is already within 16 basis points of today's rate. Not one point. Not half a point. Sixteen hundredths of a point. Below that threshold the toll swamps everything, and the shape of the curve is brutal:</p>
+
+<table>
+<tr><th>Your existing rate</th><th>Annual toll on $265,044</th><th>Cheaper instrument</th></tr>
+<tr><td>4.10%</td><td>$9,674</td><td>HELOC</td></tr>
+<tr><td>5.00%</td><td>$7,289</td><td>HELOC</td></tr>
+<tr><td>5.75%</td><td>$5,301</td><td>HELOC</td></tr>
+<tr><td>6.50%</td><td>$3,313</td><td>HELOC</td></tr>
+<tr><td>7.25%</td><td>$1,325</td><td>HELOC</td></tr>
+<tr><td>7.60%</td><td>$398</td><td>Refinance</td></tr>
+</table>
+
+<p>Even at 7.25 percent, a rate most investors would describe as "basically current," the toll is $1,325 a year against a $419 budget. The refinance loses by triple. The only borrower for whom a cash-out refinance is the cheap option is one who has no below-market loan to protect, which usually means someone who bought in the last eighteen months.</p>
+
+<h2>When the Money Comes Back, the Two Paths Stop Being Comparable</h2>
+
+<p>Duration matters, but not symmetrically, and this is the part the standard framing gets exactly wrong. Model a BRRRR where you pull $60,000, buy and rehab the next property, and refinance it out at month 18.</p>
+
+<p>The HELOC path: $60,000 at 9.00 percent for 18 months is $8,100, plus $1,200 of setup and two $75 fees. Total $9,450. Then you repay the line and the cost goes to zero. The line stays open for the next deal at no carrying cost.</p>
+
+<p>The refinance path: $22,496 of extra interest over the same 18 months. Then you take the $60,000 and dump it back into the loan. Your balance drops to $268,924. Under the do-nothing baseline you would have owed $255,320. So you now owe $13,604 more than you otherwise would, at 7.75 percent instead of 4.10 percent, and the residual cost of that position is $10,373 a year.</p>
+
+<table>
+<tr><th>At month 18</th><th>HELOC</th><th>Cash-out refinance</th></tr>
+<tr><td>Cost incurred so far</td><td>$9,450</td><td>$22,496</td></tr>
+<tr><td>Balance after returning the $60,000</td><td>$255,320 at 4.10%</td><td>$268,924 at 7.75%</td></tr>
+<tr><td>Ongoing cost from month 19</td><td>$0 per year</td><td>$10,373 per year</td></tr>
+<tr><td>Can you undo it</td><td>Yes, repay the draw</td><td>No</td></tr>
+</table>
+
+<p>You cannot un-refinance. The HELOC's cost horizon is your hold period on the cash. The refinance's cost horizon is your hold period on the property. Modeling both against "how long is the money out" quietly assumes those are the same number, and they are not even the same order of magnitude. If you plan to own that rental for another twelve years, an 18-month use of $60,000 has committed you to twelve years of toll.</p>
+
+<h2>Where the Cash-Out Refinance Actually Wins</h2>
+
+<p>Cost is not the only axis, and a model that only prices interest is dishonest about what the refinance buys. Four things it gives you that a HELOC does not:</p>
+
+<ul>
+<li><strong>A fixed rate for 30 years.</strong> The HELOC is tied to prime, currently 6.75 percent. The FOMC meets on September 16, 2026, and markets price roughly 65 percent odds of one more cut by year end, so the near-term drift is in your favor. Over a ten-year draw period, "the near term" is not the exposure you are underwriting.</li>
+<li><strong>No freeze risk.</strong> Lenders can reduce or suspend an undrawn HELOC line, and they did exactly that at scale in 2008 and again in 2020. A line you are counting on for the next deal is a commitment that can be withdrawn precisely when credit tightens, which is when you most want it.</li>
+<li><strong>No draw-period cliff.</strong> Most HELOCs run interest-only for ten years and then amortize over twenty. On $60,000 at 9.00 percent that is a move from $450 a month to $539.84, computed as <code>=-PMT(B28/12,240,B8)</code>. The jump is manageable, but it arrives on a schedule you did not choose.</li>
+<li><strong>It exists.</strong> The largest constraint is availability. You can get a cash-out refinance on a rental from almost any lender. An investment property HELOC requires finding one of a much smaller set of institutions willing to sit in second position on a property you do not live in.</li>
+</ul>
+
+<p>So the honest rule is not "always take the HELOC." It is this: the refinance's advantages are insurance, and the sheet prices that insurance at $9,255 a year on this deal, being the $9,674 toll less the $419 structural advantage. Decide whether rate certainty on $60,000 is worth $9,255 a year. Framed that way, most investors say no. If your existing balance were $80,000 instead of $265,044, the toll would be $2,920 and the answer might flip. Change B4 and watch B44.</p>
+
+<p>If you are running the refinance path seriously, the LTV cap, the DSCR test, and the appraisal risk deserve their own model. We covered those in the <a href="/blog/cash-out-refinance-calculator-rental-property">cash-out refinance calculator for rental property</a>, which builds the three constraints that actually cap how much you can pull.</p>
+
+<h2>The Third Option Nobody Quotes You, and What to Do Monday</h2>
+
+<p>There is a third instrument, and it is usually the cheapest of the three: a HELOC on your primary residence, used to fund the rental deal. At prime plus 0.50 it prices near 7.25 percent instead of 9.00 percent, the CLTV cap runs to 85 percent instead of 75, and closing costs are often waived entirely.</p>
+
+<table>
+<tr><th>Instrument</th><th>Rate</th><th>Annual cost on $60,000</th><th>Toll on existing loan</th><th>Total year-one</th></tr>
+<tr><td>Cash-out refinance</td><td>7.75%</td><td>$5,298</td><td>$9,674</td><td>$14,989</td></tr>
+<tr><td>Investment property HELOC</td><td>9.00%</td><td>$5,400</td><td>$0</td><td>$6,675</td></tr>
+<tr><td>Primary residence HELOC</td><td>7.25%</td><td>$4,350</td><td>$0</td><td>$4,350</td></tr>
+</table>
+
+<p>The tax treatment surprises people, and it favors this option. Under the interest tracing rules at Treasury Regulation 1.163-8T, deductibility follows the <em>use</em> of the proceeds, not the collateral. HELOC interest on your primary residence is no longer deductible on Schedule A as home mortgage interest, since the TCJA limits were made permanent under the OBBBA and the deduction is confined to debt used to buy, build, or substantially improve the secured home. But if you trace those proceeds into a rental, the interest lands on Schedule E as a rental expense and is deductible there.</p>
+
+<p>Tracing is a documentation discipline, not a filing position. Regulation 1.163-8T applies a first-in, first-out rule to commingled funds, so if the HELOC draw lands in a checking account that already holds $9,000 of your own money, the first $9,000 you spend is treated as your money, not loan proceeds. The fix is mechanical: open a dedicated account, wire the draw into it, and pay every deal expense directly from it. One account, one loan, one clean trail. Skip that step and you are reconstructing intent from a bank statement three years later in front of an examiner.</p>
+
+<p>The real cost of this option is not financial, it is structural. You are putting your home behind a rental deal. If the deal goes sideways the lender's collateral is where your family lives. That is a genuine reason to pay $1,050 a year more for the investment property line, and it is a decision about risk tolerance rather than arithmetic. The point is that the sheet should contain all three columns, because a two-column comparison hides the cheapest answer.</p>
+
+<p>Do this before you call a lender. Put your actual balance in B4 and your actual rate in B5. Compute B21, the toll. Compare it to B41, the $419 of structural advantage the refinance has. If the toll is larger, and for anyone holding a pre-2023 loan it will be larger by an order of magnitude, the refinance is the expensive path no matter how attractive its rate looks next to a HELOC quote. Then price both HELOC options, because the spread between the investment line and the primary line is a real $1,050 a year and it is the only part of this decision where shopping actually changes the number.</p>
+
+<p>Building the amortization legs, the CUMIPMT baselines, the LTV and CLTV checks, and the break-even cell by hand takes an afternoon, and the baseline leg is the one people leave out, which is exactly the leg that makes the toll visible. <a href="/products/rental-property-analyzer">SheetCraft's Rental Property Analyzer</a> ships with the financing comparison already built: enter the balance, the existing rate, the appraised value, and the cash you need, and it returns the toll, the break-even rate, the LTV and line-size checks, and the verdict cell across all three instruments. It also carries the cash flow and DSCR sheets you will need for the next property, since the reason you are pulling equity in the first place is a deal that has to underwrite on its own. And once you have a variable-rate line drawn against the portfolio, run it through the <a href="/blog/rental-portfolio-interest-rate-stress-test-excel">rental portfolio interest rate stress test</a> before you commit, because a HELOC's advantage is measured at today's prime and its risk is measured at some other prime you do not control.</p>`,
+  },
+  {
     slug: 'rental-property-pmi-removal-breakeven-calculator-excel',
     title: 'Rental Property PMI Removal Calculator: Why 80 Percent LTV Is Not Your Number',
     metaTitle: 'Rental Property PMI Removal Calculator | SheetCraft',
