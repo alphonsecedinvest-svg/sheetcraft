@@ -25442,7 +25442,7 @@ Partnerships don't end after the initial purchase. Properties need repairs, impr
 When the property needs additional money, partners contribute based on current ownership percentages.
 
 \`\`\`
-Required Contribution = Current Ownership % * Total Capital Need
+Required Contribution = Current Ownership % &#42; Total Capital Need
 \`\`\`
 
 Example: $10,000 roof repair needed.
