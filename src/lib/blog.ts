@@ -16,6 +16,176 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-preventive-maintenance-schedule-excel',
+    title: 'Rental Property Preventive Maintenance Schedule in Excel: Solve for the Break-Even, Not the Savings',
+    metaTitle: 'Rental Preventive Maintenance Schedule Excel | SheetCraft',
+    metaDescription: 'A $180 HVAC tune-up does not stop a compressor failure. Build a rental preventive maintenance schedule in Excel that solves for break-even risk.',
+    targetKeyword: 'rental property preventive maintenance schedule Excel',
+    secondaryKeywords: ['preventive maintenance schedule template', 'landlord maintenance checklist Excel', 'rental property maintenance budget', 'property maintenance interval tracker', 'annualized maintenance cost formula'],
+    excerpt: 'Every landlord checklist compares a $180 service call to a $6,400 compressor. That number is a full condenser replacement, not a compressor swap. Build the schedule around the probability each task has to beat instead, and the list reorders itself.',
+    publishedAt: '2026-09-10',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-preventive-maintenance-schedule-excel.png',
+    imageAlt: 'Brass model house, braided stainless supply hose, stacked pleated air filters, brass gate valve and keys on a concrete ledge',
+    content: `<p>A rental property preventive maintenance schedule in Excel is usually sold with one sentence: a $180 HVAC service call is cheap next to a $6,400 compressor replacement in July. The sentence is persuasive, and the number in it is wrong. A compressor swap on a residential system, out of warranty, runs $1,500 to $3,500 installed. The $6,400 figure is what a full outdoor condenser replacement costs at the top of its range, which is a different job with a different part list. If you build a maintenance budget on a repair cost that is roughly double the real one, every line on your checklist clears the bar, and you fund all of them.</p>
+
+<p>That is the actual failure mode for landlords. Not skipping maintenance. Over-funding the visible tasks with the scary story attached, and under-funding the $28 line that quietly carries most of your downside.</p>
+
+<h2>The repair you are budgeting against is not the repair you named</h2>
+
+<p>Before any schedule gets built, price the failures correctly. HVAC quotes are the ones landlords misremember most, because "the compressor went" is used to describe four different invoices.</p>
+
+<table>
+<tr><th>Scope of work</th><th>2026 price range</th><th>What you are actually paying for</th></tr>
+<tr><td>Compressor swap, warranty covered</td><td>$600 to $1,200</td><td>Labor and refrigerant only, part is free</td></tr>
+<tr><td>Compressor swap, out of warranty, single-stage R-410A</td><td>$1,500 to $3,500</td><td>Part plus labor</td></tr>
+<tr><td>Compressor swap, variable-speed</td><td>$2,800 to $4,500</td><td>Part plus labor</td></tr>
+<tr><td>Full outdoor condenser replacement</td><td>$3,200 to $6,500</td><td>New outdoor unit, existing coil and air handler stay</td></tr>
+<tr><td>Complete system replacement</td><td>$6,000 to $12,000</td><td>Condenser, evaporator coil, air handler</td></tr>
+</table>
+
+<p>There is a second problem hiding in that table. Contractors use an age rule: multiply the system's age in years by the proposed repair cost, and if the result clears $5,000, replace the system instead. On a 14-year unit, a $2,400 compressor quote scores 33,600. The repair is never happening. Which means a preventive line item on that unit is not buying you a cheaper compressor. It is buying deferral of a replacement decision you have already made.</p>
+
+<h2>Invert the formula and solve for the probability</h2>
+
+<p>Every expected value maintenance model has the same defect. Expected value needs a probability, and you do not have one. Nobody has a defensible annual probability that a specific compressor on a specific roof in a specific climate fails this year. So the landlord makes one up, multiplies it by a real dollar figure, and the made-up number silently drives the whole model.</p>
+
+<p>Invert it. Do not solve for savings. Solve for the probability at which the task exactly pays for itself, then answer a yes or no question you can actually answer.</p>
+
+<p>Set up a <code>Tasks</code> sheet with the task library. One row per task, not per property.</p>
+
+<table>
+<tr><th>Column</th><th>Field</th><th>Formula or input</th></tr>
+<tr><td>A</td><td>Task ID</td><td>Input, e.g. WH-FLUSH</td></tr>
+<tr><td>D</td><td>Interval, months</td><td>Input</td></tr>
+<tr><td>E</td><td>Cost per occurrence</td><td>Input</td></tr>
+<tr><td>G</td><td>Direct cost of the failure</td><td>Input</td></tr>
+<tr><td>H</td><td>Collateral cost of the failure</td><td>Input</td></tr>
+<tr><td>K</td><td>Annualized task cost</td><td><code>=E4&#42;(12/D4)</code></td></tr>
+<tr><td>L</td><td>Break-even annual probability</td><td><code>=K4/(G4+H4)</code></td></tr>
+<tr><td>M</td><td>Same number as odds</td><td><code>="1 in "&amp;TEXT(1/L4,"#,##0")</code></td></tr>
+<tr><td>N</td><td>Is the real chance higher? Y or N</td><td>Your judgment</td></tr>
+<tr><td>O</td><td>Verdict</td><td><code>=IF(N4="Y","FUND","SKIP")</code></td></tr>
+</table>
+
+<p>Column M is the one that changes behavior. "This task pays if the annual failure chance is above 1 in 1,064" is a question a landlord with six doors and eleven years of receipts can answer. "What is the annual probability of compressor failure" is not.</p>
+
+<h2>Build the cost of one water event before anything else</h2>
+
+<p>Column H, the collateral cost, is where most of the money lives, and most maintenance spreadsheets leave it blank. Water is the reason. Build it once, in its own block, and point every water-related task at the total.</p>
+
+<table>
+<tr><th>Line</th><th>Formula</th><th>Amount</th></tr>
+<tr><td>Policy deductible</td><td>Input</td><td>$2,500</td></tr>
+<tr><td>Rent loss, 3 weeks at $1,850 per month</td><td><code>=(B5/30)&#42;B6</code></td><td>$1,295</td></tr>
+<tr><td>Premium repricing, 18 percent on $1,850 for 5 years</td><td><code>=B8&#42;B9&#42;B10</code></td><td>$1,665</td></tr>
+<tr><td>Non-covered items, code upgrades, your own time</td><td>Input</td><td>$500</td></tr>
+<tr><td><strong>Landlord cost of one water event</strong></td><td><code>=SUM(B4:B7)</code></td><td><strong>$5,960</strong></td></tr>
+</table>
+
+<p>The premium repricing line is the one nobody models. A claim sits on your CLUE report for seven years, and a single water damage claim commonly adds 10 to 25 percent to the rate. On a $1,850 policy that is $333 a year, and it bites hardest in the first five years before it decays. That $1,665 is larger than most of the maintenance tasks it is being used to justify, and it never appears on the repair invoice, so it never enters the landlord's mental math. If you are not already tracking what each renewal does to each property, the <a href="/blog/rental-property-insurance-cost-tracker-excel">rental property insurance cost tracker</a> is the input side of this same number.</p>
+
+<h2>What the break-even column does to the standard checklist</h2>
+
+<p>Run the eight tasks every landlord blog recommends through columns K, L and M. The results are not what the checklist implies.</p>
+
+<table>
+<tr><th>Task</th><th>Interval</th><th>Cost each</th><th>Annualized</th><th>Cost of the failure</th><th>Break-even</th><th>Odds</th><th>Verdict</th></tr>
+<tr><td>Braided stainless washer hoses</td><td>60 mo</td><td>$28</td><td>$5.60</td><td>$5,960</td><td>0.09%</td><td>1 in 1,064</td><td>FUND</td></tr>
+<tr><td>Water heater pan, drain, leak alarm</td><td>120 mo</td><td>$58</td><td>$5.80</td><td>$5,960</td><td>0.10%</td><td>1 in 1,028</td><td>FUND</td></tr>
+<tr><td>Water heater flush and anode check</td><td>48 mo</td><td>$250</td><td>$62.50</td><td>$6,460</td><td>0.97%</td><td>1 in 103</td><td>FUND at 6+ years</td></tr>
+<tr><td>Main drain cabling, root-prone lot</td><td>30 mo</td><td>$385</td><td>$154</td><td>$9,200</td><td>1.67%</td><td>1 in 60</td><td>Per property</td></tr>
+<tr><td>Gutter clean, downspout extensions</td><td>12 mo</td><td>$185</td><td>$185</td><td>$5,960</td><td>3.10%</td><td>1 in 32</td><td>Per property</td></tr>
+<tr><td>Dryer vent, priced against fire</td><td>24 mo</td><td>$140</td><td>$70</td><td>$18,000</td><td>0.39%</td><td>1 in 257</td><td>FAILS</td></tr>
+<tr><td>Dryer vent, priced against the element</td><td>24 mo</td><td>$140</td><td>$70</td><td>$520</td><td>13.5%</td><td>1 in 7</td><td>FUND</td></tr>
+<tr><td>HVAC service, priced against warranty denial</td><td>12 mo</td><td>$180</td><td>$180</td><td>$1,500</td><td>12.0%</td><td>1 in 8</td><td>FAILS</td></tr>
+</table>
+
+<p>Look at the dryer vent rows. The NFPA finding is real and frequently quoted: failure to clean is the leading contributing factor in home clothes dryer fires, about one third of them, and those fires are associated with half of the dryer fire deaths. But the base rate does not survive contact with the break-even column. Around 15,000 home dryer fires a year, one third from failure to clean, against the 102.3 million US households that the 2020 Residential Energy Consumption Survey says own a dryer, is roughly 1 in 20,000 per dryer per year. Break-even is 1 in 257. Even if you assume every single reported dryer fire is a lint fire, you get 1 in 6,800, still 26 times short.</p>
+
+<p>Do not delete the row. Reprice it. A blocked vent overheats the thermal fuse and cooks the heating element, and on a landlord-owned dryer that is a $520 event that happens often enough to observe. At 1 in 7 the task clears easily, on a failure you have probably already paid for twice. This generalizes: <strong>most preventive maintenance is justified by a boring, frequent failure and marketed with a rare, terrifying one.</strong> When a row fails against the catastrophe, reprice it against the nuisance before you cut it.</p>
+
+<h2>The HVAC line deserves its own argument</h2>
+
+<p>"The $180 tune-up" bundles three unrelated purchases, and only one of them survives scrutiny.</p>
+
+<p><strong>Warranty admissibility.</strong> Every major manufacturer conditions its parts warranty on two things: registration within 30 to 90 days of installation, and documented annual professional maintenance. Claims get denied for a missing registration or missing service tickets even when the part itself is plainly covered. So the tune-up is not buying a lower failure probability. It is buying the difference between a $600 to $1,200 warranty labor bill and a $1,500 to $3,500 out-of-pocket one, call it $1,500. Break-even on a $180 annual spend is a 12 percent yearly chance of compressor failure. Real compressor failure rates inside the first ten years are nowhere near that.</p>
+
+<p><strong>The frozen coil.</strong> The HVAC failure that actually happens in a rental is a plugged filter, a frozen evaporator, and a no-cool call at four on a Saturday. After-hours dispatch runs $150 to $500 on top of $140 to $600 per hour labor, against $70 to $150 in business hours. Call the event $385. And here is the part the tune-up cannot fix: a service visit in March does nothing about a filter that clogs in August. The thing that moves that probability is a filter arriving at the tenant's door.</p>
+
+<table>
+<tr><th>Spend</th><th>Annual cost</th><th>Failure mode it actually moves</th><th>Break-even</th></tr>
+<tr><td>Two service visits per year</td><td>$180</td><td>Warranty claim denial ($1,500)</td><td>1 in 8 compressor failures per year</td></tr>
+<tr><td>Filters shipped to the tenant, 4 per year</td><td>$36</td><td>Frozen coil, after-hours call ($385)</td><td>1 in 11 no-cool calls per year</td></tr>
+<tr><td>Component reserve, 14-year condenser</td><td><code>=7800/48</code> = $163/mo</td><td>The replacement you already decided on</td><td>Not a probability question</td></tr>
+</table>
+
+<p>The filter subscription clears its bar without argument. The tune-up does not, and it should be funded only while the unit is inside its parts warranty window, where the documentation has independent value. On a unit past warranty and past twelve years, stop calling it maintenance. A $7,800 replacement inside four years is $163 a month, which belongs in a component reserve and in your underwriting, not in the operating budget. That is a different sheet with a different job, and the <a href="/blog/rental-property-capital-reserve-calculator-excel">capital reserve calculator</a> funds it by component rather than by a blended percentage.</p>
+
+<h2>On water, containment beats maintenance</h2>
+
+<p>The break-even column keeps selecting water tasks because water is the one common failure whose cost is mostly collateral. But the cheapest way to move that number is not a service interval. It is a device that converts a catastrophe into a nuisance.</p>
+
+<table>
+<tr><th>Device</th><th>One-time cost</th><th>What it converts</th><th>New cost of the event</th></tr>
+<tr><td>Braided stainless hoses, pair</td><td>$28</td><td>A 650 gallon per hour burst into a hose you swap</td><td>$28</td></tr>
+<tr><td>Water heater pan with drain to daylight</td><td>$38</td><td>A tank rupture into a wet pan</td><td>$0</td></tr>
+<tr><td>Battery leak alarm at heater, washer, sink</td><td>$20 each</td><td>An undetected leak into a phone call</td><td>$150</td></tr>
+<tr><td>Frost-proof hose bib, per exterior spigot</td><td>$95</td><td>A freeze split inside the wall cavity</td><td>$0</td></tr>
+<tr><td>Automatic shutoff valve on the main</td><td>$650</td><td>Any supply-side failure into a text message</td><td>$300</td></tr>
+</table>
+
+<p>The washer hose row is the whole thesis in one line. The Institute for Business and Home Safety studied 525 washing machine claims and found that roughly 55 percent of washing-machine water damage came from supply hoses that leaked or burst, that failure rates rise sharply past five years, and that the average age of a failed hose was 8.7 years. A burst hose moves as much as 650 gallons an hour and it does not stop, because the supply line is always live. Your break-even is 1 in 1,064 per year on a $28 part. There is no version of that judgment call where you skip it.</p>
+
+<p>The shutoff valve is the genuinely close one. Annualized over a 12-year life, <code>=650&#42;(12/144)</code> is $54 a year, break-even 1 in 110 against a $5,960 event. The published all-cause base rate is 1 in 67 insured homes filing a water damage or freezing claim each year, at an average claim of $15,400 across 2019 to 2023 data. That clears, but only before you haircut it for the failures a main shutoff does not catch, such as a roof leak or a sewer backup. The tiebreaker is vacancy: a supply line that lets go in an occupied unit gets a phone call in ten minutes, and one that lets go in a unit between tenants runs until somebody drives by.</p>
+
+<h2>Turn the schedule into a monthly budget line</h2>
+
+<p>A second sheet, <code>Schedule</code>, holds one row per property and task, and this is where the property's history lives. Same task, different interval: the wooded lot with a walk-out basement gets gutters twice a year, the slab house with no tree within sixty feet gets zero.</p>
+
+<p>Pull the interval from the library rather than retyping it, with <code>=XLOOKUP($B4,Tasks!$A:$A,Tasks!$D:$D)</code>, then drive the dates off the last completion.</p>
+
+<p>Next due date: <code>=EDATE(C4,D4)</code>. Status flag: <code>=IF(F4&lt;TODAY(),"OVERDUE",IF(F4&lt;=TODAY()+30,"DUE IN 30","SCHEDULED"))</code>.</p>
+
+<p>Then roll it into cash by month, which is the entire point of scheduling instead of reacting: <code>=SUMIFS(Schedule!$H:$H,Schedule!$A:$A,$A12,Schedule!$E:$E,"&gt;="&amp;B$11,Schedule!$E:$E,"&lt;"&amp;EDATE(B$11,1))</code>.</p>
+
+<p>Here is a real six-door portfolio: three single-family houses from 1998, 2004 and 1972, one 1986 duplex, one 2015 condo, $9,990 a month in gross rent. After the break-even test kills the tune-ups on the four out-of-warranty units and the gutter line on the slab house, the funded year looks like this.</p>
+
+<table>
+<tr><th>Month</th><th>Scheduled work</th><th>Cash</th></tr>
+<tr><td>January</td><td>Filters, Q1, all 6 doors</td><td>$54</td></tr>
+<tr><td>February</td><td>Dryer vents, SFR-A and SFR-B</td><td>$280</td></tr>
+<tr><td>March</td><td>HVAC service, 2 in-warranty units</td><td>$360</td></tr>
+<tr><td>April</td><td>Filters Q2, spring gutters SFR-C</td><td>$239</td></tr>
+<tr><td>May</td><td>Water heater flush and anode, SFR-C</td><td>$250</td></tr>
+<tr><td>June</td><td>Main drain cabling, SFR-C</td><td>$385</td></tr>
+<tr><td>July</td><td>Filters Q3</td><td>$54</td></tr>
+<tr><td>August</td><td>Detector audit 6 doors, washer hoses on 1 turnover</td><td>$75</td></tr>
+<tr><td>September</td><td>Dryer vent, Duplex unit 1</td><td>$140</td></tr>
+<tr><td>October</td><td>Filters Q4, fall gutters on 3 buildings</td><td>$609</td></tr>
+<tr><td>November</td><td>Water heater flush and anode SFR-A, washer hoses on 1 turnover</td><td>$278</td></tr>
+<tr><td>December</td><td>Nothing scheduled</td><td>$0</td></tr>
+<tr><td><strong>Year total</strong></td><td><strong>6 doors, $454 per door</strong></td><td><strong>$2,724</strong></td></tr>
+</table>
+
+<p>That is 2.3 percent of gross rent, and it is lumpy: $0 in December against $609 in October. So do not budget the month, budget the average and let the schedule draw against a balance. Contribution per month is <code>=SUM($B$12:$M$12)/12</code>, which is $227, and the running reserve balance is <code>=E11+$B$3-D12</code>.</p>
+
+<p>Run that column before you trust it. Starting from a zero balance in January, this schedule goes negative in March and bottoms at minus $227 in November. The average is right and the seed is missing, which is the failure mode of every reserve funded from the first of the year. Put one month's contribution in before the first January and the balance never dips below $21, which happens in June after the drain cabling, and it returns to exactly $227 on December 31. A $227 seed is the difference between a schedule that finances itself and one that quietly borrows from operating cash twice a year.</p>
+
+<p>Compare that to the unscheduled version of the same year. The work still happens, it just happens after the failure, at $150 to $500 for an after-hours dispatch instead of $70 to $150 for a booked visit, with whichever vendor answers the phone.</p>
+
+<h2>Build it this week, in this order</h2>
+
+<p>Start with the $5,960 water event block, because every downstream break-even divides by it and a wrong figure there mis-sorts your entire list. Then enter the containment devices before the service tasks. They are one-time, they cost under $100 each, and they beat their break-even by two orders of magnitude, which no recurring service task on the list manages.</p>
+
+<p>Only then enter the recurring tasks, sort column L ascending, and fund from the top until the budget runs out. For every row that fails, reprice it against the boring failure before deleting it, the way the dryer vent went from FAILS at 1 in 257 to FUND at 1 in 7 without changing a single input except which failure you were pricing.</p>
+
+<p>Two rules the model does not get to break. Detectors, carbon monoxide alarms, and anything your state habitability standard or your lease requires go on the schedule with the break-even column deliberately left blank. A model that prices a legal duty will eventually return SKIP, and it will be wrong in a way that ends in a deposition. And keep the schedule separate from the record: the schedule says what is next, while a <a href="/blog/property-maintenance-log-spreadsheet">property maintenance log</a> proves what was done, and a warranty department will only accept the second one.</p>
+
+<p>The last step is the one that makes any of this show up in your returns. A $454 per door preventive schedule is not an operating detail, it is 2.3 percent of gross rent that most rental models bury inside a flat 5 percent maintenance assumption along with reactive repairs, turnover paint, and capital replacements that belong nowhere near each other. SheetCraft's <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> carries preventive maintenance, capital reserves, and insurance as separate per-property lines with their own intervals, so the schedule you build this week feeds the cash flow directly instead of being averaged into a percentage that nobody revisits at renewal. Build the schedule, then check whether the 5 percent you have been underwriting was ever funded.</p>`,
+  },
+  {
     slug: 'rental-property-heloc-vs-cash-out-refinance-excel',
     title: 'Rental Property HELOC vs Cash-Out Refinance: The Comparison Lenders Skip',
     metaTitle: 'Rental Property HELOC vs Cash-Out Refi | SheetCraft',
