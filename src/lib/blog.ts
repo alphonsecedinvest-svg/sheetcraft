@@ -16,6 +16,183 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-track-construction-costs-in-excel',
+    title: 'How to Track Construction Costs in Excel So the Overrun Shows Up in Month 2',
+    metaTitle: 'How to Track Construction Costs in Excel | SheetCraft',
+    metaDescription: 'How to track construction costs in Excel with committed cost, not invoices. A $480,000 job reads 47.5% spent and is already $35,900 over budget.',
+    targetKeyword: 'how to track construction costs in Excel',
+    secondaryKeywords: ['construction committed cost tracking', 'construction cost to complete Excel', 'job cost forecast spreadsheet', 'construction budget vs actual Excel'],
+    excerpt: 'A budget-versus-invoices tracker reports a $480,000 job as 47.5 percent spent at month 4, while the signed subcontracts already put it 104 percent committed and $35,900 over. Here is the three-column fix, the formulas, and why the same overrun costs you every option if you find it in month 8 instead of month 2.',
+    publishedAt: '2026-09-11',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/how-to-track-construction-costs-in-excel.png',
+    imageAlt: 'Wooden abacus, rolled construction drawings tied with twine, a brass plumb bob and a yellow hard hat on an oak workbench',
+    content: `<p>Every contractor who asks how to track construction costs in Excel already has a spreadsheet. Budget in one column, invoices in the next, variance at the end. It reconciles to the bank, the accountant likes it, and it will report that the job is healthy right up to the month it reports a $35,900 loss.</p>
+
+<p>Here is the job. A $480,000 remodel contract, $420,000 of cost budget, $60,000 of fee, eight months. It is month 4. Invoices entered to date total $199,450, which is 47.5 percent of the cost budget on a job that is halfway through its schedule. Every figure on that report is arithmetically correct. The report is still worthless, because the overrun is already locked into signed paper and the spreadsheet has no column that can see it.</p>
+
+<p>The forecast final cost on that job is $455,900. The overrun is $35,900, or 59.8 percent of the fee. Of that, $18,800 was decided by contracts signed before month 5, and $11,100 of it was decided by the end of month 2. None of it appears in a budget-versus-invoices tracker until the invoices arrive, which is months after the last decision that could have changed anything.</p>
+
+<h2>A Ledger Reports the Past, and Cost Is Created Before It Is Paid</h2>
+
+<p>Incurred cost is a bookkeeping fact. It answers the question "how much have I paid out so far," and for paying bills and filing taxes that is the right question. It is not the question that decides whether the job makes money.</p>
+
+<p>Cost on a construction job is not created when the invoice lands. It is created when somebody signs. The day you execute an $81,200 mechanical subcontract against a $74,000 budget line, the job is $7,200 worse than it was that morning. No invoice exists. No cost has been incurred. A budget-versus-invoices tracker shows that line at zero spent and full budget remaining, which reads on screen as good news.</p>
+
+<p>The lag between signing and invoicing is the entire duration of the subcontract. On the mechanical line above, the first invoice arrived in month 4 and the last will arrive in month 8. So a ledger-style tracker reveals a buyout mistake made in month 2 across the five months when there is progressively less you can do about it. That is not a reporting delay you can fix by updating the sheet more often. The information was never in the sheet.</p>
+
+<p>This is also why "percent spent versus percent time" is a trap. At month 4 this job is 47.5 percent spent and 50 percent through the original schedule. Those two numbers next to each other feel like confirmation. They are two facts about the past sitting beside each other by coincidence.</p>
+
+<h2>Three Columns Change What the Tracker Can Answer</h2>
+
+<p>The fix is not a better layout or conditional formatting. It is three columns that most contractor spreadsheets do not have.</p>
+
+<p><strong>Committed cost.</strong> The total value of signed subcontracts and issued purchase orders on that cost code, including executed change orders, whether or not a single dollar has been invoiced. This is money you owe the moment the ink dries.</p>
+
+<p><strong>Cost to complete.</strong> What is left to spend on the line. For a bought-out line it is a subtraction: committed minus incurred. For self-perform work there is no contract to subtract from, so it is a forecast, and it has to be built from a rate. More on that below, because this is the line where most forecasts quietly turn into wishes.</p>
+
+<p><strong>Forecast final cost.</strong> Incurred plus cost to complete. This is the number the job will actually finish at if nothing changes.</p>
+
+<p>Once those exist, the variance worth reading is <code>Budget - Forecast Final Cost</code>, not <code>Budget - Incurred</code>. Budget minus incurred tells you how much budget is unspent, which on a job with signed contracts is not the same thing as available. Delete that column. It has never predicted anything.</p>
+
+<p>The two percentages then tell a very different story on the same job. Percent spent is $199,450 of $420,000, or 47.5 percent. Percent committed is the $327,800 of signed contracts plus the $109,100 forecast on the two self-perform lines, which is $436,900 against a $420,000 budget, or 104.0 percent. The job is fully committed past its cost budget with three trades still to buy.</p>
+
+<h2>The Spreadsheet Layout That Makes This Work</h2>
+
+<p>Three sheets. The discipline is in the first one, and it is the one contractors skip.</p>
+
+<p><code>Commitments</code>: one row for every signed subcontract and issued purchase order. Columns are cost code, vendor, date signed, contract value, executed change orders. You add a row the day you sign, not the day the first invoice arrives. This sheet is the whole point, and it takes about thirty seconds per commitment.</p>
+
+<p><code>Costs</code>: one row per invoice. Cost code, vendor, invoice number, date, amount. If you are already keeping this, you are keeping a ledger, and you now know why it is not enough on its own.</p>
+
+<p><code>Report</code>: one row per cost code, pulling from both sheets. Nothing is typed twice.</p>
+
+<p>On the Report sheet, with cost codes starting in row 5, column A holds the code, B the scope description, C the budget, and column J a type flag with one of three values: <code>SUB</code> for anything bought out, <code>SELF</code> for self-perform work, <code>OPEN</code> for scope not yet purchased. That flag is what lets one formula handle all three cases.</p>
+
+<p>Committed, in D5, sums contract values and executed change orders for that code: <code>=SUMIFS(Commitments!$D:$D,Commitments!$A:$A,$A5)+SUMIFS(Commitments!$E:$E,Commitments!$A:$A,$A5)</code></p>
+
+<p>Incurred, in E5, sums invoices: <code>=SUMIFS(Costs!$E:$E,Costs!$A:$A,$A5)</code></p>
+
+<p>Cost to complete, in F5, branches on the type flag. Column K holds the forecast final cost for self-perform lines, built on a separate rate sheet: <code>=IF($J5="SUB",MAX(0,$D5-$E5),IF($J5="OPEN",$C5,$K5-$E5))</code></p>
+
+<p>The <code>MAX(0,...)</code> matters. When a subcontractor over-bills or you enter an invoice against the wrong code, committed minus incurred goes negative and a raw subtraction would quietly credit the forecast. An <code>OPEN</code> line carries its full budget as cost to complete, which is honest: you have no price yet, so the budget is your best estimate and your full exposure.</p>
+
+<p>Forecast final cost, in G5: <code>=E5+F5</code>. Variance, in H5: <code>=C5-G5</code>. Then the flag column that does the actual management work, in I5, with a dollar tolerance parked in B2: <code>=IF($D5&gt;$C5,"BOUGHT OVER",IF($H5&lt;-$B$2,"FORECAST OVER",IF($J5="OPEN","UNBOUGHT","OK")))</code></p>
+
+<p>"BOUGHT OVER" is the one to watch. It fires the day a contract is signed above its budget line, which is the earliest moment the information exists anywhere in your company. If you are building cost codes from scratch or your current codes do not match how you bid, sort that out first, because every formula above keys on the code: our guide to a <a href="/blog/job-costing-spreadsheet-for-contractors">job costing spreadsheet for contractors</a> covers the code structure this report sits on.</p>
+
+<h2>Why $0 Spent Means Three Different Things</h2>
+
+<p>At month 4 on this job, three cost codes show exactly zero incurred. In a budget-versus-invoices tracker they are identical rows. They are three completely different positions.</p>
+
+<table>
+<tr><th>Code</th><th>Scope</th><th>Budget</th><th>Committed</th><th>Incurred</th><th>Cost to complete</th><th>Forecast variance</th><th>Flag</th></tr>
+<tr><td>08-000</td><td>Windows and exterior doors (PO)</td><td>$42,000</td><td>$47,600</td><td>$0</td><td>$47,600</td><td>-$5,600</td><td>BOUGHT OVER</td></tr>
+<tr><td>09-000</td><td>Drywall, tape and paint (sub)</td><td>$38,000</td><td>$38,000</td><td>$0</td><td>$38,000</td><td>$0</td><td>OK</td></tr>
+<tr><td>22-000</td><td>Flooring and finishes</td><td>$19,000</td><td>$0</td><td>$0</td><td>$19,000</td><td>$0</td><td>UNBOUGHT</td></tr>
+</table>
+
+<p>Windows are a closed loss. The purchase order went out at $47,600 against a $42,000 budget because the price moved between estimate and order, and there is no version of the future where that line comes in at budget. It needs a change order, a credit from somewhere else, or it eats fee.</p>
+
+<p>Drywall is safe and finished as a risk. The number is locked at budget. Barring a scope change it will never move again, and it deserves no more attention this job.</p>
+
+<p>Finishes are the only line on the sheet you still fully control. The $19,000 is an estimate, not a price. It is also the last $19,000 of purchasing power you have to absorb everything that went wrong upstream.</p>
+
+<p>Three identical ledger rows, one closed loss, one settled line, one live lever. The flag column is what separates them, and it costs one formula.</p>
+
+<h2>Self-Perform Work Has No Contract, So Forecast It by Rate</h2>
+
+<p>Bought-out lines forecast themselves once you track commitments. Self-perform lines do not, and they are where this job actually bled. There is no contract to subtract from, so "cost to complete" has to be built from a rate times a quantity.</p>
+
+<table>
+<tr><th>Line</th><th>Budget</th><th>Basis</th><th>Planned rate</th><th>Actual rate</th><th>Forecast final</th><th>Variance</th></tr>
+<tr><td>01-000 General conditions</td><td>$34,000</td><td>8 months</td><td>$4,250 per month</td><td>$4,900 per month</td><td>$44,100</td><td>-$10,100</td></tr>
+<tr><td>06-100 Framing labor</td><td>$58,000</td><td>Percent of quantity placed</td><td>$58,000 at 100%</td><td>$46,800 at 72%</td><td>$65,000</td><td>-$7,000</td></tr>
+</table>
+
+<p>General conditions is a rate multiplied by a duration, and almost nobody treats it that way. Budget was $34,000 over eight months, or $4,250 per month. Four months in, $19,600 has gone out, which is $4,900 per month. The job is tracking one month late, so the honest forecast is nine months: <code>=K6&#42;B3</code> where K6 is the actual monthly burn and B3 the forecast duration, giving $44,100 and a $10,100 overrun.</p>
+
+<p>Read that again, because it is the least understood cost on a construction job. A one-month schedule slip with zero change in scope costs $4,900 in supervision, trailer, dumpsters, temporary power and insurance. Nothing was built wrong. Nothing was bought over. The job simply took longer, and general conditions is a meter that runs on time rather than on work. If your tracker carries general conditions as a fixed budget line that nobody revisits, it is structurally unable to price a delay. Our breakdown of the <a href="/blog/construction-general-conditions-cost-estimate-excel">construction general conditions cost estimate</a> walks the line items that make up that monthly burn.</p>
+
+<p>Framing labor needs a quantity, not an opinion. The forecast is <code>=E7/B8</code>, incurred divided by fraction complete, giving $46,800 divided by 0.72, or $65,000 against a $58,000 budget. The critical word is "quantity." Percent complete estimated by the person spending the money is not a measurement, it is a mood, and it is reliably optimistic at exactly the moment you need it not to be. Use something countable: squares of sheathing, linear feet of wall plate, units set.</p>
+
+<p>Both self-perform forecasts live on a small rate sheet and feed column K of the report. Neither is a subtraction, and neither will ever appear in a tracker built on invoices.</p>
+
+<h2>What the Full Forecast Says</h2>
+
+<p>Here is the whole job at month 4 with all nine columns. This is the report that replaces budget versus invoices.</p>
+
+<table>
+<tr><th>Code</th><th>Scope</th><th>Budget</th><th>Committed</th><th>Incurred</th><th>Cost to complete</th><th>Forecast final</th><th>Variance</th><th>Flag</th></tr>
+<tr><td>01-000</td><td>General conditions (self)</td><td>$34,000</td><td>$0</td><td>$19,600</td><td>$24,500</td><td>$44,100</td><td>-$10,100</td><td>FORECAST OVER</td></tr>
+<tr><td>02-000</td><td>Demolition</td><td>$12,000</td><td>$12,400</td><td>$12,400</td><td>$0</td><td>$12,400</td><td>-$400</td><td>BOUGHT OVER</td></tr>
+<tr><td>03-000</td><td>Concrete and foundations</td><td>$28,000</td><td>$31,500</td><td>$31,500</td><td>$0</td><td>$31,500</td><td>-$3,500</td><td>BOUGHT OVER</td></tr>
+<tr><td>06-100</td><td>Framing labor (self)</td><td>$58,000</td><td>$0</td><td>$46,800</td><td>$18,200</td><td>$65,000</td><td>-$7,000</td><td>FORECAST OVER</td></tr>
+<tr><td>06-200</td><td>Framing material (PO)</td><td>$38,000</td><td>$38,000</td><td>$35,100</td><td>$2,900</td><td>$38,000</td><td>$0</td><td>OK</td></tr>
+<tr><td>07-000</td><td>Roofing</td><td>$31,000</td><td>$29,800</td><td>$14,900</td><td>$14,900</td><td>$29,800</td><td>$1,200</td><td>OK</td></tr>
+<tr><td>08-000</td><td>Windows and exterior doors</td><td>$42,000</td><td>$47,600</td><td>$0</td><td>$47,600</td><td>$47,600</td><td>-$5,600</td><td>BOUGHT OVER</td></tr>
+<tr><td>09-000</td><td>Drywall, tape and paint</td><td>$38,000</td><td>$38,000</td><td>$0</td><td>$38,000</td><td>$38,000</td><td>$0</td><td>OK</td></tr>
+<tr><td>15-000</td><td>Mechanical and plumbing</td><td>$74,000</td><td>$81,200</td><td>$24,360</td><td>$56,840</td><td>$81,200</td><td>-$7,200</td><td>BOUGHT OVER</td></tr>
+<tr><td>16-000</td><td>Electrical</td><td>$46,000</td><td>$49,300</td><td>$14,790</td><td>$34,510</td><td>$49,300</td><td>-$3,300</td><td>BOUGHT OVER</td></tr>
+<tr><td>22-000</td><td>Flooring and finishes</td><td>$19,000</td><td>$0</td><td>$0</td><td>$19,000</td><td>$19,000</td><td>$0</td><td>UNBOUGHT</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>$420,000</strong></td><td><strong>$327,800</strong></td><td><strong>$199,450</strong></td><td><strong>$256,450</strong></td><td><strong>$455,900</strong></td><td><strong>-$35,900</strong></td><td></td></tr>
+</table>
+
+<p>The $35,900 decomposes into exactly three causes, and they are not equally fixable:</p>
+
+<ul>
+<li><strong>$20,000 signed over budget</strong> across five contracts and purchase orders, offset by <strong>$1,200 saved</strong> on roofing, for a net $18,800. This is a buyout problem, and it was fully knowable at signature.</li>
+<li><strong>$10,100 of general conditions</strong> from a one-month schedule slip. This is a schedule problem wearing a cost problem's clothing.</li>
+<li><strong>$7,000 of framing labor</strong> at a unit rate 12 percent worse than bid. This is a production problem, and it is the only one that field management can still improve.</li>
+</ul>
+
+<p>Against a $60,000 fee, the job now forecasts $24,100, or 40.2 percent of what was planned. And it is worth saying plainly: none of these three causes is a scope change. Nobody handed this contractor a surprise. Every dollar came from paper they signed, a calendar that slipped, and a crew rate they were not measuring.</p>
+
+<h2>Month 2 Versus Month 8: The Same Overrun, A Different Number of Moves</h2>
+
+<p>This is the argument for tracking committed cost, and it is not about accuracy. Both methods eventually report $35,900. They report it at different times, and the value of the number collapses as the job proceeds.</p>
+
+<table>
+<tr><th>Month signed</th><th>Contract or PO</th><th>Budget</th><th>Contract value</th><th>Variance</th><th>Cumulative locked</th><th>Budget still unbought</th></tr>
+<tr><td>1</td><td>Demolition</td><td>$12,000</td><td>$12,400</td><td>-$400</td><td>-$400</td><td>$316,000</td></tr>
+<tr><td>1</td><td>Concrete and foundations</td><td>$28,000</td><td>$31,500</td><td>-$3,500</td><td>-$3,900</td><td>$288,000</td></tr>
+<tr><td>2</td><td>Mechanical and plumbing</td><td>$74,000</td><td>$81,200</td><td>-$7,200</td><td>-$11,100</td><td>$214,000</td></tr>
+<tr><td>2</td><td>Framing material PO</td><td>$38,000</td><td>$38,000</td><td>$0</td><td>-$11,100</td><td>$176,000</td></tr>
+<tr><td>3</td><td>Electrical</td><td>$46,000</td><td>$49,300</td><td>-$3,300</td><td>-$14,400</td><td>$130,000</td></tr>
+<tr><td>3</td><td>Roofing</td><td>$31,000</td><td>$29,800</td><td>$1,200</td><td>-$13,200</td><td>$99,000</td></tr>
+<tr><td>4</td><td>Windows and exterior doors</td><td>$42,000</td><td>$47,600</td><td>-$5,600</td><td>-$18,800</td><td>$57,000</td></tr>
+<tr><td>4</td><td>Drywall, tape and paint</td><td>$38,000</td><td>$38,000</td><td>$0</td><td>-$18,800</td><td>$19,000</td></tr>
+</table>
+
+<p>At the end of month 2 the tracker with a commitments sheet is reporting $11,100 of locked overage while $176,000 of budget is still unbought. The problem is 6.3 percent of the money you still control. That is a solvable position, and the moves are specific: re-bid electrical and the window package before signing, take the finishes allowance down by specification rather than by hope, tighten the schedule to protect general conditions burn, or go to the owner with a change order while the relationship is still early and the evidence is fresh.</p>
+
+<p>At the end of month 4 it is $18,800 locked against $19,000 unbought. Roughly a dollar of exposure for every dollar of remaining purchasing power. You can still move, barely, and only by degrading the finishes the owner will actually see.</p>
+
+<p>At the end of month 8 it is $35,900 realized against $0 unbought. There are no moves. You write the check and you call it tuition. A budget-versus-invoices tracker delivers a fully accurate report at exactly this point.</p>
+
+<p>The commitments sheet is also the thing that makes buyout measurable as a discipline rather than a scramble, one trade at a time against the estimate that won the job. If you want the upstream half of this, tracking the gap between bid and contract as each package is awarded, that is a <a href="/blog/construction-subcontract-buyout-log-excel">construction subcontract buyout log</a>, and it feeds column D of this report directly.</p>
+
+<h2>What to Change This Week</h2>
+
+<p>You do not need to rebuild anything. The report you have becomes a forecast with one new sheet and four formulas.</p>
+
+<ul>
+<li>Create the Commitments sheet and back-fill every signed subcontract and open purchase order on your current jobs. On a job with ten trades this is under an hour, and the first time you run it you will probably find a line already over budget.</li>
+<li>Make the entry rule unambiguous: a commitment is entered the day it is signed. Not at the first invoice, not at the monthly close.</li>
+<li>Add the type column with SUB, SELF and OPEN. Cost to complete is a subtraction, a rate forecast, or the full budget, and one formula covers all three.</li>
+<li>Forecast every self-perform line from a rate: dollars per month for general conditions, dollars per countable unit for labor. Write down which quantity you are counting.</li>
+<li>Compare budget to forecast final cost and delete the budget-minus-invoices column so nobody reads it by accident.</li>
+<li>Review the flag column weekly and act only on BOUGHT OVER and FORECAST OVER. Everything marked OK is genuinely finished as a management problem.</li>
+</ul>
+
+<p>One more reason to get cost to complete right, if you are bonded or borrowing: it is the input your surety and your bank already expect. Estimated cost to complete is what drives percentage of completion, and an over-billed or under-billed position on a work in progress schedule is computed from it. A contractor who forecasts by invoices is guessing at that number once a quarter under pressure. Our guide to the <a href="/blog/construction-wip-report-excel">construction WIP report in Excel</a> shows where this report's column F lands on that schedule.</p>
+
+<p>The honest answer to how to track construction costs in Excel is that the tracking was never the hard part. Summing invoices by cost code is a single <code>SUMIFS</code>. The hard part is committing to record what you owe on the day you owe it, and forecasting the two or three lines that no contract will ever forecast for you. Do that and the spreadsheet stops being a report card and starts being a warning.</p>
+
+<p>If you would rather not build the commitments log, the type logic and the rate sheet from a blank workbook, the <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with all three wired together: a commitments register that feeds committed cost by code, a cost to complete column that already branches on bought-out versus self-perform, and the BOUGHT OVER flag firing on contract signature instead of on invoice arrival. It is the same nine-column report used above, with the formulas in place and the cost code structure ready to match how you bid. The $35,900 in that example was visible in month 2 to anyone whose spreadsheet had a column for it.</p>`,
+  },
+  {
     slug: 'rental-property-preventive-maintenance-schedule-excel',
     title: 'Rental Property Preventive Maintenance Schedule in Excel: Solve for the Break-Even, Not the Savings',
     metaTitle: 'Rental Preventive Maintenance Schedule Excel | SheetCraft',
