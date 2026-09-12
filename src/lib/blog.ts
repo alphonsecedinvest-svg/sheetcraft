@@ -16,6 +16,211 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'brrrr-calculator-spreadsheet',
+    title: 'Your BRRRR Calculator Spreadsheet Is Solving for the Wrong Number',
+    metaTitle: 'BRRRR Calculator Spreadsheet | SheetCraft',
+    metaDescription: 'Your BRRRR calculator spreadsheet should solve for the maximum offer. Three caps decide the refinance, and the one everyone models rarely binds.',
+    targetKeyword: 'BRRRR calculator spreadsheet',
+    secondaryKeywords: ['BRRRR deal analyzer Excel', 'BRRRR maximum offer formula', 'cash left in deal', 'DSCR refinance cap', 'BRRRR all-in cost'],
+    excerpt: 'The 70 percent rule says pay $144,500 for this house. Run the refinance backward and the price that returns all your capital is $111,318. Here is the model that solves for the offer instead of the return.',
+    publishedAt: '2026-09-12',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/brrrr-calculator-spreadsheet.png',
+    imageAlt: 'Balsa wood model house beside a brass balance scale holding a ring of keys, with a tape measure and rolled paper on an oak desk',
+    content: `<p>A BRRRR calculator spreadsheet that takes your purchase price as an input and hands back a return is answering a question you never asked. You already know what return you want. What you do not know is the highest price you can pay and still get your capital back, and that is the only number an offer needs.</p>
+
+<p>Here is the deal we will run all the way through. A three bedroom in a B class suburb, after repair value of $285,000, $55,000 of rehab, seven months from closing to the refinance, and a market rent of $2,050 a month. Taxes run $3,900 a year, insurance $1,680. Hard money at 10.5 percent with 2.5 points, 85 percent of purchase and 100 percent of rehab. The refinance is a DSCR cash out at 75 percent LTV, 6.875 percent, which is roughly where a 720 FICO file priced in September 2026 once the cash out adjustment is added.</p>
+
+<p>Every BRRRR course teaches the same offer formula. The 70 percent rule says maximum offer equals ARV times 0.70 minus rehab, so $285,000 times 0.70 is $199,500, minus $55,000 of rehab, and you can pay $144,500. Pay it, execute perfectly, hit every number, and you will still walk away from the refinance with <strong>$36,278 of your own money locked in that house</strong> and negative cash flow. That is the entire down payment on your next deal, frozen, and nothing went wrong.</p>
+
+<h2>The $36,278 the 70 Percent Rule Hides</h2>
+
+<p>The 70 percent rule is a flip formula. It was built for a business where you monetize the house by selling it, and the 30 percent haircut pays for the agent, the transfer taxes, the concessions, and your profit. Sell this house for $285,000 and after roughly 8 percent in selling costs you clear about $262,200.</p>
+
+<p>You are not selling. You are refinancing, and the refinance monetizes far less of the same house. At 75 percent LTV the loan tops out at $213,750, and in this deal it does not even reach that. The lender's debt service test caps it at $189,265, which is 66 percent of ARV, not 92 percent. The BRRRR gets <strong>$72,935 less out of the identical property</strong> than the flip does, and the offer formula has to reflect that or it is not an offer formula at all.</p>
+
+<p>The BRRRR crowd has its own rule of thumb, usually stated as "stay all in at 75 percent of ARV." That one is closer, because it at least points at the refinance, but it is the LTV cap wearing a costume. All in at 75 percent of $285,000 is $213,750, which is exactly the loan amount the lender will not write here. Follow that rule and you leave $24,485 in the deal.</p>
+
+<table>
+  <tr><th>Offer rule</th><th>Price it tells you to pay</th><th>All-in cost</th><th>Cash left in deal</th></tr>
+  <tr><td>70 percent rule (flip formula)</td><td>$144,500</td><td>$225,543</td><td>$36,278</td></tr>
+  <tr><td>All in at 75 percent of ARV</td><td>$133,714</td><td>$213,750</td><td>$24,485</td></tr>
+  <tr><td>Solve the refinance backward</td><td>$111,318</td><td>$189,265</td><td>$0</td></tr>
+</table>
+
+<p>Three rules, three prices, a $33,182 spread on the same house. The two rules of thumb are not conservative or aggressive, they are simply measuring something else.</p>
+
+<h2>Three Ceilings Decide Your Refinance, and Only One Is on the Course Slides</h2>
+
+<p>The loan you get is the smallest of three numbers. Most BRRRR calculator spreadsheets have a cell for the first one and no cell at all for the other two.</p>
+
+<p><strong>The LTV ceiling.</strong> The lender lends up to 75 percent of appraised value. Here that is $213,750. This is the cap everybody models and the cap that talks the most, because it is the one tied to the appraisal, and the appraisal is the part of a BRRRR that keeps people up at night.</p>
+
+<p><strong>The debt service ceiling.</strong> A DSCR lender will not write a loan whose payment the rent cannot cover by their minimum ratio. At a 1.20 minimum, the biggest payment they will accept is rent divided by 1.20, or $1,708.33 of principal, interest, taxes and insurance. Strip out $325 of monthly taxes and $140 of insurance and you are left with $1,243.33 of principal and interest, which at 6.875 percent over 30 years supports a loan of $189,265. That is $24,485 below the LTV ceiling, and it is the one that binds.</p>
+
+<p><strong>Your own cash flow floor.</strong> The lender's DSCR test uses gross rent divided by the payment. It does not subtract vacancy, it does not subtract maintenance, and it does not subtract management. You do. Set aside 6 percent for vacancy, 6 percent for maintenance and 8 percent for management and $410 a month of that $2,050 is gone before the mortgage. If you require $200 a month of actual cash flow, the largest payment you can carry is $1,440, which supports a loan of $148,418. That is $40,847 below the lender's own ceiling.</p>
+
+<table>
+  <tr><th>Ceiling</th><th>Maximum payment</th><th>Maximum loan</th><th>Gap to the LTV cap</th></tr>
+  <tr><td>LTV at 75 percent of $285,000</td><td>n/a</td><td>$213,750</td><td>-</td></tr>
+  <tr><td>Lender DSCR minimum of 1.20</td><td>$1,708.33 PITIA</td><td>$189,265</td><td>$24,485</td></tr>
+  <tr><td>Your floor of $200/mo after reserves</td><td>$1,440.00 PITIA</td><td>$148,418</td><td>$65,332</td></tr>
+</table>
+
+<p>Which ceiling binds is a property of your market, not your deal, and it turns on the rent to value ratio. Hold ARV and the rate fixed and walk the rent up:</p>
+
+<table>
+  <tr><th>Market rent</th><th>Rent as % of ARV</th><th>DSCR cap</th><th>LTV cap</th><th>Binding</th></tr>
+  <tr><td>$1,800</td><td>0.63%</td><td>$157,551</td><td>$213,750</td><td>DSCR</td></tr>
+  <tr><td>$1,950</td><td>0.68%</td><td>$176,579</td><td>$213,750</td><td>DSCR</td></tr>
+  <tr><td>$2,050</td><td>0.72%</td><td>$189,265</td><td>$213,750</td><td>DSCR</td></tr>
+  <tr><td>$2,200</td><td>0.77%</td><td>$208,292</td><td>$213,750</td><td>DSCR</td></tr>
+  <tr><td>$2,350</td><td>0.82%</td><td>$227,320</td><td>$213,750</td><td>LTV</td></tr>
+  <tr><td>$2,500</td><td>0.88%</td><td>$246,348</td><td>$213,750</td><td>LTV</td></tr>
+</table>
+
+<p>The crossover sits at $2,243 a month, or 0.79 percent of ARV, at a 1.20 minimum and a 6.875 percent rate. Below that line the appraisal is not your constraint and the rent is. Above it, the reverse. A 0.79 percent rent to value ratio is higher than most of the country produced in 2026, which is why so many textbook BRRRR deals stopped recycling capital even when the appraisal came in exactly at ARV.</p>
+
+<h2>Build the Sheet: Inputs, Then Caps, Then Price</h2>
+
+<p>Three blocks, in this order. Nothing is hardcoded inside a formula, because every one of these values is a term you can go negotiate.</p>
+
+<table>
+  <tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+  <tr><td>B2</td><td>After repair value</td><td>$285,000</td></tr>
+  <tr><td>B3</td><td>Rehab budget</td><td>$55,000</td></tr>
+  <tr><td>B4</td><td>Months from closing to refinance</td><td>7</td></tr>
+  <tr><td>B5</td><td>Market rent</td><td>$2,050</td></tr>
+  <tr><td>B6</td><td>Annual property taxes</td><td>$3,900</td></tr>
+  <tr><td>B7</td><td>Annual insurance</td><td>$1,680</td></tr>
+  <tr><td>B8</td><td>Monthly utilities and lawn during rehab</td><td>$145</td></tr>
+  <tr><td>B9</td><td>Acquisition closing costs, % of price</td><td>2.0%</td></tr>
+  <tr><td>B11</td><td>Hard money advance on purchase</td><td>85%</td></tr>
+  <tr><td>B12</td><td>Hard money rate</td><td>10.5%</td></tr>
+  <tr><td>B13</td><td>Hard money points</td><td>2.5%</td></tr>
+  <tr><td>B14</td><td>Average rehab balance drawn</td><td>60%</td></tr>
+  <tr><td>B16</td><td>Refinance LTV cap</td><td>75%</td></tr>
+  <tr><td>B17</td><td>Lender minimum DSCR</td><td>1.20</td></tr>
+  <tr><td>B18</td><td>Refinance rate</td><td>6.875%</td></tr>
+  <tr><td>B19</td><td>Refinance fees, % of loan</td><td>1.0%</td></tr>
+  <tr><td>B20</td><td>Refinance fees, fixed</td><td>$3,000</td></tr>
+  <tr><td>B22</td><td>Vacancy, maintenance, management</td><td>20%</td></tr>
+  <tr><td>B23</td><td>Required monthly cash flow</td><td>$200</td></tr>
+  <tr><td>B24</td><td>Cash you accept leaving in</td><td>$0</td></tr>
+</table>
+
+<p>The caps block turns those inputs into three loan amounts and picks the smallest.</p>
+
+<p>LTV ceiling in B26: <code>=B2&#42;B16</code>.</p>
+
+<p>Lender's maximum payment in B27: <code>=B5/B17</code>. This is the full PITIA the DSCR test allows, $1,708.33.</p>
+
+<p>Principal and interest left over in B28: <code>=B27-B6/12-B7/12</code>, which is $1,243.33.</p>
+
+<p>Debt service ceiling in B29: <code>=PV(B18/12,360,-B28)</code>. PV is doing the work a lot of investors do by trial and error, turning a payment the rent can carry into the loan balance that payment retires over 360 months.</p>
+
+<p>Your payment ceiling in B30: <code>=B5-B5&#42;B22-B23</code>, or $1,440.00.</p>
+
+<p>Principal and interest in B31: <code>=B30-B6/12-B7/12</code>, which is $975.00.</p>
+
+<p>Cash flow ceiling in B32: <code>=PV(B18/12,360,-B31)</code>, or $148,418.</p>
+
+<p>Approved loan in B33: <code>=MIN(B26,B29,B32)</code>. Name the winner in B34 with <code>=IF(B33=B26,"LTV",IF(B33=B29,"DSCR","Cash flow"))</code> and put it in 14 point bold at the top of the sheet. It is the single most useful output in the model and it tells you where to spend your next hour.</p>
+
+<h2>Solving Backward for the Offer</h2>
+
+<p>The cost stack is where the purchase price actually lives, and the thing to notice is that a dollar added to the offer never costs you only a dollar.</p>
+
+<table>
+  <tr><th>Cell</th><th>Line</th><th>Formula</th><th>At the max offer</th></tr>
+  <tr><td>B37</td><td>Purchase price</td><td>solved below</td><td>$111,318</td></tr>
+  <tr><td>B38</td><td>Hard money purchase advance</td><td><code>=B37&#42;B11</code></td><td>$94,621</td></tr>
+  <tr><td>B39</td><td>Down payment</td><td><code>=B37-B38</code></td><td>$16,698</td></tr>
+  <tr><td>B40</td><td>Points</td><td><code>=(B38+B3)&#42;B13</code></td><td>$3,741</td></tr>
+  <tr><td>B41</td><td>Hard money interest</td><td><code>=(B38+B3&#42;B14)&#42;(B12/12)&#42;B4</code></td><td>$7,817</td></tr>
+  <tr><td>B42</td><td>Carry during rehab</td><td><code>=(B6/12+B7/12+B8)&#42;B4</code></td><td>$4,270</td></tr>
+  <tr><td>B43</td><td>Acquisition closing</td><td><code>=B37&#42;B9</code></td><td>$2,226</td></tr>
+  <tr><td>B44</td><td>Refinance fees</td><td><code>=B33&#42;B19+B20</code></td><td>$4,893</td></tr>
+  <tr><td>B45</td><td>All-in cost</td><td><code>=B37+B3+B40+B41+B42+B43+B44</code></td><td>$189,265</td></tr>
+  <tr><td>B46</td><td>Cash left in deal</td><td><code>=B45-B33</code></td><td>$0</td></tr>
+</table>
+
+<p>Four of those lines move when the price moves: the price itself, the points on the larger hard money balance, the interest on that balance, and the acquisition closing. Add them up and you get the multiplier in B49: <code>=1+B9+B11&#42;B13+B11&#42;(B12/12)&#42;B4</code>, which works out to <strong>1.0933</strong>. Every dollar you add to your offer costs you $1.09 of capital by the time the refinance funds. Negotiating $10,000 off the price is worth $10,933 of released cash, which is a useful thing to have in your head while you are sitting across from a seller.</p>
+
+<p>The rest of the stack does not scale with price at all. Put it in B48: <code>=B3+B3&#42;B13+B3&#42;B14&#42;(B12/12)&#42;B4+B42+B44</code>, which comes to $67,559 here.</p>
+
+<p>Now the whole model collapses into one line. Maximum offer in B50: <code>=(B33+B24-B48)/B49</code>. At a zero cash target that resolves to $111,318.</p>
+
+<p>You can also drive it with Goal Seek, setting B46 to zero by changing B37, and you will land on the same number. The closed form is worth building anyway, because it recalculates instantly while you are on the phone and because it exposes the 1.0933 multiplier, which Goal Seek hides inside the answer. Note there is no circular reference here: the refinance fee in B44 keys off the approved loan, and the approved loan keys off ARV, rent and the rate, none of which depend on what you pay. That is a feature of laying the caps out before the cost stack instead of after.</p>
+
+<h2>Pick Your Constraint, Get Your Price</h2>
+
+<p>Change B24 and B23 and the model stops being a calculator and starts being a negotiation tool. Same house, same rehab, same rent, four different definitions of a good outcome.</p>
+
+<table>
+  <tr><th>What you are optimizing for</th><th>Refi loan</th><th>Max offer</th><th>All-in</th><th>Monthly cash flow</th></tr>
+  <tr><td>Lender maximum, 1.20 DSCR program</td><td>$189,265</td><td>$111,318</td><td>$189,265</td><td>-$68</td></tr>
+  <tr><td>Lender maximum, 1.00 DSCR program at 7.25%</td><td>$213,750</td><td>$133,490</td><td>$213,750</td><td>-$283</td></tr>
+  <tr><td>Break even on cash flow</td><td>$178,863</td><td>$101,899</td><td>$178,863</td><td>$0</td></tr>
+  <tr><td>$200 a month after reserves</td><td>$148,418</td><td>$74,331</td><td>$148,418</td><td>+$200</td></tr>
+</table>
+
+<p>Read the second row carefully, because it is the cheapest lever in the table and almost nobody pulls it. Moving from a lender with a 1.20 DSCR minimum to one with a 1.00 minimum costs roughly 0.375 percent on the rate, which is the pessimistic end of where tier pricing actually lands. It also moves the binding constraint from DSCR back to LTV and releases <strong>$24,485 of additional capital</strong>. The price is $214.82 a month of extra payment, or $2,578 a year, which is a 10.5 percent cost on the capital you freed. Shop the DSCR floor before you shop the rate. A quarter point off the rate is worth a few hundred dollars a year. A lower ratio floor is worth five figures of capital in a rent constrained market.</p>
+
+<p>Now read the last row, because it is the one the spreadsheet exists to deliver. At this rent to value ratio and this rate, a deal that both returns all your capital and pays you $200 a month requires a purchase price of $74,331 on a house worth $285,000. That price does not exist in most markets. The honest output of this model is not an offer, it is a verdict: on this property you can have your capital back or you can have cash flow, and you cannot have both. Deciding that in five minutes at the kitchen table beats discovering it in month eight at the closing table.</p>
+
+<h2>Where the Last $4,000 of Rehab Budget Belongs</h2>
+
+<p>Once you know which ceiling binds, the scope of work stops being a taste question. In this deal the DSCR cap binds, which means the loan is a function of rent and is completely indifferent to the appraisal, right up until the appraised value falls to $252,353. Anything above that number buys you exactly nothing.</p>
+
+<table>
+  <tr><th>Where the last $4,000 goes</th><th>Effect</th><th>Change in refi loan</th><th>Net capital released</th></tr>
+  <tr><td>In-unit laundry and better flooring</td><td>Rent +$75/mo</td><td>+$9,514</td><td>+$5,514</td></tr>
+  <tr><td>Kitchen finishes above neighborhood standard</td><td>Appraisal +$6,000</td><td>$0</td><td>-$4,000</td></tr>
+</table>
+
+<p>Same $4,000, a $9,514 swing in outcome. The laundry hookup pays for itself twice over and the quartz does not pay for itself at all, and no amount of walking the property will tell you that. Only the caps block will. Flip the market to one where rent runs 0.85 percent of value and the answer flips with it, because then LTV binds and every appraisal dollar is worth 75 cents while the rent increase is worth nothing beyond the cap.</p>
+
+<p>This is also the point where <a href="/blog/arv-comps-spreadsheet-excel">a disciplined ARV comps grid</a> earns its keep in a different way than you would expect. In a DSCR bound deal you are not building the ARV to maximize the loan, you are building it to prove you are safely above the $252,353 line where the LTV cap would take over.</p>
+
+<h2>What Actually Breaks a BRRRR Deal</h2>
+
+<p>Hold the price at the 70 percent rule's $144,500 and break one thing at a time. The ranking is not the one the courses teach.</p>
+
+<table>
+  <tr><th>What goes wrong</th><th>Cash left in deal</th><th>Change</th></tr>
+  <tr><td>Nothing, base case</td><td>$36,278</td><td>-</td></tr>
+  <tr><td>Appraisal comes in $25,000 under</td><td>$36,278</td><td>$0</td></tr>
+  <tr><td>Project runs 4 months long</td><td>$44,172</td><td>+$7,894</td></tr>
+  <tr><td>Rehab overruns by $10,000</td><td>$46,896</td><td>+$10,618</td></tr>
+  <tr><td>Rent comes in $100/mo under</td><td>$48,836</td><td>+$12,558</td></tr>
+</table>
+
+<p>A $25,000 appraisal miss costs nothing. A $100 a month rent miss costs $12,558. The number everyone checks three times is the one that cannot hurt this deal, and the number most people pull off a listing site in ninety seconds is the one that decides it. The rent estimate deserves the comp discipline the ARV gets, and in a DSCR bound deal it deserves more of it.</p>
+
+<p>The other two rows are worth pricing because they are the ones you control. Four extra months costs $7,894, which is $1,974 a month in interest and carry, so a crew that finishes three weeks early is worth about $1,350 to you. A $10,000 rehab overrun costs $10,618, not $10,000, because the points and the interest ride along on the extra draw.</p>
+
+<p>What none of this covers is the moment the money actually comes back. The refinance has its own timing rules, and a lender who requires six months of ownership seasoning before using the new appraised value can add two months of carry that no cost line in this sheet anticipates. Model that separately with <a href="/blog/brrrr-seasoning-period-tracker-excel">a seasoning tracker</a>, and model the refinance leg itself in more detail with <a href="/blog/brrrr-refinance-calculator-excel">a dedicated refinance calculator</a> once you are past the offer stage.</p>
+
+<h2>What to Run Before Your Next Offer</h2>
+
+<p>Six cells, in this order, before you write a number on a contract.</p>
+
+<ol>
+  <li>Compute all three ceilings. Write down which one binds. If you cannot say the word "DSCR" or "cash flow" out loud about the deal in front of you, you have not run the model.</li>
+  <li>If DSCR or cash flow binds, stop treating the appraisal as the risk. Go verify rent with three signed leases inside a mile, not three listings.</li>
+  <li>Run B50 at a cash target of zero. That is your walk-away price, not your offer.</li>
+  <li>Run B50 again at the most capital you are willing to strand. The gap between those two prices is your entire negotiating range, and it is worth $1.09 per dollar.</li>
+  <li>Call a second lender and ask for their minimum DSCR, not their rate. In this deal that one question was worth $24,485.</li>
+  <li>Check the cash flow column. If the max cash out row is negative, you are not building a rental, you are building a liability with a good story attached.</li>
+</ol>
+
+<p>The reason to build this as a model rather than a rule of thumb is that the binding constraint moves. It moved when rates went from 5 percent to 7 percent, it moves between a 0.63 percent rent to value market and a 0.88 percent one, and it moves between two lenders on the same street. A rule of thumb cannot follow it. A sheet with three ceilings and a MIN function follows it automatically, every time, for free.</p>
+
+<p>If you would rather not build the caps block, the PV formulas and the closed form offer solver from a blank workbook, <a href="/products/flip-brrrr-calculator">SheetCraft's Flip and BRRRR Calculator</a> ships with all three ceilings wired up, the binding constraint flagged on the summary tab, and the maximum offer solving live as you type the rent. Put in your ARV, your rent and your lender's DSCR minimum, and it gives you the price to offer and the reason behind it before the seller finishes their coffee. If you want to see what happens to the capital that does stay trapped, pair it with <a href="/blog/brrrr-cash-left-in-deal-calculator-excel">the cash left in deal calculator</a> and watch what it does to your deal count over three years.</p>`,
+  },
+  {
     slug: 'how-to-track-construction-costs-in-excel',
     title: 'How to Track Construction Costs in Excel So the Overrun Shows Up in Month 2',
     metaTitle: 'How to Track Construction Costs in Excel | SheetCraft',
