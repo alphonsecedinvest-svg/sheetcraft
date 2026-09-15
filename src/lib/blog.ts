@@ -16,6 +16,187 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-budget-template-excel',
+    title: 'Construction Budget Template Excel: Why the Free Ones Always Say On Budget',
+    metaTitle: 'Construction Budget Template Excel: 3 Fixes | SheetCraft',
+    metaDescription: 'A free construction budget template in Excel reports every job on budget because the budget cell is editable. The three structural fixes, with numbers.',
+    targetKeyword: 'construction budget template Excel',
+    secondaryKeywords: ['construction budget spreadsheet', 'contractor budget template', 'construction contingency tracking', 'construction change order log', 'construction cost codes Excel'],
+    excerpt: 'A free construction budget template in Excel reported this $412,000 renovation as $320 over, on budget. A locked baseline shows the estimate was $56,320 light, $17,930 absorbed with no approval, and $7,245 recoverable under the contract and never claimed.',
+    publishedAt: '2026-09-15',
+    readTime: 15,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-budget-template-excel.png',
+    imageAlt: 'Chalk line reel, framing square and carpenter pencil on a plywood subfloor with a snapped blue chalk line, the fixed baseline of a construction budget',
+    content: `<p>A free construction budget template in Excel will tell you that your last job finished on budget. It will tell you that about almost every job, because of how it is built, not because of how the job went. The budget column in those files is an ordinary editable cell, and an ordinary editable cell always ends up agreeing with the number beside it.</p>
+
+<p>Here is the job we will run all the way through. A whole house renovation with a rear addition, fixed price contract of $412,000, seven month schedule, small general contractor. The bid was built from a $347,000 cost budget across twelve cost codes, an $18,000 contingency, and $47,000 of overhead and profit. Three owner change orders landed during the job and four unforeseen items hit the contingency.</p>
+
+<p>At closeout the free template reported a total budget of $403,000 against $403,320 of actual cost. Overrun: $320, or 0.08 percent. On budget. The same job, tracked in a file with a locked baseline, reports that the original estimate was $56,320 light, that $17,930 of that was absorbed without a single approval, and that $7,245 of it was recoverable under the contract and was never claimed. Same project, same invoices, same contractor. One file can see it and the other cannot.</p>
+
+<h2>The Budget Column Is an Editable Cell, So the Baseline Evaporates</h2>
+
+<p>Every free template ships the same three columns: Budget, Actual, Variance. Nothing marks the budget column as a record of a decision rather than a working number, so it gets maintained like a working number.</p>
+
+<p>The owner approves a $12,400 cabinet upgrade in month two. The project manager opens the sheet and changes cost code 25 from $28,000 to $40,400. This is not sloppiness. It is the correct thing to do in a file with one budget column, because otherwise the job shows a $12,400 overrun on cabinets that the owner already paid for. Month three, the rear deck change order adds $18,900 across five codes, and five more cells get edited. Month two also brought rot behind the rear wall sheathing, so framing goes from $62,000 to $68,300 and the contingency row drops from $18,000 to $11,700.</p>
+
+<p>By month seven every budget cell has been dragged to within a few hundred dollars of its actual. The variance column reports what it was always going to report.</p>
+
+<table>
+  <tr><th>Cost code</th><th>Budget as edited</th><th>Actual</th><th>Variance</th></tr>
+  <tr><td>06 Framing &amp; Carpentry</td><td>$81,300</td><td>$81,300</td><td>$0</td></tr>
+  <tr><td>16 Electrical</td><td>$33,550</td><td>$33,550</td><td>$0</td></tr>
+  <tr><td>22 Flooring &amp; Tile</td><td>$41,180</td><td>$41,180</td><td>$0</td></tr>
+  <tr><td>25 Cabinets &amp; Countertops</td><td>$45,600</td><td>$45,600</td><td>$0</td></tr>
+  <tr><td>01 General Conditions</td><td>$32,000</td><td>$33,850</td><td>($1,850)</td></tr>
+  <tr><td>Contingency</td><td>$70</td><td>$0</td><td>$70</td></tr>
+  <tr><td>All other codes</td><td>$169,300</td><td>$167,840</td><td>$1,460</td></tr>
+  <tr><td>Total</td><td>$403,000</td><td>$403,320</td><td>($320)</td></tr>
+</table>
+
+<p>Read that table as a stranger would. It says the estimate was excellent, the contingency was barely touched, and general conditions ran a bit long. Two of those three statements are false.</p>
+
+<p>The fix is not a better formula. It is three columns where the free template has one. Original budget, typed once and then locked. Approved changes, fed from a change order log. Contingency transfers, fed from a drawdown ledger. Revised budget is the sum, <code>=C5+D5+E5</code>, and nobody types into it. Now the file can answer two different questions at once: am I beating the plan I am working to, and was the plan I sold any good.</p>
+
+<table>
+  <tr><th>Cost code</th><th>Original</th><th>Approved changes</th><th>Contingency</th><th>Revised</th><th>Actual</th><th>vs Original</th></tr>
+  <tr><td>01 General Conditions</td><td>$31,000</td><td>$1,000</td><td>$0</td><td>$32,000</td><td>$33,850</td><td>($2,850)</td></tr>
+  <tr><td>02 Demolition</td><td>$12,500</td><td>$0</td><td>$0</td><td>$12,500</td><td>$12,500</td><td>$0</td></tr>
+  <tr><td>03 Concrete &amp; Foundation</td><td>$24,000</td><td>$2,400</td><td>$0</td><td>$26,400</td><td>$26,400</td><td>($2,400)</td></tr>
+  <tr><td>06 Framing &amp; Carpentry</td><td>$62,000</td><td>$13,000</td><td>$6,300</td><td>$75,000</td><td>$81,300</td><td>($19,300)</td></tr>
+  <tr><td>07 Roofing</td><td>$18,500</td><td>$900</td><td>$0</td><td>$19,400</td><td>$19,400</td><td>($900)</td></tr>
+  <tr><td>08 Windows &amp; Doors</td><td>$26,000</td><td>$0</td><td>$0</td><td>$26,000</td><td>$24,800</td><td>$1,200</td></tr>
+  <tr><td>09 Insulation &amp; Drywall</td><td>$29,000</td><td>$0</td><td>$0</td><td>$29,000</td><td>$29,000</td><td>$0</td></tr>
+  <tr><td>15 Plumbing</td><td>$31,500</td><td>$0</td><td>$0</td><td>$31,500</td><td>$32,140</td><td>($640)</td></tr>
+  <tr><td>16 Electrical</td><td>$27,000</td><td>$1,600</td><td>$4,950</td><td>$28,600</td><td>$33,550</td><td>($6,550)</td></tr>
+  <tr><td>17 HVAC</td><td>$24,500</td><td>$0</td><td>$0</td><td>$24,500</td><td>$23,600</td><td>$900</td></tr>
+  <tr><td>22 Flooring &amp; Tile</td><td>$33,000</td><td>$1,500</td><td>$6,680</td><td>$34,500</td><td>$41,180</td><td>($8,180)</td></tr>
+  <tr><td>25 Cabinets &amp; Countertops</td><td>$28,000</td><td>$17,600</td><td>$0</td><td>$45,600</td><td>$45,600</td><td>($17,600)</td></tr>
+  <tr><td>Total</td><td>$347,000</td><td>$38,000</td><td>$17,930</td><td>$385,000</td><td>$403,320</td><td>($56,320)</td></tr>
+</table>
+
+<p>The $56,320 in the last cell is the number the free template destroyed. Of it, $38,000 is owner approved scope, which is not an estimating problem at all. The remaining $18,320 is what the estimate missed, and it is concentrated: framing, electrical, and flooring carry $34,030 of the $56,320 gap between them.</p>
+
+<h2>Contingency Is a Row, So Spending It Reads as a Transfer</h2>
+
+<p>The second structural defect is subtler and does more damage. In a free template, contingency is a line item sitting under the trades, budgeted at $18,000, with a blank in the actual column all year.</p>
+
+<p>Watch what happens when you spend it. Rot behind the rear wall sheathing costs $6,300 in extra framing and an LVL. The framing row goes up $6,300 and the contingency row goes down $6,300. The grand total does not move. The variance column does not move. Nothing on the sheet changed color, made a sound, or printed differently. From the file's point of view a contingency draw is a transfer between two rows, and transfers are invisible by construction.</p>
+
+<p>That is a problem, because contingency burn is the single best early warning a construction budget produces. It leads cost overruns by months, for a simple reason: the events that consume contingency happen when you open things up, and you open things up early.</p>
+
+<p>The number to watch is not the balance. It is the balance against how much job is left. Contingency consumed, <code>=1-(Contingency_Left/Contingency_Original)</code>, against percent complete by cost, <code>=SUM(H:H)/($F$18+$B$2)</code>. When the first runs ahead of the second, you are consuming reserve faster than you are consuming project, and there is only one way that ends.</p>
+
+<h2>The Month the Sheet Should Have Screamed</h2>
+
+<table>
+  <tr><th>Month</th><th>Cost to date</th><th>Drawn this month</th><th>Contingency consumed</th><th>Percent complete</th><th>Gap</th><th>Flag</th></tr>
+  <tr><td>1</td><td>$41,000</td><td>$0</td><td>0.0%</td><td>10.2%</td><td>-10.2 pts</td><td>OK</td></tr>
+  <tr><td>2</td><td>$88,500</td><td>$6,300</td><td>35.0%</td><td>22.0%</td><td>+13.0 pts</td><td>OK</td></tr>
+  <tr><td>3</td><td>$148,000</td><td>$4,950</td><td>62.5%</td><td>36.7%</td><td>+25.8 pts</td><td>FLAG</td></tr>
+  <tr><td>4</td><td>$214,000</td><td>$3,780</td><td>83.5%</td><td>53.1%</td><td>+30.4 pts</td><td>FLAG</td></tr>
+  <tr><td>5</td><td>$279,000</td><td>$2,900</td><td>99.6%</td><td>69.2%</td><td>+30.4 pts</td><td>FLAG</td></tr>
+  <tr><td>6</td><td>$347,500</td><td>$0</td><td>99.6%</td><td>86.2%</td><td>+13.4 pts</td><td>OK</td></tr>
+  <tr><td>7</td><td>$403,320</td><td>$0</td><td>99.6%</td><td>100.1%</td><td>-0.5 pts</td><td>OK</td></tr>
+</table>
+
+<p>One formula produces that last column: <code>=IF(B22-B23&gt;0.15,"FLAG","OK")</code>, where B22 is contingency consumed and B23 is percent complete. Fifteen points is a working threshold, not a law. Set it tighter on renovation work and looser on new construction, where the surprises arrive later and smaller.</p>
+
+<p>The flag fires in month three. At that moment the job is 36.7 percent complete with $6,750 of contingency left. Straight line, the remaining 63.3 percent of the work is entitled to $11,390 of reserve. The job is $4,640 short of its own plan, in month three of seven.</p>
+
+<p>Month three is also when that shortfall is still cheap to fix, because three of the twelve cost codes have not been bought out yet. Flooring, cabinets, and the tile scope are still quotes, not contracts. You can lock those prices this week, you can value engineer the backsplash before anyone has ordered it, and you can go back to the owner on the electrical while the panel is still open.</p>
+
+<p>By month five the same gap is 30.4 points, the contingency balance is $70, and 30.8 percent of the job is still to run. Every remaining trade is under contract. There is nothing left to negotiate, nothing left to substitute, and no reserve to spend. The number is worse and the menu of responses is empty. That is the whole argument for tracking the burn rate rather than the balance.</p>
+
+<h2>Hardcoded Subtotals Break Silently When the Job Grows</h2>
+
+<p>The third defect is pure Excel, and it is the one that costs money on a Tuesday afternoon.</p>
+
+<p>Free templates are outlines. Rows are grouped by phase, and each phase carries a subtotal like <code>=SUM(B5:B12)</code>, with the grand total summing the subtotals. It looks tidy and it holds up exactly until the job changes.</p>
+
+<p>Month three, the deck change order arrives. The project manager adds the new scope at the bottom of the structure block, on row 13, immediately under the last existing row. Excel does not extend <code>=SUM(B5:B12)</code> to include row 13. It expands a range when you insert inside it, not when you append below it. The deck lines sit on the sheet, formatted correctly, visible to everyone, and outside every total on the file.</p>
+
+<p>Nothing turns red. The sheet still balances against itself. The $21,735 owner price for that change order simply never reaches the number the bookkeeper bills from, and the month four draw request goes out short by that amount. On a $150,000 line of credit at 10.5 percent, floating $21,735 for the three months until someone catches it costs about $570 in interest. The interest is the small part. The real problem is that you are now asking an owner to pay for a deck he watched get built four months ago, which is the hardest money in construction to collect.</p>
+
+<p>The fix is to stop using an outline and start using a table. Put every cost code on one flat sheet, put every invoice, timecard, and purchase order on a second flat sheet formatted as a real Excel Table, and aggregate with <code>=SUMIFS(Costs[Amount],Costs[CostCode],$A5)</code>. Structured references grow with the data automatically, so appending a row is safe by default rather than safe if you remember. A flat table also lets you slice by vendor and by phase from the same data, which an outline can never do because an outline commits to one hierarchy.</p>
+
+<h2>The Date Column Is Worth $7,245, Because the Contract Gives You 14 Days</h2>
+
+<p>Now the part that turns a bookkeeping gripe into real money.</p>
+
+<p>Because a free template records a contingency draw as an edited cell rather than an event, it records no date, no cause, and no category. That missing date has legal weight. Under the AIA A201-2017 general conditions, section 3.7.4, if the contractor encounters subsurface or otherwise concealed physical conditions that differ materially from the contract documents, or unknown physical conditions of an unusual nature, the contractor "shall promptly provide notice to the Owner and the Architect before conditions are disturbed and in no event later than 14 days after first observance of the conditions." The 2007 edition gave 21 days. The 2017 edition cut it to 14.</p>
+
+<p>Draw one on this job is a textbook 3.7.4 condition. Rot behind sheathing on a rear wall is not visible on a walkthrough, it differs materially from the drawings, and it cost $6,300 in framing labor and an LVL. Priced as a change order at this contractor's 15 percent markup, that is $7,245 of contract value the owner owed. The superintendent found it, the carpenters fixed it that week because the crew was standing there, the project manager moved $6,300 from the contingency row to the framing row, and nobody wrote down the date. The claim was never made. Fourteen days later it could not be.</p>
+
+<p>Be honest about the rest of the ledger, though, because not every surprise is a claim. Draw two, aluminum branch wiring requiring a whole house pigtail, is visible the moment you pull the panel cover during a pre-bid walk on a house of that vintage. It is not concealed and it is not unusual. That is an estimating miss, and calling it a concealed condition in month three is how a contractor loses credibility on the claims that are real. The category column forces you to make that call while you still can, instead of reconstructing it from invoices in January.</p>
+
+<p>Pricing the change itself is its own discipline, and a flat percent on cost is the fast version rather than the defensible one. Our <a href="/blog/construction-change-order-markup-calculator-excel">construction change order markup calculator</a> breaks the price into five layers, which matters most on exactly these mid job conditions where labor burden and schedule impact do the damage.</p>
+
+<h2>The Layout That Survives a Real Project</h2>
+
+<p>Ten columns on the budget sheet, three supporting sheets, and one rule: only column C is typed, and only once.</p>
+
+<table>
+  <tr><th>Column</th><th>Holds</th><th>Formula</th></tr>
+  <tr><td>A</td><td>Cost code</td><td>Typed once</td></tr>
+  <tr><td>B</td><td>Description</td><td><code>=XLOOKUP($A5,Codes[Code],Codes[Description])</code></td></tr>
+  <tr><td>C</td><td>Original budget</td><td>Typed at award, then locked</td></tr>
+  <tr><td>D</td><td>Approved changes</td><td><code>=SUMIFS(COLog[Amount],COLog[CostCode],$A5,COLog[Status],"Approved")</code></td></tr>
+  <tr><td>E</td><td>Contingency transfers</td><td><code>=SUMIFS(DrawLog[Amount],DrawLog[CostCode],$A5)</code></td></tr>
+  <tr><td>F</td><td>Revised budget</td><td><code>=C5+D5+E5</code></td></tr>
+  <tr><td>G</td><td>Committed</td><td><code>=SUMIFS(Commit[Amount],Commit[CostCode],$A5)</code></td></tr>
+  <tr><td>H</td><td>Actual cost to date</td><td><code>=SUMIFS(Costs[Amount],Costs[CostCode],$A5)</code></td></tr>
+  <tr><td>I</td><td>Variance vs revised</td><td><code>=F5-H5</code></td></tr>
+  <tr><td>J</td><td>Variance vs original</td><td><code>=C5-H5</code></td></tr>
+</table>
+
+<p>Column C is locked with Review, then Protect Sheet, with the unlocked property cleared on C only. This is a two minute step and it is the entire defense of the baseline. If the original budget can be changed by anyone who opens the file, it is not a baseline, it is a rumor.</p>
+
+<p>Column G deserves a warning, because it is the one defect in this list that is too big to cover here. Committed cost is money you owe the moment a subcontract is signed, months before the invoice arrives, and a budget that tracks only invoices reports a job as half spent while it is fully committed and already over. That mechanism has its own walkthrough in <a href="/blog/how-to-track-construction-costs-in-excel">how to track construction costs in Excel</a>, and the two sheets share the same cost code list by design.</p>
+
+<p>The change order log sheet carries the CO number, date, description, cost code, cost amount, markup rate, price to owner as <code>=E5&#42;(1+$B$4)</code>, and status. Status is what column D filters on, so a change order that has been discussed but not signed shows up nowhere in the budget, which is correct.</p>
+
+<h2>The Ledger Column That Prices Next Year's Contingency</h2>
+
+<p>The drawdown ledger is the sheet no free template has, and it is seven columns.</p>
+
+<table>
+  <tr><th>Draw</th><th>Date</th><th>Code</th><th>Cause</th><th>Category</th><th>Amount</th><th>Balance</th></tr>
+  <tr><td>1</td><td>Month 2</td><td>06</td><td>Rot behind rear wall sheathing, LVL and sistering</td><td>Concealed</td><td>$6,300</td><td>$11,700</td></tr>
+  <tr><td>2</td><td>Month 3</td><td>16</td><td>Aluminum branch wiring, pigtail whole house</td><td>Estimating</td><td>$4,950</td><td>$6,750</td></tr>
+  <tr><td>3</td><td>Month 4</td><td>22</td><td>Subfloor out of level, 900 sf of underlayment</td><td>Estimating</td><td>$3,780</td><td>$2,970</td></tr>
+  <tr><td>4</td><td>Month 5</td><td>22</td><td>Tile sub defaulted, replacement sub premium</td><td>Procurement</td><td>$2,900</td><td>$70</td></tr>
+</table>
+
+<p>Running balance is <code>=$B$2-SUM($F$5:F5)</code>, with the anchored first reference and the relative second, so it accumulates as you fill down. The date column feeds a notice deadline, <code>=IF(TODAY()-$B5&gt;14,"LAPSED","OPEN")</code>, which is the cheapest insurance in the file.</p>
+
+<p>The category column is the one that pays. Sort the ledger by it and the $17,930 splits into three different problems with three different owners.</p>
+
+<table>
+  <tr><th>Category</th><th>Amount</th><th>Percent of cost budget</th><th>What it really is</th><th>What actually fixes it</th></tr>
+  <tr><td>Concealed</td><td>$6,300</td><td>1.82%</td><td>Not visible before demolition</td><td>Carry reserve, and give notice inside 14 days</td></tr>
+  <tr><td>Estimating</td><td>$8,730</td><td>2.52%</td><td>Visible on a pre-bid walk</td><td>A walkthrough checklist, not contingency</td></tr>
+  <tr><td>Procurement</td><td>$2,900</td><td>0.84%</td><td>A sub who never committed in writing</td><td>Signed sub commitments before you sign the prime</td></tr>
+  <tr><td>Total</td><td>$17,930</td><td>5.17%</td><td></td><td></td></tr>
+</table>
+
+<p>This job consumed 5.17 percent of its cost budget in contingency. Most small contractors carry 3 percent, because 3 percent is what they heard. Had this contractor carried 3 percent, or $10,410, the $7,520 difference would have come out of the $47,000 fee. That is 16.0 percent of the profit on a job that the free template called on budget. Run six jobs like it in a year and the number is $45,120.</p>
+
+<p>But 5.17 percent is the wrong number to carry forward too, and this is the part the category column exists to show. Only $6,300 of that draw, 1.82 percent, was genuinely unknowable. The other 3.35 percent was findable: a panel cover and a six foot level would have caught $8,730 of it in about ninety minutes, and a signed sub commitment would have caught the remaining $2,900. Contingency is the price you pay for not looking. The formula that carries the right number into the next bid is <code>=SUMIFS(DrawLog[Amount],DrawLog[Category],"Concealed")/$B$1</code>, run across every job you have closed, not across the one you remember.</p>
+
+<p>Two contractors can bid the same house at the same total price, one carrying 5 percent contingency on a soft estimate and the other carrying 2 percent on a hard one. They look identical to the owner. They are not remotely identical, because only one of them knows which line is wrong when the number moves.</p>
+
+<h2>What To Fix Before the Next Job Starts</h2>
+
+<p>None of this is retroactive. A baseline you lock in month four is not a baseline, so the work has to land between award and the first invoice. Four things, in order:</p>
+
+<p>Split the budget column into three, type the original once, and protect the sheet so column C cannot be edited. Move the contingency out of the row list and into its own ledger with date, cause, and category. Rebuild every subtotal as <code>=SUMIFS()</code> against an Excel Table so appending a row cannot break the arithmetic. Then add the two percentages, contingency consumed and percent complete, to the top of the sheet with a flag between them, and look at exactly that pair once a month.</p>
+
+<p>The fourth one takes ten minutes and is worth more than the other three combined, because it is the only one that changes what you bid rather than what you know.</p>
+
+<p>If you would rather not rebuild this from scratch, the <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with the locked original column, the change order log wired into column D, the drawdown ledger with its category field and its 14 day notice flag, and the consumed against complete alarm already on the summary tab. It is the file described above, built and tested, so the only thing you have to supply is the discipline of typing the original budget once.</p>`,
+  },
+  {
     slug: 'brrrr-calculator-spreadsheet',
     title: 'Your BRRRR Calculator Spreadsheet Is Solving for the Wrong Number',
     metaTitle: 'BRRRR Calculator Spreadsheet | SheetCraft',
