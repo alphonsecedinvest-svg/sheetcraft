@@ -16,6 +16,169 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-analysis-spreadsheet',
+    title: 'Your Rental Property Analysis Spreadsheet Is Missing Breakeven Occupancy',
+    metaTitle: 'Rental Property Analysis Spreadsheet Fix | SheetCraft',
+    metaDescription: 'Your rental property analysis spreadsheet says 6.56 percent. Rebuilt with real dollars the same deal loses $85.91 a month. Breakeven occupancy is why.',
+    targetKeyword: 'rental property analysis spreadsheet',
+    secondaryKeywords: ['breakeven occupancy', 'rental property cash flow analysis', 'fixed vs variable rental expenses', 'rental property operating expenses'],
+    excerpt: 'A percentage-of-rent spreadsheet cannot tell two properties apart when they share a price and a rent. Rebuild the same $248,000 duplex with actual dollars and a 6.56 percent return becomes a loss of $85.91 a month. The number that decides it is breakeven occupancy.',
+    publishedAt: '2026-09-16',
+    readTime: 11,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-analysis-spreadsheet.png',
+    imageAlt: 'Brick duplex at dusk with one unit lit and the other dark, the vacancy that decides breakeven occupancy',
+    content: `<p>A rental property analysis spreadsheet is supposed to answer one question: should I buy this. Most of them answer a different question instead, and they answer it with a confidence that has nothing behind it.</p>
+
+<p>Here is a real shape of deal for September 2026. A 1958 duplex, both sides rented, asking $248,000. Gross rent is $2,700 a month. You put 25 percent down, borrow $186,000 at 7.50 percent on a thirty year note, and spend $6,200 on closing and $8,500 getting both units ready. Total cash out of pocket: $76,700.</p>
+
+<p>Run that through a standard analysis spreadsheet and it returns a 6.56 percent cash-on-cash return, $419.26 a month, an 8.32 percent cap rate. Rebuild the same deal with the actual dollar amounts, and it loses $85.91 a month. Nothing about the property changed. Only the way the expenses were written down changed.</p>
+
+<h2>The $6,062 that lives between two spreadsheets</h2>
+
+<p>The standard template models operating costs as percentages of rent. Five percent vacancy, eight percent management, five percent maintenance, five percent capital reserve, and then two lines the investor types in by hand: property taxes copied off the listing and an insurance number the agent guessed at.</p>
+
+<table>
+<tr><th>Line</th><th>Percentage model</th><th>Actual quoted dollars</th><th>Difference</th></tr>
+<tr><td>Property taxes</td><td>$2,880</td><td>$4,712</td><td>$1,832</td></tr>
+<tr><td>Insurance</td><td>$1,560</td><td>$2,340</td><td>$780</td></tr>
+<tr><td>Maintenance and capital reserve</td><td>$3,240</td><td>$4,400</td><td>$1,160</td></tr>
+<tr><td>Lawn and snow contract</td><td>$0</td><td>$1,140</td><td>$1,140</td></tr>
+<tr><td>Turnover and leasing</td><td>$0</td><td>$1,150</td><td>$1,150</td></tr>
+<tr><td>Management at 8 percent</td><td>$2,462.40</td><td>$2,462.40</td><td>$0</td></tr>
+<tr><td><strong>Annual cash flow</strong></td><td><strong>$5,031.13</strong></td><td><strong>-$1,030.87</strong></td><td><strong>$6,062.00</strong></td></tr>
+</table>
+
+<p>Read the management row before anything else. It is identical in both columns, to the cent. That is the whole finding. The one expense that genuinely is a percentage of rent is the one line the percentage model gets exactly right, and every dollar of the $6,062 gap sits in lines that are not percentages of anything.</p>
+
+<p>Two of those lines are worth more than the tax error everyone argues about. Lawn and snow plus turnover and leasing come to $2,290. The property tax mistake, the one that gets caught on forums every day, is $1,832. The percentage template did not get those two lines wrong. It had no row for them at all, because there is no percentage of rent that describes a snow contract.</p>
+
+<p>That is the failure mode worth internalizing. A percentage model does not fail by being badly calibrated. It fails by omission, and you cannot tune your way out of an omission. Changing five percent maintenance to seven percent does not create a line for the lawn.</p>
+
+<h2>You cannot write a fixed cost as a percentage of a variable one</h2>
+
+<p>This is arithmetic, not opinion. If every expense is a fraction of rent, then cash flow is rent multiplied by a constant, minus debt service. Change the rent and the whole expense stack slides with it. The county does not slide with it. Your insurer does not slide with it.</p>
+
+<p>Watch what that does to the two deals below. They differ only in fixed costs, by $6,230 a year. At 95 percent occupancy their cash flows differ by $6,230. At 90.5 percent occupancy their cash flows differ by $6,230. The spread never moves, because fixed costs shift the line down without changing its slope.</p>
+
+<p>A percentage can only ever change the slope. There is no number you can type into a percentage field that produces a parallel shift. The template is not missing a value. It is missing a shape, and that is why the <a href="/blog/50-percent-rule-rental-property-calculator">50 percent rule screen</a> can be tuned to the right average and still be wrong about the specific building in front of you.</p>
+
+<h2>Sort every line by one question</h2>
+
+<p>Go through your expense rows and ask: does this stop when the unit is empty? That single question splits the sheet, and almost everything lands on the same side.</p>
+
+<table>
+<tr><th>Expense</th><th>Stops when vacant?</th><th>Classification</th></tr>
+<tr><td>Property taxes</td><td>No</td><td>Fixed</td></tr>
+<tr><td>Insurance</td><td>No, and vacancy often raises it</td><td>Fixed</td></tr>
+<tr><td>Lawn, snow, pest</td><td>No</td><td>Fixed</td></tr>
+<tr><td>Maintenance</td><td>No, systems age on a calendar</td><td>Fixed</td></tr>
+<tr><td>Capital reserve</td><td>No</td><td>Fixed</td></tr>
+<tr><td>Turnover and leasing</td><td>No, it rises as occupancy falls</td><td>Fixed or worse</td></tr>
+<tr><td>Debt service</td><td>No</td><td>Fixed</td></tr>
+<tr><td>Management fee</td><td>Yes, charged on collected rent</td><td>Variable</td></tr>
+</table>
+
+<p>One line out of eight is variable. That is the honest structure of a long term rental, and it is why the percentage habit is so expensive here. If you want a complete row list before you sort, work from a full <a href="/blog/rental-property-expense-categories-list">rental property expense category list</a> rather than whatever your template shipped with.</p>
+
+<p>Turnover deserves the footnote. It does not merely fail to shrink when the unit sits empty, it grows, because an empty unit is what generates a leasing fee and a make-ready. Treating it as fixed is already generous. The real curve is worse than the straight line below.</p>
+
+<h2>Breakeven occupancy, and the formulas that produce it</h2>
+
+<p>Once the lines are sorted, the number you actually need falls out in one formula. Breakeven occupancy is the share of the year the property must be rented before it stops consuming your money.</p>
+
+<p>Lay the inputs out like this. Purchase price in <code>B3</code>, down payment percentage in <code>B4</code>, loan in <code>B5</code> as <code>=B3&#42;(1-B4)</code>, rate in <code>B6</code>, term in months in <code>B7</code>, and monthly principal and interest in <code>B8</code> as <code>=-PMT(B6/12,B7,B5)</code>. Monthly gross rent in <code>B9</code>, annual gross potential rent in <code>B10</code> as <code>=B9&#42;12</code>, and total cash invested in <code>B11</code>.</p>
+
+<p>Put your six fixed dollar amounts in <code>C14:C19</code> and total them in <code>C20</code> with <code>=SUM(C14:C19)</code>. Put the management rate in <code>C22</code>. Then four rows do the work:</p>
+
+<table>
+<tr><th>Cell</th><th>Formula</th><th>What it tells you</th></tr>
+<tr><td>B26</td><td><code>=B10&#42;B25</code></td><td>Rent actually collected at the occupancy in B25</td></tr>
+<tr><td>B28</td><td><code>=B26-C20-B26&#42;C22-B8&#42;12</code></td><td>Annual cash flow after every fixed line and debt</td></tr>
+<tr><td>B31</td><td><code>=(C20+B8&#42;12)/(B10&#42;(1-C22))</code></td><td>Breakeven occupancy</td></tr>
+<tr><td>B32</td><td><code>=(1-B31)&#42;365</code></td><td>Vacant days per year you can absorb</td></tr>
+</table>
+
+<p>The denominator is the part people get wrong. It is gross potential rent times one minus the management rate, not gross rent, because the manager takes a cut of every marginal dollar you collect. Divide by gross rent instead and this deal reports a breakeven of 90.58 percent, understating it by 7.88 points and turning a property that needs near perfect occupancy into one that looks like it has seven weeks of slack.</p>
+
+<p>Add the flag that makes the sheet argue with you: <code>=IF(B31&gt;0.927,"FLAG: needs better than market occupancy","OK")</code>. The 0.927 is not arbitrary, and the next section explains where it comes from.</p>
+
+<p>On the duplex, <code>B31</code> returns 98.46 percent and <code>B32</code> returns 5.6 days. The deal tolerates five and a half vacant days a year. A single ordinary 45 day turn costs $3,994.52 in rent, $3,674.96 after the management fee you do not pay on it, against that 5.6 day cushion.</p>
+
+<h2>Same price, same rent, 21 points apart</h2>
+
+<p>Now the comparison that a percentage spreadsheet physically cannot make. Two properties, both $248,000, both renting for $2,700 a month, both financed identically. Every input a percentage model consumes is the same for both, so it returns the same answer for both. It has nothing to distinguish them with.</p>
+
+<table>
+<tr><th></th><th>Deal A: 1958 duplex</th><th>Deal B: 2015 single family</th></tr>
+<tr><td>Property taxes</td><td>$4,712</td><td>$2,852</td></tr>
+<tr><td>Insurance</td><td>$2,340</td><td>$1,680</td></tr>
+<tr><td>Lawn and snow</td><td>$1,140</td><td>$0, tenant handles it</td></tr>
+<tr><td>Maintenance</td><td>$2,400</td><td>$900</td></tr>
+<tr><td>Capital reserve</td><td>$2,000</td><td>$1,100</td></tr>
+<tr><td>Turnover and leasing</td><td>$1,150</td><td>$980</td></tr>
+<tr><td><strong>Total fixed</strong></td><td><strong>$13,742</strong></td><td><strong>$7,512</strong></td></tr>
+<tr><td>Cash flow at 95 percent</td><td>-$1,030.87</td><td>$5,199.13</td></tr>
+<tr><td>Cash-on-cash at 95 percent</td><td>-1.34 percent</td><td>6.78 percent</td></tr>
+<tr><td><strong>Breakeven occupancy</strong></td><td><strong>98.46 percent</strong></td><td><strong>77.56 percent</strong></td></tr>
+<tr><td><strong>Vacant days absorbed</strong></td><td><strong>5.6</strong></td><td><strong>81.9</strong></td></tr>
+</table>
+
+<p>Twenty-one points of breakeven separate them. In days, it is 5.6 against 81.9, a difference of 76 days a year. Deal B survives two full turns and a slow leasing season. Deal A does not survive one tenant giving notice.</p>
+
+<p>Both deals would print the same cash-on-cash figure in a template driven by percentages, because the only inputs that differ are the ones a percentage model does not have fields for. If you report <a href="/blog/cash-on-cash-return-calculator-excel">cash-on-cash return</a> without reporting breakeven occupancy beside it, you are describing the deal on its best day and staying quiet about its ordinary ones.</p>
+
+<h2>The vacancy rate in your template is not the vacancy rate in your market</h2>
+
+<p>Almost every rental analysis spreadsheet ships with a five percent vacancy default, which implies 95 percent occupancy. The Census Bureau measures the real thing. In its Housing Vacancies and Homeownership release for the second quarter of 2026, the national rental vacancy rate was 7.3 percent, which is 92.7 percent occupancy.</p>
+
+<table>
+<tr><th>Market</th><th>Rental vacancy, Q2 2026</th><th>Implied occupancy</th><th>Deal A shortfall</th></tr>
+<tr><td>Template default</td><td>5.0 percent</td><td>95.0 percent</td><td>3.46 points</td></tr>
+<tr><td>United States</td><td>7.3 percent</td><td>92.7 percent</td><td>5.76 points</td></tr>
+<tr><td>South</td><td>9.5 percent</td><td>90.5 percent</td><td>7.96 points</td></tr>
+<tr><td>Midwest</td><td>6.9 percent</td><td>93.1 percent</td><td>5.36 points</td></tr>
+<tr><td>Northeast</td><td>5.9 percent</td><td>94.1 percent</td><td>4.36 points</td></tr>
+<tr><td>West</td><td>5.3 percent</td><td>94.7 percent</td><td>3.76 points</td></tr>
+</table>
+
+<p>Deal A needs 98.46 percent occupancy. There is no region of the United States whose average rental occupancy reaches that, including the tightest one. The deal requires you to beat the best regional market in the country by 3.76 points, every year, forever.</p>
+
+<p>Notice the trap inside the template's own defaults. Feed the spreadsheet's own five percent vacancy assumption into the real expense dollars and the duplex already loses $1,030.87 a year. The percentage model hid that from itself, because when it deducted five percent of rent for vacancy it also quietly shrank every expense by five percent. It applied the vacancy to both sides of the ledger. Reality applies it to one.</p>
+
+<h2>A quarter point of rate is worth more than the roof</h2>
+
+<p>Run the rate through the same formula and the ranking of what matters changes completely.</p>
+
+<table>
+<tr><th>Rate</th><th>Monthly P and I</th><th>Breakeven occupancy</th><th>Vacant days absorbed</th></tr>
+<tr><td>6.76 percent</td><td>$1,207.63</td><td>94.72 percent</td><td>19.3</td></tr>
+<tr><td>7.50 percent</td><td>$1,300.54</td><td>98.46 percent</td><td>5.6</td></tr>
+<tr><td>7.75 percent</td><td>$1,332.53</td><td>99.75 percent</td><td>0.9</td></tr>
+<tr><td>8.00 percent</td><td>$1,364.80</td><td>101.05 percent</td><td>none</td></tr>
+</table>
+
+<p>At 8.00 percent the breakeven occupancy is 101.05 percent. That is not a hard deal. It is an impossible one. The property cannot break even at any occupancy, because full occupancy is not enough. Between 7.75 and 8.00 percent, a quarter of a point moves the deal from needing near perfection to needing something that does not exist.</p>
+
+<p>The 6.76 percent row is the one to be careful with. That was the Freddie Mac Primary Mortgage Market Survey average on September 10, 2026, and Freddie Mac defines that survey as conventional, conforming, fully amortizing purchase loans for borrowers putting 20 percent down with excellent credit. That is an owner occupant. It is not the rate on a 25 percent down investment property, and typing the number you saw in a headline into your analysis sheet is worth 3.74 points of breakeven occupancy on this deal, which is the difference between a loss and a small gain.</p>
+
+<h2>What to verify before the earnest money goes hard</h2>
+
+<p>Three inputs carry most of the error, and all three are verifiable in under an hour.</p>
+
+<ol>
+<li><strong>The tax bill after your purchase, not the seller's.</strong> Many jurisdictions reassess on transfer, and owner occupant caps and exemptions do not travel with the deed. Call the assessor with the sale price and ask what the bill becomes. On this deal that single call is worth $1,832 a year.</li>
+<li><strong>A bound insurance quote, not an estimate.</strong> Give a broker the year built, roof age, and the fact that it is a non owner occupied rental. The ballpark was $1,560 and the quote was $2,340.</li>
+<li><strong>The lines with no percentage.</strong> Snow, lawn, pest, landlord paid water and sewer, trash, leasing fees, turn costs. They have no row in a percentage template and they came to $2,290 here, more than the tax error.</li>
+</ol>
+
+<p>Then run the two numbers that decide it. Breakeven occupancy against your market's actual occupancy, and vacant days absorbed against how long your last unit took to lease. If breakeven sits above the regional occupancy, the deal is not thin, it is structurally short, and the fix is arithmetic rather than optimism: this duplex clears the national 92.7 percent only at $2,867.72 in rent, a 6.2 percent increase, or at a purchase price of $227,050, which is $20,950 below ask.</p>
+
+<p>That second number is the useful one, because price is the only variable in the list you control. Breakeven occupancy is not a reason to walk away from a property. It is a reason to know exactly what to offer for it, and it converts an argument about whether a deal feels tight into a specific dollar figure you can put in a contract. Note that this is a different question from <a href="/blog/rental-property-break-even-calculator">when your total cash investment gets paid back</a>, which asks about years rather than about whether the property can carry itself at all.</p>
+
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> is built on the fixed and variable split rather than on percentages of rent. The expense rows are already sorted by whether they stop when the unit is empty, breakeven occupancy and vacant days absorbed calculate on every deal instead of being something you remember to add, and the occupancy flag is wired to regional vacancy rather than to a five percent default that no region actually achieves. You enter the assessor's number and the bound quote, and the sheet tells you the maximum price at which the property carries itself. That is the number you needed before you wrote the offer.</p>`,
+  },
+  {
     slug: 'construction-budget-template-excel',
     title: 'Construction Budget Template Excel: Why the Free Ones Always Say On Budget',
     metaTitle: 'Construction Budget Template Excel: 3 Fixes | SheetCraft',
