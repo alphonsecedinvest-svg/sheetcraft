@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>B32</td><td><code>=(1-B31)&#42;365</code></td><td>Vacant days per year you can absorb</td></tr>
 </table>
 
-<p>The denominator is the part people get wrong. It is gross potential rent times one minus the management rate, not gross rent, because the manager takes a cut of every marginal dollar you collect. Divide by gross rent instead and this deal reports a breakeven of 90.58 percent, understating it by 7.88 points and turning a property that needs near perfect occupancy into one that looks like it has seven weeks of slack.</p>
+<p>The denominator is the part people get wrong. It is gross potential rent times one minus the management rate, not gross rent, because the manager takes a cut of every marginal dollar you collect. Divide by gross rent instead and this deal reports a breakeven of 90.58 percent, understating it by 7.88 points and turning a property that needs near perfect occupancy into one that appears to absorb 34 vacant days a year.</p>
 
 <p>Add the flag that makes the sheet argue with you: <code>=IF(B31&gt;0.927,"FLAG: needs better than market occupancy","OK")</code>. The 0.927 is not arbitrary, and the next section explains where it comes from.</p>
 
@@ -124,7 +124,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Vacant days absorbed</strong></td><td><strong>5.6</strong></td><td><strong>81.9</strong></td></tr>
 </table>
 
-<p>Twenty-one points of breakeven separate them. In days, it is 5.6 against 81.9, a difference of 76 days a year. Deal B survives two full turns and a slow leasing season. Deal A does not survive one tenant giving notice.</p>
+<p>Twenty-one points of breakeven separate them. In days, it is 5.6 against 81.9, a difference of 76 days a year. Deal B absorbs a 45 day turn with 36.9 days still to spare. Deal A does not survive one tenant giving notice.</p>
 
 <p>Both deals would print the same cash-on-cash figure in a template driven by percentages, because the only inputs that differ are the ones a percentage model does not have fields for. If you report <a href="/blog/cash-on-cash-return-calculator-excel">cash-on-cash return</a> without reporting breakeven occupancy beside it, you are describing the deal on its best day and staying quiet about its ordinary ones.</p>
 
@@ -176,7 +176,8 @@ export const blogPosts: BlogPost[] = [
 
 <p>That second number is the useful one, because price is the only variable in the list you control. Breakeven occupancy is not a reason to walk away from a property. It is a reason to know exactly what to offer for it, and it converts an argument about whether a deal feels tight into a specific dollar figure you can put in a contract. Note that this is a different question from <a href="/blog/rental-property-break-even-calculator">when your total cash investment gets paid back</a>, which asks about years rather than about whether the property can carry itself at all.</p>
 
-<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> is built on the fixed and variable split rather than on percentages of rent. The expense rows are already sorted by whether they stop when the unit is empty, breakeven occupancy and vacant days absorbed calculate on every deal instead of being something you remember to add, and the occupancy flag is wired to regional vacancy rather than to a five percent default that no region actually achieves. You enter the assessor's number and the bound quote, and the sheet tells you the maximum price at which the property carries itself. That is the number you needed before you wrote the offer.</p>`,
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> is built on the fixed and variable split rather than on percentages of rent. The expense rows are already sorted by whether they stop when the unit is empty, breakeven occupancy and vacant days absorbed calculate on every deal instead of being something you remember to add, and the occupancy flag is wired to regional vacancy rather than to a five percent default that no region actually achieves. You enter the assessor's number and the bound quote, and the sheet tells you the maximum price at which the property carries itself. That is the number you needed before you wrote the offer.</p>
+`,
   },
   {
     slug: 'construction-budget-template-excel',
