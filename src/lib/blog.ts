@@ -16,6 +16,220 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-change-order-tracking-excel',
+    title: 'Construction Change Order Tracking in Excel: The Deadline Column Your Log Is Missing',
+    metaTitle: 'Construction Change Order Tracking Excel | SheetCraft',
+    metaDescription: 'Most change order logs track dollars and status. The contract pays on dates. Construction change order tracking Excel built around the notice deadline.',
+    targetKeyword: 'construction change order tracking Excel',
+    secondaryKeywords: ['change order log template Excel', 'pending change order tracking', 'change order notice deadline', 'construction claim notice period', 'construction change order form'],
+    excerpt: 'One general contractor had eight open change orders worth 197,500 dollars and no way to see that two windows had already closed. Five public copies of the same AIA general conditions set three different notice deadlines, from 7 days to 30. Here is the log that tracks what the contract actually pays on.',
+    publishedAt: '2026-09-17',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-change-order-tracking-excel.png',
+    imageAlt: 'Brass hourglass on rolled blueprints beside a hard hat on a jobsite table, the deadline behind construction change order tracking in Excel',
+    content: `<p>A general contractor on a $3.4 million municipal addition opens his change order log on the morning of September 17. Eight items are open, $197,500 of face value. Every row has a number, a description, a dollar amount, and a status cell that says "Submitted" or "Pending." The log is current. It is also worthless for the only question that matters this week, which is: <em>whose notice window has already closed?</em> Two of these were noticed after their window shut. A third window shuts tomorrow. His <strong>construction change order tracking Excel</strong> file cannot tell him, because it does not contain a single date that the contract cares about.</p>
+
+<p>This is the most expensive habit in small and mid-size construction. The log tracks money and status. The contract pays on dates. Those are different data models, and when they disagree, the contract wins. On this one project, the gap between the two is $55,585.</p>
+
+<h2>The Log Everybody Builds, and the Question It Cannot Answer</h2>
+
+<p>Here is the log as it usually exists. Four columns, maintained faithfully, reviewed at the owner meeting, attached to the pay application.</p>
+
+<table>
+<thead><tr><th>CO</th><th>Description</th><th>Requested</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>CO-07</td><td>Rock at footing F-3</td><td>$18,400</td><td>Submitted</td></tr>
+<tr><td>CO-08</td><td>Added roof drains, ASI-14</td><td>$6,950</td><td>Submitted</td></tr>
+<tr><td>CO-09</td><td>Corridor finish upgrade</td><td>$31,200</td><td>Pending</td></tr>
+<tr><td>CO-10</td><td>Relocate gas service</td><td>$47,600</td><td>Submitted</td></tr>
+<tr><td>CO-11</td><td>Steel revision, RFI-42</td><td>$12,750</td><td>Pending</td></tr>
+<tr><td>CO-12</td><td>Temporary heat, extended</td><td>$9,300</td><td>In progress</td></tr>
+<tr><td>CO-13</td><td>Unforeseen hazmat abatement</td><td>$54,800</td><td>Submitted</td></tr>
+<tr><td>CO-14</td><td>MRI pad slab depression</td><td>$16,500</td><td>In progress</td></tr>
+</tbody>
+</table>
+
+<p>Read that table and try to answer three questions. Which of these is legally dead? Which one dies this week? How much of the $197,500 will actually land? You cannot, and neither can the project manager who built it. "Submitted" tells you a PDF left the office. It does not tell you whether it left in time.</p>
+
+<h2>The Same Clause Number, Five Contracts, Three Different Deadlines</h2>
+
+<p>Most contractors assume there is one rule. There is not. The standard AIA A201-2017 general conditions set a 21 day window for initiating a claim, running from the event or from when the contractor first recognized the condition, whichever is later. The AIA's own documentation describes claims arising before the end of the correction period as subject to a 21 day notice period. But almost nobody signs the document as published. Owners edit it, and the edits land precisely on the notice clauses.</p>
+
+<p>Here are five copies of "AIA A201-2017 General Conditions," all published openly by the owners who use them, all carrying the same section number. Between them they set three different notice periods and three different consequences for blowing one.</p>
+
+<table>
+<thead><tr><th>Owner publishing the general conditions</th><th>Clause</th><th>Contractor's notice deadline</th></tr></thead>
+<tbody>
+<tr><td>Case Western Reserve University</td><td>15.1.3.1</td><td>21 days from the event or first recognition, whichever is later</td></tr>
+<tr><td>University of Wisconsin System, Board of Regents</td><td>15.1.3.1</td><td>Twenty-one (21) days, same trigger</td></tr>
+<tr><td>Vanderbilt University</td><td>15.1.3.1</td><td>21 days, and the clause adds "otherwise the Claim is waived"</td></tr>
+<tr><td>Medford School District 549C, Oregon</td><td>15.1.3.1</td><td><strong>Seven (7) days</strong> from the event or from when the contractor should have recognized it</td></tr>
+<tr><td>Housing Opportunities Commission of Montgomery County, MD</td><td>7.2.2</td><td><strong>Thirty (30) days</strong> to issue the PCO with a Time Impact Analysis, "or such PCO shall be deemed waived"</td></tr>
+<tr><td>Federal work, FAR 52.243-4</td><td>(d) and (e)</td><td>No adjustment for costs incurred more than <strong>20 days</strong> before written notice; proposal within 30 days</td></tr>
+</tbody>
+</table>
+
+<p>Seven days versus thirty is not a detail. That is more than a factor of four, 4.29 to be exact, on the single variable that decides whether the work you already performed is compensable. The FAR clause is the bluntest of the set: on a federal job, the government does not deny the change, it simply refuses to pay for anything you spent more than 20 days before you put the notice in writing. The work happened. The cost was real. The clause erases it anyway.</p>
+
+<p>Section 7.4.1 makes the point again. In the AIA text, if the contractor performs an architect's minor change order without first giving notice that it affects the Contract Sum or Contract Time, the contractor waives the adjustment. Vanderbilt's 7.4.1 does something else entirely: it <em>requires</em> the contractor to maintain a "Project Issues Log" tracking status, cost, and time impact of every issue needing owner attention. Medford's 7.4.1 goes the other way and states that minor changes entitle the contractor to no additional compensation and no additional time, full stop.</p>
+
+<p>Three contracts, one section number, three unrelated obligations. This is why a downloaded change order log template cannot work off the shelf. The notice period is not a constant you hardcode. It is a per-contract input, and it belongs in a cell.</p>
+
+<h2>The Three Dates That Replace Your Status Column</h2>
+
+<p>Delete the status column. It is a narrative field in a ledger, and it is the reason the log never fires a warning. Replace it with three dates and one number.</p>
+
+<ul>
+<li><strong>Event date.</strong> The day the condition arose, not the day you wrote it up. Differing site condition uncovered, ASI received, RFI answered in a way that changed the scope.</li>
+<li><strong>Recognition date.</strong> The day you could reasonably have known. On a 21 day clause running from the later of the two, this is the field that buys you time, and it is the field you must be able to defend.</li>
+<li><strong>Notice date.</strong> The day written notice actually went out, with proof of delivery.</li>
+<li><strong>Notice period.</strong> The contract's number of days, entered per project. Seven for the school district, thirty for the housing commission, twenty on the federal job.</li>
+</ul>
+
+<p>One warning before the formulas. Contract days are calendar days unless the contract says otherwise, so do not reach for <code>=WORKDAY()</code> to set the deadline or <code>=NETWORKDAYS()</code> to measure the elapsed time. Both are the natural instinct on a construction schedule and both are wrong on a notice clause. <code>=WORKDAY(D5,7)</code> lands 9 to 11 calendar days out depending on which weekday the event fell on, so it invents a deadline that does not exist and hands you a different wrong answer every time. You will discover the difference in a deposition.</p>
+
+<h2>Build the Deadline Engine, Then Re-Read the Log</h2>
+
+<p>Layout for the working file. A small header block, then the log starting at row 5.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Holds</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>B1</td><td>Contract notice period, days</td><td>7</td></tr>
+<tr><td>B2</td><td>Cost of money, annual</td><td>8.75%</td></tr>
+<tr><td>B3</td><td>Run date</td><td><code>=TODAY()</code></td></tr>
+<tr><td>A5:C5</td><td>CO number, description, requested amount</td><td>CO-10, Relocate gas service, $47,600</td></tr>
+<tr><td>D5, E5</td><td>Event date, recognition date</td><td>7/29/2026, 7/29/2026</td></tr>
+<tr><td>F5</td><td>Notice period for this contract</td><td><code>=$B$1</code></td></tr>
+<tr><td>G5</td><td>Notice date actually given</td><td>8/26/2026</td></tr>
+</tbody>
+</table>
+
+<p>The deadline itself is one formula, and it has to encode the "whichever is later" trigger rather than assuming the event date:</p>
+
+<p><code>H5: =MAX(D5,E5)+F5</code></p>
+
+<p>That is the date after which this change order is worth nothing regardless of its merits. Now the field that should replace "Submitted":</p>
+
+<p><code>I5: =IF(G5="",IF($B$3&gt;H5,"BARRED","OPEN "&amp;H5-$B$3&amp;"d"),IF(G5&lt;=H5,"PRESERVED","LATE"))</code></p>
+
+<p>Four states, each a different business decision. PRESERVED means negotiate on the merits. LATE means you are negotiating on the owner's goodwill and should price that in. OPEN with a day count means stop reading and send the notice. BARRED means write it off and go find out who let it happen.</p>
+
+<p>Two roll-ups turn the log into a management tool. The first is the number nobody wants on a screen and everybody needs:</p>
+
+<p><code>=SUMIFS($C$5:$C$60,$I$5:$I$60,"LATE")+SUMIFS($C$5:$C$60,$I$5:$I$60,"BARRED")</code></p>
+
+<p>The second is the one that drives Monday morning:</p>
+
+<p><code>=SUMPRODUCT((LEFT($I$5:$I$60,4)="OPEN")&#42;($H$5:$H$60-$B$3&lt;=3)&#42;$C$5:$C$60)</code></p>
+
+<p>That is the dollar value of change orders whose notice window closes within three days. Put it in a cell at the top of the sheet in 24 point type. Add a conditional formatting rule across the row with the formula <code>=AND($G5="",$H5-$B$3&lt;=3)</code> so the row turns red before the money evaporates instead of after.</p>
+
+<h3>The same eight rows, with the dates the log was missing</h3>
+
+<p>Same eight change orders, now with the dates the log was missing. Notice period is 7 days, run date September 17, 2026.</p>
+
+<table>
+<thead><tr><th>CO</th><th>Requested</th><th>Event</th><th>Deadline</th><th>Notice sent</th><th>Days to notice</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>CO-07</td><td>$18,400</td><td>8/14</td><td>8/21</td><td>8/18</td><td>4</td><td>PRESERVED</td></tr>
+<tr><td>CO-08</td><td>$6,950</td><td>8/21</td><td>8/28</td><td>9/2</td><td>12</td><td>LATE</td></tr>
+<tr><td>CO-09</td><td>$31,200</td><td>9/2</td><td>9/9</td><td>9/4</td><td>2</td><td>PRESERVED</td></tr>
+<tr><td>CO-10</td><td>$47,600</td><td>7/29</td><td>8/5</td><td>8/26</td><td>28</td><td>LATE</td></tr>
+<tr><td>CO-11</td><td>$12,750</td><td>9/8</td><td>9/15</td><td>9/9</td><td>1</td><td>PRESERVED</td></tr>
+<tr><td>CO-12</td><td>$9,300</td><td>9/11</td><td>9/18</td><td>not sent</td><td>n/a</td><td>OPEN 1d</td></tr>
+<tr><td>CO-13</td><td>$54,800</td><td>6/17</td><td>6/24</td><td>6/19</td><td>2</td><td>PRESERVED</td></tr>
+<tr><td>CO-14</td><td>$16,500</td><td>9/14</td><td>9/21</td><td>not sent</td><td>n/a</td><td>OPEN 4d</td></tr>
+</tbody>
+</table>
+
+<p>$54,550 of the $197,500 was noticed late, which is 27.62 percent of the open log. Another $25,800, or 13.06 percent, is sitting in an open window that closes in one day and four days. The status column called all eight of them "Submitted," "Pending," or "In progress."</p>
+
+<h2>Compute Your Own Aging Curve, Do Not Borrow One</h2>
+
+<p>A change order is not worth its face value. It is worth face value times the share you historically collect, and that share falls with age and collapses when notice was late. The contractor in this example pulled his own closed change orders from the last three years and computed the realization rate by age bucket, using nothing more than two <code>SUMIFS</code> calls per bucket:</p>
+
+<p><code>=SUMIFS(hist_approved,hist_age,"&gt;="&amp;$Q5,hist_age,"&lt;="&amp;$R5)/SUMIFS(hist_requested,hist_age,"&gt;="&amp;$Q5,hist_age,"&lt;="&amp;$R5)</code></p>
+
+<table>
+<thead><tr><th>Days since notice</th><th>Realization</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td>0 to 30</td><td>97%</td><td>Still a scope conversation</td></tr>
+<tr><td>31 to 60</td><td>89%</td><td>Owner has started trimming</td></tr>
+<tr><td>61 to 90</td><td>78%</td><td>It is now a negotiation about the project, not the change</td></tr>
+<tr><td>91 and over</td><td>61%</td><td>It goes into the closeout horse trade</td></tr>
+<tr><td>Notice was late</td><td>34%</td><td>You are arguing entitlement, not price</td></tr>
+</tbody>
+</table>
+
+<p>Those five numbers are that contractor's history, not an industry benchmark, and you should not copy them. The point is the method. Pull your closed log, bucket by age at settlement, divide approved by requested, and you will have a curve that is specific to your owners, your architects and your paperwork. Then value the open log with one formula:</p>
+
+<p><code>N5: =C5&#42;VLOOKUP(L5,$Q$5:$S$9,3,TRUE)</code></p>
+
+<p>Where L5 is the age since notice, <code>=IF(K5="",$B$3-G5,"")</code>, and K5 is the signed date.</p>
+
+<h2>The $55,585 Three Date Columns Were Worth</h2>
+
+<p>Run the same eight change orders twice. First as the status-only log actually managed them: CO-08 and CO-10 noticed late, CO-12 and CO-14 never noticed at all because nothing flagged the window. Then as a log with a deadline column would have managed them, with written notice going out two days after every event.</p>
+
+<table>
+<thead><tr><th>CO</th><th>Requested</th><th>Status-only log</th><th>Value</th><th>With deadline column</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>CO-07</td><td>$18,400</td><td>97%</td><td>$17,848</td><td>97%</td><td>$17,848</td></tr>
+<tr><td>CO-08</td><td>$6,950</td><td>34% late</td><td>$2,363</td><td>97%</td><td>$6,742</td></tr>
+<tr><td>CO-09</td><td>$31,200</td><td>97%</td><td>$30,264</td><td>97%</td><td>$30,264</td></tr>
+<tr><td>CO-10</td><td>$47,600</td><td>34% late</td><td>$16,184</td><td>89%</td><td>$42,364</td></tr>
+<tr><td>CO-11</td><td>$12,750</td><td>97%</td><td>$12,368</td><td>97%</td><td>$12,368</td></tr>
+<tr><td>CO-12</td><td>$9,300</td><td>0% barred</td><td>$0</td><td>97%</td><td>$9,021</td></tr>
+<tr><td>CO-13</td><td>$54,800</td><td>78%</td><td>$42,744</td><td>78%</td><td>$42,744</td></tr>
+<tr><td>CO-14</td><td>$16,500</td><td>0% barred</td><td>$0</td><td>97%</td><td>$16,005</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$197,500</strong></td><td></td><td><strong>$121,771</strong></td><td></td><td><strong>$177,356</strong></td></tr>
+</tbody>
+</table>
+
+<p>$55,585 of difference on one project, from three date columns, one notice period cell and one <code>IF</code> statement. That is 28.14 percent of the open log, and it is not a pricing improvement. Every change order is priced identically in both columns. The entire gap comes from <em>when</em> the paper moved. If you want the pricing side of the same problem, that is a separate discipline covered in <a href="/blog/construction-change-order-markup-calculator-excel">the change order markup calculator</a>, and the two compound: a well priced change order noticed on day 28 of a 7 day window is still worth 34 cents on the dollar.</p>
+
+<h2>Pending Change Orders Are a Loan You Made at Zero Percent</h2>
+
+<p>There is a second cost, smaller but constant, and almost nobody puts it in the log. While a change order sits unsigned, you have already paid the labor, the material and the burden. You financed the owner's change with your line of credit. The bank prime loan rate stood at 6.75 percent on September 15, 2026 per the Federal Reserve H.15 release, so a contractor borrowing at prime plus two is carrying that work at 8.75 percent.</p>
+
+<p><code>=C5&#42;$B$2/365&#42;L5</code></p>
+
+<table>
+<thead><tr><th>CO</th><th>Amount</th><th>Days since notice</th><th>Carrying cost at 8.75%</th></tr></thead>
+<tbody>
+<tr><td>CO-07</td><td>$18,400</td><td>30</td><td>$132.33</td></tr>
+<tr><td>CO-09</td><td>$31,200</td><td>13</td><td>$97.23</td></tr>
+<tr><td>CO-11</td><td>$12,750</td><td>8</td><td>$24.45</td></tr>
+<tr><td>CO-13</td><td>$54,800</td><td>90</td><td>$1,182.33</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$117,150</strong></td><td></td><td><strong>$1,436.34</strong></td></tr>
+</tbody>
+</table>
+
+<p>CO-13 alone is 82 percent of the carrying cost, and it burns another $394 for every month it stays unsigned. That is the argument to bring to the owner meeting, and it is more persuasive than "we would like to get these closed out." It is also the reason to bill Construction Change Directive work as it goes rather than waiting for a signature. Under A201 section 7.3.9 the contractor may request payment for work completed under a directive in the monthly application, and the architect makes an interim determination of what is reasonably justified. If your billing treats directed work as unbillable until signed, you are financing it by choice. The mechanics of that are in <a href="/blog/construction-time-materials-billing-excel">time and materials billing</a>.</p>
+
+<h2>The Monday Morning Check, and What to Do This Week</h2>
+
+<p>Run this in four minutes at the start of every week, before the owner meeting, not after it.</p>
+
+<ul>
+<li>Sort the log by column H, the deadline, ascending. Anything with a blank notice date in the top rows is today's work, not this week's.</li>
+<li>Read the OPEN roll-up cell. If it is not zero, someone sends notice before lunch. A one paragraph letter beats a perfect change order proposal filed on day 8.</li>
+<li>Check that every row's notice period in column F matches this project's contract, not the last project's. Copying last job's file is how the 30 day habit walks onto a 7 day job.</li>
+<li>Look at rows over 60 days since notice. Those are not pending, they are declining, and the aging curve says so.</li>
+<li>Confirm the recognition dates you entered are defensible. A recognition date you cannot support with an email, a daily report or a photo is a date the owner's counsel will move back to the event.</li>
+<li>Reconcile the log total to the pay application. Exposure that never entered the application is exposure nobody upstream knows about.</li>
+</ul>
+
+<p>The events that start these clocks come from the RFI log and the field, so the two files have to agree on dates. If your RFI responses are not date stamped in a way you can pull into column D, fix that first with a proper <a href="/blog/construction-rfi-tracking-spreadsheet">RFI tracking spreadsheet</a>. The same logic applies to weather, where the notice window is usually shorter still and is documented in the <a href="/blog/construction-weather-delay-log-excel">weather delay log</a>. And when a directive tells you to compress the schedule rather than add scope, the cost lives in <a href="/blog/construction-acceleration-cost-claim-calculator-excel">the acceleration claim</a>, on its own clock.</p>
+
+
+<p>Open your current contract, find section 15.1.3.1 or its equivalent, and write the number of days on a sticky note. Then open your change order log. If that number does not appear in a cell, your log is a bookkeeping record, not a control. Add four columns today: event date, recognition date, notice period, notice date. Add the deadline formula and the four state flag. You will find at least one dead change order in the first ten minutes, and that discovery is the cheapest one you will ever make, because the alternative is finding it at closeout when the owner's team has the log and you do not have the argument.</p>
+
+<p>Building the deadline engine, the aging curve and the exposure roll-up from a blank sheet is a full day of work, and getting the <code>SUMPRODUCT</code> and the <code>VLOOKUP</code> ranges right takes another. The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> ships with the change order module already wired: per contract notice periods, the four state notice flag, the aging buckets with your own realization rates, the carrying cost line, and the roll-up that ties committed and pending change orders back to the budget and the pay application, so the number you quote at the owner meeting is the same number your accountant sees. If you are managing more than three open change orders on a job with a seven day notice clause, the template pays for itself the first time one row turns red.</p>`,
+  },
+  {
     slug: 'rental-property-analysis-spreadsheet',
     title: 'Your Rental Property Analysis Spreadsheet Is Missing Breakeven Occupancy',
     metaTitle: 'Rental Property Analysis Spreadsheet Fix | SheetCraft',
