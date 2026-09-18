@@ -16,6 +16,244 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'excel-vs-procore-small-contractors',
+    title: 'Excel vs Procore for Small Contractors: The Number That Actually Decides It',
+    metaTitle: 'Excel vs Procore for Small Contractors | SheetCraft',
+    metaDescription: 'Excel vs Procore for small contractors: the real cost, derived from SEC filings. Get your breakeven number before the sales call, not after.',
+    targetKeyword: 'Excel vs Procore for small contractors',
+    secondaryKeywords: ['Procore pricing for small contractors', 'construction software cost comparison', 'Procore annual construction volume', 'construction management software breakeven', 'contractor software cost per project'],
+    excerpt: 'Two general contractors doing $5 million a year get the same Procore quote. One nets $10,450 a year from buying it, the other loses $24,911. The variable that decides it is not company size, and it is not what Procore charges for.',
+    publishedAt: '2026-09-18',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/excel-vs-procore-small-contractors.png',
+    imageAlt: 'Brass balance scale on a construction site table, one pan holding many small steel nuts and the other a single brass block, with rolled drawings and a hard hat behind',
+    content: `<p>Every comparison of <strong>Excel vs Procore for small contractors</strong> ends the same way: a feature table, a shrug, and the phrase "it depends on your size." That answer is useless, because the two contractors most likely to disagree about Procore are frequently the same size. Two general contractors doing $5 million a year get quoted the same subscription, because Procore prices on construction volume. One of them nets $10,450 a year from buying it. The other loses $24,911. Same revenue, same bill, opposite decision.</p>
+
+<p>The variable that separates them is not headcount, not project count, and not how comfortable your PM is with technology. It is how much of your change order value ends up contested. That number is not on any comparison chart, and it is not what Procore charges you for. This article builds the sheet that computes it.</p>
+
+<h2>Procore Does Not Publish a Price, So Here Is One From Its Own Filings</h2>
+
+<p>Start with the thing that makes this comparison hard. Procore's pricing page carries no dollar figure at all. It describes the model and then routes you to a quote request. The model itself is stated plainly: "We charge an upfront annual fee by product and based upon your Annual Construction Volume (ACV), the aggregate dollar value of the construction work across your projects." Users are explicitly unlimited: "We'll never charge you for adding more users to Procore."</p>
+
+<p>So every "Procore costs $X per month" article you have read is quoting a reseller, a competitor's landing page, or somebody's leaked invoice. There is one source of Procore pricing data that Procore itself stands behind, and it is the annual report. Procore Technologies is public, and its FY2025 Form 10-K discloses enough to back into an average.</p>
+
+<p>Here is the derivation, with reported figures separated from the arithmetic:</p>
+
+<table>
+  <thead>
+    <tr><th>Line</th><th>Value</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Q4 2025 revenue</td><td>$349,000,000</td><td>Reported</td></tr>
+    <tr><td>FY2025 revenue</td><td>$1,323,000,000 (up 15%)</td><td>Reported</td></tr>
+    <tr><td>Customers on the platform, 12/31/2025</td><td>17,850</td><td>Reported</td></tr>
+    <tr><td>Customers above $100,000 ARR</td><td>2,710, holding 66% of ARR</td><td>Reported</td></tr>
+    <tr><td>Customers above $1,000,000 ARR</td><td>115, holding 20% of ARR</td><td>Reported</td></tr>
+    <tr><td>ARR proxy (Q4 revenue annualized)</td><td>$1,396,000,000</td><td>Derived</td></tr>
+    <tr><td>Customers below $100,000 ARR</td><td>15,140</td><td>Derived</td></tr>
+    <tr><td>ARR held by that group (34%)</td><td>$474,640,000</td><td>Derived</td></tr>
+    <tr><td><strong>Average spend, below-$100k customer</strong></td><td><strong>$31,350 per year</strong></td><td><strong>Derived</strong></td></tr>
+    <tr><td>Average spend, above-$100k customer</td><td>$339,985 per year</td><td>Derived</td></tr>
+  </tbody>
+</table>
+
+<p>Two honest caveats. Annualizing a quarter slightly overstates ARR, because a small slice of revenue is not subscription. And an average across 15,140 accounts hides a wide spread, from small single-product contracts up to multi-product ones just under the $100,000 cohort line. What the number does establish is the order of magnitude: the typical non-enterprise Procore customer is writing a check in the low thirty thousands, not in the low thousands. Round up to <strong>$31,400</strong> and use it as your planning figure until you have a real quote.</p>
+
+<p>One more thing worth knowing before you build a model on this. The same 10-K says Procore will "discontinue the disclosure of total customer count starting in 2026." This derivation works this year. Next year the denominator disappears.</p>
+
+<h2>Procore Prices on Volume, Your Pain Runs on Coordination</h2>
+
+<p>Read the 10-K language on pricing closely, because it is more precise than the marketing page: pricing is "generally based on the number and mix of products a customer subscribes to and the fixed aggregate dollar volume of construction work contracted to run on our platform annually."</p>
+
+<p>Contracted to run on the platform. Not your company revenue. That distinction is the most underused lever in the entire negotiation and almost nobody exercises it. If you run $5 million total but only $2 million of it is institutional work with a formal document process, you can contract $2 million of ACV and keep the private repeat work in your spreadsheets. Your quote should move accordingly. Ask for it that way.</p>
+
+<p>Now the structural problem. Procore's price is indexed to dollars of volume. Your administrative burden is indexed to something completely different: the number of documents that have to be logged, routed, chased, and defended. Call those coordination events. A $2 million school addition and a $2 million warehouse shell for a repeat developer client carry the same ACV and nothing like the same paperwork.</p>
+
+<table>
+  <thead>
+    <tr><th>Driver</th><th>Moves Procore's price</th><th>Moves your admin hours</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Annual contracted volume</td><td>Yes, directly</td><td>Barely</td></tr>
+    <tr><td>Number of open projects</td><td>No</td><td>Yes</td></tr>
+    <tr><td>Public or institutional owner</td><td>No</td><td>Heavily</td></tr>
+    <tr><td>Prevailing wage requirement</td><td>No</td><td>Heavily</td></tr>
+    <tr><td>Formal submittal and RFI protocol</td><td>No</td><td>Heavily</td></tr>
+    <tr><td>Number of users and subs</td><td>No, users are unlimited</td><td>Yes</td></tr>
+    <tr><td>Share of change orders contested</td><td>No</td><td>Yes, and it decides the whole thing</td></tr>
+  </tbody>
+</table>
+
+<p>All six rows that drive your workload have no effect on the price, and the single row that sets the price barely touches the work. That mismatch is why a feature comparison cannot answer the question and an arithmetic model can.</p>
+
+<h2>Count Your Coordination Events, Then Price Them</h2>
+
+<h3>The five rows that matter</h3>
+
+<p>Before you take the sales call, spend ninety minutes counting. Open last year's job folders and fill in a block like this on a sheet called DECISION. Column B is the annual count, column C is the realistic handling time in minutes, and column D turns it into hours with <code>=B10&#42;C10/60</code>.</p>
+
+<table>
+  <thead>
+    <tr><th>Row</th><th>Coordination event</th><th>Annual count (B)</th><th>Minutes each (C)</th><th>Hours (D)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>10</td><td>Submittals logged and routed</td><td>285</td><td>25</td><td>118.75</td></tr>
+    <tr><td>11</td><td>RFIs issued and chased</td><td>180</td><td>35</td><td>105.00</td></tr>
+    <tr><td>12</td><td>Change orders priced and tracked</td><td>66</td><td>75</td><td>82.50</td></tr>
+    <tr><td>13</td><td>Pay applications assembled</td><td>33</td><td>180</td><td>99.00</td></tr>
+    <tr><td>14</td><td>Certified payroll weeks filed</td><td>120</td><td>30</td><td>60.00</td></tr>
+    <tr><td>16</td><td><strong>Total coordination hours</strong></td><td colspan="2"><code>=SUM(D10:D14)</code></td><td><strong>465.25</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Those five rows are the whole list. Do not pad it with meetings or estimating, because Procore does not remove either one, and a padded input is how you talk yourself into a subscription.</p>
+
+<p>If your logs already live in a spreadsheet, you do not have to count by hand. Pull the counts straight out with <code>=COUNTIFS(Log!$B:$B,"&gt;="&amp;DATE(2025,1,1),Log!$B:$B,"&lt;="&amp;DATE(2025,12,31))</code> against the date column of each log. The minutes-per-event column is the part you have to be honest about. Time yourself on the next three submittals rather than guessing, because this is the single input the sales process will most want you to inflate. The counts above come from a contractor running three institutional jobs: heavy specifications, formal <a href="/blog/construction-submittal-log-template-excel">submittal log</a> discipline, and weekly <a href="/blog/certified-payroll-template-excel-wh-347">certified payroll on WH-347</a> for all three.</p>
+
+<h3>What an hour of that work actually costs you</h3>
+
+<p>Hours are not the cost. Burdened wages are. Use published wage data as your floor rather than your own recollection, then apply your real burden.</p>
+
+<p>The BLS Occupational Employment and Wage Statistics survey for May 2025 puts the median hourly wage for construction managers at <strong>$55.28</strong>, against mean annual pay of $124,360 across 380,360 people in the occupation. Bookkeeping, accounting, and auditing clerks come in at a <strong>$24.36</strong> median hourly wage, or $50,670 a year. Coordination work splits between those two desks. Assume 60 percent lands on the PM and 40 percent on the office.</p>
+
+<table>
+  <thead>
+    <tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>B19</td><td>PM hourly wage (BLS median)</td><td>$55.28</td></tr>
+    <tr><td>B20</td><td>Office admin hourly wage (BLS median)</td><td>$24.36</td></tr>
+    <tr><td>B21</td><td>Share of coordination work done by the PM</td><td>60%</td></tr>
+    <tr><td>B22</td><td>Burden multiplier (taxes, insurance, benefits)</td><td>1.40</td></tr>
+    <tr><td>B23</td><td>Burdened blended rate <code>=(B19&#42;B21+B20&#42;(1-B21))&#42;B22</code></td><td>$60.08</td></tr>
+    <tr><td>B24</td><td>Annual coordination labor <code>=B16&#42;B23</code></td><td>$27,951</td></tr>
+  </tbody>
+</table>
+
+<p>Set B22 from your own numbers, not from a rule of thumb. If you already built an <a href="/blog/construction-overhead-percentage-calculator">overhead percentage calculator</a>, the burden factor is sitting in it. The 1.40 used here is conservative for a contractor carrying workers' compensation on field-adjacent staff.</p>
+
+<h2>The Labor Savings Alone Never Cover the Fee</h2>
+
+<p>Here is where most buying decisions quietly go wrong. The pitch implies that a platform removes the administrative work. It does not. It removes the routing, the chasing, and the version control, and then it hands back a data entry obligation of its own. Somebody still types the submittal in. Somebody still codes the cost.</p>
+
+<p>Be generous and assume the platform displaces <strong>60 percent</strong> of coordination hours. Put that in B26 and compute the saving with <code>=B24&#42;B26</code>.</p>
+
+<table>
+  <thead>
+    <tr><th>Metric</th><th>Institutional contractor</th><th>Private repeat-client contractor</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Annual volume</td><td>$5,000,000</td><td>$5,000,000</td></tr>
+    <tr><td>Coordination hours</td><td>465.25</td><td>172.25</td></tr>
+    <tr><td>Coordination labor at $60.08</td><td>$27,951</td><td>$10,348</td></tr>
+    <tr><td>Hours displaced at 60%</td><td>279.15</td><td>103.35</td></tr>
+    <tr><td>Labor saved per year</td><td>$16,770</td><td>$6,209</td></tr>
+    <tr><td>Planning subscription figure</td><td>$31,400</td><td>$31,400</td></tr>
+    <tr><td><strong>Net on labor alone</strong></td><td><strong>Minus $14,630</strong></td><td><strong>Minus $25,191</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Read that bottom row carefully, because it is the most important line in the article. <strong>At $5 million of volume, the labor arithmetic does not justify Procore for either contractor.</strong> Not for the paperwork-heavy one, not for the light one. The institutional contractor with 2.70 times the coordination load still comes up $14,630 short.</p>
+
+<p>That result should change how you hear the sales call. If the case being made to you is time savings, the case is arithmetically wrong at your size, and you can say so with a number. To break even on hours alone at $31,400, a contractor paying $60.08 burdened would need to displace 523 hours a year, which is more coordination work than the institutional contractor above generates in total.</p>
+
+<p>The fee is also worth seeing next to profit rather than next to revenue. At $5 million, $31,400 is 0.63 percent of volume, which sounds trivial. At a 3 percent net margin it is <strong>20.9 percent of your net profit for the year</strong>. At a 2 percent margin it is 31.4 percent. Software gets evaluated against revenue and paid for out of profit.</p>
+
+<h2>Dispute Exposure Is the Variable That Decides It</h2>
+
+<p>So why do plenty of small contractors buy it and stay? Because they are not buying hours. They are buying an evidentiary record, and they usually cannot articulate that in the moment.</p>
+
+<p>A spreadsheet log records what you typed and when you got around to typing it. A platform record carries a timestamp somebody else can see, on a document the owner and the architect also touched. When a change order is contested eight months later, those are different assets. The gap between them is worth real money, and it is the only line in this model large enough to flip the answer.</p>
+
+<p>Quantify it in four cells:</p>
+
+<table>
+  <thead>
+    <tr><th>Cell</th><th>Input</th><th>Formula or source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>B30</td><td>Change order value contested per year</td><td>From your own closed log</td></tr>
+    <tr><td>B31</td><td>Recovery rate on contested work today</td><td><code>=SUMIFS(Approved,Status,"Closed",Contested,"Y")/SUMIFS(Requested,Status,"Closed",Contested,"Y")</code></td></tr>
+    <tr><td>B32</td><td>Recovery rate with a timestamped trail</td><td>Your estimate, defended below</td></tr>
+    <tr><td>B33</td><td>Annual recovery gain</td><td><code>=B30&#42;(B32-B31)</code></td></tr>
+  </tbody>
+</table>
+
+<p>B31 is measurable today. Run it against every contested change order you have closed in the last three years and you will have a real number in twenty minutes. If your log does not carry a contested flag and a requested-versus-approved pair of columns, add them now; that structure is the backbone of <a href="/blog/construction-change-order-tracking-excel">change order tracking that holds up</a>, with or without a platform.</p>
+
+<p>B32 is an estimate and there is no honest way around that. <strong>Do not use an industry benchmark for it, because no credible one exists.</strong> What you can do is bound it. Go through your last five contested change orders and ask a narrow question about each: did we lose or discount this one because we could not prove the date, the direction, or the sequence? If the answer is yes on two of five, your gap is large. If it is no on all five, your gap is close to zero and the model is about to tell you to stay in Excel.</p>
+
+<p>The figures in the next section are one contractor's history, reconstructed from their own closed logs. They are not a benchmark and you should not copy them into your sheet.</p>
+
+<h2>Two Contractors, Same $5M, Opposite Answers</h2>
+
+<p>Both run $5 million. Both would be quoted the same $31,400. Everything else differs.</p>
+
+<table>
+  <thead>
+    <tr><th>Input</th><th>Contractor A, institutional</th><th>Contractor B, private repeat</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Work type</td><td>School district, municipal facility</td><td>Design-build for one developer</td></tr>
+    <tr><td>Labor saved (from the table above)</td><td>$16,770</td><td>$6,209</td></tr>
+    <tr><td>Change order value contested per year</td><td>$114,000 (3 at $38,000)</td><td>$5,600 (0.4 at $14,000)</td></tr>
+    <tr><td>Recovery rate on contested work today</td><td>62%</td><td>88%</td></tr>
+    <tr><td>Recovery rate with a timestamped trail</td><td>84%</td><td>93%</td></tr>
+    <tr><td>Recovery gain <code>=B30&#42;(B32-B31)</code></td><td>$25,080</td><td>$280</td></tr>
+    <tr><td>Total annual value</td><td>$41,850</td><td>$6,489</td></tr>
+    <tr><td>Subscription</td><td>$31,400</td><td>$31,400</td></tr>
+    <tr><td><strong>Net <code>=B27+B33-B5</code></strong></td><td><strong>Plus $10,450</strong></td><td><strong>Minus $24,911</strong></td></tr>
+    <tr><td>Verdict <code>=IF(B35&gt;0,"BUY","STAY IN EXCEL")</code></td><td>BUY</td><td>STAY IN EXCEL</td></tr>
+  </tbody>
+</table>
+
+<p>A swing of <strong>$35,361</strong> between two companies with identical revenue and an identical quote. Contractor A is not buying software, they are buying a 22 point improvement on $114,000 of annually contested work. Contractor B has almost nothing contested and would be paying $31,400 to protect $5,600.</p>
+
+<p>The most useful cell in the whole model is the inverse question. Put it in B36 and solve for how much contested exposure you would need before the subscription pays for itself, with <code>=(B5-B27)/(B32-B31)</code>:</p>
+
+<table>
+  <thead>
+    <tr><th>Contractor</th><th>Breakeven contested exposure</th><th>As a share of $5M volume</th><th>Actual exposure</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>A, institutional</td><td>$66,498</td><td>1.3%</td><td>$114,000</td></tr>
+    <tr><td>B, private repeat</td><td>$503,821</td><td>10.1%</td><td>$5,600</td></tr>
+  </tbody>
+</table>
+
+<p>Contractor B would need <strong>half a million dollars of contested change orders a year on $5 million of volume</strong> to break even. A contractor with that much disputed work has a contracting problem, not a software problem. The answer is not close, and it took two numbers to get there rather than a forty-row feature matrix.</p>
+
+<h2>Four Questions for the Sales Call, and What Stays in Excel Either Way</h2>
+
+<p>If your model says buy, the quote is negotiable in ways the pricing page hints at and nobody asks about. Four questions, in this order:</p>
+
+<ol>
+  <li><strong>What ACV band am I in, and what is the price at the band above and below?</strong> Divide each quote by its band with <code>=B5/(B4/1000000)</code> to get dollars of subscription per million of contracted volume. Comparing that implied rate across bands is the only way to see the rate card you are not shown.</li>
+  <li><strong>Can I contract only the volume I intend to run on the platform?</strong> The 10-K language is "volume of construction work contracted to run on our platform," so the answer should be yes. Keep the private repeat work in your spreadsheets and pay for the institutional work only.</li>
+  <li><strong>What happens when I exceed the contracted volume mid-term?</strong> Procore's own pricing page names the instrument: "volume opt-in," described as "up-front contractual pricing put in place for additional volume that might need to be added mid-term." Get it in writing before you sign, not after you win a job that blows through your band.</li>
+  <li><strong>What is the renewal rate?</strong> The page offers "renewal rate protection," which means locking rates now for future years. A growing contractor who skips this is signing an open-ended escalator on a line item that scales with their own success.</li>
+</ol>
+
+<p>Whichever way the model lands, three jobs never leave the spreadsheet, and they are the three that carry the most money per hour of your attention.</p>
+
+<ul>
+  <li><strong>Pre-award.</strong> Bid leveling, scope gap analysis, and the decision to chase or pass all happen before a project exists to put on a platform. A <a href="/blog/construction-schedule-of-values-template">schedule of values</a> gets negotiated in a spreadsheet and then gets typed into whatever system the owner uses.</li>
+  <li><strong>Cash forecasting.</strong> Knowing what you will be short in week 11 is a modeling problem, not a document management problem. The <a href="/blog/construction-cash-flow-forecast-excel">S-curve draw forecast</a> is a sheet, and it stays a sheet.</li>
+  <li><strong>Work in progress and over-under billing.</strong> Your surety and your banker want a WIP schedule in a format they recognize. That reconciliation is spreadsheet work in nearly every small contracting company, including the ones paying $31,400 a year for a platform.</li>
+</ul>
+
+<p>The honest summary of Excel vs Procore for small contractors is that they are not substitutes. Procore is an evidentiary and coordination layer that earns its fee when your disputed exposure is large. Excel is the financial modeling layer, and nothing about signing a subscription retires it.</p>
+
+<h2>What to Do This Week</h2>
+
+<p>Do not book the demo first. Spend ninety minutes building the DECISION sheet described above: five coordination rows, four wage inputs, four dispute cells, and the two formulas in B35 and B36. Compute B31 from your closed change orders, because that is the one input you already own and the one the sales process cannot argue with. Then read the net in B35.</p>
+
+<p>If it is negative, you have your answer and you saved $31,400. If it is positive, you walk into the call knowing your own breakeven, which is the only posture in which the four questions above get real answers.</p>
+
+<p>The sheet that makes this fast is the one you should already be running on every job. SheetCraft's <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> ships with the change order log already structured the way B31 needs it: requested versus approved columns, a contested flag, and closed-date tracking, so the recovery rate that decides this entire question is a single <code>SUMIFS</code> against data you are already keeping. The budget, committed cost, and cash forecast tabs are the pre-award and WIP work that stays in Excel no matter which way your model lands. Build the decision on your own numbers before somebody builds it on theirs.</p>`,
+  },
+  {
     slug: 'construction-change-order-tracking-excel',
     title: 'Construction Change Order Tracking in Excel: The Deadline Column Your Log Is Missing',
     metaTitle: 'Construction Change Order Tracking Excel | SheetCraft',
