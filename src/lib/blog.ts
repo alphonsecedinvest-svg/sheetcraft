@@ -17213,7 +17213,7 @@ Project TCPI: =(SUM(C4:C100)-SUM(G4:G100))/(SUM(C4:C100)-SUM(H4:H100))</code></p
 
 <h2>Where Excel Beats the SaaS Tools</h2>
 
-<p>Procore, Autodesk Construction Cloud, and the rest have submittal modules. They are excellent on the right job. Where they fall down: $700 to $1,200 per user per year for a tool subs will not log into anyway, rigid workflows that do not match how your team actually reviews, and no easy way to model "what if I add 5 days of buffer to my lead times across the board." Excel handles all three problems for the cost of an hour of setup.</p>
+<p>Procore, Autodesk Construction Cloud, and the rest have submittal modules. They are excellent on the right job. Where they fall down for a small contractor: Procore sets its annual fee by your construction volume rather than by how much paperwork you actually process, so a document-light year costs exactly what a document-heavy one does, and users are unlimited either way. Add rigid workflows that do not match how your team actually reviews, and no easy way to model "what if I add 5 days of buffer to my lead times across the board." Excel handles all three problems for the cost of an hour of setup. The full arithmetic is in <a href="/blog/excel-vs-procore-small-contractors">Excel vs Procore for small contractors</a>.</p>
 
 <p>The other advantage is that the log moves with the work. Email it to a sub who needs to see what is open against their scope. Print a filtered view for the OAC meeting. Drop a snapshot into the monthly owner report. None of that requires a license, a portal, or a training session.</p>
 
