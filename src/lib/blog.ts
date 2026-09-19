@@ -16,6 +16,183 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rehab-cost-estimator-spreadsheet',
+    title: 'Build a Rehab Cost Estimator Spreadsheet That Knows How Wrong It Is',
+    metaTitle: 'Rehab Cost Estimator Spreadsheet: The Range | SheetCraft',
+    metaDescription: 'A rehab cost estimator spreadsheet gives one number. Construction\'s own standard grades a walkthrough estimate at plus 50 percent. Build the range instead.',
+    targetKeyword: 'rehab cost estimator spreadsheet',
+    secondaryKeywords: ['rehab budget spreadsheet', 'house flip rehab estimate', 'maximum allowable rehab', 'renovation cost estimate accuracy', 'flip contingency calculation'],
+    excerpt: 'A walkthrough rehab estimate of $72,400 cleared the deal ceiling by $72. The published construction standard says that estimate is accurate to plus 30 or plus 50 percent, which puts it at $89,807. Here is the spreadsheet that prices the range and tests it against the number the deal can absorb.',
+    publishedAt: '2026-09-19',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/rehab-cost-estimator-spreadsheet.png',
+    imageAlt: 'Gutted 1950s house interior with open studs, exposed galvanized and copper pipe and conduit, a folding carpenter rule and tape measure on a sawhorse',
+    content: `<p>A <strong>rehab cost estimator spreadsheet</strong> almost always produces one number, and that number is then treated as a fact for the rest of the deal. It goes into the offer. It goes into the lender's package. It goes into the profit projection you show your partner. The problem is that the number came out of a forty minute walkthrough of a house whose walls you were not allowed to open, and nothing on the sheet records that.</p>
+
+<p>Here is what the omission costs. ATTOM's Q1 2026 U.S. Home Flipping Report puts the typical gross flipping profit at $66,000, a 25.4 percent gross return, across 64,348 flipped homes, with a median 165 days from purchase to resale. Gross profit there is only the difference between what the flipper paid and what the flipper sold for. ATTOM says so plainly, and then adds that rehab costs and other expenses "typically run between 20 percent and 33 percent of the property's after-repair value." Put those two sentences side by side. The entire spread you are competing for is $66,000, and the single largest claim against it is the line you estimated from a clipboard in under an hour.</p>
+
+<h2>The Deal That Said Yes by $72</h2>
+
+<p>Take a real shape of deal. A 1,440 square foot three bedroom, two bath house on Cedar Street. After repair value of $325,000, supported by three closed comps within six blocks. Purchase price $168,000. The walkthrough rehab estimate came to $72,400.</p>
+
+<p>Run that against everything the deal has to pay before profit, and the maximum rehab the deal can absorb is $72,472. The estimate clears it by $72.</p>
+
+<p>Seventy two dollars. That is the entire margin of safety, and it is being carried by a number produced by eyeballing a panel cover that was never removed. Most flippers in that position sign, because the sheet said yes. The sheet did say yes. The sheet simply had no way to say how loudly.</p>
+
+<h2>Construction Grades Estimates by How Much You Actually Know</h2>
+
+<p>Commercial construction solved this problem decades ago and published the answer. AACE International Recommended Practice 56R-08, the cost estimate classification system for the building and general construction industries, revised August 7, 2020, sorts every estimate into one of five classes. The sorting variable is not care, effort, or experience. It is the maturity of project definition, expressed as the percentage of the scope that is actually defined. Each class carries a published accuracy range at an 80 percent confidence interval.</p>
+
+<table>
+<tr><th>Class</th><th>Project definition</th><th>What a flipper has at that point</th><th>Low side</th><th>High side</th></tr>
+<tr><td>Class 5</td><td>0% to 2%</td><td>Drive-by or one walkthrough, square foot factoring</td><td>-20% to -30%</td><td>+30% to +50%</td></tr>
+<tr><td>Class 4</td><td>1% to 15%</td><td>Rough room by room scope, allowances assigned</td><td>-10% to -20%</td><td>+20% to +30%</td></tr>
+<tr><td>Class 3</td><td>10% to 40%</td><td>Written scope, measured takeoff, allowances priced</td><td>-5% to -15%</td><td>+10% to +20%</td></tr>
+<tr><td>Class 2</td><td>30% to 75%</td><td>Contractor bids received against your scope</td><td>-5% to -10%</td><td>+5% to +15%</td></tr>
+<tr><td>Class 1</td><td>65% to 100%</td><td>Signed subcontracts, materials ordered</td><td>-3% to -5%</td><td>+3% to +10%</td></tr>
+</table>
+
+<p>Read the Class 5 row again, because that is the row your purchase contract is signed on. A walkthrough estimate is accurate to somewhere between plus 30 and plus 50 percent on the high side. Not because you are careless. Because 98 percent of the scope is still undefined when you write the number down.</p>
+
+<p>Applied to Cedar Street, a Class 5 estimate of $72,400 has an upper bound somewhere between $94,120 and $108,600. Against a ceiling of $72,472. The standard is telling you, before you have opened a single wall, that this deal has a serious chance of being dead. Your spreadsheet, meanwhile, is showing a green cell.</p>
+
+<h2>Give Every Line Its Own Class, Not the Sheet One Contingency</h2>
+
+<p>The fix is not a bigger contingency at the bottom. It is a class column on every line, because a real rehab estimate is a mix of classes. The roof already has a written bid. The plumbing is a guess behind plaster. Those two lines do not deserve the same error bar, and averaging them into one blanket percentage destroys the only information you have.</p>
+
+<p>Lay the sheet out with the class table parked somewhere out of the way, say <code>$M$3:$O$7</code>, holding class number, low percentage and high percentage. Then the estimate lines start in row 5:</p>
+
+<ul>
+<li>Column A: line item</li>
+<li>Column B: basis, meaning what you actually looked at</li>
+<li>Column C: quantity and unit</li>
+<li>Column D: base cost</li>
+<li>Column E: class, 1 through 5</li>
+<li>Column F: <code>=VLOOKUP($E5,$M$3:$O$7,2,FALSE)</code> pulls the low percentage</li>
+<li>Column G: <code>=VLOOKUP($E5,$M$3:$O$7,3,FALSE)</code> pulls the high percentage</li>
+<li>Column H: <code>=D5&#42;(1+F5)</code> is the low dollar</li>
+<li>Column I: <code>=D5&#42;(1+G5)</code> is the high dollar</li>
+<li>Column J: <code>=I5-D5</code> is the exposure on that line, which you will need in a moment</li>
+</ul>
+
+<p>The class column is the whole design. It converts a soft judgment you were already making, "I am pretty sure about the roof and not at all sure about the plumbing," into a number the sheet can add up. Use the outer end of each AACE band, not the inner end, until you have a personal history of actuals that says otherwise.</p>
+
+<table>
+<tr><th>Line</th><th>Basis</th><th>Class</th><th>Base</th><th>Low</th><th>High</th></tr>
+<tr><td>Roof tear-off, 22 squares</td><td>Written bid</td><td>2</td><td>$13,200</td><td>$11,880</td><td>$15,180</td></tr>
+<tr><td>HVAC, 3 ton replacement</td><td>Written quote</td><td>2</td><td>$8,900</td><td>$8,010</td><td>$10,235</td></tr>
+<tr><td>Kitchen, full gut, stock cabinets</td><td>Takeoff plus allowance</td><td>3</td><td>$16,500</td><td>$14,025</td><td>$19,800</td></tr>
+<tr><td>Two bathrooms, full</td><td>Allowance per bath</td><td>3</td><td>$11,000</td><td>$9,350</td><td>$13,200</td></tr>
+<tr><td>LVP flooring, 1,440 sf at $5.00</td><td>Square foot factoring</td><td>4</td><td>$7,200</td><td>$5,760</td><td>$9,360</td></tr>
+<tr><td>Paint, interior and exterior</td><td>Square foot factoring</td><td>4</td><td>$6,840</td><td>$5,472</td><td>$8,892</td></tr>
+<tr><td>Electrical, panel and partial rewire</td><td>Walkthrough only</td><td>5</td><td>$5,200</td><td>$3,640</td><td>$7,800</td></tr>
+<tr><td>Plumbing, supply behind plaster</td><td>Walkthrough only</td><td>5</td><td>$3,560</td><td>$2,492</td><td>$5,340</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td><strong>$72,400</strong></td><td><strong>$60,629</strong></td><td><strong>$89,807</strong></td></tr>
+</table>
+
+<p>Two lines out of eight are Class 5, and they carry only $8,760 of base cost, 12 percent of the estimate. They generate $4,380 of high side exposure, 25 percent of the total. That is the argument for per-line classes in one sentence: the risk does not sit where the money sits.</p>
+
+<p>Permits and municipal fees deserve their own line and usually their own class, because they are knowable in advance and almost nobody looks them up. If you want the pattern for pricing and sequencing them, see the <a href="/blog/house-flip-permit-cost-and-timeline-tracker-excel">house flip permit cost and timeline tracker</a>.</p>
+
+<h2>Roll Up Two High Numbers, Because Rehab Misses Travel Together</h2>
+
+<p>Now you have eight high numbers and you need one. There are two defensible ways to combine them, and the difference between them is worth $11,064 on this deal.</p>
+
+<p>If the lines miss independently, errors partly cancel, and the correct roll-up is the root sum of squares of the line exposures in column J: <code>=$D$14+SQRT(SUMSQ(J5:J12))</code>. That gives $78,743.</p>
+
+<p>If the lines miss together, nothing cancels and you simply add them: <code>=SUM(I5:I12)</code>, which gives $89,807.</p>
+
+<p>On a rehab, they miss together. One general contractor prices most of the job, one local labor market sets the rates, one set of walls hides the surprises, and one schedule slip pushes every trade. The independence assumption is the one that gets flippers hurt, because it feels sophisticated and it is quietly optimistic by eleven thousand dollars. Use the straight sum for the go or no-go decision. Keep the root sum of squares visible as the floor of the bad case, not as the expectation.</p>
+
+<table>
+<tr><th>Roll-up</th><th>Excel</th><th>Rehab number</th><th>Ceiling at that rehab</th><th>Gap</th></tr>
+<tr><td>Base estimate</td><td><code>=SUM(D5:D12)</code></td><td>$72,400</td><td>$72,472</td><td>+$72</td></tr>
+<tr><td>High, independent</td><td><code>=SQRT(SUMSQ(J5:J12))</code></td><td>$78,743</td><td>$72,307</td><td>-$6,436</td></tr>
+<tr><td>High, correlated</td><td><code>=SUM(I5:I12)</code></td><td>$89,807</td><td>$72,019</td><td>-$17,788</td></tr>
+</table>
+
+<p>The ceiling moves between rows because you finance the rehab, so a bigger rehab costs more interest and the deal can absorb slightly less of it. That feedback is small here, the ceiling slides from $72,472 down to $72,019 as the rehab goes from base to correlated high, but the sign is right and it belongs in the model rather than assumed away.</p>
+
+<h2>The Ceiling Is the Only Number Your Estimate Has to Beat</h2>
+
+<p>Everything above is useless without the thing it gets compared to. The maximum allowable rehab is what is left of the ARV after every other obligation the deal creates, including the profit you refuse to work below. Build it as a subtraction stack on the same sheet.</p>
+
+<table>
+<tr><th>Line</th><th>Basis</th><th>Amount</th></tr>
+<tr><td>After repair value</td><td>Three closed comps</td><td>$325,000</td></tr>
+<tr><td>Purchase price</td><td>Contract</td><td>($168,000)</td></tr>
+<tr><td>Buy side closing</td><td>2.0% of purchase</td><td>($3,360)</td></tr>
+<tr><td>Sell side costs</td><td>6.5% of ARV</td><td>($21,125)</td></tr>
+<tr><td>Holding, 165 days</td><td>Interest, points, carry</td><td>($15,043)</td></tr>
+<tr><td>Required profit</td><td>Your floor, not a hope</td><td>($45,000)</td></tr>
+<tr><td><strong>Maximum allowable rehab</strong></td><td></td><td><strong>$72,472</strong></td></tr>
+</table>
+
+<p>The holding line is the one people wave at. It is $9,742 of interest on an average outstanding balance of $187,400 at 11.5 percent for 165 days, plus $3,024 for two points on the purchase advance, plus $2,277 of taxes, insurance and utilities at $13.80 a day. The interest formula has to model the rehab drawing down over time rather than funding on day one, which is roughly half the rehab balance outstanding on average: <code>=(0.9&#42;$B$3+0.5&#42;$D$14)&#42;$B$8&#42;$B$9/365</code>, where B3 is purchase price, D14 is the rehab total, B8 is the annual rate and B9 is days held. Rate shopping moves this line hard, and the <a href="/blog/hard-money-lender-comparison-spreadsheet-excel">hard money lender comparison spreadsheet</a> is the right place to pin down which lender's number belongs in B8.</p>
+
+<p>Sell side costs at 6.5 percent are commission plus title, transfer and the small concessions that show up at the closing table. If you want that half of the stack built properly rather than assumed at a round percentage, the <a href="/blog/house-flip-closing-cost-estimator-excel">house flip closing cost estimator</a> prices both settlement statements off a sale price you have not achieved yet.</p>
+
+<p>With the ceiling in a cell, the decision rule is one formula, and it reads the high number rather than the base:</p>
+
+<p><code>=IF($D$16&gt;$B$20,"KILL",IF($D$14&gt;$B$20,"RENEGOTIATE","PROCEED"))</code></p>
+
+<p>D16 is the correlated high, D14 is the base, B20 is the maximum allowable rehab. On Cedar Street that formula returns KILL on the day of the walkthrough, while the base estimate is still showing a $72 surplus. One cross check is worth adding beside it: rehab as a share of ARV, <code>=$D$14/$B$2</code>, which is 22.3 percent here and 27.6 percent at the correlated high. Both sit inside the 20 to 33 percent band ATTOM cites, so the rehab line itself is not the outlier. The full cost stack is. Rehab plus holding plus both sides of closing is $111,928, or 34.4 percent of ARV, just past the top of that band. A top-down ratio will not tell you which line is wrong, but it will tell you when to stop trusting the bottom-up total.</p>
+
+<h2>Estimate Three Times and Keep All Three Columns</h2>
+
+<p>Most rehab sheets have one estimate column, which gets overwritten every time something changes. That is how a flipper ends up at day 40 knowing the budget is over without being able to say when it went over, or which decision did it.</p>
+
+<p>Estimate at three gates and give each one a permanent column. Gate 1 is the walkthrough, before the offer. Gate 2 is after inspection and a written scope, which is the step that actually moves lines from Class 5 to Class 3. Gate 3 is bids in hand, which is Class 2. On Cedar Street, the inspection found a Federal Pacific Stab-Lok panel and galvanized supply lines, so the two Class 5 lines turned into real quotes.</p>
+
+<table>
+<tr><th>Line</th><th>Gate 1 walkthrough</th><th>Gate 2 post-inspection</th><th>Change</th></tr>
+<tr><td>Roof</td><td>$13,200 (C2)</td><td>$13,200 (C2)</td><td>$0</td></tr>
+<tr><td>HVAC</td><td>$8,900 (C2)</td><td>$8,900 (C2)</td><td>$0</td></tr>
+<tr><td>Kitchen</td><td>$16,500 (C3)</td><td>$16,500 (C3)</td><td>$0</td></tr>
+<tr><td>Bathrooms</td><td>$11,000 (C3)</td><td>$11,000 (C3)</td><td>$0</td></tr>
+<tr><td>Flooring</td><td>$7,200 (C4)</td><td>$7,200 (C3)</td><td>$0</td></tr>
+<tr><td>Paint</td><td>$6,840 (C4)</td><td>$6,840 (C3)</td><td>$0</td></tr>
+<tr><td>Electrical</td><td>$5,200 (C5)</td><td>$9,400 (C2)</td><td>+$4,200</td></tr>
+<tr><td>Plumbing</td><td>$3,560 (C5)</td><td>$7,800 (C2)</td><td>+$4,240</td></tr>
+<tr><td><strong>Base total</strong></td><td><strong>$72,400</strong></td><td><strong>$80,840</strong></td><td><strong>+$8,440</strong></td></tr>
+<tr><td>High, correlated</td><td>$89,807</td><td>$95,043</td><td>+$5,236</td></tr>
+<tr><td>Ceiling</td><td>$72,472</td><td>$72,252</td><td>-$220</td></tr>
+</table>
+
+<p>Two things are visible here that a single overwritten column hides. First, every dollar of the $8,440 increase came from the two lines the class column had already flagged as Class 5, which means the model worked and the warning was actionable at Gate 1. Second, the low end of the Gate 2 range is $70,679, so even the optimistic case now clears the ceiling by only $1,838. At Gate 1 the flipper still had an inspection contingency. At Gate 3 they do not.</p>
+
+<p>Keep actuals in a separate flat table with a line column, a vendor column, a date column and a cost column, then pull them back with <code>=SUMIFS(Actuals[Cost],Actuals[Line],$A5)</code> and compute drift as <code>=(K5-D5)/D5</code>. Feed the same table from your draw requests so the money you asked the lender for and the money you booked against the line are the same number. The <a href="/blog/fix-and-flip-draw-request-tracker-excel">fix and flip draw request tracker</a> covers that side of the plumbing.</p>
+
+<h2>Contingency Is a Distance, Not a Percentage</h2>
+
+<p>The standard advice is 10 percent for contingency, 20 percent if the house is old. On Cedar Street, 10 percent is $7,240. The sheet's own line items describe $17,407 of high side exposure. A flat 10 percent contingency therefore covers 42 percent of the risk your own estimate just documented, and the shortfall is invisible because the two numbers never appear in the same place.</p>
+
+<p>Size contingency as a distance instead: <code>=$D$16-$D$14</code>, the correlated high minus the base. On this deal that is $17,407 at Gate 1. As lines move from Class 5 to Class 2 the number falls on its own, which is the correct behavior. Contingency should shrink because you learned something, not because you got further into the project.</p>
+
+<p>The number also tells you what to do about it, which a percentage never does. At Gate 2 the rehab estimate rose $8,440. The instinct is to ask the seller for $8,440. Solve the ceiling backwards for purchase price instead, using Goal Seek to drive the cell <code>=$B$20-$D$14</code> to zero by changing the purchase price, and the answer is $160,084. That is a reduction of $7,916, not $8,440. A smaller purchase price also shrinks the loan, the points, the interest and the buy side closing costs, and those give back $524. Roughly 94 cents of price reduction absorbs a dollar of new rehab. Ask for $8,440 and you are asking for more than the deal needs, which is how a negotiation you could have won turns into a seller who stops returning calls.</p>
+
+<p>That contingency number is a cash requirement before it is an accounting entry, and it peaks in the middle of the job rather than at the end. Whether you can actually fund the bad case is a separate question from whether the deal survives it, and the <a href="/blog/fix-and-flip-funding-gap-calculator-excel">fix and flip funding gap calculator</a> is where that one gets answered.</p>
+
+<h2>What To Do Before You Sign</h2>
+
+<p>The discipline here is short, and it is entirely about refusing to let one number stand in for a range you already know exists.</p>
+
+<ul>
+<li>Put a class column on every line of the estimate and fill it honestly. If you did not open it, measure it, or get it priced, it is Class 5.</li>
+<li>Pull the low and high percentages from the AACE 56R-08 bands with <code>VLOOKUP</code> rather than typing them, so the class is the only thing you can get wrong.</li>
+<li>Roll up the high side with <code>=SUM()</code>, not root sum of squares, for the go or no-go call. Rehab lines miss together.</li>
+<li>Compute the maximum allowable rehab from ARV downward, with your profit floor in the stack rather than as a residual.</li>
+<li>Test the correlated high against the ceiling, never the base. A base estimate that clears by $72 is a coin flip wearing a green cell.</li>
+<li>Re-estimate at the walkthrough, after inspection, and after bids, and keep all three columns forever.</li>
+<li>Write the scope before you ask anyone for a price. It is the single cheapest move from Class 5 to Class 3, and the <a href="/blog/rehab-scope-of-work-template-excel">rehab scope of work template</a> is the mechanism.</li>
+</ul>
+
+<p>Cedar Street is not a story about a bad flipper. The walkthrough estimate was competent, the comps were real, and the ceiling math was correct. The deal failed because a $72 surplus was reported with the same confidence as a $40,000 one, and no cell on the sheet knew the difference.</p>
+
+<p>If you would rather not wire the class table, the dual roll-up, the holding cost feedback loop and the gate columns together yourself, the <a href="/products/flip-brrrr-calculator">Flip and BRRRR Calculator</a> already carries them. The rehab block takes per-line classes and returns both high numbers, the maximum allowable rehab recalculates as the rehab and the purchase price move, and the gate columns are preserved side by side so the drift is visible while you can still act on it. Put Cedar Street through it and the KILL flag appears the same afternoon you walk the house, which is the only afternoon it is worth anything.</p>`,
+  },
+  {
     slug: 'excel-vs-procore-small-contractors',
     title: 'Excel vs Procore for Small Contractors: The Number That Actually Decides It',
     metaTitle: 'Excel vs Procore for Small Contractors | SheetCraft',
