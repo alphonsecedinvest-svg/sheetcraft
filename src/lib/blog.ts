@@ -16,6 +16,220 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-draw-schedule-template',
+    title: 'Construction Draw Schedule Template: Your Lender Quoted $43,215. You Need $98,752.',
+    metaTitle: 'Construction Draw Schedule Template | SheetCraft',
+    metaDescription: 'A construction draw schedule template that prices peak cash, not percentages. Real lender schedule vs NAHB cost data, Excel formulas, and the $98,752 gap.',
+    targetKeyword: 'construction draw schedule template',
+    secondaryKeywords: ['construction loan draw schedule', 'draw schedule excel template', 'construction loan peak cash', 'builder cash flow draw schedule', 'schedule of values draw'],
+    excerpt: 'Your term sheet calls the gap between budget and loan your equity. On a $428,215 build with a $385,000 loan that reads $43,215, and the real peak is $98,752 in week 22. Here is the Excel model that finds it, built on one credit union published draw schedule and the NAHB cost curve, plus the three levers that take $43,049 back off the peak.',
+    publishedAt: '2026-09-22',
+    readTime: 17,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-draw-schedule-template.png',
+    imageAlt: 'Single-family house under construction with a poured concrete foundation beside completed wood framing and roof trusses, stacked lumber on the lot',
+    content: `<p>A <strong>construction draw schedule template</strong> is usually built to answer a scheduling question: which milestone releases which percentage of the loan. That is the easy half. The half that decides whether you finish the house is a cash question, and almost no draw schedule template answers it: on the worst week of the build, how much of your own money is sitting in the ground with nothing coming back for it?</p>
+
+<p>Your lender already gave you a number for that, and the number is wrong. It is a subtraction. Take the budget, subtract the loan, call the difference your equity. On the build modeled below that subtraction says $43,215. The actual peak is $98,752, in week 22, and it gets there through three mechanics that never appear on the term sheet.</p>
+
+<p>This article builds the model that produces that second number, using a real lender's published draw schedule and the industry's own published cost curve. Then it prices the three things you can negotiate, and shows which one the bank will actually approve.</p>
+
+<h2>The Equity Number on Your Term Sheet Is a Subtraction, Not a Cash Plan</h2>
+
+<p>Start with a build whose costs are not invented. NAHB's 2024 Cost of Construction Survey, the most recent in the series, reports an average construction cost of $428,215 for a home of 2,647 finished square feet, which is 64.4 percent of the $665,298 average sales price. The survey is small, 41 usable builder responses out of 4,000 questionnaires mailed, and NAHB says plainly that it is a percentage breakdown for a typical home rather than a representative average. For our purpose that caveat does not matter. What we need is the <em>shape</em> of the spend, and the survey publishes it in eight stages.</p>
+
+<table>
+<tr><th>Construction stage</th><th>Average cost</th><th>Share of construction cost</th></tr>
+<tr><td>Site work (permits, impact fees, water and sewer, engineering)</td><td>$32,719</td><td>7.6%</td></tr>
+<tr><td>Foundations</td><td>$44,748</td><td>10.5%</td></tr>
+<tr><td>Framing (including trusses and sheathing)</td><td>$70,982</td><td>16.6%</td></tr>
+<tr><td>Exterior finishes (wall finish, roofing, windows, doors)</td><td>$57,510</td><td>13.4%</td></tr>
+<tr><td>Major systems rough-ins (plumbing, electrical, HVAC)</td><td>$82,319</td><td>19.2%</td></tr>
+<tr><td>Interior finishes (insulation through fixtures)</td><td>$103,391</td><td>24.1%</td></tr>
+<tr><td>Final steps (driveway, landscaping, clean up)</td><td>$27,710</td><td>6.5%</td></tr>
+<tr><td>Other</td><td>$8,835</td><td>2.1%</td></tr>
+<tr><td><strong>Total construction cost</strong></td><td><strong>$428,215</strong></td><td><strong>100%</strong></td></tr>
+</table>
+
+<p>Finance it the ordinary way. A construction loan of $385,000 against that $428,215 budget, lot owned free and clear and not part of the loan. The bank writes one line on the term sheet: borrower equity $43,215. Every builder reads that as the cash requirement. It is not. It is the closing balance of a cash account that spends the entire build underwater and only surfaces at the end.</p>
+
+<h2>One Real Lender's Draw Schedule, Against the Industry's Real Cost Curve</h2>
+
+<p>Space Coast Credit Union publishes its residential construction draw schedule as a one page PDF. It is worth using precisely because it is a real form a real borrower signs, not a blog's illustration. Seven releases, a closing draw plus six numbered draws, with a footnote that matters: <em>10 percent of the Loan in Process balance is held at the onset of the loan for the final draw</em>. The holdback is carved out on day one, not skimmed from each draw.</p>
+
+<p>The schedule is written for Florida slab construction, so it names masonry exterior walls, stucco and septic. The structure is the point, not the regional vocabulary. Map each of NAHB's 36 cost components, plus the stage NAHB labels simply "other," onto the milestone that releases it, and you can compare a real allocation against a real cost curve for the first time. One NAHB line has to be split, because the lender splits it: plumbing appears twice, once as under-slab rough plumbing in Draw 1 and once as rough-in in Draw 3. The split used here is 25 percent under slab, and it is a builder assumption, not survey data.</p>
+
+<table>
+<tr><th>Milestone</th><th>Percent of loan</th><th>Dollars released</th><th>Cost of the work it covers</th><th>Cost as percent of budget</th><th>Funding minus cost</th></tr>
+<tr><td>Closing draw (permits, NOC, builder's risk)</td><td>10%</td><td>$38,500</td><td>$26,747</td><td>6.25%</td><td>+$11,753</td></tr>
+<tr><td>Draw 1 (site prep, footing, under-slab plumbing, slab)</td><td>10%</td><td>$38,500</td><td>$57,516</td><td>13.43%</td><td>-$19,016</td></tr>
+<tr><td>Draw 2 (exterior walls up, roof complete, interior framing)</td><td>20%</td><td>$77,000</td><td>$87,714</td><td>20.48%</td><td>-$10,714</td></tr>
+<tr><td>Draw 3 (windows, doors, all rough-ins, stucco)</td><td>20%</td><td>$77,000</td><td>$116,301</td><td>27.16%</td><td>-$39,301</td></tr>
+<tr><td>Draw 4 (drywall, paint, trim, cabinets, flooring)</td><td>20%</td><td>$77,000</td><td>$72,476</td><td>16.93%</td><td>+$4,524</td></tr>
+<tr><td>Draw 5 (insulation, lighting, fixtures, driveway, landscape)</td><td>10%</td><td>$38,500</td><td>$39,210</td><td>9.16%</td><td>-$710</td></tr>
+<tr><td>Draw 6, final (CO, survey, appliances, other)</td><td>10%</td><td>$38,500</td><td>$28,251</td><td>6.60%</td><td>+$10,249</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>100%</strong></td><td><strong>$385,000</strong></td><td><strong>$428,215</strong></td><td><strong>100%</strong></td><td><strong>-$43,215</strong></td></tr>
+</table>
+
+<p>The total gap is the equity, as it must be. The interesting column is the one above it. Four of the seven milestones release less money than the work they cover costs: Draws 1, 2, 3 and 5. The three that release more are the closing draw, Draw 4 and the final draw, and two of those three sit at the very start and the very end of the job, which is exactly backwards from where a builder needs the cushion.</p>
+
+<h2>Draw 3 Is Where the Money Dies</h2>
+
+<p>Line up the worst row. Draw 3 covers windows and exterior doors, the plumbing rough-in, the electrical rough-in, HVAC, and the stucco or siding. In NAHB dollars that bundle is $116,301, or 27.16 percent of the entire construction budget. The lender releases 20 percent, which is $77,000. You carry $39,301 of that milestone yourself until the money for a later milestone arrives.</p>
+
+<p>That is not a rounding error and it is not unique to this credit union. It happens because every round-number draw schedule assumes the rough-in phase is about a fifth of a house, and it is not. Plumbing, electrical and HVAC alone are 19.2 percent of construction cost in the NAHB data, before a single window or a square foot of stucco is added to the same milestone.</p>
+
+<p>Run the cumulative position at each milestone, assuming for a moment that money arrives the instant the inspector signs:</p>
+
+<table>
+<tr><th>At the moment this draw funds</th><th>Cost incurred to date</th><th>Loan funded to date</th><th>Your money in the job</th></tr>
+<tr><td>Closing draw</td><td>$26,747</td><td>$38,500</td><td>-$11,753</td></tr>
+<tr><td>Draw 1</td><td>$84,263</td><td>$77,000</td><td>$7,263</td></tr>
+<tr><td>Draw 2</td><td>$171,977</td><td>$154,000</td><td>$17,977</td></tr>
+<tr><td>Draw 3</td><td>$288,278</td><td>$231,000</td><td>$57,278</td></tr>
+<tr><td>Draw 4</td><td>$360,754</td><td>$308,000</td><td>$52,754</td></tr>
+<tr><td>Draw 5</td><td>$399,964</td><td>$346,500</td><td>$53,464</td></tr>
+<tr><td>Draw 6, final</td><td>$428,215</td><td>$385,000</td><td>$43,215</td></tr>
+</table>
+
+<p>Peak $57,278, which is 1.33 times the equity the term sheet quoted, and this is the optimistic version. Nobody funds a draw the instant the inspector signs.</p>
+
+<h2>Building the Draw Schedule Model in Excel</h2>
+
+<p>Four blocks. The whole thing fits on one sheet and takes about forty minutes to wire.</p>
+
+<p><strong>Block 1, inputs, in C4 to C10.</strong> Loan amount in <code>C4</code>, construction budget in <code>C5</code>, construction loan rate in <code>C6</code>, draw funding lag in weeks in <code>C7</code>, subcontractor payment terms in weeks in <code>C8</code>, final holdback percent in <code>C9</code>, and your own cost of capital in <code>C10</code>. That last cell is the one nobody puts on a draw schedule and it decides the most important question in this article.</p>
+
+<p><strong>Block 2, cost lines, A14 down.</strong> One row per budget line. Column A the line item, column B the dollars, column C the week the work starts, column D the week it finishes, column E the lender milestone that releases it. Column E is the whole trick. It is not the phase the work belongs to, it is the milestone the loan agreement ties it to, and those are different for more lines than you expect.</p>
+
+<p><strong>Block 3, the milestone table, H4 to N10.</strong> One row per draw:</p>
+
+<ul>
+<li>Column H: milestone name, spelled exactly as it appears in column E</li>
+<li>Column I: the lender's percentage</li>
+<li>Column J: <code>=$C$4&#42;I4</code>, dollars released</li>
+<li>Column K: <code>=SUMIF($E$14:$E$60,$H4,$B$14:$B$60)</code>, the cost the milestone actually covers</li>
+<li>Column L: <code>=J4-K4</code>, the gap, and the column that found Draw 3</li>
+<li>Column M: <code>=MAXIFS($D$14:$D$60,$E$14:$E$60,$H4)</code>, the week the milestone is achieved, which is the week its <em>last</em> component finishes</li>
+<li>Column N: <code>=M4+IF(M4=0,0,$C$7)</code>, the week the wire actually lands</li>
+</ul>
+
+<p><strong>Block 4, the weekly grid, A55 down, week 0 through week 30.</strong> This is where the percentages turn into cash.</p>
+
+<ul>
+<li>Column B, cost incurred that week: <code>=SUMPRODUCT(($C$14:$C$60&lt;=$A55)&#42;($D$14:$D$60&gt;=$A55)&#42;($B$14:$B$60/($D$14:$D$60-$C$14:$C$60+1)))</code>. Each line spreads evenly across the weeks it runs.</li>
+<li>Column C, cash actually leaving your account: <code>=IFERROR(INDEX($B$55:$B$85,MATCH($A55-$C$8,$A$55:$A$85,0)),0)</code>. Work performed, then paid <code>C8</code> weeks later.</li>
+<li>Column D, draw funded that week: <code>=SUMIF($N$4:$N$10,$A55,$J$4:$J$10)</code></li>
+<li>Column E: <code>=E54+C55</code>, cumulative cash paid</li>
+<li>Column F: <code>=F54+D55</code>, cumulative loan funded</li>
+<li>Column G: <code>=E55-F55</code>, your money in the job this week</li>
+<li>Column H: <code>=F55-E55</code>, the mirror, used only for the lender exposure flag</li>
+</ul>
+
+<p>Four outputs sit under the grid and they are the only four numbers you should ever quote:</p>
+
+<ul>
+<li>Peak out of pocket: <code>=MAX($G$55:$G$85)</code></li>
+<li>The week it happens: <code>=INDEX($A$55:$A$85,MATCH(MAX($G$55:$G$85),$G$55:$G$85,0))</code></li>
+<li>Construction loan interest: <code>=SUMPRODUCT(($A$55:$A$85&lt;=MAX($N$4:$N$10))&#42;$F$55:$F$85)&#42;$C$6/52</code>, accruing weekly on the drawn balance until the final draw funds and the loan converts</li>
+<li>Lender exposure flag: <code>=IF(MAX($H$55:$H$85)&gt;0,"BANK AHEAD OF THE WORK","OK")</code>. You will need this in a minute.</li>
+</ul>
+
+<p>Two parameters now decide everything, and neither is in the draw schedule. The funding lag <code>C7</code> is inspection plus review plus wire, call it two weeks. The payment terms <code>C8</code> are what your subs and suppliers actually let you do, call it four weeks for net 30 on a weekly grid. Set the rate in <code>C6</code> to 8.00 percent, which is the bank prime loan rate of 7.00 percent as published in the Federal Reserve H.15 release of September 21, 2026, effective September 17, plus a 100 basis point construction spread. Prime moved up 25 basis points that week, so every week of drawn balance now costs more than it did in early September.</p>
+
+<h2>The Seven Week Dry Spell Between Draw 3 and Draw 4</h2>
+
+<p>With the lag and the payment terms switched on, the peak moves from $57,278 to <strong>$98,752</strong>, in week 22 of a 24 week build. That is 2.29 times the $43,215 the term sheet called your equity.</p>
+
+<p>The reason is visible the moment you list the weeks money actually arrives. Milestones are achieved in weeks 0, 4, 10, 14, 21, 23 and 24. Add the two week lag and the wires land in weeks 0, 6, 12, 16, 23, 25 and 26. Look at the interval between the fourth and fifth wire.</p>
+
+<table>
+<tr><th>Between these two wires</th><th>Weeks with no funding</th><th>Cash paid out during them</th></tr>
+<tr><td>Week 0 to week 6</td><td>6</td><td>$30,101</td></tr>
+<tr><td>Week 6 to week 12</td><td>6</td><td>$86,786</td></tr>
+<tr><td>Week 12 to week 16</td><td>4</td><td>$81,673</td></tr>
+<tr><td>Week 16 to week 23</td><td>7</td><td>$68,543</td></tr>
+<tr><td>Week 23 to week 25</td><td>2</td><td>$17,590</td></tr>
+</table>
+
+<p>Seven weeks, $68,543 out, nothing in. On four week terms that cash covers the work performed in weeks 13 through 18: the tail of the electrical and HVAC rough-ins ($18,107), the last of the stucco ($12,225), the insulation ($6,992), all of the drywall ($13,962), the first weeks of paint and interior trim ($13,893), and $3,364 of small lines NAHB books as "other." You fund every dollar of it, because Draw 4 cannot even be requested until the flooring goes down in week 21, and then takes two more weeks to land. The dry spell is not caused by any single percentage being wrong. It is caused by the milestones being spaced unevenly in time while the spend is not.</p>
+
+<p>Your payment terms are the other half of that sentence, and they are worth more than most people think. If the concrete crew and the framer will not wait and you pay on completion instead of at four weeks, the same loan, the same schedule and the same build produce a peak of <strong>$180,260</strong>, which is 4.17 times the quoted equity. The subcontract you sign is a financing document. If you have not modeled it that way, the <a href="/blog/construction-pay-when-paid-cash-flow-tracker-excel">pay when paid cash flow tracker</a> and the <a href="/blog/contractor-cash-conversion-cycle-calculator-excel">cash conversion cycle calculator</a> are the two places that timing becomes visible.</p>
+
+<h2>The Line Item You Install in Week 14 and Get Paid For in Week 25</h2>
+
+<p>Read the Space Coast schedule one more time, slowly. Insulation is listed in Draw 5, alongside the driveway, the soffits and the landscaping. Drywall is in Draw 4.</p>
+
+<p>Insulation goes in <em>behind</em> drywall. It is physically impossible to install it after. In the model it is performed in week 14, the week before the drywall starts, and it is funded in week 25, two weeks after the drywall money arrives. NAHB puts insulation at $6,992. You pay for it in week 18 under net 30 terms and you are reimbursed in week 25, a wait of 11 weeks from the work, against 6 weeks for the drywall that covers it.</p>
+
+<table>
+<tr><th>Milestone</th><th>Wire lands in week</th><th>Cost in the bucket</th><th>Average wait from work to funding</th></tr>
+<tr><td>Draw 1</td><td>6</td><td>$57,516</td><td>3.13 weeks</td></tr>
+<tr><td>Draw 2</td><td>12</td><td>$87,714</td><td>4.73 weeks</td></tr>
+<tr><td>Draw 3</td><td>16</td><td>$116,301</td><td>4.33 weeks</td></tr>
+<tr><td>Draw 4</td><td>23</td><td>$72,476</td><td>4.37 weeks</td></tr>
+<tr><td>Draw 5</td><td>25</td><td>$39,210</td><td>4.65 weeks</td></tr>
+<tr><td>Draw 6, final</td><td>26</td><td>$28,251</td><td>6.69 weeks</td></tr>
+</table>
+
+<p>Compare each wait against your payment terms of four weeks. Draw 1 funds faster than you pay, which is why the early weeks of the model run negative. Every other bucket funds slower. Draw 6 is the worst at 6.69 weeks, and the reason is the $8,835 NAHB books as "other," which this model spreads across all 24 weeks of the build because that is how general conditions behave, and which the lender releases in a single wire at the very end. Long lead deposits behave the same way, paid at order and funded at installation, which is why a <a href="/blog/construction-long-lead-item-tracker-excel">long lead item tracker</a> belongs next to this model rather than inside your schedule software.</p>
+
+<p>Fixing the insulation line is a two sentence email to your loan officer before closing: move insulation from Draw 5 to Draw 4. It is $6,992 and it will probably be granted without a second thought, which is the point. The items that move easily are the ones nobody asks about.</p>
+
+<h2>Three Levers, Priced, and the One the Bank Will Say Yes To</h2>
+
+<p>You can negotiate the allocation, you can negotiate the funding lag, and you can negotiate your subcontract terms. Here is what each is worth against the $98,752 baseline.</p>
+
+<table>
+<tr><th>Change</th><th>Peak out of pocket</th><th>Reduction</th><th>Multiple of quoted equity</th></tr>
+<tr><td>Baseline: published schedule, 2 week lag, 4 week terms</td><td>$98,752</td><td>-</td><td>2.29x</td></tr>
+<tr><td>A. Allocation matched to the cost curve</td><td>$80,837</td><td>$17,914</td><td>1.87x</td></tr>
+<tr><td>B. Funding lag cut from 2 weeks to 1</td><td>$88,207</td><td>$10,545</td><td>2.04x</td></tr>
+<tr><td>C. Subcontract terms from 4 weeks to 6</td><td>$79,468</td><td>$19,284</td><td>1.84x</td></tr>
+<tr><td>All three together</td><td>$55,703</td><td>$43,049</td><td>1.29x</td></tr>
+</table>
+
+<p>The largest single lever is not in the loan documents. It is lever C, your own subcontract payment terms, and it is worth $19,284, more than renegotiating the draw percentages. Builders spend their leverage arguing with the bank and then sign subcontracts that hand it all back.</p>
+
+<p>Lever A is the interesting one, because of what it costs. "Cost matched" means each milestone releases the same share of the loan that it consumes of the budget, with the lender's 10 percent final holdback left untouched.</p>
+
+<table>
+<tr><th>Milestone</th><th>Published</th><th>Cost matched</th><th>Dollars moved</th></tr>
+<tr><td>Closing draw</td><td>10.00%</td><td>6.02%</td><td>-$15,328</td></tr>
+<tr><td>Draw 1</td><td>10.00%</td><td>12.94%</td><td>+$11,328</td></tr>
+<tr><td>Draw 2</td><td>20.00%</td><td>19.74%</td><td>-$1,011</td></tr>
+<tr><td>Draw 3</td><td>20.00%</td><td>26.17%</td><td>+$23,755</td></tr>
+<tr><td>Draw 4</td><td>20.00%</td><td>16.31%</td><td>-$14,212</td></tr>
+<tr><td>Draw 5</td><td>10.00%</td><td>8.82%</td><td>-$4,531</td></tr>
+<tr><td>Draw 6, final</td><td>10.00%</td><td>10.00%</td><td>$0</td></tr>
+</table>
+
+<p>Money moves in both directions, which is why the average drawn balance barely changes. Total construction loan interest over the build goes from $6,574.62 to $6,581.15. <strong>Six dollars and fifty three cents.</strong> That is the entire price, to either party, of a change that takes $17,914 off your peak cash requirement.</p>
+
+<p>And the bank is never exposed. Under the cost matched allocation the loan is still behind the work in place at every single milestone: $3,575 behind at closing, $11,264 at Draw 1, $22,989 at Draw 2, $38,535 at Draw 3, $48,223 at Draw 4. That is the sentence to put in the email, because "you are still $38,535 behind the value in place at rough-in" is the only argument a credit officer is required to care about.</p>
+
+<p>Now contrast the ask most builders actually make. Front load the schedule properly: 15 percent at closing, 15 at Draw 1, 25 at Draw 2, 25 at Draw 3, then 10, 5 and 5. It works beautifully for you. Peak out of pocket falls to $43,215, which means the term sheet's equity number finally becomes true. It also costs $1,866 in extra interest, and it puts the lender ahead of the work in place by $31,003 at closing, $31,237 at Draw 1, $39,773 at Draw 2 and $19,722 at Draw 3. No credit committee approves that, and none should. Ask for it and you have spent your goodwill on the one version of the change that cannot be granted.</p>
+
+<p>There is a clean rule underneath the interest arithmetic. Front loading moves 1,212,750 dollar-weeks of exposure off your balance sheet and onto the loan. Exactly that many, in both directions, because the total cost and the total loan are fixed. So the extra interest at 8.00 percent is $1,866 and the relief is the same 1,212,750 dollar-weeks valued at <em>your</em> cost of capital. If your cash costs 12 percent, the relief is $2,799 and you are ahead by $933. If it is idle in a business savings account earning 5.50 percent, the relief is $1,283 and front loading costs you $583 net. Front loading pays if and only if your marginal dollar costs more than your construction loan rate. Put that comparison in <code>C10</code> against <code>C6</code> and let the sheet answer: <code>=IF($C$10&gt;$C$6,"FRONT-LOAD","TAKE THE MONEY LATE")</code>.</p>
+
+<h2>Price the Draw Schedule Before You Sign It, Not After</h2>
+
+<p>The order of operations is fixed, because the leverage disappears at closing.</p>
+
+<ul>
+<li>Map every budget line to the milestone that funds it, before you sign. Column E of the model is the deliverable, and it will find two or three lines like insulation that are funded out of sequence with the build.</li>
+<li>Compute the gap column. Any milestone where the release is more than five points below the cost share is a milestone you are financing. On this build the rule flags exactly one, Draw 3, at 7.16 points. Bring that row to the lender, not a complaint.</li>
+<li>Ask for cost matching, never for front loading. Lead with the number that protects the lender: the loan stays behind the work in place at every milestone, and the interest changes by single digits.</li>
+<li>Get the funding lag in writing. Two weeks versus one week is $10,545 on this build, and it costs the bank nothing to commit to an inspection turnaround.</li>
+<li>Negotiate your subcontracts with the draw calendar in front of you. It is the biggest lever on the list and the only one you control unilaterally. Retainage you hold from subs works the same way, which the <a href="/blog/construction-retainage-tracking-spreadsheet">retainage tracking spreadsheet</a> handles line by line.</li>
+<li>Carry peak out of pocket, not equity, in your <a href="/blog/construction-budget-template-excel">construction budget</a>. On this build that is $98,752 against a quoted $43,215, and the difference is the number that decides whether week 22 is survivable.</li>
+</ul>
+
+<p>None of this is an argument that the lender's schedule is unfair. It is an argument that the schedule answers a question about collateral and you need the answer to a different question about cash, and the two have never been the same document. The bank's percentages protect the bank's position. Nothing in them is designed to tell you what week 22 looks like.</p>
+
+<p>If you would rather not wire the milestone mapping, the weekly grid, the payables shift and the lender exposure flag together yourself, the <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries them. Budget lines map to draw milestones, the cost-versus-release gap flags itself the moment a milestone is underfunded, the weekly cash curve reports peak out of pocket and the week it lands, and the whole thing recalculates when the schedule slips or a change order lands. Build the sheet before the term sheet is signed, and the conversation with your loan officer becomes a two column table instead of an argument.</p>`,
+  },
+  {
     slug: 'rehab-cost-estimator-spreadsheet',
     title: 'Build a Rehab Cost Estimator Spreadsheet That Knows How Wrong It Is',
     metaTitle: 'Rehab Cost Estimator Spreadsheet: The Range | SheetCraft',
