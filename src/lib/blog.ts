@@ -16,6 +16,256 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-pro-forma-spreadsheet-excel',
+    title: 'Real Estate Pro Forma Spreadsheet in Excel: Price the Column, Don\'t Believe It',
+    metaTitle: 'Real Estate Pro Forma Spreadsheet Excel | SheetCraft',
+    metaDescription: 'A real estate pro forma spreadsheet in Excel should price the seller\'s pro forma column, not argue with it. A 24-unit deal modeled from ask to offer.',
+    targetKeyword: 'real estate pro forma spreadsheet Excel',
+    secondaryKeywords: ['real estate pro forma template', 'value add multifamily underwriting', 'T-12 vs pro forma', 'apartment underwriting spreadsheet', 'NOI bridge Excel'],
+    excerpt: 'A broker\'s pro forma column is not a projection, it is a price for work you have not done yet. On a 24-unit deal the ask is $2,558,680 and the defensible offer is $2,051,178. Here is the bridge between them, line by line.',
+    publishedAt: '2026-09-23',
+    readTime: 16,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/real-estate-pro-forma-spreadsheet-excel.png',
+    imageAlt: 'Basswood architectural model of a three story walk-up apartment building on a wooden desk beside a ring of brass keys and a fountain pen',
+    content: `<p>A broker sends you an offering memorandum for a 24-unit building. Page four carries two columns side by side: T-12 Actual and Pro Forma. The actual column says the property earns $108,948 of net operating income. The pro forma column says $153,521. The asking price is built on the second number. Most buyers open a real estate pro forma spreadsheet in Excel and start arguing with the rent comps behind that second column. That is the wrong fight, and it is the fight the seller wants you to have.</p>
+
+<p>The rent comps are usually fine. In the deal below they are exactly right, and the arithmetic that proves it is in the next section. The problem is not that the pro forma column is dishonest. The problem is that it has no time axis and no cost axis. It names a destination and prints a price for arriving there instantly and for free.</p>
+
+<h2>The Pro Forma Column Is a Price, Not a Projection</h2>
+
+<p>Cedar Ridge is 24 units in a Midwest secondary market, built in 1974, five units already renovated. Here is what the offering memorandum shows.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>T-12 Actual</th><th>Broker Pro Forma</th></tr>
+</thead>
+<tbody>
+<tr><td>Gross potential rent</td><td>$269,220</td><td>$299,520</td></tr>
+<tr><td>Vacancy and credit loss</td><td>($30,900)</td><td>($17,971)</td></tr>
+<tr><td>Other income</td><td>$9,120</td><td>$12,000</td></tr>
+<tr><td>Effective gross income</td><td>$247,440</td><td>$293,549</td></tr>
+<tr><td>Operating expenses</td><td>($138,492)</td><td>($140,028)</td></tr>
+<tr><td>Net operating income</td><td>$108,948</td><td>$153,521</td></tr>
+<tr><td>Expense ratio</td><td>55.97%</td><td>47.70%</td></tr>
+</tbody>
+</table>
+
+<p>The broker applied a 6.00 percent cap rate to the pro forma NOI and asked $2,558,680, which is $106,612 per unit. Apply the same 6.00 percent cap rate to the income the building actually produced and you get $1,815,800.</p>
+
+<p>The difference is $742,880. That is not a valuation debate. That is the seller charging you today, in cash and loan proceeds at closing, for $44,573 of annual income that does not exist yet, that you have to create, with your money, on your schedule, carrying your risk. A 40.91 percent NOI lift is the entire business plan, and the pro forma column hands the whole reward for it to the seller on the day you sign.</p>
+
+<p>Notice what that gap is made of. It is the NOI lift divided by the cap rate, which means the denominator decides the price of the seller's optimism. The work is identical in every one of these markets.</p>
+
+<table>
+<thead>
+<tr><th>Cap rate</th><th>Value of T-12 income</th><th>Value of pro forma income</th><th>What you prepay for the lift</th></tr>
+</thead>
+<tbody>
+<tr><td>5.00%</td><td>$2,178,960</td><td>$3,070,416</td><td>$891,456</td></tr>
+<tr><td>5.50%</td><td>$1,980,873</td><td>$2,791,287</td><td>$810,414</td></tr>
+<tr><td>6.00%</td><td>$1,815,800</td><td>$2,558,680</td><td>$742,880</td></tr>
+<tr><td>6.50%</td><td>$1,676,123</td><td>$2,361,858</td><td>$685,735</td></tr>
+<tr><td>7.00%</td><td>$1,556,400</td><td>$2,193,154</td><td>$636,754</td></tr>
+<tr><td>7.50%</td><td>$1,452,640</td><td>$2,046,944</td><td>$594,304</td></tr>
+</tbody>
+</table>
+
+<p>Thirteen renovations, one lease-up, the same nineteen months of contractor scheduling. In a 7.50 percent market the seller wants $594,304 for that plan up front. In a 5.00 percent market the seller wants $891,456 for it, a swing of $297,152 on identical work. Underwriting discipline on the pro forma column matters most exactly when cap rates are low, which is exactly when the market stops exercising it.</p>
+
+<h2>Start by Agreeing With the Seller About the Rent</h2>
+
+<p>The pro forma column shows one rent line: $1,040 per unit per month. Your rent roll has four rents in it, and three of them cost money to reach.</p>
+
+<table>
+<thead>
+<tr><th>Bucket</th><th>Units</th><th>In-place rent</th><th>Achievable rent</th><th>What it takes</th></tr>
+</thead>
+<tbody>
+<tr><td>Renovated, leased</td><td>5</td><td>$1,075</td><td>$1,075</td><td>Nothing, already there</td></tr>
+<tr><td>Classic, occupied</td><td>13</td><td>$890</td><td>$935</td><td>Renewal at classic market</td></tr>
+<tr><td>Classic, renovate on turn</td><td>4</td><td>$905</td><td>$1,075</td><td>$11,500 and two months down</td></tr>
+<tr><td>Vacant, down for renovation</td><td>2</td><td>$0</td><td>$1,075</td><td>$11,500 and two months down</td></tr>
+</tbody>
+</table>
+
+<p>Blend that column with <code>=SUMPRODUCT(B5:B8,D5:D8)/SUM(B5:B8)</code> and you get $999.17 per unit per month. That is the most the building produces if you execute the plan the seller already has under way and spend not one dollar beyond it. The broker's line says $1,040.</p>
+
+<p>So the broker is overstating rent by $40.83 per unit per month. Here is the part worth slowing down for: the broker is not wrong. Each additional classic unit you renovate moves from $935 to $1,075, a gain of $140 per month. Solve for how many units that takes with <code>=(1040-999.17)&#42;24/(1075-935)</code> and the answer is 7. Renovate seven of the thirteen classic units and the blended rent is $1,040.00 to the cent, because eighteen units at $1,075 and six units at $935 average precisely $1,040.</p>
+
+<p>The market rent in the pro forma column is achievable. It costs seven renovations at $11,500 each, which is $80,500 of capital that appears nowhere in the column you are being asked to pay for. This is the whole trick, and it is not a lie. It is an omission with a price tag. Before you accept any market rent line, rebuild it from a unit-level survey rather than a single blended number, which is what a proper <a href="/blog/multifamily-rent-comp-survey-spreadsheet-excel">multifamily rent comp survey spreadsheet</a> is for.</p>
+
+<h2>Three Errors You Can Prove From the Seller's Own Page</h2>
+
+<p>The rent line is an omission. These three are arithmetic mistakes, and you can demonstrate each one using only the numbers already printed in the memorandum.</p>
+
+<p><strong>The management fee does not scale.</strong> The fee is contractually a percentage of effective gross income, 5.0 percent here. The T-12 column shows $12,372, which is exactly 5.0 percent of $247,440. The pro forma column shows $12,372 again, against an EGI of $293,549. The correct figure is <code>=0.05&#42;293549</code>, which is $14,677. The column understates the fee by $2,305 per year, and at a 6.00 percent cap that is $38,424 of asking price created by a frozen cell reference. Anchor the fee to EGI with <code>=$C$8&#42;C20</code> and it can never happen in your model.</p>
+
+<p><strong>The vacancy assumption is below the market it sits in.</strong> The building ran 11.48 percent economic vacancy over the trailing twelve months. The pro forma column drops that to 6.0 percent. Meanwhile the Census Bureau's Housing Vacancy Survey put the national rental vacancy rate at 7.3 percent in the second quarter of 2026, with the Midwest at 6.9 percent, up from 5.6 percent nationally four years earlier. That national figure measures the share of rental inventory sitting empty and available, not one property's economic vacancy, so it is a bound rather than a substitute. It is still the wrong direction for a 1974 Class C building to be underwriting 6.0 percent. Underwrite 7.0 percent and the NOI falls $2,845. Split physical vacancy from collection losses while you are in there, because they behave differently and a <a href="/blog/rental-property-bad-debt-allowance-calculator-excel">rental property bad debt allowance calculator</a> sizes the second one properly.</p>
+
+<p><strong>The other income lift competes with the rent lift.</strong> The column raises other income from $9,120 to $12,000, mostly by billing back utilities. It also raises rent by 15 percent. Both dollars come out of the same tenant's paycheck in the same month. Stack them at full value and you have counted the tenant's budget twice. Underwrite $11,400 and treat the rest as upside you did not pay for.</p>
+
+<p>Run those corrections together with an honest expense basis and the three columns look like this.</p>
+
+<table>
+<thead>
+<tr><th>Operating expense</th><th>T-12 Actual</th><th>Broker Pro Forma</th><th>Your basis</th></tr>
+</thead>
+<tbody>
+<tr><td>Property taxes</td><td>$28,800</td><td>$31,680</td><td>$31,793</td></tr>
+<tr><td>Insurance</td><td>$19,440</td><td>$21,384</td><td>$22,800</td></tr>
+<tr><td>Utilities</td><td>$22,560</td><td>$23,232</td><td>$23,232</td></tr>
+<tr><td>Repairs and maintenance</td><td>$18,720</td><td>$16,800</td><td>$19,200</td></tr>
+<tr><td>Turnover and make-ready</td><td>$9,240</td><td>$7,200</td><td>$5,040</td></tr>
+<tr><td>Contract services</td><td>$7,680</td><td>$7,680</td><td>$7,920</td></tr>
+<tr><td>Payroll</td><td>$14,400</td><td>$14,400</td><td>$15,600</td></tr>
+<tr><td>Admin and marketing</td><td>$5,280</td><td>$5,280</td><td>$6,600</td></tr>
+<tr><td>Management fee</td><td>$12,372</td><td>$12,372</td><td>$14,498</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$138,492</strong></td><td><strong>$140,028</strong></td><td><strong>$146,683</strong></td></tr>
+<tr><td>Per unit</td><td>$5,770</td><td>$5,834</td><td>$6,112</td></tr>
+<tr><td>Expense ratio</td><td>55.97%</td><td>47.70%</td><td>50.59%</td></tr>
+</tbody>
+</table>
+
+<p>The single most revealing cell is repairs and maintenance. The pro forma column cuts it from $18,720 to $16,800 in the same document that proposes thirteen renovations. Buildings under renovation do not spend less on maintenance. A 47.70 percent expense ratio on a 1974 Class C building with part-time payroll is the kind of number that should stop you before any of the line items do, which is the fastest use of a <a href="/blog/multifamily-operating-expense-ratio-calculator-excel">multifamily operating expense ratio calculator</a>.</p>
+
+<p>Corrected, the stabilized NOI is $143,271, not $153,521. The seller's own destination, priced honestly, is $10,250 per year thinner than the column claims.</p>
+
+<h2>The Third Column: Grade Every Line by Evidence</h2>
+
+<p>Now add the two axes the pro forma column is missing. In your spreadsheet, every line that separates the T-12 from stabilized gets three more cells: what kind of evidence supports it, how many months until it shows up in the bank account, and what it costs to get there.</p>
+
+<p>Grade the evidence in exactly three buckets, and let the grade decide the treatment rather than applying a haircut you invented.</p>
+
+<ul>
+<li><strong>Contracted.</strong> A signed lease at the new rent, a signed service contract at the lower price, a tax abatement already granted. Zero months, zero cost. Pay full value for it.</li>
+<li><strong>Demonstrated.</strong> Somebody has actually done this thing, in this building or on this block, and you can point at the unit. Price it with real months and real dollars.</li>
+<li><strong>Assumed.</strong> It is plausible and nobody has done it here. Value it at zero. Not a discount, zero. It is your upside, and you do not buy your own upside.</li>
+</ul>
+
+<p>Cedar Ridge is unusually clean on this test because five units are already renovated and leased at $1,075, which makes the renovation premium Demonstrated rather than Assumed. That is worth real money and it is why this deal is worth underwriting at all. Had those five units not existed, the entire $1,040 line would be Assumed and the correct value of the pro forma column would be zero.</p>
+
+<p>The per-line value formula puts time and cost on the same row as the income:</p>
+
+<p><code>=E5/$C$4/(1+$C$5)^(F5/12)-G5</code></p>
+
+<p>Column E is the annual NOI the line adds, <code>$C$4</code> is the cap rate, <code>$C$5</code> is your unlevered cost of capital, column F is months to realization and column G is the cash it takes. The seller's implicit version of that same formula is <code>=E5/$C$4</code>, with F and G silently set to zero. Every dollar of difference between those two formulas is a dollar of negotiation you can defend line by line, which is a different conversation from telling a broker his rents are too high.</p>
+
+<h2>The Ramp Is Where the Money Actually Goes</h2>
+
+<p>Thirteen units need renovating after closing: the two vacant ones, the four scheduled to turn, and the seven the $1,040 line quietly requires. A 24-unit building with roughly 50 percent annual turnover gives you about one turn per month, and that is the constraint, not the contractor. Lay the plan out monthly.</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Scheduled rent</th><th>EGI</th><th>Operating expenses</th><th>NOI</th><th>Capital spent</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>$20,565</td><td>$20,075</td><td>$11,770</td><td>$8,305</td><td>$23,000</td></tr>
+<tr><td>3</td><td>$21,810</td><td>$21,233</td><td>$11,828</td><td>$9,405</td><td>$11,500</td></tr>
+<tr><td>6</td><td>$21,290</td><td>$20,750</td><td>$11,803</td><td>$8,947</td><td>$11,500</td></tr>
+<tr><td>9</td><td>$21,890</td><td>$21,308</td><td>$11,831</td><td>$9,477</td><td>$11,500</td></tr>
+<tr><td>12</td><td>$22,490</td><td>$21,866</td><td>$11,859</td><td>$10,007</td><td>$11,500</td></tr>
+<tr><td>15</td><td>$24,870</td><td>$24,079</td><td>$12,219</td><td>$11,860</td><td>$0</td></tr>
+<tr><td>19</td><td>$24,960</td><td>$24,163</td><td>$12,224</td><td>$11,939</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Three things fall out of that grid that no annual pro forma can show you.</p>
+
+<p>Month 6 earns less than month 3. That is not an error. Units under renovation pay no rent, so a month in which two units are down is worse than the month before you started. The pro forma column describes month 19 and charges you from month 1, and the shape in between dips below where you started.</p>
+
+<p>Your going-in NOI is not $108,948 and it is not $153,521. Annualize month 1 and it is $99,660, because you are carrying renovation downtime on top of the trailing performance. Every lender sizing your loan will test coverage against something close to that number, not against the pro forma column. Run your debt service against the ramp rather than the destination, which is the only honest way to use a <a href="/blog/dscr-calculator-excel-real-estate">DSCR calculator for real estate</a> on a value-add deal.</p>
+
+<p>Stabilization arrives in month 19, and total capital is $155,800: thirteen renovations at $11,500 plus three ordinary turns at $2,100. Check that number with <code>=13&#42;$C$7+3&#42;$C$9</code> rather than typing it, because it is the figure most likely to drift between drafts.</p>
+
+<p>Now the part that surprises people. Push the whole schedule back, which is what happens when the contractor is booked, the permit takes a quarter, or turnover runs slower than the rent roll suggested.</p>
+
+<table>
+<thead>
+<tr><th>Start delayed by</th><th>Stabilized in month</th><th>What you can pay</th></tr>
+</thead>
+<tbody>
+<tr><td>0 months</td><td>19</td><td>$2,051,178</td></tr>
+<tr><td>2 months</td><td>21</td><td>$2,035,331</td></tr>
+<tr><td>4 months</td><td>23</td><td>$2,019,717</td></tr>
+<tr><td>6 months</td><td>25</td><td>$2,004,333</td></tr>
+</tbody>
+</table>
+
+<p>Each month of slippage costs $7,923 of value. That is roughly two thirds of one month of stabilized NOI, permanently, for every month you are late. It is also the cheapest thing on this page to protect: a contractor under contract before you remove your financing contingency costs nothing and buys the first four months of that table.</p>
+
+<h2>The Bridge From Ask to Offer</h2>
+
+<p>Stack every correction in one column and the offer stops being a negotiating posture and becomes a calculation.</p>
+
+<table>
+<thead>
+<tr><th>Step</th><th>Effect on NOI</th><th>Effect on value</th><th>Running value</th></tr>
+</thead>
+<tbody>
+<tr><td>Broker's asking price</td><td>$153,521</td><td></td><td>$2,558,680</td></tr>
+<tr><td>Management fee scaled to the new EGI</td><td>($2,305)</td><td>($38,424)</td><td>$2,520,256</td></tr>
+<tr><td>Vacancy and credit loss, 6.0% to 7.0%</td><td>($2,845)</td><td>($47,424)</td><td>$2,472,832</td></tr>
+<tr><td>Other income held to what is contracted</td><td>($570)</td><td>($9,500)</td><td>$2,463,332</td></tr>
+<tr><td>Expenses on your basis, taxes reassessed</td><td>($4,529)</td><td>($75,488)</td><td>$2,387,844</td></tr>
+<tr><td>Renovation and turn capital</td><td></td><td>($155,800)</td><td>$2,232,044</td></tr>
+<tr><td>Nineteen months of getting there</td><td></td><td>($180,866)</td><td><strong>$2,051,178</strong></td></tr>
+</tbody>
+</table>
+
+<p>Your price is $2,051,178, or $85,466 per unit, against an ask of $2,558,680. The gap is $507,502, which is 19.83 percent. That is a large number and it is not a posture: every line above it is defensible in a room, and four of the seven lines are corrections to the seller's own arithmetic rather than differences of opinion.</p>
+
+<p>Look at the last two rows together. The capital is $155,800 and the time is $180,866. Waiting costs more than building. Buyers negotiate renovation budgets down to the dollar and then accept a schedule with no contractor under contract, which is backwards. Getting your general contractor committed before closing is worth more than shaving $10,000 off the scope.</p>
+
+<p>One line in that bridge deserves its own warning, because it bites twice. Property taxes reassess on sale, and the new bill follows your purchase price. At $2,051,178 the reassessed bill is $31,793, up $2,993 from the seller's $28,800. At the full ask the bill would be $39,660 instead, and at a 6.00 percent cap that extra $7,866 a year destroys $131,105 of value on its own. Model the line properly with a <a href="/blog/commercial-real-estate-noi-calculator-excel">commercial real estate NOI calculator</a> before you sign anything. Note the circularity: your offer sets your tax bill, which sets your NOI, which sets your offer. Three iterations of <code>=$C$12&#42;OfferPrice</code> feeding back into the expense block converges in a spreadsheet without needing a solver.</p>
+
+<h2>What the Ask Requires You to Believe</h2>
+
+<p>Run the model the other direction. Hold the plan, the timing and the capital exactly as the broker implies, pay the full $2,558,680, execute every renovation on schedule, and resell in month 19 at the same 6.00 percent cap rate. The unlevered return is <strong>negative 6.81 percent</strong>.</p>
+
+<p>The nominal version needs no discount rate at all. You put out $2,714,480, which is the purchase price plus $155,800 of renovation capital. You take in $2,442,391, which is $185,651 of NOI collected across nineteen months plus $2,256,740 from the sale. You are down $272,089 in plain dollars, before financing, before fees, having done everything right.</p>
+
+<p>That resale figure is lower than the $2,387,844 in the bridge above, and the reason is the sharpest argument in this article. Your purchase price resets the assessment. Pay $2,558,680 and the county bills $39,660 a year instead of the $31,793 it would bill at a disciplined offer, which is $7,866 of income gone permanently. Overpaying does not merely cost you the overpayment. It makes the building you just bought worth less than the building you were looking at.</p>
+
+<p>Then invert it once more. Keep the schedule, keep the capital, keep the 11 percent unlevered target, and ask what stabilized rent would make $2,558,680 a fair price. The answer is $1,198.48 per unit per month. That is 15.2 percent above the broker's own pro forma rent of $1,040, and 11.5 percent above $1,075, which is the best rent the best renovated unit in this building achieves today.</p>
+
+<p>Read that sentence again, because it is the whole article. The seller's own most optimistic column does not support the seller's own price. You do not need a market view, a rate view, or a better comp set to reach that conclusion. You need the seller's numbers, a time axis and a cost axis.</p>
+
+<p>The external picture makes the required rent harder rather than easier. The Bureau of Labor Statistics rent of primary residence index rose 2.75 percent in the twelve months to August 2026, the fourth consecutive year of deceleration from 7.76 percent in August 2023, 4.97 percent in 2024 and 3.50 percent in 2025. A plan that needs 11.5 percent above the best unit in the building is asking a decelerating market for an acceleration.</p>
+
+<table>
+<thead>
+<tr><th>Twelve months ending August</th><th>Rent of primary residence, annual change</th></tr>
+</thead>
+<tbody>
+<tr><td>2022</td><td>6.74%</td></tr>
+<tr><td>2023</td><td>7.76%</td></tr>
+<tr><td>2024</td><td>4.97%</td></tr>
+<tr><td>2025</td><td>3.50%</td></tr>
+<tr><td>2026</td><td>2.75%</td></tr>
+</tbody>
+</table>
+
+<p>Once your price exists, stress it rather than defending it. The two inputs worth a data table here are the stabilized rent and the exit cap rate, not the renovation budget, and a proper <a href="/blog/real-estate-sensitivity-analysis-excel">real estate sensitivity analysis in Excel</a> will tell you in one grid how much of your margin lives in an assumption you cannot control.</p>
+
+<h2>Build the Column That Prices the Column</h2>
+
+<p>The next time an offering memorandum lands, do not read the pro forma column as a forecast. Read it as an invoice for work you have not started. Then answer it in four steps.</p>
+
+<ol>
+<li>Rebuild the market rent line from the rent roll, bucket by bucket, and calculate how many renovations the broker's blended number silently requires. At Cedar Ridge it was exactly seven, at $80,500.</li>
+<li>Recompute every expense that is a percentage of something, and every expense that resets on sale. The frozen management fee alone was $38,424 of price, and the tax basis moves another $131,105 between the ask and a disciplined offer.</li>
+<li>Grade every remaining line Contracted, Demonstrated or Assumed. Pay full value for the first, price the second with months and dollars, and pay nothing for the third.</li>
+<li>Lay the plan out monthly, discount it, and subtract the capital. Then compare your number to the ask and send the bridge, not the number.</li>
+</ol>
+
+<p>That last point is the practical one. A broker who receives an offer 19.83 percent below ask hangs up. A broker who receives a seven-row bridge, four rows of which correct his own spreadsheet, takes it to the seller. The bridge is the offer.</p>
+
+<p>Building this from scratch takes a long evening and the first version will have a frozen management fee in it somewhere, because everyone's does. The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> ships with the structure already wired: the rent roll bucket build-up that produces the blended rent, the evidence grade column with the time and cost cells beside it, the monthly ramp with renovation downtime modeled per unit, the percentage-driven expense block that cannot be frozen by accident, and the tax reassessment loop that settles your offer against your own tax bill. You supply the rent roll and the T-12. It gives you the bridge, in the format a broker will actually carry to a seller.</p>
+
+<p>The seller priced a destination. Price the trip, and send him the arithmetic.</p>`,
+  },
+  {
     slug: 'construction-draw-schedule-template',
     title: 'Construction Draw Schedule Template: Your Lender Quoted $43,215. You Need $98,752.',
     metaTitle: 'Construction Draw Schedule Template | SheetCraft',
