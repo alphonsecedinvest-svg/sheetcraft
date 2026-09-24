@@ -16,6 +16,209 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'cap-rate-calculator-excel',
+    title: 'Cap Rate Calculator in Excel: The Number It Has to Beat Is Your Loan Constant',
+    metaTitle: 'Cap Rate Calculator Excel: Check the Debt | SheetCraft',
+    metaDescription: 'A cap rate calculator in Excel that stops at NOI over price misses the number that decides the deal: the loan constant. A 6-unit at 6% cap vs 7.5% debt.',
+    targetKeyword: 'cap rate calculator Excel',
+    secondaryKeywords: ['how to calculate cap rate in Excel', 'loan constant calculator', 'negative leverage real estate', 'cap rate vs cash on cash return', 'band of investment cap rate'],
+    excerpt: 'A 6.00% cap rate on a $720,000 six-unit looks fair until you put it next to an 8.39% loan constant. At 75% leverage the building pays you negative $2,109 a year, and the lender will only fund 57.2%. Here is the calculator that shows it before the sizing memo does.',
+    publishedAt: '2026-09-24',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/cap-rate-calculator-excel.png',
+    imageAlt: 'Basswood model of a two story brick apartment building on a walnut desk beside an antique brass balance scale holding stacks of copper and silver coins',
+    content: `<p>A broker sends you a six-unit building listed at $720,000 with $43,200 of net operating income. You open a cap rate calculator in Excel, divide one by the other, and get 6.00 percent. You compare it to the 5.5 to 6.5 percent range the broker says the neighborhood trades at, and it looks fair. Every free calculator on the first page of Google stops right there.</p>
+
+<p>That number is correct and it answers a question nobody who borrows money is asking. A cap rate tells you what the building yields if you pay cash. The moment you put a loan on it, the only question that matters is whether the building yields more than the debt costs. On this deal, at today's rates, it does not. Put 25 percent down and the building that "yields 6 percent" hands you a check for negative $2,109 a year, and the lender will not even write the loan you assumed.</p>
+
+<p>The fix is one extra cell. This article builds a cap rate calculator that puts the cap rate next to the number it has to beat, then uses the gap between them to tell you how much to borrow, what you can pay, and how long you are betting on rent growth to bail you out.</p>
+
+<h2>The Number a Cap Rate Has to Beat</h2>
+
+<p>Every amortizing loan has a <strong>loan constant</strong>: the annual debt service per dollar borrowed, principal and interest together. It is the cap rate of the loan. If the building earns 6 cents per dollar of value and the loan costs 8 cents per dollar borrowed, every dollar you borrow loses 2 cents a year of cash flow, and the more you borrow, the worse it gets. That is negative leverage.</p>
+
+<p>In Excel the constant is one formula:</p>
+
+<p><code>=PMT(B6/12,B7&#42;12,-1)&#42;12</code></p>
+
+<p>With the rate in B6 and the amortization in years in B7, it returns the annual payment on a $1 loan. At 7.50 percent over 30 years it returns 8.39 percent. The interest rate is 7.50 percent; the constant is higher because it includes the principal you pay back every month. Your cash flow is paid out of NOI either way, so the constant, not the rate, is what the building has to cover.</p>
+
+<p>For a floor, Freddie Mac's weekly Primary Mortgage Market Survey put the 30-year fixed average at 6.95 percent on September 17, 2026. That is a prime conventional home loan average. A loan on a six-unit rental is a commercial multifamily loan, priced on its own term sheet, and the one for the deal below quotes 7.50 percent. Here is what the constant does across the realistic range, on the same $720,000 building at 75 percent loan-to-value:</p>
+
+<table>
+<thead>
+<tr><th>Rate (30-yr amortization)</th><th>Loan constant</th><th>Annual cash flow</th><th>Cash-on-cash</th><th>DSCR</th></tr>
+</thead>
+<tbody>
+<tr><td>6.50%</td><td>7.58%</td><td>$2,242</td><td>1.25%</td><td>1.05</td></tr>
+<tr><td>6.95% (PMMS, 9/17/2026)</td><td>7.94%</td><td>$306</td><td>0.17%</td><td>1.01</td></tr>
+<tr><td>7.50%</td><td>8.39%</td><td>($2,109)</td><td>-1.17%</td><td>0.95</td></tr>
+<tr><td>8.00%</td><td>8.81%</td><td>($4,348)</td><td>-2.42%</td><td>0.91</td></tr>
+</tbody>
+</table>
+
+<p>There is no row in that table where a 6.00 percent cap rate clears the constant. Even at the prime home-loan average, which you will not get on this building, 75 percent leverage turns a 6 percent asset into a 0.17 percent return on your cash. And if your lender amortizes over 25 years instead of 30, the constant at 7.50 percent is 8.87 percent and the gap widens.</p>
+
+<h2>Build the Calculator Around the Spread, Not the Ratio</h2>
+
+<p>A useful cap rate calculator has three blocks: inputs, the spread test, and what the spread implies for the loan and the price. Lay it out on one sheet, top to bottom, so the verdict sits right under the cap rate and nobody can read one without the other.</p>
+
+<h3>Inputs</h3>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Maple Court value</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Purchase price</td><td>$720,000</td></tr>
+<tr><td>B4</td><td>Net operating income (year 1)</td><td>$43,200</td></tr>
+<tr><td>B6</td><td>Loan rate</td><td>7.50%</td></tr>
+<tr><td>B7</td><td>Amortization (years)</td><td>30</td></tr>
+<tr><td>B8</td><td>Loan-to-value you want</td><td>75%</td></tr>
+<tr><td>B9</td><td>Lender minimum DSCR</td><td>1.25</td></tr>
+<tr><td>B10</td><td>Your target cash-on-cash</td><td>8.00%</td></tr>
+<tr><td>B11</td><td>Annual NOI growth</td><td>2.75%</td></tr>
+</tbody>
+</table>
+
+<p>Maple Court is a 1968 brick six-unit in a Midwest secondary market, $120,000 per door, $7,200 of NOI per unit. The NOI is the seller's trailing twelve months with a management fee and reserves already in it. If yours is not, fix that before anything else, because every dollar you leave out of expenses is a dollar you pay for at the cap rate. The <a href="/blog/real-estate-pro-forma-spreadsheet-excel">pro forma spreadsheet article</a> shows how much a seller's NOI can move before the cap rate is even applied.</p>
+
+<h3>The spread test</h3>
+
+<p>B5 holds the cap rate, <code>=B4/B3</code>, which returns 6.00 percent. B12 holds the loan constant from the formula above, 8.39 percent. Then:</p>
+
+<ul>
+<li><strong>B13, spread:</strong> <code>=B5-B12</code> returns -2.39 percent, or -239 basis points.</li>
+<li><strong>B14, verdict:</strong> <code>=IF(B13&gt;0,"POSITIVE LEVERAGE","NEGATIVE LEVERAGE")</code>. This is the cell that should be in bold at the top of your deal summary.</li>
+</ul>
+
+<p>A positive spread means debt raises your cash yield above the cap rate. A negative spread means every dollar of debt lowers it. The cap rate alone cannot tell you which side you are on, because it does not know what money costs.</p>
+
+<h3>Why the spread is the whole story</h3>
+
+<p>Before closing costs, cash-on-cash return on a levered purchase is exactly:</p>
+
+<p><code>=(B5-B8&#42;B12)/(1-B8)</code></p>
+
+<p>Read it as a business rule. You earn the cap rate on the whole building, you pay the constant on the borrowed share, and whatever is left is spread over your slice of equity. If the cap rate is above the constant, shrinking your equity slice magnifies a positive number. If it is below, it magnifies a negative one. Here is Maple Court at every common leverage level:</p>
+
+<table>
+<thead>
+<tr><th>Loan-to-value</th><th>Your equity</th><th>Annual cash flow</th><th>Cash-on-cash</th><th>DSCR</th></tr>
+</thead>
+<tbody>
+<tr><td>0% (all cash)</td><td>$720,000</td><td>$43,200</td><td>6.00%</td><td>n/a</td></tr>
+<tr><td>50%</td><td>$360,000</td><td>$12,994</td><td>3.61%</td><td>1.43</td></tr>
+<tr><td>60%</td><td>$288,000</td><td>$6,953</td><td>2.41%</td><td>1.19</td></tr>
+<tr><td>65%</td><td>$252,000</td><td>$3,932</td><td>1.56%</td><td>1.10</td></tr>
+<tr><td>70%</td><td>$216,000</td><td>$912</td><td>0.42%</td><td>1.02</td></tr>
+<tr><td>75%</td><td>$180,000</td><td>($2,109)</td><td>-1.17%</td><td>0.95</td></tr>
+<tr><td>80%</td><td>$144,000</td><td>($5,130)</td><td>-3.56%</td><td>0.89</td></tr>
+</tbody>
+</table>
+
+<p>The best cash yield on this building is the all-cash row. Each step of leverage makes it worse. That is the opposite of the reason most investors borrow in the first place, and it holds on any deal where the cap rate sits below the loan constant.</p>
+
+<h2>The Lender Has Already Done This Math</h2>
+
+<p>The 75 percent row is not only a bad return. It is a loan you will not get. Commercial multifamily lenders size loans on debt service coverage: NOI divided by annual debt service, with a minimum written into the term sheet. This lender's is 1.25. Maple Court at 75 percent covers 0.95. The lender runs the formula backward and tells you the largest loan the NOI supports:</p>
+
+<p><code>=B4/B9/B12</code></p>
+
+<p>That returns $411,891 at a 1.25 minimum. On a $720,000 price that is 57.2 percent loan-to-value, not 75. So the down payment is not $180,000. It is $308,109, which is $128,109 more cash than the plan assumed, and you learn it from the lender's sizing memo, not from your spreadsheet.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Your plan</th><th>What the lender funds</th></tr>
+</thead>
+<tbody>
+<tr><td>Loan amount</td><td>$540,000</td><td>$411,891</td></tr>
+<tr><td>Loan-to-value</td><td>75.0%</td><td>57.2%</td></tr>
+<tr><td>Cash required (before closing costs)</td><td>$180,000</td><td>$308,109</td></tr>
+<tr><td>Annual debt service</td><td>$45,309</td><td>$34,560</td></tr>
+<tr><td>Annual cash flow</td><td>($2,109)</td><td>$8,640</td></tr>
+<tr><td>Cash-on-cash</td><td>-1.17%</td><td>2.80%</td></tr>
+</tbody>
+</table>
+
+<p>Put B17 in the sheet as <code>=B4/B9/B12</code>, then B18 as <code>=MIN(B3&#42;B8,B17)</code> for the loan you will actually get, and B19 as <code>=B3-B18</code> for the cash you actually need. That one <code>MIN</code> is the difference between a calculator that tells you what you hope to borrow and one that tells you what you will wire. The <a href="/blog/dscr-calculator-excel-real-estate">DSCR calculator article</a> goes deeper on how lenders set that floor.</p>
+
+<p>Notice what the lender's constraint did to the return. It raised cash-on-cash from -1.17 percent to 2.80 percent, simply by forcing you to borrow less. That is negative leverage working in reverse: the less debt, the better the cash yield. It is still less than half of the 6.00 percent you would earn with no loan at all.</p>
+
+<h2>What You Can Actually Pay</h2>
+
+<p>If the spread is negative at the asking price, the calculator should say what price makes it zero. The building's NOI does not care what you paid, so the cap rate rises as the price falls, and at some price it meets the constant:</p>
+
+<p><code>=B4/B12</code></p>
+
+<p>For Maple Court that is $514,863. At that price the cap rate equals the 8.39 percent constant, and leverage stops hurting. The appraisal profession has a name for the next step, the <strong>band of investment</strong>: the cap rate you need is the weighted cost of the money that buys the building, debt at the constant and equity at your target.</p>
+
+<p><code>=B8&#42;B12+(1-B8)&#42;B10</code></p>
+
+<p>At 75 percent debt and an 8.00 percent cash target, the required cap rate is 8.29 percent. Put that in B22. The price that delivers it is <code>=B4/B22</code>, or $520,926. Here is the ladder from the ask down to the break-even, at 75 percent loan-to-value:</p>
+
+<table>
+<thead>
+<tr><th>Price</th><th>Cap rate</th><th>Spread to 8.39% constant</th><th>Cash-on-cash at 75% LTV</th><th>DSCR at 75% LTV</th></tr>
+</thead>
+<tbody>
+<tr><td>$720,000 (ask)</td><td>6.00%</td><td>-239 bps</td><td>-1.17%</td><td>0.95</td></tr>
+<tr><td>$640,000</td><td>6.75%</td><td>-164 bps</td><td>1.83%</td><td>1.07</td></tr>
+<tr><td>$580,000</td><td>7.45%</td><td>-94 bps</td><td>4.62%</td><td>1.18</td></tr>
+<tr><td>$520,926 (8% target)</td><td>8.29%</td><td>-10 bps</td><td>8.00%</td><td>1.32</td></tr>
+<tr><td>$514,863 (break-even)</td><td>8.39%</td><td>0 bps</td><td>8.39%</td><td>1.33</td></tr>
+</tbody>
+</table>
+
+<p>Two things in that table deserve a second look. First, the $580,000 row, a 19 percent haircut that most sellers would treat as an insult, still fails a 1.25 DSCR at 75 percent leverage. Second, an 8 percent cash-on-cash target sits just below the 8.39 percent constant, so even the target price is a hair of negative leverage. Your cash goal is cheaper than the bank's money, which is the clearest possible statement of where rates are relative to rental yields.</p>
+
+<p>None of this says the building is worth $520,926. Worth is what someone pays. It says that at $720,000 you are not buying a leveraged rental, you are buying a 6 percent bond with a roof, and financing part of it at 8.39 percent.</p>
+
+<h2>The Real Bet: How Many Years of Rent Growth</h2>
+
+<p>The honest counterargument is that nobody buys a rental for year one. Rents grow, NOI grows, and the cap rate on your original price rises every year. Eventually it crosses the constant and leverage turns positive. The calculator should tell you when:</p>
+
+<p><code>=LN(B12/B5)/LN(1+B11)</code></p>
+
+<p>That is the number of years of NOI growth it takes for NOI divided by your purchase price to reach the loan constant. At 2.75 percent a year it returns 12.4 years. At 3.00 percent, 11.3.</p>
+
+<p>The 2.75 percent is not a guess. It is the year-over-year change in the Bureau of Labor Statistics CPI for rent of primary residence (series CUUR0000SEHA) in August 2026. Using it for NOI growth assumes your expenses grow at the same pace as rent, which in years of rising insurance and property taxes is the generous case. So the honest reading is: buy Maple Court at the ask with a 30-year loan at 7.50 percent, and you are betting that national rent inflation holds or accelerates for more than a decade before your debt stops costing you money every year.</p>
+
+<p>Amortization is the other half of the counterargument, and it is real. The constant includes principal, and principal is not a cost. It is equity you are buying back from the lender. In year one on the lender-sized loan, principal paydown is $3,797. Add it to the $8,640 of cash flow and your total year-one yield on $308,109 is 4.04 percent. Better than 2.80 percent, and still below the 6.00 percent you earn without the loan. Amortization softens negative leverage. It does not reverse it. If you want the full picture across a hold period, including a sale, run the deal through the <a href="/blog/real-estate-irr-calculator-excel">real estate IRR calculator</a>, where the exit cap rate carries more weight than anything in year one.</p>
+
+<h2>When a 6 Percent Cap Rate Still Makes Sense</h2>
+
+<p>Negative leverage is a verdict about cash yield. It is not a verdict about the building. There are buyers for whom Maple Court at $720,000 is rational, and your calculator should make you name which one you are.</p>
+
+<ul>
+<li><strong>The all-cash or low-leverage buyer.</strong> A 6.00 percent unlevered yield with some inflation protection beats a lot of alternatives. If you are putting 50 percent down, you earn 3.61 percent cash and own a building. Be clear that the loan is costing you yield.</li>
+<li><strong>The value-add buyer.</strong> If NOI can move from $43,200 to $61,000 through rents and expense cuts you can document, the cap rate on your price is 8.47 percent after the work, and the spread turns positive. Then the calculator should run on stabilized NOI and you should model the months it takes to get there. The <a href="/blog/analyze-multifamily-property-deals-excel">multifamily deal analysis framework</a> covers how to separate NOI you can prove from NOI you are hoping for.</li>
+<li><strong>The refinance buyer.</strong> If you expect rates to fall, the 6.50 percent row of the first table is your best-case refinance. Even there the constant is 7.58 percent, still above a 6.00 cap. Buying on a refinance you cannot underwrite today is a rate bet, not a real estate investment.</li>
+</ul>
+
+<p>What does not make sense is the buyer who ran a one-cell calculator, saw 6 percent, compared it to the neighborhood's 6 percent, and assumed a 25 percent down payment would magnify it. That buyer finds out in the lender's sizing memo, then again every month in the operating account. The same trap sits inside quick screens like the <a href="/blog/1-percent-rule-rental-property-calculator">1 percent rule</a>, which tests rent against price and never once looks at what the money costs.</p>
+
+<h2>Your Cap Rate Calculator Checklist</h2>
+
+<p>Before you trust a cap rate, make the sheet answer these, in this order:</p>
+
+<ol>
+<li><strong>Is the NOI real?</strong> Trailing twelve months, with management and reserves in the expenses. A cap rate on a pro forma NOI is a price for work not done yet.</li>
+<li><strong>What is the loan constant?</strong> <code>=PMT(rate/12,years&#42;12,-1)&#42;12</code> at the rate and amortization on your actual term sheet, not the rate in the headline.</li>
+<li><strong>What is the spread?</strong> Cap rate minus constant. Negative means every dollar of debt lowers your cash yield.</li>
+<li><strong>What will the lender fund?</strong> <code>=MIN(price&#42;LTV,NOI/minDSCR/constant)</code>. Plan your cash around that number, not your preferred LTV.</li>
+<li><strong>What price clears your target?</strong> Band of investment, then NOI divided by the required cap rate.</li>
+<li><strong>How many years until leverage turns positive?</strong> <code>=LN(constant/cap)/LN(1+growth)</code>. If the answer is longer than your hold, say so in the deal memo.</li>
+</ol>
+
+<p>For Maple Court at the ask, the sheet reads: 6.00 percent cap, 8.39 percent constant, -239 basis points, $411,891 of loan instead of $540,000, $308,109 of cash instead of $180,000, 2.80 percent cash-on-cash, break-even price $514,863, and 12.4 years of rent growth before the debt stops hurting. That is a pass at $720,000 and a conversation at $520,000. The one-cell calculator would have called it fair.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> gives you the rest of the deal around these cells. Its deal summary puts cap rate and cash-on-cash return side by side from the same inputs, so a levered return below the cap rate is visible on the first screen. Its mortgage tab compares up to three loan scenarios, which is where you test the 6.50, 6.95 and 7.50 percent rows against each other. Its 10-year projection runs rent growth, expense growth and mortgage paydown year by year, which is the long version of the 12.4-year question above. Add the loan constant and the DSCR-sized loan from this article beside its cap rate and you have the whole test in one workbook.</p>
+
+<p>Divide NOI by price if you want to know what the building earns. Subtract the loan constant if you want to know what you earn.</p>`,
+  },
+  {
     slug: 'real-estate-pro-forma-spreadsheet-excel',
     title: 'Real Estate Pro Forma Spreadsheet in Excel: Price the Column, Don\'t Believe It',
     metaTitle: 'Real Estate Pro Forma Spreadsheet Excel | SheetCraft',
