@@ -16,6 +16,208 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'subcontractor-payment-tracking-spreadsheet',
+    title: 'Subcontractor Payment Tracking Spreadsheet: The 7-Day Clock and the 150% Cap',
+    metaTitle: 'Subcontractor Payment Tracking Spreadsheet | SheetCraft',
+    metaDescription: 'A subcontractor payment tracking spreadsheet should say what you can hold and by when. Hold a whole check over a $11,210 dispute in CA and pay 2% a month.',
+    targetKeyword: 'subcontractor payment tracking spreadsheet',
+    secondaryKeywords: ['subcontractor payment log', 'withholding payment from subcontractor', 'prompt payment penalty calculator', 'subcontractor pay application tracking', 'California 7108.5 prompt payment'],
+    excerpt: 'A framer bills 35% on a roof that is 25% framed, so you hold the whole $104,880 check. In California that costs $3,522.60 in penalties plus exposure to the sub\'s legal fees. The lawful move is to pay $88,065 on day 7 and hold 150% of the dispute. Here is the sheet that computes both.',
+    publishedAt: '2026-09-25',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/subcontractor-payment-tracking-spreadsheet.png',
+    imageAlt: 'Partially framed timber roof trusses at sunset above a plywood deck holding a stack of blank envelopes under a steel rafter square and a red carpenter pencil',
+    content: `<p>A framing sub sends pay application #4 claiming $104,880. Your superintendent walks the roof and says it is 25 percent framed, not the 35 percent the sub billed. So you do what most general contractors do: you park the whole check until the two of you agree. Your subcontractor payment tracking spreadsheet shows the invoice as "on hold", and on-hold feels safe.</p>
+
+<p>In California it is not safe, and the spreadsheet cannot tell you why. The dispute is worth $11,210 after retainage. By holding $104,880 over it for 38 days, you have run up a $3,522.60 statutory penalty, handed the sub a claim for attorney's fees, and given the state a cause for discipline against your license. The sub was wrong about the roof. You still lost.</p>
+
+<p>Most payment logs record what was paid and when. That is a checkbook. A real subcontractor payment log has to answer two questions before the check goes out: what is the most you can lawfully hold, and what is the latest day you can pay it. This article builds the sheet that answers both, using a $412,000 framing subcontract and five subs paid out of one owner payment.</p>
+
+<h2>Two Ways to Lose Money on a Sub Payment</h2>
+
+<p>A GC can get a sub payment wrong in two directions, and they pull against each other.</p>
+
+<ul>
+<li><strong>Pay too fast or too much.</strong> You pay for work that is not in place. If the sub then walks off the job, every dollar you paid ahead of the work is gone, and you still need someone else to finish at a replacement price.</li>
+<li><strong>Pay too slow or hold too much.</strong> You sit on money the law says belongs to the sub. On a California job that costs 2 percent a month plus the other side's legal bill. On a federal job it costs interest under the Prompt Payment Act.</li>
+</ul>
+
+<p>Most offices guard against only one of these, depending on who got burned last. The PM who lost a sub mid-job holds everything. The owner who got a nasty letter from a sub's lawyer pays everything. A tracking sheet that knows both limits turns that from temperament into arithmetic.</p>
+
+<h3>What the law actually says</h3>
+
+<p>California Business and Professions Code section 7108.5 is the clearest version, so it runs the example. Read the whole section once. It has five subsections.</p>
+
+<ol>
+<li>A prime contractor or subcontractor must pay a sub <strong>no later than seven days after receipt of each progress payment</strong>, unless otherwise agreed to in writing.</li>
+<li>In a good faith dispute, you may withhold <strong>no more than 150 percent of the disputed amount</strong>.</li>
+<li>A violation carries a penalty, payable to the sub, of <strong>2 percent of the amount due per month</strong> for every month payment is not made.</li>
+<li>In a collection action, the prevailing party gets attorney's fees and costs.</li>
+<li>It applies to private and public works, except where Public Contract Code section 10262 applies.</li>
+</ol>
+
+<p>Retention has its own clock. Under California Civil Code section 8814, once you receive all or part of a retention payment you have 10 days to pay each sub its share, and you can withhold no more than 150 percent of the estimated value of a disputed amount. Section 8818 sets the same 2 percent monthly penalty for a late retention payment.</p>
+
+<p>On federal work, 31 U.S.C. 3905(b) requires every subcontract to carry a clause obligating the prime to pay within 7 days out of amounts the agency pays it, plus an interest penalty clause at the rate set under section 3902(a).</p>
+
+<p>Other states set their own number of days and their own rate. The sheet below takes both as input cells, so the structure holds wherever you build. Note the phrase "unless otherwise agreed to in writing" in the California statute: your subcontract's payment clause is the first place to look, and the statute is what applies when it says nothing.</p>
+
+<h2>The Pay Application Ledger: Claimed, Approved, Billed</h2>
+
+<p>The mistake starts with a ledger that stores one percent-complete number per line. You need three, because three different people have an opinion about the same line.</p>
+
+<table>
+<thead>
+<tr><th>Line (col A)</th><th>Scheduled value (B)</th><th>Prior % (C)</th><th>Sub claims (D)</th><th>GC approves (E)</th><th>GC billed owner (F)</th></tr>
+</thead>
+<tbody>
+<tr><td>Layout and mobilization</td><td>$12,000</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Floor framing</td><td>$68,000</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Wall framing</td><td>$146,000</td><td>45%</td><td>80%</td><td>80%</td><td>80%</td></tr>
+<tr><td>Roof framing</td><td>$118,000</td><td>0%</td><td>35%</td><td>25%</td><td>35%</td></tr>
+<tr><td>Sheathing and blocking</td><td>$48,000</td><td>0%</td><td>25%</td><td>25%</td><td>25%</td></tr>
+<tr><td>Hardware and hold-downs</td><td>$20,000</td><td>20%</td><td>50%</td><td>50%</td><td>50%</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$412,000</strong></td><td>$149,700</td><td>$260,100</td><td>$248,300</td><td>$260,100</td></tr>
+</tbody>
+</table>
+
+<p>Rows 5 to 10 hold the lines. Three helper columns do the work:</p>
+
+<ul>
+<li><code>=B5&#42;D5</code> in column G is what the sub says it has earned to date.</li>
+<li><code>=B5&#42;E5</code> in column H is what you agree it has earned. This is the number you can defend with photos and a daily log.</li>
+<li><code>=MAX(0,B5&#42;(D5-E5))</code> in column I is the gross disputed amount on that line. Only the roof line is nonzero here, at $11,800.</li>
+</ul>
+
+<p>Column F is the one nobody keeps, and it is the one that hurts. Your own pay application to the owner went in before your superintendent walked the roof, and it passed the sub's 35 percent straight through. The owner paid it. So on the day you tell the sub the roof is only 25 percent done, you are holding the owner's payment for the very 10 percent of roof you refuse to pay for. Flag it on every line:</p>
+
+<p><code>=IF(F5&gt;E5,"HOLDING SUB MONEY","OK")</code></p>
+
+<p>That flag does not decide the dispute, but it tells you how the dispute will look. California's statute measures what you owe the sub as the amounts "allowed the contractor on account of the work performed by the subcontractors". Your own signed pay application saying 35 percent is a bad exhibit to bring to an argument about 25. Fix the owner billing on the next cycle, or accept that you are financing your side of the dispute with money that was released for the sub's work. If you bill the owner off a schedule of values, the <a href="/blog/construction-progress-billing-template-excel">progress billing template</a> article covers how to keep the owner-facing percentages tied to what you have actually verified in the field.</p>
+
+<h2>The Most You Can Lawfully Hold</h2>
+
+<p>With the ledger in place, the payment block sits under it. Retainage is 5 percent in this subcontract (cell B14) and the sub has been paid $142,215 to date (cell B15), which is the prior $149,700 earned less retainage.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Item</th><th>Formula</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B16</td><td>Due as claimed</td><td><code>=SUM(G5:G10)&#42;(1-B14)-B15</code></td><td>$104,880</td></tr>
+<tr><td>B17</td><td>Disputed, net of retainage</td><td><code>=SUM(I5:I10)&#42;(1-B14)</code></td><td>$11,210</td></tr>
+<tr><td>B18</td><td>Maximum lawful withholding</td><td><code>=MIN(B16,1.5&#42;B17)</code></td><td>$16,815</td></tr>
+<tr><td>B19</td><td>Must pay by the deadline</td><td><code>=B16-B18</code></td><td>$88,065</td></tr>
+<tr><td>B20</td><td>Due as approved</td><td><code>=SUM(H5:H10)&#42;(1-B14)-B15</code></td><td>$93,670</td></tr>
+</tbody>
+</table>
+
+<p>B18 is the cell that changes behavior. It says you may hold up to $16,815 against an $11,210 dispute. That is more than the dispute, and it is all you get. The 150 percent gives you a cushion for being partly wrong about the value of the disagreement. It does not give you the check.</p>
+
+<p>B19 is the floor. Whatever else happens, $88,065 leaves your account by the deadline. Between B19 and B20 is your choice: pay $88,065 and keep the full 150 percent cushion, or pay $93,670 and hold exactly the disputed amount. Both are lawful. Holding the entire $104,880 is not.</p>
+
+<h3>Four policies on the same pay application</h3>
+
+<p>Here is what each policy costs. The owner's payment arrives on August 6, 2026, so the 7-day deadline is August 13. The roof dispute settles on September 20, 38 days after the deadline. "Cushion" is the approved value of work in place ($248,300) minus what you have paid the sub to date: the money standing between you and a loss if the sub leaves the job tomorrow.</p>
+
+<table>
+<thead>
+<tr><th>Policy</th><th>Paid by Aug 13</th><th>Penalty exposure</th><th>Cushion if the sub walks</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Hold the whole check until the dispute settles</td><td>$0</td><td>$3,522.60 plus attorney's fees</td><td>$106,085</td></tr>
+<tr><td>B. Pay everything claimed</td><td>$104,880</td><td>$0</td><td>$1,205</td></tr>
+<tr><td>C. Pay the floor, hold 150% of the dispute</td><td>$88,065</td><td>$0</td><td>$18,020</td></tr>
+<tr><td>D. Pay the approved amount</td><td>$93,670</td><td>$0</td><td>$12,415</td></tr>
+</tbody>
+</table>
+
+<p>Policy A's penalty is 2 percent a month on the $88,065 you had no right to hold, for two months, because 38 days late crosses into the second month. The sheet counts any started month as a full month, which is the reading that cannot surprise you: <code>=B19&#42;0.02&#42;ROUNDUP(38/30,0)</code>. That is $3,522.60 before anyone's lawyer sends an invoice, and the fee-shifting sentence means the sub's lawyer is billing on your account from the first letter.</p>
+
+<p>Policy B looks generous and is the dangerous one. After paying everything claimed, you have paid $247,095 against $248,300 of verified work. Your whole cushion is $1,205. If the framer leaves, you owe a replacement crew the remaining $163,700 of work at whatever premium a crew that shows up next week charges. At a 20 percent premium, which is an assumption to replace with your own last experience, that is $32,740 of extra cost against $1,205 of protection. The sub's retainage looks like protection until you notice you have already prepaid most of it on a roof that is not framed.</p>
+
+<p>Policies C and D keep the cushion and cost nothing. C is the right default when you are not sure of your own number. D is right when the daily log and photos make you sure.</p>
+
+<p>Tie the dispute column to your backcharge log as well. A backcharge the sub has not acknowledged is a disputed amount like any other, and the same 150 percent cap applies. The <a href="/blog/subcontractor-backcharge-tracking-spreadsheet-excel">backcharge tracking spreadsheet</a> article shows how to document one so it survives the conversation.</p>
+
+<h2>The Seven-Day Clock Starts When You Get Paid</h2>
+
+<p>The deadline is not measured from the sub's invoice date or from your approval. It runs from the day you receive the owner's payment. That means the payment log needs a date most logs never store: when the owner's money landed.</p>
+
+<p>Build a second tab with one row per sub per owner payment. Put the statutory days in B2 (7 in California, or whatever your subcontract says in writing) and the monthly penalty rate in B3 (2 percent).</p>
+
+<table>
+<thead>
+<tr><th>Col</th><th>Field</th><th>Formula or entry</th><th>What it tells you</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Sub</td><td>entry</td><td>Who is owed</td></tr>
+<tr><td>B</td><td>Owner pay app #</td><td>entry</td><td>Which owner payment funded this</td></tr>
+<tr><td>C</td><td>Owner payment received</td><td>entry (bank date, not check date)</td><td>Starts the clock</td></tr>
+<tr><td>D</td><td>Amount due to sub</td><td>linked from B19 of that sub's ledger</td><td>The floor, not the claim</td></tr>
+<tr><td>E</td><td>Deadline</td><td><code>=C5+$B$2</code></td><td>Last lawful day</td></tr>
+<tr><td>F</td><td>Date paid</td><td>entry</td><td>Blank until the check clears</td></tr>
+<tr><td>G</td><td>Days late</td><td><code>=MAX(0,IF(F5="",TODAY(),F5)-E5)</code></td><td>Keeps counting while unpaid</td></tr>
+<tr><td>H</td><td>Penalty</td><td><code>=D5&#42;$B$3&#42;ROUNDUP(G5/30,0)</code></td><td>Cost of the delay so far</td></tr>
+</tbody>
+</table>
+
+<p>Column G uses <code>TODAY()</code> for unpaid rows on purpose: an unpaid line past its deadline shows a growing number every morning, which is the only kind of warning anyone reads. Add a status column with <code>=IF(F5&lt;&gt;"","PAID",IF(TODAY()&gt;E5,"LATE",IF(E5-TODAY()&lt;=2,"DUE","OPEN")))</code> and sort by it.</p>
+
+<p>If your subcontracts carry pay-when-paid language, the clock and the contract interact, and the gap between receipt and payment is where your cash goes. The <a href="/blog/construction-pay-when-paid-cash-flow-tracker-excel">pay-when-paid cash flow tracker</a> article models that side.</p>
+
+<h2>Your Check Run Is the Violation</h2>
+
+<p>Here is the finding that matters more than any single dispute. Most small and mid-size GCs cut sub checks once a month, on a fixed day, because the bookkeeper works that way. Put that habit into the clock tab.</p>
+
+<p>The owner's payment lands August 6. The office runs sub checks on the 25th. Every sub paid out of that owner payment is paid 12 days after the deadline, which the sheet counts as one month late.</p>
+
+<table>
+<thead>
+<tr><th>Sub</th><th>Due from Aug 6 owner payment</th><th>Paid Aug 25, days late</th><th>Penalty at 2%</th></tr>
+</thead>
+<tbody>
+<tr><td>Framing (floor from B19)</td><td>$88,065.00</td><td>12</td><td>$1,761.30</td></tr>
+<tr><td>Plumbing rough-in</td><td>$38,400.00</td><td>12</td><td>$768.00</td></tr>
+<tr><td>Electrical rough-in</td><td>$44,150.00</td><td>12</td><td>$883.00</td></tr>
+<tr><td>HVAC rough-in</td><td>$31,720.00</td><td>12</td><td>$634.40</td></tr>
+<tr><td>Concrete flatwork</td><td>$21,900.00</td><td>12</td><td>$438.00</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$224,235.00</strong></td><td></td><td><strong>$4,484.70</strong></td></tr>
+</tbody>
+</table>
+
+<p>What did the office gain by holding $224,235 for 19 days? Even at 4.00 percent on a sweep account, $466.90 of interest. The exposure it bought was $4,484.70. If every month runs the same way, that is $53,816.40 a year of penalty exposure to earn $5,602.80 of float. Most subs never send the letter. The one who does sends it after you have fired them, with twelve months of rows attached.</p>
+
+<p>The fix costs nothing. Run sub checks weekly on a fixed weekday. Any owner payment then waits at most seven days for the next run, which fits inside a 7-day clock with no exceptions to manage. Keep the monthly run for suppliers whose terms are net 30.</p>
+
+<h2>What Has to Be True Before a Check Leaves</h2>
+
+<p>The floor and the deadline tell you when and how much. They do not tell you whether the payment is safe to release. Three documents gate every check, and each deserves a column that turns red:</p>
+
+<ol>
+<li><strong>Lien waiver for the prior payment.</strong> A conditional waiver for this payment and an unconditional waiver for the last one. The <a href="/blog/construction-lien-waiver-tracking-excel">lien waiver tracking</a> article covers the matching logic. Section 7108.5 says nothing about waivers, so a waiver hold stands on your subcontract. Check that it makes the waiver a condition of payment before you rely on it to stop the clock.</li>
+<li><strong>Current insurance certificate.</strong> An expired certificate on a sub who is still on site means you cannot prove that sub is insured on your job.</li>
+<li><strong>Sub-tier payment status.</strong> If the framer's lumber yard has sent you a preliminary notice, a joint check may be the safer way to pay. The <a href="/blog/construction-joint-check-tracking-excel">joint check tracking</a> article shows how to split one payment across the sub and its supplier without double paying either.</li>
+</ol>
+
+<p>One formula gathers them: <code>=IF(AND(J5="Y",K5&gt;=TODAY(),L5="Y"),"RELEASE","HOLD: "&amp;IF(J5&lt;&gt;"Y","waiver ","")&amp;IF(K5&lt;TODAY(),"COI ","")&amp;IF(L5&lt;&gt;"Y","sub-tier",""))</code>. It names the missing document, so the PM who sees "HOLD" knows which phone call to make before the deadline in column E arrives.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Stop tracking what you paid and start tracking what you owe, by when, and how much you can hold. Concretely:</p>
+
+<ul>
+<li>Store three percentages per line: claimed, approved, and billed to owner. Flag any line where you billed the owner more than you approved.</li>
+<li>Compute the floor every pay cycle: due as claimed, minus 150 percent of the disputed amount net of retainage. Pay at least that by the deadline, every time.</li>
+<li>Record the date the owner's money landed and run the deadline from it, not from the sub's invoice.</li>
+<li>Move sub checks to a weekly run. At $224,235 a month of sub payables, the monthly habit costs $4,484.70 of exposure per cycle to earn $466.90.</li>
+<li>Gate release on the waiver, the certificate and sub-tier status, and let the sheet name the missing one.</li>
+</ul>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already has the base this sits on. Its payment tracking tab logs every invoice from every sub and supplier and filters by vendor, status and date, so you can see who has been paid, who is pending and what is due this week. Its dashboard shows percentage complete against percentage spent, which is the project-level version of the cushion column in the policy table. Add the three-percentage ledger, the 150 percent floor and the owner-receipt date from this article, and the question "can I hold this check?" gets answered by a cell before anyone asks your lawyer.</p>`,
+  },
+  {
     slug: 'cap-rate-calculator-excel',
     title: 'Cap Rate Calculator in Excel: The Number It Has to Beat Is Your Loan Constant',
     metaTitle: 'Cap Rate Calculator Excel: Check the Debt | SheetCraft',
