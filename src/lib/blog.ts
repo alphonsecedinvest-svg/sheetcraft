@@ -16,6 +16,228 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-loan-interest-calculator-excel',
+    title: 'Construction Loan Interest Calculator Excel: The Months After the Last Draw Cost the Most',
+    metaTitle: 'Construction Loan Interest Calculator Excel | SheetCraft',
+    metaDescription: 'A construction loan interest calculator that stops at the last draw misses half the bill. On a $1.2M spec build, the 4 months after completion cost $33,991.',
+    targetKeyword: 'construction loan interest calculator Excel',
+    secondaryKeywords: ['construction loan interest reserve', 'construction loan carrying costs', 'actual/360 interest calculation', 'interest-only construction loan payment', 'construction loan draw interest'],
+    excerpt: 'The 50 percent shortcut says a $1.2M construction loan at 8 percent costs $36,000 in interest. The real bill is $64,901, because the four months between the last draw and the sale cost $33,991, more than the whole build. Here is the month-by-month roll-forward that sees them, and why one month of schedule is worth four quarter points of rate.',
+    publishedAt: '2026-09-26',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-loan-interest-calculator-excel.png',
+    imageAlt: 'Newly finished white board-and-batten spec house with a black metal roof at dusk, fresh sod and an empty driveway, seen past a wooden deck railing holding a brass hourglass and a lit lantern',
+    content: `<p>You are building a spec house on a $1,200,000 construction loan at 8.00 percent. You open a construction loan interest calculator in Excel, type in the loan amount, the rate and a 9-month build, and it tells you about $36,000. You put $36,000 of interest in the pro forma, the lender funds a $36,000 interest reserve, and everybody signs.</p>
+
+<p>The real bill on that loan is $64,901. The calculator was not wrong about the build. It was too high for the build, in fact. It was wrong about when the loan ends. The loan does not end when the framer leaves or when the last draw funds. It ends when the house closes, and on this deal the four months between the last draw and the sale cost $33,991, which is more than all nine months of construction put together.</p>
+
+<p>This article builds the calculator that sees those four months: a month-by-month roll-forward with the draw curve, the interest reserve, the day count your note actually uses, and a single cell that tells you what one more month of schedule costs. That last number is the one that should decide how you spend your negotiating energy.</p>
+
+<h2>The Number Your Calculator Gives You Is the Wrong Half</h2>
+
+<p>The standard shortcut says a construction loan is drawn gradually, so on average only about half of it is outstanding. Interest is then the loan amount, times the rate, times the build period, times one half:</p>
+
+<p><code>=1200000&#42;0.08&#42;9/12&#42;0.5</code> returns $36,000.</p>
+
+<p>The logic is sound for what it measures. On a normal S-shaped draw curve, the balance is small for the first three months, climbs through framing and rough-ins, and reaches the full amount only at the end. Run the real curve month by month and nine months of construction interest on this loan comes to $30,909.98. The shortcut overshoots that by about $5,090.</p>
+
+<p>Then the build finishes and the shortcut stops counting. The loan does not. After the last draw you are carrying the full balance, plus every dollar of interest the reserve has already paid, through the final inspection, the certificate of occupancy, the listing, the contract and the closing. On a spec house that is easily four months. Each of those months costs more than twice an average construction month, because the balance never gets smaller again until the payoff.</p>
+
+<table>
+<thead>
+<tr><th>What gets counted</th><th>Interest</th><th>Against the full model</th></tr>
+</thead>
+<tbody>
+<tr><td>50% shortcut, 9-month build</td><td>$36,000.00</td><td>$28,901.27 short</td></tr>
+<tr><td>Month by month, build only</td><td>$30,909.98</td><td>$33,991.29 short</td></tr>
+<tr><td>Month by month, build plus 4-month sale window</td><td>$64,901.27</td><td>Full model</td></tr>
+<tr><td>Same, with a 3-month slip (7-month window)</td><td>$90,938.09</td><td>$26,036.82 over</td></tr>
+</tbody>
+</table>
+
+<p>A pro forma built on $36,000 is short by $28,901 before anything goes wrong, and by $54,938 if the schedule slips three months. On a spec house with a 15 percent target margin, that is the difference between a profit and a job you worked a year for free.</p>
+
+<h2>The Loan, the Rate, and What Moved on September 17</h2>
+
+<p>Most construction loans for small builders float over an index. Two indexes matter, and both are published daily by the Federal Reserve system:</p>
+
+<ul>
+<li><strong>Prime.</strong> The Federal Reserve's H.15 data show the bank prime loan rate at 6.75 percent from December 11, 2025, and 7.00 percent since September 17, 2026, when the federal funds target range moved up a quarter point to 3.75 to 4.00 percent.</li>
+<li><strong>SOFR.</strong> The New York Fed published the Secured Overnight Financing Rate at 3.88 percent for September 24, 2026.</li>
+</ul>
+
+<p>This article uses Prime plus 1.00, so 8.00 percent. That margin is a deal parameter, not a benchmark; use the one in your term sheet. If your loan closed in the summer at Prime plus 1.00, you signed at 7.75 percent and you are now paying 8.00 on every day of the remaining term. On this loan that quarter point is worth $2,077.59 over the life of the deal. Keep that number in mind, because it comes back in the lever table below as the smallest lever on the page.</p>
+
+<p>The deal itself:</p>
+
+<table>
+<thead>
+<tr><th>Input (cell)</th><th>Value</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>Loan-funded costs (B3)</td><td>$1,200,000</td><td>Hard and soft costs after your land equity goes in first</td></tr>
+<tr><td>Index, Prime (B4)</td><td>7.00%</td><td>H.15, effective September 17, 2026</td></tr>
+<tr><td>Margin (B5)</td><td>1.00%</td><td>From the term sheet</td></tr>
+<tr><td>Note rate (B6)</td><td>8.00%</td><td><code>=B4+B5</code></td></tr>
+<tr><td>Day basis (B7)</td><td>360</td><td>Read the interest clause of your note</td></tr>
+<tr><td>Loan closing (B8)</td><td>10/1/2026</td><td>First draw funds at the end of October</td></tr>
+<tr><td>Build months (B9)</td><td>9</td><td>Last draw at the end of June 2027</td></tr>
+<tr><td>Sale window months (B10)</td><td>4</td><td>Final inspection, CO, listing, contract, closing</td></tr>
+<tr><td>Interest reserve (B11)</td><td>$36,000</td><td>What the shortcut told you to ask for</td></tr>
+</tbody>
+</table>
+
+<h2>The Month-by-Month Roll-Forward</h2>
+
+<p>The calculator is one row per month, from the loan closing to the payoff. Put the header in row 14 and the first month in row 15, and fill down 13 rows (9 build plus 4 sale window) to row 27.</p>
+
+<ul>
+<li><strong>A15, month:</strong> <code>=EDATE($B$8,ROWS(A$15:A15)-1)</code>. Counts months from the closing date, so changing B8 moves the whole calendar.</li>
+<li><strong>B15, days:</strong> <code>=DAY(EOMONTH(A15,0))</code>. February accrues 28 days of interest, March 31. This is the column most calculators skip.</li>
+<li><strong>C15, draw weight:</strong> typed in from your construction schedule. This example uses 4, 8, 12, 15, 16, 15, 12, 10 and 8 percent, then zeros for the sale window.</li>
+<li><strong>D15, opening balance:</strong> 0 in the first row, then <code>=H14</code> in every row after it.</li>
+<li><strong>E15, draw:</strong> <code>=$B$3&#42;C15</code>. Funded at month end, after the inspection.</li>
+<li><strong>F15, interest:</strong> <code>=ROUND(D15&#42;$B$6&#42;B15/$B$7,2)</code>. The balance times the rate times the real days over the note's year. Rounded to the cent, as the lender's statement is.</li>
+<li><strong>G15, paid from reserve:</strong> <code>=MIN(F15,$B$11-SUM(G$14:G14))</code>. The reserve pays interest until it is empty, and not one dollar after.</li>
+<li><strong>H15, closing balance:</strong> <code>=D15+E15+G15</code>. Reserve-paid interest is itself a draw, so it goes on the balance and starts earning interest the next month.</li>
+<li><strong>I15, out of pocket:</strong> <code>=F15-G15</code>. The interest the lender will debit from your account once the reserve is gone.</li>
+</ul>
+
+<p>Here is the roll-forward with the reserve set high enough never to run out, which is how you find the true cost. Each closing balance is the opening balance plus the draw plus the interest, to the cent:</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Days</th><th>Opening balance</th><th>Draw</th><th>Interest</th><th>Closing balance</th><th>Cumulative interest</th></tr>
+</thead>
+<tbody>
+<tr><td>Oct 2026</td><td>31</td><td>$0.00</td><td>$48,000</td><td>$0.00</td><td>$48,000.00</td><td>$0.00</td></tr>
+<tr><td>Nov 2026</td><td>30</td><td>$48,000.00</td><td>$96,000</td><td>$320.00</td><td>$144,320.00</td><td>$320.00</td></tr>
+<tr><td>Dec 2026</td><td>31</td><td>$144,320.00</td><td>$144,000</td><td>$994.20</td><td>$289,314.20</td><td>$1,314.20</td></tr>
+<tr><td>Jan 2027</td><td>31</td><td>$289,314.20</td><td>$180,000</td><td>$1,993.05</td><td>$471,307.25</td><td>$3,307.25</td></tr>
+<tr><td>Feb 2027</td><td>28</td><td>$471,307.25</td><td>$192,000</td><td>$2,932.58</td><td>$666,239.83</td><td>$6,239.83</td></tr>
+<tr><td>Mar 2027</td><td>31</td><td>$666,239.83</td><td>$180,000</td><td>$4,589.65</td><td>$850,829.48</td><td>$10,829.48</td></tr>
+<tr><td>Apr 2027</td><td>30</td><td>$850,829.48</td><td>$144,000</td><td>$5,672.20</td><td>$1,000,501.68</td><td>$16,501.68</td></tr>
+<tr><td>May 2027</td><td>31</td><td>$1,000,501.68</td><td>$120,000</td><td>$6,892.34</td><td>$1,127,394.02</td><td>$23,394.02</td></tr>
+<tr><td>Jun 2027</td><td>30</td><td>$1,127,394.02</td><td>$96,000</td><td>$7,515.96</td><td>$1,230,909.98</td><td>$30,909.98</td></tr>
+<tr><td>Jul 2027</td><td>31</td><td>$1,230,909.98</td><td>$0</td><td>$8,479.60</td><td>$1,239,389.58</td><td>$39,389.58</td></tr>
+<tr><td>Aug 2027</td><td>31</td><td>$1,239,389.58</td><td>$0</td><td>$8,538.02</td><td>$1,247,927.60</td><td>$47,927.60</td></tr>
+<tr><td>Sep 2027</td><td>30</td><td>$1,247,927.60</td><td>$0</td><td>$8,319.52</td><td>$1,256,247.12</td><td>$56,247.12</td></tr>
+<tr><td>Oct 2027</td><td>31</td><td>$1,256,247.12</td><td>$0</td><td>$8,654.15</td><td>$1,264,901.27</td><td>$64,901.27</td></tr>
+</tbody>
+</table>
+
+<p>Three things this table shows that a one-line calculator cannot. The first month costs nothing because the first draw funds at month end. The payoff at closing is $1,264,901.27, not $1,200,000, so your net sale proceeds need to cover the capitalized interest too. And the line between June and July is where the cost structure changes: before it, every month adds a draw; after it, every month adds only interest on the largest balance the loan will ever carry.</p>
+
+<p>If your lender funds draws mid-month or on the day of the request, move the draw into the opening balance of its own month and the build-period interest goes up. The sale window does not change at all, which is the point of the next section.</p>
+
+<h2>The Four Months After the Last Draw</h2>
+
+<p>Split the cumulative column at the last draw:</p>
+
+<ul>
+<li><strong>Build period, October to June:</strong> <code>=SUM(F15:F23)</code> returns $30,909.98, an average of $3,434.44 a month.</li>
+<li><strong>Sale window, July to October:</strong> <code>=SUM(F24:F27)</code> returns $33,991.29, between $8,319.52 and $8,654.15 a month.</li>
+</ul>
+
+<p>Four months after the work stops cost more than nine months of work. That is not a quirk of this example. Any loan that is drawn on a curve and repaid from a sale has most of its balance-months at the end, because that is when the balance is full. The build period is where you have the most things to track, and the sale window is where you have the most money at stake per day.</p>
+
+<p>The sale window is also the part of the schedule most likely to stretch. A failed final inspection, a utility that is late to set a meter, a punch list that drags because the trades have moved to their next job, a buyer whose financing slips two weeks. None of these show up on the construction schedule, and each of them is billed at the full-balance rate. The <a href="/blog/construction-punch-list-template-excel">punch list template</a> and the <a href="/blog/construction-closeout-checklist-final-mile-nobody-plans-for">closeout checklist</a> are, in dollar terms, interest-control tools.</p>
+
+<p>Put one cell next to the table that prices the next month:</p>
+
+<p><code>=ROUND(H27&#42;$B$6&#42;30/$B$7,2)</code> returns $8,432.68.</p>
+
+<p>That is what one more 30-day month costs at the payoff balance. Print it on the weekly site report. A superintendent who knows that the final inspection slipping by a month costs $8,432.68 makes different phone calls than one who knows the loan rate is 8 percent.</p>
+
+<h2>The Interest Reserve Runs Dry the Month the House Is Finished</h2>
+
+<p>Now set B11 back to the $36,000 the shortcut suggested and watch column G. The reserve covers every construction month, because construction interest was only $30,909.98. Then, in July, the first month after the last draw, it has $5,090.02 left against a bill of $8,479.60.</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Interest due</th><th>Paid from reserve</th><th>Paid from your account</th></tr>
+</thead>
+<tbody>
+<tr><td>Jul 2027</td><td>$8,479.60</td><td>$5,090.02</td><td>$3,389.58</td></tr>
+<tr><td>Aug 2027</td><td>$8,514.67</td><td>$0.00</td><td>$8,514.67</td></tr>
+<tr><td>Sep 2027</td><td>$8,240.00</td><td>$0.00</td><td>$8,240.00</td></tr>
+<tr><td>Oct 2027</td><td>$8,514.67</td><td>$0.00</td><td>$8,514.67</td></tr>
+<tr><td><strong>Sale window total</strong></td><td><strong>$33,748.94</strong></td><td><strong>$5,090.02</strong></td><td><strong>$28,658.92</strong></td></tr>
+</tbody>
+</table>
+
+<p>Once the reserve is empty, the balance stops growing at $1,236,000 and the interest is billed to you instead, so August through October cost slightly less than in the fully reserved table. That small saving is not the point. The point is when the bill arrives: $28,658.92 in cash, in the four months when the house is finished, unsold, and producing nothing. That is exactly when a small builder's cash is lowest, because the retainage has not been released and the next project's deposit has not come in. If the schedule slips three months, the cash out of pocket becomes $53,928.26.</p>
+
+<p>Add the two cells that catch this before closing:</p>
+
+<ul>
+<li><strong>First month the reserve runs short:</strong> <code>=IFERROR(INDEX(A15:A27,MATCH(TRUE,INDEX(I15:I27&gt;0,0),0)),"Reserve holds")</code>. Here it returns July 2027.</li>
+<li><strong>Cash you need on hand for interest:</strong> <code>=SUM(I15:I27)</code>. Here $28,658.92.</li>
+</ul>
+
+<p>If the lender will size the reserve at the full $64,901.27, ask for it; the loan grows and the cash need falls to zero on schedule. If the lender caps the reserve, you now know the amount and the month, which is what you need to line up a credit line or hold back cash. The <a href="/blog/construction-draw-schedule-template">draw schedule article</a> shows the same logic from the other side: when money leaves your pocket matters as much as how much leaves it.</p>
+
+<h3>Do not let the reserve create a circular reference</h3>
+
+<p>The tempting shortcut is to set B11 to <code>=SUM(F15:F27)</code> so the reserve always equals the interest. Column F depends on column D, D on H, H on G, and G on B11. Excel will warn about a circular reference, and if you switch on iterative calculation to silence it, the sheet will converge to some number without telling you whether the inputs made sense. Keep B11 a typed value. To size it, type a large number such as 999,999, read the total of column F, then type that total into B11. The sheet stays a straight line from inputs to outputs, which is the only kind a lender can audit.</p>
+
+<h2>Five Conventions That Move the Bill</h2>
+
+<p>Two calculators with the same loan, rate and schedule can disagree by thousands because they make different assumptions about how interest accrues. Here is the same deal, build plus 4-month sale window, under five conventions:</p>
+
+<table>
+<thead>
+<tr><th>Convention</th><th>Total interest</th><th>Against the note's likely terms</th></tr>
+</thead>
+<tbody>
+<tr><td>30/360, interest paid monthly in cash</td><td>$62,240.00</td><td>$2,661.27 low</td></tr>
+<tr><td>Actual/360, interest paid monthly in cash</td><td>$63,293.35</td><td>$1,607.92 low</td></tr>
+<tr><td>30/360, interest capitalized from reserve</td><td>$63,797.39</td><td>$1,103.88 low</td></tr>
+<tr><td>Actual/365, interest capitalized from reserve</td><td>$63,990.16</td><td>$911.11 low</td></tr>
+<tr><td>Actual/360, interest capitalized from reserve</td><td>$64,901.27</td><td>Model in this article</td></tr>
+</tbody>
+</table>
+
+<p>Actual/360 means you pay the stated rate on every real day but divide by a 360-day year, so the effective annual rate is 8.00 percent times 365 over 360, or 8.11 percent. Many commercial construction notes accrue this way, so read the interest clause of yours and put its basis in B7. Capitalization means reserve-paid interest is added to the balance and earns interest itself. Neither effect is large alone. Together they are $2,661.27, larger than the quarter-point hike in September.</p>
+
+<h2>Rate Shopping Versus Schedule: What a Month Is Worth</h2>
+
+<p>Builders spend weeks shopping lenders for a lower margin. Here is what each lever is worth on this loan, all measured against the $64,901.27 base case:</p>
+
+<table>
+<thead>
+<tr><th>Lever</th><th>Total interest</th><th>Change</th></tr>
+</thead>
+<tbody>
+<tr><td>Margin down a quarter point (7.75%)</td><td>$62,823.68</td><td>$2,077.59 saved</td></tr>
+<tr><td>Sale window 3 months instead of 4</td><td>$56,247.12</td><td>$8,654.15 saved</td></tr>
+<tr><td>Sale window 5 months instead of 4</td><td>$73,333.95</td><td>$8,432.68 added</td></tr>
+<tr><td>Sale window 7 months (3-month slip)</td><td>$90,938.09</td><td>$26,036.82 added</td></tr>
+</tbody>
+</table>
+
+<p>One month of schedule is worth about four quarter points of rate. Put differently, to add as much interest as one extra month in the sale window, the rate on the entire loan would have to rise from 8.00 percent to about 9.01 percent. You can test it in the sheet: set B10 to 5 and read the total, then set B10 back to 4 and raise B6 until the total matches.</p>
+
+<p>That changes where the effort goes. A builder who saves a quarter point and then waits five weeks for a final inspection has lost money on the trade. A builder who pays Prime plus 1.25 to a lender that funds draws in three days and has an extension option priced into the note may come out ahead. Rate shopping is still worth doing. It just belongs after the questions that control the calendar: how fast do draws fund, what does the extension cost, and what does the lender require before releasing the last draw.</p>
+
+<p>The sale window also carries costs outside the loan: <a href="/blog/builders-risk-insurance-cost-calculator-vacant-property-excel">builder's risk or vacant property insurance</a>, utilities, taxes, lawn care, staging. Add them to the same monthly cell and the price of one month of delay goes up again. The <a href="/blog/new-construction-home-builder-pro-forma">home builder pro forma</a> is where that full carry number belongs, and the <a href="/blog/construction-cash-flow-forecast-excel">construction cash flow forecast</a> is where it meets the rest of your cash.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Stop pricing construction loan interest as a percentage of the loan over the build period. Price it month by month, to the payoff, and treat the months after the last draw as the expensive ones. Concretely:</p>
+
+<ul>
+<li>Build the 13-row roll-forward with real day counts, the day basis from your note, and the draw curve from your schedule.</li>
+<li>Extend it through a realistic sale or refinance window. Four months for a spec house is a floor, not a cushion.</li>
+<li>Size the interest reserve from the roll-forward total, not from the 50 percent shortcut. If the lender will not fund it, write down the dollar amount and the month you will pay out of pocket.</li>
+<li>Put the cost of one more month next to the table and on the weekly site report.</li>
+<li>Negotiate draw speed and the extension terms before you negotiate the margin.</li>
+</ul>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> holds the other half of this model. Its cash flow projection based on your payment schedule gives you the monthly draw weights for column C, its contingency tracking shows how much room is left when the sale window stretches, and its print-ready summary sheets are what you hand the lender when you ask for a reserve sized to the real payoff instead of the shortcut. Add the roll-forward from this article beside it, and the interest line in your budget stops being a guess made on the day you signed the loan.</p>`,
+  },
+  {
     slug: 'subcontractor-payment-tracking-spreadsheet',
     title: 'Subcontractor Payment Tracking Spreadsheet: The 7-Day Clock and the 150% Cap',
     metaTitle: 'Subcontractor Payment Tracking Spreadsheet | SheetCraft',
