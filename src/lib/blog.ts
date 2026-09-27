@@ -16,6 +16,196 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-profit-calculator-excel',
+    title: 'House Flip Profit Calculator Excel: A $125,000 Spread That Nets $13,447',
+    metaTitle: 'House Flip Profit Calculator Excel | SheetCraft',
+    metaDescription: 'A house flip profit calculator that stops at the spread lies. This $125,000 spread nets $13,447, and a 4.3% ARV miss erases it. Build the real waterfall.',
+    targetKeyword: 'house flip profit calculator Excel',
+    secondaryKeywords: ['fix and flip net profit', 'flip ARV margin of safety', 'maximum purchase price flip formula', '70 percent rule flip', 'flip selling costs'],
+    excerpt: 'The $66,000 typical flipping profit everyone quotes is a gross number that excludes rehab and every other cost. Here is one deal with a $125,000 spread and a 49.9 percent annualized return on cash that nets $13,447, plus the three cells that tell you whether to buy: ARV cushion, months to zero, and the maximum price for your target profit.',
+    publishedAt: '2026-09-27',
+    readTime: 12,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-profit-calculator-excel.png',
+    imageAlt: 'Freshly renovated gray ranch house with white trim and new mulch beds, a blank yard sign post, work boots and a tape measure on the front steps, and stacked flooring boxes by the porch',
+    content: `<p>ATTOM's latest home flipping report puts the typical gross flipping profit at $66,000, a 25.4 percent return. That number gets quoted in every podcast and pitch deck, and it is the number most people have in their head when they open a house flip profit calculator in Excel. It is not profit. ATTOM says so in the same paragraph: gross profit is "the difference between the purchase price and the flipped price (not including rehab costs and other expenses incurred, which flipping veterans estimate typically run between 20 percent and 33 percent of the property's after-repair value)."</p>
+
+<p>Do that arithmetic on a house that resells around $325,000, roughly what a $66,000 spread at 25.4 percent implies. Twenty to thirty-three percent of $325,000 is $65,000 to $107,000. The headline spread and the costs it leaves out are the same size. The typical flip, measured honestly, is somewhere between breakeven and a loss before anybody pays tax.</p>
+
+<p>This article builds the calculator that measures it honestly. It takes one real-looking deal from the spread everybody quotes down to the net profit you actually deposit, then adds the three numbers that should decide whether you buy: how far the ARV can miss before you lose money, how many months of delay you can survive, and the maximum price that still pays you for the risk.</p>
+
+<h2>The Spread Is Not the Profit, and the Gap Is Most of the Deal</h2>
+
+<p>Here is the deal we will run through the whole article. It is an ordinary suburban flip, not a cherry-picked disaster.</p>
+
+<table>
+<thead><tr><th>Input</th><th>Cell</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Purchase price</td><td>B3</td><td>$215,000</td></tr>
+<tr><td>After-repair value (ARV)</td><td>B4</td><td>$340,000</td></tr>
+<tr><td>Rehab budget</td><td>B5</td><td>$52,000</td></tr>
+<tr><td>Contingency, % of rehab</td><td>B6</td><td>10%</td></tr>
+<tr><td>Buy-side closing costs, % of price</td><td>B7</td><td>2%</td></tr>
+<tr><td>Hard money: share of purchase funded</td><td>B8</td><td>90% (plus 100% of rehab)</td></tr>
+<tr><td>Points</td><td>B9</td><td>2%</td></tr>
+<tr><td>Interest rate, interest-only</td><td>B10</td><td>11%</td></tr>
+<tr><td>Months from purchase to sale closing</td><td>B11</td><td>6</td></tr>
+<tr><td>Holding costs per month (taxes, vacant insurance, utilities, lawn)</td><td>B12</td><td>$740</td></tr>
+<tr><td>Listing and buyer agent commission</td><td>B13</td><td>5.5%</td></tr>
+<tr><td>Seller closing costs and transfer tax</td><td>B14</td><td>1.5%</td></tr>
+<tr><td>Seller concessions to the buyer</td><td>B15</td><td>1%</td></tr>
+<tr><td>Federal tax bracket</td><td>B16</td><td>24%</td></tr>
+</tbody>
+</table>
+
+<p>Six months is not pessimistic. ATTOM measured the typical flip at 165 days from purchase to resale in the same quarter, and that count starts at closing, not at the day you signed the contract.</p>
+
+<p>The spread on this deal is <code>=B4-B3</code>, which returns $125,000. Divided by the purchase price, that is a 58 percent gross return, more than double ATTOM's national number. On a spread basis this is an excellent deal. Keep that in mind while we take it apart.</p>
+
+<h2>Build the Waterfall From Spread to Net Profit</h2>
+
+<p>A house flip profit calculator should read like a bank statement: one starting number, then every deduction on its own row, so you can see which line ate the deal. Put the calculations under the inputs.</p>
+
+<table>
+<thead><tr><th>Row</th><th>Formula</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>B19 Gross spread</td><td><code>=B4-B3</code></td><td>$125,000.00</td></tr>
+<tr><td>Rehab budget</td><td><code>=B5</code></td><td>-$52,000.00</td></tr>
+<tr><td>B20 Contingency</td><td><code>=ROUND(B5&#42;B6,2)</code></td><td>-$5,200.00</td></tr>
+<tr><td>B21 Buy-side closing</td><td><code>=ROUND(B3&#42;B7,2)</code></td><td>-$4,300.00</td></tr>
+<tr><td>B22 Loan amount</td><td><code>=B3&#42;B8+B5</code></td><td>$245,500.00</td></tr>
+<tr><td>B23 Points</td><td><code>=ROUND(B22&#42;B9,2)</code></td><td>-$4,910.00</td></tr>
+<tr><td>B24 Interest per month</td><td><code>=ROUND(B22&#42;B10/12,2)</code></td><td>$2,250.42</td></tr>
+<tr><td>B25 Interest to sale</td><td><code>=B24&#42;B11</code></td><td>-$13,502.52</td></tr>
+<tr><td>B26 Holding costs</td><td><code>=B12&#42;B11</code></td><td>-$4,440.00</td></tr>
+<tr><td>B27 Selling costs</td><td><code>=ROUND(B4&#42;(B13+B14+B15),2)</code></td><td>-$27,200.00</td></tr>
+<tr><td>B28 Net profit before tax</td><td><code>=B19-B5-B20-B21-B23-B25-B26-B27</code></td><td>$13,447.48</td></tr>
+</tbody>
+</table>
+
+<p>A $125,000 spread became $13,447.48. The deductions total $111,552.52, which is 32.8 percent of the ARV, right at the top of ATTOM's own 20 to 33 percent range. Nothing exotic happened. No foundation surprise, no failed inspection, no price cut. This is the deal going to plan.</p>
+
+<p>Look at which rows did the damage. The rehab is the one everybody models. The selling costs, at $27,200, are more than half the rehab budget, and they are the row a purchase-plus-rehab calculator never sees. Financing, points plus interest, is another $18,412.52. If your calculator stops at purchase plus rehab, it overstates this deal by more than $45,000.</p>
+
+<p>Two modeling choices matter here, so make them explicit. First, this example charges interest on the full $245,500 from day one. Some hard money lenders do exactly that, even though the rehab money is released in draws. If your note charges only on funds actually drawn, the interest row drops, and you should model that from the note, not from memory. Second, the contingency is treated as spent. If you finish without touching it, that $5,200 comes back as profit. Budgeting it as spent is the honest default, because the version of you that underwrites deals assuming the contingency survives is the version that gets surprised.</p>
+
+<h3>Tax is a cost too</h3>
+
+<p>A flip held one year or less produces a short-term gain, and the IRS taxes net short-term capital gains "as ordinary income at graduated tax rates." At a 24 percent federal bracket, <code>=B28&#42;(1-B16)</code> leaves $10,220.08. State income tax comes off that too. And if you flip often enough that the IRS treats the houses as inventory, self-employment tax can join it. That question has its own calculator in our <a href="/blog/house-flipping-dealer-status-tax-calculator-excel">dealer status tax analysis</a>, and it is worth running before your third flip of the year, not after.</p>
+
+<h2>Why the Return on Cash Lies in the Other Direction</h2>
+
+<p>Here is where a flip spreadsheet gets dangerous. Once you have net profit, the natural next move is to divide it by the cash you put in. On this deal the cash is the 10 percent down payment plus everything the lender does not fund:</p>
+
+<p>In B29, <code>=B3&#42;(1-B8)+B21+B23+B25+B26+B20</code> returns $53,852.52.</p>
+
+<p>That is $21,500 down, $4,300 of closing, $4,910 of points, $13,502.52 of interest paid monthly, $4,440 of holding costs and the $5,200 contingency. Net profit over that cash is 25 percent in six months. Annualize it with <code>=B28/B29&#42;12/B11</code> and the sheet prints 49.9 percent.</p>
+
+<p>Forty-nine point nine percent a year looks like a reason to do this deal ten more times. It is a leverage effect, not a margin. The profit is 4 percent of the ARV (<code>=B28/B4</code> returns 3.96 percent), and the lender's money is doing the multiplying. Leverage multiplies losses by exactly the same factor, and the next section shows how little it takes.</p>
+
+<p>If you compare exits, compare them on profit per month and cash at risk, the frame we used in the <a href="/blog/flip-vs-wholesale-profit-comparison-excel">flip vs wholesale comparison</a>. Never compare them on annualized return on cash alone. That ratio rewards the thinnest, most leveraged deals on your list.</p>
+
+<h2>The ARV Cushion: How Far Can the Appraisal Miss?</h2>
+
+<p>Every dollar the sale price misses comes straight out of profit, minus the commission and closing costs you no longer pay on that dollar. With 8 percent of selling costs, a $1 miss costs $0.92. So the ARV at which profit hits zero is:</p>
+
+<p>In B32, <code>=B4-B28/(1-B13-B14-B15)</code> returns $325,383.17.</p>
+
+<p>Then express it as a cushion, the share of the ARV you can lose before losing money:</p>
+
+<p>In B33, <code>=1-B32/B4</code> returns 4.3 percent.</p>
+
+<p>This is the single most important cell on the sheet. The deal survives an ARV miss of $14,616.83. One comp that was a little better renovated than yours, one buyer who asks for a roof credit, one month where rates tick up and the buyer pool thins, and it is gone. If you want to know how much a comp can move your ARV, the <a href="/blog/arv-comps-spreadsheet-excel">ARV comps spreadsheet</a> shows the adjustment math, and it usually produces a range wider than 4 percent.</p>
+
+<p>Put a flag next to the cushion so nobody on your team can miss it:</p>
+
+<p><code>=IF(B33&lt;0.1,"THIN: an ARV miss of "&amp;TEXT(B4-B32,"$#,##0")&amp;" wipes the profit","OK")</code></p>
+
+<p>The 10 percent threshold is a judgment call, not a rule from anywhere. Treat it as a placeholder and replace it with your own track record: take your last five flips, compare the ARV you underwrote to the price you actually closed at, and use the worst miss.</p>
+
+<h2>Time Is the Second Cushion, and It Is Shorter Than You Think</h2>
+
+<p>Each extra month costs interest plus holding. In B34, <code>=B24+B12</code> returns $2,990.42. Divide profit by that burn and you get the number of months of slip the deal can absorb:</p>
+
+<p>In B35, <code>=B28/B34</code> returns 4.5 months.</p>
+
+<p>Four and a half months sounds like room. It is not, because delays do not arrive alone. The permit that takes six weeks longer also pushes the listing into a slower season, which is when the ARV cushion gets spent at the same time. Run the scenarios together, not one at a time:</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Net profit before tax</th><th>Change vs plan</th><th>Annualized return on cash</th></tr></thead>
+<tbody>
+<tr><td>Plan: 6 months, $340,000 sale</td><td>$13,447.48</td><td>$0.00</td><td>49.9%</td></tr>
+<tr><td>Rehab runs 20% over ($5,200 past the contingency)</td><td>$8,247.48</td><td>-$5,200.00</td><td>27.9%</td></tr>
+<tr><td>Two months late</td><td>$7,466.64</td><td>-$5,980.84</td><td>18.7%</td></tr>
+<tr><td>Four months late</td><td>$1,485.80</td><td>-$11,961.68</td><td>2.7%</td></tr>
+<tr><td>Sells 5% under ARV ($323,000)</td><td>-$2,192.52</td><td>-$15,640.00</td><td>-8.1%</td></tr>
+<tr><td>Sells 5% under ARV and two months late</td><td>-$8,173.36</td><td>-$21,620.84</td><td>-20.5%</td></tr>
+<tr><td>Sells 10% under ARV ($306,000)</td><td>-$17,832.52</td><td>-$31,280.00</td><td>-66.2%</td></tr>
+</tbody>
+</table>
+
+<p>Read the column on the right from top to bottom. The same deal that "returns 49.9 percent" returns minus 20.5 percent after the most ordinary combination of bad news a flipper sees: a slightly soft sale and a two-month slip. A 5 percent ARV miss does more damage than a 20 percent rehab overrun. That is why the rehab budget, which is the thing every flip calculator makes you type line by line, is not where this deal lives or dies.</p>
+
+<p>If the months are the part you cannot see, a <a href="/blog/fix-flip-project-timeline-spreadsheet">fix and flip project timeline</a> turns the "6" in B11 into a dated schedule with permit and inspection lead times, which is where two months of slip usually hide.</p>
+
+<h2>Work Backward to the Price That Pays You</h2>
+
+<p>The honest question is not "what does this deal make at $215,000?" It is "what is the most I can pay and still make the profit I need?" Decide the profit first, then solve for the price.</p>
+
+<p>Say you want 10 percent of ARV, $34,000, in B38. Every cost that scales with the purchase price (closing, the 90 percent loan's points and interest) goes in the denominator; everything else comes off the top:</p>
+
+<p><code>=(B4&#42;(1-B13-B14-B15)-B5-B20-B12&#42;B11-B5&#42;B9-B5&#42;B10/12&#42;B11-B38)/(1+B7+B8&#42;B9+B8&#42;B10/12&#42;B11)</code></p>
+
+<p>It returns $196,101.15. Now compare it with the rule of thumb most people use instead, the 70 percent rule, <code>=0.7&#42;B4-B5</code>:</p>
+
+<table>
+<thead><tr><th>Method</th><th>Maximum purchase price</th><th>Profit at that price</th></tr></thead>
+<tbody>
+<tr><td>Price you were about to pay</td><td>$215,000.00</td><td>$13,447.48</td></tr>
+<tr><td>Solve for $30,000 target profit</td><td>$199,779.31</td><td>$30,000.00</td></tr>
+<tr><td>Solve for $34,000 target (10% of ARV)</td><td>$196,101.15</td><td>$34,000.00</td></tr>
+<tr><td>70 percent rule</td><td>$186,000.00</td><td>above $34,000</td></tr>
+<tr><td>Price at which profit is zero</td><td>$227,365.52</td><td>$0.00</td></tr>
+</tbody>
+</table>
+
+<p>Two things come out of this table. The 70 percent rule is conservative on this deal by about $10,000, which is fine: it is a screening rule, and a screening rule should say no too often. The real problem is the $215,000 offer. It sits $18,899 above the price that pays you 10 percent, and only $12,366 below the price that pays you nothing. The deal was never a 58 percent deal. It was a $10,000 to $13,500 deal with a thin cushion, and the spreadsheet only showed that because every cost had its own row.</p>
+
+<p>If you are bidding against other investors, this formula is your walk-away number. Type it in before you are standing at the courthouse steps or on the phone with a wholesaler, not after. The same logic, with auction-specific costs like a nonrefundable deposit and no inspection, drives the <a href="/blog/real-estate-auction-max-bid-calculator-excel">auction max bid calculator</a>.</p>
+
+<h2>What Your House Flip Profit Calculator Must Show on One Screen</h2>
+
+<p>Most flip calculators give you one number at the bottom. Yours should give you six, side by side, because they disagree with each other and the disagreement is the information.</p>
+
+<ul>
+<li><strong>Net profit before and after tax.</strong> $13,447.48 and $10,220.08. Never the spread.</li>
+<li><strong>Net margin on ARV.</strong> 3.96 percent. This is the number that tells you how much can go wrong.</li>
+<li><strong>ARV cushion in dollars and percent.</strong> $14,616.83, 4.3 percent, with the THIN flag next to it.</li>
+<li><strong>Months of slip to zero.</strong> 4.5 at $2,990.42 a month.</li>
+<li><strong>Cash at risk.</strong> $53,852.52, the amount you personally lose first if the deal goes wrong.</li>
+<li><strong>Maximum price for your target profit.</strong> $196,101.15, next to the price you are about to offer.</li>
+</ul>
+
+<p>Before you trust the sheet, check it the same way you would check a contractor's invoice:</p>
+
+<ul>
+<li>Selling costs are a percentage of ARV on their own row, including concessions. Ask your agent what buyers in that zip code have been getting in credits.</li>
+<li>Interest follows your actual note: full commitment or drawn balance, and whether the points are on the full loan.</li>
+<li>Months run to the sale closing, not to the end of construction. Holding costs keep running while the listing sits.</li>
+<li>Contingency is treated as spent.</li>
+<li>The ARV came from three closed comps, not from the listing you hope to match.</li>
+<li>Monthly holding costs include vacant-property insurance at the rate you were actually quoted, which is higher than an occupied policy. The <a href="/blog/house-flipping-holding-costs-calculator">holding costs calculator</a> has the line items.</li>
+</ul>
+
+<h2>The Recommendation</h2>
+
+<p>Stop measuring flips by the spread. The $66,000 national figure is a gross number by its own definition, and the deal in this article shows what that does to your judgment: a $125,000 spread, a 58 percent gross return, a 49.9 percent annualized return on cash, and underneath all three a $13,447 profit that disappears if the house sells 4.3 percent below plan.</p>
+
+<p>Build the waterfall, put the ARV cushion and months-to-zero next to the profit, and set your offer from the backward-solved price instead of the other way around. On this deal that means offering around $196,000 or walking. That is not being timid. It is the difference between buying a margin and buying a coin flip that happens to look like a great return on cash.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> already carries the rows this model depends on: acquisition modeling with hard money points and short-term rates, a line-item rehab budget, and a holding cost calculator for loan payments, insurance, utilities and taxes during the rehab. Its side-by-side comparison of up to three properties is where the scenario rows above belong: plan, late, and late with a soft sale, next to each other before you make the offer. Add the selling cost row and the cushion cells from this article on top, and the number you underwrite will be the one you actually deposit.</p>`,
+  },
+  {
     slug: 'construction-loan-interest-calculator-excel',
     title: 'Construction Loan Interest Calculator Excel: The Months After the Last Draw Cost the Most',
     metaTitle: 'Construction Loan Interest Calculator Excel | SheetCraft',
