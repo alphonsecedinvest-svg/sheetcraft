@@ -16,6 +16,185 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'contractor-estimate-template-excel-free',
+    title: 'Contractor Estimate Template Excel Free: The Payment Schedule Most Templates Skip',
+    metaTitle: 'Contractor Estimate Template Excel Free | SheetCraft',
+    metaDescription: 'A contractor estimate template Excel free download ends in a 50% deposit line that is illegal in California. Build the progress payment schedule instead.',
+    targetKeyword: 'contractor estimate template Excel free',
+    secondaryKeywords: ['free construction estimate template', 'contractor payment schedule', 'California home improvement down payment limit', 'progress payment schedule', 'construction estimate Excel'],
+    excerpt: 'Free estimate templates end with a typed deposit percentage. On a $64,688 California kitchen that line is either $31,344 over the legal cap or, written legally, ties up $50,750 of your cash. Two columns and one SUMIFS cut it to $28,150.',
+    publishedAt: '2026-09-28',
+    readTime: 11,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-estimate-template-excel-free.png',
+    imageAlt: 'Kitchen remodel in progress with open wall studs, copper plumbing rough-in, boxed cabinets leaning on the wall and a tool belt on sawhorses',
+    content: `<p>Download any contractor estimate template Excel free offers and you get the same thing: a header with your logo, a list of line items, a markup cell, a total, and one line near the bottom that says something like "50% deposit due at signing, balance due on completion." The math on the line items is usually fine. That last line is the problem. It is the only part of the estimate that decides how much of your own cash the job eats, and on a California home improvement job it is also a misdemeanor.</p>
+
+<p>California Business and Professions Code section 7159.5 caps the down payment on a home improvement contract at $1,000 or 10 percent of the contract amount, whichever is less. It also says that apart from that down payment, you may "neither request nor accept payment that exceeds the value of the work performed or material delivered." Violating either rule is punishable by a fine of $100 to $5,000, up to a year in county jail, or both, and it is cause for license discipline.</p>
+
+<p>So on a California remodel the free template's deposit line is illegal, and the legal replacement most contractors reach for, a small deposit plus "balance on completion," quietly turns them into the homeowner's lender. This article builds the part of a construction estimate that free templates skip: the progress payment schedule, generated from the same cost lines as the price, with the cash exposure calculated before you sign.</p>
+
+<h2>One Kitchen, Priced the Way Every Template Prices It</h2>
+
+<p>Here is the job we will run through the whole article: an eight-week kitchen remodel in California. The costs below are what the contractor pays out, in the week they go out the door. The cabinets are special order and the supplier wants payment when the order is placed, which is normal for semi-custom lines.</p>
+
+<table>
+<thead><tr><th>Week</th><th>Cost lines paid that week</th><th>Cash out</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Demo labor $2,400, dumpster $650, cabinets ordered and paid $14,200</td><td>$17,250</td></tr>
+<tr><td>2</td><td>Rough plumbing sub $3,200, rough electrical sub $3,600, framing labor $1,800</td><td>$8,600</td></tr>
+<tr><td>3</td><td>Drywall and patch labor $2,400, drywall materials $900</td><td>$3,300</td></tr>
+<tr><td>4</td><td>Flooring material $3,100, flooring labor $2,400</td><td>$5,500</td></tr>
+<tr><td>5</td><td>Cabinet install labor $2,800, countertop fabricator deposit $2,900 (cabinets delivered this week)</td><td>$5,700</td></tr>
+<tr><td>6</td><td>Countertop balance $2,900, tile $1,100, tile labor $1,600</td><td>$5,600</td></tr>
+<tr><td>7</td><td>Finish plumbing $1,400, finish electrical $1,200, appliance install labor $800</td><td>$3,400</td></tr>
+<tr><td>8</td><td>Paint labor $1,500, punch list labor $900</td><td>$2,400</td></tr>
+<tr><td></td><td>Total direct cost</td><td>$51,750</td></tr>
+</tbody>
+</table>
+
+<p>Priced with a 25 percent markup, the contract amount is <code>=ROUND(51750&#42;(1+0.25),0)</code>, or $64,688. Gross profit is $12,938, a 20.0 percent margin. If markup and margin still blur together for you, <a href="/blog/contractor-profit-margin-calculator-know-your-numbers">the profit margin calculator article</a> separates them; for this piece the 25 percent is a fixed input.</p>
+
+<p>Now look at week 1. Before the first cabinet box shows up, $17,250 has left your account, and $14,200 of it bought something the homeowner will not see for four weeks. Under section 7159.5 you cannot bill for those cabinets until they are delivered. That single line drives almost every number that follows.</p>
+
+<h2>Four Payment Schedules, Four Different Businesses</h2>
+
+<p>Same job, same price, same profit. The only thing that changes is the payment schedule written at the bottom of the estimate. Assume each progress bill is paid one week after you send it, and that costs go out during the week before any receipt lands. "Peak exposure" is the most of your own money sunk into the job at any point.</p>
+
+<table>
+<thead><tr><th>Payment schedule</th><th>Legal on a CA home improvement job?</th><th>Peak cash exposure</th><th>Interest at 10% on the gap</th><th>Jobs you can carry on $60,000</th></tr></thead>
+<tbody>
+<tr><td>A. Free template default: 50% at signing, 50% at completion</td><td>No. Deposit is $32,344, which is $31,344 over the cap</td><td>$19,406</td><td>$116.02</td><td>3</td></tr>
+<tr><td>B. $1,000 deposit, balance of $63,688 at completion</td><td>Yes</td><td>$50,750</td><td>$550.58</td><td>1</td></tr>
+<tr><td>C. $1,000 deposit, five progress bills on work delivered</td><td>Yes</td><td>$28,150</td><td>$174.16</td><td>2</td></tr>
+<tr><td>D. Same as C, cabinets bought on 50/50 supplier terms</td><td>Yes</td><td>$25,788</td><td>$119.55</td><td>2</td></tr>
+</tbody>
+</table>
+
+<p>Three things in that table are worth stopping on.</p>
+
+<p>First, even the illegal 50 percent deposit does not fund the job. Schedule A starts with $15,094 of the owner's money in your account after week 1, and by week 8 you are $19,406 underwater waiting for the final check. The deposit only moves the hole later.</p>
+
+<p>Second, look at the interest column. At 10 percent, carrying schedule B for nine weeks costs $550.58. That is not why schedule B is dangerous. It is dangerous because $50,750 is 98 percent of the job's total cost and almost four times its gross profit. For eight weeks you have funded the whole kitchen, and on the day you finish the owner holds $63,688 of your money and every piece of leverage. The cost of B is the jobs you cannot take and the one owner who finds something to dispute.</p>
+
+<p>Third, schedule C cuts peak exposure by $22,600 without asking the homeowner for a dollar more than the law allows. That is the schedule a contractor estimate should print, and it has to be calculated, not typed.</p>
+
+<h2>Build the Payment Schedule From the Cost Lines</h2>
+
+<p>The reason free templates default to "50% down" is that they have no way to know when value is delivered. The line items carry a description and a price, nothing else. Add two columns and the schedule writes itself.</p>
+
+<h3>The estimate sheet</h3>
+
+<p>Put each cost line in rows 5 through 24 with four columns:</p>
+
+<ul>
+<li>Column A: description</li>
+<li>Column B: your cost</li>
+<li>Column C: the week the cost is paid (drives your cash out)</li>
+<li>Column D: the week the work is performed or the material is delivered to the site (drives what you can bill)</li>
+</ul>
+
+<p>For most lines C and D are the same week. For the cabinets, C is 1 and D is 5. For the countertop fabricator deposit, C is 5 and D is 6. Those two gaps are exactly where the law and your cash flow disagree, and a template without column D cannot see them.</p>
+
+<p>Above the lines, three control cells:</p>
+
+<ul>
+<li>H2, markup: 25%</li>
+<li>H3, contract amount: <code>=ROUND(SUM(B5:B24)&#42;(1+H2),0)</code> returns $64,688</li>
+<li>H4, down payment: <code>=MIN(1000,0.1&#42;H3)</code> returns $1,000</li>
+</ul>
+
+<p>H4 is the statute, written as a formula. Type 50% into it by habit and a check cell next to it should catch you: <code>=IF(H4&gt;MIN(1000,0.1&#42;H3),"OVER CA CAP","OK")</code>.</p>
+
+<h3>The progress bill table</h3>
+
+<p>Pick milestones the homeowner can see and verify: rough-in inspected, floors down, cabinets set, counters in, final. For each milestone week in column K, the value delivered to date at contract price is:</p>
+
+<p><code>=SUMIFS($B$5:$B$24,$D$5:$D$24,"&lt;="&amp;K8)&#42;(1+$H$2)</code></p>
+
+<p>That formula is the heart of the estimate. It sums cost only for lines delivered by that week, then prices them at the contract markup, which is what "value of the work performed or material delivered" means on a fixed-price job. The bill for each milestone is value to date minus everything already billed, deposit included: <code>=ROUND(L8-SUM($M$7:M7),0)</code>, with M7 holding the deposit.</p>
+
+<table>
+<thead><tr><th>Milestone (end of week)</th><th>Work performed or delivered</th><th>Value to date</th><th>Progress payment</th></tr></thead>
+<tbody>
+<tr><td>Signing</td><td>Down payment</td><td></td><td>$1,000.00</td></tr>
+<tr><td>2</td><td>Demo complete, rough plumbing and electrical in</td><td>$14,562</td><td>$13,562.00</td></tr>
+<tr><td>4</td><td>Drywall patched, flooring installed</td><td>$25,562</td><td>$11,000.00</td></tr>
+<tr><td>5</td><td>Cabinets delivered and installed</td><td>$46,812</td><td>$21,250.00</td></tr>
+<tr><td>6</td><td>Countertops, backsplash tile</td><td>$57,438</td><td>$10,626.00</td></tr>
+<tr><td>8</td><td>Finish trades, paint, punch list, final</td><td>$64,688</td><td>$7,250.00</td></tr>
+<tr><td></td><td>Total</td><td></td><td>$64,688.00</td></tr>
+</tbody>
+</table>
+
+<p>This is also the format section 7159.5 asks for. When a contract calls for payments before completion, it must include "a schedule of payments in dollars and cents specifically referencing the amount of work or services to be performed and any materials and equipment to be supplied." A percentage schedule does not meet that. The table above does, and it came out of the cost lines instead of out of your head.</p>
+
+<p>Add a control that the payments sum back to the contract: <code>=IF(ROUND(SUM(M7:M12)-H3,2)=0,"OK","SCHEDULE DOES NOT TIE")</code>. Rounding each bill to the dollar can leave a few dollars stranded; put the remainder on the final payment, never on an early one.</p>
+
+<p>If you already bill larger jobs against a schedule of values, this is the same idea at kitchen scale. <a href="/blog/construction-schedule-of-values-template">The schedule of values template</a> covers the commercial version, where the owner's lender approves each line.</p>
+
+<h2>Calculate Your Cash Exposure Before You Sign</h2>
+
+<p>The payment table tells the homeowner what they pay. You need the other side: what you are out of pocket, week by week. Build a ten-row block with the week number in column A starting at row 30.</p>
+
+<ul>
+<li>Cash out, column B: <code>=SUMIFS($B$5:$B$24,$C$5:$C$24,A30)</code></li>
+<li>Cash in, column C: the progress payment from the milestone one week earlier (your collection lag), pulled with <code>=SUMIFS($M$7:$M$12,$N$7:$N$12,A30)</code>, where column N holds each bill's expected pay week</li>
+<li>Low point during the week, column D: <code>=E29-B30</code>, previous balance minus this week's costs, before anything arrives</li>
+<li>Balance at week end, column E: <code>=D30+C30</code></li>
+</ul>
+
+<p>Start E29 at the down payment. Then one cell answers the question the whole estimate exists for: <code>=-MIN(0,MIN(D30:D39))</code>. On schedule C it returns $28,150, reached in week 3, the moment before the first progress payment lands. Half of that, $14,200, is the cabinet order.</p>
+
+<p>Put a hard limit next to it. If your available cash plus unused credit line is $60,000 and two other jobs already need $30,000, this job gets $30,000: <code>=IF(-MIN(0,MIN(D30:D39))&gt;H6,"RESTRUCTURE BEFORE SIGNING","OK")</code>, with H6 holding the cash you can assign to this job. Schedule C passes at $28,150. Schedule B fails by $20,750, and you find that out on the estimate instead of in week 6.</p>
+
+<p>For the full picture across every open job, the per-job numbers roll into a company forecast; <a href="/blog/construction-cash-flow-forecast-excel">the construction cash flow forecast</a> shows how to stack them.</p>
+
+<h2>What to Do About the Cabinets</h2>
+
+<p>On this job the special order is the problem. You cannot bill it until it is delivered, and you pay for it four weeks before that. Every fix changes a different number, so run them all on the same sheet before deciding.</p>
+
+<table>
+<thead><tr><th>Option</th><th>Contract amount</th><th>Gross profit</th><th>Peak exposure</th><th>Tradeoff</th></tr></thead>
+<tbody>
+<tr><td>C. Progress billing, pay cabinets at order</td><td>$64,688</td><td>$12,938</td><td>$28,150</td><td>Baseline</td></tr>
+<tr><td>D. Negotiate 50% at order, 50% at delivery with the supplier</td><td>$64,688</td><td>$12,938</td><td>$25,788</td><td>Costs one phone call; worth asking any supplier you buy from repeatedly</td></tr>
+<tr><td>E. Bill weekly instead of at five milestones</td><td>$64,688</td><td>$12,938</td><td>$25,338</td><td>Eight invoices, eight inspections, owner fatigue</td></tr>
+<tr><td>F. Owner buys cabinets directly from the supplier</td><td>$46,938</td><td>$9,388</td><td>$13,950</td><td>Gives up $3,550 of markup and control of delivery dates</td></tr>
+</tbody>
+</table>
+
+<p>Weekly billing buys only $2,812 of exposure relief over five milestones, because the cabinets still sit in week 1 either way. Billing frequency is not the lever on this job. The purchase terms are.</p>
+
+<p>Option F halves exposure but costs $3,550 of profit, 27 percent of the job's margin, and hands the owner a supplier relationship you will have to coordinate around. It makes sense when you are close to your cash limit and the job is otherwise attractive. It does not make sense as a habit.</p>
+
+<p>There is one more option the statute itself offers. A contractor who furnishes a performance and payment bond, or a bond equivalent or joint control approved by the registrar, is exempt from the down payment cap and the value-delivered rule. The statute also requires two years of active licensure before you can apply for the blanket bond. Price the bond premium against the $28,150 you are carrying before assuming it is too expensive.</p>
+
+<h2>A Payment Schedule Checklist for Every Estimate</h2>
+
+<p>Before an estimate leaves your office, the sheet should answer each of these without you doing arithmetic:</p>
+
+<ol>
+<li>Down payment cell is a formula tied to the contract amount, not a typed percentage.</li>
+<li>Every cost line has a paid week and a delivered week.</li>
+<li>Progress payments are in dollars and cents, each tied to named work, and they sum to the contract amount.</li>
+<li>No payment exceeds the value delivered to date. Add <code>=IF(SUM($M$7:M8)-$M$7&gt;L8,"OVER VALUE","OK")</code> beside each bill.</li>
+<li>Peak exposure is calculated and compared to the cash you can actually assign to this job.</li>
+<li>Any line where the paid week comes well before the delivered week has a plan: supplier terms, owner purchase, or a bond.</li>
+<li>Each progress payment triggers a lien release request, because the homeowner may withhold further payments until the releases are furnished. <a href="/blog/construction-lien-waiver-tracking-excel">The lien waiver tracker</a> keeps that from stalling your next draw.</li>
+</ol>
+
+<p>Outside California the numbers change but the structure does not. Other states set their own deposit limits for home improvement work; look up yours and put it in H4 as a formula. Where no cap exists, schedule C is still the one that keeps you from funding the owner's kitchen.</p>
+
+<p>If you also send formal bid packages on larger work, <a href="/blog/construction-bid-proposal-template-excel">the bid proposal template</a> covers the presentation side. This article is about the half of the estimate that decides whether winning the job is good news.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Stop using a contractor estimate template that ends in a total and a typed deposit percentage. On this kitchen, that line either breaks California law by $31,344 or, written legally, ties up $50,750 of your cash to earn $12,938. The fix is two columns (paid week and delivered week) and one SUMIFS, and it drops the exposure to $28,150 on the same price and the same profit. Then work the biggest gap between paid and delivered, which on most remodels is special-order material, before the owner signs.</p>
+
+<p>If you want this wired up without building it from scratch, the <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> starts from your estimate broken down by line item, projects cash flow from your payment schedule, tracks every supplier and sub payment by due date, and prints summary sheets for clients and lenders. Add the paid-week and delivered-week columns to its estimate lines and the schedule above falls out of the same workbook you use to track the job.</p>`,
+  },
+  {
     slug: 'house-flip-profit-calculator-excel',
     title: 'House Flip Profit Calculator Excel: A $125,000 Spread That Nets $13,447',
     metaTitle: 'House Flip Profit Calculator Excel | SheetCraft',
