@@ -16,6 +16,137 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'csi-cost-codes-construction-budget',
+    title: 'CSI Cost Codes in a Construction Budget: Where to Stop Coding',
+    metaTitle: 'CSI Cost Codes for a Construction Budget | SheetCraft',
+    metaDescription: 'CSI cost codes for a construction budget: why division-only codes hid a $20,417 labor overrun, and how to code division plus cost type in Excel.',
+    targetKeyword: 'CSI cost codes construction budget',
+    secondaryKeywords: ['MasterFormat cost codes', 'construction cost code structure', 'job cost codes Excel', 'MasterFormat 2026', 'labor vs material variance'],
+    excerpt: 'A concrete line reported 3.7 percent over while labor was running 20.5 percent over, hidden behind a late ready-mix invoice. Where to stop numbering CSI cost codes, how to add a cost type Excel can split, and what MasterFormat 2026 means for your cost history.',
+    publishedAt: '2026-09-29',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/csi-cost-codes-construction-budget.png',
+    imageAlt: 'Illustration of carpenters building plywood wall formwork beside rebar bundles sorted by colored ties and crates of form hardware on a commercial site',
+    content: `<p>Here's a concrete example of what goes wrong. The concrete line on a job shows 3.7 percent over. The project manager calls it noise and moves on. Six weeks later the same line is projecting $20,417 over budget, and most of the job's fee on that trade is gone. The cost report never lied, but it could only answer the questions its codes allowed. That is the real decision behind <strong>CSI cost codes in a construction budget</strong>. MasterFormat tells you how to number things, but it doesn't tell you where to stop numbering. Stop too high and a labor overrun hides behind a late material invoice. Stop too low and your foreman's timecards turn the report into fiction.</p>
+
+<p>This article covers where to put that line, how to build the code so Excel can roll it up and split it apart, and what the brand new MasterFormat 2026 edition means for a code list you have been using for years.</p>
+
+<h2>MasterFormat Organizes Specifications, Not Your Money</h2>
+
+<p>MasterFormat is published by the Construction Specifications Institute (CSI). Its job is to organize the project manual so the architect, the estimator, and the subs find the same requirement in the same place. It groups work by result: Division 03 is Concrete, Division 09 is Finishes, Division 26 is Electrical. Your cost report asks different questions. Who is losing money, is it labor or material, and is the problem real or just timing? The spec numbering was never designed to answer those.</p>
+
+<p>The numbering also moves. When CSI replaced the 1995 edition in 2004, the 16 divisions became 50 and the five-digit numbers became six digits. Kevin Miller and Jay Newitt of Brigham Young University documented the shift in the 2005 ASC conference proceedings. Old Division 15 Mechanical split into Division 22 Plumbing and Division 23 HVAC. Old Division 16 Electrical became 26 Electrical, 27 Communications, and 28 Electronic Safety and Security. Fire suppression moved out of old Division 13 into its own Division 21. For a typical building project, the paper counts 23 active divisions instead of 16. Cast-in-place concrete went from <code>03300</code> to <code>03 30 00</code>.</p>
+
+<p>It is moving again right now. CSI's standards page announces MasterFormat 2026 with 2,185 new listings and 617 reorganized listings. It adds that the majority of the changed content stays in the same divisions. Read that sentence as a cost accountant would. The two-digit division is the stable part of the system. The deeper you tie your cost codes to specific section numbers, the more of your cost history a renumbering can break.</p>
+
+<table>
+<tr><th>Level</th><th>Example</th><th>Stability across editions</th><th>What it can tell you</th></tr>
+<tr><td>Division</td><td><code>03</code> Concrete</td><td>High. Content mostly stays in its division</td><td>Owner and lender reporting, trade totals</td></tr>
+<tr><td>Level 2</td><td><code>03 30 00</code> Cast-in-Place Concrete</td><td>Medium</td><td>Which scope inside a trade is drifting</td></tr>
+<tr><td>Level 3 section</td><td>Six-digit section in the project manual</td><td>Lowest. This is where reorganized listings land</td><td>Submittals, specs, RFIs. Rarely cost</td></tr>
+</table>
+
+<h2>The Division-Only Budget: A $20,417 Overrun That Reported as $5,100</h2>
+
+<p>Take a general contractor that self-performs concrete on a two-story commercial building. The concrete budget is $228,000: $96,000 labor, $118,000 material (ready-mix, rebar, forming supplies), and $14,000 equipment. The pours are 60 percent complete by quantity. The budget carries a single code, <code>03</code>.</p>
+
+<p>The cost report shows earned value of $136,800 (<code>=228000&#42;0.60</code>) against $141,900 posted. The variance is minus $5,100, 3.7 percent of earned. If you project the posted cost forward at the same rate, <code>=141900/0.60</code> gives $236,500 at completion, an $8,500 overrun. That is annoying, but it isn't alarming.</p>
+
+<p>Now split the same money by cost type.</p>
+
+<table>
+<tr><th>Cost type</th><th>Budget</th><th>Earned (60%)</th><th>Posted</th><th>Delivered, not invoiced</th><th>True actual</th><th>Variance</th><th>Estimate at completion</th></tr>
+<tr><td>Labor</td><td>$96,000</td><td>$57,600</td><td>$69,400</td><td>$0</td><td>$69,400</td><td>-$11,800</td><td>$115,667</td></tr>
+<tr><td>Material</td><td>$118,000</td><td>$70,800</td><td>$64,100</td><td>$7,150</td><td>$71,250</td><td>-$450</td><td>$118,750</td></tr>
+<tr><td>Equipment</td><td>$14,000</td><td>$8,400</td><td>$8,400</td><td>$0</td><td>$8,400</td><td>$0</td><td>$14,000</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$228,000</strong></td><td><strong>$136,800</strong></td><td><strong>$141,900</strong></td><td><strong>$7,150</strong></td><td><strong>$149,050</strong></td><td><strong>-$12,250</strong></td><td><strong>$248,417</strong></td></tr>
+</table>
+
+<p>Labor is running 20.5 percent over what the installed quantity earned. Material looked $6,700 under, but only because the ready-mix supplier bills monthly and $7,150 of delivered tickets hadn't posted yet. The late invoice covered up most of the labor overrun. Labor projects to $115,667 against a $96,000 budget, so the true overrun at completion is $20,417, not $8,500. The $11,917 difference is money that was already gone on the day the report called the line "slightly over."</p>
+
+<p>A division-only code can't catch this, because the question that matters (crew productivity or material price?) is not in the code. It takes a second dimension, and MasterFormat doesn't provide one.</p>
+
+<h2>The Section-Level Budget: 100 Codes the Field Cannot Post</h2>
+
+<p>The instinctive fix is to go deep. Every Level 3 section gets its own code, with labor, material, and equipment under each. Concrete alone becomes a dozen codes, and the whole job ends up with more than a hundred. The estimate looks rigorous. Then the timecards come in.</p>
+
+<p>A foreman filling out a timecard at 4:30 in the afternoon does not split a crew's eight hours between forming, placing, and finishing. The whole day goes to the code at the top of the list, or to the one used yesterday. Here is the same $69,400 of labor, first as posted and then as the project manager rebuilt it from the daily logs.</p>
+
+<table>
+<tr><th>Labor code</th><th>Budget</th><th>Earned (60%)</th><th>Posted</th><th>Posted variance</th><th>Rebuilt from daily logs</th><th>Real variance</th></tr>
+<tr><td>03 11 Formwork</td><td>$41,000</td><td>$24,600</td><td>$12,300</td><td>+$12,300</td><td>$34,200</td><td>-$9,600</td></tr>
+<tr><td>03 21 Reinforcing</td><td>$18,000</td><td>$10,800</td><td>$0</td><td>+$10,800</td><td>$10,900</td><td>-$100</td></tr>
+<tr><td>03 31 Placing</td><td>$22,000</td><td>$13,200</td><td>$49,800</td><td>-$36,600</td><td>$15,000</td><td>-$1,800</td></tr>
+<tr><td>03 35 Finishing</td><td>$15,000</td><td>$9,000</td><td>$7,300</td><td>+$1,700</td><td>$9,300</td><td>-$300</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$96,000</strong></td><td><strong>$57,600</strong></td><td><strong>$69,400</strong></td><td><strong>-$11,800</strong></td><td><strong>$69,400</strong></td><td><strong>-$11,800</strong></td></tr>
+</table>
+
+<p>The total is right and every line is wrong. The posted report says placing is 277 percent over and the formwork crew is 50 percent under budget. You would reward the crew that is losing money and lean on the one that isn't. The real problem was formwork, $9,600 over at 60 percent complete, and the granular report pointed away from it. More codes did not add information here. They added a way to post things wrong.</p>
+
+<h2>Where to Stop: Division, a Level You Can Post, and a Cost Type</h2>
+
+<p>The rule that holds up in the field has three parts. Code every line to a division, which gives you stable rollups for owners and lenders. Go one level deeper only where someone can post to that level honestly. Always add a cost type suffix. The test for "honestly" is practical. Hand your foreman yesterday's crew list and ask them to write the codes from memory. Any code they hesitate on is too fine for labor.</p>
+
+<table>
+<tr><th>Cost type</th><th>Suffix</th><th>Code it at the level of</th><th>Example</th><th>Why</th></tr>
+<tr><td>Labor</td><td>L</td><td>What the foreman can tell apart on a timecard</td><td><code>03 10-L</code> forming, <code>03 30-L</code> place and finish</td><td>Timecards set the true resolution of labor cost</td></tr>
+<tr><td>Material</td><td>M</td><td>What a purchase order line distinguishes</td><td><code>03 30-M</code> ready-mix, <code>03 20-M</code> rebar</td><td>Invoices post themselves if the PO carries the code</td></tr>
+<tr><td>Equipment</td><td>E</td><td>Division, unless a rental is job-specific</td><td><code>03 00-E</code></td><td>Pumps and rentals rarely map to one scope</td></tr>
+<tr><td>Subcontract</td><td>S</td><td>The buyout package, whatever sections it spans</td><td><code>09 20-S</code> drywall package</td><td>One contract, one schedule of values, one code</td></tr>
+<tr><td>Other</td><td>O</td><td>Division</td><td><code>01 50-O</code> temporary facilities</td><td>Keeps small costs from polluting the lines above</td></tr>
+</table>
+
+<p>The subcontract row matters more than it looks. A drywall sub's contract usually covers metal stud framing, gypsum board, and batt insulation, which sit in Divisions 09 and 07 in the project manual. If the budget splits that one contract across three spec-based codes, every progress billing has to be allocated by guesswork. Each line then shows a variance that means nothing, even though the total is correct. Code the package, and keep the spec sections it covers in a crosswalk column. The <a href="/blog/construction-subcontract-buyout-log-excel">subcontract buyout log</a> is where that package boundary gets decided.</p>
+
+<p>On the example job, the structure works out to about 40 codes: 23 divisions, a second level where self-performed trades need one, and a suffix on everything. That is small enough to post correctly, and it still separates a productivity problem from a price problem.</p>
+
+<h2>Building the Code So Excel Can Slice It</h2>
+
+<p>The code is one text string, <code>03 30-L</code>: division, level two, dash, cost type. Its value in Excel is that every rollup becomes a formula on that string, so you never need a second budget.</p>
+
+<ol>
+<li><strong>Column A, the code, formatted as Text before you type.</strong> If you type <code>0330</code> into a General-formatted cell, Excel stores the number 330. Then <code>=LEFT(A5,2)</code> returns "33", and your concrete rolls up into Division 33, Utilities, without an error message. The space-separated form <code>03 30-L</code> can't be read as a number, which is one more reason to use it.</li>
+<li><strong>Column B, division:</strong> <code>=LEFT(A5,2)</code>. This is the owner report key.</li>
+<li><strong>Column C, cost type:</strong> <code>=RIGHT(A5,1)</code>. This is the diagnostic key.</li>
+<li><strong>Column D, budget. Column E, percent complete by quantity</strong>, taken from installed quantities, never from dollars spent.</li>
+<li><strong>Column F, earned:</strong> <code>=D5&#42;E5</code>. What the work in place should have cost.</li>
+<li><strong>Columns G and H, posted cost and delivered-not-invoiced.</strong> Column H is where the $7,150 of ready-mix tickets goes. <strong>Column I, true actual:</strong> <code>=G5+H5</code>.</li>
+<li><strong>Column J, variance:</strong> <code>=F5-I5</code>. Negative means the work in place cost more than it earned.</li>
+<li><strong>Column K, estimate at completion:</strong> <code>=IF(E5&gt;0,I5/E5,D5)</code>. If nothing is installed yet, it holds the budget instead of dividing by zero.</li>
+<li><strong>Column L, the flag:</strong> <code>=IF(AND(C5="L",E5&gt;=0.2,K5&gt;D5&#42;1.05),"LABOR FADE","")</code>. It fires once a labor line is at least 20 percent installed and projecting more than 5 percent over. Below 20 percent the projection is mostly noise, so the flag stays quiet there.</li>
+</ol>
+
+<p>The rollups read the string directly. Labor for all of concrete: <code>=SUMIFS($I$5:$I$200,$A$5:$A$200,"03&#42;-L")</code>. All subcontract cost on the job: <code>=SUMIFS($I$5:$I$200,$C$5:$C$200,"S")</code>. The division total for the lender draw: <code>=SUMIFS($I$5:$I$200,$B$5:$B$200,"09")</code>. In the concrete wildcard, the <code>&#42;</code> stands for any characters, so it catches <code>03 10-L</code> and <code>03 30-L</code> alike.</p>
+
+<p>Two guard rails keep the list clean. Put the approved codes on a Codes tab and apply Data Validation (List) to column A, so nobody can invent <code>03-30L</code> at month end. In a check column, <code>=IF(COUNTIF(Codes!$A:$A,A5)=0,"NOT IN LIST","OK")</code> catches anything pasted in around the validation. Then <code>=COUNTIF($M$5:$M$200,"NOT IN LIST")</code> belongs on the summary tab, and it should read 0 before the report goes out.</p>
+
+<p>The crosswalk to the project manual sits on a Map tab. Column A holds your cost code, column B the spec sections it covers. <code>=XLOOKUP(A5,Map!$A:$A,Map!$B:$B,"UNMAPPED")</code> brings the sections into the budget for anyone who needs to trace a cost to a spec. When the next project manual arrives in the 2026 numbering, you edit the Map tab. Your cost codes and your cost history don't change.</p>
+
+<h2>Migrating a Legacy Code List Without Breaking Your History</h2>
+
+<p>Many small and mid-size contractors still run a code list that dates from the 1995 edition: <code>15</code> for everything mechanical and <code>16</code> for everything electrical. It still works on the job, but it breaks down the day you try to compare costs across years. A 2019 job coded <code>15</code> and a 2026 job coded <code>22</code> and <code>23</code> can't be averaged without a mapping. That comparison is the whole point of a <a href="/blog/construction-historical-cost-database-excel">historical unit cost database</a>.</p>
+
+<table>
+<tr><th>1995 division</th><th>Current division(s)</th><th>Migration rule</th></tr>
+<tr><td>15 Mechanical</td><td>22 Plumbing, 23 HVAC</td><td>Split by subcontract. Plumbing and HVAC are usually separate packages</td></tr>
+<tr><td>13 Special Construction (fire suppression)</td><td>21 Fire Suppression</td><td>Move fire sprinkler packages only. The rest of 13 stays</td></tr>
+<tr><td>16 Electrical</td><td>26 Electrical, 27 Communications, 28 Electronic Safety and Security</td><td>Split only if low-voltage is a separate package. Otherwise map all to 26 and note it</td></tr>
+<tr><td>2 Site Work</td><td>31 Earthwork, 32 Exterior Improvements, 33 Utilities</td><td>Split by scope. Paving and site utilities usually have their own subs</td></tr>
+<tr><td>3 to 14</td><td>03 to 14</td><td>Add a leading zero and store as text</td></tr>
+</table>
+
+<p>Miller and Newitt's advice from 2005 still applies to the 2026 edition: never switch code structures in the middle of a project. Open jobs finish on the list they started with, and new jobs start on the new one. Convert history with a mapping column, not by rewriting old rows. Keep the original code in one column and the mapped code in the next, so any comparison can be audited. If your history was coded loosely to begin with, the migration is a good time to clean it up, because you are already touching every row.</p>
+
+<p>Once the codes are fixed, the <a href="/blog/earned-value-management-excel-construction">earned value indices</a> and the monthly <a href="/blog/construction-project-cost-report-template">project cost report</a> finally have something reliable to read. Both are only as good as the code structure underneath them.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Code to the division first, because that is the level MasterFormat keeps stable and the level owners and lenders read. Go one level deeper only for self-performed work and only where a foreman can post it from memory. Put a cost type suffix on every code, because the division-only report hid a $20,417 overrun behind a $7,150 invoice lag, and a suffix would have shown it at 60 percent complete. Store codes as text, lock them with data validation, and keep the spec sections on a separate crosswalk tab. That way a new MasterFormat edition means editing a map, not rebuilding your cost history.</p>
+
+<p>The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> already organizes the budget by CSI MasterFormat division with fully customizable categories. It also carries the automatic variance columns, the percent complete versus percent spent dashboard, the projected final cost, and the change order log. Rename its categories to the division-plus-suffix codes from this article, and add the delivered-not-invoiced column and the labor fade flag beside the variance. That gets you a cost report that separates a crew problem from a supplier's billing cycle while there are still 40 percent of the pours left to recover it.</p>`,
+  },
+  {
     slug: 'contractor-estimate-template-excel-free',
     title: 'Contractor Estimate Template Excel Free: The Payment Schedule Most Templates Skip',
     metaTitle: 'Contractor Estimate Template Excel Free | SheetCraft',
