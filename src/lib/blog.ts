@@ -16,6 +16,195 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-cash-flow-spreadsheet',
+    title: 'Rental Property Cash Flow Spreadsheet: Tie the Pro Forma, the Bank, and Schedule E',
+    metaTitle: 'Rental Property Cash Flow Spreadsheet | SheetCraft',
+    metaDescription: 'A rental property cash flow spreadsheet that ties pro forma, bank, and Schedule E. One duplex: $366 a month on paper, -$10,236 in the bank.',
+    targetKeyword: 'rental property cash flow spreadsheet',
+    secondaryKeywords: ['rental property ledger Excel', 'Schedule E rental income', 'pro forma vs actual rental', 'passive activity loss rental', 'rental cash flow tracker'],
+    excerpt: 'A duplex promised $366 a month, the bank account fell $10,235.74, and Schedule E shows a $5,217.69 loss. All three are right. Build one ledger with two tags per transaction, a bridge that has to equal zero, and a pro forma variance check that separates a bad deal from a roof year.',
+    publishedAt: '2026-09-30',
+    readTime: 14,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-cash-flow-spreadsheet.png',
+    imageAlt: 'Illustration of two roofers laying new asphalt shingles over a worn section of a brick duplex roof while a tenant carries a moving box up the front steps',
+    content: `<p>A landlord owns a duplex. The spreadsheet they used to buy it said it would clear $366 a month. At the end of the first full year the bank account is down $10,235.74, and the tax preparer's Schedule E shows a loss of $5,217.69. The owner opens their <strong>rental property cash flow spreadsheet</strong> to find out which number is true. A spreadsheet built to produce one number can't answer that, because a rental property produces at least three.</p>
+
+<p>All three numbers are correct. The pro forma is a forecast. The bank balance counts every dollar that moved, including principal and a new roof. Schedule E follows tax rules that skip principal, spread the roof over 27.5 years, and deduct depreciation that never leaves your account. A spreadsheet that shows only one of them leaves you guessing about the other two. Worse, it can't tell you whether the property is actually underperforming or just paid for a roof this year.</p>
+
+<p>This article builds the version that ties all three together. One ledger, two tags per transaction, and a bridge that has to equal zero. Every figure below comes from one worked example, and every table ties to it.</p>
+
+<h2>One Duplex, Three Profits, None of Them Wrong</h2>
+
+<p>The property: a duplex bought in July 2024 for $340,000, with a $255,000 loan at 7.0 percent over 30 years. The monthly payment is $1,696.52 and the first payment was due in September 2024. Each unit rented for $1,575. The building's depreciable basis, after allocating 20 percent to land and adding capitalized closing costs, is $277,440. The year under review is calendar 2025, the first full year.</p>
+
+<p>Four things happened that the pro forma did not see coming. The tenant in unit B moved out on July 31, and the new tenant moved in on September 16 at $1,625. The turnover cost $1,350 in paint and $500 in cleaning. The county tax bill came in at $4,610 instead of the seller's $4,080, and the insurance renewal went from $1,860 to $2,240. And in October the roof was replaced for $12,600.</p>
+
+<table>
+<thead><tr><th>View</th><th>What it counts</th><th>2025 result</th><th>Per month</th></tr></thead>
+<tbody>
+<tr><td>Pro forma (at purchase)</td><td>Expected rent minus expected costs, including a 5% capex reserve</td><td>$4,391.76</td><td>$365.98</td></tr>
+<tr><td>Operating cash flow</td><td>Rent collected minus operating bills and the full mortgage payment</td><td>$1,694.26</td><td>$141.19</td></tr>
+<tr><td>Bank balance change</td><td>Everything, including the roof and deposit movements</td><td>-$10,235.74</td><td>-$852.98</td></tr>
+<tr><td>Schedule E line 21</td><td>Tax income: rent minus deductible expenses, interest, and depreciation</td><td>-$5,217.69</td><td>n/a</td></tr>
+</tbody>
+</table>
+
+<p>Each row answers a different question. The pro forma asks whether the deal was priced right. Operating cash flow asks whether the property pays for itself in a normal month. The bank balance asks whether you need to move money in. Schedule E asks what goes on the tax return. A spreadsheet that shows only the bottom of one row leaves you unable to act on the other three.</p>
+
+<h2>Build the Ledger, Not the Summary</h2>
+
+<p>The tempting way to start a rental cash flow spreadsheet is a summary grid: months across the top, categories down the side, numbers typed into cells. That grid can't be reconciled to anything, because the typed numbers don't point back to transactions. Build a ledger first and let every summary come from it with <code>SUMIFS</code>.</p>
+
+<p>The ledger tab has one row per bank transaction and six columns:</p>
+
+<table>
+<thead><tr><th>Column</th><th>Content</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>A Date</td><td>Transaction date from the bank statement</td><td>10/14/2025</td></tr>
+<tr><td>B Unit</td><td>A, B, or Common</td><td>Common</td></tr>
+<tr><td>C Memo</td><td>Payee and what it was</td><td>Roofing contractor, full tear-off</td></tr>
+<tr><td>D Amount</td><td>Signed: money in positive, money out negative</td><td>-12,600.00</td></tr>
+<tr><td>E Schedule E line</td><td>The IRS line, from a validated list, or n/a</td><td>n/a</td></tr>
+<tr><td>F Cash class</td><td>Rent, Operating, Interest, Principal, Capital, Deposit</td><td>Capital</td></tr>
+</tbody>
+</table>
+
+<p>Column E uses the line names from the 2025 Schedule E: 3 Rents received, 5 Advertising, 7 Cleaning and maintenance, 9 Insurance, 10 Legal and other professional fees, 11 Management fees, 12 Mortgage interest, 14 Repairs, 15 Supplies, 16 Taxes, 17 Utilities, 19 Other. Lock both E and F with Data Validation lists so nobody types "repair" in one row and "Repairs" in the next. <code>SUMIFS</code> treats those as two different categories and says nothing about it.</p>
+
+<p>Three tagging rules do most of the work:</p>
+
+<ul>
+<li><strong>Split the mortgage payment into two rows.</strong> The bank shows one $1,696.52 debit. The ledger needs an Interest row tagged line 12 and a Principal row tagged n/a, using the split from the servicer's statement. In 2025 that totals $17,706.96 of interest and $2,651.28 of principal. IRS Publication 527 is explicit that you can't deduct principal payments.</li>
+<li><strong>Capital items get class Capital and line n/a.</strong> Publication 527 lists a new roof as an improvement recovered through depreciation, over the same 27.5-year period as the building. If the roof also carries line 14, Schedule E overstates your deductions by $12,600. If you're not sure whether a job is a repair or an improvement, work through the <a href="/blog/rental-property-repair-vs-improvement-classification-excel">repair versus improvement classification</a> before you tag it.</li>
+<li><strong>Security deposits are not rent.</strong> Publication 527 says not to include a deposit in income if you plan to return it. If you keep part of it because the tenant broke the lease terms, you include the part you keep in income that year. Unit B's old tenant paid a $1,575 deposit in 2024. On move-out the owner kept $620 for damage and refunded $955. That creates three rows: the $955 refund (Deposit, n/a), a $620 journal row moving the kept amount out of the deposit (Deposit, n/a, negative), and a matching positive $620 row tagged line 3 with class Deposit. The two journal rows net to zero cash but put $620 on Schedule E. The <a href="/blog/rental-property-security-deposit-tracker-excel">security deposit tracker</a> handles the state-law side of the same money.</li>
+</ul>
+
+<p>One check belongs on the ledger tab itself. Bank CSV exports sometimes open with the dates stored as text, and <code>SUMIFS</code> with a date range skips text dates without any error. Put <code>=SUMPRODUCT(--ISTEXT(Ledger!A2:A2000))</code> in a visible cell. Anything above zero means some rent is missing from your monthly totals.</p>
+
+<h2>The Monthly View Comes From the Ledger</h2>
+
+<p>On a Monthly tab, put the first day of each month in <code>B3:M3</code>. Rent collected for January is:</p>
+
+<p><code>=SUMIFS(Ledger!$D:$D,Ledger!$F:$F,"Rent",Ledger!$A:$A,"&gt;="&amp;B$3,Ledger!$A:$A,"&lt;="&amp;EOMONTH(B$3,0))</code></p>
+
+<p>Copy it down with "Operating", "Interest", and "Principal" in place of "Rent". Operating cash flow in row 8 is the sum of those four rows. Put capital and deposit rows below that line, in rows 9 and 10, never above it, so a roof never looks like an operating problem. Net cash in row 11 is <code>=B8+B9+B10</code>, and a running balance in row 12, <code>=SUM($B$11:B11)</code>, shows how far the account drifted from where it started.</p>
+
+<table>
+<thead><tr><th>Month</th><th>Rent</th><th>Operating bills</th><th>Mortgage</th><th>Operating CF</th><th>Capital + deposits</th><th>Net</th><th>Running</th></tr></thead>
+<tbody>
+<tr><td>Jan</td><td>3,150.00</td><td>140.00</td><td>1,696.52</td><td>1,313.48</td><td>0.00</td><td>1,313.48</td><td>1,313.48</td></tr>
+<tr><td>Feb</td><td>3,150.00</td><td>2,830.00</td><td>1,696.52</td><td>-1,376.52</td><td>0.00</td><td>-1,376.52</td><td>-63.04</td></tr>
+<tr><td>Mar</td><td>3,150.00</td><td>2,380.00</td><td>1,696.52</td><td>-926.52</td><td>0.00</td><td>-926.52</td><td>-989.56</td></tr>
+<tr><td>Apr</td><td>3,150.00</td><td>710.00</td><td>1,696.52</td><td>743.48</td><td>0.00</td><td>743.48</td><td>-246.08</td></tr>
+<tr><td>May</td><td>3,150.00</td><td>380.00</td><td>1,696.52</td><td>1,073.48</td><td>0.00</td><td>1,073.48</td><td>827.40</td></tr>
+<tr><td>Jun</td><td>3,150.00</td><td>750.00</td><td>1,696.52</td><td>703.48</td><td>0.00</td><td>703.48</td><td>1,530.88</td></tr>
+<tr><td>Jul</td><td>3,150.00</td><td>150.00</td><td>1,696.52</td><td>1,303.48</td><td>0.00</td><td>1,303.48</td><td>2,834.36</td></tr>
+<tr><td>Aug</td><td>1,575.00</td><td>4,295.00</td><td>1,696.52</td><td>-4,416.52</td><td>-955.00</td><td>-5,371.52</td><td>-2,537.16</td></tr>
+<tr><td>Sep</td><td>2,387.50</td><td>330.00</td><td>1,696.52</td><td>360.98</td><td>1,625.00</td><td>1,985.98</td><td>-551.18</td></tr>
+<tr><td>Oct</td><td>3,200.00</td><td>140.00</td><td>1,696.52</td><td>1,363.48</td><td>-12,600.00</td><td>-11,236.52</td><td>-11,787.70</td></tr>
+<tr><td>Nov</td><td>3,200.00</td><td>1,315.00</td><td>1,696.52</td><td>188.48</td><td>0.00</td><td>188.48</td><td>-11,599.22</td></tr>
+<tr><td>Dec</td><td>3,200.00</td><td>140.00</td><td>1,696.52</td><td>1,363.48</td><td>0.00</td><td>1,363.48</td><td>-10,235.74</td></tr>
+</tbody>
+</table>
+
+<p>Two things are visible here that a single "monthly cash flow" cell hides. Three of twelve months had negative operating cash flow even before the roof: February's tax installment, March's insurance renewal, and August, when the second tax installment landed on top of the turnover and a month with no rent from unit B. And September's $1,625 deposit made the month look strong when it's money you owe back. That's why deposits sit in their own column. If your taxes and insurance run through the lender instead, the pattern shifts into the payment itself; the <a href="/blog/rental-property-escrow-analysis-tracker-excel">escrow analysis tracker</a> covers that version.</p>
+
+<h2>The Bridge That Has to Equal Zero</h2>
+
+<p>This is the tab that makes every other tab trustworthy. Start from Schedule E line 21 and walk to the change in the bank balance. Every step is a rule you already tagged in the ledger.</p>
+
+<table>
+<thead><tr><th>Bridge line</th><th>Formula</th><th>2025</th></tr></thead>
+<tbody>
+<tr><td>Schedule E line 21 (tax loss)</td><td><code>=SchedE!B21</code></td><td>-5,217.69</td></tr>
+<tr><td>Add back depreciation (deducted, never paid)</td><td><code>=SchedE!B18</code></td><td>10,183.23</td></tr>
+<tr><td>Principal (paid, not deductible)</td><td><code>=SUMIFS(Ledger!$D:$D,Ledger!$F:$F,"Principal")</code></td><td>-2,651.28</td></tr>
+<tr><td>Capital (paid, depreciated instead)</td><td><code>=SUMIFS(Ledger!$D:$D,Ledger!$F:$F,"Capital")</code></td><td>-12,600.00</td></tr>
+<tr><td>Change in deposits held ($1,575 to $1,625)</td><td><code>=SUMIFS(Ledger!$D:$D,Ledger!$F:$F,"Deposit",Ledger!$E:$E,"n/a")</code></td><td>50.00</td></tr>
+<tr><td>Equals change in bank balance</td><td><code>=SUM(C2:C6)</code></td><td>-10,235.74</td></tr>
+</tbody>
+</table>
+
+<p>Depreciation on line 18 is the building at the 3.636 percent year-two rate from the Publication 527 table ($10,087.72), plus the roof at 0.758 percent for an October placed-in-service month ($95.51). The deposit line is the net of all untagged deposit rows: $1,625 in, $955 out, and the $620 that moved to rent income. It equals the change in deposits you are holding.</p>
+
+<p>Now the check cell: <code>=ROUND(C7-SUM(Ledger!$D:$D),2)</code>. It must read 0.00. A second check compares <code>=SUM(Ledger!$D:$D)</code> to the December 31 balance minus the January 1 balance from the actual statements. The first check catches tagging errors. The second catches missing transactions.</p>
+
+<p>The bridge only ties if every row carries exactly one meaning. An operating expense with no Schedule E line leaves the bridge off by that amount. A roof tagged both line 14 and Capital puts it off by $12,600. A deposit tagged as rent throws it off by the deposit. That's the value of the bridge: it's the only place in the workbook where a mistake has nowhere to hide. Add <code>=COUNTIFS(Ledger!$F:$F,"Capital",Ledger!$E:$E,"&lt;&gt;n/a")</code> next to it. That count must be zero, and when it isn't, it points you at the row.</p>
+
+<h2>Pro Forma Versus Actual: Where $4,587.50 Went</h2>
+
+<p>The bank figure is dominated by the roof, and the roof was always coming. The number that tells you whether you misjudged the property is operating cash flow against the pro forma, both before capex. The pro forma expected $6,281.76 before its reserve line. The ledger delivered $1,694.26. The gap is $4,587.50, and it breaks down line by line.</p>
+
+<table>
+<thead><tr><th>Line</th><th>Pro forma</th><th>Actual</th><th>Variance</th><th>Flag</th></tr></thead>
+<tbody>
+<tr><td>Rent collected (after 5% vacancy)</td><td>35,910.00</td><td>35,612.50</td><td>-297.50</td><td></td></tr>
+<tr><td>Property taxes</td><td>4,080.00</td><td>4,610.00</td><td>-530.00</td><td>INVESTIGATE</td></tr>
+<tr><td>Insurance</td><td>1,860.00</td><td>2,240.00</td><td>-380.00</td><td>INVESTIGATE</td></tr>
+<tr><td>Water, sewer, trash</td><td>1,440.00</td><td>1,690.00</td><td>-250.00</td><td></td></tr>
+<tr><td>Repairs and turnover</td><td>1,890.00</td><td>4,260.00</td><td>-2,370.00</td><td>INVESTIGATE</td></tr>
+<tr><td>Supplies and tax prep</td><td>0.00</td><td>760.00</td><td>-760.00</td><td>INVESTIGATE</td></tr>
+<tr><td>Total</td><td></td><td></td><td>-4,587.50</td><td></td></tr>
+</tbody>
+</table>
+
+<p>The flag formula is <code>=IF(ABS(D5)&gt;MAX(250,0.1&#42;ABS(B5)),"INVESTIGATE","")</code>. It fires when a line misses by more than $250 or 10 percent of its budget, whichever is larger. That keeps a $30 water bill from generating noise while still catching a small line that doubled.</p>
+
+<p>Read the table the way a buyer would. Vacancy, the line every investor worries about, came in $297.50 short, close to budget. Unit B sat empty for 46 days, more than the 36.5 unit-days a 5 percent allowance on two units covers, and the $50 increase on the new lease recovered $175 of the difference. The damage was elsewhere. The $1,850 turnover sat inside the repairs line, which was budgeted as 5 percent of rent as if repairs were spread evenly over the year. The <a href="/blog/rental-property-turnover-cost-calculator-excel">turnover cost calculator</a> is built for exactly that gap. Taxes and insurance, the two lines the owner doesn't control, account for $910 together. The tax reset after purchase is covered in the <a href="/blog/rental-property-tax-reassessment-after-purchase-calculator-excel">reassessment calculator</a>. The $760 of supplies and tax prep simply had no row in the pro forma.</p>
+
+<p>The decision this informs: $1,920 of the gap is permanent (taxes, insurance, utilities, and the missing admin line), because none of those go back down next year. At an unchanged rent, next year's operating cash flow starts $1,920 below the pro forma even with no turnover. Put the permanent variances back into the underwriting model and re-run it before you use this property's numbers to size your next purchase.</p>
+
+<p>The capex reserve deserves its own line in the review. At 5 percent of rent the pro forma set aside $1,890 a year. The roof cost $12,600, leaving $10,710 uncovered even if the reserve had actually been funded from day one. Percentage reserves assume the property's components age evenly. A component schedule, like the one in the <a href="/blog/rental-property-capital-reserve-calculator-excel">capital reserve calculator</a>, would have flagged the roof at purchase.</p>
+
+<h2>The Schedule E Loss You Might Not Get to Use</h2>
+
+<p>It's tempting to count the tax loss as part of the return: depreciation shelters the cash flow and the leftover loss reduces tax on their salary. On this duplex, Schedule E reports a loss of $5,217.69 while the property produced $1,694.26 of operating cash. Whether that loss is worth anything this year depends on a number that isn't in the property spreadsheet at all.</p>
+
+<p>Rental real estate is a passive activity. Under Internal Revenue Code section 469(i), an individual who actively participates can deduct up to $25,000 of rental losses against other income. That $25,000 is reduced by 50 percent of the amount by which modified adjusted gross income exceeds $100,000, so it reaches zero at $150,000. Married people filing separately get different, smaller limits. A loss you can't use is not lost. Section 469(b) carries it to the next year, and 469(g) releases it when you sell your entire interest in a fully taxable sale. But it doesn't reduce this year's tax bill.</p>
+
+<table>
+<thead><tr><th>Modified AGI</th><th>Allowance</th><th>Loss usable in 2025</th><th>Suspended</th><th>Value at 22%</th></tr></thead>
+<tbody>
+<tr><td>$95,000</td><td>$25,000</td><td>$5,217.69</td><td>$0.00</td><td>$1,147.89</td></tr>
+<tr><td>$120,000</td><td>$15,000</td><td>$5,217.69</td><td>$0.00</td><td>$1,147.89</td></tr>
+<tr><td>$140,000</td><td>$5,000</td><td>$5,000.00</td><td>$217.69</td><td>$1,100.00</td></tr>
+<tr><td>$150,000</td><td>$0</td><td>$0.00</td><td>$5,217.69</td><td>$0.00</td></tr>
+<tr><td>$165,000</td><td>$0</td><td>$0.00</td><td>$5,217.69</td><td>$0.00</td></tr>
+</tbody>
+</table>
+
+<p>In the sheet, with modified AGI in <code>B30</code> and active participation (Yes or No) in <code>B31</code>:</p>
+
+<ul>
+<li>Allowance: <code>=IF(B31="Yes",MAX(0,25000-0.5&#42;MAX(0,B30-100000)),0)</code></li>
+<li>Usable loss: <code>=MIN(MAX(0,-SchedE!B21),B32)</code></li>
+<li>Suspended and carried forward: <code>=MAX(0,-SchedE!B21)-B33</code></li>
+</ul>
+
+<p>Two caveats keep this honest. The allowance covers all of your rental real estate combined, so a second property's loss competes for the same $25,000. And passive income from another activity can absorb the loss regardless of your income. The sheet shows the simple case. If you have several rentals, or you may qualify under the separate real estate professional rules, take the numbers to your tax preparer instead of relying on this block. Still, the block answers the question buyers skip: at a household income of $165,000, the $1,147.89 of tax savings in the pitch is zero this year.</p>
+
+<h2>What to Set Up This Week</h2>
+
+<p>Use this order for one property and one year of statements.</p>
+
+<ol>
+<li>Export 12 months of the property's bank account and paste them into a Ledger tab. Run the <code>ISTEXT</code> count and fix any text dates before anything else.</li>
+<li>Tag every row with a Schedule E line and a cash class from locked validation lists. Split every mortgage payment into interest and principal from the servicer's statements.</li>
+<li>Build the bridge and the two check cells. Do not look at any summary until both read zero.</li>
+<li>Put your original pro forma next to the actuals and flag the variances. Separate the permanent ones from the one-time ones.</li>
+<li>Add the passive loss block with your real modified AGI, and remove any tax benefit from next year's projection that the block says you can't use.</li>
+</ol>
+
+<p>If you track rent by tenant for collections, keep that in a separate <a href="/blog/landlord-rent-ledger-template-excel">rent ledger</a>. The two answer different questions, and the bank ledger should only hold what actually cleared.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Stop tracking rental cash flow as one number. Keep one ledger per property per year, tag each transaction twice, and make the bridge between Schedule E and the bank balance equal zero before trusting any total. On this duplex, doing that turns "the property lost $10,235.74" into three clear findings. The property really cleared $141.19 a month, not $366. $1,920 of that shortfall is permanent and belongs in your next underwriting. The roof was a reserve failure, not a performance failure. And the tax loss is worth $1,147.89 or nothing, depending on a salary line that never appears on the rental's own spreadsheet.</p>
+
+<p>The ledger is the part you build. The baseline it's measured against is the part most investors never write down properly. The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> produces that baseline in one place: an itemized operating expense analysis with its own line for taxes, insurance, management, maintenance reserve, vacancy, and utilities, plus the mortgage analysis tab with the amortization schedule that gives you the interest and principal split for the ledger. Run your purchase numbers through it, keep that tab frozen as the pro forma, and add the Ledger and Bridge tabs from this article next to it. Each year's actuals then have a fixed target, and the variance table tells you which lines to fix in the model before you buy the next property.</p>`,
+  },
+  {
     slug: 'csi-cost-codes-construction-budget',
     title: 'CSI Cost Codes in a Construction Budget: Where to Stop Coding',
     metaTitle: 'CSI Cost Codes for a Construction Budget | SheetCraft',
