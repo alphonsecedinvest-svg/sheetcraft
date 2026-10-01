@@ -16,6 +16,182 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-contingency-budget-percentage',
+    title: 'Construction Contingency Budget Percentage: 10% of What, at What Stage, and Whose?',
+    metaTitle: 'Construction Contingency Budget Percentage | SheetCraft',
+    metaDescription: 'Construction contingency budget percentage by design stage, from GSA and HUD rules. On one $1.66M contract, 10% means $140,000 or $235,000.',
+    targetKeyword: 'construction contingency budget percentage',
+    secondaryKeywords: ['design contingency', 'contingency by design stage', 'renovation contingency', 'contractor contingency GMP', 'owner construction contingency'],
+    excerpt: 'On one $1,663,200 townhome contract, a 10 percent contingency is $140,000, $166,320, $190,000 or $235,000 depending on the base. Federal rules put the same job at design development at $205,405 to $249,896. Size the reserve by base, stage and owner, and track it in Excel.',
+    publishedAt: '2026-10-01',
+    readTime: 15,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-contingency-budget-percentage.png',
+    imageAlt: 'Illustration of an excavator stopped against exposed gray bedrock in a utility trench while a superintendent and a developer crouch at the edge to examine it, with concrete foundations and stacked lumber behind them',
+    content: `<p>A developer with design development drawings for six townhomes has to put one number in the loan application that nobody can price yet: the <strong>construction contingency budget percentage</strong>. Every forum answer says 10 percent. On this project that answer is worth $140,000, $166,320, $190,000 or $235,000, depending on which line of the budget gets multiplied by it. The federal government's own estimating policy, applied at this stage of the drawings, puts the reserve at $205,405 to $249,896.</p>
+
+<p>A contingency percentage is a number with three missing parts: the base it applies to, the stage of design it belongs to, and the party allowed to spend it. Leave any one of them out and the percentage is wrong in a direction you will not see until the ground is open. This article fills in all three from published rules, runs them through one project, and ends with the percentage to carry at each stage and the sheet that keeps it honest.</p>
+
+<h2>The Same 10 Percent Is Four Different Checks</h2>
+
+<p>The project: six townhomes, new construction, priced by the general contractor from design development drawings. Direct cost, meaning trades, materials and equipment, is $1,400,000. General conditions add 8 percent ($112,000), and the contractor's overhead and profit add 10 percent on top of both ($151,200), for an estimated contract of $1,663,200. Soft costs (design, permits, fees, insurance, interest) are $236,800. The land cost $450,000.</p>
+
+<table>
+<thead>
+<tr><th>Base</th><th>What it includes</th><th>Amount</th><th>10 percent of it</th></tr>
+</thead>
+<tbody>
+<tr><td>Direct cost</td><td>Trades, materials, equipment</td><td>$1,400,000</td><td>$140,000</td></tr>
+<tr><td>Construction contract</td><td>Direct cost, general conditions, overhead and profit</td><td>$1,663,200</td><td>$166,320</td></tr>
+<tr><td>Hard plus soft cost</td><td>Contract plus design, permits, fees, interest</td><td>$1,900,000</td><td>$190,000</td></tr>
+<tr><td>Total project cost</td><td>Everything, including land</td><td>$2,350,000</td><td>$235,000</td></tr>
+</tbody>
+</table>
+
+<p>Four people can each say "we carry a 10 percent contingency" about this job and be $95,000 apart. That gap is 5.7 points of the contract, more than half of the contractor's entire overhead and profit line.</p>
+
+<p>The total-project version deserves a second look, because on this job it happens to land inside the right range (compare it with the design development row in the stage table below). It lands there by accident. Contingency pays for construction risk, and the lot carries none of it. Put the same building on a $150,000 lot and 10 percent of total project cost drops to $205,000. Put it on a $900,000 lot and it rises to $280,000. Same drawings, same contractor, same soil, and the reserve moves $75,000 because of a price that was settled at closing.</p>
+
+<p>The fix in Excel is boring and it works: never type a percentage without its base in the same formula, and never let the base be an unlabeled cell. Name the contract total <code>Contract_Base</code> and write <code>=Contract_Base&#42;Cont_Pct</code>, not <code>=0.1&#42;B20</code>. Then add a block under the contingency that restates the dollar amount as a percent of every base someone might quote: <code>=$B$17/B3</code>, <code>=$B$17/B12</code>, <code>=$B$17/(B12+B6)</code> and <code>=$B$17/(B12+B6+B7)</code>. When the lender says "10 percent of hard costs" and the GC says "10 percent of the contract," that block tells you in one glance whether you are talking about the same money.</p>
+
+<h2>What the Published Percentages Say, Bases Included</h2>
+
+<p>Most contingency advice online has no source. Two federal agencies that pay for a lot of construction publish theirs with the base attached, and the most common contract form for a construction manager at risk decides who owns the contractor's share.</p>
+
+<table>
+<thead>
+<tr><th>Source</th><th>Pot</th><th>Percentage</th><th>Applied to</th><th>Limits</th></tr>
+</thead>
+<tbody>
+<tr><td>GSA P-120 (PBS 1000.6B, Nov. 2022)</td><td>Design contingency</td><td>10% at planning, falling to 0% at final construction documents (new)</td><td>Direct cost</td><td>A forecast of scope not yet drawn, meant to be spent</td></tr>
+<tr><td>GSA P-120</td><td>Construction contingency</td><td>7% new construction, 10% modernization and repair/alteration</td><td>Estimated contract at award</td><td>Not for scope changes</td></tr>
+<tr><td>HUD MAP Guide, 221(d)(4) new construction</td><td>Construction contingency in the working capital escrow</td><td>2% (half of a 4% escrow)</td><td>Mortgage amount</td><td>Unused balance refunded to the developer at final endorsement</td></tr>
+<tr><td>HUD MAP Guide, substantial rehab</td><td>Contingency reserve</td><td>10% to 15%</td><td>Rehab cost without fees</td><td>Betterments ineligible</td></tr>
+<tr><td>AIA A133-2019, §3.2.4</td><td>Construction manager's contingency</td><td>Not set by the form</td><td>Inside the guaranteed maximum price</td><td>Exclusive use of the contractor, not for change orders</td></tr>
+</tbody>
+</table>
+
+<p>GSA's estimated contract at award includes direct cost, design contingency, general conditions, profit and escalation, so its 7 percent sits on a bigger number than most private budgets use. GSA confirmed the 7 and 10 percent figures in a January 2024 client briefing, adding that contingency should follow project risk and that it may move to a risk-based model. GSA builds courthouses, not townhomes, so its percentages are not automatically yours. Its structure is the part worth copying, because it answers all three missing questions.</p>
+
+<p>Two more rules from P-120 belong in every budget. Escalation is its own line, priced from a market study, not folded into contingency; if your estimate is in today's dollars and the job starts in nine months, that number comes from an <a href="/blog/construction-cost-escalation-calculator-excel">escalation calculation</a>, not from a bigger reserve. And allowances and contingencies "must always be separately identified," never hidden inside unit prices. An allowance pays for a known item that is not selected yet, which is a different risk with a different owner, and the <a href="/blog/construction-allowance-tracking-spreadsheet-excel">allowance tracking article</a> covers how to keep those overages off the contractor's margin.</p>
+
+<p>Do not read HUD's 2 percent as permission to carry 2 percent. On this project, with an assumed loan of $1,830,000, it is $36,600, or 2.08 percent of the final contract price. It is measured on the loan, it applies to plans and costs that HUD's architectural and cost reviewers have already worked through, and the same guide asks for 10 to 15 percent of cost on rehab, where the unknowns sit behind the plaster. A lender's minimum protects the lender's collateral. It is not an estimate of your risk.</p>
+
+<h2>Design Contingency Shrinks With the Drawings. Construction Contingency Does Not.</h2>
+
+<p>GSA splits the reserve into two pots because they cover different things. Design contingency covers "expected but undefined permanent construction elements": the extra blocking, the heavier beam, the bigger electrical service that the drawings will show once they are finished. It is not a cushion. It is a forecast of scope you have not drawn yet, so it should be used up by the time the drawings are final. Construction contingency covers changes in the contract cost during construction, such as unforeseen site conditions and design coordination problems. It stays until the building is done.</p>
+
+<p>The two compound. Design contingency is a percent of direct cost, so general conditions and fee land on it like on any other direct cost. Construction contingency is then a percent of the larger contract. The total, as a percent of the base contract, is <code>=(1+B13)&#42;(1+B15)-1</code>, where B13 is the design percentage and B15 the construction percentage. Run the GSA bands through it:</p>
+
+<table>
+<thead>
+<tr><th>Design stage</th><th>New construction</th><th>Renovation</th><th>This project (new)</th></tr>
+</thead>
+<tbody>
+<tr><td>Planning and development</td><td>17.70%</td><td>21.00%</td><td>$294,386</td></tr>
+<tr><td>Concept design</td><td>15.03% to 17.70%</td><td>21.00% to 26.50%</td><td>$249,896 to $294,386</td></tr>
+<tr><td>Design development</td><td>12.35% to 15.03%</td><td>18.25% to 21.00%</td><td>$205,405 to $249,896</td></tr>
+<tr><td>75% construction documents</td><td>9.14% to 12.35%</td><td>13.85% to 18.25%</td><td>$152,016 to $205,405</td></tr>
+<tr><td>90% construction documents</td><td>8.07% to 10.21%</td><td>11.65% to 13.85%</td><td>$134,220 to $169,813</td></tr>
+<tr><td>Final construction documents</td><td>7.00%</td><td>10.00%</td><td>$116,424</td></tr>
+</tbody>
+</table>
+
+<p>The renovation contingency column uses GSA's repair and alteration design bands with a 10 percent construction contingency. Escalation is excluded from every row.</p>
+
+<p>Now read the table for the number everyone quotes. Ten percent of the contract is the federal guideline for a renovation on finished drawings, or for a new building somewhere between 75 and 90 percent construction documents. At design development, where most loan applications and feasibility decisions get made, it is short by $39,085 to $83,576 on this job. Ten percent of direct cost is short by $65,405 to $109,896.</p>
+
+<h3>What the shortfall looks like when it arrives</h3>
+
+<p>The drawings get finished and the GC's fixed price comes back at $1,759,000, which is $95,800 (5.76 percent) above the design development estimate. That is not an overrun. It falls inside the $83,160 to $124,740 band the design contingency predicted, so it is the design contingency being spent, as intended. But the developer who budgeted 10 percent of the DD contract ($166,320) as one undivided reserve now has $70,520 left before a shovel moves, against a construction contingency of 7 percent of the new price, $123,130. The reserve is $52,610 short on the day the contract is signed, and nothing has gone wrong yet.</p>
+
+<p>One control catches this at every design milestone: compare how much the estimate grew with how much design contingency the stage change released. <code>=IF((B31-B30)&gt;(B32-B33),"ESTIMATE GREW FASTER THAN DESIGN CONTINGENCY RELEASED","OK")</code>, where B30 and B31 hold the old and new estimates, and B32 and B33 the old and new design contingency in dollars. At the high end of the DD band the release was $124,740 against growth of $95,800, so $28,940 of reserve survives. At the low end the release was only $83,160 and the flag fires: the estimate grew $12,640 faster than the reserve built for it.</p>
+
+<h2>Whose Contingency Is It?</h2>
+
+<p>Open a GC's price and there is often a line called contingency. On this job it is $45,000, or 2.56 percent of the $1,759,000 contract. It is tempting to count it toward your own reserve and carry $78,130 instead of $123,130. Read the contract first. The standard AIA agreement for a construction manager at risk with a guaranteed maximum price, A133-2019, says at §3.2.4 that the GMP includes "a contingency for the Construction Manager's exclusive use to cover those costs that are included in the Guaranteed Maximum Price but not otherwise allocated to another line item or included in a Change Order."</p>
+
+<p>Two phrases in that sentence decide your budget. "Exclusive use" means you do not decide when it is spent. "Not included in a Change Order" means it does not pay for anything that changes the contract price, and the events a construction contingency exists for usually do. Under the standard general conditions, AIA A201-2017 §3.7.4, subsurface or concealed conditions that differ materially from the contract documents lead to an equitable adjustment of the contract sum, once the contractor gives notice (no later than 14 days after first seeing them). Rock that the soils report did not show is a change order, and change orders come out of your pot. The contractor's contingency covers the contractor's risk, such as a scope gap in a subcontract buyout. Some public owners edit the clause to cap that pot, for example at 5 percent of the estimated cost of the work, which shows it is a negotiated number and not a gift.</p>
+
+<p>Both federal rulebooks deal with the overlap the same way. P-120 says that on construction-manager-at-risk and design-build jobs, any design or coordination contingency the contractor keeps is priced inside the contract, and GSA's own construction contingency is reduced accordingly. The MAP Guide sizes the rehab reserve partly on whether the contractor's bid already contains a reserve for contingencies. Both reduce the owner's pot only by the risk the contractor's pot actually covers. Neither treats the two as interchangeable.</p>
+
+<p>In the sheet that becomes one input, B11: the dollars of contractor contingency the contract lets you count against owner-side risk. On a standard A133 that is zero for concealed conditions. The owner's construction contingency subtracts it, <code>=MAX(0,(B12+B14)&#42;B15-B11)</code>, and nothing else does. If your contract really lets the contractor's pot absorb design coordination misses, enter that share and only that share.</p>
+
+<h2>Upgrades Are Not Contingency Events</h2>
+
+<p>GSA's rule is one sentence: cost impacts from scope change "must be accommodated by approved revisions to the project funding and not through the use of construction contingency." HUD says the same for rehab in different words: changes classified as betterments are ineligible for the contingency reserve. On private jobs nobody enforces it, and the contingency quietly becomes the upgrade fund. Quartz instead of laminate, a wider slider, a better appliance package. Each one is a reasonable decision. Charged to contingency, together they spend the reserve before the risk it was built for shows up.</p>
+
+<p>Run it on the signed contract. The owner's construction contingency is $123,130. In month three, $52,000 of upgrades get approved and charged to it. In month five the excavator hits rock, a $61,000 change order, and the water service has to be relocated for another $29,000. Here is how the four combinations of the last two sections end:</p>
+
+<table>
+<thead>
+<tr><th>Owner's reserve</th><th>Upgrades charged to it</th><th>Reserve before site problems</th><th>After $90,000 of site problems</th></tr>
+</thead>
+<tbody>
+<tr><td>$123,130 (full 7%)</td><td>$0</td><td>$123,130</td><td>$33,130 left</td></tr>
+<tr><td>$123,130 (full 7%)</td><td>$52,000</td><td>$71,130</td><td>$18,870 short</td></tr>
+<tr><td>$78,130 (counted the GC's $45,000)</td><td>$0</td><td>$78,130</td><td>$11,870 short</td></tr>
+<tr><td>$78,130 (counted the GC's $45,000)</td><td>$52,000</td><td>$26,130</td><td>$63,870 short</td></tr>
+</tbody>
+</table>
+
+<p>Only the first row finishes the job without new money. On a construction loan, a shortfall like the other three generally has to be deposited before the lender funds the next draw, so it arrives as a cash call in the middle of the job, when the developer has the least room to negotiate and every extra month of interest is running (the <a href="/blog/construction-loan-interest-calculator-excel">construction loan interest article</a> prices those months). The upgrades were not the problem. Paying for them out of the wrong pot was.</p>
+
+<p>The ledger that prevents row two needs one extra column. Log every draw on the reserve in a table named Draws, with columns for date, pot, cause and amount, and let the cause decide eligibility: <code>=IF(OR([@Cause]="Owner upgrade",[@Cause]="Scope addition"),"No","Yes")</code>. At the top of the sheet, <code>=SUMIFS(Draws[Amount],Draws[Pot],"Owner CC",Draws[Eligible],"No")</code> in B25 returns $52,000 here, and <code>=IF(B25&gt;0,"SCOPE CHARGED TO CONTINGENCY","OK")</code> in B26 makes it impossible to miss. The balance in B27 is <code>=B16-SUMIFS(Draws[Amount],Draws[Pot],"Owner CC")</code>. When the flag fires, the fix is a budget revision: move the $52,000 into a scope line the owner funds, and put the reserve back. For the burn-rate side of the same ledger, contingency consumed against percent complete each month, see the <a href="/blog/construction-budget-template-excel">construction budget template</a> article.</p>
+
+<h2>The Contingency Sheet, Cell by Cell</h2>
+
+<p>Everything above fits on one tab next to your budget. Inputs on top, the stage lookup in the middle, the reserve and its cross-checks at the bottom.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Holds</th><th>Entry or formula</th><th>This job at DD</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Direct cost</td><td>Typed</td><td>$1,400,000</td></tr>
+<tr><td>B4</td><td>General conditions</td><td>Typed</td><td>8%</td></tr>
+<tr><td>B5</td><td>Overhead and profit</td><td>Typed</td><td>10%</td></tr>
+<tr><td>B6</td><td>Soft costs</td><td>Typed</td><td>$236,800</td></tr>
+<tr><td>B7</td><td>Land</td><td>Typed</td><td>$450,000</td></tr>
+<tr><td>B8</td><td>Design stage</td><td>Dropdown from Stages!A2:A7</td><td>Design development</td></tr>
+<tr><td>B9</td><td>Work type</td><td>Dropdown: New, Renovation</td><td>New</td></tr>
+<tr><td>B10</td><td>Band</td><td>Dropdown: Low, High</td><td>High</td></tr>
+<tr><td>B11</td><td>Contractor contingency you may count</td><td>Typed, from the contract</td><td>$0</td></tr>
+<tr><td>B12</td><td>Contract base</td><td><code>=B3&#42;(1+B4)&#42;(1+B5)</code></td><td>$1,663,200</td></tr>
+<tr><td>B13</td><td>Design contingency %</td><td>Stage lookup (below)</td><td>7.5%</td></tr>
+<tr><td>B14</td><td>Design contingency $</td><td><code>=B12&#42;B13</code></td><td>$124,740</td></tr>
+<tr><td>B15</td><td>Construction contingency %</td><td><code>=IF($B$9="New",0.07,0.1)</code></td><td>7%</td></tr>
+<tr><td>B16</td><td>Owner construction contingency</td><td><code>=MAX(0,(B12+B14)&#42;B15-B11)</code></td><td>$125,155.80</td></tr>
+<tr><td>B17</td><td>Total contingency</td><td><code>=B14+B16</code></td><td>$249,895.80</td></tr>
+<tr><td>B18</td><td>As % of contract base</td><td><code>=B17/B12</code></td><td>15.03%</td></tr>
+</tbody>
+</table>
+
+<p>The Stages tab holds the GSA table: stage names in A2:A7 and four columns headed New Low, New High, Renovation Low and Renovation High in B1:E1. B13 pulls the right cell with <code>=INDEX(Stages!$B$2:$E$7,MATCH($B$8,Stages!$A$2:$A$7,0),MATCH($B$9&amp;" "&amp;$B$10,Stages!$B$1:$E$1,0))</code>, which works in Excel 2016 and later. B14 multiplies by the contract base rather than direct cost because design contingency picks up general conditions and fee like any other direct cost: $1,400,000 × 7.5% × 1.08 × 1.10 is the same $124,740.</p>
+
+<p>Rows 20 to 23 are the cross-base block from the first section. At the high end of design development the $249,895.80 reads as 17.85 percent of direct cost, 15.03 percent of the contract, 13.15 percent of hard plus soft cost and 10.63 percent of total project cost. Whoever you are talking to, you can quote their base back to them.</p>
+
+<p>Two maintenance rules keep the tab honest. When you sign a contract, overwrite B12 with the signed price and set B8 to final construction documents, so the design pot drops to zero and the construction pot resizes on the real number; on this job that turns B16 into $123,130. And once you have three or four finished jobs of your own, replace the GSA bands with your actual cost growth by stage. Until then, published bands beat a number from a forum.</p>
+
+<h2>The Percentage to Carry, Stage by Stage</h2>
+
+<p>Here is the recommendation for contingency by design stage, stated as percentages of the estimated construction contract, escalation excluded:</p>
+
+<ol>
+<li><strong>Feasibility and concept:</strong> 15 to 17.7 percent on new construction, 21 to 26.5 percent on renovation. If the deal only works at 10, it does not work yet.</li>
+<li><strong>Design development:</strong> 12.35 to 15 percent new, 18.25 to 21 percent renovation. Use the high end until you have your own history.</li>
+<li><strong>90 percent construction documents:</strong> 8 to 10.2 percent new, 11.65 to 13.85 percent renovation.</li>
+<li><strong>Signed price on final drawings:</strong> 7 percent new, 10 percent renovation, of the contract price. Do not subtract the contractor's contingency unless the contract lets it pay for your risks.</li>
+<li><strong>Outside the percentage:</strong> escalation priced from the schedule, allowances for undecided selections, and scope changes funded by a budget revision. None of them belong in the contingency line.</li>
+</ol>
+
+<p>If you size this inside a feasibility model, put the stage-based reserve in the cost stack of your <a href="/blog/land-development-proforma-excel">land development proforma</a> instead of a flat line, so the return on cost moves when the drawings do. On a single-family flip the same logic works line by line instead of stage by stage, and the <a href="/blog/rehab-cost-estimator-spreadsheet">rehab cost estimator</a> article sizes that reserve from estimate classes.</p>
+
+<p>A contingency percentage becomes a number once it has a base, a stage and an owner written next to it. The cheapest place to write them is your budget, before the lender and the GC fill in their own.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already handles the part after the contract is signed: contingency tracking with automatic drawdown, a change order log that carries each change through the budget, percent complete against percent spent, and print-ready summary sheets for the lender. Add the contingency tab from this article in front of it, with the stage lookup, the cross-base block and the eligibility column, so the reserve you track is the one you sized on purpose.</p>`,
+  },
+  {
     slug: 'rental-property-cash-flow-spreadsheet',
     title: 'Rental Property Cash Flow Spreadsheet: Tie the Pro Forma, the Bank, and Schedule E',
     metaTitle: 'Rental Property Cash Flow Spreadsheet | SheetCraft',
