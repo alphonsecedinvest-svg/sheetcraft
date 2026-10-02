@@ -16,6 +16,220 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: '70-percent-rule-house-flipping-calculator',
+    title: '70 Percent Rule House Flipping Calculator: Solve for Your Own Percentage',
+    metaTitle: '70 Percent Rule House Flipping Calculator | SheetCraft',
+    metaDescription: 'A 70 percent rule house flipping calculator that solves for your own number: 59.5% at a $120,000 ARV, 74.7% at $700,000, on the same costs.',
+    targetKeyword: '70 percent rule house flipping calculator',
+    secondaryKeywords: ['maximum allowable offer', '70 percent rule formula', 'house flipping costs', 'flipping rule of thumb'],
+    excerpt: 'The 70 percent rule applies one 30 percent haircut to every flip. On the same costs, a $120,000 house needs 59.5 percent and a $700,000 house supports 74.7 percent. Build the Excel calculator that solves for your own percentage, by price band and by scope.',
+    publishedAt: '2026-10-02',
+    readTime: 15,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/70-percent-rule-house-flipping-calculator.png',
+    imageAlt: 'Illustration of two small houses side by side on one street, the left getting fresh sage green paint and a new front door, the right gutted to bare wooden studs with a dumpster of debris and a worker carrying drywall',
+    content: `<p>ATTOM released its Q2 2026 U.S. Home Flipping Report on October 1, 2026. The typical flipped home earned a gross margin of 21.5 percent, measured against the purchase price. Turn that around and a flipper who earned exactly the typical margin paid 82.3 percent of the resale price before spending a dollar on the house. The 70 percent rule says purchase price plus rehab should stay under 70 percent of the after repair value. The typical <strong>70 percent rule house flipping calculator</strong> does one thing with that rule: multiply the ARV by 0.70, subtract the rehab, print the offer.</p>
+
+<p>So either the typical flip among the 77,991 that ATTOM counted last quarter broke the rule by 12 points before rehab, or the rule describes a different business from the one ATTOM counts. Both are partly true, and neither is the useful question. The useful question is what percentage this deal, at this price, with this scope, actually needs. The 70 percent rule is one number standing in for two variables it never looks at: the price band of the house and the size of the rehab. This article measures how far each one moves the answer, then builds the calculator that solves for your percentage instead of assuming it.</p>
+
+<h2>What the Typical Flip Paid in Q2 2026</h2>
+
+<p>ATTOM defines gross flipping return as gross profit (resale price minus purchase price, with rehab and every other expense left out) divided by the original purchase price. That makes the conversion exact: a flip earning a margin m paid 1/(1+m) of its resale price. In Excel, with the margin in B2, that is <code>=1/(1+B2)</code>. Here is the result for the national figure and for the large metros (over 1 million people) that ATTOM named at both ends of the range:</p>
+
+<table>
+<thead>
+<tr><th>Market</th><th>Typical gross margin, Q2 2026</th><th>Purchase price as a share of resale</th></tr>
+</thead>
+<tbody>
+<tr><td>Pittsburgh, PA</td><td>81.5%</td><td>55.1%</td></tr>
+<tr><td>Buffalo, NY</td><td>76.6%</td><td>56.6%</td></tr>
+<tr><td>New Orleans, LA</td><td>75.0%</td><td>57.1%</td></tr>
+<tr><td>Philadelphia, PA</td><td>62.8%</td><td>61.4%</td></tr>
+<tr><td>United States</td><td>21.5%</td><td>82.3%</td></tr>
+<tr><td>Houston, TX</td><td>3.7%</td><td>96.4%</td></tr>
+<tr><td>Dallas, TX</td><td>1.8%</td><td>98.2%</td></tr>
+<tr><td>San Antonio, TX</td><td>-0.3%</td><td>100.3%</td></tr>
+</tbody>
+</table>
+
+<p>A Pittsburgh flip at the typical margin was bought at 55 percent of resale, which leaves about 15 points under the rule for rehab. A Dallas flip at the typical margin resold for 1.8 percent more than it cost. No financed rehab with an agent on the sale survives a 1.8 percent spread, so whatever the typical Dallas transaction in that count is, it is not the business the 70 percent rule was written for.</p>
+
+<p>That is also how to read the national number. ATTOM counts as a flip any arms-length sale in the quarter where the same property had an arms-length sale within the previous 12 months. A resale with paint and carpet counts. A resale with no work at all counts. Run the national figure through the cost model used in the rest of this article (hard money, agents on the sale, and 161 days of holding, which is ATTOM's typical time to flip in the quarter): on a $300,000 resale, buying at 82.3 percent leaves $4,777 before any rehab, and the deal breaks even with $4,175 of work, 1.4 percent of the resale price. On those costs, the typical counted flip has to be a light touch, a cash buyer, a seller who pays no commission, or a loss. It is not your kitchen and two bathrooms.</p>
+
+<p>So the median does not refute the rule, and the rule does not describe the median. Both are single numbers summarizing businesses with different costs. The only number that belongs in an offer is the one built from your costs.</p>
+
+<h2>What the 30 Percent Has to Pay For</h2>
+
+<p>The rule holds back 30 percent of ARV for everything except the rehab estimate: buying, financing, holding, selling, the overrun, and your profit. Here is the base deal used throughout. ARV $300,000, rehab estimate $60,000, five months from closing to closing, hard money at 90 percent of the price plus 100 percent of the rehab, 2 points, 11 percent interest only. The rule says offer $150,000. The 30 percent is $90,000, and this is where it goes:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>How it behaves</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Commission, seller closing, concessions (7.5% of ARV)</td><td>Scales with ARV</td><td>$22,500.00</td></tr>
+<tr><td>Fixed seller fees</td><td>Fixed dollars</td><td>$1,200.00</td></tr>
+<tr><td>Buy closing: escrow, recording, inspection, appraisal</td><td>Fixed dollars</td><td>$2,500.00</td></tr>
+<tr><td>Buy closing: 0.5% of price</td><td>Scales with price</td><td>$750.00</td></tr>
+<tr><td>Points, 2% of the loan</td><td>Scales with money borrowed</td><td>$3,900.00</td></tr>
+<tr><td>Lender processing and draw fees</td><td>Fixed dollars</td><td>$1,800.00</td></tr>
+<tr><td>Interest, 11% for five months</td><td>Money times time</td><td>$7,562.50</td></tr>
+<tr><td>Property tax, 1.2% of price per year</td><td>Price times time</td><td>$750.00</td></tr>
+<tr><td>Insurance, utilities, upkeep at $480 a month</td><td>Fixed dollars per month</td><td>$2,400.00</td></tr>
+<tr><td>Rehab contingency, 10%</td><td>Scales with rehab</td><td>$6,000.00</td></tr>
+<tr><td><strong>Total, rehab estimate excluded</strong></td><td></td><td><strong>$49,362.50</strong></td></tr>
+<tr><td><strong>Profit left from the $90,000</strong></td><td></td><td><strong>$40,637.50</strong></td></tr>
+</tbody>
+</table>
+
+<p>The rule leaves $40,637.50 on this deal, 13.5 percent of ARV. Healthy. But the middle column is the point, because those $49,362.50 of house flipping costs are not one kind of cost:</p>
+
+<ul>
+<li><strong>Costs that scale with ARV</strong> ($22,500): commission, seller closing and concessions. These are the only ones that behave the way a fixed 30 percent assumes.</li>
+<li><strong>Fixed dollars</strong> ($7,900): escrow and inspection, lender fees, seller fees, and $480 a month of insurance, utilities and upkeep. They are roughly the same on a cheap house and an expensive one.</li>
+<li><strong>Money times time</strong> ($12,962.50): interest, points, property tax and the price-based part of buy closing. These scale with what you borrow and how long you hold it.</li>
+<li><strong>Rehab contingency</strong> ($6,000): scales with the rehab, not with the ARV.</li>
+</ul>
+
+<p>And the profit has a floor of its own. Nobody takes five months of project risk for $9,000 because $9,000 happens to be 10 percent of a $90,000 ARV. The model here requires 10 percent of ARV or $25,000, whichever is larger. Of the five claims on the 30 percent, only the selling costs scale with ARV all the way down the price range. The other four are why the rule drifts. If you want every one of these lines in a full waterfall from spread to net profit, the <a href="/blog/house-flip-profit-calculator-excel">house flip profit calculator</a> article builds it row by row, and the <a href="/blog/house-flipping-holding-costs-calculator">holding costs calculator</a> breaks out the monthly carry.</p>
+
+<h2>Same Costs, Five Price Bands, Five Different Rules</h2>
+
+<p>Hold the cost structure fixed, keep the rehab at 20 percent of ARV and the hold at five months, and change only the price of the house. For each band the sheet solves two prices: the most you can pay and still hit the profit target, and the price at which profit is zero. Add the rehab to each, divide by ARV, and you get the percentage the deal actually needs.</p>
+
+<table>
+<thead>
+<tr><th>ARV</th><th>Rehab</th><th>70% rule offer</th><th>Profit at that offer</th><th>Profit target</th><th>Most you can pay</th><th>Your percentage</th><th>Break-even percentage</th></tr>
+</thead>
+<tbody>
+<tr><td>$120,000</td><td>$24,000</td><td>$60,000</td><td>$11,515</td><td>$25,000</td><td>$47,388</td><td>59.5%</td><td>79.0%</td></tr>
+<tr><td>$200,000</td><td>$40,000</td><td>$100,000</td><td>$24,458</td><td>$25,000</td><td>$99,493</td><td>69.7%</td><td>81.4%</td></tr>
+<tr><td>$300,000</td><td>$60,000</td><td>$150,000</td><td>$40,638</td><td>$30,000</td><td>$159,949</td><td>73.3%</td><td>82.7%</td></tr>
+<tr><td>$450,000</td><td>$90,000</td><td>$225,000</td><td>$64,906</td><td>$45,000</td><td>$243,617</td><td>74.1%</td><td>83.5%</td></tr>
+<tr><td>$700,000</td><td>$140,000</td><td>$350,000</td><td>$105,354</td><td>$70,000</td><td>$383,064</td><td>74.7%</td><td>84.1%</td></tr>
+</tbody>
+</table>
+
+<p>At $120,000 of ARV the rule's offer pays $11,515, less than half the profit floor. The fixed $7,900 alone is 6.6 percent of the house, against 1.1 percent at $700,000, and the $25,000 floor is 20.8 percent of ARV before anything else is paid. To hit the target on the cheap house you have to buy at 59.5 percent, not 70. Following the rule there is not discipline. It is overpaying by $12,612.</p>
+
+<p>ATTOM's price bands line up with this. Flips bought for $100,000 to $200,000 earned a typical 28 percent, $200,000 to $300,000 earned 26 percent, and $300,000 to $400,000 earned 20 percent. Converted the same way, that is a purchase at 78.1, 79.4 and 83.3 percent of resale: higher-priced flips are bought at a higher share of their resale price, which is consistent with fixed costs shrinking as a share of the house, though gross data cannot prove the cause. At the very bottom, homes bought for $50,000 or less produced a typical loss of $15,000, a negative 38 percent return.</p>
+
+<p>Above roughly $203,000 of ARV, with these inputs, the rule turns conservative. At $700,000 it sits $33,064 below the price that still pays your target. That sounds safe until you notice that any bidder with your cost structure who did the arithmetic can pay $33,000 more than you and still earn 10 percent of ARV. A rule that is too tight does not lose you money on a deal. It loses you the deals.</p>
+
+<h2>A Rehab Dollar Costs More Than a Purchase Dollar</h2>
+
+<p>The 70 percent rule formula constrains exactly one sum: purchase plus rehab equals 70 percent of ARV. It cannot tell buying at $185,000 and painting for $25,000 from buying at $100,000 and gutting for $110,000. Your costs can.</p>
+
+<p>On the base deal every dollar of purchase price costs $1.069 by the time you sell: half a cent of closing cost, 1.8 cents of points on the 90 percent you borrow, 4.1 cents of interest over five months, and half a cent of property tax. Every dollar of rehab costs $1.143: 10 cents of contingency, 2 cents of points, and 2.3 cents of interest, charged on half the term because draws come in as the work gets done. Bigger scopes also run longer, which raises both numbers. At eight months the pair becomes $1.097 and $1.157.</p>
+
+<table>
+<thead>
+<tr><th>Scope at $300,000 ARV</th><th>Rehab</th><th>Months</th><th>70% rule offer</th><th>Profit at that offer</th><th>Your percentage</th><th>Profit if rehab runs 25% over and 2 months long</th></tr>
+</thead>
+<tbody>
+<tr><td>Cosmetic: paint, floors, fixtures</td><td>$25,000</td><td>3</td><td>$185,000</td><td>$47,828</td><td>75.7%</td><td>$39,466</td></tr>
+<tr><td>Mid: kitchen, two baths, systems repairs</td><td>$60,000</td><td>5</td><td>$150,000</td><td>$40,638</td><td>73.3%</td><td>$27,353</td></tr>
+<tr><td>Gut: down to the studs</td><td>$110,000</td><td>8</td><td>$100,000</td><td>$31,227</td><td>70.4%</td><td>$10,908</td></tr>
+</tbody>
+</table>
+
+<p>Read the last two columns together. On the paint job the rule asks for 70 percent when the deal supports 75.7, and leaves $16,966 of price on the table. On the gut job the rule is almost exactly right in the base case, 70.4 against 70, and then a 25 percent overrun with two extra months takes the profit from $31,227 to $10,908. That is a $20,318 hit, against $8,362 on the paint job. The overrun percentage was the same. The dollars were not, because 25 percent of $110,000 is bigger than 25 percent of $25,000, and two extra months on a bigger loan cost more.</p>
+
+<p>So the rule gives the most room on the safe deal and almost none on the risky one. A calculator built on it inherits that, and the only fix is to make scope and duration inputs instead of leaving them inside a constant.</p>
+
+<h2>Build the Calculator That Solves for Your Percentage</h2>
+
+<p>Every price-driven cost in this model is a percentage of the price, so profit is a straight line in the purchase price: a block that does not depend on the price, minus a cost per dollar of price times the price. You never need Goal Seek. Two cells give you the line, and one division gives you any price you want. Inputs go in column B:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Base deal</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>ARV</td><td>$300,000</td></tr>
+<tr><td>B4</td><td>Rehab estimate</td><td>$60,000</td></tr>
+<tr><td>B5</td><td>Months, closing to closing</td><td>5</td></tr>
+<tr><td>B6</td><td>Selling costs, % of ARV (commission, seller closing, concessions)</td><td>7.5%</td></tr>
+<tr><td>B7</td><td>Fixed seller fees</td><td>$1,200</td></tr>
+<tr><td>B8</td><td>Buy closing, % of price</td><td>0.5%</td></tr>
+<tr><td>B9</td><td>Fixed buy closing (escrow, recording, inspection, appraisal)</td><td>$2,500</td></tr>
+<tr><td>B10</td><td>Loan, % of purchase price</td><td>90%</td></tr>
+<tr><td>B11</td><td>Points, % of total loan</td><td>2%</td></tr>
+<tr><td>B12</td><td>Interest rate, annual, interest only</td><td>11%</td></tr>
+<tr><td>B13</td><td>Fixed lender fees</td><td>$1,800</td></tr>
+<tr><td>B14</td><td>Property tax, % of price per year</td><td>1.2%</td></tr>
+<tr><td>B15</td><td>Insurance, utilities, upkeep per month</td><td>$480</td></tr>
+<tr><td>B16</td><td>Rehab contingency</td><td>10%</td></tr>
+<tr><td>B17</td><td>Profit floor</td><td>$25,000</td></tr>
+<tr><td>B18</td><td>Profit target, % of ARV</td><td>10%</td></tr>
+</tbody>
+</table>
+
+<p>These are this article's assumptions for a financed flip with an agent on the sale, not national averages. Replace every one with your lender's term sheet, your title company's fee schedule and your last three settlement statements. Then the calculations:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>What it answers</th><th>Formula</th><th>Base deal</th></tr>
+</thead>
+<tbody>
+<tr><td>B20</td><td>What the rule would offer</td><td><code>=0.7&#42;B3-B4</code></td><td>$150,000.00</td></tr>
+<tr><td>B21</td><td>What the deal produces before you pay for the house</td><td><code>=B3-(B6&#42;B3+B7)-B9-B4&#42;(1+B16+B11+B12/12&#42;B5&#42;0.5)-B13-B15&#42;B5</code></td><td>$201,025.00</td></tr>
+<tr><td>B22</td><td>What each dollar of price really costs</td><td><code>=1+B8+B11&#42;B10+B12/12&#42;B5&#42;B10+B14/12&#42;B5</code></td><td>1.06925</td></tr>
+<tr><td>B23</td><td>Profit at the rule's offer</td><td><code>=B21-B22&#42;B20</code></td><td>$40,637.50</td></tr>
+<tr><td>B24</td><td>Profit you require</td><td><code>=MAX(B17,B18&#42;B3)</code></td><td>$30,000.00</td></tr>
+<tr><td>B25</td><td>Most you can pay</td><td><code>=(B21-B24)/B22</code></td><td>$159,948.56</td></tr>
+<tr><td>B26</td><td>Your percentage</td><td><code>=(B25+B4)/B3</code></td><td>73.3%</td></tr>
+<tr><td>B27</td><td>Price at which profit is zero</td><td><code>=B21/B22</code></td><td>$188,005.61</td></tr>
+<tr><td>B28</td><td>Break-even percentage</td><td><code>=(B27+B4)/B3</code></td><td>82.7%</td></tr>
+</tbody>
+</table>
+
+<p>B21 is everything the house produces after selling it, financing and carrying the rehab, and paying the fixed bills, before the purchase price. B22 says each dollar you pay for the house costs $1.069 once closing costs, points, interest and tax ride along with it. B25 is your true maximum allowable offer for this deal and this profit target, and B26 is the only percentage that belongs in your head when you make it.</p>
+
+<p>Add a verdict so the sheet says it in words: <code>=IF(B20&gt;B25,"RULE OVERPAYS BY "&amp;TEXT(B20-B25,"$#,##0"),"RULE LEAVES "&amp;TEXT(B25-B20,"$#,##0")&amp;" ON THE TABLE")</code> returns RULE LEAVES $9,949 ON THE TABLE on the base deal. Then type the offer you are actually about to make into B30 and wire its profit with <code>=B21-B22&#42;B30</code>. That cell, not the rule, is what you read before you sign.</p>
+
+<p>For the stress test, copy column B into column C, set C16 to 25%, add 2 to C5, and read C23. That is the last column of the scope table: the same deal with the rehab 25 percent over the estimate, paid in cash, and two extra months of interest, tax and utilities.</p>
+
+<h2>Turn the Output Into Your Own Rule</h2>
+
+<p>A flipping rule of thumb is still useful on the first phone call, when you have an address, a rough scope and no time to fill sixteen inputs. Keep one, but make it yours. Run the sheet across your price range with your real costs and record the percentage at the bottom of each band, rounded down. With this article's inputs, mid scope and five months:</p>
+
+<table>
+<thead>
+<tr><th>Band starts at ARV</th><th>Your percentage at that ARV</th><th>Rule to use in the band</th></tr>
+</thead>
+<tbody>
+<tr><td>$100,000</td><td>54.4%</td><td>54%</td></tr>
+<tr><td>$150,000</td><td>64.6%</td><td>64%</td></tr>
+<tr><td>$200,000</td><td>69.7%</td><td>69%</td></tr>
+<tr><td>$250,000</td><td>72.8%</td><td>72%</td></tr>
+<tr><td>$400,000</td><td>73.9%</td><td>73%</td></tr>
+</tbody>
+</table>
+
+<p>Using the value at the bottom of each band keeps the shortcut on the safe side, because the percentage only rises inside the band. Below $100,000, skip the shortcut and run the full sheet on every deal. With the band floors in E4:E8 and the percentages in F4:F8, the first-call offer becomes a lookup: <code>=INDEX($F$4:$F$8,MATCH(B3,$E$4:$E$8,1))&#42;B3-B4</code>.</p>
+
+<p>Add scope the same way, in its own cell. At $300,000 the cosmetic job supports 2.3 points more than the mid scope and the gut job 2.9 points less, so put +2 in B33 for paint and floors, 0 for kitchen and baths, and -3 for studs, then use <code>=(INDEX($F$4:$F$8,MATCH(B3,$E$4:$E$8,1))+B33/100)&#42;B3-B4</code>. Rounding toward the cautious side on both adjustments is deliberate.</p>
+
+<p>Then calibrate the shortcut against what actually happened. On a separate tab, log every flip you have closed with the purchase price in column C, the actual rehab in D and the actual sale price in E, and put the realized percentage <code>=(C5+D5)/E5</code> next to the realized profit. If deals bought near your band percentage keep landing under target, your real costs are heavier than your inputs, and the settlement statements will show you which line.</p>
+
+<p>Two cases where the band table is the wrong tool. If you wholesale, the percentage that matters is your buyer's, not yours, which is why the buyer's rule is an input in the <a href="/blog/wholesale-assignment-fee-calculator">wholesale assignment fee calculator</a> and why the classic <a href="/blog/wholesale-real-estate-deal-calculator">wholesale deal calculator</a> lets you toggle it. If you plan to keep the house, the sale never happens and the refinance sets the ceiling, which the <a href="/blog/brrrr-calculator-spreadsheet">BRRRR calculator spreadsheet</a> shows costs $36,278 of trapped cash on a deal bought exactly at 70 percent. And at a foreclosure auction, the blind rehab and the title risk need reserves of their own, covered in the <a href="/blog/real-estate-auction-max-bid-calculator-excel">auction max bid calculator</a>.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Take 0.70 out of your offer cell. For every deal, solve the most you can pay for your profit target and the price at which profit is zero, using your own costs. Then hold three lines:</p>
+
+<ol>
+<li><strong>Never offer above the break-even percentage</strong>, whatever the other bidders do. On the base deal that is 82.7 percent, and the typical national flip in Q2 2026 was bought at 82.3 percent before a dollar of rehab.</li>
+<li><strong>Under about $200,000 of ARV, assume the 70 percent rule overpays</strong> until the sheet says otherwise. At $120,000 it overpays by $12,612 on these inputs.</li>
+<li><strong>On a gut rehab, set the offer from the stress column, not the base case.</strong> Keep the profit at or above your floor with the rehab 25 percent over and two months late. On the $300,000 gut job that means $87,367, a 65.8 percent rule, not the $100,000 the 70 percent rule allows. The rule never asks the question.</li>
+</ol>
+
+<p>The 70 percent rule is a constant pretending to be a calculation. The calculation takes sixteen inputs and two cells, and it tells you whether this house, at this price, with this scope, pays you.</p>
+
+<p>If you would rather start from a workbook than a blank sheet, the <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> already carries the parts of this model that take longest to wire: hard money acquisition with points and short-term rates, a line-item rehab budget, a holding cost calculator for loan payments, insurance, utilities and taxes, and a side-by-side comparison of up to three properties. It is built around the refinance, not the sale, so add the two selling-cost cells and the B21 and B22 block from this article beside its acquisition and holding numbers, then run up to three candidate houses through it before you make an offer on any of them.</p>`,
+  },
+  {
     slug: 'construction-contingency-budget-percentage',
     title: 'Construction Contingency Budget Percentage: 10% of What, at What Stage, and Whose?',
     metaTitle: 'Construction Contingency Budget Percentage | SheetCraft',
