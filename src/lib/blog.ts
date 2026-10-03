@@ -16,6 +16,191 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-comparison-spreadsheet',
+    title: 'Rental Property Comparison Spreadsheet: Rank Your Cash, Not the Listings',
+    metaTitle: 'Rental Property Comparison Spreadsheet | SheetCraft',
+    metaDescription: 'A rental property comparison spreadsheet that ranks your cash, not the listings: only one of three deals beats a 4.11% T-bill, and it fails the reserve test.',
+    targetKeyword: 'rental property comparison spreadsheet',
+    secondaryKeywords: ['compare rental properties', 'cash-on-cash return', 'investment property reserves', 'maximum offer', 'breakeven occupancy'],
+    excerpt: 'The listing sheet ranks a $150,000 house first at 20.9 percent cash-on-cash. On one set of assumptions it earns 0.25 percent. Against 13-week T-bills at 4.11 percent only the fourplex wins, by $542 a year, and it fails the six-month reserve test by $1,257.',
+    publishedAt: '2026-10-03',
+    readTime: 17,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-comparison-spreadsheet.png',
+    imageAlt: 'Three unpainted wooden models of a small house, a duplex and a fourplex lined up on a workshop bench beside a glass jar of copper coins',
+    content: `You have $140,000 in cash and three listings open in three browser tabs: a three-bedroom house at $150,000, a duplex at $245,000 and a fourplex at $385,000. The usual <strong>rental property comparison spreadsheet</strong> puts them in three columns, types in each listing's rent and expenses, runs the same loan through all three and sorts by cash-on-cash return. The house wins at 20.9 percent. The duplex comes second at 15.9 percent and the fourplex last at 10.8 percent.
+
+Rebuild the same three columns on one set of assumptions and the house earns 0.25 percent on the cash it takes to buy it, and the order flips. Then add the option the sheet never lists, which is buying nothing and leaving the $140,000 in 13-week Treasury bills at 4.11 percent. Only the fourplex beats it, by $542 a year once you count principal paydown, and the fourplex is the one deal of the three that fails the lender's reserve test on $140,000 of liquid cash. A sheet that compares properties with each other always crowns a winner. Your decision is what to do with one pile of cash, and one of the possible answers is no. This article builds the comparison that can say so: one set of assumptions, one denominator, a column zero, a reserve check and an offer price for every column.
+
+## The Sheet Everyone Builds, and Why the House Wins It
+
+Here are the three listings as their sellers presented them. The loan is the same for all three: 30 years fixed at 7.875 percent, 20 percent down on the house and 25 percent down on the two small multifamily buildings. The rate is an assumption, not a quote. Freddie Mac's survey rate was 7.28 percent on October 1, 2026, but that survey describes owner-occupied single-family purchases with 20 percent down and excellent credit, and lenders price investment-property loans above it. The down payments are not free choices either. Fannie Mae's Eligibility Matrix dated August 5, 2026 caps an investment-property purchase at 85 percent loan-to-value for one unit and 75 percent for two to four units, so the duplex and the fourplex need at least a quarter of the price in cash before closing costs.
+
+| As listed | A: 3-bed house | B: Duplex | C: Fourplex |
+|---|---|---|---|
+| Price | $150,000 | $245,000 | $385,000 |
+| Monthly rent, all units | $1,650 | $2,750 | $4,800 |
+| Rent-to-price | 1.10% | 1.12% | 1.25% |
+| Vacancy on the listing | 0% | 5% | 5% |
+| Annual expenses on the listing | $3,090 | $5,650 | $19,178 |
+| NOI as listed | $16,710 | $25,700 | $35,542 |
+| Cap rate as listed | 11.14% | 10.49% | 9.23% |
+| Cash flow after the loan | $6,269 | $9,712 | $10,418 |
+| Cash-on-cash on the down payment | 20.90% | 15.86% | 10.82% |
+| Rank | 1 | 2 | 3 |
+
+All three clear a 1 percent rent-to-price screen, which is why they are on the list at all. The <a href="/blog/gross-rent-multiplier-calculator-excel">gross rent multiplier</a> and the 1 percent rule decide which listings deserve an hour of your time. They did that job. They say nothing about which one to buy.
+
+Read the expense row and the ranking explains itself. The house's $3,090 is the seller's own tax bill of $1,150, which carries a homestead exemption you will not get, a $950 homeowner's policy, and 5 percent of rent for maintenance. No vacancy, no management, no capital reserve. The duplex listing includes taxes on the pre-sale assessment, insurance, 5 percent vacancy and $1,200 of maintenance, and leaves out management and the water bill the owner pays on a single meter. The fourplex arrived as a broker package with 5 percent vacancy, 8 percent management, taxes, insurance, $3,600 of owner-paid water, sewer and trash, and $3,200 of maintenance. It omits only the capital reserve. The column that wins is the one whose seller left out the most. The sheet ranked the paperwork, not the buildings, which is the same trap the <a href="/blog/real-estate-pro-forma-spreadsheet-excel">broker's pro forma column</a> sets on a single deal, multiplied by three.
+
+## One Set of Assumptions, Then One Set of Metrics
+
+Split every input into one of two kinds. Facts about a building stay in its column: price, number of units, rent per unit, your insurance quote, which utilities the owner pays, the repairs it needs on day one. Judgments go into one Inputs sheet that every column reads, so no column can carry its own optimism:
+
+- <strong>Vacancy and credit loss</strong>, 6 percent of gross rent, in Inputs!B9.
+- <strong>Management</strong>, 9 percent of collected rent, in B10, even if you plan to self-manage. Your hours are a cost, and the <a href="/blog/self-manage-vs-property-manager-calculator-excel">self-manage vs property manager math</a> shows a headline 8 percent fee rarely bills 8 percent.
+- <strong>Maintenance</strong>, $1,000 per unit per year, in B11.
+- <strong>Property tax</strong>, 1.40 percent of your purchase price, in B12. The seller's bill does not survive the sale, and how far it jumps depends on the state, which the <a href="/blog/rental-property-tax-reassessment-after-purchase-calculator-excel">reassessment calculator</a> works through county by county.
+- <strong>Capital reserve per unit</strong>, set by what the units share: $1,800 for a house that has a roof and a furnace to itself, $1,200 per duplex unit, $900 per fourplex unit. This one is per column, in row 8, because it is a fact about how many doors split one roof.
+
+On the Compare sheet, with the house in column C, the duplex in D and the fourplex in E, gross potential rent in row 13 is <code>=C5&#42;C6&#42;12</code>, units times rent per unit times twelve. Effective gross income in row 14 is <code>=C13&#42;(1-Inputs!$B$9)</code>. Operating expenses in row 15 pull every judgment from the same cells:
+
+<code>=C14&#42;Inputs!$B$10+C5&#42;(Inputs!$B$11+C8)+C4&#42;Inputs!$B$12+C9+C10</code>
+
+That is management on collected rent, maintenance and capital reserve per unit, tax on your price, then the column's own insurance quote and owner-paid utilities. NOI in row 16 is <code>=C14-C15</code>. Change the vacancy in one cell and all three columns move together. A comparison where each column carries its own vacancy assumption is three opinions sitting side by side.
+
+| Normalized | A: 3-bed house | B: Duplex | C: Fourplex |
+|---|---|---|---|
+| Gross potential rent | $19,800 | $33,000 | $57,600 |
+| Vacancy and credit loss, 6% | -$1,188 | -$1,980 | -$3,456 |
+| Effective gross income | $18,612 | $31,020 | $54,144 |
+| Management, 9% | $1,675 | $2,792 | $4,873 |
+| Maintenance | $1,000 | $2,000 | $4,000 |
+| Capital reserve | $1,800 | $2,400 | $3,600 |
+| Property tax at 1.40% | $2,100 | $3,430 | $5,390 |
+| Insurance, landlord policy | $1,500 | $2,400 | $4,400 |
+| Owner-paid utilities | $0 | $1,200 | $3,600 |
+| NOI | $10,537 | $16,798 | $28,281 |
+| NOI lost against the listing | 36.9% | 34.6% | 20.4% |
+| Cap rate on price | 7.02% | 6.86% | 7.35% |
+
+The house lost more than a third of its NOI and the fourplex lost a fifth. The ranking on cap rate is now C, A, B, and on cash flow it is about to become C, B, A. Note also that every cap rate sits below 8.70 percent, the loan constant of a 30-year loan at 7.875 percent (<code>=-PMT(Inputs!$B$7/12,360,1)&#42;12</code>). That means each dollar borrowed costs more than the building earns on it, the negative leverage case worked through in the <a href="/blog/cap-rate-calculator-excel">cap rate calculator</a>. It applies to all three columns, which is why it cannot pick a winner, and why the next two sections matter more.
+
+## One Denominator: The Cash It Takes to Own Each Building
+
+Cash-on-cash return on the down payment divides by one of the three checks you write to own the building and ignores the other two. The model puts closing costs at 3 percent of the price on all three (lender fees, title, prepaid insurance and the escrow cushion), with the rate in Inputs!B7 and that 3 percent in B8. Day-one repairs depend on the building, not the price: a water heater and paint on the house for $4,000, one unit turn and a panel upgrade on the duplex for $7,500, two unit turns, a water heater and parking lot work on the fourplex for $16,000.
+
+Row 20 holds the all-in cash, <code>=C4&#42;(C7+Inputs!$B$8)+C11</code>, price times the down payment share plus the closing cost share, plus repairs. Row 18 is debt service, <code>=-PMT(Inputs!$B$7/12,360,C4&#42;(1-C7))&#42;12</code>, and row 19 is cash flow, <code>=C16-C18</code>. Row 21 is the principal you pay down in year one, <code>=-CUMPRINC(Inputs!$B$7/12,360,C4&#42;(1-C7),1,12,0)</code>, which is real money that stays in the building rather than reaching your account.
+
+| One denominator | A: 3-bed house | B: Duplex | C: Fourplex |
+|---|---|---|---|
+| Down payment | $30,000 | $61,250 | $96,250 |
+| Closing costs, 3% | $4,500 | $7,350 | $11,550 |
+| Day-one repairs | $4,000 | $7,500 | $16,000 |
+| All-in cash | $38,500 | $76,100 | $123,800 |
+| NOI | $10,537 | $16,798 | $28,281 |
+| Debt service | $10,441 | $15,988 | $25,124 |
+| Cash flow | $96 | $810 | $3,157 |
+| Cash-on-cash on the down payment | 0.32% | 1.32% | 3.28% |
+| Cash-on-cash on all-in cash | 0.25% | 1.06% | 2.55% |
+| Year-one principal paydown | $1,028 | $1,573 | $2,473 |
+| Cash flow plus paydown on all-in cash | 2.92% | 3.13% | 4.55% |
+
+The order is now C, B, A on every return line. The house that won the listing sheet by five points finishes last by every honest measure. If you stopped here you would buy the fourplex, and you would be comparing three buildings with each other while the real competitor sits outside the sheet.
+
+## Column Zero: What the $140,000 Earns If You Buy Nothing
+
+On October 2, 2026, the 13-week Treasury bill yielded 4.11 percent on a coupon-equivalent basis, from the Treasury's daily bill rates. That is what the cash earns while you think. It carries no tenant, no roof and no lender, and it can be sold any business day. Put it in Inputs!B4 and add one row to the Compare sheet, the excess over column zero, in row 22:
+
+<code>=C19+C21-Inputs!$B$4&#42;C20</code>
+
+Cash flow plus principal paydown, minus what the same all-in cash would have earned in bills. It is a dollar figure, and that is the point. Percentages describe how efficiently each column uses whatever cash it happens to need. Dollars describe what happens to your $140,000, and dollars add up. A bundle of two properties beats or trails column zero by exactly the sum of their two excess figures, because the cash not spent on property sits in bills either way. No percentage has that property, which is why sorting a comparison by cash-on-cash cannot answer a budget question.
+
+| Choice for the $140,000 | Cash deployed | Left in T-bills | Year-one return | On the budget | Against all T-bills |
+|---|---|---|---|---|---|
+| Buy nothing (column zero) | $0 | $140,000 | $5,754 | 4.11% | $0 |
+| A: house | $38,500 | $101,500 | $5,296 | 3.78% | -$458 |
+| B: duplex | $76,100 | $63,900 | $5,009 | 3.58% | -$745 |
+| C: fourplex | $123,800 | $16,200 | $6,296 | 4.50% | +$542 |
+| A and B together | $114,600 | $25,400 | $4,551 | 3.25% | -$1,203 |
+
+Year-one return here is cash flow plus principal paydown plus bill interest on the cash left over. The house and the duplex each earn less than doing nothing, and buying both does worse than either one: it puts $114,600 to work at a return below the bill rate and loses $1,203 a year against leaving the money alone, which is the house's -$458 plus the duplex's -$745. The instinct to deploy all the capital is right only when the spread over column zero is positive. When it is negative, every extra dollar deployed widens the loss.
+
+Two objections, both fair. First, appreciation is missing. It is missing on purpose, because it is the bet rather than the underwriting. Write the bet down as its own row instead: the annual appreciation each building needs to match column zero is <code>=MAX(0,-C22/C4)</code>, which is 0.31 percent for the house, 0.30 percent for the duplex and nothing for the fourplex. Those are small numbers, and if you expect 3 percent a year in your market all three pass. Then you are buying a market forecast, and the comparison between them should be made on downside rather than return. Second, taxes. Depreciation shelters rental income, and Treasury bill interest is exempt from state and local income tax, as TreasuryDirect states. The adjustment cuts both ways and depends on your bracket and your state, so run it in your own copy rather than assuming it favors the property.
+
+## The Lender's Column: Reserves Decide What Can Close
+
+The cash left in bills is not idle. Part of it is required, because investment property reserves are a condition of a conforming loan, not a suggestion. Fannie Mae's Selling Guide, section B3-4.1-01, sets the minimum reserves for an investment-property purchase at six months of PITIA on the subject loan (principal, interest, taxes, insurance and any association dues). When you own other financed properties, it adds a share of the unpaid balance on those other mortgages: 2 percent if you have one to four financed properties, 4 percent for five or six, 6 percent for seven to ten. That balance leaves out the subject loan and your principal residence. Checking, savings, stocks, bonds, CDs, money market funds and the vested amount of a retirement account all count. Reserves are not spent. They only have to be there, so they keep earning bill interest inside column zero, which the table above already credits.
+
+Row 23 is the monthly PITIA, <code>=-PMT(Inputs!$B$7/12,360,C4&#42;(1-C7))+(C4&#42;Inputs!$B$12+C9)/12</code>, and row 24 the reserve, <code>=6&#42;C23</code>. On a Bundles sheet, with one row per choice and a 1 in columns C to E for each building it includes, cash deployed is <code>=SUMPRODUCT(C5:E5,Compare!$C$20:$E$20)</code>, the cash left is <code>=Inputs!$B$3-F5</code>, J5 holds the reserve required (six months on the building that closes last, plus 2 percent of the other new loans), and the status cell reads:
+
+<code>=IF(G5&lt;0,"OVER BUDGET",IF(G5&lt;J5,"SHORT ON RESERVES","CLOSES"))</code>
+
+| Choice | Monthly PITIA | Reserves required | Cash left after closing | Status on liquid cash |
+|---|---|---|---|---|
+| A: house | $1,170.08 | $7,020 | $101,500 | Closes |
+| B: duplex | $1,818.15 | $10,909 | $63,900 | Closes |
+| C: fourplex | $2,909.47 | $17,457 | $16,200 | Short by $1,257 |
+| A and B, duplex closing second | $1,818.15 | $13,309 | $25,400 | Closes |
+
+The only column that beats a Treasury bill is the only one that cannot close on $140,000 of liquid cash. The A and B line counts six months on the duplex plus 2 percent of the house's $120,000 loan, because by the second closing the house is one of your other financed properties. For the fourplex, three fixes exist, and the sheet should show which one you are relying on. A vested 401(k) balance above $1,257 covers it, because Fannie Mae counts vested retirement assets toward reserves. A seller credit toward the $16,000 of day-one repairs lowers the cash to close. Or a lower price shrinks every number on the line at once, which is where the last column of the sheet comes in.
+
+## The Downside Row: One Vacancy in Each Building
+
+The 6 percent vacancy allowance is an average. The event that tests a landlord is one unit sitting empty for three months beyond the allowance, plus a $2,500 turn. Row 25 prices it as <code>=3&#42;C6&#42;(1-Inputs!$B$10)+2500</code>, three months of one unit's rent net of the management fee you no longer pay, plus the turn. Row 26 divides it by PITIA, <code>=C25/C23</code>, to express it in months of the reserve the lender just made you hold.
+
+| One unit empty three extra months | A: 3-bed house | B: Duplex | C: Fourplex |
+|---|---|---|---|
+| Cost of the event | $7,005 | $6,254 | $5,776 |
+| Share of gross potential rent | 35.4% | 19.0% | 10.0% |
+| Year-one cash flow after it | -$6,909 | -$5,444 | -$2,619 |
+| Months of PITIA it consumes | 6.0 | 3.4 | 2.0 |
+| Breakeven occupancy | 93.5% | 91.3% | 88.0% |
+
+One bad tenant in the house eats the entire six-month reserve. The same event in the fourplex eats two months of it. Breakeven occupancy in row 27, <code>=(C15-C14&#42;Inputs!$B$10+C18)/(C13&#42;(1-Inputs!$B$10))</code>, tells the same story from the other side: the house stops paying its bills when it is empty for more than 6.5 percent of the year, about 24 days, while the fourplex can absorb 12 percent. The <a href="/blog/rental-property-analysis-spreadsheet">rental property analysis spreadsheet</a> article explains why that occupancy figure is the one number that separates two properties a percentage-of-rent model calls identical. In a comparison, it is the tiebreaker the return rows cannot provide.
+
+## Turn the Ranking Into an Offer Price
+
+A ranking at asking prices tells you which listing is least bad. The useful output is the price at which each one becomes good. Set a hurdle in Inputs!B6 as the bill rate plus what you need to be paid for being a landlord, <code>=B4+B5</code>, with 2 points in B5 for a hurdle of 6.11 percent. Then solve for the price at which cash flow plus paydown on all-in cash equals the hurdle.
+
+You do not need Goal Seek. With rent and repairs fixed, taxes, debt service, paydown and cash to close all move in a straight line with the price, so the excess over the hurdle is a constant minus a slope times the price, and the maximum offer is the constant divided by the slope. Row 28:
+
+<code>=(C14&#42;(1-Inputs!$B$10)-C5&#42;(Inputs!$B$11+C8)-C9-C10-Inputs!$B$6&#42;C11)/(Inputs!$B$12+(1-C7)&#42;(CUMPRINC(Inputs!$B$7/12,360,1,1,12,0)-PMT(Inputs!$B$7/12,360,1)&#42;12)+Inputs!$B$6&#42;(C7+Inputs!$B$8))</code>
+
+The numerator is what the building earns before anything that depends on price, minus the hurdle's claim on the repair money. The denominator is what each extra dollar of price costs you in tax, in debt service net of paydown, and in hurdle return on the extra cash it takes to close.
+
+| Offer at a 6.11% hurdle | A: 3-bed house | B: Duplex | C: Fourplex |
+|---|---|---|---|
+| Asking price | $150,000 | $245,000 | $385,000 |
+| Maximum offer | $136,468 | $219,808 | $363,495 |
+| Discount needed | $13,532 | $25,192 | $21,505 |
+| Discount in percent | 9.0% | 10.3% | 5.6% |
+| All-in cash at that price | $35,388 | $69,046 | $117,779 |
+| Reserves at that price | $6,455 | $9,911 | $16,605 |
+| Cash left from $140,000 | $104,612 | $70,954 | $22,221 |
+
+Every listing needs a discount to clear the hurdle, and the fourplex needs the smallest one in percent. At $363,495 it also clears the reserve test on liquid cash alone, with $22,221 left against $16,605 required, so the price cut closes the reserve gap as a side effect. The duplex needs more than 10 percent off, and the house 9 percent. Those are offers you can make. A column ranked first at asking is not a reason to pay the asking price.
+
+## What to Do With These Three Listings
+
+The finished rental property comparison spreadsheet has three sheets, and each fixes one failure of the side-by-side layout:
+
+1. <strong>Inputs</strong> holds the budget, the bill rate, the premium, the hurdle, the loan terms and every judgment call. One cell per assumption, read by every column.
+2. <strong>Compare</strong> holds one column per building with only facts typed in, then NOI, all-in cash, cash flow, paydown, the excess over column zero, PITIA, reserves, the vacancy event, breakeven occupancy and the maximum offer, all as formulas.
+3. <strong>Bundles</strong> holds one row per choice of what to do with the budget, including buying nothing, with cash deployed, cash left, reserve status and the excess over all bills as a SUMPRODUCT of row 22.
+
+For these three listings, the sheet says this:
+
+1. <strong>Do not buy the house or the duplex at asking.</strong> Each earns less in year one than the same cash in Treasury bills, and together they lose $1,203 a year against doing nothing while leaving you exposed to a vacancy that eats the house's whole reserve. Offer $136,468 and $219,808, or walk.
+2. <strong>Offer on the fourplex at or below $363,495.</strong> It is the only building that beats column zero at asking, it carries the cheapest vacancy event and the lowest breakeven occupancy, and at that price it clears the hurdle and the reserve test on liquid cash.
+3. <strong>If you must pay closer to $385,000, name the reserve fix before you sign.</strong> A vested retirement balance or a repair credit, written into the Bundles sheet, not discovered by the underwriter.
+4. <strong>Re-key column zero every time you open the file.</strong> The 13-week bill paid 4.17 percent on September 29 and 4.11 percent on October 2. A deal that loses to bills at 4.11 percent can beat them at 3.50, and a deal that beats them today can lose next quarter.
+
+When you compare rental properties only with each other, the sheet will always find a winner. The sheet that compares each property with your own cash will sometimes tell you to buy nothing, and that is the answer worth paying for.
+
+If you would rather start from a working model than a blank sheet, the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> already carries the parts that take longest to build: a detailed operating expense breakdown with NOI, vacancy and maintenance reserves with adjustable percentages, a mortgage analysis with the amortization schedule and equity tracking, DSCR, break-even analysis, and a side-by-side comparison of up to five properties on identical metrics. Point every column's vacancy, management and tax rate at one set of cells, then add the rows this article adds beside its comparison tab: all-in cash, the excess over column zero, the six-month reserve and the maximum offer. Run your three listings through it before you write an offer on any of them.`,
+  },
+  {
     slug: '70-percent-rule-house-flipping-calculator',
     title: '70 Percent Rule House Flipping Calculator: Solve for Your Own Percentage',
     metaTitle: '70 Percent Rule House Flipping Calculator | SheetCraft',
