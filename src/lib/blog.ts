@@ -16,6 +16,182 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'aia-g702-g703-excel-template',
+    title: 'AIA G702 G703 Excel Template: The Line 7 Error That Costs $59,040',
+    metaTitle: 'AIA G702 G703 Excel Template: Fix Line 7 | SheetCraft',
+    metaDescription: 'An AIA G702 G703 Excel template is only as good as Line 7. On a $1.48M job, the wrong source drops $59,040 or rebills $293,000. Here is the fix.',
+    targetKeyword: 'AIA G702 G703 Excel template',
+    secondaryKeywords: ['G702 application for payment', 'G703 continuation sheet', 'previous certificates for payment', 'pay application spreadsheet', 'construction retainage'],
+    excerpt: 'Every free G702 template computes the nine lines correctly and leaves Line 7 to you. On a $1,480,000 build-out, taking it from the prior application loses $59,040 the architect deferred, and taking it from cash received rebills $293,000. Here is the certificate log and the five checks that prevent both.',
+    publishedAt: '2026-10-04',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/aia-g702-g703-excel-template.png',
+    imageAlt: 'Brass notary embossing seal, white hard hat and a face-down stack of paper on a site office desk, with a steel-frame building and tower crane outside the window',
+    content: `<p>A general contractor on a $1,480,000 tenant build-out sends five pay applications in five months. The architect trims two of them, the owner pays one certificate $9,500 short and another one late. By the fifth application the contractor has been certified $59,040 less than the work in place has earned, and nothing on the form shows it. Every AIA G702 G703 Excel template you can download gets the arithmetic of the nine lines right. What it leaves to you is Line 7, the only number on the page that is not computed from this month's work, and the place you take it from decides whether you ever collect for the work the architect deferred.</p>
+
+<p>The fix is a certificate log that feeds Line 7 from what the architect signed, plus five checks that run before you sign the notarized page. Below, the same job is run three ways so you can see what each source for Line 7 costs.</p>
+
+<h2>Line 7 Is the Only Number on the G702 That Comes From Last Month</h2>
+
+<p>The AIA form is two documents. The G703 Continuation Sheet is your schedule of values with progress columns: scheduled value (C), work completed from the previous application (D), work completed this period (E), materials presently stored (F), total completed and stored to date (G), and balance to finish (H). Column I holds retainage line by line, and the form says to use it only on contracts with variable retainage. The G702 Application and Certificate for Payment then summarizes the G703 in nine lines.</p>
+
+<p>Here are the nine lines with the formula each one carries and the values from the fourth application of the job in this article, as certified. The workbook has a <code>G703</code> sheet (base contract in rows 8 to 30, approved change orders in rows 32 to 40, totals in row 41), a <code>PayApp</code> sheet with the application number in <code>C3</code> and retainage rates in <code>E10</code> and <code>E11</code>, and a <code>CertLog</code> sheet described further down.</p>
+
+<table>
+<thead><tr><th>G702 line</th><th>What it is</th><th>Formula in PayApp</th><th>App 4, certified</th></tr></thead>
+<tbody>
+<tr><td>1. Original Contract Sum</td><td>Total of the base schedule of values</td><td><code>=SUM(G703!C8:C30)</code></td><td>$1,480,000</td></tr>
+<tr><td>2. Net change by Change Orders</td><td>Approved change orders only</td><td><code>=SUM(G703!C32:C40)</code></td><td>$28,200</td></tr>
+<tr><td>3. Contract Sum to date</td><td>Line 1 plus Line 2</td><td><code>=C6+C7</code></td><td>$1,508,200</td></tr>
+<tr><td>4. Total completed and stored</td><td>Column G total on the G703</td><td><code>=G703!G41</code></td><td>$981,400</td></tr>
+<tr><td>5a. Retainage on completed work</td><td>Rate times columns D plus E</td><td><code>=ROUND((G703!D41+G703!E41)&#42;E10,2)</code></td><td>$94,340</td></tr>
+<tr><td>5b. Retainage on stored material</td><td>Rate times column F</td><td><code>=ROUND(G703!F41&#42;E11,2)</code></td><td>$3,800</td></tr>
+<tr><td>5. Total retainage</td><td>5a plus 5b, or column I total</td><td><code>=C10+C11</code></td><td>$98,140</td></tr>
+<tr><td>6. Total earned less retainage</td><td>Line 4 minus Line 5</td><td><code>=C9-C12</code></td><td>$883,260</td></tr>
+<tr><td>7. Less previous certificates</td><td>Line 6 from the prior certificate</td><td><code>=IFERROR(INDEX(CertLog!F:F,MATCH(C3-1,CertLog!A:A,0)),0)</code></td><td>$666,000</td></tr>
+<tr><td>8. Current payment due</td><td>Line 6 minus Line 7</td><td><code>=C13-C14</code></td><td>$217,260</td></tr>
+<tr><td>9. Balance to finish, incl. retainage</td><td>Line 3 minus Line 6</td><td><code>=C8-C13</code></td><td>$624,940</td></tr>
+</tbody>
+</table>
+
+<p>Eight of those lines are sums and differences of this month's G703. Line 7 is different. The form prints its source under the label: "Line 6 from prior Certificate." That means the figure the architect signed last month, which is not necessarily the figure you applied for and is often not the cash you received. Because Line 6 is cumulative, Line 8 corrects itself every month as long as Line 7 is right: work the architect cut in March comes back in April once it is in place, without anyone tracking it. Take Line 7 from anywhere else and that self-correction stops.</p>
+
+<h2>What a Free G702 Template Actually Gives You</h2>
+
+<p>Before the math, the form itself. The AIA instructions for G702-1992, the edition the AIA still sells, say the document "is a copyrighted work and may not be reproduced or excerpted from without the express written permission of the AIA," and that there is no implied permission to reproduce it. The purchaser gets a limited license to reproduce up to ten copies of a completed G702, for one project. The footer of the form also lists "G702" and "G703" as registered trademarks. A free download that copies the AIA layout and wording is a copy of a document the AIA says you need permission to copy.</p>
+
+<p>The general conditions do not require the AIA form either. A201-2017, Section 9.3.1, asks the contractor to submit "an itemized Application for Payment prepared in accordance with the schedule of values," at least ten days before each payment date, notarized if required, with the supporting data the owner or architect requires, and reflecting retainage if the contract provides for it. The specific form comes from your agreement, the owner's supplementary conditions, or the lender's draw requirements. That leaves two clean routes:</p>
+
+<ul>
+<li>If the contract or the lender names the AIA G702 and G703, buy them through AIA Contract Documents and use your workbook to compute every figure you transfer onto them.</li>
+<li>If it asks for an application for payment in a form acceptable to the architect or the lender, build your own layout in your own words, carrying the same nine-line arithmetic, and confirm the format with the architect before the first application goes out.</li>
+</ul>
+
+<p>Either way, every figure on the page is computed in the workbook first, and the Line 7 error is made in the workbook, on whichever form it ends up printed.</p>
+
+<h2>One Job, Five Pay Apps, Two Cuts and a Short Payment</h2>
+
+<p>The job: a $1,480,000 build-out, 10 percent retainage on completed work and on stored materials, monthly applications. Change order 1 adds $36,400 before application 2. Change order 2 deducts $8,200 (a value-engineering credit) before application 4. A $24,600 change order request for added blocking sits unsigned during application 4 and is approved as change order 3 before application 5.</p>
+
+<p>Four events change the numbers:</p>
+
+<ol>
+<li>Application 2: the contractor bills drywall at 75 percent. The architect observes about 55 percent and certifies $41,000 less on that line, initialing the corrected figures as the G702 instructions direct.</li>
+<li>Application 2 payment: the owner deducts a $9,500 cleanup backcharge from the check without a change order.</li>
+<li>Application 3 payment: the check arrives after application 4 has gone out.</li>
+<li>Application 4: the contractor puts the unsigned $24,600 request on a change order line. The architect strikes it.</li>
+</ol>
+
+<table>
+<thead><tr><th>App</th><th>Line 4 applied</th><th>Line 4 certified</th><th>Line 6 certified</th><th>Line 8 certified</th><th>What happened</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>$148,000</td><td>$148,000</td><td>$133,200</td><td>$133,200</td><td>Certified and paid in full</td></tr>
+<tr><td>2</td><td>$466,000</td><td>$425,000</td><td>$382,500</td><td>$249,300</td><td>Drywall cut $41,000; paid $239,800 after a $9,500 backcharge</td></tr>
+<tr><td>3</td><td>$740,000</td><td>$740,000</td><td>$666,000</td><td>$283,500</td><td>Certified in full; paid after App 4 was submitted</td></tr>
+<tr><td>4</td><td>$1,006,000</td><td>$981,400</td><td>$883,260</td><td>$217,260</td><td>Unsigned $24,600 change struck</td></tr>
+<tr><td>5</td><td>$1,214,000</td><td>$1,214,000</td><td>$1,092,600</td><td>$209,340</td><td>Change order 3 approved; certified in full</td></tr>
+</tbody>
+</table>
+
+<p>Add the certified Line 8 column: $133,200 + $249,300 + $283,500 + $217,260 + $209,340 = $1,092,600, exactly the certified Line 6 of application 5. Every control below relies on that identity. The sum of every certificate ever issued must equal the latest certified Line 6, because each certificate pays the increase in Line 6 and nothing else.</p>
+
+<h2>Three Ways to Fill Line 7, Priced</h2>
+
+<p>Here is the same job run three ways. Method A takes Line 7 from the prior certificate, as the form says. Method B takes it from the prior application, which is what happens when the template copies last month's Line 6 forward. Method C takes it from cash received, which is what happens when the bookkeeper fills it from the receivables ledger.</p>
+
+<table>
+<thead><tr><th>App</th><th>Line 6 applied</th><th>A: prior certificate</th><th>Line 8 asked (A)</th><th>B: prior application</th><th>Line 8 asked (B)</th><th>C: cash received</th><th>Line 8 asked (C)</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>$666,000</td><td>$382,500</td><td>$283,500</td><td>$419,400</td><td>$246,600</td><td>$373,000</td><td>$293,000</td></tr>
+<tr><td>4</td><td>$905,400</td><td>$666,000</td><td>$239,400</td><td>$666,000</td><td>$239,400</td><td>$373,000</td><td>$532,400</td></tr>
+<tr><td>5</td><td>$1,092,600</td><td>$883,260</td><td>$209,340</td><td>$905,400</td><td>$187,200</td><td>$873,760</td><td>$218,840</td></tr>
+</tbody>
+</table>
+
+<h3>Method B loses the architect's cuts for good</h3>
+
+<p>In application 3 the drywall is done, so column G now includes the $41,000 the architect deferred. Under method A, Line 8 asks for $283,500 and that includes the deferred drywall net of retainage. Under method B, Line 7 is $419,400, the amount applied for in application 2, so Line 8 asks for $36,900 less. The same thing happens in application 5 with the struck change: $22,140 less. Total: $59,040, which is exactly 90 percent of the $65,600 the architect removed. Every dollar the architect deferred is a dollar the contractor never asks for again.</p>
+
+<p>Nothing on the form flags it. Line 9 still reconciles, the percentages on the G703 still look right, and an architect reviewing an application that asks for less than is due has no reason to object. The gap surfaces only if somebody reconciles total certificates against the contract at closeout. Until then, at an assumed 9 percent line of credit, carrying $59,040 for eight months costs about $3,540 in interest. If nobody reconciles, it costs $59,040.</p>
+
+<h3>Method C bills the same dollars twice</h3>
+
+<p>Under method C, application 3 already asks for $9,500 more than is due, because the backcharge left the cash column short. Application 4 is worse: the application 3 check has not arrived, so Line 7 excludes it and Line 8 asks for $532,400 where method A asks for $239,400. The $293,000 difference is the unpaid application 3 certificate plus the backcharge, billed a second time. The contractor signs a notarized statement that this amount "is now due," the owner's payables department sees a duplicate, and the architect has to correct and initial Line 7 or withhold certification under A201 Section 9.4.1 with written reasons.</p>
+
+<p>The backcharge and the late check are real problems. They belong in your receivables, and a contested deduction belongs in a Claim under A201 Article 15. Inside Line 8 they only get the application sent back.</p>
+
+<h2>Build the Certificate Log Before You Build the Form</h2>
+
+<p>Method A needs one thing most templates do not have: a record of what the architect actually signed, kept apart from what you applied for and what you were paid. Call the sheet <code>CertLog</code>, one row per application, filled in the day the signed certificate comes back.</p>
+
+<table>
+<thead><tr><th>Col</th><th>Field</th><th>Entry or formula</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Application number</td><td>Typed</td></tr>
+<tr><td>B</td><td>Period to</td><td>Typed date</td></tr>
+<tr><td>C</td><td>Line 6 applied</td><td>Copied from PayApp when submitted</td></tr>
+<tr><td>D</td><td>Certified completed work (D plus E)</td><td>From the initialed G703</td></tr>
+<tr><td>E</td><td>Certified stored materials (F)</td><td>From the initialed G703</td></tr>
+<tr><td>F</td><td>Line 6 certified</td><td>From the signed G702</td></tr>
+<tr><td>G</td><td>Line 8 certified</td><td><code>=F2-N(F1)</code>, filled down</td></tr>
+<tr><td>H</td><td>Date certified</td><td>Typed date</td></tr>
+<tr><td>I</td><td>Amount paid</td><td>From the deposit</td></tr>
+<tr><td>J</td><td>Date paid</td><td>Typed date</td></tr>
+<tr><td>K</td><td>Open on this certificate</td><td><code>=G2-I2</code></td></tr>
+<tr><td>L</td><td>Reason for any difference</td><td>Text: "drywall 55% observed", "cleanup backcharge"</td></tr>
+</tbody>
+</table>
+
+<p>The <code>N(F1)</code> in column G returns zero when the cell above is the header text, so the same formula works on the first row and every row after it. Column G is the certified Line 8 history, and its running total is always the next Line 7.</p>
+
+<p>Here is the log for this job as it stands when application 5 is prepared, with the application 3 check now received:</p>
+
+<table>
+<thead><tr><th>App</th><th>Line 6 applied</th><th>Cert. D+E</th><th>Cert. F</th><th>Line 6 certified</th><th>Line 8 certified</th><th>Paid</th><th>Open</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>$133,200</td><td>$148,000</td><td>$0</td><td>$133,200</td><td>$133,200</td><td>$133,200</td><td>$0</td></tr>
+<tr><td>2</td><td>$419,400</td><td>$361,000</td><td>$64,000</td><td>$382,500</td><td>$249,300</td><td>$239,800</td><td>$9,500</td></tr>
+<tr><td>3</td><td>$666,000</td><td>$702,000</td><td>$38,000</td><td>$666,000</td><td>$283,500</td><td>$283,500</td><td>$0</td></tr>
+<tr><td>4</td><td>$905,400</td><td>$943,400</td><td>$38,000</td><td>$883,260</td><td>$217,260</td><td>$217,260</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Each of three columns answers one question. Column F answers "what goes on Line 7." Column K answers "who owes us what," which is the $9,500 backcharge and nothing else. The gap between columns C and F answers "what did the architect cut, and did we earn it back." Mixing any two of them is how methods B and C happen.</p>
+
+<p>The receivable deserves its own number on the PayApp sheet, next to the application and never inside it: <code>=SUM(CertLog!G:G)-SUM(CertLog!I:I)</code>. On the day application 4 was prepared, that cell read $293,000, which is the exact amount method C billed a second time. When that number is not zero, call the owner and, if the deduction is contested, file a Claim. Line 8 stays as computed. If you also want to see what the owner's late checks cost you in days, the <a href="/blog/contractor-cash-conversion-cycle-calculator-excel">cash conversion cycle calculator</a> runs off the same date columns.</p>
+
+<h2>Change Orders: What the Form Lets You Bill This Month</h2>
+
+<p>The G702 has a change order summary box: additions and deductions "approved in previous months by Owner," and those "approved this month." Line 2 is the net of approved change orders, and the G703 instructions add that change orders are usually listed separately, on their own G703 or at the end of the basic schedule. Nothing in that box has room for a request the owner has not signed.</p>
+
+<p>A201-2017 Section 9.3.1.1 allows one exception: applications may include payment for changed work "properly authorized by Construction Change Directives, or by interim determinations of the Architect, but not yet included in Change Orders." A pricing request sitting in the owner's inbox is neither. That is why the $24,600 blocking was struck in application 4 and paid in application 5, after it became change order 3. If your log does not show which changes are signed, the <a href="/blog/construction-change-order-tracking-excel">change order tracking log</a> with notice deadlines is the place to start.</p>
+
+<p>In the workbook, give every row from 32 to 40 an approval date in column K, and keep unsigned requests in a separate block below the totals row, where no formula sums them. A change that gets approved moves up into the summed block; until then it cannot reach Line 2 or Line 4.</p>
+
+<h2>The Five Checks to Run Before Anyone Signs</h2>
+
+<p>Each check sits on the PayApp sheet and must read OK or zero before the application is printed, signed and notarized.</p>
+
+<ol>
+<li><strong>Line 7 matches the certificate history.</strong> <code>=IF(ABS(C14-SUMIFS(CertLog!G:G,CertLog!A:A,"&lt;"&amp;C3))&gt;0.005,"LINE 7 BROKEN","OK")</code>. This catches the hand-typed overwrite, the most common way a correct formula becomes method B in month six.</li>
+<li><strong>Column D comes from the certificate, not from your last submission.</strong> <code>=IF(ABS(G703!D41-INDEX(CertLog!D:D,MATCH(C3-1,CertLog!A:A,0)))&gt;0.005,"D NOT FROM CERTIFICATE","OK")</code>. In application 3, the column D total must be $361,000, the certified figure; the $402,000 you applied for fails the check. The G703 instructions also say stored materials from the prior application never go into column D; they move into column E only when installed.</li>
+<li><strong>The schedule of values still equals the contract sum.</strong> <code>=IF(ABS(C16-(G703!H41+C12))&gt;0.005,"SOV NOT = CONTRACT SUM","OK")</code>. Line 9 equals column H plus retainage only if column C totals Line 3. It fails the month someone adds a change order to Line 2 and forgets the G703 row.</li>
+<li><strong>No unsigned change carries a value.</strong> <code>=COUNTIFS(G703!C32:C40,"&lt;&gt;0",G703!K32:K40,"")</code> must return 0.</li>
+<li><strong>No line is billed past 100 percent.</strong> <code>=SUMPRODUCT(--(G703!G8:G40&gt;G703!C8:C40))</code> must return 0. A line over its scheduled value usually means a change was billed on the base line instead of its own.</li>
+</ol>
+
+<p>Stored materials need one more look by eye: column F is the value still sitting in storage, recalculated each period, and the G703 instructions say payment by the owner does not reduce it. Only installation moves value from F to E. The <a href="/blog/construction-stored-materials-tracking-spreadsheet">stored materials tracking spreadsheet</a> reconciles that movement line by line.</p>
+
+<p>Then push the architect's cuts down. A201-2017 Section 9.6.2 gives you seven days after the owner's payment to pay each subcontractor what it is entitled to, and Section 9.3.1.2 bars you from billing work you do not intend to pay a sub or supplier for. When the architect certifies drywall at 55 percent, the drywall sub's pay request at 75 percent has to be measured against that before you cut a check, or you fund the $41,000 difference yourself. Whether your subcontract lets you pay on the certified figure is a question for the subcontract, and the <a href="/blog/subcontractor-payment-tracking-spreadsheet">subcontractor payment tracking spreadsheet</a> keeps each sub's billed, certified and paid amounts side by side.</p>
+
+<h2>What to Set Up Before Your Next Pay App</h2>
+
+<p>Do these in order. First, read the payment article of your agreement and the lender's draw letter for the exact form they name: if they name the AIA G702 and G703, buy them and transfer figures onto them; if they accept a form acceptable to the architect, build your own layout and send a blank to the architect for approval now. Second, create the CertLog sheet and back-fill it from every signed certificate on the job so far; the gap between column C and column F is the money to chase this month. Third, point Line 7 at CertLog column F and wire the five checks before the next application goes out. On the job above, that is the difference between collecting $1,092,600 and collecting $1,033,560 for the same work, and between a clean fourth application and one that asks for $293,000 it is not owed.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already holds most of what feeds this workbook: a change order log whose entries ripple through the budget, a payment tracker you can filter by vendor, status and date, a dashboard comparing percent complete against percent spent, and print-ready summary sheets for lenders and clients. It does not print a G702. Add the CertLog sheet and the nine-line PayApp tab described above, link them to its budget lines, and each month's application comes out of numbers you are already keeping.</p>`,
+  },
+  {
     slug: 'rental-property-comparison-spreadsheet',
     title: 'Rental Property Comparison Spreadsheet: Rank Your Cash, Not the Listings',
     metaTitle: 'Rental Property Comparison Spreadsheet | SheetCraft',
