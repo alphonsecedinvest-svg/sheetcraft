@@ -16,6 +16,210 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'after-repair-value-calculator',
+    title: 'After Repair Value Calculator: Date Your ARV or Overpay by $12,875',
+    metaTitle: 'After Repair Value Calculator With a Date | SheetCraft',
+    metaDescription: 'An after repair value calculator with no sale date prices your flip off summer comps. On a Mesa ranch that is $14,975 of ARV and $12,875 of offer.',
+    targetKeyword: 'after repair value calculator',
+    secondaryKeywords: ['dated ARV', 'time adjustment', 'seller concessions', 'seasonal factor', 'max offer'],
+    excerpt: 'A Mesa flip pencils at a $434,250 ARV from four renovated comps. Strip the seller concessions, move each comp to the latest FHFA index month, then price the house in February, when the buyer will actually sign, and the ARV is $419,275. The dated ARV block below moves the max offer down $12,875.',
+    publishedAt: '2026-10-05',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/after-repair-value-calculator.png',
+    imageAlt: 'Ink and watercolor illustration of an antique hourglass on a stucco garden wall in front of a renovated single-story ranch house with a palo verde tree in the Arizona desert',
+    content: `<p>A flipper in Mesa, Arizona is about to buy a tired 1,480 square foot ranch for $262,000 and put $58,000 into it. Four renovated sales nearby closed between April and September 2026, and after the usual bed, bath and size adjustments they average $434,250. Every after repair value calculator online takes that number, multiplies it by 70 percent or subtracts costs from it, and says the deal makes $56,114. The calculator never asks the one question the buyer's appraiser will ask in February: on what date is this house worth $434,250? Answer that question with public data and the same house is worth $419,275 on the day it actually sells, the profit drops to $42,188, and the price you can pay for a $40,000 margin falls by $12,875.</p>
+
+<p>Every comp in the set is sound. The gap comes from three things a dateless ARV ignores: seller concessions folded into the comps' recorded prices, the months between each comp's contract and today, and the months between today and the day your own buyer signs. All three can be measured in a spreadsheet, and the dated version adds three small sheets to the workbook you already use.</p>
+
+<h2>The Appraisal That Sets Your ARV Has an Effective Date</h2>
+
+<p>When your retail buyer finances the purchase, their lender orders an appraisal, and that appraisal values the house on one specific day. Fannie Mae's Selling Guide is explicit about it. Section B4-1.3-09, Adjustments to Comparable Sales (version dated June 4, 2025, still current in September 2026), says the appraisal "is for a specific point in time (the effective date of the appraisal)" and that the appraiser "must analyze comparable sales for any changes in market conditions from their contract dates through the effective date." It names home price indices as an accepted way to support those time adjustments, alongside paired sales and statistical analysis.</p>
+
+<p>The same section covers concessions. A comparable that included sales or financing concessions, such as an interest rate buydown, discount points, or buyer closing costs paid by the seller, "must be adjusted to reflect the impact, if any, on the sales price." The negative adjustment should equal the part of the price the appraiser attributes to the concession. B4-1.3-08 adds that comparables should have closed within the last 12 months, and that a nine-month-old sale with a time adjustment can be a better comp than a one-month-old sale that needs many adjustments.</p>
+
+<p>So the number that decides your exit is a comp-based value, cleaned of concessions, moved from each comp's contract date to an effective date that falls weeks after your buyer signs. A flip does not reach that date quickly. ATTOM's Q2 2026 U.S. Home Flipping Report, published October 1, 2026, puts the typical flip at 161 days from purchase to resale. Buy in October and your buyer's appraisal lands in February or March, after the summer comps you are pricing from have gone stale.</p>
+
+<h2>Three Gaps Between a Comp's Sale Price and Your ARV</h2>
+
+<p>The feature adjustments are a separate job. If you have not built the grid that restates each comp for size, baths, garage and condition, the <a href="/blog/arv-comps-spreadsheet-excel">ARV comps spreadsheet</a> walkthrough does it line by line. This article starts where that grid ends, with four grid-adjusted comps, and adds the three corrections a dateless ARV skips.</p>
+
+<table>
+<thead><tr><th>Step</th><th>What it removes</th><th>Change</th><th>ARV after the step</th></tr></thead>
+<tbody>
+<tr><td>Average of grid-adjusted recorded prices</td><td>Nothing yet, this is the usual calculator input</td><td></td><td>$434,250</td></tr>
+<tr><td>1. Strip seller concessions</td><td>Credits the sellers paid that inflated the recorded price</td><td>-$6,125</td><td>$428,125</td></tr>
+<tr><td>2. Move each comp to the latest index month (July 2026)</td><td>Price movement since each comp went under contract</td><td>-$1,880</td><td>$426,245</td></tr>
+<tr><td>3. Move the value to your buyer's contract month (February 2027)</td><td>The season and trend between now and your sale</td><td>-$6,970</td><td>$419,275</td></tr>
+<tr><td>Dated ARV</td><td></td><td>-$14,975</td><td>$419,275</td></tr>
+</tbody>
+</table>
+
+<p>Step 3 is the largest and the only one that requires a forecast. Steps 1 and 2 are measurements, and an appraiser working for your buyer's lender will make both of them whether your spreadsheet does or not.</p>
+
+<h2>Gap One: Take the Concessions Out of the Comps</h2>
+
+<p>A recorded sale price of $428,000 with a $12,000 rate buydown paid by the seller is not a $428,000 house. The buyer agreed to that number because $12,000 came back to them, and Fannie Mae treats the difference as a negative adjustment to the comp. Most MLS closed listings have a field for seller concessions, while a deed record shows only the price, which is one reason a deed-based ARV runs high. When the appraiser cannot attribute the full credit to price, the adjustment can be smaller than dollar for dollar. Dollar for dollar is the conservative default for an investor, because it errs toward a lower ARV.</p>
+
+<p>Here are the four comps, with the feature adjustment from the grid, the concessions, and the contract month of each sale. The contract month comes from the MLS pending date. If you only have the closing date, back it up by the contract-to-close period your title company sees in that market; the model below uses one month.</p>
+
+<table>
+<thead><tr><th>Comp</th><th>Closed</th><th>Contract month</th><th>Recorded price</th><th>Grid adjustment</th><th>Seller concessions</th><th>Cash-equivalent price</th></tr></thead>
+<tbody>
+<tr><td>Comp 1</td><td>Apr 2026</td><td>Mar 2026</td><td>$428,000</td><td>+$4,000</td><td>$12,000 (rate buydown)</td><td>$420,000</td></tr>
+<tr><td>Comp 2</td><td>Jun 2026</td><td>May 2026</td><td>$446,000</td><td>-$9,000</td><td>$0</td><td>$437,000</td></tr>
+<tr><td>Comp 3</td><td>Jul 2026</td><td>Jun 2026</td><td>$439,000</td><td>-$2,000</td><td>$7,500 (closing costs)</td><td>$429,500</td></tr>
+<tr><td>Comp 4</td><td>Sep 2026</td><td>Aug 2026</td><td>$425,000</td><td>+$6,000</td><td>$5,000 (closing costs)</td><td>$426,000</td></tr>
+<tr><td>Average</td><td></td><td></td><td>$434,500</td><td>-$250</td><td>$6,125</td><td>$428,125</td></tr>
+</tbody>
+</table>
+
+<p>On the Comps sheet, recorded price sits in column B, the grid adjustment in C, concessions in D, closing date in E and contract date in F, with the four comps in rows 4 to 7. The cash-equivalent price in G4 is <code>=B4+C4-D4</code>. Do not hide the concession inside the grid adjustment. A separate column lets you sort comps by how much of their price was a credit, and a comp whose credit runs above a threshold you set deserves a second look before it carries a quarter of your ARV. With 3 percent as the threshold, <code>=IF(D4/B4&gt;0.03,"CHECK CREDIT","OK")</code> passes all four comps here; Comp 1 comes closest at 2.8 percent.</p>
+
+<p>One consequence for the other side of the deal: once the comps are cash-equivalent, your ARV is a cash-equivalent price too. If you expect to give your own buyer a closing cost credit in February, that credit belongs on your selling cost line, not in the ARV.</p>
+
+<h2>Gap Two: Bring Every Comp to the Latest Index Month</h2>
+
+<p>The Federal Housing Finance Agency publishes a monthly purchase-only house price index built from repeat sales of homes financed by Fannie Mae and Freddie Mac. The monthly series covers the U.S. and the nine census divisions, seasonally adjusted (SA) and not seasonally adjusted (NSA). State and metro purchase-only indexes exist too, but they are quarterly. Mesa sits in the Mountain division (Arizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming). The release of September 29, 2026 carries data through July 2026 and reports the Mountain division at -0.8 percent for July and +0.6 percent over twelve months, the weakest of the nine. The next release, on October 27, 2026, adds August.</p>
+
+<p>To move a comp from its contract month to the latest published month, use the NSA series. NSA prices are what buyers actually paid in each month, season included, which is exactly the movement an appraiser has to explain.</p>
+
+<table>
+<thead><tr><th>Month (2026)</th><th>Mountain NSA</th><th>Mountain SA</th></tr></thead>
+<tbody>
+<tr><td>January</td><td>601.01</td><td>607.84</td></tr>
+<tr><td>February</td><td>604.50</td><td>603.46</td></tr>
+<tr><td>March</td><td>612.20</td><td>607.28</td></tr>
+<tr><td>April</td><td>611.32</td><td>601.39</td></tr>
+<tr><td>May</td><td>619.51</td><td>606.72</td></tr>
+<tr><td>June</td><td>618.97</td><td>608.42</td></tr>
+<tr><td>July</td><td>613.32</td><td>603.46</td></tr>
+</tbody>
+</table>
+
+<p>Paste the FHFA file into an Index sheet with the month in column A, NSA in B and SA in C. On the ARV sheet, put the latest published month in B3 (7/1/2026) and pull its NSA value into B4 with <code>=INDEX(Index!$B:$B,MATCH(B3,Index!$A:$A,0))</code>. Then, on the Comps sheet, find the index month for each comp. A comp that went under contract after the last published month, like Comp 4 in August, has no index yet, so it is capped at July and gets no time adjustment:</p>
+
+<p>H4: <code>=DATE(YEAR(MIN(F4,ARV!$B$3)),MONTH(MIN(F4,ARV!$B$3)),1)</code><br>I4: <code>=INDEX(Index!$B:$B,MATCH(H4,Index!$A:$A,0))</code><br>J4: <code>=G4&#42;ARV!$B$4/I4</code></p>
+
+<table>
+<thead><tr><th>Comp</th><th>Cash-equivalent price</th><th>NSA at contract month</th><th>Time-adjusted to July 2026</th><th>Time adjustment</th></tr></thead>
+<tbody>
+<tr><td>Comp 1 (March)</td><td>$420,000</td><td>612.20</td><td>$420,768</td><td>+$768</td></tr>
+<tr><td>Comp 2 (May)</td><td>$437,000</td><td>619.51</td><td>$432,634</td><td>-$4,366</td></tr>
+<tr><td>Comp 3 (June)</td><td>$429,500</td><td>618.97</td><td>$425,579</td><td>-$3,921</td></tr>
+<tr><td>Comp 4 (August, capped at July)</td><td>$426,000</td><td>613.32</td><td>$426,000</td><td>$0</td></tr>
+<tr><td>Average</td><td>$428,125</td><td></td><td>$426,245</td><td>-$1,880</td></tr>
+</tbody>
+</table>
+
+<p>The two comps that went under contract in May and June, the seasonal peak, lose about 1 percent each. The cause is the division's prices falling from 619.51 to 613.32 between May and July, and a buyer's appraiser who pulls the same index will make the same adjustment.</p>
+
+<p>A division index averages Phoenix with Denver, Boise and Las Vegas. It is the finest monthly series FHFA publishes, so it is the right default, but if your MLS lets you chart median price per square foot for your zip code by month, check that your local pattern points the same way before you trust a division number to the dollar.</p>
+
+<h2>Gap Three: Price the House in the Month Your Buyer Signs</h2>
+
+<p>Step 2 brought the comps to July 2026. Your buyer will not sign until February 2027, and between those two months two things happen to prices: the season turns, and the market trends up or down. The first is measurable from history, the second is a forecast you have to state.</p>
+
+<p>FHFA's seasonal factor for any month is simply NSA divided by SA. Averaged over 2021 to 2025, the Mountain division looks like this. The pattern is stable year to year: February ran between 0.9987 and 1.0011 in each of the five years, July between 1.0162 and 1.0172.</p>
+
+<table>
+<thead><tr><th>Month</th><th>Seasonal factor</th><th>Month</th><th>Seasonal factor</th></tr></thead>
+<tbody>
+<tr><td>January</td><td>0.9870</td><td>July</td><td>1.0167</td></tr>
+<tr><td>February</td><td>0.9997</td><td>August</td><td>1.0079</td></tr>
+<tr><td>March</td><td>1.0071</td><td>September</td><td>1.0046</td></tr>
+<tr><td>April</td><td>1.0173</td><td>October</td><td>1.0021</td></tr>
+<tr><td>May</td><td>1.0204</td><td>November</td><td>0.9937</td></tr>
+<tr><td>June</td><td>1.0176</td><td>December</td><td>0.9919</td></tr>
+</tbody>
+</table>
+
+<p>Build it on a Season sheet. In the Index sheet, add the seasonal factor in D with <code>=B2/C2</code> and the month number in E with <code>=MONTH(A2)</code>. Then, with month numbers 1 to 12 in Season!A2:A13:</p>
+
+<p><code>=AVERAGEIFS(Index!$D:$D,Index!$E:$E,A2,Index!$A:$A,"&gt;="&amp;DATE(2021,1,1),Index!$A:$A,"&lt;"&amp;DATE(2026,1,1))</code></p>
+
+<p>The ARV sheet then dates the sale. Purchase closing goes in B6 (10/9/2026), rehab months in B7 (3), months from listing to an accepted contract in B8 (1). The rest:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>What it holds</th><th>Formula</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>B5</td><td>Seasonal factor of the latest index month, actual</td><td><code>=B4/INDEX(Index!$C:$C,MATCH(B3,Index!$A:$A,0))</code></td><td>1.01634</td></tr>
+<tr><td>B9</td><td>Your buyer's contract month</td><td><code>=DATE(YEAR(EDATE(B6,B7+B8)),MONTH(EDATE(B6,B7+B8)),1)</code></td><td>Feb 2027</td></tr>
+<tr><td>B10</td><td>Months from index to sale</td><td><code>=DATEDIF(B3,B9,"m")</code></td><td>7</td></tr>
+<tr><td>B11</td><td>Annual trend you assume, seasonally adjusted</td><td>Input</td><td>0%</td></tr>
+<tr><td>B12</td><td>Forward factor</td><td><code>=INDEX(Season!$B$2:$B$13,MONTH(B9))/B5&#42;(1+B11)^(B10/12)</code></td><td>0.98365</td></tr>
+<tr><td>B13</td><td>ARV as of the latest index month</td><td><code>=AVERAGE(Comps!J4:J7)</code></td><td>$426,245</td></tr>
+<tr><td>B14</td><td>Dated ARV</td><td><code>=B13&#42;B12</code></td><td>$419,275</td></tr>
+</tbody>
+</table>
+
+<p>With the trend at zero, the forward factor is pure season: a February price is 1.6 percent below a July price in this division. The trend in B11 is the one number in the model that nobody can measure for you, so do not hide it. The Mountain division gained 0.6 percent over the last twelve months while its seasonally adjusted index fell 0.7 percent from January to July. Zero is a defensible center. Run both sides of it:</p>
+
+<table>
+<thead><tr><th>Trend assumed (B11)</th><th>Forward factor</th><th>Dated ARV</th><th>Gap to the $434,250 ARV</th><th>Profit at $262,000</th><th>Max offer for $40,000 profit</th></tr></thead>
+<tbody>
+<tr><td>-3% per year</td><td>0.96632</td><td>$411,891</td><td>-$22,359</td><td>$35,321</td><td>$257,674</td></tr>
+<tr><td>0%</td><td>0.98365</td><td>$419,275</td><td>-$14,975</td><td>$42,188</td><td>$264,023</td></tr>
+<tr><td>+3% per year</td><td>1.00076</td><td>$426,567</td><td>-$7,683</td><td>$48,970</td><td>$270,293</td></tr>
+</tbody>
+</table>
+
+<p>Even a market rising 3 percent a year does not bring this ARV back to $434,250, because the concessions and the summer peak are already baked into the comps. The dateless number is only right if prices rise about 6.2 percent a year from here, ten times what this division did over the last twelve months.</p>
+
+<h2>What the Dated ARV Does to the Offer</h2>
+
+<p>The deal: $262,000 purchase with 2 percent buyer closing costs, $58,000 of rehab drawn over three months, a hard money loan at 90 percent of price and 100 percent of rehab, 11 percent interest only, 2 points on the full commitment, $600 a month of taxes, insurance and utilities, 7 percent selling costs (5.5 percent commission, 1.5 percent seller closing costs), and ATTOM's 161 days, which is 5.29 months. The <a href="/blog/house-flipping-holding-costs-calculator">holding costs calculator</a> breaks down the carry lines if you want each one sourced.</p>
+
+<table>
+<thead><tr><th>Line</th><th>Dateless ARV</th><th>Dated ARV (Feb 2027)</th></tr></thead>
+<tbody>
+<tr><td>Sale price</td><td>$434,250</td><td>$419,275</td></tr>
+<tr><td>Purchase price</td><td>-$262,000</td><td>-$262,000</td></tr>
+<tr><td>Buyer closing costs (2%)</td><td>-$5,240</td><td>-$5,240</td></tr>
+<tr><td>Rehab</td><td>-$58,000</td><td>-$58,000</td></tr>
+<tr><td>Interest, 5.29 months</td><td>-$13,448</td><td>-$13,448</td></tr>
+<tr><td>Points (2% of $293,800)</td><td>-$5,876</td><td>-$5,876</td></tr>
+<tr><td>Taxes, insurance, utilities</td><td>-$3,174</td><td>-$3,174</td></tr>
+<tr><td>Selling costs (7%)</td><td>-$30,398</td><td>-$29,349</td></tr>
+<tr><td>Profit</td><td>$56,114</td><td>$42,188</td></tr>
+</tbody>
+</table>
+
+<p>The profit falls by $13,926: the $14,975 of ARV minus the $1,049 of commission you no longer pay on it. The offer moves almost as much. Profit is a straight line in the purchase price, so you do not need Goal Seek to find the maximum price. Every extra dollar of price costs $1.0816 once closing costs, interest and points ride on it. On a Deal sheet with the tested price in B4, the buyer closing cost rate in B5, the interest rate in B9, the points in B10 and the months held in B12, put that per-dollar cost in B32 with <code>=1+B5+0.9&#42;(B9/12&#42;B12+B10)</code>, where 0.9 is the lender's share of the price. With the profit in B30 and your target in B31, the maximum price is <code>=B4+(B30-B31)/B32</code>.</p>
+
+<p>For a $40,000 profit, the dateless ARV says you can pay $276,898. The dated ARV says $264,023. Bidding to the first number means paying $12,875 for value that will not exist on the day you sell. The <a href="/blog/70-percent-rule-house-flipping-calculator">70 percent rule</a> moves too, from $245,975 to $235,493, because 70 percent of a wrong ARV is still wrong; that article explains why the rule's fixed percentage misprices deals at this price point in the first place.</p>
+
+<h2>Should You Hold for the Spring Market?</h2>
+
+<p>The seasonal table invites an obvious idea: if February buyers pay 2 percent less than May buyers, slow the job down and sell in spring. The spreadsheet answers it in one row. Push the rehab or marketing months in B7 or B8 until B9 reads May 2027, three months later, and carry the loan three extra months.</p>
+
+<table>
+<thead><tr><th>Trend assumed</th><th>Feb 2027 ARV</th><th>May 2027 ARV</th><th>Extra price</th><th>Extra interest</th><th>Extra taxes, insurance, utilities</th><th>Extra selling costs</th><th>Net effect of waiting</th></tr></thead>
+<tbody>
+<tr><td>0%</td><td>$419,275</td><td>$427,958</td><td>+$8,683</td><td>-$8,080</td><td>-$1,800</td><td>-$608</td><td>-$1,805</td></tr>
+<tr><td>+3% per year</td><td>$426,567</td><td>$438,630</td><td>+$12,063</td><td>-$8,080</td><td>-$1,800</td><td>-$844</td><td>+$1,339</td></tr>
+</tbody>
+</table>
+
+<p>On hard money at 11 percent, the season roughly pays for the wait and nothing more. Waiting only wins if you also bet on a rising market, and even then the gain is $1,339 against three more months of exposure to a rehab surprise or a rate move. So if your schedule puts the sale in winter, price the winter, and count on a spring premium only when your money is cheap. If the house does sit, the <a href="/blog/house-flip-price-reduction-decision-calculator-excel">price reduction calculator</a> compares a cut now against another month of carry.</p>
+
+<p>The same logic applies to a BRRRR. The refinance appraisal also has an effective date, months after purchase, and the cash you pull out is a percentage of that dated value. The <a href="/blog/brrrr-refinance-calculator-excel">BRRRR refinance calculator</a> article covers the appraisal gap; feed it the dated ARV from B14.</p>
+
+<h2>Set Up the Dated ARV Before Your Next Offer</h2>
+
+<ol>
+<li>Download the FHFA monthly purchase-only file for the U.S. and census divisions and paste your division's NSA and SA columns into an Index sheet. Refresh it with each monthly release.</li>
+<li>Build the Season sheet once: twelve seasonal factors averaged over the last five full years.</li>
+<li>On the Comps sheet, give every comp three columns that most calculators lack: seller concessions, contract date, and the time-adjusted price.</li>
+<li>On the ARV sheet, compute your buyer's contract month from the purchase date, rehab months and marketing time, and state the trend you assume in its own cell.</li>
+<li>Run the trend at -3, 0 and +3 percent. Make your offer from the 0 percent row, and walk if the -3 percent row loses money.</li>
+</ol>
+
+<p>On the Mesa ranch, that discipline turns a $276,898 ceiling into $264,023 before the first showing, Bid to the old ceiling and the flip that was supposed to make $40,000 makes $26,073.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> takes the ARV as an input and does the rest of this math: an acquisition tab that handles hard money points and short-term rates, a line-item rehab budget, a holding cost calculator for the rehab months, a refinance tab built on ARV and LTV, and a side-by-side comparison of up to three deals. It does not date the ARV for you. Add the Index, Season and Comps sheets described above, point its ARV cell at B14, and every deal you compare is priced on the day it will actually sell.</p>`,
+  },
+  {
     slug: 'aia-g702-g703-excel-template',
     title: 'AIA G702 G703 Excel Template: The Line 7 Error That Costs $59,040',
     metaTitle: 'AIA G702 G703 Excel Template: Fix Line 7 | SheetCraft',
