@@ -16,6 +16,194 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-project-cost-per-square-foot-spreadsheet',
+    title: 'Construction Project Cost Per Square Foot Spreadsheet: Fix the Denominator First',
+    metaTitle: 'Construction Cost Per Square Foot Spreadsheet | SheetCraft',
+    metaDescription: 'A construction project cost per square foot spreadsheet that levels bids on one ANSI basis. A $139 quote turned out $46,529 dearer than a $171 one.',
+    targetKeyword: 'construction project cost per square foot spreadsheet',
+    secondaryKeywords: ['cost per square foot to build a house', 'ANSI Z765 square footage', 'compare construction bids', 'heated square footage vs under roof', 'NAHB construction cost per square foot'],
+    excerpt: 'Three builders priced the same spec plan at $139, $171 and $184 per square foot. Each used a different square footage, and the cheapest left six items out. On one ANSI basis with equal scope, the $139 bid costs $580,708, or $46,529 more than the $171 one. The Area and Bids tabs below catch that before you sign.',
+    publishedAt: '2026-10-06',
+    readTime: 15,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-project-cost-per-square-foot-spreadsheet.png',
+    imageAlt: 'Ink and watercolor cutaway of a two-story wood-framed house under construction, with a plumb bob hanging through an open two-story foyer, a sloped-ceiling bonus room over the garage and a covered porch',
+    content: `<p>An investor sends one set of plans for a two-story spec house to three builders and gets three numbers back: $139, $171 and $184 per square foot. Against the $184 bid, the $139 one looks $45 a foot cheaper, which on the 2,924 square feet the appraiser will count reads as $131,580 saved. It is the most expensive of the three. Each builder priced a different square footage, and the cheapest one left six line items out of the price. A construction project cost per square foot spreadsheet is useful only after two things are pinned down in writing: which square feet go in the denominator, and which costs go in the numerator. Leave either one loose and the ratio ranks bids backwards.</p>
+
+<p>The fix starts with two extra tabs. An Area tab measures the house once, by category, using the same standard the buyer's appraiser will use. A Bids tab converts every quote into total dollars for identical scope, and only then divides. This article builds both with the same plan and the same three bids, then shows what happens when you scale a cost per square foot to a smaller or larger house.</p>
+
+<h2>Same House, Same Dollars, Three Prices Per Square Foot</h2>
+
+<p>The plan is ordinary. A 1,380 square foot first floor, a 1,320 square foot second floor that includes a 96 square foot open-to-below area over a two-story foyer, a 380 square foot bonus room over the garage with sloped ceilings, a 462 square foot two-car garage, a 120 square foot covered front porch and a 180 square foot covered rear patio.</p>
+
+<p>Depending on who is counting, that house is three different sizes:</p>
+
+<table>
+<thead><tr><th>Basis</th><th>What it counts</th><th>Square feet</th></tr></thead>
+<tbody>
+<tr><td>Under roof</td><td>Everything with a roof over it: both floors as drawn, bonus room, garage, porch, patio</td><td>3,842</td></tr>
+<tr><td>Plan "heated" total</td><td>Both floors as drawn, including the foyer opening, plus the whole bonus room floor</td><td>3,080</td></tr>
+<tr><td>ANSI finished above grade</td><td>Finished floor area that meets the ceiling height rules, openings excluded</td><td>2,924</td></tr>
+</tbody>
+</table>
+
+<p>Now take one price for this house, $538,016, and divide it by each basis. Against the under-roof area it is $140.04 per square foot. Against the plan total it is $174.68. Against the ANSI area it is $184.00. Same house, same dollars, and the ratio moves by 31 percent depending only on the denominator. A builder who quotes "per foot" without naming the foot has told you nothing you can compare.</p>
+
+<p>Builders are not lying when they do this. Production builders often quote under roof because the garage and porches carry real foundation, framing and roofing cost. Plan sets usually print a heated or living total for the conditioned space. Appraisers use a third definition because that is what buyers pay for. All three are legitimate for their own purpose. The $139 quote simply used the largest of them, 3,842 square feet.</p>
+
+<h2>What ANSI Z765 Counts and What It Leaves Out</h2>
+
+<p>The definition that matters most is the one the market uses at your exit. Fannie Mae's Selling Guide, section B4-1.3-05 (version dated June 4, 2025, unchanged in the Guide published September 2, 2026), requires appraisers to follow ANSI Z765-2021, the American National Standard for calculating square footage of single-family houses, "when measuring, calculating and reporting the above- and below-grade square footage(s)." If your buyer finances with a conventional loan, the appraisal that sets your sale price measures your house this way, no matter what the plan sheet says.</p>
+
+<p>The rules that move numbers on a typical new build:</p>
+
+<ul>
+<li>Finished area is an enclosed area suitable for year-round use, with walls, floors and ceilings similar to the rest of the house. Garages and unfinished areas cannot be included, and open covered porches and patios are not finished area.</li>
+<li>Finished areas must have a ceiling height of at least 7 feet, or 6 feet 4 inches under beams, ducts and other obstructions.</li>
+<li>Where a ceiling is sloped, at least half of the finished area in that room must have a ceiling height of at least 7 feet, and no part under 5 feet may be counted.</li>
+<li>Openings to the floor below are excluded. Stairs count on the level from which they descend, but a two-story foyer or open loft space not filled by stairs is not floor area on the upper level.</li>
+<li>Fannie Mae treats a level as below grade if any portion of it is below grade, so a finished walkout basement is reported separately and never adds to above-grade square footage.</li>
+<li>The house is measured to the nearest inch or tenth of a foot, and final square footage is reported to the nearest whole square foot. A calculation made from plans for a house not yet built must be labeled as such.</li>
+</ul>
+
+<p>Apply those rules to the plan. The second floor loses its 96 square foot foyer opening and counts 1,224. The bonus room has 230 square feet at 7 feet or higher, 90 square feet between 5 and 7 feet, and 60 square feet under 5 feet at the eaves. Since 230 of 380 is 60.5 percent, the room passes the one-half test, and the 60 square feet under 5 feet drop out, leaving 320. Total: 1,380 plus 1,224 plus 320 equals 2,924.</p>
+
+<p>The 156 square foot gap between the plan total and the ANSI total costs money on the sale side. If new-construction comps in the area sell for $235 per square foot of finished above-grade area (a placeholder: use your own closed comps), a pro forma that prices the house at $235 times the plan total expects $723,800. The appraiser multiplies $235 by 2,924 and supports $687,140. That is $36,660 of projected sale price that disappears at appraisal because the cost sheet and the comps used different feet. If you build your comps the way our <a href="/blog/arv-comps-spreadsheet-excel">ARV comps spreadsheet</a> does, both sides of the margin run on the same definition.</p>
+
+<h2>Build the Area Tab Before the Cost Tab</h2>
+
+<p>The Area tab is a measured list of spaces, one row per space, with a category column that decides where each row counts. Enter length and width in feet with one decimal, the precision ANSI asks for, and keep the measured dimensions on the sheet so anyone can check them.</p>
+
+<table>
+<thead><tr><th>Row</th><th>Space</th><th>Level</th><th>Category</th><th>SF</th></tr></thead>
+<tbody>
+<tr><td>5</td><td>First floor</td><td>1</td><td>Finished AG</td><td>1,380</td></tr>
+<tr><td>6</td><td>Second floor as drawn</td><td>2</td><td>Finished AG</td><td>1,320</td></tr>
+<tr><td>7</td><td>Foyer open to below</td><td>2</td><td>Opening</td><td>96</td></tr>
+<tr><td>8</td><td>Bonus room, 7 ft and up</td><td>2</td><td>Finished AG</td><td>230</td></tr>
+<tr><td>9</td><td>Bonus room, 5 to 7 ft</td><td>2</td><td>Finished AG</td><td>90</td></tr>
+<tr><td>10</td><td>Bonus room, under 5 ft</td><td>2</td><td>Under 5 ft</td><td>60</td></tr>
+<tr><td>11</td><td>Garage</td><td>1</td><td>Garage</td><td>462</td></tr>
+<tr><td>12</td><td>Covered front porch</td><td>1</td><td>Porch</td><td>120</td></tr>
+<tr><td>13</td><td>Covered rear patio</td><td>1</td><td>Porch</td><td>180</td></tr>
+</tbody>
+</table>
+
+<p>Column E holds square feet, entered as <code>=ROUND(C5&#42;D5,1)</code> when you split length and width into their own columns. The second floor row is entered as drawn and the opening is its own negative category, so the ANSI total needs one subtraction. Put the three bases in a small block that every other tab reads from, with their names in G5:G7 and the totals in H5:H7:</p>
+
+<ul>
+<li>ANSI finished above grade, in H5: <code>=ROUND(SUMIFS(E5:E13,D5:D13,"Finished AG")-SUMIFS(E5:E13,D5:D13,"Opening"),0)</code> returns 2,924.</li>
+<li>Plan total, in H6: <code>=H5+SUMIFS(E5:E13,D5:D13,"Opening")+SUMIFS(E5:E13,D5:D13,"Under 5 ft")</code> returns 3,080.</li>
+<li>Under roof, in H7: <code>=H6+SUMIFS(E5:E13,D5:D13,"Garage")+SUMIFS(E5:E13,D5:D13,"Porch")</code> returns 3,842.</li>
+</ul>
+
+<p>Add one test per sloped-ceiling room so a bonus room that fails the one-half rule cannot slip into finished area. For the bonus room, in I8: <code>=IF(E8/SUM(E8:E10)&gt;=0.5,"PASSES","FAILS: report separately")</code>. If it fails, change the category of rows 8 and 9 to "Nonstandard" and the ANSI total drops by 320 square feet, which is exactly what the appraiser will do. Fannie Mae calls that nonstandard finished area and has it reported on its own line, outside the finished square footage.</p>
+
+<p>Name the cells. <code>ANSI_SF</code>, <code>Plan_SF</code> and <code>UnderRoof_SF</code> read better in formulas and survive inserted rows.</p>
+
+<h2>Level the Bids: Rate Times Basis, Plus Everything Excluded</h2>
+
+<p>Here are the three quotes as the builders sent them, with the scope each one left out. For the excluded items, the example uses NAHB's 2024 national averages from its Cost of Constructing a Home survey as placeholders. Replace them with local quotes before you sign anything.</p>
+
+<table>
+<thead><tr><th>Line</th><th>Builder A</th><th>Builder B</th><th>Builder C</th></tr></thead>
+<tbody>
+<tr><td>Quoted rate</td><td>$139 per SF</td><td>$171 per SF</td><td>$184 per SF</td></tr>
+<tr><td>Basis the builder used</td><td>Under roof, 3,842</td><td>Plan total, 3,080</td><td>ANSI, 2,924</td></tr>
+<tr><td>Quoted total</td><td>$534,038</td><td>$526,680</td><td>$538,016</td></tr>
+<tr><td>Building permit fee (excluded)</td><td>$7,640</td><td>included</td><td>included</td></tr>
+<tr><td>Impact fee (excluded)</td><td>$6,367</td><td>included</td><td>included</td></tr>
+<tr><td>Water and sewer fees (excluded)</td><td>$6,260</td><td>included</td><td>included</td></tr>
+<tr><td>Driveway (excluded)</td><td>$9,635</td><td>included</td><td>included</td></tr>
+<tr><td>Landscaping (excluded)</td><td>$9,269</td><td>included</td><td>included</td></tr>
+<tr><td>Appliances (excluded)</td><td>$7,499</td><td>$7,499</td><td>included</td></tr>
+<tr><td>All-in cost to you</td><td>$580,708</td><td>$534,179</td><td>$538,016</td></tr>
+<tr><td>All-in per ANSI SF</td><td>$198.60</td><td>$182.69</td><td>$184.00</td></tr>
+<tr><td>All-in per under-roof SF</td><td>$151.15</td><td>$139.04</td><td>$140.04</td></tr>
+</tbody>
+</table>
+
+<p>The ranking flips. Builder A, cheapest by quoted rate, costs $46,529 more than Builder B and $42,692 more than Builder C once both effects are removed. Measured on the same under-roof basis A used, Builder C's all-in price works out to $140.04, about a dollar above A's headline $139, for a house that includes six items A left for you to buy. Builder B is the low bid by $3,837, a margin small enough that schedule, allowances and the quality of the line-item breakdown should decide between B and C. Those factors are where the <a href="/blog/construction-bid-comparison-spreadsheet">bid comparison spreadsheet</a> picks up.</p>
+
+<p>On the Bids tab, give each builder a column and keep three inputs per builder: the rate in row 5, the basis name in row 6 chosen from a drop-down list of the three names in the Area block, and a scope matrix below with one row per item and "Included" or "Excluded" in each builder's column. The formulas:</p>
+
+<ul>
+<li>Basis square feet, in C7: <code>=XLOOKUP(C6,Area!$G$5:$G$7,Area!$H$5:$H$7)</code>. On Excel 2016, use <code>=INDEX(Area!$H$5:$H$7,MATCH(C6,Area!$G$5:$G$7,0))</code>.</li>
+<li>Quoted total, in C8: <code>=C5&#42;C7</code>.</li>
+<li>Excluded scope, in C9, with your local cost for each item in column B of rows 12 to 17: <code>=SUMIFS($B$12:$B$17,C12:C17,"Excluded")</code>.</li>
+<li>All-in, in C10: <code>=C8+C9</code>.</li>
+<li>All-in per ANSI square foot, in C11: <code>=C10/ANSI_SF</code>.</li>
+</ul>
+
+<p>The rule built into this layout: you never type a cost per square foot into a total. Rates arrive from builders, totals are computed from rate times the builder's own basis, and the only per-square-foot figure you compare is the one you divide yourself, on one basis, after scope is equal. Our <a href="/blog/contractor-estimate-template-excel-free">contractor estimate template</a> article covers the other direction: how to write a quote so the owner cannot misread it.</p>
+
+<p>One more column is worth adding: a flag for any bid whose quoted total and line-item total disagree. Ask each builder for the line items behind the rate, sum them in row 20, and check with <code>=IF(ABS(C20-C8)&gt;500,"RATE DOES NOT MATCH LINE ITEMS","OK")</code>. A builder whose line items add up to a different number than rate times area has rounded the rate, used yet another basis, or left a line out.</p>
+
+<h2>Why NAHB's $162 Is Not a Benchmark for Your Bid</h2>
+
+<p>The national figure most people check a bid against comes from NAHB's Cost of Constructing a Home survey. The 2024 edition, published in January 2025, reports an average construction cost of $428,215 for a home with 2,647 square feet of finished area, "or about $162 per square foot," up from $153 in 2022. It is a useful number for following the market. Three things keep it from being a bid benchmark.</p>
+
+<p>The numerator carries costs many bids leave out. NAHB's construction cost includes site work, and site work includes building permit fees ($7,640), impact fees ($6,367), water and sewer fees ($6,260) and architecture and engineering ($6,480). The final-steps stage adds landscaping ($9,269), outdoor structures such as decks, patios and porches ($4,722), and the driveway ($9,635). A bid that excludes fees and site finishes is already being measured against a number that includes them.</p>
+
+<p>The numerator also leaves out what a contract price includes. The $428,215 is the builder's cost. In the same survey, overhead and general expenses average $38,248 and profit $72,971 per home, booked on top of construction cost. A general contractor's price to you includes their overhead and margin, so a contract bid that lands at $162 per finished square foot is not "at market." Either the house is simpler than the survey average, the denominator is larger, or something is missing.</p>
+
+<p>The denominator is finished area, which excludes the garage. Divide a bid quoted under roof by under-roof feet and compare it to $162, and you have compared a number with a garage in the denominator to one without it. NAHB also cautions that the survey covers the typical home of a subset of its builders, 41 usable responses in 2024, and "is not designed to capture representative characteristics of the average home built during a particular year." Use it for direction and use your own closed jobs for pricing. Our <a href="/blog/construction-historical-cost-database-excel">historical cost database</a> article shows how to store those jobs so they stay usable as prices move.</p>
+
+<h2>Cost Per Square Foot Falls as the House Grows</h2>
+
+<p>The second mistake happens after the bids are leveled. The investor likes Builder C's $184 and asks what a smaller 2,100 square foot version of the plan would cost. The quick answer is $184 times 2,100, or $386,400. That answer is low because a large share of a house's cost does not shrink with its area.</p>
+
+<p>Split Builder C's line items into two groups. Per-house items are the ones a smaller version still needs in roughly full: fees, driveway, landscaping, appliances, the kitchen, the two-car garage and the mechanical equipment. Everything else scales with finished area. The split below is our classification for this plan, and it is an estimate. Permit fees in some jurisdictions are set on declared valuation, and kitchens do shrink a little in smaller plans. Reclassify lines to match your own jobs.</p>
+
+<table>
+<thead><tr><th>Per-house item in Builder C's bid</th><th>Cost</th></tr></thead>
+<tbody>
+<tr><td>Permit, impact, water and sewer fees</td><td>$20,267</td></tr>
+<tr><td>Driveway</td><td>$9,635</td></tr>
+<tr><td>Landscaping</td><td>$9,269</td></tr>
+<tr><td>Appliances</td><td>$7,499</td></tr>
+<tr><td>Cabinets and countertops</td><td>$19,056</td></tr>
+<tr><td>Two-car garage, 462 SF at $62</td><td>$28,644</td></tr>
+<tr><td>HVAC equipment, water heater, electrical service</td><td>$16,742</td></tr>
+<tr><td>Fixed cost per house, F</td><td>$111,112</td></tr>
+<tr><td>Remaining cost, $538,016 minus F</td><td>$426,904</td></tr>
+<tr><td>Variable cost per ANSI SF, v = $426,904 / 2,924</td><td>$146.00</td></tr>
+</tbody>
+</table>
+
+<p>Cost at any size is then <code>=F+v&#42;A</code>, and cost per square foot is <code>=(F+v&#42;A)/A</code>, which equals v plus F divided by A. The fixed part gets spread over fewer feet as the house shrinks:</p>
+
+<table>
+<thead><tr><th>ANSI SF</th><th>Cost from F + v times A</th><th>Per SF</th><th>$184 times A</th><th>Error of the shortcut</th></tr></thead>
+<tbody>
+<tr><td>2,100</td><td>$417,712</td><td>$198.91</td><td>$386,400</td><td>$31,312 too low</td></tr>
+<tr><td>2,924</td><td>$538,016</td><td>$184.00</td><td>$538,016</td><td>$0</td></tr>
+<tr><td>3,400</td><td>$607,512</td><td>$178.68</td><td>$625,600</td><td>$18,088 too high</td></tr>
+</tbody>
+</table>
+
+<p>The shortcut is right at exactly one size, the one the rate was measured on. Scaled down, it underprices the smaller house by $31,312, which on a spec build can be most of the margin. Scaled up, it overprices the larger one by $18,088 and can talk you out of a plan that works. The <a href="/blog/new-construction-home-builder-pro-forma">home builder pro forma</a> makes the same point from the line-item side: cost per square foot belongs in the output column.</p>
+
+<p>Put F and v in their own named cells on a Scale tab, with the size you are testing in B4 and the cost in B5 as <code>=F_House+V_SF&#42;B4</code>. A data table across sizes from 1,800 to 3,600 square feet gives you the cost curve for the plan family in one view. If you have three or more closed jobs of different sizes from the same builder, you can estimate F and v from your own history instead of classifying lines: <code>=INTERCEPT(Costs,Areas)</code> returns F and <code>=SLOPE(Costs,Areas)</code> returns v. With two jobs the line passes exactly through both points and proves nothing, so wait for the third.</p>
+
+<h2>What to Ask Every Builder For, and the Template</h2>
+
+<p>Most of this can be solved at the request stage, before any numbers come back. Send the same request to every bidder:</p>
+
+<ol>
+<li>State the area basis in the request itself: "Price per square foot of finished above-grade area per ANSI Z765-2021, which we calculate at 2,924 SF." Attach your Area tab so nobody remeasures.</li>
+<li>Ask for a total price, not a rate. A rate invites each builder to multiply by their own area.</li>
+<li>Attach a scope matrix listing permits, impact and tap fees, driveway, landscaping, appliances, and any allowance items, with a column for each bidder to mark included or excluded.</li>
+<li>Ask for the line items behind the total, grouped by stage or by CSI division, so you can run the match check and later the fixed and variable split. The <a href="/blog/csi-cost-codes-construction-budget">CSI cost codes</a> article covers how to keep those codes consistent from bid to budget.</li>
+<li>When you compare a bid to a published number, match the published definition first. NAHB's $162 includes fees and site finishes, excludes overhead and profit, and divides by finished area.</li>
+<li>When you change the plan size, reprice with F plus v times area. Never multiply a rate measured on one size by another size.</li>
+</ol>
+
+<p>On this plan, those six requests turn a $139 quote that looked like the winner into the one that costs $580,708, and they keep a $31,312 error out of the smaller version's budget.</p>
+
+<p>Once a bid is signed, the job is tracking it. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> takes the winning bid's line items as your budget, by CSI division or by your own categories, logs every invoice against them with the variance column updating as costs land, records change orders with their effect on the total, and shows percent complete against percent spent on the dashboard, with a projected final cost. It does not measure square footage or level bids for you. Add the Area tab from this article and point a cell at <code>=Total_Budget/ANSI_SF</code>, and the cost per square foot you report at closeout is on the same basis your appraiser and your next round of bids will use.</p>`,
+  },
+  {
     slug: 'after-repair-value-calculator',
     title: 'After Repair Value Calculator: Date Your ARV or Overpay by $12,875',
     metaTitle: 'After Repair Value Calculator With a Date | SheetCraft',
