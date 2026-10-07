@@ -16,6 +16,207 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-depreciation-calculator-excel',
+    title: 'Rental Property Depreciation Calculator in Excel: The IRS Counts It Whether You Claim It or Not',
+    metaTitle: 'Rental Property Depreciation Calculator Excel | SheetCraft',
+    metaDescription: 'Rental property depreciation calculator in Excel that tracks allowable vs claimed. Skipping depreciation cost one landlord $8,478 because basis drops anyway.',
+    targetKeyword: 'rental property depreciation calculator Excel',
+    secondaryKeywords: ['allowed or allowable depreciation', 'land to building ratio rental property', 'depreciation recapture rental property', 'mid-month convention residential rental', 'Form 3115 missed depreciation'],
+    excerpt: 'A landlord who left depreciation off five returns to avoid recapture paid $10,891 in tax that depreciation would have sheltered, and still had $56,513 taken off basis at sale. Build the schedule with allowable, claimed and suspended in separate columns, then fix missed years with Form 3115.',
+    publishedAt: '2026-10-07',
+    readTime: 14,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-depreciation-calculator-excel.png',
+    imageAlt: 'Ink and watercolor illustration of a two-story side-by-side duplex, one half with weathered siding and a sagging porch, the other freshly painted, with survey stakes and an orange string line marking the lot boundary in the grass',
+    content: `<p>Two landlords buy the same duplex in April 2021 for $410,000 and sell it in December 2026 for $525,000. Landlord A claims depreciation every year. Landlord B was told depreciation "just gets recaptured when you sell" and leaves it off Schedule E to avoid that. By the closing table, B has paid $8,478 more federal tax than A, and $13,564 more if B cannot prove what was claimed. The reason is one sentence in IRS Publication 946: if you do not claim depreciation you are entitled to deduct, you must still reduce the basis of the property by the full amount allowable. A rental property depreciation calculator in Excel that prints one number per year hides that rule. The version below tracks what was allowable, what was claimed and what was suspended in separate columns, because the sale year settles all three.</p>
+
+<p>Every figure in this article comes from one model: the duplex above, a 24 percent marginal federal rate, 15 percent on long-term capital gain, and modified adjusted gross income of $160,000, which is high enough to switch off the passive loss allowance. State tax and the 3.8 percent net investment income tax are left out for both landlords. Swap in your own rates; the formulas carry them.</p>
+
+<h2>Skipping Depreciation Does Not Skip the Recapture</h2>
+
+<p>Three rules decide what B's shortcut costs, and all three are in the Internal Revenue Code.</p>
+
+<ol>
+<li><strong>Basis drops either way.</strong> Section 1016(a)(2) reduces basis by depreciation allowed, "but not less than the amount allowable." Publication 946 (2025) spells it out: depreciation allowed is what you actually deducted, depreciation allowable is what you were entitled to deduct, and you reduce basis by whichever is greater. This is the allowed or allowable depreciation rule, and it means a landlord who never claims a dollar still has a smaller basis, and therefore a bigger gain, at sale.</li>
+<li><strong>The 25 percent bucket follows what you claimed, if you can prove it.</strong> Section 1(h)(1)(E) taxes "unrecaptured section 1250 gain" at no more than 25 percent. That gain is measured through the depreciation adjustments of section 1250(b)(3), and the last sentence of that paragraph says that if the taxpayer can establish by adequate records that the amount allowed was less than the amount allowable, the amount taken into account is the amount allowed. B's unclaimed depreciation still sits inside the gain, but with proof it is taxed as ordinary long-term gain instead of at the depreciation recapture rate.</li>
+<li><strong>Suspended losses come back at sale.</strong> Section 469(i) lets an actively participating landlord deduct up to $25,000 of rental losses against a paycheck, reduced by 50 percent of modified adjusted gross income above $100,000, so it is zero at $150,000. Above that, a rental loss is suspended and carried forward, and section 469(g) releases it when you dispose of your entire interest in a fully taxable sale.</li>
+</ol>
+
+<p>Put together: claiming depreciation buys a deduction at your ordinary rate now (or a suspended loss released at sale) and costs at most 25 percent later. Skipping it buys nothing now and still costs 15 percent later, or 24 percent here if the records are missing. On the duplex, B's best case ends $8,478 behind A.</p>
+
+<h2>The Land Split Moves the Number More Than Any Formula</h2>
+
+<p>Land is not depreciable, so the first job of the calculator is to carve it out, and the land to building ratio swings the annual deduction by more than a third. Publication 527 (2025) gives the order of evidence: allocate cost by the ratio of each part's fair market value to the whole at the time you buy, and if you aren't certain of those values, you can use the assessed values for real estate tax purposes.</p>
+
+<p>Start with cost basis, which is more than the price. Publication 527 lists the closing costs that go into basis: abstract fees, charges for installing utility services, legal fees, recording fees, surveys, transfer taxes and title insurance. On the duplex:</p>
+
+<table>
+<thead><tr><th>Basis item</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Contract price</td><td>$410,000</td></tr>
+<tr><td>Owner's title insurance</td><td>$1,640</td></tr>
+<tr><td>Recording fees</td><td>$210</td></tr>
+<tr><td>Transfer tax</td><td>$1,845</td></tr>
+<tr><td>Attorney fee</td><td>$1,250</td></tr>
+<tr><td>Survey</td><td>$455</td></tr>
+<tr><td>Total cost basis</td><td>$415,400</td></tr>
+</tbody>
+</table>
+
+<p>Then split it three ways and look at the spread:</p>
+
+<table>
+<thead><tr><th>Land method</th><th>Source</th><th>Land share</th><th>Building basis</th><th>Full-year depreciation</th><th>Allowable, Apr 2021 to Dec 2026</th></tr></thead>
+<tbody>
+<tr><td>Flat guess</td><td>None</td><td>20.00%</td><td>$332,320</td><td>$12,084</td><td>$68,477</td></tr>
+<tr><td>Appraiser's site value</td><td>$140,000 of $412,000 appraised</td><td>33.98%</td><td>$274,245</td><td>$9,973</td><td>$56,513</td></tr>
+<tr><td>Assessor ratio</td><td>$125,160 land of $298,000 assessed</td><td>42.00%</td><td>$240,932</td><td>$8,761</td><td>$49,646</td></tr>
+</tbody>
+</table>
+
+<p>The model uses the appraiser's site value, because it is an opinion of market value dated at the purchase, which is the evidence Publication 527 puts first. Keep the appraisal PDF with the closing statement. The flat 20 percent has no source at all, and by the sale it claims $11,964 more than the appraisal supports; at 24 percent that is $2,871 of tax an examiner can reverse, with interest. The assessor ratio errs the other way: if the appraisal is the better evidence, it leaves $6,867 of allowable depreciation unclaimed, and the allowed or allowable rule still takes that amount off the basis. That is Landlord B's mistake on a smaller scale. If you think the assessment itself is wrong, the <a href="/blog/rental-property-tax-appeal-analysis-excel">rental property tax appeal analysis</a> tests it against sold comps.</p>
+
+<p>In Excel, put the inputs on a Basis tab:</p>
+
+<ul>
+<li><code>B3</code> contract price, <code>B4</code> closing costs that belong in basis, <code>B5</code> <code>=B3+B4</code> for total cost basis.</li>
+<li><code>B6</code> appraised value, <code>B7</code> appraiser's site value, <code>B8</code> total assessed value, <code>B9</code> assessed land value.</li>
+<li><code>B10</code> land share: <code>=IF(B7&gt;0,B7/B6,B9/B8)</code>. It uses the appraisal when you have one and falls back to the assessor, which is the order Publication 527 gives.</li>
+<li><code>B11</code> building basis: <code>=ROUND(B5&#42;(1-B10),0)</code>, which returns $274,245.</li>
+<li><code>B12</code> placed-in-service date, <code>B13</code> sale date (blank while you hold), <code>B14</code> recovery period, 27.5.</li>
+<li><code>B16</code> modified adjusted gross income, <code>B17</code> passive loss allowance: <code>=MAX(0,25000-0.5&#42;MAX(0,B16-100000))</code>, which is $0 at $160,000.</li>
+</ul>
+
+<p>Improvements made later, such as a roof or a kitchen, are separate assets with their own placed-in-service dates. Give each one its own copy of the schedule below; the <a href="/blog/rental-property-repair-vs-improvement-classification-excel">repair vs improvement classification</a> article covers which invoices qualify. Appliances, carpet and site work can carry shorter lives than 27.5 years, which is the subject of the <a href="/blog/cost-segregation-calculator-excel">cost segregation calculator</a>.</p>
+
+<h2>The Schedule: One Row Per Tax Year, Mid-Month at Both Ends</h2>
+
+<p>Residential rental buildings use straight-line depreciation over 27.5 years with the mid-month convention: the property is treated as placed in service, and later sold, in the middle of the month. Publication 946 works the sale side in its own example: a $100,000 building sold on March 2, 2025 gets $3,636 for a full year, times 2.5 over 12, or $757.50.</p>
+
+<p>The duplex was ready for rent on April 15, 2021, so 2021 counts 8.5 months. The sale closes December 15, 2026, so 2026 counts 11.5 months. On a Schedule tab with one tax year per row, starting at row 5:</p>
+
+<ul>
+<li><code>A5</code> the tax year.</li>
+<li><code>B5</code> months in service: <code>=IF(AND(Basis!$B$13&lt;&gt;"",A5&gt;YEAR(Basis!$B$13)),0,IF(A5=YEAR(Basis!$B$12),12.5-MONTH(Basis!$B$12),IF(AND(Basis!$B$13&lt;&gt;"",A5=YEAR(Basis!$B$13)),MONTH(Basis!$B$13)-0.5,12)))</code></li>
+<li><code>C5</code> allowable depreciation: <code>=MIN(ROUND(Basis!$B$11/Basis!$B$14&#42;B5/12,0),Basis!$B$11-SUM(C$4:C4))</code>. The <code>MIN</code> stops the schedule once the building is fully recovered, which matters in year 28 and in any copy you build for a short-lived component.</li>
+<li><code>D5</code> depreciation actually claimed, typed from the Schedule E you filed. Do not link it to C: it records what the return says.</li>
+<li><code>E5</code> missed amount: <code>=C5-D5</code>, with <code>=IF(E5&lt;&gt;0,"CHECK RETURN","OK")</code> next to it.</li>
+</ul>
+
+<p>Row 4 holds zeros as the opening balance so the running formulas have something to start from. The first rows of the schedule:</p>
+
+<table>
+<thead><tr><th>Tax year</th><th>Months</th><th>Allowable (C)</th><th>Claimed by A</th><th>Claimed by B</th><th>B missed</th></tr></thead>
+<tbody>
+<tr><td>2021</td><td>8.5</td><td>$7,064</td><td>$7,064</td><td>$0</td><td>$7,064</td></tr>
+<tr><td>2022</td><td>12</td><td>$9,973</td><td>$9,973</td><td>$0</td><td>$9,973</td></tr>
+<tr><td>2023</td><td>12</td><td>$9,973</td><td>$9,973</td><td>$0</td><td>$9,973</td></tr>
+<tr><td>2024</td><td>12</td><td>$9,973</td><td>$9,973</td><td>$0</td><td>$9,973</td></tr>
+<tr><td>2025</td><td>12</td><td>$9,973</td><td>$9,973</td><td>$0</td><td>$9,973</td></tr>
+<tr><td>2026</td><td>11.5</td><td>$9,557</td><td>$9,557</td><td>$0</td><td>$9,557</td></tr>
+<tr><td>Total</td><td></td><td>$56,513</td><td>$56,513</td><td>$0</td><td>$56,513</td></tr>
+</tbody>
+</table>
+
+<p>The check for 2021: $274,245 divided by 27.5 is $9,972.55 a year, times 8.5 over 12 is $7,063.89, rounded to $7,064. That matches the 2.576 percent first-year rate for a property placed in service in April in Table A-6 of Publication 946.</p>
+
+<h2>Allowable, Claimed and Suspended Are Three Different Columns</h2>
+
+<p>A one-column schedule assumes the deduction you computed is the deduction you used. With $160,000 of income, A's early losses could not touch the paycheck, and that is the moment a landlord is tempted to stop claiming. The losses are carried forward instead. Add three columns to the Schedule tab:</p>
+
+<ul>
+<li><code>F5</code> net rental income before depreciation: rent minus operating expenses minus mortgage interest, linked from your ledger. The <a href="/blog/rental-property-cash-flow-spreadsheet">rental property cash flow spreadsheet</a> builds that ledger and ties it to Schedule E.</li>
+<li><code>G5</code> rental result on the return: <code>=F5-D5</code>.</li>
+<li><code>H5</code> suspended loss carried forward at year end: <code>=MAX(0,H4-G5-Basis!$B$17)</code>. A loss year adds to the balance, a profit year uses it up first, and the allowance from <code>B17</code> drains it when your income is below $150,000.</li>
+<li><code>I5</code> rental income that is actually taxed: <code>=MAX(0,G5-H4)</code>. The allowance only offsets losses, so it does not enter this column.</li>
+</ul>
+
+<p>Here is the duplex, year by year. Rent started in June 2021, when both units were leased, at $1,350 a unit, rising to $1,595 by 2025; the loan is $328,000 at 3.625 percent over 30 years.</p>
+
+<table>
+<thead><tr><th>Year</th><th>Net before depreciation</th><th>A: result after depreciation</th><th>A: suspended at year end</th><th>A: tax</th><th>B: taxed income</th><th>B: tax at 24%</th></tr></thead>
+<tbody>
+<tr><td>2021</td><td>$3,191</td><td>-$3,873</td><td>$3,873</td><td>$0</td><td>$3,191</td><td>$766</td></tr>
+<tr><td>2022</td><td>$8,707</td><td>-$1,266</td><td>$5,139</td><td>$0</td><td>$8,707</td><td>$2,090</td></tr>
+<tr><td>2023</td><td>$10,073</td><td>$100</td><td>$5,039</td><td>$0</td><td>$10,073</td><td>$2,418</td></tr>
+<tr><td>2024</td><td>$11,256</td><td>$1,283</td><td>$3,756</td><td>$0</td><td>$11,256</td><td>$2,701</td></tr>
+<tr><td>2025</td><td>$12,149</td><td>$2,176</td><td>$1,580</td><td>$0</td><td>$12,149</td><td>$2,916</td></tr>
+<tr><td>Total</td><td>$45,376</td><td></td><td></td><td>$0</td><td>$45,376</td><td>$10,891</td></tr>
+</tbody>
+</table>
+
+<p>A's first two years produce losses that do nothing on the 2021 and 2022 returns. They come back: in 2023, 2024 and 2025 the property turns a small profit after depreciation, and the parked $5,139 absorbs it, so A pays no tax on the duplex for five years and still carries $1,580 into the sale year. B reports every dollar of the $45,376 and pays $10,891.</p>
+
+<h2>The Sale Year Settles All Three Columns</h2>
+
+<p>In December 2026 both landlords sell for $525,000 and pay $34,125 in selling costs, for an amount realized of $490,875. Because basis drops by the allowable amount for both of them, the gain is identical: $415,400 minus $56,513 leaves an adjusted basis of $358,887, and the gain is $131,988. Put the sale on its own tab:</p>
+
+<ul>
+<li><code>B5</code> amount realized: <code>=B3-B4</code>.</li>
+<li><code>B6</code> total allowable: <code>=SUM(Schedule!C5:C10)</code>. <code>B7</code> total claimed: <code>=SUM(Schedule!D5:D10)</code>.</li>
+<li><code>B8</code> adjusted basis: <code>=Basis!B5-MAX(B6,B7)</code>. This one cell is the allowed or allowable rule.</li>
+<li><code>B9</code> gain: <code>=B5-B8</code>.</li>
+<li><code>B10</code> "Yes" if your filed returns prove what you claimed. <code>B11</code> unrecaptured section 1250 gain: <code>=MIN(B9,IF(B10="Yes",B7,B6))</code>.</li>
+<li><code>B13</code> your marginal rate, <code>B14</code> the long-term gain rate, and <code>B15</code> the rate on <code>B11</code>: <code>=MIN(B13,0.25)</code>.</li>
+<li><code>B16</code> tax on the gain: <code>=B11&#42;B15+(B9-B11)&#42;B14</code>.</li>
+</ul>
+
+<p>Then add the rental result for the sale year, after any suspended loss released under section 469(g):</p>
+
+<table>
+<thead><tr><th>Sale year 2026</th><th>A, claimed every year</th><th>B, returns prove $0 claimed</th><th>B, no proof</th><th>B, files Form 3115 for 2026</th></tr></thead>
+<tbody>
+<tr><td>Rental result for 2026</td><td>$807</td><td>$11,944</td><td>$11,944</td><td>-$44,569</td></tr>
+<tr><td>Tax on it at 24%</td><td>$194</td><td>$2,867</td><td>$2,867</td><td>-$10,697</td></tr>
+<tr><td>Unrecaptured section 1250 gain</td><td>$56,513</td><td>$0</td><td>$56,513</td><td>$56,513</td></tr>
+<tr><td>Tax on it at 24%</td><td>$13,563</td><td>$0</td><td>$13,563</td><td>$13,563</td></tr>
+<tr><td>Rest of the gain</td><td>$75,475</td><td>$131,988</td><td>$75,475</td><td>$75,475</td></tr>
+<tr><td>Tax on it at 15%</td><td>$11,321</td><td>$19,798</td><td>$11,321</td><td>$11,321</td></tr>
+<tr><td>Tax for 2026</td><td>$25,078</td><td>$22,665</td><td>$27,751</td><td>$14,187</td></tr>
+<tr><td>Tax on the duplex, 2021 to 2025</td><td>$0</td><td>$10,891</td><td>$10,891</td><td>$10,891</td></tr>
+<tr><td>Total federal tax on the duplex</td><td>$25,078</td><td>$33,556</td><td>$38,642</td><td>$25,078</td></tr>
+<tr><td>Versus A</td><td>$0</td><td>+$8,478</td><td>+$13,564</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>A's 2026 line is the year's $11,944 of income before depreciation, minus $9,557 of depreciation, minus the $1,580 still suspended. The recapture rate equals the ordinary rate here because 24 percent is below the 25 percent cap; at a 32 or 35 percent marginal rate, <code>B15</code> returns 25 percent, and each claimed dollar saves 7 to 10 points more than it costs at sale.</p>
+
+<p>B's best case still loses $8,478. B gave up $56,513 of deductions worth $13,563 at 24 percent, and the only thing B saved was the 9-point gap between 24 percent and 15 percent on the same $56,513, which is $5,086. The worst case, with no proof of what was claimed, taxes the missing depreciation exactly as if B had taken it, so B pays for the deduction twice. A 1031 exchange defers both buckets instead of paying either; the <a href="/blog/1031-exchange-calculator-excel">1031 exchange calculator</a> handles the timing.</p>
+
+<h2>Missed Years: Amended Return or Form 3115</h2>
+
+<p>The last column of that table is the repair for missed depreciation. Publication 946 gives two routes and picks between them on one test: whether you have "adopted" a method of accounting for the property.</p>
+
+<table>
+<thead><tr><th>Your situation</th><th>Route</th><th>Deadline or timing</th></tr></thead>
+<tbody>
+<tr><td>Wrong amount on one return only, then corrected</td><td>Amended return for that year</td><td>Later of 3 years from filing the original or 2 years from paying the tax</td></tr>
+<tr><td>Same wrong method, including zero, on two or more consecutive returns</td><td>Form 3115, automatic change number 7 (impermissible to permissible)</td><td>With the return for the year of change; covers property owned at the beginning of that year</td></tr>
+<tr><td>Math or posting error in any year</td><td>Amended return</td><td>Same amended-return deadline</td></tr>
+</tbody>
+</table>
+
+<p>B left depreciation off five consecutive returns, so B has adopted an impermissible method and the route is Form 3115. The catch-up is a section 481(a) adjustment equal to all the allowable depreciation never deducted before the year of change: $46,956 for 2021 through 2025. Publication 946 says a negative adjustment, one that lowers taxable income, is taken into account in the year of change. Filed with the 2026 return, it stacks with the year's own $9,557 of depreciation and turns B's 2026 rental result into a $44,569 loss. Because B disposes of the entire interest that year, section 469(g) frees the loss against other income, and B's total lands exactly where A's does: $25,078. The difference is that B fronted $10,891 to the Treasury for up to five years at no interest.</p>
+
+<p>Two timing points decide whether this works. Change number 7 in the Form 3115 instructions applies to depreciable property owned at the beginning of the year of change, so for a property sold in 2026 the 2026 return is the last one where it fits: B owned the duplex on January 1, 2026, and owns nothing on January 1, 2027. And if you still own the property and your income is above $150,000, the catch-up is a passive deduction like any other: it lands in column H and waits for income or a sale. Publication 946 points to Revenue Procedure 2025-23 for the current list of automatic changes. Form 3115 runs several pages, so have your preparer file it, and hand them the Schedule tab, because column E is the 481(a) adjustment already computed year by year.</p>
+
+<h2>What to Do With Your Own Schedule This Week</h2>
+
+<p>Pull your closing statement, your appraisal, your last property tax bill and every Schedule E you have filed for the property. Then:</p>
+
+<ol>
+<li>Rebuild cost basis from the closing statement using the items Publication 527 lists.</li>
+<li>Replace any flat land percentage with the appraiser's site value, or the assessor ratio if no appraisal exists. Write the source next to <code>B10</code>.</li>
+<li>Rebuild the allowable column from the placed-in-service date with the mid-month formula, then type what you actually claimed into column D from the filed returns.</li>
+<li>If column E shows anything other than zero for two or more consecutive years, take it to your preparer this tax season, not the year after you sell.</li>
+<li>If you are above $150,000 of income, check that column H matches the carryforward on your last Form 8582. That balance is money you get back at sale, so it has to survive every change of preparer.</li>
+</ol>
+
+<p>On the duplex, those steps are the difference between $25,078 and $38,642 of federal tax on the same property, the same rent and the same sale price.</p>
+
+<p>If you are still deciding whether to buy, the depreciation line belongs in the deal analysis too. The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> includes a tax benefit estimator with depreciation schedules and mortgage interest deduction, the mortgage amortization schedule that feeds the interest line in column F, and a 10-year projection that shows equity buildup alongside cash flow. It does not keep the allowable, claimed and suspended ledger for you. Add the Schedule and Sale tabs from this article to the workbook, point column F at the analyzer's income and expense lines, and the number you see at sale is the one your preparer will put on the return.</p>`,
+  },
+  {
     slug: 'construction-project-cost-per-square-foot-spreadsheet',
     title: 'Construction Project Cost Per Square Foot Spreadsheet: Fix the Denominator First',
     metaTitle: 'Construction Cost Per Square Foot Spreadsheet | SheetCraft',
