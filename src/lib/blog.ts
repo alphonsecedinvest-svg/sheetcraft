@@ -16,6 +16,191 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'small-contractor-bookkeeping-spreadsheet',
+    title: 'Small Contractor Bookkeeping Spreadsheet: Your Bank Balance Is Not Your Money',
+    metaTitle: 'Small Contractor Bookkeeping Spreadsheet | SheetCraft',
+    metaDescription: 'Small contractor bookkeeping spreadsheet that turns a $71,400 bank balance into the $15,718 you can spend after deposits, open bills, payroll and tax.',
+    targetKeyword: 'small contractor bookkeeping spreadsheet',
+    secondaryKeywords: ['contractor bookkeeping Excel', 'unearned customer deposits', 'contractor estimated tax payments', 'construction trust fund', '1099-NEC subcontractors'],
+    excerpt: 'A remodeler with $71,400 in checking can safely draw $15,718. The rest belongs to customers who paid for unfinished work, to open bills, to withheld payroll tax and to the IRS. Build the ledger, jobs, bills and tax tabs that compute spendable cash before every draw.',
+    publishedAt: '2026-10-08',
+    readTime: 15,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/small-contractor-bookkeeping-spreadsheet.png',
+    imageAlt: 'Ink and watercolor illustration of five glass jars filled with coins to different levels on a sawhorse workbench in an open garage at dusk, beside a leather tool belt, an orange extension cord and a yellow hard hat, with the framing of an unfinished addition behind',
+    content: `<p>A two-crew remodeler opens the business checking account on October 8 and sees $71,400. Four jobs are running, the trucks are paid off, and a $30,000 owner draw looks safe. It is not. Customers have paid $24,225 for work nobody has done yet, $10,480 of supplier, sub and overhead bills are open, $3,860 of withheld payroll tax has not been deposited, and $8,117 of federal tax on this year's profit has no money set aside for it. After a $9,000 operating floor, the amount this owner can actually take out is $15,718. A small contractor bookkeeping spreadsheet that lists income and expenses by month cannot show that number, because none of those four claims on the cash is an expense yet. The version below is built to produce it.</p>
+
+<p>Every figure in this article comes from one model: a sole proprietor filing Schedule C on the cash method, four jobs in progress, $412,000 collected and $318,500 of deductible expenses paid since January 1, and a federal tax picture taken from last year's return. State income tax is left out; add a row with the same structure for your state.</p>
+
+<h2>The Number Your Books Should Produce Is Spendable Cash</h2>
+
+<p>Most contractor bookkeeping starts and ends with profit. Profit matters at tax time. During the year, the decision you actually make every week is whether you can spend money: take a draw, put a deposit on a truck, hire a third carpenter. For that decision the bank balance is the wrong number, and the profit figure is wrong too, because a cash-basis profit counts every customer deposit as income the day it lands.</p>
+
+<p>The Cash tab of the workbook shows the remodeler's position on October 8.</p>
+
+<table>
+<thead><tr><th>Cash tab line</th><th>Source</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Bank balance (business checking)</td><td>Statement, reconciled</td><td>$71,400</td></tr>
+<tr><td>Less: deposits for work not yet done</td><td>Jobs tab</td><td>$24,225</td></tr>
+<tr><td>Less: open bills (subs, suppliers, overhead)</td><td>Bills tab</td><td>$10,480</td></tr>
+<tr><td>Less: payroll tax withheld, not yet deposited</td><td>Payroll register</td><td>$3,860</td></tr>
+<tr><td>Less: federal tax reserve on profit to date</td><td>Tax tab</td><td>$8,117</td></tr>
+<tr><td>Less: operating floor</td><td>Your choice</td><td>$9,000</td></tr>
+<tr><td><strong>Spendable cash</strong></td><td></td><td><strong>$15,718</strong></td></tr>
+</tbody>
+</table>
+
+<p>Spendable cash sits in <code>Cash!B9</code>, and its formula is deliberately boring: <code>=B3-SUM(B4:B8)</code>. The work happens in the tabs that feed <code>B4</code> through <code>B7</code>; <code>B7</code>, for instance, is simply <code>=Tax!B9</code>. The four claims add up to $46,682, which is 65 percent of what the bank shows. That ratio is normal for a remodeler who collects deposits, and it is why owners who manage by bank balance feel rich in spring and broke in November.</p>
+
+<h2>Four Tabs and a Short Category List</h2>
+
+<p>The workbook has a Ledger tab where every transaction lands once, a Jobs tab, a Bills tab and a Tax tab, plus the Cash tab above. The Ledger is the only place you type money. Every other tab reads it with <code>SUMIFS</code>, so a payment entered once updates the job, the tax reserve and the 1099 list at the same time.</p>
+
+<p>Ledger columns: <code>A</code> date, <code>B</code> account, <code>C</code> payee, <code>D</code> job code (A, B, C, D, or OH for overhead, OWNER for draws and contributions, TAX for estimated payments), <code>E</code> category, <code>F</code> Schedule C line, <code>G</code> money in, <code>H</code> money out, <code>I</code> W-9 on file (Y or blank).</p>
+
+<p>Keep the category list short and tie every category to the line it ends up on in Schedule C (2025 form). A 60-account chart copied from accounting software creates coding decisions nobody makes consistently, and inconsistent coding is worse than coarse coding.</p>
+
+<table>
+<thead><tr><th>Category (column E)</th><th>Schedule C line (column F)</th><th>Counts as an expense?</th></tr></thead>
+<tbody>
+<tr><td>Customer payment</td><td>Line 1, gross receipts</td><td>No, income</td></tr>
+<tr><td>Materials</td><td>Part III, line 38</td><td>Yes</td></tr>
+<tr><td>Subcontractor</td><td>Line 11 or Part III, line 39 (pick one with your preparer and keep it)</td><td>Yes</td></tr>
+<tr><td>Crew wages</td><td>Line 26, or Part III, line 37</td><td>Yes</td></tr>
+<tr><td>Equipment rental</td><td>Line 20a</td><td>Yes</td></tr>
+<tr><td>Truck and fuel</td><td>Line 9</td><td>Yes</td></tr>
+<tr><td>Insurance</td><td>Line 15</td><td>Yes</td></tr>
+<tr><td>Permits and licenses</td><td>Line 23</td><td>Yes</td></tr>
+<tr><td>Small tools and shop supplies</td><td>Line 22</td><td>Yes</td></tr>
+<tr><td>Owner draw, estimated tax payment, equipment purchase, loan principal</td><td>Blank</td><td>No</td></tr>
+</tbody>
+</table>
+
+<p>The last row is where most homemade books go wrong. A draw is not an expense for a sole proprietor, an estimated tax payment is not an expense, and a truck is depreciated over several years unless your preparer elects section 179 or bonus depreciation. Leaving column F blank for those rows is what keeps them out of the profit figure: the Tax tab only sums rows that carry a Schedule C line. If you buy equipment, track it separately; the <a href="/blog/construction-equipment-depreciation-tracker-excel">equipment depreciation tracker</a> covers MACRS schedules and the real hourly cost of a machine.</p>
+
+<p>Materials bought tax-free on a resale certificate and installed on a job can create use tax you owe later. That is its own log, covered in the <a href="/blog/construction-material-sales-tax-use-tax-tracker-excel">material sales tax and use tax tracker</a>; flag those purchases in the Ledger with a note so they are easy to pull.</p>
+
+<h2>Customer Deposits Are a Liability Until the Work Is Done</h2>
+
+<p>The biggest line on the Cash tab is money customers paid for work that has not happened. The Jobs tab measures it per job with a cost-to-cost percent complete: cost incurred so far divided by the estimated total cost.</p>
+
+<table>
+<thead><tr><th>Job</th><th>Contract</th><th>Est. cost</th><th>Cost incurred</th><th>% complete</th><th>Earned</th><th>Collected</th><th>Unearned</th><th>Underbilled</th></tr></thead>
+<tbody>
+<tr><td>A, kitchen remodel</td><td>$48,000</td><td>$34,000</td><td>$28,900</td><td>85%</td><td>$40,800</td><td>$38,400</td><td>$0</td><td>$2,400</td></tr>
+<tr><td>B, primary bath</td><td>$22,500</td><td>$16,000</td><td>$4,000</td><td>25%</td><td>$5,625</td><td>$11,250</td><td>$5,625</td><td>$0</td></tr>
+<tr><td>C, garage addition</td><td>$96,000</td><td>$72,000</td><td>$18,000</td><td>25%</td><td>$24,000</td><td>$38,400</td><td>$14,400</td><td>$0</td></tr>
+<tr><td>D, rear deck</td><td>$14,000</td><td>$9,800</td><td>$0</td><td>0%</td><td>$0</td><td>$4,200</td><td>$4,200</td><td>$0</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$180,500</strong></td><td></td><td><strong>$50,900</strong></td><td></td><td><strong>$70,425</strong></td><td><strong>$92,250</strong></td><td><strong>$24,225</strong></td><td><strong>$2,400</strong></td></tr>
+</tbody>
+</table>
+
+<p>Row 5 holds job A, with the job code in <code>A5</code>:</p>
+
+<ul>
+<li><code>D5</code> paid to date: <code>=SUMIFS(Ledger!$H:$H,Ledger!$D:$D,$A5)</code></li>
+<li><code>E5</code> open bills on the job: <code>=SUMIFS(Bills!$D:$D,Bills!$B:$B,$A5,Bills!$E:$E,"Open")</code></li>
+<li><code>F5</code> cost incurred: <code>=D5+E5</code>. Unpaid bills count, because the lumber is on site whether or not you paid for it.</li>
+<li><code>G5</code> percent complete: <code>=IF(C5=0,0,MIN(1,F5/C5))</code></li>
+<li><code>H5</code> earned: <code>=B5&#42;G5</code></li>
+<li><code>I5</code> collected: <code>=SUMIFS(Ledger!$G:$G,Ledger!$D:$D,$A5)</code></li>
+<li><code>J5</code> unearned: <code>=MAX(0,I5-H5)</code></li>
+<li><code>K5</code> underbilled: <code>=MAX(0,H5-I5)</code></li>
+</ul>
+
+<p>Job C is where the money sits. The customer paid a 40 percent deposit on a $96,000 addition, the framing is a quarter done, and $14,400 of that deposit is still owed back to the customer as work. Job A runs the other way: the kitchen is 85 percent done and the customer has paid $2,400 less than the work is worth. That $2,400 is your next invoice, not cash. It never offsets the deposits on B, C and D, which is why the Cash tab reads column J and ignores column K.</p>
+
+<p>Cost-to-cost only works if the estimated cost is current. If job C is running over budget, cost incurred climbs faster than the work, percent complete overstates progress and the unearned figure shrinks on paper. Re-forecast <code>C5:C8</code> monthly from your <a href="/blog/job-costing-spreadsheet-for-contractors">job costing spreadsheet</a>. Larger contractors report the same calculation to their bank and surety as a WIP schedule; the <a href="/blog/construction-wip-report-excel">construction WIP report</a> shows that version.</p>
+
+<h3>Some states put the deposit rules in statute</h3>
+
+<p>California caps the deposit itself. Business and Professions Code section 7159(d)(8) requires home improvement contracts to state that the downpayment "MAY NOT EXCEED $1,000 OR 10 PERCENT OF THE CONTRACT PRICE, WHICHEVER IS LESS," and section 7159(d)(9) requires the warning that "IT IS AGAINST THE LAW FOR A CONTRACTOR TO COLLECT PAYMENT FOR WORK NOT YET COMPLETED, OR FOR MATERIALS NOT YET DELIVERED." A California remodeler should never see a $14,400 unearned balance on a home improvement job; if column J shows one, the payment schedule is the problem.</p>
+
+<p>Texas goes after what you do with the money. Property Code section 162.001 makes construction payments to a contractor under a contract for specific Texas real property trust funds, and section 162.031 says a trustee who intentionally or knowingly uses or diverts trust funds "without first fully paying all current or past due obligations" to the beneficiaries has misapplied them. Under section 162.032, misapplying $500 or more is a Class A misdemeanor, and a third-degree felony with intent to defraud. In the model, the $2,600 lumber bill on job C is open. Knowingly paying job A's cabinet installer with job C's deposit while that lumber bill stays open is the pattern the statute describes. A Jobs tab that shows collected and paid by job is the record that proves you did not do it.</p>
+
+<h2>Open Bills and Payroll Tax: Money You Have Already Spent</h2>
+
+<p>The Bills tab is a five-column list: <code>A</code> vendor, <code>B</code> job code, <code>C</code> due date, <code>D</code> amount, <code>E</code> status. On October 8 it holds $7,000 of job bills (the $2,800 cabinet install sub on A, $1,600 of tile for B, $2,600 of lumber for C) and $3,480 of overhead: a $1,150 insurance installment and a $2,330 card balance. The Cash tab reads it with <code>=SUMIFS(Bills!$D:$D,Bills!$E:$E,"Open")</code>. When you pay a bill, enter the payment in the Ledger and change the status to Paid in the same sitting, or the bill is counted twice, once as cash gone and once as cash owed.</p>
+
+<p>The payroll line is smaller and more dangerous. The $3,860 is income tax and the employees' share of Social Security and Medicare withheld from paychecks, plus your matching share, waiting for the next deposit. The withheld part is trust fund tax: under 26 U.S.C. section 6672, a person required to pay over withheld tax who willfully fails to do so is liable for a penalty "equal to the total amount of the tax evaded, or not collected, or not accounted for and paid over." It is assessed against the responsible person, so the LLC or the corporation does not stand between that bill and you. If your payroll service debits the deposit automatically, this line is still worth keeping until the debit clears, because the money sits in your checking account in the meantime.</p>
+
+<h2>The Tax Reserve: The IRS Taxes Deposits You Cannot Spend</h2>
+
+<p>On the cash method, IRS Publication 538 says you include in gross income "all items of income you actually or constructively received during the tax year." A deposit is income the day it lands, even though the Jobs tab says it belongs to the customer. That is the tension this tab resolves: the tax reserve is computed on cash profit, and the unearned deposits sit inside that profit.</p>
+
+<table>
+<thead><tr><th>Tax tab line</th><th>Formula</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>B3 Receipts year to date</td><td><code>=SUMIFS(Ledger!$G:$G,Ledger!$E:$E,"Customer payment")</code></td><td>$412,000</td></tr>
+<tr><td>B4 Deductible expenses paid</td><td><code>=SUMIFS(Ledger!$H:$H,Ledger!$F:$F,"&lt;&gt;")</code></td><td>$318,500</td></tr>
+<tr><td>B5 Net profit to date</td><td><code>=B3-B4</code></td><td>$93,500</td></tr>
+<tr><td>B6 Self-employment tax</td><td><code>=B5&#42;0.9235&#42;0.153</code></td><td>$13,211</td></tr>
+<tr><td>B7 Federal income tax</td><td><code>=B5&#42;B12</code></td><td>$10,506</td></tr>
+<tr><td>B8 Estimated payments made</td><td><code>=SUMIFS(Ledger!$H:$H,Ledger!$D:$D,"TAX")</code></td><td>$15,600</td></tr>
+<tr><td>B9 Reserve still needed</td><td><code>=MAX(0,B6+B7-B8)</code></td><td>$8,117</td></tr>
+</tbody>
+</table>
+
+<p>The self-employment line uses the statutory rates: 12.4 percent for Social Security and 2.9 percent for Medicare, 15.3 percent in total, applied to 92.35 percent of net earnings. That is 14.13 percent of profit, before a single dollar of income tax. It ignores the Social Security wage base, which only matters above that year's cap.</p>
+
+<p><code>B12</code> is the rate that turns profit into federal income tax, and the most honest source for it is your own last return. The remodeler's 2025 return shows $82,000 of Schedule C profit and $20,800 of total federal tax, of which $11,586 was self-employment tax and $9,214 was income tax. <code>B12</code> is <code>=9214/82000</code>, or 11.24 percent. Because the brackets are progressive, a ratio taken from a lower-profit year understates this year's tax, so treat <code>B9</code> as a floor and ask your preparer for the marginal rate once profit passes last year's.</p>
+
+<h3>Safe harbor protects you from the penalty, not from the bill</h3>
+
+<p>Under section 6654(d)(1)(B), you avoid the underpayment penalty if your four installments cover the lesser of 90 percent of this year's tax or 100 percent of last year's, and section 6654(d)(1)(C) raises the second figure to 110 percent when last year's adjusted gross income exceeded $150,000. The installments are due April 15, June 15, September 15 and January 15 of the following year. The remodeler's adjusted gross income was under $150,000, so each installment is <code>=IF(B14&gt;150000,1.1,1)&#42;B15/4</code>, or $5,200, and three were paid on time.</p>
+
+<p>That keeps the penalty away. It does nothing about the size of the April check. Tax on profit so far is already $23,717 against $15,600 paid, and every profitable week adds to the gap. Owners who pay the safe harbor and spend the rest discover the difference on April 15, usually in the slowest month of the year.</p>
+
+<h3>The December deposit problem</h3>
+
+<p>Of the $93,500 profit, $24,225 is unearned deposits. At the model's rates, $6,145 of this year's federal tax ($3,423 of self-employment tax and $2,722 of income tax) is tax on money that still belongs to customers B, C and D as work. It is a timing difference, since next year's profit will be lower by the same amount when the work is done, but the cash leaves this year. A $20,000 deposit received December 20 for a January start adds $2,826 of self-employment tax and $2,247 of income tax to this year's bill. If the customer is solid and the start date is firm, invoicing that deposit on January 2 moves the tax a full year. If you need the deposit to order materials, take it in December and put $5,073 of it in the reserve the same day.</p>
+
+<h2>What a $30,000 Draw Does to Each Number</h2>
+
+<p>The table reads the same October 8 balance two ways: a draw sized on the bank balance and a draw sized on spendable cash.</p>
+
+<table>
+<thead><tr><th>Line</th><th>Draw sized on bank balance</th><th>Draw sized on spendable cash</th></tr></thead>
+<tbody>
+<tr><td>Bank balance before draw</td><td>$71,400</td><td>$71,400</td></tr>
+<tr><td>Owner draw</td><td>$30,000</td><td>$15,718</td></tr>
+<tr><td>Bank balance after draw</td><td>$41,400</td><td>$55,682</td></tr>
+<tr><td>Claims on that cash (deposits, bills, payroll tax, tax reserve)</td><td>$46,682</td><td>$46,682</td></tr>
+<tr><td>Cash left after every claim</td><td>-$5,282</td><td>$9,000</td></tr>
+<tr><td>Operating floor intact?</td><td>No, $14,282 below it</td><td>Yes</td></tr>
+</tbody>
+</table>
+
+<p>After the $30,000 draw, the remodeler can no longer pay every open bill, finish the work customers have paid for and cover the tax already earned. The account still shows $41,400, so nothing feels wrong. The shortfall surfaces in six or eight weeks when job C needs its roof trusses, and the usual fix is the next customer's deposit. That is the deposit chase: each new job funds the end of the previous one, which works until sales slow down. In Texas, it is also the pattern section 162.031 describes.</p>
+
+<p>Sizing the draw on spendable cash leaves exactly the $9,000 floor after every claim. The owner takes $14,282 less today, and none of it has to be borrowed back from a customer in December.</p>
+
+<h2>Two Checks That Keep the Books Honest</h2>
+
+<h3>Monthly bank reconciliation</h3>
+
+<p>Every number above depends on the Ledger matching the bank. Put the opening balance in <code>Setup!B2</code>, then on the Cash tab compute the ledger balance with <code>=Setup!B2+SUM(Ledger!$G:$G)-SUM(Ledger!$H:$H)</code> and compare it with the statement balance in <code>B3</code>: <code>=IF(ABS(B3-B11)&lt;0.01,"RECONCILED","OFF BY "&amp;TEXT(B3-B11,"$#,##0.00"))</code>. A difference is almost always a check that has not cleared, a card fee you never entered, or a deposit you entered twice. Find it before you trust <code>Cash!B9</code>, the spendable line; a spendable figure built on an unreconciled ledger is a guess.</p>
+
+<h3>The 1099-NEC and W-9 list</h3>
+
+<p>For payments made after December 31, 2025, the IRS instructions for Forms 1099-MISC and 1099-NEC require a Form 1099-NEC for each person you paid at least $2,000 in the course of your business, filed by January 31. The old $600 figure still appears in the 2025 Schedule C instructions because it applied to 2025 payments. A Vendors tab lists each sub in column A, computes the year's payments in <code>B5</code> with <code>=SUMIFS(Ledger!$H:$H,Ledger!$C:$C,$A5,Ledger!$E:$E,"Subcontractor")</code>, keeps the W-9 status in <code>C5</code>, and flags the gap in <code>D5</code> with <code>=IF(AND(B5&gt;=2000,C5&lt;&gt;"Y"),"GET W-9","")</code>. Collect the W-9 before the first check; by January the sub may have moved on to another state. The landlord version of this list, with the backup withholding rules, is in the <a href="/blog/rental-property-1099-nec-vendor-tracking-excel">1099-NEC vendor tracking</a> article, and the same Vendors tab is the right place for the insurance expiration dates described in the <a href="/blog/certificate-of-insurance-tracking-spreadsheet">certificate of insurance tracker</a>.</p>
+
+<h2>What to Set Up This Week</h2>
+
+<ol>
+<li>Open a separate business checking account if you do not have one. Every formula above assumes the bank balance in <code>B3</code> is business money only.</li>
+<li>Enter year-to-date transactions in the Ledger with a job code and a category on every row. Leave column F blank for draws, tax payments and equipment purchases.</li>
+<li>Build the Jobs tab with current estimated costs, and check column J against your contracts. If you work in California and any home improvement job shows a large unearned balance, fix the payment schedule on the next contract.</li>
+<li>Pull last year's return and fill <code>B12</code>, <code>B14</code> and <code>B15</code> on the Tax tab. Move the <code>Tax!B9</code> reserve to a separate savings account today.</li>
+<li>Reconcile to the bank statement, then read <code>Cash!B9</code> before every draw, equipment purchase or hire.</li>
+</ol>
+
+<p>For the remodeler, those five steps turn a $71,400 balance into a $15,718 decision, and a $30,000 draw that would have left the business $5,282 short of its obligations into one that leaves the $9,000 floor intact.</p>
+
+<p>The Jobs tab is only as good as the cost data behind each job. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> keeps that data per project: budget by CSI division or your own categories, actual cost against each line with the variance, change orders, percent complete against percent spent, and a payment log showing which sub and supplier invoices are paid, pending or due this week. It does not keep your company books or compute the tax reserve. Use one tracker per job, read its paid and pending totals into columns D and E of the Jobs tab, and the unearned deposit figure on your Cash tab will rest on the same numbers you use to run the job.</p>`,
+  },
+  {
     slug: 'rental-property-depreciation-calculator-excel',
     title: 'Rental Property Depreciation Calculator in Excel: The IRS Counts It Whether You Claim It or Not',
     metaTitle: 'Rental Property Depreciation Calculator Excel | SheetCraft',
