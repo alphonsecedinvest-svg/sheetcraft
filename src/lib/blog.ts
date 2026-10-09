@@ -16,6 +16,211 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'brrrr-vs-traditional-buy-and-hold-calculator',
+    title: 'BRRRR vs Traditional Buy and Hold Calculator: Split the Rehab Paycheck From the Rental Return',
+    metaTitle: 'BRRRR vs Traditional Buy and Hold Calculator | SheetCraft',
+    metaDescription: 'BRRRR vs traditional buy and hold calculator: same $160,000, same 60 months. BRRRR ends $389,627 ahead, and $403,591 of that is rehab pay.',
+    targetKeyword: 'BRRRR vs traditional buy and hold calculator',
+    secondaryKeywords: ['BRRRR vs buy and hold', 'forced equity', 'cash-out refinance seasoning', 'delayed financing exception', 'rental portfolio net worth'],
+    excerpt: 'Two investors put $160,000 to work the same week. After 60 months BRRRR is worth $639,718 and buy-and-hold $250,091, yet $403,591 of the BRRRR lead is profit on seven rehabs. Strip it out and the rental portfolio earned $76,127 against $106,291. Build the calculator that splits the two.',
+    publishedAt: '2026-10-09',
+    readTime: 12,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/brrrr-vs-traditional-buy-and-hold-calculator.png',
+    imageAlt: 'Ink and watercolor illustration of two small houses side by side on an autumn street, a tidy older bungalow with a porch swing and mailbox on the left and a house under renovation on the right with a ladder, wheelbarrow, stacked lumber, paint cans and a pickup truck at the curb',
+    content: `<p>Two investors start with $160,000 each in the week of April 9, 2026. One buys three rent-ready houses with 25 percent down and locks a 30-year loan. The other buys a distressed house for cash, renovates it, rents it and refinances it, then does it again every eight months. Sixty months later the first investor is worth $250,091 and the second $639,718. A BRRRR vs traditional buy and hold calculator usually stops at that line and names a winner. The useful part is the next line down: $403,591 of the BRRRR investor's result is the profit on seven renovation projects, and the rental portfolio left after you take it out earned $76,127, against $106,291 for the three plain houses, on 2.82 times the debt. The calculator below shows both lines, so you can decide which business you want to run.</p>
+
+<p>Every number below comes from one model with stated assumptions. Rates come from Freddie Mac's Primary Mortgage Market Survey, refinance rules from the Fannie Mae Selling Guide, and everything else is an input you replace with your own market and your own lender quotes.</p>
+
+<h2>Same $160,000, Same Week, Two Strategies</h2>
+
+<p>A fair comparison holds three things constant: the starting capital, the start date and the horizon. Most BRRRR vs buy-and-hold comparisons hold none of them. They put one BRRRR deal next to one turnkey deal and divide each deal's cash flow by the cash left in it. The BRRRR deal below leaves $272.50 in the house and loses $121.19 a month after the refinance, so its cash-on-cash return is minus 534 percent. That figure is arithmetic on a near-zero denominator and tells you nothing about which strategy to run.</p>
+
+<p>The Inputs tab puts the two strategies in two columns. Column B is buy-and-hold, column C is BRRRR.</p>
+
+<table>
+<thead><tr><th>Input (row)</th><th>Buy-and-hold (B)</th><th>BRRRR (C)</th></tr></thead>
+<tbody>
+<tr><td>Purchase price (8)</td><td>$180,000</td><td>$112,000</td></tr>
+<tr><td>Purchase closing costs (9)</td><td>3%</td><td>2%</td></tr>
+<tr><td>Down payment (10)</td><td>25%</td><td>All cash</td></tr>
+<tr><td>Rehab budget (11)</td><td>$0</td><td>$36,000 over 3 months</td></tr>
+<tr><td>Months until rent-ready (12)</td><td>0</td><td>4</td></tr>
+<tr><td>Vacant carry per month (13)</td><td>n/a</td><td>$505</td></tr>
+<tr><td>Value when stabilized (14)</td><td>$180,000</td><td>$210,000</td></tr>
+<tr><td>Freddie Mac 30-year average on loan date (15)</td><td>6.37% (April 9, 2026)</td><td>7.40% (October 8, 2026)</td></tr>
+<tr><td>Note rate with 0.75 point investor premium (16)</td><td>7.12%</td><td>8.15%</td></tr>
+<tr><td>Rent (20)</td><td>$1,725</td><td>$1,850</td></tr>
+<tr><td>Taxes and insurance per month (21)</td><td>$335</td><td>$355</td></tr>
+<tr><td>Vacancy, repairs and management (22)</td><td>24% of rent</td><td>24% of rent</td></tr>
+</tbody>
+</table>
+
+<p>Global inputs sit above the columns: capital in <code>B3</code> ($160,000), horizon in <code>B4</code> (60 months), appreciation in <code>B5</code> (2.5 percent a year, an assumption) and the investor premium over the Freddie Mac average in <code>B6</code> (0.75 point, also an assumption; replace it with a quote). The vacant carry of $505 is $220 of taxes, $135 of insurance and $150 of utilities while nobody pays rent.</p>
+
+<p>Buy-and-hold needs $50,400 per house, so $160,000 buys three and leaves $8,800 in reserve. BRRRR needs $152,260 for the first house: $114,240 to close, $36,000 of rehab and $2,020 of carry for four months. Both investors start with a similar cushion: $8,800 for buy-and-hold, $7,740 for BRRRR.</p>
+
+<h2>The Refinance Date Sets the BRRRR Rate</h2>
+
+<p>The buy-and-hold investor fixed a rate on the purchase date. The BRRRR investor bought for cash and gets a rate only when the refinance closes, six months later. Freddie Mac's weekly survey put the 30-year average at 6.37 percent on April 9, 2026 and at 7.40 percent on October 8, 2026. Over those same six months the BRRRR investor's future rate went up by 1.03 points, while the buy-and-hold investor's rate stayed where it was locked.</p>
+
+<p>Rows 23 to 25 turn that into monthly cash flow per house:</p>
+
+<ul>
+<li>Net operating income: <code>=B20-B21-B20&#42;B22</code></li>
+<li>Principal and interest: <code>=PMT(B16/12,360,-B18)</code>, where <code>B18</code> is the loan, <code>=B8&#42;(1-B10)</code> for buy-and-hold and <code>=C14&#42;C17</code> for BRRRR with <code>C17</code> at 75 percent</li>
+<li>Cash flow per door: <code>=B23-B24</code></li>
+</ul>
+
+<table>
+<thead><tr><th>Per house, per month</th><th>Buy-and-hold</th><th>BRRRR</th></tr></thead>
+<tbody>
+<tr><td>Net operating income</td><td>$976.00</td><td>$1,051.00</td></tr>
+<tr><td>Loan amount</td><td>$135,000</td><td>$157,500</td></tr>
+<tr><td>Principal and interest</td><td>$909.06</td><td>$1,172.19</td></tr>
+<tr><td>Cash flow per door</td><td>$66.94</td><td>-$121.19</td></tr>
+<tr><td>Cap rate (NOI over value)</td><td>6.51%</td><td>6.01%</td></tr>
+<tr><td>Loan constant (annual debt service over loan)</td><td>8.08%</td><td>8.93%</td></tr>
+</tbody>
+</table>
+
+<p>Both houses borrow at a loan constant above their cap rate, which is negative leverage, the condition explained in the <a href="/blog/cap-rate-calculator-excel">cap rate calculator article</a>. The BRRRR house is further underwater on that test because it borrows 75 percent of a higher value at a higher rate. The renovated house rents for more and still loses $121.19 a month.</p>
+
+<h3>The clock is set by the Selling Guide</h3>
+
+<p>The six months come from Fannie Mae's Selling Guide, section B2-1.3-03 (version dated December 10, 2025), sets three rules that decide when the BRRRR money comes back:</p>
+
+<ul>
+<li>At least one borrower must have been on title for six months before the new loan disburses.</li>
+<li>Under the delayed financing exception, a cash buyer can refinance sooner, but the new loan can be no more than the documented amount paid to purchase the property plus the closing costs, fees and points of the new loan. Rehab money is not on that list. For this house, a month-4 refinance returns $114,240 and leaves $38,020 of rehab and carry inside the house.</li>
+<li>If a first mortgage is being paid off, it must be at least 12 months old, measured note date to note date. Buy with a hard money loan and a conventional cash-out refinance waits a full year.</li>
+</ul>
+
+<p>The same section prices a delayed financing loan as a cash-out loan ("cash-out pricing is applicable") and lists loan-level price adjustments for cash-out refinances, which is why row 19 carries 3.5 percent for refinance costs and points (2.5 percent closing plus 1 point, both placeholders for your lender's quote). Section B2-2-03 caps a borrower at 10 financed properties for an investment loan, counting a mortgaged home. The <a href="/blog/brrrr-seasoning-period-tracker-excel">BRRRR seasoning period tracker</a> handles the date arithmetic for each lender; this calculator only needs the result in months.</p>
+
+<h2>Build the Deals Tab: Where the BRRRR Clock Lives</h2>
+
+<p>Buy-and-hold is one line: three houses bought in month 0. The doors formula is <code>=MIN(10,INT(B3/B26))</code>, where <code>B26</code> is <code>=B8&#42;(B9+B10)</code>, the cash per house. BRRRR needs a row per deal, because each deal's start date depends on when the previous one paid back.</p>
+
+<table>
+<thead><tr><th>Column</th><th>Deals tab field</th><th>Formula in row 3 (deal 2)</th></tr></thead>
+<tbody>
+<tr><td>B</td><td>Buy month</td><td><code>=E2+Inputs!$C$31</code></td></tr>
+<tr><td>C</td><td>Size factor</td><td><code>=MIN(1,(INDEX(Timeline!$H:$H,B3+2)-5000)/Inputs!$C$26)</code></td></tr>
+<tr><td>D</td><td>Cash spent</td><td><code>=C3&#42;Inputs!$C$26</code></td></tr>
+<tr><td>E</td><td>Refinance month</td><td><code>=B3+Inputs!$C$30</code></td></tr>
+<tr><td>F</td><td>New loan</td><td><code>=C3&#42;Inputs!$C$18</code></td></tr>
+<tr><td>G</td><td>Cash back</td><td><code>=F3&#42;(1-Inputs!$C$19)</code></td></tr>
+<tr><td>H</td><td>Monthly payment</td><td><code>=PMT(Inputs!$C$16/12,360,-F3)</code></td></tr>
+<tr><td>I</td><td>Balance at horizon</td><td><code>=-FV(Inputs!$C$16/12,Inputs!$B$4-E3,-H3,F3)</code></td></tr>
+</tbody>
+</table>
+
+<p><code>C30</code> on Inputs is the seasoning (6 months), <code>C31</code> the months it takes you to find and close the next deal (2), and <code>C26</code> the all-in cash per deal, <code>=C8&#42;(1+C9)+C11+C12&#42;C13</code>. The size factor matters more than it looks. When the refinance returns less than the deal cost, or negative cash flow has drained the account, the next deal has to be smaller. The factor scales price, rehab, rent and value together, and a deal below half size gets flagged with <code>=IF(C3&lt;0.5,"STOP","")</code>, because a $56,000 house is a different market, not a smaller version of this one.</p>
+
+<p>The Timeline tab runs months 0 to 60 down the rows. Column H is the cash balance: last month's balance, plus rent cash flow, plus refinance proceeds, minus purchases, rehab and carry. Rent-ready doors in any month come from <code>=SUMPRODUCT((A3-Deals!$B$2:$B$12&gt;Inputs!$C$12)&#42;Deals!$C$2:$C$12)</code>, and debt service from <code>=SUMPRODUCT((Deals!$E$2:$E$12&lt;A3)&#42;Deals!$H$2:$H$12)</code>. Empty deal rows carry a size factor of zero and drop out of both sums.</p>
+
+<p>Per deal, the base case works out cleanly. All-in $152,260. Appraisal $210,000. Loan $157,500. Cash back after 3.5 percent costs $151,987.50. Left in the deal $272.50. Each deal creates $57,740 of equity between the all-in cost and the appraised value, which is the forced equity BRRRR courses talk about. With a two-month search the investor buys in months 0, 8, 16, 24, 32, 40 and 48, the last at 99 percent of full size because the negative cash flow on the first six houses has drawn down the account.</p>
+
+<h2>The Answer Every Calculator Gives, and the Bridge Behind It</h2>
+
+<p>At month 60 the Results tab reads:</p>
+
+<table>
+<thead><tr><th>Month 60</th><th>Buy-and-hold</th><th>BRRRR</th></tr></thead>
+<tbody>
+<tr><td>Houses</td><td>3</td><td>7</td></tr>
+<tr><td>Market value</td><td>$610,960</td><td>$1,568,727</td></tr>
+<tr><td>Mortgage debt</td><td>$381,718</td><td>$1,076,353</td></tr>
+<tr><td>Cash on hand</td><td>$20,848</td><td>$147,345</td></tr>
+<tr><td>Net worth (value minus debt plus cash)</td><td>$250,091</td><td>$639,718</td></tr>
+<tr><td>Portfolio cash flow per month</td><td>$200.81</td><td>-$847.10</td></tr>
+</tbody>
+</table>
+
+<p>BRRRR is ahead by $389,627, and if you stop there the question is settled. The Bridge tab breaks each result into the sources of that money, and it reads differently:</p>
+
+<table>
+<thead><tr><th>Bridge line</th><th>Buy-and-hold</th><th>BRRRR</th></tr></thead>
+<tbody>
+<tr><td>Starting capital</td><td>$160,000</td><td>$160,000</td></tr>
+<tr><td>Forced equity (value at stabilization minus all-in cost)</td><td>-$16,200</td><td>$403,591</td></tr>
+<tr><td>Refinance costs and points</td><td>$0</td><td>-$38,531</td></tr>
+<tr><td>Appreciation at 2.5% a year</td><td>$70,961</td><td>$100,868</td></tr>
+<tr><td>Principal paid down</td><td>$23,282</td><td>$24,540</td></tr>
+<tr><td>Cumulative cash flow</td><td>$12,048</td><td>-$10,750</td></tr>
+<tr><td>Net worth at month 60</td><td>$250,091</td><td>$639,718</td></tr>
+<tr><td><strong>Rental portfolio return (refinance costs, appreciation, principal and cash flow)</strong></td><td><strong>$106,291</strong></td><td><strong>$76,127</strong></td></tr>
+</tbody>
+</table>
+
+<p>The formulas sit on Deals and Timeline. Forced equity is <code>=SUMPRODUCT(Deals!C2:C12&#42;Inputs!C14)-SUM(Deals!D2:D12)</code>. Refinance costs are <code>=-SUM(Deals!F2:F12)&#42;Inputs!C19</code>. Principal paid is <code>=SUM(Deals!F2:F12)-SUM(Deals!I2:I12)</code>. Cumulative cash flow is <code>=SUM(Timeline!E2:E62)</code>. The buy-and-hold forced equity is negative because buying at retail only costs you the closing costs: $5,400 a house, three times.</p>
+
+<p>Forced equity is pay for work. Seven times, the BRRRR investor found a distressed house, priced the rehab, hired and supervised the crews, carried the vacancy and leased the result, and each project paid $57,740, about $9,623 for each month between purchase and refinance. That is a construction business. A flipper doing the same seven projects earns the same spread, sells instead of refinancing, and pays selling costs out of it.</p>
+
+<p>What the rental portfolio itself earned is the sum of appreciation, principal, cash flow and refinance costs. On that line the three plain houses beat the seven renovated ones by $30,164, while carrying $381,718 of debt instead of $1,076,353. The BRRRR portfolio has more houses appreciating, but it pays $38,531 to refinance them and $10,750 to carry them at 8.15 percent. The <a href="/blog/rental-property-comparison-spreadsheet">rental property comparison spreadsheet</a> makes the same point for single acquisitions: ranking on the wrong denominator reverses the order.</p>
+
+<h2>What Moves the Result</h2>
+
+<p>Three inputs move the BRRRR column far more than anything else. Each table below changes one input and keeps everything else at the base case.</p>
+
+<h3>Months between deals</h3>
+
+<table>
+<thead><tr><th>Search months (C31)</th><th>Cycle</th><th>Houses</th><th>Net worth</th><th>Forced equity</th><th>Rental return</th><th>Cash flow, month 60</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>7 months</td><td>8</td><td>$706,214</td><td>$461,060</td><td>$85,154</td><td>-$968</td></tr>
+<tr><td>2</td><td>8 months</td><td>7</td><td>$639,718</td><td>$403,591</td><td>$76,127</td><td>-$847</td></tr>
+<tr><td>4</td><td>10 months</td><td>6</td><td>$568,325</td><td>$345,663</td><td>$62,662</td><td>-$726</td></tr>
+<tr><td>6</td><td>12 months</td><td>5</td><td>$502,807</td><td>$288,286</td><td>$54,521</td><td>-$605</td></tr>
+<tr><td>10</td><td>16 months</td><td>4</td><td>$434,365</td><td>$230,634</td><td>$43,732</td><td>-$484</td></tr>
+</tbody>
+</table>
+
+<p>Deal flow drives the result. At a one-month search the investor ends with eight rentals; add a mortgaged home and that is nine of Fannie Mae's ten. Buying with hard money pushes the cycle to 14 months under the 12-month note rule: four houses and $465,163 of net worth, before a dollar of hard money interest, which this model does not charge.</p>
+
+<h3>The rate on refinance day</h3>
+
+<table>
+<thead><tr><th>Freddie Mac average at refinance</th><th>Cash flow per door</th><th>Net worth</th><th>Rental return</th><th>Cash flow, month 60</th></tr></thead>
+<tbody>
+<tr><td>6.37% (April 2026 level)</td><td>-$9.58</td><td>$668,881</td><td>$104,701</td><td>-$67</td></tr>
+<tr><td>7.40% (October 2026 level)</td><td>-$121.19</td><td>$639,718</td><td>$76,127</td><td>-$847</td></tr>
+<tr><td>8.40%</td><td>-$233.32</td><td>$602,678</td><td>$48,282</td><td>-$1,594</td></tr>
+</tbody>
+</table>
+
+<p>Even at the April rate, the BRRRR rental portfolio earns $1,590 less than buy-and-hold over five years. Every refinance date is a new rate exposure, and the model holds 7.40 percent for all seven of them; set row 15 to whatever you expect, and run the 8.40 percent line before you buy.</p>
+
+<h3>The appraisal</h3>
+
+<table>
+<thead><tr><th>Appraisal below plan</th><th>Left in each deal</th><th>Houses</th><th>Net worth</th><th>Forced equity</th><th>Cash flow, month 60</th></tr></thead>
+<tbody>
+<tr><td>0%</td><td>$272</td><td>7</td><td>$639,718</td><td>$403,591</td><td>-$847</td></tr>
+<tr><td>10%</td><td>$15,471</td><td>7</td><td>$441,842</td><td>$201,472</td><td>-$22</td></tr>
+<tr><td>15%</td><td>$23,071</td><td>6</td><td>$355,459</td><td>$115,342</td><td>$240</td></tr>
+</tbody>
+</table>
+
+<p>A low appraisal halves the forced equity and shrinks every later deal, down to 51 percent of full size by the sixth house at a 15 percent shortfall. It also lowers the loan, which is why cash flow improves. The <a href="/blog/brrrr-cash-left-in-deal-calculator-excel">cash left in deal calculator</a> covers that trade in detail. Even here BRRRR still finishes ahead on net worth. Solving for the crossover, BRRRR only falls behind buy-and-hold when the spread between all-in cost and appraised value drops to about $6,401 a deal, an ARV of $158,661 on this house.</p>
+
+<h2>Which One to Run</h2>
+
+<p>On net worth, BRRRR wins almost every row of these tables. The question this calculator settles is different: whether you want the construction business that produces that result, and whether you can carry the rental portfolio it leaves behind. Run your own numbers through four checks.</p>
+
+<ol>
+<li><strong>Price the paycheck.</strong> Divide forced equity per deal (<code>Inputs!C29</code>, <code>=C14-C26</code>) by the hours you will spend per project. If that rate does not beat what the same hours earn elsewhere, buy-and-hold is the better use of your time.</li>
+<li><strong>Compare the rental lines.</strong> If the BRRRR rental return on the Bridge tab trails buy-and-hold at your refinance rate, you are storing rehab profits in houses that underperform plain rentals. Consider selling some of the renovated houses and holding fewer, or refinancing below 75 percent.</li>
+<li><strong>Fund the negative cash flow.</strong> At 7.40 percent the BRRRR portfolio here costs $847.10 a month by month 60. That money comes from your income or your reserves; the <a href="/blog/rental-property-heloc-vs-cash-out-refinance-excel">HELOC vs cash-out refinance comparison</a> shows what borrowing it costs instead.</li>
+<li><strong>Count your deal flow honestly.</strong> If you closed one distressed purchase in the last twelve months, that is your pace: set the search time in <code>C31</code> to six months, which makes the cycle twelve.</li>
+</ol>
+
+<p>Track each house afterward in a <a href="/blog/real-estate-portfolio-tracker-spreadsheet">real estate portfolio tracker</a> so the Bridge lines stay current as rents and rates move.</p>
+
+<p>Every BRRRR row on the Deals tab starts with three numbers: the all-in cost, the cash back at refinance and the new payment. The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> produces those for one deal: acquisition with hard money points and short-term rates, a line-item or quick-entry rehab budget, rent and operating expenses down to stabilized NOI, and a refinance tab that returns cash pulled out, capital left in the deal and the new monthly payment. It does not run the 60-month timeline or the buy-and-hold comparison. Run each candidate deal through it, copy the three outputs into a Deals row, and the Bridge tab will show whether that house adds to the rental portfolio or only to the rehab business.</p>`,
+  },
+  {
     slug: 'small-contractor-bookkeeping-spreadsheet',
     title: 'Small Contractor Bookkeeping Spreadsheet: Your Bank Balance Is Not Your Money',
     metaTitle: 'Small Contractor Bookkeeping Spreadsheet | SheetCraft',
