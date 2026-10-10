@@ -16,6 +16,215 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'landlord-move-out-damage-chargeback-calculator-excel',
+    title: 'Landlord Move Out Damage Chargeback Calculator in Excel: Charge What You Can Defend',
+    metaTitle: 'Landlord Move Out Damage Chargeback Calculator | SheetCraft',
+    metaDescription: 'Landlord move out damage chargeback calculator in Excel: prorate carpet and blinds by useful life, charge repairs, and send a statement that holds up in court.',
+    targetKeyword: 'landlord move out damage chargeback calculator Excel',
+    secondaryKeywords: ['security deposit deductions', 'normal wear and tear vs damage', 'carpet useful life proration', 'itemized security deposit statement', 'California Civil Code 1950.5'],
+    excerpt: 'A landlord priced a move-out at $7,586 against a $2,150 deposit. Prorating by useful life, charging repairs instead of replacements and dropping wear and tear leaves $1,232.67 that holds up. Build the Excel calculator and see what padding risks in California and Texas.',
+    publishedAt: '2026-10-10',
+    readTime: 15,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/landlord-move-out-damage-chargeback-calculator-excel.png',
+    imageAlt: 'Ink and watercolor sketch of an empty rental bedroom after move-out, with carpet rolled back to the subfloor, knee pads, a utility knife and a patched hole in the wall',
+    content: `<p>A tenant moves out of a two-bedroom unit on September 30, 2026 after 42 months. The landlord walks through, prices everything that looks worse than new, and writes up $7,586.00 in charges against a $2,150 deposit. Run the same walk-through through a landlord move out damage chargeback calculator in Excel that prorates each replacement by its remaining useful life, charges repairs instead of replacements where a repair works, and drops what the law calls wear and tear, and the defensible total is $1,232.67. The landlord keeps that, refunds $917.33, and has nothing for a court to pick apart. The other $6,353.33 was always the landlord's cost of owning the unit.</p>
+
+<p>The legal rules below come from the statutes themselves: California Civil Code section 1950.5 and Texas Property Code sections 92.104 and 92.109. The useful life method comes from the 2026 edition of the California Department of Real Estate guide to landlord and tenant rights, and the component lives from Fannie Mae's multifamily useful life tables. Your state may differ on deadlines and penalties, so put your own statute's numbers in the input cells.</p>
+
+<h2>What the Law Lets You Charge After Move-Out</h2>
+
+<p>Both states draw the same first line, and so do most others: you cannot charge a tenant for normal wear and tear. Texas says it in one sentence (Property Code section 92.104(b)). California goes further. Section 1950.5(e)(2) bars claims for wear and tear "whether the wear and tear preexisted the tenancy or occurred during the tenancy," and for "the cumulative effects of ordinary wear and tear occurring during any one or more tenancies." It then caps what you can claim for materials and labor at "a reasonable amount necessary to restore the premises back to the condition it was in at the inception of the tenancy."</p>
+
+<p>That last phrase sets the measure for the whole calculator. The tenant owes you the condition the unit was in on move-in day. If the bedroom carpet was six years old when the tenant moved in, a ruined carpet costs you a six-year-old carpet plus the years it aged during the lease, and a brand-new replacement puts you ahead of where you started.</p>
+
+<p>Both states also put the burden on you. California section 1950.5(m) gives the landlord "the burden of proof as to the reasonableness of the amounts claimed." Texas section 92.109(c) says the landlord "has the burden of proving that the retention of any portion of the security deposit was reasonable." In practice, every line on your itemized statement needs three things you can hand a judge: what happened, what it cost, and how old the item was.</p>
+
+<p>California added a fourth in 2025. Since April 1, 2025, section 1950.5(g) requires photos of the unit after the tenant returns possession and before any repair you will deduct for, then again after the repair. For tenancies that begin on or after July 1, 2025, you also need photos at move-in. Under section 1950.5(h)(2), once repairs and cleaning together exceed $125, the itemized statement must go out with copies of the invoices and receipts, and the photos (sections 1950.5(h)(2) and (h)(4)).</p>
+
+<h2>Ten Line Items, Two Totals</h2>
+
+<p>The tenant moved in on March 1, 2023, paid a $2,150 deposit (one month's rent, which is also the California cap under section 1950.5(c)(1) for deposits collected since July 1, 2024), and moved out September 30, 2026. The landlord does work at a stated rate of $45 an hour. The first column is what a landlord writes when every item gets priced as new. The second is what the calculator returns.</p>
+
+<table>
+<thead><tr><th>Item</th><th>What happened</th><th>Priced as new</th><th>Calculator charge</th><th>Why the difference</th></tr></thead>
+<tbody>
+<tr><td>Bedroom 2 carpet</td><td>Pet urine, not cleanable</td><td>$1,760.00</td><td>$146.67</td><td>Installed April 2020, 7 of 84 months of life left</td></tr>
+<tr><td>Hallway drywall</td><td>Fist-size hole</td><td>$275.00</td><td>$275.00</td><td>Repair, full cost chargeable</td></tr>
+<tr><td>Anchor holes</td><td>22 holes from shelving</td><td>$180.00</td><td>$180.00</td><td>Patch labor only, never the repaint</td></tr>
+<tr><td>Interior repaint</td><td>Whole unit</td><td>$2,400.00</td><td>$0.00</td><td>42-month stay, past the 2-year paint schedule</td></tr>
+<tr><td>Kitchen vinyl plank</td><td>3 planks gouged</td><td>$1,950.00</td><td>$260.00</td><td>Plank repair, cheaper than the prorated $568.75</td></tr>
+<tr><td>Refrigerator</td><td>Door bin and crisper broken</td><td>$118.50</td><td>$118.50</td><td>$96 parts plus 0.5 hours of your time</td></tr>
+<tr><td>Mini blinds</td><td>4 bent</td><td>$180.00</td><td>$0.00</td><td>Installed February 2023, 3-year life used up</td></tr>
+<tr><td>Bedroom door</td><td>Punched hole</td><td>$385.00</td><td>$140.00</td><td>Repair; a replacement prorates to $0</td></tr>
+<tr><td>Oven and fridge cleaning</td><td>Left dirty</td><td>$112.50</td><td>$112.50</td><td>2.5 hours at $45, logged</td></tr>
+<tr><td>Professional carpet cleaning</td><td>Routine, other rooms</td><td>$225.00</td><td>$0.00</td><td>Not reasonably necessary, section 1950.5(e)(2)(C)</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>$7,586.00</strong></td><td><strong>$1,232.67</strong></td><td>Refund due: $917.33</td></tr>
+</tbody>
+</table>
+
+<p>The priced-as-new column runs $5,436.00 past the deposit, so that landlord keeps all $2,150 and bills the tenant for the rest. Collecting that balance means filing suit, where the landlord carries the burden of proof on every line. The calculator column keeps $1,232.67 and sends back $917.33 by October 21, 2026, the 21-day California deadline under section 1950.5(h)(1).</p>
+
+<p>Three different mechanisms close the $6,353.33 gap. Useful life proration takes the carpet and the blinds down. Repair instead of replacement takes the floor and the door down. The wear and tear rules take the repaint and the routine carpet cleaning out entirely.</p>
+
+<h2>The Useful Life Math</h2>
+
+<p>The California Department of Real Estate guide (2026 edition, page 84) describes the method: prorate "the total cost of replacement so that the tenant pays only for the remaining useful life of the item that the tenant has damaged or destroyed." Its example is an eight-year-old carpet with a ten-year life and a $1,000 replacement, which supports a $200 charge. The guide is careful to call these "practical guides" that are "consistent with the law" but "not necessarily the law." The method is the arithmetic form of the statute's "restore to the condition at inception."</p>
+
+<p>The formula is one line. With the install date in <code>G8</code>, the life in years in <code>H8</code>, the move-out date in <code>B2</code> and the replacement cost in <code>F8</code>:</p>
+
+<p>Age in months: <code>=DATEDIF(G8,$B$2,"m")</code>. Remaining share of life: <code>=MAX(0,1-I8/(H8&#42;12))</code>. Prorated charge: <code>=ROUND(F8&#42;J8,2)</code>.</p>
+
+<p>For the bedroom carpet, installed April 15, 2020, the age at move-out is 77 months. On a 7-year life that leaves 7 of 84 months, or 8.33 percent, and 8.33 percent of $1,760 is $146.67. The <code>MAX</code> matters: without it, the blinds at 43 months on a 36-month life would return a negative charge, a credit to the tenant that no statute requires.</p>
+
+<h3>Where the life numbers come from</h3>
+
+<p>The life you type into column H is the single biggest lever in the sheet, and you will have to defend it. Use a published table, and use the same table for every item and every tenant. Fannie Mae publishes one for lenders' property condition assessments (Form 4099.F, Appendix F, August 2019). Its "Multifamily / Coop" column gives these dwelling unit lives:</p>
+
+<table>
+<thead><tr><th>Component</th><th>Life (years)</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Carpet</td><td>7</td><td>Fannie Mae 4099.F, dwelling unit floors</td></tr>
+<tr><td>Resilient flooring (vinyl)</td><td>10</td><td>Fannie Mae 4099.F, dwelling unit floors</td></tr>
+<tr><td>Window covering</td><td>3</td><td>Fannie Mae 4099.F, dwelling unit fixtures</td></tr>
+<tr><td>Interior doors</td><td>15</td><td>Fannie Mae 4099.F, dwelling unit fixtures</td></tr>
+<tr><td>Refrigerator</td><td>10</td><td>Fannie Mae 4099.F, dwelling unit fixtures</td></tr>
+<tr><td>Range</td><td>15</td><td>Fannie Mae 4099.F, dwelling unit fixtures</td></tr>
+<tr><td>Dishwasher</td><td>5 to 10</td><td>Fannie Mae 4099.F, dwelling unit fixtures</td></tr>
+<tr><td>Bathroom vanity</td><td>10</td><td>Fannie Mae 4099.F, dwelling unit fixtures</td></tr>
+<tr><td>Interior paint</td><td>2 (some landlords use 3 or more)</td><td>California DRE guide, 2026, page 84</td></tr>
+</tbody>
+</table>
+
+<p>Do not use your tax depreciation schedule here. IRS Publication 527 puts carpets in the 5-year recovery class (9 years under the alternative system), which is a convention for spreading a deduction, not an estimate of how long carpet lasts. The <a href="/blog/rental-property-depreciation-calculator-excel">rental property depreciation calculator</a> handles that schedule; this sheet needs physical life.</p>
+
+<p>The choice moves real money. Same carpet, same $1,760 replacement:</p>
+
+<table>
+<thead><tr><th>Life used</th><th>Installed</th><th>Age at move-out</th><th>Life left</th><th>Charge</th></tr></thead>
+<tbody>
+<tr><td>7 years (Fannie Mae)</td><td>April 2020</td><td>77 months</td><td>8.33%</td><td>$146.67</td></tr>
+<tr><td>10 years (DRE example)</td><td>April 2020</td><td>77 months</td><td>35.83%</td><td>$630.67</td></tr>
+<tr><td>7 years</td><td>New at move-in, February 2023</td><td>43 months</td><td>48.81%</td><td>$859.05</td></tr>
+<tr><td>10 years</td><td>New at move-in, February 2023</td><td>43 months</td><td>64.17%</td><td>$1,129.33</td></tr>
+<tr><td>Any</td><td>No record</td><td>Unknown</td><td>Indefensible</td><td>$0.00</td></tr>
+</tbody>
+</table>
+
+<p>A longer life raises your charge, so the temptation is to pick 10 years. Pick it only if the invoice shows a carpet grade that supports it, and then use 10 for every carpet in the portfolio, including the ones where a shorter life would have helped you. The last row is the one that costs landlords most: with no install date, you cannot prove any life remained, and the burden of proof is yours.</p>
+
+<h2>Repair Beats Replacement on Old Items</h2>
+
+<p>The proration applies to replacement because a new item leaves you better off than at move-in. A repair puts the item back where it was, which is exactly what section 1950.5(e)(2)(B) measures, so the reasonable repair cost is the charge regardless of the item's age.</p>
+
+<p>The bedroom door shows why this matters. It is original to the building, installed in June 2008, 219 months old against a 15-year life. A replacement slab at $385 prorates to $0.00. Patching the hollow-core face and repainting the door costs $140, and the tenant owes that $140 because the door worked before the punch and needs the patch to work the same way after it.</p>
+
+<p>The kitchen floor runs the other direction. The vinyl plank went in August 2019, 85 months before move-out, so 35 of 120 months remain and the prorated replacement of $1,950 is $568.75. Pulling and replacing three planks from the leftover box costs $260. You charge $260, the lower of the two. Charging $568.75 when a $260 repair restores the floor fails the "reasonable amount necessary" test, and replacing the whole floor at the tenant's expense fails it by $1,690.</p>
+
+<p>The column that makes this decision is <code>L8</code>:</p>
+
+<p><code>=IF(C8="Wear",0,IF(C8="Paint",ROUND(F8&#42;$B$7,2),IF(OR(C8="Clean",D8="Y"),E8,K8)))</code></p>
+
+<p>Column C holds the cause (Damage, Wear, Clean or Paint), D holds Y when a repair restores the item, E holds the repair quote or hours times your rate, and K is the prorated replacement. In plain terms: wear is never charged, paint follows the stay-length schedule, cleaning and repairable damage are charged at cost, and anything that must be replaced is charged at its remaining life.</p>
+
+<p>Repairs carry one more advantage: they survive missing records. If this landlord had no install dates at all, the carpet line would drop to $0 and the blinds would stay at $0, but every repair and the cleaning would stand, for a total of $1,086.00 instead of $1,232.67. When an item is past half its life, get a repair quote before you order the replacement.</p>
+
+<h2>Paint, Cleaning and the Wear and Tear Lines</h2>
+
+<p>The DRE guide's paint approach assumes a two-year life and keys the deduction to the length of the tenant's stay:</p>
+
+<table>
+<thead><tr><th>Length of stay</th><th>Share of repaint cost</th><th>On a $2,400 repaint</th></tr></thead>
+<tbody>
+<tr><td>Less than 6 months</td><td>Full cost</td><td>$2,400.00</td></tr>
+<tr><td>6 months to 1 year</td><td>Two-thirds</td><td>$1,600.00</td></tr>
+<tr><td>1 year to 2 years</td><td>One-third</td><td>$800.00</td></tr>
+<tr><td>2 years or more</td><td>No deduction</td><td>$0.00</td></tr>
+</tbody>
+</table>
+
+<p>In the sheet, tenancy months sit in <code>B6</code> as <code>=DATEDIF(B1,B2,"m")</code>, and the paint share in <code>B7</code> as <code>=IF(B6&lt;6,1,IF(B6&lt;12,2/3,IF(B6&lt;24,1/3,0)))</code>. At 42 months the share is 0. The guide adds that after a stay of two years or more the tenant "could not be charged for any repainting costs, no matter how dirty the walls were."</p>
+
+<p>Holes are a separate question. The guide treats minor nicks as wear and tear but says "a large number of holes" that need filling "could justify" a deduction, and that it is "less likely to be proper if the rental unit needed repainting anyway." This unit needed repainting anyway, so the calculator charges the $180 to patch 22 anchor holes and nothing for the paint that follows. Count the holes in the move-out photos and put the count in the item description.</p>
+
+<p>Cleaning follows the same restore-to-move-in rule. You can charge for an oven left caked or a fridge left with spoiled food, measured against the move-in condition. You cannot charge every tenant for professional carpet cleaning: section 1950.5(e)(2)(C) allows it only when "reasonably necessary to return the premises to the condition it was in at the inception of tenancy." When you do the cleaning yourself, section 1950.5(h)(2)(A) requires the statement to show "the time spent and the reasonable hourly rate charged," so the cleaning line reads 2.5 hours at $45, for $112.50.</p>
+
+<h2>What Padding the Statement Costs</h2>
+
+<p>The priced-as-new landlord keeps the full $2,150. Against the calculator's $1,232.67, that is $917.33 held beyond what the law supports. If the tenant does nothing, the padding earns $917.33. If the tenant sues and the court finds bad faith, the statutes price it:</p>
+
+<table>
+<thead><tr><th></th><th>California</th><th>Texas</th></tr></thead>
+<tbody>
+<tr><td>Deadline after move-out</td><td>21 days, section 1950.5(h)(1)</td><td>30 days, section 92.109(d)</td></tr>
+<tr><td>Bad faith penalty</td><td>Up to twice the deposit, section 1950.5(m)</td><td>$100 plus three times the amount wrongfully withheld, plus attorney's fees, section 92.109(a)</td></tr>
+<tr><td>Penalty on this deposit</td><td>Up to $4,300.00</td><td>$2,851.99 plus fees</td></tr>
+<tr><td>Total paid out, including the $917.33 returned</td><td>Up to $5,217.33</td><td>$3,769.32 plus fees</td></tr>
+<tr><td>Share of tenants who must win for padding to lose money</td><td>17.6%</td><td>24.3%</td></tr>
+</tbody>
+</table>
+
+<p>The last row is the break-even: the $917.33 gained from tenants who do nothing, divided by that gain plus the penalty paid to tenants who win. In California, if more than about one tenant in six would sue and get the full penalty, padding loses money; in Texas it is about one in four, before attorney's fees. Both are estimates at the statutory maximum, and a court may award less. Missing the deadline is worse than padding: in Texas, a landlord who neither refunds nor itemizes within 30 days "is presumed to have acted in bad faith" (section 92.109(d)), and the DRE guide notes that under the California Supreme Court's decision in Granberry v. Islay Investments, a landlord who misses the 21 days must return the whole deposit and can claim damages only as a set-off or counterclaim in court.</p>
+
+<p>The reconciliation block puts the comparison on the sheet. Keep your first-draft numbers in column N next to the calculator in column L, and compute the exposure:</p>
+
+<p>Put the amount held beyond support in <code>L25</code>: <code>=MIN(SUM(N8:N17),B3)-MIN(L19,B3)</code>. Put the penalty in <code>L26</code>: <code>=2&#42;B3</code> for the California ceiling, or <code>=100+3&#42;L25</code> for Texas. The break-even share goes in <code>L27</code>: <code>=L25/(L25+L26)</code>. For this unit, <code>L25</code> reads $917.33 and <code>L27</code> reads 17.6% with the California penalty.</p>
+
+<p>If <code>L25</code> is anything but zero, rewrite the lines in column N that differ from column L before the statement goes out.</p>
+
+<h2>Building the Calculator in Excel</h2>
+
+<p>The workbook has two tabs. The <strong>Register</strong> tab is a component list per unit, filled in when you buy things. The <strong>Moveout</strong> tab is the chargeback sheet, filled in at the walk-through.</p>
+
+<h3>Register tab</h3>
+
+<p>One row per component, headers in row 3, data from row 4: A Unit, B Component ID (for example <code>U2-CARPET-BR2</code>), C Description and grade, D Install date, E Life in years, F Source of the life figure, G Installed cost, H Invoice file name. If you already run a <a href="/blog/rental-property-preventive-maintenance-schedule-excel">preventive maintenance schedule</a>, the component IDs and install dates are probably in it; copy them over.</p>
+
+<h3>Moveout tab</h3>
+
+<p>Inputs at the top: <code>B1</code> move-in date, <code>B2</code> move-out date, <code>B3</code> deposit, <code>B4</code> your hourly rate, <code>B5</code> your state's deadline in days (21 for California, 30 for Texas), <code>B6</code> tenancy months, <code>B7</code> paint share. Items run from row 8 to row 17:</p>
+
+<table>
+<thead><tr><th>Column</th><th>Content</th><th>Formula or entry (row 8)</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Item and photo reference</td><td>Typed</td></tr>
+<tr><td>B</td><td>Component ID</td><td>Typed, must match Register</td></tr>
+<tr><td>C</td><td>Cause</td><td>Damage, Wear, Clean or Paint (data validation list)</td></tr>
+<tr><td>D</td><td>Repairable</td><td>Y or N</td></tr>
+<tr><td>E</td><td>Repair cost or own labor</td><td>Quote, or <code>=0.5&#42;$B$4+96</code> for parts plus time</td></tr>
+<tr><td>F</td><td>Replacement cost, similar quality</td><td>Quote</td></tr>
+<tr><td>G</td><td>Install date</td><td><code>=IFERROR(INDEX(Register!D:D,MATCH(B8,Register!B:B,0)),"")</code></td></tr>
+<tr><td>H</td><td>Life in years</td><td><code>=IFERROR(INDEX(Register!E:E,MATCH(B8,Register!B:B,0)),"")</code></td></tr>
+<tr><td>I</td><td>Age in months</td><td><code>=IF(G8="","",DATEDIF(G8,$B$2,"m"))</code></td></tr>
+<tr><td>J</td><td>Life remaining</td><td><code>=IF(I8="",0,MAX(0,1-I8/(H8&#42;12)))</code></td></tr>
+<tr><td>K</td><td>Prorated replacement</td><td><code>=ROUND(F8&#42;J8,2)</code></td></tr>
+<tr><td>L</td><td>Charge</td><td>The decision formula from the repair section</td></tr>
+<tr><td>M</td><td>Evidence flag</td><td><code>=IF(AND(C8="Damage",D8="N",G8=""),"NO INSTALL DATE",IF(L8&gt;0,"PHOTOS + INVOICE",""))</code></td></tr>
+<tr><td>N</td><td>First-draft amount</td><td>Typed before you run the sheet</td></tr>
+</tbody>
+</table>
+
+<p>Column J returns 0 when there is no install date, so a replacement with no record charges nothing and column M tells you why. "Similar quality" in column F matters too: if you replace builder-grade carpet with a premium one, quote the builder grade, because the upgrade is yours.</p>
+
+<p>The statement block sits below the items: <code>L19</code> total charges <code>=SUM(L8:L17)</code>, <code>L20</code> refund <code>=MAX(0,B3-L19)</code>, <code>L21</code> balance the tenant owes <code>=MAX(0,L19-B3)</code>, <code>L22</code> deadline <code>=B2+B5</code>, and <code>L23</code> the California documentation rule <code>=IF(L19&gt;125,"ATTACH INVOICES AND PHOTOS","SEND ON REQUEST WITHIN 14 DAYS")</code>. For this unit, <code>L19</code> reads $1,232.67, <code>L20</code> reads $917.33 and <code>L22</code> reads October 21, 2026. The <a href="/blog/rental-property-security-deposit-tracker-excel">security deposit tracker</a> already holds the deposit, any interest owed and the trust balance; link <code>B3</code> to it so the deposit amount on the statement matches the one you are holding.</p>
+
+<h2>Fill It In at Move-In</h2>
+
+<p>The chargeback is decided on move-in day, because that is when you either record the install dates, grades and condition or lose them. Before the next tenant gets keys:</p>
+
+<ol>
+<li><strong>Register every chargeable component</strong> with its install date, grade and invoice: flooring by room, blinds, interior doors, appliances, vanity. Items with no invoice get a dated estimate and a note on how you estimated it.</li>
+<li><strong>Photograph the unit room by room</strong>, with the component ID in the file name. In California this is required for tenancies starting on or after July 1, 2025, and it is your evidence everywhere else.</li>
+<li><strong>Record the paint date.</strong> A repaint right before move-in is what makes the paint schedule work for you on a short stay.</li>
+<li><strong>Keep a box of leftover flooring</strong> for each room. Three planks from that box made the kitchen a $260 repair instead of a $1,950 floor.</li>
+<li><strong>Log the walk-through date per tenant</strong> in your <a href="/blog/tenant-tracking-spreadsheet">tenant tracking spreadsheet</a>, so the deadline in <code>L22</code> starts from a recorded date.</li>
+</ol>
+
+<p>Then accept the arithmetic. Of the $7,586.00 in this unit, $6,353.33 was the landlord's cost from the start: aged carpet, blinds at the end of their life, a repaint due after 42 months. That money belongs in your <a href="/blog/rental-property-turnover-cost-calculator-excel">turnover cost</a> and capital reserve.</p>
+
+<p>That is where the <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> comes in. It gives every recurring cost its own line, including the maintenance reserve and vacancy, and carries them through a 10-year projection of cash flow, equity and return. It does not compute move-out chargebacks. Run a few move-outs through the calculator above, take the unrecovered share per turnover, and put it in the Analyzer's maintenance reserve line, so the next deal you underwrite already pays for the carpet the tenant was never going to buy you.</p>`,
+  },
+  {
     slug: 'brrrr-vs-traditional-buy-and-hold-calculator',
     title: 'BRRRR vs Traditional Buy and Hold Calculator: Split the Rehab Paycheck From the Rental Return',
     metaTitle: 'BRRRR vs Traditional Buy and Hold Calculator | SheetCraft',
