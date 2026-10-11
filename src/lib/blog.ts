@@ -16,6 +16,194 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-staging-cost-roi-calculator-excel',
+    title: 'House Flip Staging Cost ROI Calculator Excel: When the Bill Pays Back',
+    metaTitle: 'House Flip Staging Cost ROI Calculator Excel | SheetCraft',
+    metaDescription: 'A $2,400 staging quote becomes $4,650 in a slow market. Price carry per day, loan deadlines and break-even lift before you stage the flip.',
+    targetKeyword: 'house flip staging cost ROI calculator Excel',
+    secondaryKeywords: ['home staging cost for flips', 'flip holding costs per day', 'staging break-even price lift', 'days on market staged vs vacant', 'hard money extension fee'],
+    excerpt: 'A $2,400 staging quote on a $389,000 flip grows to $4,650 if the house sits, and pays for itself with no price lift when it saves 10 days before a loan extension. The model prices carry per day, the staging contract and the confidence you need before you sign.',
+    publishedAt: '2026-10-11',
+    readTime: 12,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-staging-cost-roi-calculator-excel.png',
+    imageAlt: 'Ink and watercolor sketch of a renovated living room, half furnished with a sofa, rug and lamp, half bare floor, with an hourglass on the windowsill',
+    content: `<p>The rehab on the three-bed ranch wraps on day 95. That afternoon your agent forwards a staging quote: $2,400 to furnish the living room, dining area, kitchen and two bedrooms, which covers delivery, removal and the first 60 days, then $750 for every additional 30 days the furniture stays. The email ends with the line every stager uses, that staged homes sell faster and for more. You are carrying a $280,000 hard money note at 11 percent, and every day the house sits costs you $112. A house flip staging cost ROI calculator in Excel answers the question that actually decides this: in which market does the $2,400 come back, and in which one does it grow into a $4,650 bill that bought nothing?</p>
+
+<p>The answer runs against instinct. On this deal, staging pays best when the house is likely to sell just past a loan deadline, and worst in the slow market where flippers reach for it in a panic, because the furniture rental keeps billing for every month the house sits. Below is the model on one deal, with the formulas, the break-even price lift at each market speed, the confidence you need before you sign, and a decision rule you can apply before the listing photographer shows up.</p>
+
+<h2>What the staging statistics actually measure</h2>
+
+<p>The figures agents quote come from the National Association of Realtors 2025 Profile of Home Staging, released May 6, 2025. Read the method before the headline. In February 2025 NAR invited a random sample of 49,806 Realtors to an online survey and received 1,266 usable responses, a 2.5 percent response rate. The findings are what agents report observing:</p>
+
+<ul>
+<li>29 percent of agents reported that staging their sellers' homes led to a 1 to 10 percent increase in the dollar value offered.</li>
+<li>17 percent of buyers' agents said staging produced a 1 to 5 percent increase compared with similar unstaged homes on the market.</li>
+<li>49 percent of sellers' agents observed that staging reduced the time homes spent on the market.</li>
+<li>The median cost of using a staging service was $1,500, against $500 when the sellers' agent handled the staging personally.</li>
+</ul>
+
+<p>Two things follow for a flipper. The 29 percent is the share of agents who reported a 1 to 10 percent lift, so most respondents reported something else, and nobody in the survey looked at your house. The $1,500 median also mixes every kind of job, from a consultation in an occupied home to a full furniture install in an empty one, so it says little about a vacant flip. Use the survey as a reason to run the numbers. The inputs come from your own quote, your own loan and your own sold comps.</p>
+
+<h2>Price one day of carry before you price the stager</h2>
+
+<p>Everything in this decision converts to days, so the first number to build is what one day costs. Put the deal on one input sheet so every formula downstream reads from a labeled cell.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Expected sale price</td><td>$389,000</td></tr>
+<tr><td>B3</td><td>Selling costs (commission plus seller closing costs)</td><td>6%</td></tr>
+<tr><td>B4</td><td>Hard money balance</td><td>$280,000</td></tr>
+<tr><td>B5</td><td>Interest rate, interest only</td><td>11%</td></tr>
+<tr><td>B6</td><td>Property tax, annual</td><td>$4,200</td></tr>
+<tr><td>B7</td><td>Vacant property insurance, monthly</td><td>$180</td></tr>
+<tr><td>B8</td><td>Utilities, monthly</td><td>$220</td></tr>
+<tr><td>B9</td><td>Lawn and upkeep, monthly</td><td>$90</td></tr>
+<tr><td>B10</td><td>Listing day, counted from purchase</td><td>95</td></tr>
+<tr><td>B11</td><td>Days from accepted offer to closing</td><td>30</td></tr>
+<tr><td>B12</td><td>Loan term, days</td><td>180</td></tr>
+<tr><td>B13</td><td>Extension fee, percent of balance</td><td>1%</td></tr>
+<tr><td>B14</td><td>Days bought by each extension</td><td>90</td></tr>
+<tr><td>B15</td><td>Staging base fee</td><td>$2,400</td></tr>
+<tr><td>B16</td><td>Days covered by the base fee</td><td>60</td></tr>
+<tr><td>B17</td><td>Each additional 30 days of staging</td><td>$750</td></tr>
+</tbody>
+</table>
+
+<p>Monthly carry in <code>B18</code> is <code>=B4&#42;B5/12+B6/12+B7+B8+B9</code>, which returns $3,406.67: $2,566.67 of interest, $350 of property tax, and $490 of insurance, utilities and upkeep. The daily figure in <code>B19</code> is <code>=B18&#42;12/365</code>, exactly $112.00. Work in days because staging changes days. A quote of "it might save you a few weeks" means nothing until you multiply it by $112.</p>
+
+<p>Two details matter here. Carry runs to closing, so the 30 days between an accepted offer and the closing table are in every scenario, staged or not. And the 6 percent in <code>B3</code> is the share of any price increase you never see; if you have not broken that number down for your market, the <a href="/blog/real-estate-seller-net-sheet-excel/">seller net sheet</a> does it line by line. The full holding cost build, including the rehab months, is in the <a href="/blog/house-flipping-holding-costs-calculator/">house flipping holding costs calculator</a>.</p>
+
+<h2>The staging contract is a carrying cost too</h2>
+
+<p>Most flippers compare the staging bill to the days it might save as if the bill were fixed. It is not. A vacant-home staging contract usually charges a base fee for installation, removal and an initial rental period, then a monthly renewal for as long as the furniture stays. This quote keeps the furniture in place until closing, so the buyer's final walk-through happens in a furnished house. Read your own quote for the terms: some stagers prorate the renewal, some bill the full month in advance. This example bills a full $750 for any part of a month.</p>
+
+<p>With days on market in <code>D5</code>, the staging bill is:</p>
+
+<p><code>=$B$15+$B$17&#42;CEILING(MAX(0,D5+$B$11-$B$16),30)/30</code></p>
+
+<p>The <code>MAX</code> keeps the renewal at zero while the house is inside the base period, and <code>CEILING</code> rounds any partial month up to a full $750. Carry to closing in the next column is <code>=$B$19&#42;(D5+$B$11)</code>.</p>
+
+<table>
+<thead>
+<tr><th>Days on market</th><th>Days staged (to closing)</th><th>Staging bill</th><th>Carry to closing</th></tr>
+</thead>
+<tbody>
+<tr><td>20</td><td>50</td><td>$2,400</td><td>$5,600</td></tr>
+<tr><td>45</td><td>75</td><td>$3,150</td><td>$8,400</td></tr>
+<tr><td>60</td><td>90</td><td>$3,150</td><td>$10,080</td></tr>
+<tr><td>90</td><td>120</td><td>$3,900</td><td>$13,440</td></tr>
+<tr><td>120</td><td>150</td><td>$4,650</td><td>$16,800</td></tr>
+</tbody>
+</table>
+
+<p>The bill almost doubles between a fast sale and a slow one. In the slow market the house sits staged for five months, and you pay the most for staging in exactly the case where it did the least. That single fact changes the break-even more than any survey percentage.</p>
+
+<h2>The loan deadline is where a day gets expensive</h2>
+
+<p>The $112 a day is the smooth part of the carry. The hard money note adds a step: this example's note runs 180 days from purchase, and each 90-day extension costs 1 percent of the balance, $2,800. Your note may use a different fee, a rate step or a default rate instead, so read the extension clause before you fill in <code>B13</code> and <code>B14</code>. The closing day is the listing day plus days on market plus the 30-day closing period, and the extension cost is:</p>
+
+<p><code>=IF($B$10+D5+$B$11&lt;=$B$12,0,$B$4&#42;$B$13&#42;CEILING($B$10+D5+$B$11-$B$12,$B$14)/$B$14)</code></p>
+
+<p>With the house listed on day 95 and 30 days to close, any sale that takes more than 55 days to reach an accepted offer pays the first $2,800. A house that would go under contract at day 60 unstaged and at day 50 staged avoids the fee entirely. Ten days are worth $1,120 of interest and carry on the smooth part of the curve and $3,920 when they cross the deadline. The <a href="/blog/house-flip-price-reduction-decision-calculator-excel/">price reduction decision calculator</a> treats this maturity cliff in detail for the listing that is already stale; here it matters one step earlier, when you decide how to present the house.</p>
+
+<h2>Break-even price lift at each market speed</h2>
+
+<p>Now combine the three pieces. Staging pays when the price increase it produces, after selling costs, plus the carry it saves, plus any extension fee it avoids, covers the staging bill at the staged days on market. Rearranged, the price lift you need is:</p>
+
+<p><code>=(Stage1-$B$19&#42;Saved-(Ext0-Ext1))/(1-$B$3)</code></p>
+
+<p>Here <code>Stage1</code> is the staging bill at the staged days on market, <code>Saved</code> is the days staging removes, and <code>Ext0</code> and <code>Ext1</code> are the extension fees unstaged and staged. A negative result means the days alone pay the bill and any price lift is profit.</p>
+
+<table>
+<thead>
+<tr><th>Unstaged days on market</th><th>0 days saved</th><th>10 days saved</th><th>15 days saved</th><th>20 days saved</th></tr>
+</thead>
+<tbody>
+<tr><td>30 (fast)</td><td>$2,553 (0.66%)</td><td>$1,362 (0.35%)</td><td>$766 (0.20%)</td><td>$170 (0.04%)</td></tr>
+<tr><td>60 (typical)</td><td>$3,351 (0.86%)</td><td>Paid by days, $819 spare</td><td>Paid by days, $1,415 spare</td><td>Paid by days, $2,011 spare</td></tr>
+<tr><td>90 (slow)</td><td>$4,149 (1.07%)</td><td>$2,957 (0.76%)</td><td>$2,362 (0.61%)</td><td>$1,766 (0.45%)</td></tr>
+</tbody>
+</table>
+
+<p>Percentages are of the $389,000 sale price. Read the middle row first: in the typical market, the one sitting just past the loan deadline, ten days saved pay for the staging with no price lift at all. The slow row is the surprise. A house that was going to take 90 days needs more help from staging than the fast one, because the renewals have pushed the bill to $3,900 and the loan is past the deadline either way, so the saved days avoid no fee.</p>
+
+<p>Every cell in this table sits below 1.1 percent of the price, and a 1 percent lift on this house nets $3,656.60 after selling costs. That is why the agent's pitch sounds convincing: the break-even really is small. The trouble is that a price lift on one house can never be observed, because there is no unstaged twin that sold the same week. Days on market can at least be estimated from comps, which is why the rest of this model leans on days.</p>
+
+<h2>Weight the markets, then ask how sure you need to be</h2>
+
+<p>You do not know which market you are listing into, so give each one a probability and score staging twice: once if it does nothing, once if it delivers the optimistic case, a 1 percent price lift and 15 fewer days. The probabilities below are a judgment call for this example; set yours from the spread of days on market in your own comps.</p>
+
+<table>
+<thead>
+<tr><th>Market</th><th>Unstaged days on market</th><th>Probability</th><th>Staging does nothing</th><th>15 days saved, no price lift</th><th>1% lift and 15 days saved</th></tr>
+</thead>
+<tbody>
+<tr><td>Fast</td><td>25</td><td>30%</td><td>-$2,400</td><td>-$720</td><td>+$2,937</td></tr>
+<tr><td>Typical</td><td>60</td><td>50%</td><td>-$3,150</td><td>+$1,330</td><td>+$4,987</td></tr>
+<tr><td>Slow</td><td>110</td><td>20%</td><td>-$4,650</td><td>-$2,970</td><td>+$687</td></tr>
+<tr><td>Weighted</td><td></td><td>100%</td><td>-$3,225</td><td>-$145</td><td>+$3,512</td></tr>
+</tbody>
+</table>
+
+<p>With probabilities in <code>C5:C7</code> and each outcome column below them, the weighted row is <code>=SUMPRODUCT($C$5:$C$7,D5:D7)</code>. The confidence you need is the share of the time staging must deliver the optimistic case for the deal to break even:</p>
+
+<p><code>=-D8/(F8-D8)</code></p>
+
+<p>That returns 47.9 percent. On this deal you need to believe it is roughly a coin flip that staging produces both a 1 percent lift and 15 saved days on this specific house. The survey does not hand you that confidence: 29 percent of agents reported a lift of 1 to 10 percent, and none of them reported on your house. And the middle column shows what happens if staging only moves the days: a weighted loss of $145, because the gain near the deadline is eaten by the renewals in the slow case.</p>
+
+<h2>Measure the days from your own comps</h2>
+
+<p>The one input you can test is days on market. Pull every flip that sold in your zip code in the last twelve months, which you can spot by a sale within a year of a prior purchase. Mark each one staged or vacant from the listing photos, and record days on market and the sale-to-list ratio. In a log with the staged flag in column B, days on market in C and the ratio in D:</p>
+
+<p><code>=MEDIAN(IF($B$2:$B$15="Y",$C$2:$C$15))</code> returns the median days for staged flips. Change <code>"Y"</code> to <code>"N"</code> for vacant ones, and swap column C for D to get the ratio. In Excel 365 the formula works as typed; in older versions confirm it with Ctrl+Shift+Enter. Use the median because one 140-day listing with a bad roof will drag an average by a week.</p>
+
+<table>
+<thead>
+<tr><th>Group</th><th>Sales</th><th>Median days on market</th><th>Median sale-to-list</th></tr>
+</thead>
+<tbody>
+<tr><td>Staged flips</td><td>6</td><td>29.5</td><td>99.15%</td></tr>
+<tr><td>Vacant flips</td><td>8</td><td>46</td><td>97.75%</td></tr>
+<tr><td>Gap</td><td></td><td>16.5</td><td>1.40 points</td></tr>
+</tbody>
+</table>
+
+<p>The gap looks decisive and it is weaker than it looks. Fourteen sales is a small sample, and the flippers who stage are often the ones who also chose better finishes and priced closer to the market, so the 16.5 days belong partly to the rehab and the pricing. Treat the median gap as the upper bound for days saved, then rerun the break-even table at half of it. On this example, half the gap is about 8 days: enough to pay for staging only if your expected sale sits near the loan deadline.</p>
+
+<h2>The decision rule, and the cheaper middle option</h2>
+
+<p>Put the three outputs side by side, the break-even table, the confidence figure and the comp gap, and the rule for this deal falls out of them:</p>
+
+<ol>
+<li>Stage fully when your comps put the likely sale within about 30 days of a loan extension or rate step. Near the cliff the saved days pay the bill, and any price lift is upside.</li>
+<li>In a fast market, where the comp median is under 30 days, staging has to produce a real price lift to pay, and you cannot verify one. Stage the rooms buyers care about or skip it.</li>
+<li>In a slow market, staging is the expensive way to fix a price problem. The renewals compound with the carry, and the lever that moves a 90-day listing is the list price.</li>
+<li>Negotiate the contract before the furniture arrives. A 90-day base period or prorated renewals lower every number in the slow row.</li>
+</ol>
+
+<h3>Partial staging lowers the bar</h3>
+
+<p>In the same NAR report, buyers' agents named the living room the most important room to stage (37 percent), followed by the primary bedroom (34 percent) and the kitchen (23 percent). A quote that furnishes only those rooms, say $1,500 for 60 days and $450 per additional 30 days, changes the arithmetic.</p>
+
+<table>
+<thead>
+<tr><th>Option</th><th>Bill: fast / typical / slow</th><th>Weighted if it does nothing</th><th>Weighted if it works</th><th>Confidence needed</th></tr>
+</thead>
+<tbody>
+<tr><td>Full staging</td><td>$2,400 / $3,150 / $4,650</td><td>-$3,225</td><td>+$3,512</td><td>47.9%</td></tr>
+<tr><td>Three rooms</td><td>$1,500 / $1,950 / $2,850</td><td>-$1,995</td><td>+$4,742</td><td>29.6%</td></tr>
+</tbody>
+</table>
+
+<p>The 29.6 percent assumes three rooms do the same work as five, which is the generous case, so read it as the lowest confidence partial staging could need. Even with a smaller effect, the downside is $1,230 lighter on the weighted line, and on a flip where the slow market has a 20 percent chance, that downside is the number to shrink first.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> handles the parts of this model that belong to every deal: hard money terms with points and short-term rates on the acquisition tab, and a holding cost calculator for loan payments, insurance, utilities and taxes, which gives you the monthly figure for <code>B18</code> without retyping the loan. It does not price a staging contract or weight market scenarios, so add the staging block above as its own tab, point it at the holding cost line, and you have the answer before the stager's quote expires.</p>`,
+  },
+  {
     slug: 'landlord-move-out-damage-chargeback-calculator-excel',
     title: 'Landlord Move Out Damage Chargeback Calculator in Excel: Charge What You Can Defend',
     metaTitle: 'Landlord Move Out Damage Chargeback Calculator | SheetCraft',
