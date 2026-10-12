@@ -16,6 +16,178 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-buyer-inspection-repair-credit-calculator-excel',
+    title: 'House Flip Buyer Inspection Repair Credit Calculator Excel: Price the Counter',
+    metaTitle: 'House Flip Inspection Repair Credit Calculator | SheetCraft',
+    metaDescription: 'A $9,800 inspection repair request costs a flipper $2,975 when priced item by item. Model credit caps, price cuts and relist carry before you counter.',
+    targetKeyword: 'house flip buyer inspection repair credit calculator Excel',
+    secondaryKeywords: ['inspection repair request negotiation', 'seller credit vs price reduction', 'interested party contribution limits', 'flip holding cost per day', 'relisting a house after inspection'],
+    excerpt: 'A buyer asks for $9,800 in repairs twelve days before closing. Priced item by item against your own subs, the lender credit cap and the cost of a relist, the counter costs $2,975 and beats caving unless the buyer walks more than 63.4 percent of the time.',
+    publishedAt: '2026-10-12',
+    readTime: 12,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-buyer-inspection-repair-credit-calculator-excel.png',
+    imageAlt: 'Ink and watercolor sketch of a roofer sealing the flashing around a brick chimney on a renovated house while a couple and their agent watch from the lawn',
+    content: `<p>The buyer's agent emails a repair addendum twelve days before closing: $9,800 for six items pulled from the inspection report, "or we will need to discuss the contract." Most flippers answer that email from the gut, either by caving to save the deal or by refusing to protect the margin. A house flip buyer inspection repair credit calculator in Excel replaces the gut with three numbers: what each item actually costs you to fix, what a credit costs once the buyer's lender gets involved, and what it costs you if the buyer walks and you relist. On the deal below those numbers turn a $9,800 demand into a $2,975 counter, and they tell you exactly how much risk of losing the buyer that counter is worth.</p>
+
+<h2>Why $9,800 Is Never the Real Number</h2>
+
+<p>The figure in the addendum is a sum of retail quotes. The buyer does not own the house yet, so their agent gets numbers from whoever answers the phone that week, and every line carries a contractor's margin for a one-off job, plus a cushion for things nobody has opened up yet. You are in a different position. You have subs who just finished the rehab, you know the house down to the studs, and you buy materials at the price you paid for the last three flips.</p>
+
+<p>On a $345,000 flip, the request lines up against your own cost to fix each item, priced by the subs who worked the job:</p>
+
+<table>
+<thead><tr><th>Row</th><th>Item from the report</th><th>Buyer's ask</th><th>Your cost</th><th>Class</th></tr></thead>
+<tbody>
+<tr><td>5</td><td>Roof flashing and 2 squares at the chimney</td><td>$2,400</td><td>$850</td><td>Defect</td></tr>
+<tr><td>6</td><td>HVAC condenser, 2012, working at inspection</td><td>$4,200</td><td>$0</td><td>Age</td></tr>
+<tr><td>7</td><td>Missing GFCI protection, kitchen and 2 baths</td><td>$650</td><td>$280</td><td>Safety</td></tr>
+<tr><td>8</td><td>Water heater TPR discharge pipe missing</td><td>$300</td><td>$60</td><td>Safety</td></tr>
+<tr><td>9</td><td>Negative grading at the rear wall</td><td>$1,500</td><td>$600</td><td>Defect</td></tr>
+<tr><td>10</td><td>Cracked pane, loose handrail, door sweeps</td><td>$750</td><td>$310</td><td>Minor</td></tr>
+<tr><td>11</td><td><strong>Total</strong></td><td><strong>$9,800</strong></td><td><strong>$2,100</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<p>Two things jump out. Your cost to fix everything is $2,100, about 21 percent of the ask. And the single largest line, $4,200 for the condenser, is not a defect at all. The unit ran during the inspection. The report flagged its age, which is a fact about the calendar and not about the house, and you already priced that age into your sale price when you decided not to replace it during the rehab.</p>
+
+<h3>Set Up the Request Log</h3>
+
+<p>Put the request on its own tab called Requests, one item per row from row 5 down, with the item in A, the buyer's ask in B, your cost in C, a class in D (Defect, Safety, Age, Minor), your move in E (Repair, Credit, Warranty, Decline), the days of work in F, and the cost of your move in G. Column H holds the dollar amount you offer when the move is a credit or a warranty. The cost column is then one formula filled down:</p>
+
+<p><code>=IF(E5="Repair",C5,H5)</code></p>
+
+<p>Totals sit in row 11: <code>=SUM(B5:B10)</code> for the ask, <code>=SUM(C5:C10)</code> for your full cost to fix, and <code>=SUM(G5:G10)</code> for what your counter actually costs. The class column matters more than it looks, because it is the column that decides your move. Safety items get fixed, every time, because an appraiser or the next inspector will find them again. Real defects get fixed or credited, whichever is cheaper once you count the calendar. Age items get declined or bought off with something cheaper than cash.</p>
+
+<h2>What a Credit Really Costs Once the Lender Reads It</h2>
+
+<p>Most flippers treat a credit and a price cut as the same dollar. A credit is a line on the settlement statement, so it feels cleaner, and the sale price stays high for the comps. The buyer's lender does not see it that way, and if the buyer is financing with a conventional loan, Fannie Mae's rules decide how much of your credit can exist at all.</p>
+
+<p>Fannie Mae's Selling Guide, section B3-4.1-02 on interested party contributions (dated May 7, 2025), sets three limits that hit a repair credit directly:</p>
+
+<ul>
+<li>Seller contributions toward the buyer's closing costs are capped at 3 percent of the lower of price or appraised value when the buyer's LTV is above 90 percent, 6 percent from 75.01 to 90 percent, 9 percent at 75 percent or less, and 2 percent on any investment property purchase.</li>
+<li>These financing concessions "must be equal to or less than the sum of the borrower's closing costs." Anything above that is treated as a sales concession.</li>
+<li>Sales concessions "must be deducted from the property's sales price," and the lender computes LTV on the reduced figure.</li>
+</ul>
+
+<p>Run that against the deal. The buyer is putting 10 percent down, their closing costs are estimated at $10,900, and your original contract already gives them $5,000 toward those costs. The 6 percent cap on $345,000 is $20,700, so the binding limit is the closing costs themselves. Your credit room is:</p>
+
+<p><code>=MIN(B5,B7&#42;B3)-B6</code></p>
+
+<p>That returns $5,900. If you hand over the full $9,800 as a credit, $3,900 of it has nowhere to go. The lender deducts it from the $345,000 for LTV purposes, which pushes the buyer's LTV from 90.00 percent to 91.03 percent with <code>=(1-B4)&#42;B3/(B3-B21)</code>. Above 90 percent, the cap on financing concessions drops to 3 percent, or $10,233, and your total seller money of $10,900 now breaks that cap too. Underwriting kicks the file back days before closing, and the buyer either brings $3,510 more in cash to get the loan back to 90 percent or the contract gets reworked anyway. You agreed to a credit and ended up negotiating a price cut under deadline.</p>
+
+<h3>A Price Cut Is the Cheaper Dollar</h3>
+
+<p>If some of the concession has to become a price reduction, the reduction is actually cheaper for you. Commission and transfer tax are charged on the sale price, so every dollar off the price comes back partly in lower fees. With a 5.0 percent commission in B8 and a 0.4 percent transfer tax in B9, the cost of caving, routed the only way the lender will accept it, is:</p>
+
+<p><code>=MIN(Requests!B11,B20)+B21&#42;(1-B8-B9)</code></p>
+
+<p>That is $5,900 of credit plus $3,900 of price cut at 94.6 cents on the dollar: $9,589.40. The cut saves $210.60 against a straight credit. Small, but it runs the same direction as the buyer's interest, because a lower price lowers their down payment instead of raising it.</p>
+
+<table>
+<thead><tr><th>How you give $9,800</th><th>What the lender does</th><th>Cost to you</th><th>Buyer's cash at closing</th></tr></thead>
+<tbody>
+<tr><td>All credit</td><td>Treats $3,900 as a sales concession, LTV 91.03%</td><td>$9,800.00, if the deal survives underwriting</td><td>$3,510 more to restore 90% LTV</td></tr>
+<tr><td>$5,900 credit plus $3,900 price cut</td><td>Prices the loan on $341,100</td><td>$9,589.40</td><td>$390 less down payment</td></tr>
+<tr><td>Counter: repairs, one credit, warranty</td><td>Sees $1,475 of new seller money, inside the room</td><td>$2,975.00</td><td>No change</td></tr>
+</tbody>
+</table>
+
+<p>If you want the full fee side of that comparison, the <a href="/blog/house-flip-closing-cost-estimator-excel/">house flip closing cost estimator</a> builds every price-based fee as a formula, and the <a href="/blog/real-estate-seller-net-sheet-excel/">seller net sheet</a> shows the concession headroom you have left before profit drops below your walk-away line.</p>
+
+<h2>Build the Counter Item by Item</h2>
+
+<p>The counter is not a lower total. It is a different move on each line, chosen by class and by calendar:</p>
+
+<table>
+<thead><tr><th>Item</th><th>Your move</th><th>Offered amount (H)</th><th>Cost of move (G)</th><th>Days of work</th></tr></thead>
+<tbody>
+<tr><td>Roof flashing</td><td>Repair, with the roofer's invoice</td><td></td><td>$850</td><td>2</td></tr>
+<tr><td>HVAC condenser</td><td>Warranty, 1-year home warranty paid at closing</td><td>$575</td><td>$575</td><td>0</td></tr>
+<tr><td>GFCI protection</td><td>Repair</td><td></td><td>$280</td><td>1</td></tr>
+<tr><td>TPR discharge pipe</td><td>Repair</td><td></td><td>$60</td><td>1</td></tr>
+<tr><td>Rear grading</td><td>Credit</td><td>$900</td><td>$900</td><td>1</td></tr>
+<tr><td>Pane, handrail, sweeps</td><td>Repair</td><td></td><td>$310</td><td>1</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td><strong>$2,975</strong></td><td><strong>6</strong></td></tr>
+</tbody>
+</table>
+
+<p>Each move has a reason you can write into the counter in one line. The roof and the safety items get fixed by licensed trades with invoices attached, because a buyer who sees a receipt stops arguing about the number. The condenser gets a $575 home warranty quote instead of $4,200 in cash: the buyer's real fear is a dead unit in July, and the warranty answers that fear at 14 percent of the ask. The six days of work fit inside the twelve-day window if you call the subs the afternoon the addendum arrives.</p>
+
+<h3>Repair or Credit: Put the Calendar in the Cell</h3>
+
+<p>The grading is the one close call. Your landscaper can do it for $600, but it needs two dry days, and if the work slips it slips your closing. Every day past the closing date costs you your daily carry, which on this deal is $107.95 (built below). If you put a 50 percent chance on a five-day slip, the expected cost of repairing is <code>=C9+0.5&#42;5&#42;Deal!B24</code>, or $869.86. The $900 credit costs $30.14 more in expectation, it lets the buyer pick their own contractor, and it takes the closing date out of the weather's hands. Take the credit.</p>
+
+<p>Run that test on any item whose work could cross the closing date. A seven-day slip on a repair nobody planned costs $755.62 in carry, which is more than any item on this list costs to fix except the roof flashing.</p>
+
+<h2>Price the Walk-Away Before You Send the Counter</h2>
+
+<p>The fear behind caving is losing the buyer, so price that outcome in dollars. Start with what the house costs you per day while it sits. These inputs are assumptions for this example (an 11 percent interest-only hard money loan on $260,000, $4,800 of annual tax, $2,400 of vacant-home insurance, $300 a month of utilities and lawn care); replace them with your own:</p>
+
+<p><code>=B10&#42;B11/365+(B12+B13)/365+B14&#42;12/365</code></p>
+
+<p>That is $78.36 of interest, $13.15 of tax, $6.58 of insurance and $9.86 of utilities and lawn, or $107.95 a day. The <a href="/blog/house-flipping-holding-costs-calculator/">holding costs calculator</a> breaks the same figure down line by line if you have not built it yet.</p>
+
+<p>Now the relist itself, every input labeled as an assumption you should replace with your market and your loan terms:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Relist cost line</th><th>Assumption</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>B15</td><td>Carry until a new buyer closes</td><td>45 days at $107.95</td><td>$4,857.53</td></tr>
+<tr><td>B16</td><td>Loan extension fee</td><td>1% of $260,000, loan matures before a new close</td><td>$2,600.00</td></tr>
+<tr><td>Requests!C11</td><td>Fixing the reported items anyway</td><td>Your cost on all six</td><td>$2,100.00</td></tr>
+<tr><td>B17</td><td>Remarketing</td><td>Photos, signage, a refresh clean</td><td>$400.00</td></tr>
+<tr><td>B18</td><td>Price drop as a back-on-market listing</td><td>1% of $345,000</td><td>$3,450.00</td></tr>
+<tr><td>B25</td><td><strong>Cost of a relist</strong></td><td></td><td><strong>$13,407.53</strong></td></tr>
+</tbody>
+</table>
+
+<p><code>=B24&#42;B15+B16+Requests!C11+B17+B18&#42;B3</code></p>
+
+<p>The third line is the one flippers leave out. Walking the buyer does not make the report disappear. In Texas, the seller's disclosure notice in Property Code section 5.008 asks: "Are you (Seller) aware of any item, equipment, or system in or on the property that is in need of repair?" Once you have read the inspection report, you are aware. The next buyer learns about the flashing, the grading and the missing GFCIs on day one, so you fix them before relisting or you disclose them and negotiate the same list again. Other states use their own forms; check yours before you assume a fresh buyer means a fresh start. The same logic is why a long market time hurts more than it looks, a point the <a href="/blog/house-flip-staging-cost-roi-calculator-excel/">staging cost ROI model</a> makes with the loan deadline.</p>
+
+<h2>The Break-Even Probability</h2>
+
+<p>You now have three costs: caving at $9,589.40, countering at $2,975, and relisting at $13,407.53. The counter is only risky if the buyer walks over it. Call that probability p. The expected cost of countering is <code>=(1-p)&#42;B26+p&#42;B25</code>, and the counter beats caving until p reaches:</p>
+
+<p><code>=(B22-B26)/(B25-B26)</code></p>
+
+<p>That returns 63.4 percent. Unless you believe this buyer walks more often than not over a counter that fixes every safety item and every real defect, countering is the cheaper decision by thousands of dollars.</p>
+
+<table>
+<thead><tr><th>Chance the buyer walks over your counter</th><th>Expected cost of countering</th><th>Cost of caving</th><th>Counter saves</th></tr></thead>
+<tbody>
+<tr><td>10%</td><td>$4,018.25</td><td>$9,589.40</td><td>$5,571.15</td></tr>
+<tr><td>25%</td><td>$5,583.13</td><td>$9,589.40</td><td>$4,006.27</td></tr>
+<tr><td>40%</td><td>$7,148.01</td><td>$9,589.40</td><td>$2,441.39</td></tr>
+<tr><td>60%</td><td>$9,234.52</td><td>$9,589.40</td><td>$354.88</td></tr>
+</tbody>
+</table>
+
+<p>Think about the buyer's side before you guess p. They have already paid for an inspection and usually an appraisal, they have a rate lock that expires, and they have probably given notice on a lease. A buyer who receives invoices for the roof and the safety items, a credit for the grading, and a warranty for the condenser has very little left to walk over.</p>
+
+<h3>Why a Flat No Rarely Pays</h3>
+
+<p>Refusing everything costs nothing if the buyer stays, and its break-even against caving is higher, at 71.5 percent with <code>=B22/B25</code>. The comparison flatters the refusal, because the walk probability is not the same number. A buyer who found a missing TPR pipe and open flashing and got a flat no has a reason to walk that a buyer with invoices does not. And if they do walk, you spend the $2,100 on those same items before the next showing.</p>
+
+<h2>The Five-Minute Checklist When the Addendum Lands</h2>
+
+<ol>
+<li>Copy every item into the Requests tab and get your own cost from the subs who did the rehab, the same day.</li>
+<li>Class each line: Safety, Defect, Age or Minor. Safety items are repairs, always.</li>
+<li>Ask the buyer's agent for the loan type, down payment and estimated closing costs, then compute the credit room in B20 before you offer a single dollar of credit.</li>
+<li>Route anything above the room into a price cut, and run it through the fee formula so you know what it really costs.</li>
+<li>For every repair, test whether the work can cross the closing date and price the slip at your daily carry.</li>
+<li>Compute the relist cost with the disclosure line in it, then the break-even probability.</li>
+<li>Send the counter with invoices or written quotes attached, line by line, never as a lump sum.</li>
+</ol>
+
+<p>On this deal that sequence answers a $9,800 email with a $2,975 counter, and it tells you that the counter stays the better bet even if you think the buyer is close to a coin flip on walking. Build the request log and the break-even before you reply to the agent.</p>
+
+<p>The daily carry is the input that drives the slip test and the relist cost, and it is the one most flippers estimate from memory. The <a href="/products/flip-brrrr-calculator">SheetCraft Flip and BRRRR Calculator</a> computes it from your hard money terms, insurance, utilities and taxes in its holding cost section, alongside the acquisition financing and the line-item rehab budget you already used to buy the house. It does not price an inspection addendum. Feed its carry per day into B24 of the sheet above and your counter rests on the same numbers as your original deal.</p>`,
+  },
+  {
     slug: 'house-flip-staging-cost-roi-calculator-excel',
     title: 'House Flip Staging Cost ROI Calculator Excel: When the Bill Pays Back',
     metaTitle: 'House Flip Staging Cost ROI Calculator Excel | SheetCraft',
