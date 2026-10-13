@@ -16,6 +16,207 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'real-estate-note-investing-yield-calculator-excel',
+    title: 'Real Estate Note Investing Yield Calculator Excel: What 78 Cents Really Buys',
+    metaTitle: 'Note Investing Yield Calculator Excel | SheetCraft',
+    metaDescription: 'A note bought at 78 cents yields 9.95% held to maturity, not 22%. A real estate note investing yield calculator in Excel prices payoff, default and bid.',
+    targetKeyword: 'real estate note investing yield calculator Excel',
+    secondaryKeywords: ['discounted mortgage note yield', 'note purchase price calculator', 'foreclosure timeline by state', 'market discount ordinary income', 'seller financed note investing'],
+    excerpt: 'A $120,000 note offered at 78 cents is pitched as a 22 percent discount. Held to maturity it yields 9.95 percent, and a default in month nine yields 18.92 percent in Texas but loses $2,197.12 in New York. Price the note from the yield you want.',
+    publishedAt: '2026-10-13',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/real-estate-note-investing-yield-calculator-excel.png',
+    imageAlt: 'Ink and watercolor sketch of a brick ranch house at dusk with the porch light on, a pickup in the driveway and an envelope in the curbside mailbox',
+    content: `<p>A note broker sends you a seasoned seller-financed note: $120,000 of unpaid principal at 7 percent, 240 payments left, 34 months of clean payment history, offered at 78 cents on the dollar. That is $93,600 for the right to collect $930.36 a month. The pitch calls it a 22 percent discount, and a lot of buyers hear a 22 percent return. A real estate note investing yield calculator in Excel gives you the real number, which on this note is 9.95 percent if the borrower pays to the last month, 16.33 percent if they refinance in month 36, and anywhere from 18.92 percent to a loss if they stop paying in month nine. Which of those you get depends far more on the house and the state it sits in than on the borrower.</p>
+
+<h2>The Discount Is Not the Yield</h2>
+
+<p>The 22 percent is a ratio of two balances, $26,400 of discount over $120,000 of face value. You only earn it as the principal comes back, and on a 240-month amortizing note most of the principal comes back late. Measured against the cash you actually put in, the discount is 28.2 percent ($26,400 over $93,600), but that figure is only true if the borrower pays the whole balance off the day after you buy. Spread over twenty years, the same discount lifts the 7 percent note rate to 10.43 percent a year before servicing.</p>
+
+<p>The broker's other favorite figure is total profit. Held to maturity, the note pays 240 times $900.36 after a $30 monthly servicing fee, which is $216,086.40, a profit of $122,486.40 on $93,600, or 130.9 percent. Over twenty years that is a 9.95 percent annual yield, almost 3 points short of the 12 percent target used later in this sheet.</p>
+
+<p>Here is the same note at five prices, under four outcomes. Every figure is a nominal annual yield (monthly IRR times 12), net of $30 a month of servicing:</p>
+
+<table>
+<thead><tr><th>Price (cents per dollar)</th><th>You pay</th><th>Pays to maturity</th><th>Pays off in month 36</th><th>Defaults month 9, Texas timeline</th><th>Defaults month 9, US average timeline</th></tr></thead>
+<tbody>
+<tr><td>70</td><td>$84,000</td><td>11.58%</td><td>20.63%</td><td>24.99%</td><td>11.28%</td></tr>
+<tr><td>74</td><td>$88,800</td><td>10.73%</td><td>18.42%</td><td>21.86%</td><td>9.51%</td></tr>
+<tr><td>78</td><td>$93,600</td><td>9.95%</td><td>16.33%</td><td>18.92%</td><td>7.83%</td></tr>
+<tr><td>82</td><td>$98,400</td><td>9.24%</td><td>14.37%</td><td>16.13%</td><td>6.23%</td></tr>
+<tr><td>86</td><td>$103,200</td><td>8.57%</td><td>12.51%</td><td>13.48%</td><td>4.72%</td></tr>
+</tbody>
+</table>
+
+<p>Read the rows and the columns separately. Moving down a row (paying 4 cents more) costs you less than a point of yield if the note pays to maturity. Moving across a row changes the yield by 9 to 14 points at the same price. The price you negotiate matters, but the outcome you underwrite matters roughly ten times as much.</p>
+
+<h2>Build the Payment Stream in Nine Cells</h2>
+
+<p>Put the inputs on one tab, in this order, so every formula below can point at them:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Example</th><th>Formula or source</th></tr></thead>
+<tbody>
+<tr><td>B2</td><td>Unpaid principal balance</td><td>$120,000</td><td>Payment history from the seller</td></tr>
+<tr><td>B3</td><td>Note rate</td><td>7.00%</td><td>The note itself</td></tr>
+<tr><td>B4</td><td>Payments remaining</td><td>240</td><td>The note itself</td></tr>
+<tr><td>B5</td><td>Monthly principal and interest</td><td>$930.36</td><td><code>=PMT(B3/12,B4,-B2)</code></td></tr>
+<tr><td>B6</td><td>Price, as a share of balance</td><td>78%</td><td>The broker's ask</td></tr>
+<tr><td>B7</td><td>Price paid</td><td>$93,600</td><td><code>=B2&#42;B6</code></td></tr>
+<tr><td>B8</td><td>Servicing fee per month</td><td>$30</td><td>Your servicer's quote (assumption here)</td></tr>
+<tr><td>B9</td><td>Target yield</td><td>12.00%</td><td>Your hurdle</td></tr>
+<tr><td>B10</td><td>Yield to maturity</td><td>9.95%</td><td><code>=RATE(B4,B5-B8,-B7)&#42;12</code></td></tr>
+</tbody>
+</table>
+
+<p><code>PMT</code> rebuilds the payment from the balance, rate and term. Check it against the payment history the seller gives you. If the borrower is paying $930.36 and the note says 7 percent over 240 months, the numbers agree. If the borrower is paying $880, something in the paperwork is wrong: a modification nobody mentioned, a missed payment that was capitalized, or a balance that is not $120,000. Find out which before you price anything.</p>
+
+<p><code>RATE</code> solves for the monthly rate that makes 240 payments of $900.36 worth exactly $93,600 today. Multiplying by 12 gives a nominal annual yield, the convention lenders quote. If you compare the note to a dividend stock or a savings account, use the effective rate instead, <code>=(1+RATE(B4,B5-B8,-B7))^12-1</code>, which is 10.42 percent here.</p>
+
+<p>The servicing line matters more than it looks. Collecting the payment yourself saves $30 a month, but a licensed servicer keeps the payment record, sends the year-end interest statement, handles escrow and produces the paper trail a judge will ask for if you ever foreclose. Over 240 months the fee totals $7,200 and costs you 0.48 points of yield (10.43 percent without it, 9.95 percent with it). Put it in the model and keep paying it.</p>
+
+<h2>Early Payoff Is the Scenario That Pays</h2>
+
+<p>A discounted note rewards speed. Every dollar of principal that comes back early comes back at face value, and you paid 78 cents for it. Borrowers on seller-financed notes refinance or sell for all kinds of reasons: their credit recovers, they move, they want a lower rate. The balance at any month comes from <code>FV</code>:</p>
+
+<p><code>=FV(B3/12,36,B5,-B2)</code> returns the balance after 36 payments, $110,801.70. The yield on a note that pays off in that month is <code>=RATE(36,B5-B8,-B7,B12)&#42;12</code>, with B12 holding the balance.</p>
+
+<table>
+<thead><tr><th>Payoff month</th><th>Balance paid off</th><th>Yield at 78 cents</th></tr></thead>
+<tbody>
+<tr><td>12</td><td>$117,145.24</td><td>33.11%</td></tr>
+<tr><td>36</td><td>$110,801.70</td><td>16.33%</td></tr>
+<tr><td>60</td><td>$103,507.86</td><td>13.05%</td></tr>
+<tr><td>120</td><td>$80,128.18</td><td>10.73%</td></tr>
+<tr><td>240 (no payoff)</td><td>$0</td><td>9.95%</td></tr>
+</tbody>
+</table>
+
+<p>This is why seasoned buyers ask about the borrower's equity, credit and plans before they ask about price. A borrower with 27 percent equity ($165,000 value against $120,000 owed) and three years of on-time payments is a borrower a bank will refinance. Your best realistic outcome on this note is that they do it in two or three years.</p>
+
+<p>Do not price the note on that outcome, though. A seller who expects a payoff soon does not sell at 78 cents. Underwrite a payoff as one weighted scenario, and keep the hold-to-maturity case in the mix.</p>
+
+<h2>The Borrower Stops Paying in Month Nine</h2>
+
+<p>Now stress it. The borrower makes 8 payments, then stops. Your cash flow does not just go to zero. You start paying: property taxes and insurance the borrower is no longer paying, a higher servicing fee for a loan in default, an attorney or trustee to foreclose, then repairs, utilities and a sales commission once you own the house. The model for this tab, one row per month, runs off a second block of inputs:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Texas</th><th>US average</th><th>New York</th></tr></thead>
+<tbody>
+<tr><td>B20</td><td>Last payment received (month)</td><td>8</td><td>8</td><td>8</td></tr>
+<tr><td>B21</td><td>Foreclosure filed (month)</td><td>12</td><td>12</td><td>12</td></tr>
+<tr><td>B23</td><td>Days in foreclosure (ATTOM, Q2 2026)</td><td>155</td><td>563</td><td>2,007</td></tr>
+<tr><td>B24</td><td>You own the house (month)</td><td>17</td><td>31</td><td>78</td></tr>
+<tr><td>B25 + B26</td><td>Taxes, insurance and default servicing per month</td><td>$475</td><td>$475</td><td>$475</td></tr>
+<tr><td>B27</td><td>Legal and trustee fees</td><td>$3,500</td><td>$9,000</td><td>$15,000</td></tr>
+<tr><td>B28</td><td>Repairs after you take the house</td><td>$12,000</td><td>$12,000</td><td>$12,000</td></tr>
+<tr><td>B31</td><td>Resale price, sold 5 months later at 8% cost</td><td>$160,000</td><td>$160,000</td><td>$160,000</td></tr>
+</tbody>
+</table>
+
+<p>The days in foreclosure are measured, not guessed. ATTOM's mid-year 2026 foreclosure report puts the national average at 563 days for homes foreclosed in the second quarter of 2026, with Texas the shortest state at 155 days and New York at 2,007. The other lines are assumptions for this example (the filing month assumes three missed payments plus a demand letter, and the legal fees reflect a non-judicial trustee sale in Texas against a judicial foreclosure in New York). Replace them with your attorney's quote for the county the house sits in. The REO month is <code>=B21+ROUND(B23/30.4,0)</code>.</p>
+
+<p>Each month's cash flow, with the month number in column A and month 0 holding <code>=-B7</code>, comes from one formula filled down:</p>
+
+<p><code>=IF(A41&lt;=$B$20,$B$5-$B$8,0)-IF(AND(A41&gt;$B$20,A41&lt;=$B$24),$B$25+$B$26,0)-IF(A41=$B$21,$B$27,0)-IF(A41=$B$24+1,$B$28,0)-IF(AND(A41&gt;$B$24,A41&lt;=$B$24+$B$30),$B$29,0)+IF(A41=$B$24+$B$30,$B$31&#42;(1-$B$32),0)</code></p>
+
+<p>B29 is the monthly carry once you own the house ($550 here) and B30 is the months to resell (5). The yield is <code>=IRR(B40:B123)&#42;12</code> and the net dollars are <code>=SUM(B40:B123)</code>.</p>
+
+<table>
+<thead><tr><th>Default in month 9</th><th>Texas</th><th>US average</th><th>New York</th></tr></thead>
+<tbody>
+<tr><td>Payments received before default</td><td>$7,202.88</td><td>$7,202.88</td><td>$7,202.88</td></tr>
+<tr><td>Taxes, insurance, default servicing</td><td>-$4,275</td><td>-$10,925</td><td>-$33,250</td></tr>
+<tr><td>Legal and trustee fees</td><td>-$3,500</td><td>-$9,000</td><td>-$15,000</td></tr>
+<tr><td>Repairs and carry after you own it</td><td>-$14,750</td><td>-$14,750</td><td>-$14,750</td></tr>
+<tr><td>Net sale proceeds</td><td>$147,200</td><td>$147,200</td><td>$147,200</td></tr>
+<tr><td>Net profit on $93,600</td><td>$38,277.88</td><td>$26,127.88</td><td>-$2,197.12</td></tr>
+<tr><td>Months your money is out</td><td>22</td><td>36</td><td>83</td></tr>
+<tr><td>Yield</td><td>18.92%</td><td>7.83%</td><td>-0.28%</td></tr>
+</tbody>
+</table>
+
+<p>Same note, same borrower, same default. In Texas the default yields more than the borrower paying on time for twenty years, because you get a $160,000 house back within 17 months for $93,600 plus costs. In New York you advance taxes for almost six years on a house you do not control, wait 83 months for your money and lose $2,197.12. Only the state's foreclosure timeline changed between the columns.</p>
+
+<h2>The Collateral Decides More Than the Borrower</h2>
+
+<p>The Texas column only works because the house is worth much more than you paid for the note. Change the resale price in B31 and watch the default case fall apart:</p>
+
+<table>
+<thead><tr><th>Resale price</th><th>Texas net</th><th>Texas yield</th><th>US average net</th><th>US average yield</th></tr></thead>
+<tbody>
+<tr><td>$160,000</td><td>$38,277.88</td><td>18.92%</td><td>$26,127.88</td><td>7.83%</td></tr>
+<tr><td>$140,000</td><td>$19,877.88</td><td>10.57%</td><td>$7,727.88</td><td>2.50%</td></tr>
+<tr><td>$120,000</td><td>$1,477.88</td><td>0.85%</td><td>-$10,672.12</td><td>-3.76%</td></tr>
+<tr><td>$105,000</td><td>-$12,322.12</td><td>-7.65%</td><td>-$24,472.12</td><td>-9.28%</td></tr>
+</tbody>
+</table>
+
+<p>At a $120,000 resale you break even in Texas and lose $10,672.12 at the national average timeline. That resale price is not far-fetched: it is the $165,000 value the broker quoted, minus the condition hit a house takes when an owner who has stopped paying stops maintaining it too, minus a softer market by the time you sell.</p>
+
+<p>So set the price from your own valuation of the house. Pay for an exterior broker price opinion or drive the street yourself, and pull the sold comps. If you have never priced a resale, the method is the one flippers use, and the <a href="/blog/house-flipping-holding-costs-calculator">holding cost model for a flip</a> gives you the carry line in B29. A note bought at 78 cents against a house worth $130,000 is a different asset from the same note against a house worth $165,000, and the yield table above cannot tell them apart unless you change B31.</p>
+
+<h2>Price the Note From the Yield You Want</h2>
+
+<p>Turn the model around. Instead of asking what yield the broker's price gives you, ask what price gives you your target. Discount each scenario at the target rate in B9 and weight the results:</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Weight (assumption)</th><th>Formula</th><th>Value at 12%</th></tr></thead>
+<tbody>
+<tr><td>Pays to maturity</td><td>30%</td><td><code>=PV($B$9/12,$B$4,-($B$5-$B$8))</code></td><td>$81,770.17</td></tr>
+<tr><td>Pays off in month 60</td><td>50%</td><td><code>=PV($B$9/12,60,-($B$5-$B$8),-FV($B$3/12,60,$B$5,-$B$2))</code></td><td>$97,451.58</td></tr>
+<tr><td>Defaults in month 9, Texas</td><td>20%</td><td><code>=NPV($B$9/12,B41:B123)</code></td><td>$105,999.41</td></tr>
+<tr><td>Defaults in month 9, US average</td><td>20%</td><td>same, US column</td><td>$82,122.42</td></tr>
+<tr><td>Defaults in month 9, New York</td><td>20%</td><td>same, NY column</td><td>$29,326.53</td></tr>
+</tbody>
+</table>
+
+<p>The weighted value is <code>=SUMPRODUCT(C50:C52,D50:D52)</code>, with the three weights in column C and the three values in column D, the default row pointing at the column for your state:</p>
+
+<table>
+<thead><tr><th>State timeline</th><th>Most you should pay for a 12% yield</th><th>Cents per dollar</th><th>Broker asks 78 cents</th></tr></thead>
+<tbody>
+<tr><td>Texas</td><td>$94,456.72</td><td>78.7</td><td>Bid OK</td></tr>
+<tr><td>US average</td><td>$89,681.32</td><td>74.7</td><td>Counter at 74.7</td></tr>
+<tr><td>New York</td><td>$79,122.15</td><td>65.9</td><td>Counter at 65.9 or pass</td></tr>
+</tbody>
+</table>
+
+<p>A last cell gives you the answer without reading the table: <code>=IF(B7&lt;=D53,"BID OK","COUNTER AT "&amp;TEXT(D53/B2,"0.0%"))</code>.</p>
+
+<p>If you only want a pay-as-agreed note held to maturity at 12 percent, the most you can pay is 68.1 cents. And the same 78-cent ask is a fair price in Texas and 12.1 cents too high in New York. The weights are yours to set, and they are the least certain inputs in the sheet. Run the table at 10, 20 and 30 percent default before you trust any single bid. If the bid only clears your target at a 10 percent default rate, lower it until it clears at 20.</p>
+
+<p>The same discounting logic, applied to a whole portfolio of uneven cash flows, is what an <a href="/blog/real-estate-irr-calculator-excel">IRR model for a rental property</a> does. With a note, the asset is someone else's house, and you only take control of it through foreclosure.</p>
+
+<h2>Before You Wire: Tax and Paperwork</h2>
+
+<p>The tax treatment of the discount surprises most first-time note buyers. A note you buy below its unpaid balance is a market discount bond under 26 U.S.C. §1278: the definition of "bond" includes any note or other evidence of indebtedness, and market discount is the excess of the redemption amount over your basis right after you buy. That is $26,400 here. Under §1276, gain on the note is ordinary income up to the market discount that has accrued, and each partial principal payment is ordinary income to the extent it does not exceed accrued market discount. The code treats those amounts as interest. The discount accrues ratably over the remaining term unless you elect a constant-yield method.</p>
+
+<p>In plain terms, your $26,400 is taxed like interest, not as a long-term capital gain. At a 24 percent ordinary rate against a 15 percent capital gains rate (example brackets, not advice), modeling it as a capital gain overstates your after-tax profit by $2,376. The de minimis exception does not save you: it only zeroes a discount below a quarter of one percent of the balance times the full years to maturity, which is $6,000 on this note. One exclusion in the statute is easy to misread. Installment obligations covered by §453B are not market discount bonds, and that section governs the note in the hands of the seller who reported the original sale on the installment method, not in yours. Take the numbers to your CPA before you close.</p>
+
+<p>The paperwork checklist, in the order a careful buyer works it:</p>
+
+<ol>
+<li>Get the full payment history from the original closing, not a summary. Rebuild it with <code>PMT</code> and <code>FV</code> and make sure the balance agrees to the dollar.</li>
+<li>Read the original note and the recorded mortgage or deed of trust. Check the rate, term, any balloon, the late fee and whether there is a due-on-sale clause.</li>
+<li>Order a title search on the property. A tax lien or a senior lien you did not see comes ahead of you in foreclosure.</li>
+<li>Confirm the property taxes are current and the insurance policy names the note holder as mortgagee.</li>
+<li>Get the assignment chain right: the note endorsed to you (an allonge if there is no room on the note) and a recorded assignment of the mortgage or deed of trust.</li>
+<li>Value the house yourself and put that value in B31, not the broker's.</li>
+<li>Look up the foreclosure timeline for the state and get a written fee quote from a local attorney for B23 and B27.</li>
+<li>Line up a licensed servicer before closing. If the loan is consumer credit secured by a dwelling and you buy more than one mortgage loan in any twelve months, Regulation Z (12 CFR 1026.39) requires you to send the borrower a written notice of the transfer within 30 days.</li>
+</ol>
+
+<p>If you created the note yourself by selling a property with owner financing, the other side of this sheet is the <a href="/blog/seller-financing-amortization-calculator-excel">seller financing amortization calculator</a>: build the note there, price its sale here. And if the borrower on your note is an investor rather than a homeowner, the underwriting looks more like <a href="/blog/private-money-lending-spreadsheet">private money lending</a> than note buying, with a shorter term and a bigger payoff at the end.</p>
+
+<h2>What to Do With the Broker's Offer</h2>
+
+<p>Run the note through four tabs before you answer: payment history rebuilt, yield at the asking price, the month-nine default with your state's timeline and your own valuation of the house, and the weighted bid at your target. On the note above that work gives a clear answer. At 78 cents, the deal clears a 12 percent target if the house is in Texas and worth what the broker says. At the national average timeline, counter at 74.7 cents. In a long judicial state, counter at 65.9 cents or walk away, because the default case is where your money is stuck for years.</p>
+
+<p>The default scenario ends with you owning a house that needs repairs, carrying costs and a resale, which is a flip whether you planned one or not. The <a href="/products/flip-brrrr-calculator">SheetCraft BRRRR Deal Calculator</a> models that end of the note: the line-item rehab budget for B28, the holding costs during the rehab (insurance, utilities, taxes) for B29, and the refinance with ARV, LTV and cash-out modeling if you decide to keep the house as a rental instead of selling it. It does not price notes or compute a note yield. Build the yield tabs above, then run the house you might end up owning through the calculator before you send your counter.</p>`,
+  },
+  {
     slug: 'house-flip-buyer-inspection-repair-credit-calculator-excel',
     title: 'House Flip Buyer Inspection Repair Credit Calculator Excel: Price the Counter',
     metaTitle: 'House Flip Inspection Repair Credit Calculator | SheetCraft',
