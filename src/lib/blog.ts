@@ -16,6 +16,169 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'brrrr-refinance-appraisal-shortfall-calculator-excel',
+    title: 'BRRRR Refinance Appraisal Shortfall Calculator Excel: Price Each Fix Before You Sign',
+    metaTitle: 'BRRRR Refinance Appraisal Shortfall Calculator | SheetCraft',
+    metaDescription: 'A $32,000 low appraisal keeps $23,760 in your BRRRR. A BRRRR refinance appraisal shortfall calculator in Excel prices each fix before you close.',
+    targetKeyword: 'BRRRR refinance appraisal shortfall calculator Excel',
+    secondaryKeywords: ['low appraisal BRRRR refinance', 'reconsideration of value appraisal', 'DSCR cash out refinance', 'cash left in deal', 'appraisal gap rental property'],
+    excerpt: 'An appraisal $32,000 under your ARV keeps $23,760 in the deal. That money still earns the 8.375 percent loan rate it replaces, and the fixes investors grab first cost up to $11,823. Price one reconsideration of value, a second lender, an 80 percent tier and a later refinance before you close.',
+    publishedAt: '2026-10-14',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/brrrr-refinance-appraisal-shortfall-calculator-excel.png',
+    imageAlt: 'Ink and watercolor illustration of a renovated green craftsman house with a new porch railing, work gloves and a hammer on the step and boxes of flooring stacked beside it',
+    content: `<p>The appraisal on your BRRRR rental comes back at $278,000. You underwrote $310,000. Your DSCR lender lends 75 percent of appraised value, so the refinance loan drops from $232,500 to $208,500, and $23,760 of the cash you planned to pull out stays in the house. Closing is ten days away and the hard money note matures in thirty. A BRRRR refinance appraisal shortfall calculator in Excel answers the question you actually face that week, which is not how big the shortfall is (the lender already told you) but which of the five things you can do about it costs less than the money it brings back.</p>
+
+<p>Most investors in that spot do the expensive thing first. They call a second lender, order a new appraisal and push the closing out, because $23,760 feels like a loss. It is equity sitting in the property at the refinance rate, and getting it back costs anywhere from $691.56 for one appraisal challenge to $11,823.04 in penalty and fees for a second refinance.</p>
+
+<h2>The Deal and the Gap</h2>
+
+<p>Here is the property. A three-bedroom single family bought for $150,000 with a hard money loan at 11 percent interest-only and 2 points, covering 90 percent of the purchase and 100 percent of a $52,000 rehab drawn in three equal draws. The refinance is a DSCR cash-out at month seven: 75 percent LTV, 8.375 percent fixed for 30 years, 1 point plus $3,500 of fixed costs, minimum DSCR of 1.20. Rent is $2,600 a month, taxes $2,900 a year, insurance $1,500.</p>
+
+<p>The rate is an assumption, set about one point above Freddie Mac's PMMS average of 7.40 percent for the week of October 8, 2026, because PMMS describes owner-occupants with 20 percent down and a DSCR cash-out on a rental prices higher. Your term sheet replaces it.</p>
+
+<p>Cash invested before the refinance is $37,362.50: $15,000 down, $3,750 of purchase closing costs, $3,740 of points, $11,045.83 of interest over seven months, $2,566.67 of taxes and insurance, $1,260 of utilities. The hard money payoff is $187,000.</p>
+
+<table>
+<thead><tr><th>Line</th><th>At $310,000 (underwritten)</th><th>At $278,000 (appraised)</th></tr></thead>
+<tbody>
+<tr><td>LTV cap at 75%</td><td>$232,500</td><td>$208,500</td></tr>
+<tr><td>DSCR cap at 1.20</td><td>$236,820</td><td>$236,820</td></tr>
+<tr><td>Refinance loan (lower cap)</td><td>$232,500</td><td>$208,500</td></tr>
+<tr><td>Refinance costs (1% + $3,500)</td><td>$5,825</td><td>$5,585</td></tr>
+<tr><td>Hard money payoff</td><td>$187,000</td><td>$187,000</td></tr>
+<tr><td>Cash back at closing</td><td>$39,675</td><td>$15,915</td></tr>
+<tr><td>Cash left in the deal</td><td>-$2,312.50 (all back, plus $2,312.50)</td><td>$21,447.50</td></tr>
+<tr><td>Principal and interest</td><td>$1,767.17</td><td>$1,584.75</td></tr>
+<tr><td>DSCR at closing</td><td>1.22</td><td>1.33</td></tr>
+</tbody>
+</table>
+
+<p>The loan falls by $24,000, which is 75 cents per dollar of missing value. Cash back falls by $23,760 because the 1 point origination shrinks with the loan. That $240 is the only part of the shortfall that works in your favor at the table. The rest of it shows up every month: the smaller loan costs $182.42 less in principal and interest.</p>
+
+<h2>Build the Shortfall Calculator in Four Rows</h2>
+
+<p>Put the appraised case in column B and the underwritten case in column C, same rows, so every output row is a side-by-side comparison. The inputs:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Column B</th><th>Column C</th></tr></thead>
+<tbody>
+<tr><td>Row 3</td><td>Value the lender uses</td><td>$278,000</td><td>$310,000</td></tr>
+<tr><td>Row 4</td><td>Maximum LTV</td><td>75%</td><td>75%</td></tr>
+<tr><td>Row 5</td><td>Refinance rate</td><td>8.375%</td><td>8.375%</td></tr>
+<tr><td>Row 6</td><td>Origination, % of loan</td><td>1.0%</td><td>1.0%</td></tr>
+<tr><td>Row 7</td><td>Fixed refinance costs</td><td>$3,500</td><td>$3,500</td></tr>
+<tr><td>Row 8</td><td>Lender minimum DSCR</td><td>1.20</td><td>1.20</td></tr>
+<tr><td>Row 9</td><td>Monthly rent</td><td>$2,600</td><td>$2,600</td></tr>
+<tr><td>Row 10</td><td>Monthly taxes and insurance</td><td>$366.67</td><td>$366.67</td></tr>
+<tr><td>Row 11</td><td>Hard money payoff</td><td>$187,000</td><td>$187,000</td></tr>
+<tr><td>Row 12</td><td>Cash invested to date</td><td>$37,362.50</td><td>$37,362.50</td></tr>
+</tbody>
+</table>
+
+<p>The LTV cap in B14 is <code>=B3&#42;B4</code>. The DSCR cap in B15 is <code>=PV(B5/12,360,-(B9/B8-B10))</code>: the largest payment the rent supports at the lender's ratio, net of taxes and insurance, turned back into a loan amount. The loan in B16 is <code>=MIN(B14,B15)</code>, and cash back in B17 is <code>=B16&#42;(1-B6)-B7-B11</code>. Copy all four across to column C. The shortfall in B19 is <code>=C17-B17</code>, which returns $23,760.</p>
+
+<p>Add one flag before anything else, <code>=IF(C14&lt;=C15,"LTV binds: the appraisal costs money","DSCR binds: the appraisal barely matters")</code>. It decides whether the rest of this article applies to you. Drop the rent on this house to $2,350 and the DSCR cap falls to $209,410 at the underwritten value. The loan was never going to be $232,500, the appraisal drop from $310,000 to $278,000 moves the loan by $909.92, and cash back moves by $900.82. When rent is the ceiling, as the <a href="/blog/brrrr-calculator-spreadsheet">BRRRR calculator spreadsheet</a> article shows, a low appraisal is mostly noise and the fight described below is not worth a phone call.</p>
+
+<p>Two more cells turn the gap into thresholds you can check the moment the appraisal arrives. The value below which you bring cash to closing, in B21: <code>=(B11+B7)/(B4&#42;(1-B6))</code>, which is $256,566. The value at which every dollar you invested comes back, in B22: <code>=(B12+B11+B7)/(B4&#42;(1-B6))</code>, which is $306,886. Both formulas hold only while the LTV cap binds. At $278,000 this deal sits between the two lines, so it closes with cash back but leaves money in.</p>
+
+<h2>What the $23,760 Costs You</h2>
+
+<p>The shortfall is $23,760 of equity you did not borrow against, and every dollar you did not borrow is a dollar that does not cost 8.375 percent. Leaving it in the house earns exactly the refinance rate in avoided interest. Pulling it out earns whatever your next use of the money earns. The cost of the shortfall is the difference between those two rates, and nothing more.</p>
+
+<p>In the sheet: <code>=B19&#42;(B25-B5)</code>, where B25 is the return you expect on the next deal.</p>
+
+<table>
+<thead><tr><th>Where the $23,760 would go</th><th>Return on it</th><th>Annual cost of leaving it in</th></tr></thead>
+<tbody>
+<tr><td>A savings account until the next deal shows up</td><td>4%</td><td>-$1,039.50 (leaving it in pays you)</td></tr>
+<tr><td>Paying down debt at the refinance rate</td><td>8.375%</td><td>$0</td></tr>
+<tr><td>A rental bought with ordinary leverage</td><td>12%</td><td>$861.30</td></tr>
+<tr><td>A next BRRRR already under contract</td><td>20%</td><td>$2,762.10</td></tr>
+</tbody>
+</table>
+
+<p>If there is no deal under contract, the shortfall pays you $1,039.50 a year compared with pulling the cash out to park it. If there is one that returns 20 percent, it costs $2,762.10 a year. That number is the most any fix can be worth per year, and it is the yardstick for every option below.</p>
+
+<p>One case needs an adjustment: the next deal needs the cash in the next few weeks and you have no other source. That is a liquidity problem, and its price is the deal you lose. Write the return on that deal into B25 and run the same comparison.</p>
+
+<h2>Five Ways to Answer a Low Appraisal, Priced</h2>
+
+<p>Every option below is measured against closing on schedule at $278,000. The carry cost of a delay is smaller than most investors think, because the house is costing interest either way: the hard money accrues $56.36 a day and the new loan would accrue $47.84, so each day of delay costs the $8.52 spread plus whatever deadline it pushes you past. Deadlines are where delays get expensive.</p>
+
+<h3>1. Close now and keep the equity</h3>
+
+<p>Cost: zero today, and the annual figure from the table above for as long as the money stays in. The payment is $182.42 a month lower than planned and DSCR is 1.33 instead of 1.22.</p>
+
+<h3>2. File a reconsideration of value before closing</h3>
+
+<p>On loans sold to Fannie Mae, the lender must run a borrower-initiated reconsideration of value (ROV) process and must tell you when it delivers the appraisal that you get exactly one ROV per appraisal (Selling Guide B4-1.3-12). The request can carry up to five comparable sales with their data sources, such as MLS numbers, and an explanation of why they support a different value. The same section says that after the loan closes, an ROV can no longer be submitted. A DSCR lender is not bound by Fannie Mae's rules, so ask for its ROV policy in writing before the appraisal is ordered.</p>
+
+<p>Assume the ROV takes 20 days and pushes you past the rate lock, which costs a 0.25 percent extension, $521.25. Add $170.31 of carry spread and the ROV costs $691.56. If it moves the value to $291,000, cash back rises by $9,652.50 and the payment by $74.11 a month.</p>
+
+<h3>3. Switch lenders and order a second appraisal</h3>
+
+<p>A new appraisal is $650, the first lender keeps a $995 processing fee, and 40 days runs past the hard money maturity, which triggers a 1 percent extension of $1,870. With $340.62 of carry spread the total is $3,855.62, paid whether or not the second appraiser agrees with you. If the second report says $300,000, you get $16,335 more cash back. The second appraiser will be pulling comps from the same neighborhood and the same months as the first one, so do not count on a $22,000 swing.</p>
+
+<h3>4. Take a higher LTV tier at a higher rate</h3>
+
+<p>Some DSCR lenders offer 80 percent LTV on a cash-out to strong files, priced higher. At 8.875 percent and 80 percent of $278,000, the loan is $222,400, DSCR is still 1.22, and you get $13,761 more cash back for a payment $184.76 a month higher. Price that as its own loan: <code>=RATE(360,-(PMT(D5/12,360,-D16)-PMT(B5/12,360,-B16)),D17-B17)&#42;12</code>, with the 80 percent case in column D. It returns 15.97 percent. The extra half point applies to the entire balance, so the last $13,761 you borrow costs almost 16 percent a year, for 30 years or until you refinance again.</p>
+
+<h3>5. Close now and refinance again later</h3>
+
+<p>This is the plan most investors fall back on: take the low number, then pull the equity out once the value catches up. Run it at the start of year three. After 24 payments the balance is $205,126.85. Let the value grow 2 percent a year to $289,231.20 and a new 75 percent loan is $216,923.40. A 5-4-3-2-1 prepayment penalty, common on DSCR loans, charges 3 percent in year three, $6,153.81, and a second set of refinance costs is $5,669.23. Net cash out: -$26.49. Two years of appreciation and amortization go entirely to the penalty and the fees. The balance in B30 is <code>=-FV(B5/12,24,-PMT(B5/12,360,-B16),B16)</code> if you want to rerun it with your own growth rate and penalty schedule.</p>
+
+<h2>The Break-Even Probability for Each Fix</h2>
+
+<p>Nobody publishes how often an ROV raises the value, and the probability that a second appraiser comes in $22,000 higher is not something any lender will quote you. So turn the question around. Each option has a known cost and an uncertain payoff, and the payoff is worth the extra cash times the spread between your next deal's return and the loan rate, for as long as the cash stays out. Over a five-year hold, the probability at which an option pays for itself is <code>=Cost/(Gain&#42;(B25-B5)&#42;5)</code>.</p>
+
+<table>
+<thead><tr><th>Return on the next deal</th><th>ROV pays off if it succeeds more than</th><th>New lender pays off if it succeeds more than</th><th>80% tier pays off</th></tr></thead>
+<tbody>
+<tr><td>12%</td><td>39.5% of the time</td><td>never (130.2% needed)</td><td>no, 15.97% cost</td></tr>
+<tr><td>15%</td><td>21.6% of the time</td><td>71.3% of the time</td><td>no, 15.97% cost</td></tr>
+<tr><td>20%</td><td>12.3% of the time</td><td>40.6% of the time</td><td>yes, by about 4 points</td></tr>
+</tbody>
+</table>
+
+<p>Read it from the bottom row up. An investor with a 20 percent deal under contract should file the ROV if there is any real error in the report, and can consider the 80 percent tier. Switching lenders makes sense for that investor only with a strong reason to expect a second appraisal $22,000 higher, such as a report built on comps from the wrong side of a highway. At 12 percent, switching lenders cannot pay even if it works every time, and the ROV needs roughly two chances in five of a real mistake to be worth the lock extension.</p>
+
+<p>The ROV is the cheapest option in the table by a wide margin, and it is also the only one with a hard deadline you cannot buy back. Close first and the right to file is gone.</p>
+
+<h2>What Makes an ROV Worth Filing</h2>
+
+<p>An ROV that says "we think the house is worth more" loses. The request is a list of errors and better data, and the appraiser responds in a revised report either way. Before you file, check the report against the house, line by line:</p>
+
+<ul>
+<li><strong>Gross living area.</strong> Measure it yourself. A finished basement counted as below grade is correct; a finished attic missed entirely is an error worth thousands.</li>
+<li><strong>Bedroom and bathroom count.</strong> A rehab that added a bath often shows the pre-rehab count pulled from tax records.</li>
+<li><strong>Condition and quality ratings.</strong> A full gut rehab rated like an untouched house of the same age is the most common BRRRR complaint. Attach the permit list, the final inspection card and the scope of work with dates.</li>
+<li><strong>Comparable selection.</strong> Comps that sold unrenovated, as estate sales or across a school district or highway boundary are fair game. Replace them with closed sales of renovated houses.</li>
+<li><strong>Dates.</strong> A comp that closed a year ago in a moving market needs a time adjustment. Check that the report made one, and in which direction.</li>
+</ul>
+
+<p>Put your five comps on a tab with address, MLS number, close date, living area, beds and baths, condition and price. Then add one column the appraiser cares about: <code>=Price/LivingArea</code>. If your five comps average $201 a square foot and the report used $187, the ROV has a number to argue about. The <a href="/blog/after-repair-value-calculator">after repair value calculator</a> article covers how to time-adjust a comp, and that adjustment is often the whole gap.</p>
+
+<p>Prepare that tab before the appraiser visits. The federal appraisal independence statute, 15 U.S.C. &sect;1639e(c), says that asking an appraiser to consider additional comparable properties or to correct errors does not breach appraiser independence. That statute covers consumer home loans, so on a DSCR rental loan ask the lender whether the appraiser will take the scope of work, the permit list and your comps at the site visit. A package delivered before the report costs nothing in days or lock extensions.</p>
+
+<h2>Why the Refinance Is a DSCR Loan in the First Place</h2>
+
+<p>Fannie Mae's Eligibility Matrix (April 1, 2026) caps a cash-out refinance on a one-unit investment property at the same 75 percent, and 70 percent for two to four units, so a conventional loan would not change the shortfall math. It changes the calendar. Fannie Mae Selling Guide B2-1.3-03 requires any first mortgage paid off through a cash-out refinance to be at least 12 months old, note date to note date. A hard money note at month seven does not qualify, which is why this deal, like most BRRRR refinances inside a year, goes to a DSCR lender with its own rules on value, seasoning and ROV. The <a href="/blog/brrrr-vs-traditional-buy-and-hold-calculator">BRRRR vs traditional buy and hold</a> comparison walks through that 12-month rule, and the <a href="/blog/brrrr-seasoning-period-tracker-excel">BRRRR seasoning period tracker</a> tracks the lender clocks.</p>
+
+<p>It also means the rules in this article depend on the lender. Before the appraisal is ordered, get three answers in writing: whether the lender accepts an ROV and how many, how long its lock extensions run and what they cost, and what prepayment schedule the note carries. Those three answers are inputs to the sheet, and they decide which of the five options exist at all.</p>
+
+<h2>What to Do in the Ten Days Before Closing</h2>
+
+<p>Run the flag first. If DSCR binds, close and stop worrying about the appraisal. If LTV binds, compare the appraised value with your two thresholds: below $256,566 on this deal you are bringing cash, which turns the question into one of liquidity, and above $306,886 there is nothing to recover.</p>
+
+<p>Between the two lines, file one ROV if the report has a real error you can document with comps, a measurement or a permit, and file it before you sign. Skip the second lender unless your next deal returns well above 15 percent and the first report is plainly wrong. Price the 80 percent tier as what it is, a 15.97 percent loan on the last $13,761. And do not plan on refinancing later to recover the gap: on this deal two years of appreciation buys a check for -$26.49.</p>
+
+<p>If none of those clears the bar, close at $278,000. The $21,447.50 left in the house earns 8.375 percent in avoided interest and the rental cash flows better than the one you underwrote.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">SheetCraft BRRRR Deal Calculator</a> holds the deal side of this decision: the hard money acquisition with points and short-term rates, the line-item rehab budget, the rent analysis, and the refinance tab that returns cash pulled out, capital left in the deal and the new payment from your ARV, LTV and loan terms. Enter the appraised value next to your underwritten ARV and you get the shortfall in the summary. It does not price an ROV, a lender switch or a prepayment penalty, so build the remedy rows above beside it and decide before the closing date, while you can still file the ROV.</p>`,
+  },
+  {
     slug: 'real-estate-note-investing-yield-calculator-excel',
     title: 'Real Estate Note Investing Yield Calculator Excel: What 78 Cents Really Buys',
     metaTitle: 'Note Investing Yield Calculator Excel | SheetCraft',
