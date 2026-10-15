@@ -16,6 +16,175 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-subcontractor-default-cost-to-complete-calculator-excel',
+    title: 'Construction Subcontractor Default Cost to Complete Calculator Excel: Price the Real Shortfall Before the Bond Claim',
+    metaTitle: 'Subcontractor Default Cost to Complete | SheetCraft',
+    metaDescription: 'A sub walks at 60% billed. A subcontractor default cost to complete calculator in Excel finds the real shortfall: $226,092, not the $167,380 most GCs run.',
+    targetKeyword: 'construction subcontractor default cost to complete calculator Excel',
+    secondaryKeywords: ['subcontractor default performance bond claim', 'balance of the contract price', 'subcontractor overbilling', 'terminate subcontractor for cause', 'cost to complete calculation'],
+    excerpt: 'A mechanical sub walks at 60 percent billed and the quick math says the job is $167,380 short. Audit the schedule of values, price six cost lines and the performance bond terms, and the shortfall is $226,092, plus $74,600 owed to a supplier for equipment you already paid the sub for.',
+    publishedAt: '2026-10-15',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-subcontractor-default-cost-to-complete-calculator-excel.png',
+    imageAlt: 'Ink and watercolor illustration of half-installed galvanized ductwork hanging from a concrete ceiling with an open duct end, loose duct sections and flexible duct on the floor, and an abandoned stepladder and tool bag',
+    content: `<p>Your mechanical sub on a two-story medical office building stops showing up after pay application 6. The subcontract is $705,500 with three approved change orders, the sub has billed $424,880, which is 60.2 percent, and the project manager runs the number everyone runs first: $280,620 left unbilled, a completion contractor bids $448,000, so the job is $167,380 short. A construction subcontractor default cost to complete calculator in Excel exists to replace that number before it goes into the backcharge letter, the bond claim and the owner meeting, because on this job the real figure is $226,092 on the performance side plus $74,600 on the payment side, and the surety will argue that up to $86,112 of it is yours.</p>
+
+<p>The quick number is wrong three ways. It starts from the unbilled balance when the money you still hold is the unpaid balance, retainage included. It assumes the sub was 60 percent done because the sub billed 60 percent. And it stops at the replacement bid, when the replacement bid is only the largest of six cost lines. The first error flatters the sub's position, the other two flatter yours, and they do not cancel.</p>
+
+<h2>Why the Unbilled Balance Is the Wrong Starting Number</h2>
+
+<p>The bond form and the subcontract both settle the account on the same arithmetic. If your subcontract is AIA A401-2017, Section 7.2.1 lets the contractor terminate a sub that repeatedly fails to carry out the work, after a notice that gives the sub ten days to start correcting, and finish the work "by whatever method the Contractor may deem expedient." If the unpaid balance of the subcontract sum exceeds the expense of finishing and the other damages, the excess goes to the sub. If the expense and damages are larger, the sub pays the difference. AIA A312-2010, a widely used performance bond form, uses the same pool and calls it the Balance of the Contract Price. Its Section 15 says that on a subcontract bond, "Contractor" means the sub and "Owner" means you.</p>
+
+<p>So the claim is expense and damages minus the unpaid balance. On this job:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>The quick number</th><th>The real number</th></tr>
+</thead>
+<tbody>
+<tr><td>Adjusted subcontract sum</td><td>$705,500</td><td>$705,500</td></tr>
+<tr><td>Billed to date</td><td>$424,880</td><td>$424,880</td></tr>
+<tr><td>Paid to date (10 percent retainage held)</td><td>not used</td><td>$382,392</td></tr>
+<tr><td>Funds still in your hands</td><td>$280,620 unbilled</td><td>$323,108 unpaid</td></tr>
+<tr><td>Cost to finish and damages</td><td>$448,000 bid only</td><td>$549,200</td></tr>
+<tr><td>Shortfall charged to the sub</td><td>$167,380</td><td>$226,092</td></tr>
+</tbody>
+</table>
+
+<p>The unpaid balance is $42,488 larger than the unbilled balance because it includes the retainage you held. That is the one correction that helps the sub. The other two corrections move $101,200 of cost into the account and change what the $448,000 bid is actually buying.</p>
+
+<h2>Audit the Schedule of Values Before You Price Anything</h2>
+
+<p>The completion contractor does not bid on the 39.8 percent the sub left unbilled. It walks the building and bids on what is not there. Before you compare its number with anything, have your superintendent and the completion contractor's estimator walk every line of the schedule of values together and agree on a percent in place. Put the result next to the billing:</p>
+
+<table>
+<thead>
+<tr><th>SOV line</th><th>Scheduled value</th><th>Billed</th><th>In place (walked)</th><th>Earned</th><th>Overbilled</th></tr>
+</thead>
+<tbody>
+<tr><td>Mobilization, submittals, general</td><td>$32,000</td><td>$32,000</td><td>100%</td><td>$32,000</td><td>$0</td></tr>
+<tr><td>Equipment furnished (RTUs, VAV boxes)</td><td>$208,000</td><td>$208,000</td><td>75%</td><td>$156,000</td><td>$52,000</td></tr>
+<tr><td>Ductwork</td><td>$241,000</td><td>$115,680</td><td>40%</td><td>$96,400</td><td>$19,280</td></tr>
+<tr><td>Hydronic and refrigerant piping</td><td>$96,000</td><td>$38,400</td><td>30%</td><td>$28,800</td><td>$9,600</td></tr>
+<tr><td>Controls</td><td>$62,000</td><td>$9,300</td><td>5%</td><td>$3,100</td><td>$6,200</td></tr>
+<tr><td>Test and balance, startup, closeout</td><td>$45,000</td><td>$0</td><td>0%</td><td>$0</td><td>$0</td></tr>
+<tr><td>Approved change orders 1 to 3</td><td>$21,500</td><td>$21,500</td><td>60%</td><td>$12,900</td><td>$8,600</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$705,500</strong></td><td><strong>$424,880</strong></td><td><strong>46.7%</strong></td><td><strong>$329,200</strong></td><td><strong>$95,680</strong></td></tr>
+</tbody>
+</table>
+
+<p>Lay it out on a tab called SOV Audit with the scheduled value in column C, billed to date in D and the walked percent in E. Earned value is <code>=C5&#42;E5</code>, and overbilling is <code>=D5-F5</code>. Copy both down to row 11 and total them in row 12. The percent in place for the whole subcontract is <code>=F12/C12</code>, which returns 46.7 percent against 60.2 percent billed.</p>
+
+<p>Two things in that table decide the rest of the claim. First, 16 of the 64 VAV boxes were billed as stored material in pay application 4 and never delivered. That is the $52,000 on the equipment line, and it is a different kind of overbilling from a generous percentage on ductwork, as the bond section below shows. Second, retainage did not protect you. You held $42,488, but you paid $382,392 for work worth $329,200, so you have prepaid $53,192 of work that is not in the building. On the cost tab, where B4 holds paid to date, the formula is <code>=B4-'SOV Audit'!F12</code>, and it should sit on the first screen of the sheet, because it is the number that tells you whether retainage was ever covering anything.</p>
+
+<p>Most of that gap could have been caught at pay application 4. The <a href="/blog/subcontractor-payment-tracking-spreadsheet">subcontractor payment tracking spreadsheet</a> compares each pay app against the superintendent's walk before the check is cut, which is cheaper than doing it after the sub is gone.</p>
+
+<h2>Build the Cost to Complete, Line by Line</h2>
+
+<p>With the audit done, the remaining scope at contract prices is $376,300, which is 53.3 percent of the subcontract. The completion contractor's $448,000 is 19.1 percent over that. Inherited work carries a premium because the new crew warrants someone else's installation, works around finished ceilings and drywall, and knows you have no other option. Take that bid as the first line and add everything else the default costs you. The figures below are an example for this job, labeled as such; replace every one with your own quotes and logs.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Cost line</th><th>Amount</th><th>Basis</th></tr>
+</thead>
+<tbody>
+<tr><td>B6</td><td>Completion contractor bid</td><td>$448,000</td><td>Written bid on the walked scope</td></tr>
+<tr><td>B7</td><td>Rework of defective work</td><td>$18,700</td><td>Duct runs that failed the leakage test, tear-out and reinstall</td></tr>
+<tr><td>B8</td><td>Remobilization and securing</td><td>$9,400</td><td>Inventory of stored material, lockup, cleanup, engineer review of installed work</td></tr>
+<tr><td>B9</td><td>Extended general conditions</td><td>$31,600</td><td>4 weeks at $7,900 per week</td></tr>
+<tr><td>B10</td><td>Liquidated damages passed through</td><td>$27,000</td><td>18 calendar days at $1,500 per day after acceleration</td></tr>
+<tr><td>B11</td><td>Legal and consultant</td><td>$14,500</td><td>Default notices, bond correspondence, claim preparation</td></tr>
+<tr><td>B12</td><td>Total expense and damages</td><td>$549,200</td><td><code>=SUM(B6:B11)</code></td></tr>
+</tbody>
+</table>
+
+<p>On the same tab, B3 holds the adjusted subcontract sum, <code>=SUM('SOV Audit'!C5:C11)</code>, B4 holds paid to date from your payables, and B5 holds the unpaid balance, <code>=B3-B4</code>. The shortfall is <code>=B12-B5</code>, which returns $226,092. Build B9 as <code>=B15&#42;B16</code> from a weekly general conditions rate in B15 and a week count in B16, and B10 as <code>=B17&#42;B18</code> from the daily LD rate and the days of slip, so that when the schedule moves, the claim moves with it instead of sitting at last month's estimate.</p>
+
+<p>The rework line deserves its own log, with photos, test reports and the hours spent, because it is the line a surety disputes first. The <a href="/blog/construction-rework-cost-tracking-excel">construction rework cost tracking</a> layout records each item with the cause and the evidence attached. The LD line only belongs in the claim if your subcontract flows the owner's liquidated damages down to the sub; if it does, the <a href="/blog/construction-liquidated-damages-calculator-excel">construction liquidated damages calculator</a> counts the days against the critical path.</p>
+
+<h2>What the Performance Bond Pays, and the Payments It Will Not Count</h2>
+
+<p>A312 Section 7 lists what the surety owes when it completes or arranges completion: correction of defective work and completion of the contract, "additional legal, design professional and delay costs resulting from the Contractor's Default," and liquidated damages, or actual delay damages where the contract specifies none. Every line in the table above maps to one of those three items, which is why the table is built that way. Section 8 caps the surety at the bond amount when it chooses arranged completion, new bids or a cash settlement (Sections 5.1, 5.3 and 5.4). On this job the bond is $684,000, the original subcontract sum, so the $226,092 claim sits well inside it.</p>
+
+<p>The fight is over the other side of the subtraction. Section 14.1 defines the Balance of the Contract Price as the amount payable under the contract "reduced by all valid and proper payments." Expect the surety to argue that some of what you paid was neither valid nor proper, and to compute the balance as if you still held that money. Model the argument at two levels:</p>
+
+<table>
+<thead>
+<tr><th>Position</th><th>Payments the surety does not count</th><th>Balance of the contract price</th><th>Claim against the bond</th><th>Cost that stays with you</th></tr>
+</thead>
+<tbody>
+<tr><td>Your position: every payment was proper</td><td>$0</td><td>$323,108</td><td>$226,092</td><td>$0</td></tr>
+<tr><td>Narrow: the 16 VAV boxes never delivered</td><td>$46,800</td><td>$369,908</td><td>$179,292</td><td>$46,800</td></tr>
+<tr><td>Wide: everything paid beyond 90 percent of earned value</td><td>$86,112</td><td>$409,220</td><td>$139,980</td><td>$86,112</td></tr>
+</tbody>
+</table>
+
+<p>The narrow position is $52,000 of stored material that did not exist, paid at 90 percent. It is hard to defend, because your PM approved a stored-materials line without seeing the materials. The wide position treats every percentage your PM accepted above the walked value as an improper payment, which is $382,392 paid against $296,280 properly payable on $329,200 of earned work. Whether a court accepts either position depends on your subcontract's payment terms and your state's case law, so treat the table as the range you negotiate inside. In the sheet, the proper payment ceiling is <code>=ROUND('SOV Audit'!F12&#42;(1-B19),2)</code> with retainage in B19, and the wide exposure is <code>=MAX(0,B4-B20)</code> with that ceiling in B20.</p>
+
+<p>Book the claim in your forecast at the position you can document, and put the difference in contingency. A cost report that carries the full $226,092 as a recovery on day one is the same mistake as crediting a backcharge at 100 percent the day it is logged, which the <a href="/blog/subcontractor-backcharge-tracking-spreadsheet-excel">subcontractor backcharge tracking spreadsheet</a> discounts by the odds of collecting.</p>
+
+<h2>The Clock: Notices, the Conference and the Cost of Waiting</h2>
+
+<p>A312 Section 3 sets the order of events, and skipping a step hands the surety an argument. First, written notice to the sub and the surety that you are considering a declaration of default, saying whether you want a conference. If you do not ask for one, the surety can request it within five business days of receiving the notice, and the conference is held within ten business days of that receipt unless you agree otherwise. Then you declare the default, terminate, and notify the surety. Then you agree to pay the Balance of the Contract Price to the surety or to the contractor it brings in, which means the $42,488 of retainage and anything else still owed under the subcontract no longer belong to the sub. Release none of it to the sub.</p>
+
+<p>Section 4 softens the first step: missing the Section 3.1 notice does not release the surety unless it shows actual prejudice. Do not rely on that. If the surety does not act "with reasonable promptness," Section 6 puts it in default seven days after a second written notice demanding performance. And Section 11 gives you two years to sue, counted from the declaration of default or from the day the sub ceased working, whichever comes first.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Event</th><th>Date</th><th>Formula</th></tr>
+</thead>
+<tbody>
+<tr><td>B22</td><td>Sub's crew last on site</td><td>Tue, Oct 6, 2026</td><td>entered</td></tr>
+<tr><td>B23</td><td>Notice received by sub and surety</td><td>Thu, Oct 8, 2026</td><td>entered</td></tr>
+<tr><td>B24</td><td>Latest conference date</td><td>Thu, Oct 22, 2026</td><td><code>=WORKDAY(B23,10)</code></td></tr>
+<tr><td>B25</td><td>Default declared, subcontract terminated</td><td>Tue, Oct 27, 2026</td><td>entered</td></tr>
+<tr><td>B26</td><td>Last day to file suit on the bond</td><td>Fri, Oct 6, 2028</td><td><code>=MIN(EDATE(B22,24),EDATE(B25,24))</code></td></tr>
+</tbody>
+</table>
+
+<p>The suit deadline runs from the day the crew left, not from the day you declared default. Add your holiday list as the third argument of <code>WORKDAY</code> if your notice dates fall near one, since the bond does not define business days.</p>
+
+<p>Waiting has its own cost. With this scope on the critical path, every week the building sits without a mechanical crew, beyond the four weeks already priced, adds $7,900 of general conditions and $10,500 of liquidated damages, or $18,400 a week. The formula is <code>=B15+B17&#42;7</code>.</p>
+
+<table>
+<thead>
+<tr><th>Weeks before a completion crew mobilizes</th><th>Added delay cost</th><th>Total expense and damages</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>$36,800</td><td>$586,000</td></tr>
+<tr><td>4</td><td>$73,600</td><td>$622,800</td></tr>
+<tr><td>6</td><td>$110,400</td><td>$659,600</td></tr>
+<tr><td>8</td><td>$147,200</td><td>$696,400</td></tr>
+</tbody>
+</table>
+
+<p>Those delay costs are recoverable under Section 7 if they result from the default or from the surety's failure to act, but they are capped by the bond under three of the surety's four options, and you pay them first. That is the case for terminating under A401 Section 7.2.1 and hiring the completion contractor yourself once the ten-day cure period has run, with the surety informed in writing at each step. The trade-off is that you then carry the burden of proving every dollar was reasonable, which is what the cost table is for.</p>
+
+<h2>The Supplier You Thought You Already Paid</h2>
+
+<p>The performance bond is half the exposure. The four rooftop units are set and you paid the sub for them in pay application 3, but the sub never paid its equipment supplier, who has now sent you a demand for $74,600. If the sub furnished a payment bond, that supplier claims against the sub's payment bond surety. If it did not, check the lien clause in your prime contract, because if you must keep the project free of liens, you will pay for those rooftop units twice and add the $74,600 to your claim against the sub.</p>
+
+<p>Put that exposure in its own row, B28, and the total in B29 as <code>=B12-B5+B28</code>, which returns $300,692. Keep it outside the performance bond claim so that the surety cannot fold it into the Section 7 negotiation. It is also the cheapest of the problems to have prevented: a conditional lien waiver from the supplier on pay application 3 would have cost a phone call.</p>
+
+<h2>What to Do in the First Two Weeks</h2>
+
+<p>Freeze the money before you price anything. Hold all retainage and any pay application still in process, and log every dollar paid to the sub with its date and the pay app it settled. Then do the work in this order:</p>
+
+<ul>
+<li>Send the Section 3.1 notice to the sub and the surety the day the crew stops, at the address the bond gives for the surety (Section 12).</li>
+<li>Walk the schedule of values with the completion contractor's estimator and photograph every line, especially stored material.</li>
+<li>Get a written completion bid on the walked scope and build the six-line cost table around it.</li>
+<li>Calculate the shortfall at your position, the narrow position and the wide position, and book the narrow one.</li>
+<li>Put the supplier and lien exposure in a separate row and ask every supplier for its open balance.</li>
+<li>Enter the Section 11 deadline in your calendar from the day the crew left.</li>
+</ul>
+
+<p>On this job, that sequence turns a $167,380 guess into a $226,092 claim you can defend, with $46,800 of it in honest doubt and $74,600 more on the payment side. The next default starts at prequalification: the <a href="/blog/subcontractor-prequalification-scorecard-excel">subcontractor prequalification scorecard</a> checks bonding, backlog and safety record before the award, and the bond only pays back what this cost table can prove.</p>
+
+<p>The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> carries the job-side half of this work. It logs every invoice and payment by sub and supplier with its status, applies change orders to the line items they touch, and shows percent complete against percent spent with a projected final cost on the dashboard, which is where a 60 percent billed, 47 percent built mechanical line becomes visible before the crew walks. It does not audit a schedule of values or compute a bond claim, so add the SOV Audit and cost-to-complete tabs above beside it, and feed them the payment history it already holds.</p>`,
+  },
+  {
     slug: 'brrrr-refinance-appraisal-shortfall-calculator-excel',
     title: 'BRRRR Refinance Appraisal Shortfall Calculator Excel: Price Each Fix Before You Sign',
     metaTitle: 'BRRRR Refinance Appraisal Shortfall Calculator | SheetCraft',
