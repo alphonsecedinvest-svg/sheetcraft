@@ -16,6 +16,194 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-delay-notice-deadline-tracker-excel',
+    title: 'Construction Delay Notice Deadline Tracker Excel: Why a Sub Gets 17 Days, Not 21',
+    metaTitle: 'Construction Delay Notice Deadline Tracker | SheetCraft',
+    metaDescription: 'An owner delay worth $16,488 dies on a day 22 notice. A construction delay notice deadline tracker in Excel shows why a sub gets 17 days, not 21.',
+    targetKeyword: 'construction delay notice deadline tracker Excel',
+    secondaryKeywords: ['construction delay claim notice', 'A201 21 day notice', 'A401 subcontractor claim deadline', 'notice of delay letter', 'FAR 52.242-14 suspension of work'],
+    excerpt: 'A three-week owner hold costs an electrical sub $16,488. The GC has 21 days to give notice under A201, but A401 makes the sub\'s deadline two working days earlier, so the real clock is 17 days. Here is the tracker that shows the date, and what a late notice costs under each clause.',
+    publishedAt: '2026-10-16',
+    readTime: 15,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-delay-notice-deadline-tracker-excel.png',
+    imageAlt: 'Ink and watercolor illustration of an unfinished commercial interior with an empty suspended ceiling grid, coils of electrical cable hanging from the deck and two idle scissor lifts parked on a bare concrete floor',
+    content: `<p>An owner holds the release of the Level 2 ceilings on a three-story medical office building while a tenant redraws its layout. The electrical sub's rough-in stops on Tuesday, September 8, 2026, and does not restart until Tuesday, September 29: fifteen working days with a foreman on site, two lifts on rent and a crew sent elsewhere, then a half-day to bring six electricians back. That is $16,488 the sub did not price. The project manager waits for the hold to end so the letter can state a real number, and the notice goes out on Wednesday, September 30, day 22. A construction delay notice deadline tracker in Excel exists for exactly this job, because under the standard AIA documents that notice was due on day 17, and nobody on the sub's side knew the date.</p>
+
+<p>The number everyone carries in their head is 21 days. It is the general contractor's number, written into the prime contract. A subcontractor working under AIA A401-2017 has a shorter clock that starts on the same day, and a delay notice is due long before anyone knows how long the delay will last. This article builds the tracker around those two facts, then shows what a late notice actually costs under three different contract regimes, because the answer ranges from losing $1,960 to losing the whole claim.</p>
+
+<h2>Where the 21 Days Come From, and Why a Sub Gets 17</h2>
+
+<p>AIA A201-2017, the general conditions behind most private commercial prime contracts, sets the clock in Section 15.1.3.1: claims "shall be initiated within 21 days after occurrence of the event giving rise to such Claim or within 21 days after the claimant first recognizes the condition giving rise to the Claim, whichever is later." Section 15.1.6.1 applies the same notice to a claim for more time. Section 8.3.1 lists what qualifies for a time extension, including an act or neglect of the owner or architect, changes ordered in the work, unusual delay in deliveries and documented abnormal weather.</p>
+
+<p>That clock belongs to the general contractor. The sub's clock is in A401-2017, Section 5.3. A claim that will become part of a claim the contractor must make under the prime contract has to be made "in sufficient time to permit the Contractor to satisfy the requirements of the Prime Contract," and it must be received by the contractor "not less than two working days preceding the time by which the Contractor's Claim must be made." If the sub misses that, it is bound "to the same consequences as those to which the Contractor is bound."</p>
+
+<p>Run the ceiling hold through both clauses:</p>
+
+<table>
+<thead><tr><th>Date</th><th>Day after event</th><th>What happens</th></tr></thead>
+<tbody>
+<tr><td>Tue, Sep 8, 2026</td><td>0</td><td>Owner holds Level 2 ceiling release, rough-in stops</td></tr>
+<tr><td>Fri, Sep 25, 2026</td><td>17</td><td>Last day the GC can receive the sub's notice under A401 Section 5.3</td></tr>
+<tr><td>Mon, Sep 28, 2026</td><td>20</td><td>Last day of standby, fifteenth working day of the hold</td></tr>
+<tr><td>Tue, Sep 29, 2026</td><td>21</td><td>GC's own deadline to the owner under A201 Section 15.1.3.1; crew remobilizes</td></tr>
+<tr><td>Wed, Sep 30, 2026</td><td>22</td><td>The sub's notice actually goes out</td></tr>
+</tbody>
+</table>
+
+<p>Two working days before a Tuesday is the Friday before it, so the sub's window is 17 calendar days. Over a weekend or a holiday it shrinks further. And if your subcontract was drafted by the GC instead of taken from the AIA form, it may state its own, shorter number. The tracker below takes whichever date comes first.</p>
+
+<p>The "whichever is later" language in 15.1.3.1 is the only part of the clock that can move in your favor. If you first learned of the condition two days after it happened, the window runs from the later date. That only helps if the recognition date is written down with evidence, such as the email or the RFI response that told you. Without it, the event date governs.</p>
+
+<h2>A Delay Notice Is Due Before You Know the Delay</h2>
+
+<p>The day 22 letter was not careless. The project manager wanted to send a claim with a number in it, and on a continuing delay the number does not exist until the delay ends. That instinct is what kills delay claims, because the clock runs from the start of the event, not from the end.</p>
+
+<p>A201 already solves this. Section 15.1.6.1 says the claim for time "shall include an estimate of cost and of probable effect of delay on progress of the Work" and, in the next sentence, "In the case of a continuing delay, only one Claim is necessary." An estimate is enough, and one notice covers a delay that keeps running. On the ceiling hold, a notice on day 3 with the daily rate and an estimated duration of two to four weeks would have been timely and would have covered every day that followed.</p>
+
+<p>Price the daily rate before you write the notice, from field costs only. If the claim passes through to an owner under A201, Section 15.1.7 waives the contractor's "principal office expenses including the compensation of personnel stationed there," so home office overhead does not belong in the number. Here is how this sub's $16,488 is built, with this example's burdened rates:</p>
+
+<table>
+<thead><tr><th>Cost line</th><th>Basis</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Foreman kept on site</td><td>8 hours at $96.50 per working day</td><td>$772.00 per day</td></tr>
+<tr><td>Two scissor lifts on rent</td><td>$58.00 each per working day</td><td>$116.00 per day</td></tr>
+<tr><td>Truck and storage container</td><td>Per working day</td><td>$92.00 per day</td></tr>
+<tr><td>Daily standby rate</td><td>Sum of the three lines</td><td>$980.00 per day</td></tr>
+<tr><td>Standby, Sep 8 to Sep 28</td><td>15 working days at $980.00</td><td>$14,700</td></tr>
+<tr><td>Remobilization, Sep 29</td><td>6 electricians, 4 hours at $74.50</td><td>$1,788</td></tr>
+<tr><td>Total delay cost</td><td></td><td>$16,488</td></tr>
+</tbody>
+</table>
+
+<p>A notice that meets the A201 and A401 language carries these items, and none of them requires knowing the end date:</p>
+
+<ul>
+<li>The event, its date, and who caused it, in one sentence.</li>
+<li>The recognition date and the document that established it, if it is later than the event date.</li>
+<li>The activities stopped or slowed, by schedule activity ID where you have one.</li>
+<li>The daily rate and what it is made of, as in the table above.</li>
+<li>An estimated duration and its effect on your completion dates, labeled as an estimate.</li>
+<li>A sentence stating that the delay is continuing and that you will update the estimate when it ends.</li>
+<li>Delivery to the notice address in the subcontract, with proof of receipt.</li>
+</ul>
+
+<p>The same discipline applies on the owner side of the job. The <a href="/blog/construction-owner-decision-log-template-excel">owner decision log</a> turns a late owner answer into a dated notice trigger, which is often where events like this ceiling hold begin.</p>
+
+<h2>What a Late Notice Costs Depends on the Clause</h2>
+
+<p>The usual warning says a late notice makes the claim worth nothing. Sometimes it does. The clause decides, and the three regimes a sub is most likely to work under give three different answers for the same $16,488 delay.</p>
+
+<p><strong>Owner-modified A201 with a waiver sentence.</strong> The standard text of 15.1.3.1 sets the 21 days but does not say what happens if you miss them. Some owners add a sentence such as "otherwise the Claim is waived." Under that sentence and A401 Section 5.3, a late notice is worth zero. A notice that reaches the GC on day 18 to 21 is late under A401, but the GC can still forward it on time, so its value depends on the GC acting that same day.</p>
+
+<p><strong>Unmodified A201.</strong> With no waiver sentence, a late notice becomes a legal question about how your state's courts read a notice clause that does not state its own consequence. For planning purposes, treat it as worth zero, because a claim you have to litigate before you can negotiate it is not money you can count on.</p>
+
+<p><strong>Federal job under the FAR.</strong> Time and money run on two separate clocks. FAR 52.249-10, the default clause for fixed-price construction, protects the contractor from termination and damages for an excusable delay only if it notifies the contracting officer in writing "within 10 days from the beginning of any delay (unless extended by the Contracting Officer)." FAR 52.242-14, Suspension of Work, does not bar a late money claim at all. It disallows "any costs incurred more than 20 days before the Contractor shall have notified the Contracting Officer in writing," and that limit does not apply when the delay comes from a written suspension order.</p>
+
+<p>Here is the same ceiling hold valued by the day written notice is received. For the federal column, the day is when the contracting officer receives it, which on a subcontract means the prime has to forward your notice in time.</p>
+
+<table>
+<thead><tr><th>Notice received</th><th>A401 + A201 with waiver</th><th>A401 + unmodified A201</th><th>FAR 52.242-14 money</th><th>FAR 52.249-10 time</th></tr></thead>
+<tbody>
+<tr><td>Day 3, Sep 11</td><td>$16,488</td><td>$16,488</td><td>$16,488</td><td>Timely</td></tr>
+<tr><td>Day 17, Sep 25</td><td>$16,488</td><td>$16,488</td><td>$16,488</td><td>Late unless extended</td></tr>
+<tr><td>Day 20, Sep 28</td><td>$16,488 only if the GC forwards it by Sep 29</td><td>Same, at the GC's discretion</td><td>$16,488</td><td>Late unless extended</td></tr>
+<tr><td>Day 22, Sep 30</td><td>$0</td><td>Contested</td><td>$14,528</td><td>Late unless extended</td></tr>
+<tr><td>Day 30, Oct 8</td><td>$0</td><td>Contested</td><td>$8,648</td><td>Late unless extended</td></tr>
+</tbody>
+</table>
+
+<p>On the federal job the day 22 notice loses $1,960, the cost of September 8 and 9, which were incurred more than 20 days before September 30. At day 30 it loses $7,840, eight working days of standby. The money claim shrinks a day at a time. The time claim is the one that dies first: by day 11 the 10 day window is gone and the extension depends on the contracting officer, and every day of delay without an extension is a day you either buy back by accelerating or pay as liquidated damages passed down from the prime. The <a href="/blog/construction-acceleration-cost-claim-calculator-excel">acceleration cost claim calculator</a> prices the first option, and the <a href="/blog/construction-liquidated-damages-calculator-excel">liquidated damages calculator</a> prices the second.</p>
+
+<p>On the private job, the gap between the GC's day 21 and the sub's day 17 is where the money is lost. A sub who believes it has 21 days and sends on day 20 has handed the GC a decision about whether to forward a late notice under a clause that binds the sub to the consequences.</p>
+
+<h2>Build the Delay Notice Tracker</h2>
+
+<p>One row per delay event, one control cell, and every deadline calculated from dates you type once. Put the run date in B2 as a typed date rather than <code>=TODAY()</code>, so a printed copy shows the date it was checked. Headers go in row 4 and events start in row 5.</p>
+
+<table>
+<thead><tr><th>Column</th><th>Holds</th><th>Entry or formula</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Event ID</td><td>E1, E2...</td></tr>
+<tr><td>B</td><td>Description and cause</td><td>Typed</td></tr>
+<tr><td>C</td><td>Event date</td><td>Typed</td></tr>
+<tr><td>D</td><td>Recognition date, with its evidence in a note</td><td>Typed, same as C if no later evidence</td></tr>
+<tr><td>E</td><td>Prime contract notice window, days</td><td>21 under unmodified A201</td></tr>
+<tr><td>F</td><td>Working days the GC needs before its deadline</td><td>2 under A401 Section 5.3</td></tr>
+<tr><td>G</td><td>GC's deadline to the owner</td><td><code>=MAX(C5,D5)+E5</code></td></tr>
+<tr><td>H</td><td>Your deadline</td><td><code>=WORKDAY(G5,-F5)</code></td></tr>
+<tr><td>I</td><td>Notice received by the GC</td><td>Typed from the delivery receipt</td></tr>
+<tr><td>J</td><td>Delay end date</td><td>Blank while the delay continues</td></tr>
+<tr><td>K</td><td>Daily rate, field costs only</td><td>From the cost build-up</td></tr>
+<tr><td>L</td><td>Days left</td><td><code>=IF(I5="",H5-$B$2,"")</code></td></tr>
+<tr><td>M</td><td>Status</td><td>Formula below</td></tr>
+<tr><td>N</td><td>Cost accrued so far</td><td><code>=K5&#42;NETWORKDAYS(C5,IF(J5="",$B$2,J5))</code></td></tr>
+</tbody>
+</table>
+
+<p>Column H is the one that changes behavior. It turns the 21 days in everyone's head into the date the sub actually has to hit. If your subcontract states its own window, add it in column O and use <code>=MIN(WORKDAY(G5,-F5),MAX(C5,D5)+O5)</code> instead, which keeps the earlier of the two. <code>WORKDAY</code> takes an optional third argument for a range of holidays. Add one if the contract defines working days to exclude them.</p>
+
+<p>The status in M5 names the action to take:</p>
+
+<p><code>=IF(I5&lt;&gt;"",IF(I5&lt;=H5,"SENT","SENT LATE"),IF($B$2&gt;G5,"BLOWN",IF($B$2&gt;H5,"CALL GC TODAY",IF(H5-$B$2&lt;=3,"SEND TODAY","OPEN"))))</code></p>
+
+<p>CALL GC TODAY is the state between your deadline and the GC's. The notice is late under A401, but the GC can still make its own deadline if it has your letter that afternoon, so the phone call matters more than the letter. BLOWN means both deadlines have passed and the event goes to a claim review with whoever handles your contract disputes.</p>
+
+<p>Two summary cells go above the log. The first is the money that must leave the building in writing within three days:</p>
+
+<p><code>=SUMIFS(N5:N60,M5:M60,"SEND TODAY")+SUMIFS(N5:N60,M5:M60,"CALL GC TODAY")</code></p>
+
+<p>The second is the money already exposed, which is the number to report to the company's owner this week:</p>
+
+<p><code>=SUMIFS(N5:N60,M5:M60,"BLOWN")+SUMIFS(N5:N60,M5:M60,"SENT LATE")</code></p>
+
+<p>On a federal job, add one more column that applies the 52.242-14 lookback to a daily cost log on a second tab, so the claim shows only what survives the notice date. Type the contracting officer's receipt date in column I. With event IDs in column A of the cost log, dates in column B and amounts in column C:</p>
+
+<p><code>=SUMIFS(CostLog!C:C,CostLog!A:A,A5,CostLog!B:B,"&gt;="&amp;(I5-20))</code></p>
+
+<p>The daily cost log is easier to defend when it matches the field record line for line. The <a href="/blog/construction-daily-log-template-excel">construction daily log template</a> captures crew counts and equipment on site each day, which is the evidence behind column K.</p>
+
+<h2>One Job, Five Events, Run on September 24</h2>
+
+<p>Here is the electrical sub's log on Thursday, September 24, 2026, the day before the ceiling hold's deadline. Every deadline uses a 21 day prime window and a 2 working day buffer.</p>
+
+<table>
+<thead><tr><th>ID</th><th>Event</th><th>Event date</th><th>Recognized</th><th>GC deadline</th><th>Your deadline</th><th>Notice</th><th>Daily rate</th><th>Days left</th><th>Status</th><th>Accrued</th></tr></thead>
+<tbody>
+<tr><td>E1</td><td>Owner hold, Level 2 ceilings</td><td>Sep 8</td><td>Sep 8</td><td>Sep 29</td><td>Sep 25</td><td></td><td>$980</td><td>1</td><td>SEND TODAY</td><td>$12,740</td></tr>
+<tr><td>E2</td><td>Late RFI answer, panel relocation</td><td>Sep 14</td><td>Sep 14</td><td>Oct 5</td><td>Oct 1</td><td></td><td>$410</td><td>7</td><td>OPEN</td><td>$3,690</td></tr>
+<tr><td>E3</td><td>Utility transformer delivery slip</td><td>Sep 1</td><td>Sep 2</td><td>Sep 23</td><td>Sep 21</td><td>Sep 16</td><td>$0</td><td></td><td>SENT</td><td>$0</td></tr>
+<tr><td>E4</td><td>Owner scope walk, sequence hold, ended Sep 3</td><td>Aug 27</td><td>Aug 27</td><td>Sep 17</td><td>Sep 15</td><td></td><td>$640</td><td>-9</td><td>BLOWN</td><td>$3,840</td></tr>
+<tr><td>E5</td><td>Owner-furnished shielding late</td><td>Sep 21</td><td>Sep 22</td><td>Oct 13</td><td>Oct 9</td><td></td><td>$520</td><td>15</td><td>OPEN</td><td>$2,080</td></tr>
+</tbody>
+</table>
+
+<p>The send-today cell reads $12,740, still climbing at $980 a working day, and the notice behind it has to reach the GC by Friday. The exposed cell reads $3,840: the six-day sequence hold that started in late August that everybody discussed in the coordination meeting and nobody put in a letter. E3 carries no daily rate because the sub is asking only for time: A201 Section 8.3.1 lists unusual delay in deliveries among the causes that extend the Contract Time, and the notice went out on day 15 to protect it. E5 shows the recognition date at work: the shielding was due on the 21st but the owner's notice of the slip arrived on the 22nd, so the clock runs from the 22nd and the deadline lands on Friday, October 9.</p>
+
+<p>Look at what the log does not need. It never asks how long E1 will last. It asks for the event date, the recognition date and the daily rate, and those were known on September 8. The notice that went out on day 22 in the opening example could have gone out with the same three facts on day 3.</p>
+
+<h2>The Weekly Routine That Keeps the Log Honest</h2>
+
+<p>A tracker that nobody opens on schedule is a record of missed deadlines. Fifteen minutes on the same morning every week keeps it working:</p>
+
+<ul>
+<li>Update B2 to today's date and sort by column L, smallest first.</li>
+<li>Send every SEND TODAY and call the GC on every CALL GC TODAY before noon.</li>
+<li>Add any new event from the daily logs, the RFI log and the coordination meeting minutes, even if nobody yet knows whether it will cost anything. A row costs nothing and a missing row costs the claim.</li>
+<li>For every continuing delay, check that the notice on file still matches the daily rate, and send an update when the estimate changes.</li>
+<li>Close a row by typing the end date in column J, which freezes the accrued cost.</li>
+<li>Check column E against the contract on every new project. Owners edit the A201 notice window, and the edited number can change from one job to the next.</li>
+</ul>
+
+<p>The <a href="/blog/construction-change-order-tracking-excel">change order tracking log</a> uses the same deadline column for changed work, and the two belong in one workbook, because a delay usually arrives with a change attached. Weather events follow the same clock with an extra documentation burden under A201 Section 15.1.6.2, which is what the <a href="/blog/construction-weather-delay-log-excel">weather delay log</a> is built to carry. When a delay keeps temporary power, heat or site services running past their planned end, those costs belong in the daily rate too, and the <a href="/blog/construction-temporary-utilities-cost-tracker-excel">temporary utilities cost tracker</a> shows how to price them.</p>
+
+<h2>What to Do Before Your Next Delay</h2>
+
+<p>Open your current subcontract and the prime contract it incorporates. Find the prime's notice window and the clause that tells you how far ahead of the GC's deadline your claim must arrive, then type both numbers into columns E and F for every open event. If the prime adds a waiver sentence, mark the job so your project managers know a late notice there is worth zero. Then set one rule for the team: the notice goes out within three working days of the event, with an estimate, and it is updated as the delay continues. On the ceiling hold that rule would have protected $16,488 instead of leaving it to the GC's goodwill, and on a federal job it would also have protected the time extension.</p>
+
+<p>The <a href="/products/construction-budget-tracker">SheetCraft Construction Budget Tracker</a> holds the money side of every row in this log. Log each delay cost as an actual against its line item, enter the claim as a change order when it is approved and watch it flow through the budget, and keep the payment history by sub and supplier that backs up your daily rate. It does not calculate notice deadlines, so add the delay notice tab above beside it and point column K at the costs the budget tracker already records.</p>`,
+  },
+  {
     slug: 'construction-subcontractor-default-cost-to-complete-calculator-excel',
     title: 'Construction Subcontractor Default Cost to Complete Calculator Excel: Price the Real Shortfall Before the Bond Claim',
     metaTitle: 'Subcontractor Default Cost to Complete | SheetCraft',
