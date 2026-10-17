@@ -16,6 +16,185 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-per-diem-travel-cost-calculator-excel',
+    title: 'Construction Per Diem Travel Cost Calculator in Excel: Price the Nights, the Tax and the Drive',
+    metaTitle: 'Construction Per Diem Travel Cost Calculator | SheetCraft',
+    metaDescription: 'A construction per diem travel cost calculator in Excel that prices hotel nights, lodging tax and paid drive time: $37,825 for a 6-week job, not $25,200.',
+    targetKeyword: 'construction per diem travel cost calculator Excel',
+    secondaryKeywords: ['GSA per diem rates 2027', 'out of town crew travel cost', 'FLSA travel time pay', 'per diem accountable plan', 'lodging tax per diem'],
+    excerpt: 'Four people, six weeks, 330 miles from the yard. Crew times workdays times the GSA rate says $25,200. Counting hotel nights, lodging tax and paid drive time, the job spends $37,825, and the Sunday departure time alone moves it by $4,906.59.',
+    publishedAt: '2026-10-17',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-per-diem-travel-cost-calculator-excel.png',
+    imageAlt: 'Ink and watercolor illustration of a white work pickup with a ladder rack and four hard hats on its tailgate, parked outside a roadside motel at dusk, oil pumpjacks on the flat horizon',
+    content: `<p>A Dallas electrical subcontractor is bidding a six-week tenant finish job in Midland, Texas, about 330 miles west. The crew is four people: a foreman, two journeymen and a helper. The estimator opens the GSA site, finds the Midland rate, and types one line into the bid: 4 people times 30 workdays times $210 a day, or $25,200 for travel. A construction per diem travel cost calculator in Excel built the way most people build it stops there. The job will actually spend $37,825 on getting the crew there, housing it and feeding it, which is $12,625 more than the bid carries.</p>
+
+<p>That gap is 32 percent of the job's burdened field labor ($39,348 for six weeks of straight time). The GSA rate itself is right. The gap comes from three things the one-line formula cannot see: the crew sleeps in Midland on nights that are not workdays, the federal lodging rate does not include hotel tax, and the drive out and back is payroll, often at overtime. This article prices all three, shows where the federal rate stops being a cost estimate and starts being a tax ceiling, and ends with the weekend question every out-of-town job forces: keep the crew there, or bring it home.</p>
+
+<h2>Why crew times workdays times the GSA rate comes up $12,625 short</h2>
+
+<p>The GSA rate for fiscal year 2027 (October 1, 2026 to September 30, 2027) in the Midland/Odessa area, which covers Midland, Andrews, Ector and Martin counties, is $136 a night for lodging and $74 a day for meals and incidentals (M&amp;IE). It is flat all year, so there is no seasonal step to track on this job. The standard rate for places without their own entry is $113 and $68.</p>
+
+<p>The bid formula multiplies those rates by workdays. The hotel bills by night and the crew eats every calendar day it is away. If the crew drives out Sunday, stays through the weekends and drives home after the last shift on Friday of week six, the job runs 30 workdays, 40 hotel nights and 41 calendar days away from home.</p>
+
+<table>
+<thead><tr><th>Line</th><th>One-line bid</th><th>Crew stays weekends</th><th>Difference</th></tr></thead>
+<tbody>
+<tr><td>Hotel nights per person</td><td>30</td><td>40</td><td>+10</td></tr>
+<tr><td>Lodging, 4 rooms</td><td>$16,320.00</td><td>$24,588.80</td><td>+$8,268.80</td></tr>
+<tr><td>M&amp;IE, 4 people</td><td>$8,880.00</td><td>$11,988.00</td><td>+$3,108.00</td></tr>
+<tr><td>Truck mileage, 2 one-way trips</td><td>$0.00</td><td>$501.60</td><td>+$501.60</td></tr>
+<tr><td>Paid drive time (foreman driving)</td><td>$0.00</td><td>$746.66</td><td>+$746.66</td></tr>
+<tr><td>Total travel cost</td><td>$25,200.00</td><td>$37,825.06</td><td>+$12,625.06</td></tr>
+</tbody>
+</table>
+
+<p>Three corrections are hiding in the lodging line alone.</p>
+
+<ul>
+<li>Count nights. Each of the five weekends in the middle of the job adds a Friday and a Saturday night, 10 nights in all, so 30 workdays become 40 nights.</li>
+<li>Hotel tax is on top. GSA publishes CONUS lodging rates without tax, and the Federal Travel Regulation reimburses lodging tax as a separate expense (41 CFR 301-11.16). Texas charges a 6 percent state hotel occupancy tax and Midland adds a 7 percent city tax under its ordinance 7837, so a $136 room costs $153.68 a night. Check for any county or venue tax at your own job location.</li>
+<li>Room count is a decision. The table assumes one room per person. Two to a room cuts lodging to $12,294.40 and the total to $25,530.66, which is close to the bid's $25,200 by accident. If the bid assumed doubled-up rooms, the crew needs to know that before it leaves the yard.</li>
+</ul>
+
+<p>M&amp;IE follows calendar days, with one adjustment: the departure day and the return day count at 75 percent. GSA publishes that figure for every M&amp;IE tier, and for Midland's $74 tier it is $55.50. Section 6.04 of Rev. Proc. 2019-48 lets an employer use the same three-quarters rule for partial days, or any other method applied consistently. With 39 full days and 2 partial days per person, M&amp;IE is $2,997 a head against $2,220 in the bid.</p>
+
+<h2>The federal rate is a tax ceiling, so pay it on purpose</h2>
+
+<p>The GSA number feels like a price because it is published like one. For a contractor it does a different job: it is the most you can pay a traveling employee without the money turning into wages.</p>
+
+<p>Rev. Proc. 2019-48 is the IRS rule here. A per diem paid under an accountable plan, up to the federal rate for the locality, is not reported on the W-2 and is not subject to withholding or employment taxes, as long as the employee substantiates time, place and business purpose of the travel. The portion above the federal rate is reported as wages and taxed. Two details catch construction firms:</p>
+
+<ul>
+<li>An allowance computed like pay, per hour worked, is not a per diem at all under section 3.03(2) of the procedure. "Five dollars an hour travel pay" is wages.</li>
+<li>If the arrangement routinely pays above the federal rate with no process to catch and tax the excess, section 8.06 treats the whole allowance as paid under a nonaccountable plan. Every dollar becomes W-2 wages.</li>
+</ul>
+
+<p>The Labor Department reaches the same boundary from the overtime side. Under 29 CFR 778.217(c)(2), a travel reimbursement at or below the Federal Travel Regulation or IRS per diem amount is per se reasonable and stays out of the regular rate used to compute overtime. Above that line there is no automatic presumption either way, and a "disproportionately large" excess goes into the regular rate.</p>
+
+<p>Here is what that looks like when the company books the hotel and pays the crew a flat $100 a day for meals because it sounds generous and is easy to remember.</p>
+
+<table>
+<thead><tr><th>Per person, 41 days away</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Flat allowance paid, 41 days at $100</td><td>$4,100.00</td></tr>
+<tr><td>Federal M&amp;IE deemed substantiated (39 at $74, 2 at $55.50)</td><td>$2,997.00</td></tr>
+<tr><td>Excess reported as W-2 wages</td><td>$1,103.00</td></tr>
+<tr><td>Crew of 4, excess wages</td><td>$4,412.00</td></tr>
+<tr><td>Employer FICA plus unemployment tax, example 10.85%</td><td>$478.70</td></tr>
+<tr><td>If the whole allowance is recharacterized: crew wages</td><td>$16,400.00</td></tr>
+<tr><td>Employer tax on the recharacterized amount</td><td>$1,779.40</td></tr>
+</tbody>
+</table>
+
+<p>The $478.70 is a rounding error on a $37,825 travel budget. The $1,779.40 version arrives with a payroll tax notice and four employees who owe income tax on money they thought was expense reimbursement. Paying exactly the federal rate costs less than the flat $100, keeps every dollar off the W-2, and leaves nothing to explain. The simpler alternative, the IRS high-low method under Notice 2026-60, pays $230 a day for lodging plus M&amp;IE in ordinary localities and $329 in high-cost ones from October 1, 2026. Midland is not on the high-cost list, which starts at a federal per diem of $280.</p>
+
+<h2>Drive time is payroll, and the Sunday clock sets the price</h2>
+
+<p>The bid line has no hours in it. The Fair Labor Standards Act regulation on overnight travel, 29 CFR 785.39, does. Travel that keeps an employee away from home overnight counts as hours worked when it cuts across the employee's workday, and that includes "the corresponding hours on nonworking days." If the crew normally works 7:00 to 3:30 Monday to Friday, then 7:00 to 3:30 on a Sunday is paid time for anyone in the truck. The Labor Department's enforcement policy in the same section does not count travel outside those hours for a passenger.</p>
+
+<p>The driver is different. Under 29 CFR 785.41, an employee who drives the truck, or rides as a required assistant or helper, is working the whole time, except for bona fide meal periods. That applies whether the drive is Sunday at 9:00 in the morning or Friday at 6:00 in the evening.</p>
+
+<p>Those hours land on top of a 40-hour week, so on a Sunday-to-Saturday workweek they are overtime. Loaded with the same burden assumptions used in the <a href="/blog/construction-overtime-premium-vs-second-crew-calculator-excel">overtime premium versus second crew calculator</a> (FICA 7.65 percent and unemployment taxes 3.2 percent on the full wage, workers comp 11.5 percent on the straight-time portion only), an overtime hour costs:</p>
+
+<table>
+<thead><tr><th>Crew member</th><th>Base wage</th><th>Straight-time hour, burdened</th><th>Overtime hour, burdened</th></tr></thead>
+<tbody>
+<tr><td>Foreman (driver)</td><td>$42.00</td><td>$51.39</td><td>$74.67</td></tr>
+<tr><td>Journeyman</td><td>$34.00</td><td>$41.60</td><td>$60.44</td></tr>
+<tr><td>Journeyman</td><td>$34.00</td><td>$41.60</td><td>$60.44</td></tr>
+<tr><td>Helper</td><td>$24.00</td><td>$29.36</td><td>$42.67</td></tr>
+</tbody>
+</table>
+
+<p>The drive is five hours each way plus a meal stop. Leave Sunday at 9:00 and arrive at 2:30: the whole drive falls inside 7:00 to 3:30, so the three passengers are on the clock for five hours each, $817.76 in overtime for that one trip. Leave at 4:00 in the afternoon and arrive at 9:30 at night: the passengers cost nothing and only the foreman is paid. Same truck, same road, same Monday start.</p>
+
+<p>This is the federal floor. Some states count more travel time as work than the FLSA does, so before you set a departure policy, confirm your state's wage rules on travel. The burden percentages above are example values: replace them with your own payroll tax rates and your workers comp class code rate, the same inputs as in the <a href="/blog/construction-labor-burden-rate-calculator-excel">labor burden rate calculator</a>.</p>
+
+<h2>Stay for the weekend or drive home: the answer at 330 miles</h2>
+
+<p>With the drive priced, the weekend question has numbers on both sides. Four schedules for the same six-week job, same crew, same hotel rate, the truck charged at the IRS business mileage rate of 76 cents a mile (in effect from July 1 to December 31, 2026) as a stand-in for your own cost per mile:</p>
+
+<table>
+<thead><tr><th>Schedule</th><th>Nights</th><th>Lodging and M&amp;IE</th><th>Mileage</th><th>Paid drive time</th><th>Total</th></tr></thead>
+<tbody>
+<tr><td>A. Stay weekends, leave Sunday 9:00</td><td>40</td><td>$36,576.80</td><td>$501.60</td><td>$1,564.42</td><td>$38,642.82</td></tr>
+<tr><td>B. Stay weekends, leave Sunday 4:00 pm</td><td>40</td><td>$36,576.80</td><td>$501.60</td><td>$746.66</td><td>$37,825.06</td></tr>
+<tr><td>C. Home every weekend, leave Sunday 4:00 pm</td><td>30</td><td>$28,209.60</td><td>$3,009.60</td><td>$4,479.93</td><td>$35,699.13</td></tr>
+<tr><td>D. Home every weekend, leave Sunday 9:00</td><td>30</td><td>$28,209.60</td><td>$3,009.60</td><td>$9,386.52</td><td>$40,605.72</td></tr>
+</tbody>
+</table>
+
+<p>The cheapest schedule (C) and the most expensive (D) differ only in the time the truck leaves on Sunday. That departure time is worth $4,906.59 over six weeks, more than twice the $2,125.93 that separates staying (B) from going home (C).</p>
+
+<p>Each weekend the crew stays costs two hotel nights for four people, one more full M&amp;IE day and the upgrade of two partial days to full days: $1,673.44. Each weekend it goes home costs a round trip in the truck and ten overtime hours for the driver: $1,248.26. At 330 miles, home is $425 cheaper per weekend. The mileage and drive hours grow with distance while the hotel side does not, and at the same average speed the two schedules break even at about 442 miles, or 6.7 hours of driving each way. At 450 miles staying is already $143.63 cheaper. At 200 miles going home saves $4,584.61.</p>
+
+<p>Two adjustments move schedule C further. If a journeyman drives instead of the foreman, the overtime rate drops from $74.67 to $60.44 and the total falls to $34,845.81, another $853.32. And the foreman in schedule C works eight hours on Friday and then drives five more, every week. That is a fatigue question for whoever owns the truck and the insurance policy, and it is a good reason to rotate drivers rather than keep the cheapest one behind the wheel all six weeks.</p>
+
+<p>If your estimators already use a <a href="/blog/construction-go-no-go-bid-decision-matrix-excel">go/no-go bid decision matrix</a> that scores distance from the yard, this table is what that score should turn into once the job is a go: a dollar line in the bid, priced on the schedule you actually intend to run.</p>
+
+<h2>Build the calculator: one input block, eleven formula cells</h2>
+
+<p>Put every rate and every policy choice in one block, so the estimator changes a cell instead of rewriting a formula. The layout below rebuilds schedule B.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>B3</td><td>Crew size</td><td>4</td></tr>
+<tr><td>B4</td><td>Job length in weeks</td><td>6</td></tr>
+<tr><td>B5</td><td>GSA lodging rate for the job location</td><td>$136</td></tr>
+<tr><td>B6</td><td>Lodging tax, state plus local</td><td>13%</td></tr>
+<tr><td>B7</td><td>GSA M&amp;IE rate</td><td>$74</td></tr>
+<tr><td>B8</td><td>Partial-day factor</td><td>75%</td></tr>
+<tr><td>B9</td><td>One-way miles, yard to job</td><td>330</td></tr>
+<tr><td>B10</td><td>Truck cost per mile</td><td>$0.76</td></tr>
+<tr><td>B11</td><td>One-way drive hours</td><td>5</td></tr>
+<tr><td>B12</td><td>Weekend plan, STAY or HOME</td><td>STAY</td></tr>
+<tr><td>B13</td><td>Sunday departure, DAY or EVE</td><td>EVE</td></tr>
+<tr><td>B14</td><td>Driver overtime cost per hour</td><td>$74.67</td></tr>
+<tr><td>B15</td><td>Passengers' combined overtime cost per hour</td><td>$163.55</td></tr>
+<tr><td>B16</td><td>M&amp;IE allowance you actually pay per day</td><td>$74</td></tr>
+</tbody>
+</table>
+
+<p>Nights in B18: <code>=IF(B12="STAY",B4&#42;7-2,B4&#42;5)</code>. Staying means every night from the first Sunday to the last Thursday; going home means Sunday through Thursday each week. This is the cell the one-line bid gets wrong.</p>
+
+<p>Full M&amp;IE days in B19: <code>=IF(B12="STAY",B4&#42;7-3,B4&#42;4)</code>, and partial days in B20: <code>=IF(B12="STAY",2,B4&#42;2)</code>. Every trip out and every trip home creates a 75 percent day.</p>
+
+<p>Lodging in B21: <code>=B3&#42;B18&#42;B5&#42;(1+B6)</code>. M&amp;IE in B22: <code>=B3&#42;(B19&#42;B7+B20&#42;B7&#42;B8)</code>.</p>
+
+<p>One-way trips in B23: <code>=IF(B12="STAY",2,B4&#42;2)</code>, and mileage in B24: <code>=B23&#42;B9&#42;B10</code>.</p>
+
+<p>Paid drive time in B25: <code>=B23&#42;B11&#42;B14+IF(B13="DAY",B23/2&#42;B11&#42;B15,0)</code>. The driver is paid on every trip. The passengers are paid only on outbound Sunday trips that leave during normal hours, which is half of the trips. If your crew also drives home inside normal hours on some other day, add that case.</p>
+
+<p>Total in B26: <code>=SUM(B21:B22,B24:B25)</code> returns $37,825.06 with the inputs above. Then two checks. B27 compares it with the one-line bid: <code>=B26-B3&#42;B4&#42;5&#42;(B5+B7)</code> returns $12,625.06. B28 guards the payroll side: <code>=IF(B16&gt;B7,"EXCESS IS W-2 WAGES","OK")</code>. Set B12 to HOME and the total drops to $35,699.13; set B13 to DAY as well and it jumps to $40,605.72.</p>
+
+<p>Pull B5 and B7 from GSA for the county where the crew will sleep, which may differ from the job's county, and for the months the crew will be there if the location has seasonal rates. A job that crosses October 1 crosses a fiscal year, so check whether the rate changes on that date.</p>
+
+<h2>Before the travel line goes into the bid</h2>
+
+<ol>
+<li>Look up the GSA lodging and M&amp;IE rates for the county where the hotel is, for the fiscal year and months of the job.</li>
+<li>Add state and local lodging tax to the room rate. GSA rates exclude it.</li>
+<li>Count nights and calendar days from the schedule you will run.</li>
+<li>Decide room count before bidding and tell the crew.</li>
+<li>Set the Sunday departure time in writing. It is a cost decision.</li>
+<li>Price the driver's hours on every trip at the overtime rate if the week already holds 40 hours.</li>
+<li>Run STAY and HOME. At this crew size and these rates, home wins below about 440 miles.</li>
+<li>Pay M&amp;IE at the federal rate and no higher, and keep the travel records your accountable plan requires.</li>
+<li>Carry travel as its own line in the bid and in the job budget, so actual hotel invoices land against it.</li>
+</ol>
+
+<p>The last point is where most out-of-town jobs lose the money a second time. Travel buried in the labor rate cannot be checked against hotel invoices, and nobody notices that the crew stayed an extra weekend until the job closes. The <a href="/blog/construction-labor-cost-calculator-excel">construction labor cost calculator</a> covers the crew's hours on the job; travel needs its own line next to it.</p>
+
+<h2>What to put in the bid</h2>
+
+<p>For this job, bid $35,699 for travel on schedule C with a Sunday 4:00 pm departure, not $25,200. If the client or the schedule forces weekend work and the crew has to stay, bid $37,825. If the crew insists on leaving Sunday morning, that request is worth $4,906.59 on this job, and it should be a decision someone makes knowingly, not a habit that shows up in the job cost report. Never pay a flat allowance above the federal rate without running the excess through payroll.</p>
+
+<p>Once the bid is won, the travel line needs to be tracked like any other cost code. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> lets you set up lodging, M&amp;IE, mileage and travel labor as their own budget categories, log each hotel invoice and per diem payment against them, and watch budget versus actual and projected final cost update as the weeks go by. It does not look up GSA rates or count FLSA travel hours: build the calculator above for the bid, then carry its four totals into the tracker as the budget for the job.</p>`,
+  },
+  {
     slug: 'construction-delay-notice-deadline-tracker-excel',
     title: 'Construction Delay Notice Deadline Tracker Excel: Why a Sub Gets 17 Days, Not 21',
     metaTitle: 'Construction Delay Notice Deadline Tracker | SheetCraft',
