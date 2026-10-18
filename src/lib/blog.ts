@@ -16,6 +16,145 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-performance-bond-premium-calculator-excel',
+    title: 'Construction Performance Bond Premium Calculator in Excel: Tiers, Change Orders and Cash Flow',
+    metaTitle: 'Performance Bond Premium Calculator Excel | SheetCraft',
+    metaDescription: 'A construction performance bond premium calculator in Excel that prices surety rate tiers, solves the bid loop and bills change orders at the marginal rate.',
+    targetKeyword: 'construction performance bond premium calculator Excel',
+    secondaryKeywords: ['tiered premium', 'performance and payment bond', 'additional premium', 'bond premiums', 'bond rate'],
+    excerpt: 'A flat bond percentage is right at one contract size and wrong at every other. On a $2.4 million public bid, 2 percent adds $19,975 to the price. Surety rate tiers, a three-cell solve and a marginal rate for change orders fix it.',
+    publishedAt: '2026-10-18',
+    readTime: 11,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-performance-bond-premium-calculator-excel.png',
+    imageAlt: 'Ink and watercolor sketch of a brick library under renovation with scaffolding, a pickup truck and pallets of concrete blocks stacked in descending steps',
+    content: `<p>A general contractor is bidding a municipal library renovation. The estimate closes at $2,375,000 with overhead and fee, and the last line is the bond. The estimator types 2 percent, the number the company has used since its first public job, and the bid goes out at $2,422,500. A construction performance bond premium calculator in Excel that reads the surety's tiered schedule puts the bond at $27,525 and the bid at $2,402,525. If the next bidder comes in at $2,410,000, the first bid loses by $12,500 and the second one wins by $7,475, on a line that says nothing about how well the company builds.</p>
+
+<p>The 2 percent came from somewhere. On a $150,000 job the tiered premium is $3,250, which is 2.17 percent of the contract. Contract bond premiums work like tax brackets: a rate per $1,000 of contract price that drops as the contract gets bigger, so any flat percentage is right at one contract size and wrong at every other. This article builds the rate table, solves the premium on a bid that contains its own premium, prices the bond on change orders at the rate the surety actually bills, and moves the premium to a line that gets paid in the first pay application.</p>
+
+<h2>How a surety prices a performance bond</h2>
+
+<p>A surety quotes contract bonds as a dollar amount per $1,000 of contract price, written $/M in surety paperwork. The rate depends on the class of work (a supply-only contract is the lowest risk, Class B covers harder trades), on the schedule the surety has filed with the state insurance department, and on the credit or debit the underwriter applies to your company. Old Republic Surety published a worked example in Surety Bond Quarterly, the magazine of the National Association of Surety Bond Producers, in 2022: a one-year, $1 million Class B electrical contract priced at $25/M on the first $100,000, $15/M on the next $400,000 and $10/M on the next $500,000, for $13,500 in total. The same article prices a flat-rate alternative at $30/M and states that every rate in it is an example.</p>
+
+<p>On federal work the bond is mandatory. FAR 28.102-1(a) requires performance and payment bonds on any construction contract above $150,000, and the clause at FAR 52.228-15(b) sets the penal sum of each at 100 percent of the original contract price.</p>
+
+<p>This article uses the 25/15/10 tiers from the Old Republic example, runs the $10/M tier up to $2.5 million as several surety brokers' published examples do, and assumes $7.50/M above that. Replace all four rates with the schedule your agent sends you before you bid anything.</p>
+
+<table>
+<thead><tr><th>Tier floor (A)</th><th>Tier ceiling</th><th>Rate per $1,000 (B)</th><th>Rate change (C)</th><th>Premium at the ceiling</th></tr></thead>
+<tbody>
+<tr><td>$0</td><td>$100,000</td><td>$25.00</td><td>25.00</td><td>$2,500</td></tr>
+<tr><td>$100,000</td><td>$500,000</td><td>$15.00</td><td>-10.00</td><td>$8,500</td></tr>
+<tr><td>$500,000</td><td>$2,500,000</td><td>$10.00</td><td>-5.00</td><td>$28,500</td></tr>
+<tr><td>$2,500,000</td><td>none</td><td>$7.50 (assumed)</td><td>-2.50</td><td>n/a</td></tr>
+</tbody>
+</table>
+
+<p>Here is what a flat 1.5 percent does across contract sizes on that schedule.</p>
+
+<table>
+<thead><tr><th>Contract price</th><th>Tiered premium</th><th>Effective rate per $1,000</th><th>Flat 1.5%</th><th>Flat minus tiered</th></tr></thead>
+<tbody>
+<tr><td>$150,000</td><td>$3,250</td><td>$21.67</td><td>$2,250</td><td>-$1,000</td></tr>
+<tr><td>$400,000</td><td>$7,000</td><td>$17.50</td><td>$6,000</td><td>-$1,000</td></tr>
+<tr><td>$1,000,000</td><td>$13,500</td><td>$13.50</td><td>$15,000</td><td>+$1,500</td></tr>
+<tr><td>$2,400,000</td><td>$27,500</td><td>$11.46</td><td>$36,000</td><td>+$8,500</td></tr>
+<tr><td>$5,000,000</td><td>$47,250</td><td>$9.45</td><td>$75,000</td><td>+$27,750</td></tr>
+</tbody>
+</table>
+
+<p>The flat rate eats $1,000 of margin on small jobs and adds $27,750 of air to a $5 million bid. A company that set its percentage on $150,000 jobs and now bids $2.4 million work carries $8,500 of extra bond on every bid at 1.5 percent, and $20,500 at 2 percent.</p>
+
+<h2>The premium in one cell</h2>
+
+<p>Put the schedule on a sheet called Rates: tier floors in A5:A8, rates per $1,000 in B5:B8, and in C5:C8 the change in rate from one tier to the next. C5 is <code>=B5</code> and C6 is <code>=B6-B5</code>, copied down to C8. On the bid sheet, the contract price sits in C4 and the premium in C5:</p>
+
+<p><code>=SUMPRODUCT((C4&gt;Rates!A5:A8)&#42;(C4-Rates!A5:A8)&#42;Rates!C5:C8)/1000</code></p>
+
+<p>For every tier floor the contract passes, the formula adds the dollars above that floor times the change in rate at that floor. On a $2,400,000 contract it charges $60,000 for the whole amount at $25/M, takes back $23,000 for the $2,300,000 above $100,000 at $10/M, and takes back $9,500 for the $1,900,000 above $500,000 at $5/M. That leaves $27,500. Nothing about the formula changes when your surety's schedule has six tiers instead of four: extend the three ranges and it still works.</p>
+
+<p>Two more cells do most of the work later in this article. The rate the surety will charge on the next dollar of contract value is <code>=LOOKUP(C4,Rates!A5:A8,Rates!B5:B8)</code>, and the effective rate on the whole contract is <code>=C5/C4</code>. The first one prices change orders. The second one, $11.46/M on a $2,400,000 contract, belongs in job cost reports and nowhere else.</p>
+
+<h2>The bid that contains its own premium</h2>
+
+<p>The premium is charged on the contract price, and the contract price includes the premium. Point C4 at the bid total and Excel throws a circular reference warning. Turning on iterative calculation makes the warning go away for the whole workbook, including the next circular reference somebody creates by accident, so leave it off and solve the loop in three helper cells.</p>
+
+<p>Put the bid before bond, $2,375,000, in C3. In D10, compute the premium on C3. In D11, compute it on <code>=C3+D10</code>. In D12, compute it on <code>=C3+D11</code>. Each cell is the same SUMPRODUCT pointed at a different price. Each pass cuts the error by a factor equal to the marginal rate, here 1 percent: the first pass misses by $275.25, the second by $2.75, the third by $0.03. D12 is the bond line, $27,525, and the bid is $2,402,525.</p>
+
+<p>If you prefer one cell and you know which tier the bid lands in, the exact answer for the $500,000 to $2,500,000 tier is <code>=(8500+10&#42;(C3-500000)/1000)/(1-10/1000)</code>, where 8,500 is the premium at the tier floor. It breaks silently if the bid crosses into the next tier, which the three-cell version does not.</p>
+
+<table>
+<thead><tr><th>Bond method</th><th>Bond line</th><th>Bid</th><th>Against a $2,410,000 competitor</th><th>Real premium on that contract</th></tr></thead>
+<tbody>
+<tr><td>Flat 2% of bid before bond</td><td>$47,500</td><td>$2,422,500</td><td>Loses by $12,500</td><td>Never written</td></tr>
+<tr><td>Flat 1% of bid before bond</td><td>$23,750</td><td>$2,398,750</td><td>Wins by $11,250</td><td>$27,487.50, short $3,737.50</td></tr>
+<tr><td>Tiered, solved</td><td>$27,525</td><td>$2,402,525</td><td>Wins by $7,475</td><td>$27,525.25, covered</td></tr>
+</tbody>
+</table>
+
+<p>The 2 percent version adds $19,975 to the bid, 0.83 percent of it. On a low-bid public job, that is enough for the bond line alone to decide the award. The 1 percent version wins and then takes $3,737.50 straight out of fee.</p>
+
+<p>Before any of this, check that the job fits your bonding line at all. The <a href="/blog/construction-bonding-capacity-calculator">construction bonding capacity calculator</a> tests a bid against your single-job and aggregate limits, and a surety that declines the bond makes the premium question moot.</p>
+
+<h2>Change orders: bill the marginal rate, track the true-up</h2>
+
+<p>The premium is not settled at award. When the contract price grows, the owner wants more bond. FAR 52.228-15(b)(3) lets the government require additional performance and payment bond protection when the contract price increases, generally 100 percent of the increase, either by raising the penal sum of the existing bond or by a new bond. The surety bills additional premium on overruns and returns premium on deductive changes. In the Old Republic example, the change orders are priced at the last tier rate, $10/M on a $1 million contract, because they are the top dollars of the job.</p>
+
+<p>That makes the effective rate the wrong number for change orders. On this job the effective rate at award is $11.46/M, while every change order dollar up to $2,500,000 costs $10/M and every dollar above it costs $7.50/M. Here is the job's change order log, with revised contract price in column E (<code>=E7+C8</code>), premium on it in column F (the same SUMPRODUCT), and the additional premium in column G (<code>=F8-F7</code>).</p>
+
+<table>
+<thead><tr><th>Change order</th><th>Amount</th><th>Revised contract</th><th>Premium on revised contract</th><th>Additional premium</th><th>Rate on the last dollar</th></tr></thead>
+<tbody>
+<tr><td>Award</td><td>n/a</td><td>$2,402,525</td><td>$27,525.25</td><td>n/a</td><td>$10.00/M</td></tr>
+<tr><td>CO 1</td><td>$64,800</td><td>$2,467,325</td><td>$28,173.25</td><td>$648.00</td><td>$10.00/M</td></tr>
+<tr><td>CO 2</td><td>$118,400</td><td>$2,585,725</td><td>$29,142.94</td><td>$969.69</td><td>$7.50/M</td></tr>
+<tr><td>CO 3</td><td>-$22,600</td><td>$2,563,125</td><td>$28,973.44</td><td>-$169.50</td><td>$7.50/M</td></tr>
+<tr><td>CO 4</td><td>$149,000</td><td>$2,712,125</td><td>$30,090.94</td><td>$1,117.50</td><td>$7.50/M</td></tr>
+</tbody>
+</table>
+
+<p>CO 2 straddles the $2,500,000 floor: $32,675 of it is priced at $10/M and $85,725 at $7.50/M. A per-CO percentage cannot see that, and the column G subtraction handles it without any extra logic.</p>
+
+<p>Net change orders total $309,600 and the surety's additional premium is $2,565.69. Priced at the award's effective rate, the bond line on those change orders would come to $3,547.03. Priced at a flat 1.5 percent, it comes to $4,644.00, which is $2,078.31 more than the surety will charge. On a cost-plus or open-book contract an owner's auditor will find that difference. Leave the line out entirely and the company pays $2,565.69 when the surety bills the final contract price. The <a href="/blog/construction-change-order-markup-calculator-excel">change order markup calculator</a> already carries a bond and insurance line: feed it the LOOKUP cell, 1.0 percent or 0.75 percent on this job, and keep the bond rate out of the insurance percentage.</p>
+
+<p>Send the surety the final contract price at closeout and reconcile its invoice against column F. If the job ran long, also ask whether a time surcharge applies. Old Republic notes that some filings add a charge when the contract runs past one or two years, depending on the filing, and that others do not charge for the second year.</p>
+
+<h2>Get the premium back in pay application one</h2>
+
+<p>The premium is paid when the bond is issued, and the bond is issued before work starts: FAR 28.102-1(c) requires the contractor to furnish all bonds before receiving a notice to proceed or being allowed to start work. If the bond is buried in overhead and spread across the schedule of values, the company finances its own premium for the whole job and then waits for retainage.</p>
+
+<p>Federal work gives you a better option in writing. Under FAR 52.232-5(g), the government reimburses bond premiums with progress payments on request, once you show evidence of full payment to the surety, and the retainage provisions do not apply to the part of the payment that covers bond premiums. On private work, ask for a separate bond line in the schedule of values and bill it 100 percent complete in the first application with the surety's paid invoice attached. Some owners will still hold retainage on it.</p>
+
+<table>
+<thead><tr><th>Where the $27,525 premium sits</th><th>Fully recovered in</th><th>Interest at 9% (assumed line of credit)</th></tr></thead>
+<tbody>
+<tr><td>Spread across the SOV, 12 monthly bills, 10% retainage</td><td>Month 14</td><td>$1,682.48</td></tr>
+<tr><td>Own SOV line, billed in pay app 1, retainage held</td><td>Month 14</td><td>$660.61</td></tr>
+<tr><td>Own SOV line, pay app 1, no retainage (FAR 52.232-5(g))</td><td>Month 2</td><td>$412.88</td></tr>
+</tbody>
+</table>
+
+<p>The model assumes a 12-month job, payment 30 days after each bill and retainage released in month 14. The difference between the first and last rows is $1,269.60, small on its own and about half of everything the four change orders added to the premium. The <a href="/blog/construction-schedule-of-values-template">schedule of values template</a> article covers how to set up the line items an owner will accept.</p>
+
+<h2>What the bond sheet needs before bid day</h2>
+
+<ul>
+<li>The surety's filed schedule for your class of work, tier by tier, plus your credit or debit as a separate cell, so the next estimator cannot type a percentage over it.</li>
+<li>The three-pass premium solve on the bid total, with iterative calculation turned off.</li>
+<li>A marginal rate cell that the change order sheet reads instead of a hard-coded percentage.</li>
+<li>A change order log that recomputes the premium on the revised contract and posts the difference, positive or negative.</li>
+<li>The contract duration, with the surety's rule for time surcharges written next to it.</li>
+<li>A warranty or maintenance period beyond one year, if the spec calls for it. In the Old Republic example, the first year is included in the performance bond and the second year is billed on a separate, much lower maintenance schedule.</li>
+<li>A separate schedule of values line for bonds, and the surety's paid invoice filed with pay application one.</li>
+</ul>
+
+<h2>What to change before the next bid</h2>
+
+<p>Get your surety's filed schedule and your credit in writing this week, replace the percentage in your estimate with the SUMPRODUCT cell, and solve the bid total in three passes. On the library job that change alone moves the bid from $2,422,500 to $2,402,525. Price every change order's bond line at the marginal rate and put the bond on its own line in pay application one.</p>
+
+<p>The premium then has to be tracked through the job like any other cost. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> holds the bond as its own budget category, logs each change order with its effect on the budget, records the surety's invoices next to the other payments, and shows budget against actual and the projected final cost as the change orders come in. It does not hold a surety rate table: build the tier sheet above for the bid, then carry the award premium into the tracker as the bond budget and log each additional premium against it.</p>`,
+  },
+  {
     slug: 'construction-per-diem-travel-cost-calculator-excel',
     title: 'Construction Per Diem Travel Cost Calculator in Excel: Price the Nights, the Tax and the Drive',
     metaTitle: 'Construction Per Diem Travel Cost Calculator | SheetCraft',
