@@ -16,6 +16,177 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'contractor-line-of-credit-borrowing-base-tracker-excel',
+    title: 'Contractor Line of Credit Borrowing Base Tracker in Excel: What the Bank Will Actually Lend on Payroll Day',
+    metaTitle: 'Contractor Borrowing Base Tracker Excel | SheetCraft',
+    metaDescription: 'A contractor line of credit borrowing base tracker in Excel: retainage, bonded jobs and cross-aging cut a $250,000 line to $59,320, then below zero.',
+    targetKeyword: 'contractor line of credit borrowing base tracker Excel',
+    secondaryKeywords: ['borrowing base certificate', 'eligible receivables', 'cross-aging', 'retainage receivable', 'overadvance'],
+    excerpt: 'A $250,000 line with $45,000 drawn looks like $205,000 of room. After retainage, a bonded job, invoices past 90 days and cross-aging, the bank lends $59,320, and one invoice turning 91 days old puts the line $27,400 over its base on payroll day.',
+    publishedAt: '2026-10-19',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-line-of-credit-borrowing-base-tracker-excel.png',
+    imageAlt: 'Ink and watercolor sketch of a steel-frame medical office under construction with ductwork lifted by a crane and a contractor pickup, facing an old brick bank across the street',
+    content: `<p>A mechanical subcontractor has a $250,000 revolving line with $45,000 drawn. The owner opens the receivables aging, sees $329,000 owed by four customers, and concludes there is $205,000 of room for the next two payrolls. The bank sees $59,320. Two weeks later, on a Friday when $34,500 of payroll is due, the bank sees minus $27,400 and wants that back before it lends another dollar. A contractor line of credit borrowing base tracker in Excel exists to show the bank's number on the day you need the money, because the monthly certificate you file only shows it on the last day of last month.</p>
+
+<p>Nothing in this example is unusual. Every exclusion comes from language in real loan documents for construction companies, filed with the SEC, and from the asset-based lending booklet that national bank examiners work from. The receivables, the dates and the customers are an example. Swap in your own aging report and your own loan agreement and the mechanics are the same.</p>
+
+<h2>The line limit is a ceiling, not a balance</h2>
+
+<p>An asset-based line has two caps. The commitment is the number on the term sheet. The borrowing base is a percentage of the receivables the bank accepts as collateral, recalculated every time you report. You can borrow the lesser of the two, minus what is already drawn and minus any letters of credit issued under the line. The borrowing base certificate that Fifth Third attached to a 2018 amendment of its credit agreement with Limbach, a mechanical contractor, spells it out line by line: net eligible receivables, times 80 percent, compared to the commitments, minus outstanding revolving loans and letters of credit, equals availability or deficiency.</p>
+
+<p>The OCC's Comptroller's Handbook on asset-based lending puts common advance rates at 70 to 85 percent of eligible receivables. Most of the gap between the owner's number and the bank's comes from the definition of eligible. Here is the subcontractor's aging run through the exclusions in a typical contractor agreement on October 31, 2026, the date of its monthly certificate.</p>
+
+<table>
+<thead><tr><th>Step</th><th>Amount</th><th>Running total</th></tr></thead>
+<tbody>
+<tr><td>Receivables on the aging report</td><td>$329,000</td><td>$329,000</td></tr>
+<tr><td>Less retainage withheld and retainage billed</td><td>-$38,700</td><td>$290,300</td></tr>
+<tr><td>Less the bonded school district job</td><td>-$104,500</td><td>$185,800</td></tr>
+<tr><td>Less invoices more than 90 days from invoice date</td><td>-$16,200</td><td>$169,600</td></tr>
+<tr><td>Less cross-aged invoices</td><td>-$25,200</td><td>$144,400</td></tr>
+<tr><td>Less overbilling on the medical office job</td><td>-$14,000</td><td>$130,400</td></tr>
+<tr><td>Borrowing base at 80 percent</td><td></td><td>$104,320</td></tr>
+<tr><td>Less line balance</td><td>-$45,000</td><td>$59,320</td></tr>
+</tbody>
+</table>
+
+<p>The owner's shortcut, 80 percent of $329,000, gives $263,200, more than the $250,000 commitment, so the whole line looks supported. Of the $329,000 on the aging, $130,400 counts, 39.6 percent.</p>
+
+<h2>What the bank strikes from a contractor's aging report</h2>
+
+<p>Each exclusion has a reason, and the reason tells you whether you can do anything about it.</p>
+
+<h3>Retainage</h3>
+
+<p>The Fifth Third certificate deducts retainage from receivables before anything else, on its own line. Retainage is billed but not payable until the job is accepted, and a lender cannot collect money that depends on you finishing work. The 2023 loan agreement between White Oak Commercial Finance and Orion Group Holdings, a marine and concrete contractor, is more generous: retainage is excluded from eligible accounts, but retainage on contracts the borrower has completed comes back in through a separate category at 90 percent, with a dollar cap. Retainage on a job still in progress counts for nothing under either document. If you track retainage by job already, as in our <a href="/blog/construction-retainage-tracking-spreadsheet">retainage tracking spreadsheet</a>, you have the column you need.</p>
+
+<h3>Bonded jobs</h3>
+
+<p>Limbach's 2018 amendment added "Bonded Accounts" to the list of ineligible receivables, defined as accounts subject to liens or encumbrances in favor of the bonding company. White Oak excludes accounts "subject to priority subrogation rights in favor of surety bond providers." The reason is more than a century old. In Prairie State National Bank v. United States (1896), a bank that had advanced money to a contractor claimed the 10 percent the government had retained. The surety that finished the job claimed it too, and the Supreme Court gave it to the surety. Your public school job, owed by a payer that will not go out of business, is the job the bank values least. If you priced the bond with the method in our <a href="/blog/construction-performance-bond-premium-calculator-excel">performance bond premium calculator</a>, carry that job's receivables at zero in the borrowing base from the day you sign.</p>
+
+<h3>Age, measured from the invoice date</h3>
+
+<p>Fifth Third's certificate excludes receivables more than 90 days from the original invoice date. White Oak uses 90 days from invoice or 60 days past due for one division. The OCC booklet gives the rule of thumb behind both: an account normally becomes ineligible when it is past due by three times the terms, so 90 days on 30-day terms. Pay-when-paid clauses push subcontractor invoices toward that line every month, which is the same timing problem described in our <a href="/blog/construction-pay-when-paid-cash-flow-tracker-excel">pay-when-paid cash flow tracker</a>.</p>
+
+<h3>Cross-aging</h3>
+
+<p>This is the exclusion that does the damage. Once enough of one customer's balance is over 90 days, every invoice from that customer goes, including the one you sent last week. Fifth Third's version applies when 25 percent or more of what an account debtor owes on a specific job is over 90 days. White Oak uses 50 percent per account debtor. The OCC booklet says most underwriting agreements contain some version of it. In the example, Ridgeline Development owes $16,200 on a July invoice and $25,200 on an October one. The July invoice is 39 percent of the job's balance, so the October invoice is out too.</p>
+
+<h3>Overbilling</h3>
+
+<p>White Oak reduces eligible receivables customer by customer when billings in excess of costs exceed costs in excess of billings. The logic: if you have billed ahead of the work, part of that receivable pays for work you have not done yet. The subcontractor's <a href="/blog/construction-wip-report-excel">WIP report</a> shows $14,000 of overbilling on the medical office job, so $14,000 comes off.</p>
+
+<h3>The rest of the list</h3>
+
+<p>The OCC booklet lists the other usual exclusions: federal receivables unless the lender has completed the Assignment of Claims Act paperwork, contra accounts where you also buy from the customer, affiliates, insolvent customers, foreign customers and anything unbilled. Some agreements also cap any one customer's share. The OCC booklet suggests 10 to 20 percent of the receivables base for a concentrated customer list. White Oak's cap is 25 percent of eligible receivables. The Fifth Third certificate form has no concentration line. Read your agreement for this one first: Halvorsen Builders is 85 percent of the subcontractor's eligible receivables, and a 25 percent cap would strip another $86,300 out, $69,040 of availability at 80 percent, more than the $59,320 the line had left.</p>
+
+<h2>The invoice-level tracker</h2>
+
+<p>The certificate is a summary. The bank's number is built invoice by invoice, so the tracker has to be too. Three sheets: Setup, Invoices and Certificate, plus a short WIP table.</p>
+
+<p>Setup holds the agreement's terms. B2 is the commitment ($250,000), B3 the advance rate (80%), B4 the age cutoff in days (90), B5 the cross-aging trigger (25%), B6 the test date, B7 the line balance ($45,000), B8 letters of credit issued under the line ($0) and B9 the next payroll ($34,500). Every number comes from your loan agreement or your bank statement.</p>
+
+<p>Invoices has one row per open invoice: A invoice number, B customer, C job, D invoice date, E billed amount, F retainage withheld, H paid to date, I bonded (Y or N). The working columns:</p>
+
+<ul>
+<li>G, open amount net of retainage: <code>=E2-F2-H2</code>. The bank lends on what the customer owes now.</li>
+<li>J, days since invoice: <code>=Setup!$B$6-D2</code>. Days run from the invoice date to the test date, which you change, not from today.</li>
+<li>K, amount over the cutoff: <code>=IF(J2&gt;Setup!$B$4,G2,0)</code>.</li>
+<li>L, the job's cross-aging ratio: <code>=IFERROR(SUMIFS($K:$K,$B:$B,B2,$C:$C,C2)/SUMIFS($G:$G,$B:$B,B2,$C:$C,C2),0)</code>. This is the share of the job's open balance that is too old, measured per customer and job as in the Fifth Third certificate. If your agreement measures per customer only, drop the job criteria.</li>
+<li>M, eligible amount: <code>=IF(OR(I2="Y",J2&gt;Setup!$B$4,L2&gt;=Setup!$B$5),0,G2)</code>. Note the <code>&gt;=</code>: the Fifth Third test is 25 percent or more, so exactly 25 percent fails.</li>
+<li>N, the reason, for the certificate: <code>=IF(I2="Y","Bonded",IF(J2&gt;Setup!$B$4,"Over 90",IF(L2&gt;=Setup!$B$5,"Cross-aged",IF(G2=0,"Retainage","Eligible"))))</code>.</li>
+</ul>
+
+<p>Billed retainage goes in as its own row with F equal to E, so it shows on the aging total and drops out at G. The WIP table lists each customer with billings in excess of costs in B and costs in excess of billings in C, and D takes the deduction: <code>=MIN(SUMIFS(Invoices!$M:$M,Invoices!$B:$B,A2),MAX(0,B2-C2))</code>. The MIN matters: you cannot deduct more than that customer's eligible balance.</p>
+
+<p>Certificate then reproduces the bank's form. B2 is the open aging total <code>=SUM(Invoices!E:E)-SUM(Invoices!H:H)</code>, B3 retainage <code>=SUM(Invoices!F:F)</code>, B4 bonded <code>=SUMIFS(Invoices!G:G,Invoices!I:I,"Y")</code>, B5 over 90 <code>=SUMIFS(Invoices!G:G,Invoices!N:N,"Over 90")</code>, B6 cross-aged <code>=SUMIFS(Invoices!G:G,Invoices!N:N,"Cross-aged")</code>, B7 overbilling <code>=SUM(WIP!D:D)</code>. Net eligible in B8 is <code>=B2-SUM(B3:B7)</code>, the borrowing base in B9 is <code>=B8&#42;Setup!B3</code>, the maximum in B10 is <code>=MIN(Setup!B2,B9)</code>, and availability in B11 is <code>=B10-Setup!B7-Setup!B8</code>. B12 says it in words: <code>=IF(B11&lt;0,"OVERADVANCE: repay "&amp;TEXT(-B11,"#,##0"),"Can draw "&amp;TEXT(B11,"#,##0"))</code>.</p>
+
+<p>Because the reason column assigns each invoice to exactly one bucket, B3 to B7 never count the same dollar twice. Add a check cell, <code>=SUM(Invoices!M:M)-B7-B8</code>, which must show 0. If it does not, an invoice has fallen between two buckets.</p>
+
+<h2>Payroll day is the test date</h2>
+
+<p>Here is the subcontractor's aging on the two dates that matter.</p>
+
+<table>
+<thead><tr><th>Invoice</th><th>Customer and job</th><th>Invoice date</th><th>Billed</th><th>Retainage</th><th>Open net</th><th>Days on Oct 31</th><th>Status Oct 31</th><th>Status Nov 13</th></tr></thead>
+<tbody>
+<tr><td>INV-1039</td><td>Ridgeline, retail shell</td><td>Jul 20</td><td>$18,000</td><td>$1,800</td><td>$16,200</td><td>103</td><td>Over 90</td><td>Over 90</td></tr>
+<tr><td>INV-1047</td><td>Halvorsen, medical office</td><td>Aug 14</td><td>$40,000</td><td>$4,000</td><td>$36,000</td><td>78</td><td>Eligible</td><td>Over 90</td></tr>
+<tr><td>INV-1055</td><td>Pine Hollow School District, gym</td><td>Sep 10</td><td>$60,000</td><td>$3,000</td><td>$57,000</td><td>51</td><td>Bonded</td><td>Bonded</td></tr>
+<tr><td>INV-1058</td><td>Halvorsen, medical office</td><td>Sep 15</td><td>$44,000</td><td>$4,400</td><td>$39,600</td><td>46</td><td>Eligible</td><td>Cross-aged</td></tr>
+<tr><td>INV-1061</td><td>Ridgeline, retail shell</td><td>Oct 1</td><td>$28,000</td><td>$2,800</td><td>$25,200</td><td>30</td><td>Cross-aged</td><td>Cross-aged</td></tr>
+<tr><td>INV-1063</td><td>Brookstone, warehouse (final)</td><td>Oct 8</td><td>$22,000</td><td>$0</td><td>$22,000</td><td>23</td><td>Eligible</td><td>Eligible</td></tr>
+<tr><td>INV-1066</td><td>Halvorsen, medical office</td><td>Oct 15</td><td>$52,000</td><td>$5,200</td><td>$46,800</td><td>16</td><td>Eligible</td><td>Cross-aged</td></tr>
+<tr><td>INV-1068</td><td>Pine Hollow School District, gym</td><td>Oct 20</td><td>$50,000</td><td>$2,500</td><td>$47,500</td><td>11</td><td>Bonded</td><td>Bonded</td></tr>
+<tr><td>RET-0930</td><td>Brookstone, warehouse retainage</td><td>Oct 5</td><td>$15,000</td><td>$15,000</td><td>$0</td><td>26</td><td>Retainage</td><td>Retainage</td></tr>
+<tr><td>Total</td><td></td><td></td><td>$329,000</td><td>$38,700</td><td>$290,300</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p>On Friday, November 13, INV-1047 turns 91 days old. That alone removes $36,000. But $36,000 is 29.4 percent of the $122,400 Halvorsen owes on the medical office job, above the 25 percent trigger, so INV-1058 and INV-1066 go with it. Eligible receivables fall from $144,400 to $22,000. With no Halvorsen balance left to reduce, the overbilling deduction drops to zero, and the borrowing base is $17,600 against a $45,000 balance. The line is $27,400 over its base, and the White Oak agreement states plainly what that means: the excess "shall be payable by Borrowers on demand." With payroll on top, the company needs $61,900 of cash that week, assuming no checks arrive and nothing new is billed before month end.</p>
+
+<p>The certificate filed for October 31 showed $59,320 available, enough for the payroll. It was accurate on the day it was dated. White Oak's agreement also says an account that stops meeting the criteria "shall forthwith cease to be an Eligible Account," so the bank's number moves between certificates even when your report does not.</p>
+
+<p>Put the payroll Fridays in a one-variable data table so the forecast runs itself. On the Setup sheet (Excel requires the input cell on the same sheet as the table), enter <code>=Certificate!B11</code> in E2, list the Fridays in D3:D5, select D2:E5, and choose Data, What-If Analysis, Data Table, column input cell B6. In F3, <code>=IF(E3&gt;=$B$9,"Covered","Need "&amp;TEXT($B$9-E3,"#,##0")&amp;" in cash")</code>.</p>
+
+<table>
+<thead><tr><th>Payroll Friday</th><th>Eligible receivables</th><th>Borrowing base</th><th>Availability</th><th>Payroll of $34,500</th></tr></thead>
+<tbody>
+<tr><td>Nov 6</td><td>$144,400</td><td>$104,320</td><td>$59,320</td><td>Covered</td></tr>
+<tr><td>Nov 13</td><td>$22,000</td><td>$17,600</td><td>-$27,400</td><td>Need $61,900 in cash</td></tr>
+<tr><td>Nov 20</td><td>$22,000</td><td>$17,600</td><td>-$27,400</td><td>Need $61,900 in cash</td></tr>
+</tbody>
+</table>
+
+<p>One week apart, the same line goes from covering payroll with $24,820 to spare to demanding repayment. Nothing happened on the jobs. An invoice got one day older.</p>
+
+<h2>Find the collection that moves the base</h2>
+
+<p>Two more columns turn the tracker from a report into a collections list. O shows the date each invoice becomes ineligible: <code>=D2+Setup!$B$4+1</code>. P shows what the borrowing base loses if that invoice crosses, including the knock-on:</p>
+
+<p><code>=IF(M2=0,0,IF((SUMIFS($K:$K,$B:$B,B2,$C:$C,C2)+G2)/SUMIFS($G:$G,$B:$B,B2,$C:$C,C2)&gt;=Setup!$B$5,SUMIFS($M:$M,$B:$B,B2,$C:$C,C2),G2))</code></p>
+
+<p>On October 31, column P shows $122,400 against INV-1047, 3.4 times its own balance, which puts it at the top of the list. Column Q gives the smallest payment that keeps the job under the trigger when the invoice crosses:</p>
+
+<p><code>=IF(M2=0,0,MAX(0,(SUMIFS($K:$K,$B:$B,B2,$C:$C,C2)+G2-Setup!$B$5&#42;SUMIFS($G:$G,$B:$B,B2,$C:$C,C2))/(1-Setup!$B$5)))</code></p>
+
+<p>For INV-1047 it returns $7,200. Collect more than that figure, because at exactly $7,200 the remaining $28,800 is exactly 25 percent of $115,200 and the "or more" test still trips. Here is November 13 under four outcomes, assuming each check reaches the bank by November 12 and is applied to the line balance.</p>
+
+<table>
+<thead><tr><th>Before Nov 13, Halvorsen pays on INV-1047</th><th>Line balance</th><th>Net eligible</th><th>Borrowing base</th><th>Availability</th><th>Cash needed for payroll</th></tr></thead>
+<tbody>
+<tr><td>Nothing</td><td>$45,000</td><td>$22,000</td><td>$17,600</td><td>-$27,400</td><td>$61,900</td></tr>
+<tr><td>$7,200</td><td>$37,800</td><td>$22,000</td><td>$17,600</td><td>-$20,200</td><td>$54,700</td></tr>
+<tr><td>$7,300</td><td>$37,700</td><td>$94,400</td><td>$75,520</td><td>$37,820</td><td>$0</td></tr>
+<tr><td>$36,000 (paid in full)</td><td>$9,000</td><td>$94,400</td><td>$75,520</td><td>$66,520</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>The difference between the second and third rows is $100 of collections and $58,020 of availability. A partial payment of $7,300 on the oldest invoice, asked for in the first week of November with a specific number and a specific reason, is a different phone call from "when can you pay the August invoice." The project manager who owns the Halvorsen relationship should have column O and column Q for every job in hand by the 1st of each month. The same logic is behind the working capital numbers in our <a href="/blog/contractor-cash-conversion-cycle-calculator-excel">cash conversion cycle calculator</a>, measured here per invoice.</p>
+
+<h2>What to raise at the next renewal</h2>
+
+<p>Every exclusion above is a negotiated term, and the two filed agreements prove the terms vary. Before you sign the renewal, compare yours to these:</p>
+
+<ul>
+<li>Cross-aging threshold and scope. Fifth Third used 25 percent per customer and job. White Oak used 50 percent per customer. On this aging, a 50 percent trigger would have kept Halvorsen's two newer invoices eligible on November 13.</li>
+<li>Retainage on completed contracts. White Oak counted it at 90 percent. Brookstone's $15,000 of billed retainage on a finished warehouse would add $12,000 to the base at this line's 80 percent rate.</li>
+<li>Age limit. White Oak gave Orion's concrete division 120 days from invoice instead of 90, with a dollar cap on the bucket between 91 and 120 days. On this aging, a 120-day limit would have kept INV-1047, and with it the whole Halvorsen job, eligible on November 13.</li>
+<li>Concentration. If there is a cap, know what it is before you take the next large job from your biggest customer.</li>
+<li>Bonded work. Ask how the bank treats bonded receivables before you bid the next public job, and size the line on the assumption that those receivables count for nothing.</li>
+</ul>
+
+<p>Bring the tracker to the meeting. Rerunning it with the bank's proposed terms in Setup shows what each concession is worth in dollars of availability on your actual aging.</p>
+
+<h2>Recommendation</h2>
+
+<p>Rebuild the bank's calculation at invoice level, set the test date to the next payroll, and run it every Monday. Sort the invoice sheet by column P and work the top three rows first. Leave bonded receivables and retainage out of your borrowing capacity, and plan to fund that work from cash or a separate facility when you bid it. If the tracker ever shows a negative number for a future Friday, call the bank before that Friday. The White Oak agreement lets the agent have the lenders fund an overadvance and hold off on demanding repayment, and the time to ask is before the shortfall shows up on a certificate.</p>
+
+<p>The borrowing base reads the billing side of each job. The overbilling deduction depends on the cost side: costs to date, percent complete and percent spent. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> logs every sub and supplier invoice against the project budget, applies change orders to it, and shows percent complete against percent spent and the projected final cost, which are the inputs to the WIP figure the bank deducts. It does not calculate a borrowing base. Build the three sheets above for the bank, and keep each job's cost side in the tracker so the overbilling number you report is the one your costs support.</p>`,
+  },
+  {
     slug: 'construction-performance-bond-premium-calculator-excel',
     title: 'Construction Performance Bond Premium Calculator in Excel: Tiers, Change Orders and Cash Flow',
     metaTitle: 'Performance Bond Premium Calculator Excel | SheetCraft',
