@@ -16,6 +16,222 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-workers-comp-class-code-cost-calculator-excel',
+    title: 'Construction Workers Comp Class Code Cost Calculator in Excel: Price the Audit Before It Bills You',
+    metaTitle: 'Workers Comp Class Code Cost Calculator Excel | SheetCraft',
+    metaDescription: 'A construction workers comp class code cost calculator in Excel that predicts the premium audit: payroll splits, uninsured subs and overtime.',
+    targetKeyword: 'construction workers comp class code cost calculator Excel',
+    secondaryKeywords: ['workers comp premium audit', 'workers comp payroll division', 'uninsured subcontractor workers comp audit', 'workers comp overtime exclusion', 'class code 5403 vs 5445'],
+    excerpt: 'A $52,280 deposit became a $64,689 final premium at audit, and none of the $12,409 came from claims. Percentage payroll splits, trim carpenters on framed jobs, a project manager coded as clerical and two uninsured subs explain it, and three record changes would have cut $10,761.',
+    publishedAt: '2026-10-20',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-workers-comp-class-code-cost-calculator-excel.png',
+    imageAlt: 'Commercial interior fit-out in progress with taped drywall on walls and ceiling, an open stud bay with ductwork and a bare concrete floor',
+    content: `<p>Ridgeline Builders, a wood-frame carpentry and drywall contractor with 16 people in the field and office, paid a $52,280 deposit premium for its 2025 workers comp policy. In February the carrier's auditor sent the final premium: $64,689. The $12,409 difference was not a rate increase and not a claim. Every dollar of it came from how Ridgeline's payroll was coded and documented. A <strong>construction workers comp class code cost calculator in Excel</strong> exists to show that number in March, while you can still change the records that produce it, instead of the February after the year has closed and the jobs have been billed.</p>
+
+<h2>Where a $12,409 audit bill comes from</h2>
+
+<p>The policy premium you pay up front is an estimate. The Alaska Division of Insurance put it plainly in Bulletin B 15-08: the initial premium is "an estimate based on the insured's anticipated payroll/remuneration," and the final premium "is determined after the policy ends by using the actual payroll and the proper classifications and rates." The auditor rebuilds your year from your payroll ledger, 941s, W-2s, 1099s, certified payrolls, and a list of every subcontractor you paid with their certificates of insurance.</p>
+
+<p>Ridgeline's rates below are example manual rates for a state that uses the NCCI Basic Manual, set in the same order as published figures. For scale, the Texas advisory loss costs effective July 1, 2026, which leave out carrier expenses, put carpentry code 5403 at $1.186 per $100 of payroll, construction executive supervisor 5606 at $0.177, and clerical 8810 at $0.020. Carpentry's loss cost is 59 times clerical's before any carrier loading, so moving a dollar of payroll between codes is never a rounding error.</p>
+
+<table>
+<thead><tr><th>Code</th><th>Description</th><th>Example rate per $100</th></tr></thead>
+<tbody>
+<tr><td>5403</td><td>Carpentry NOC (wood-frame commercial)</td><td>$7.40</td></tr>
+<tr><td>5445</td><td>Drywall installation within buildings, includes taping</td><td>$4.80</td></tr>
+<tr><td>5437</td><td>Carpentry, installation of cabinet work or interior trim</td><td>$5.10</td></tr>
+<tr><td>5606</td><td>Contractor, executive supervisor or construction superintendent</td><td>$1.05</td></tr>
+<tr><td>8810</td><td>Clerical office employees</td><td>$0.14</td></tr>
+</tbody>
+</table>
+
+<p>Ridgeline's experience mod is 1.06, and it multiplies everything. Here is the bridge from the deposit to the audit, each line already multiplied by the mod:</p>
+
+<table>
+<thead><tr><th>Audit finding</th><th>Payroll moved or added</th><th>Premium change</th></tr></thead>
+<tbody>
+<tr><td>Project manager moved from 8810 to 5606</td><td>$96,000</td><td>+$926</td></tr>
+<tr><td>Mixed framing and drywall crew, "50/50" split rejected, all to 5403</td><td>$115,000</td><td>+$3,169</td></tr>
+<tr><td>Two lead carpenters, "60/40" split rejected, all to 5403</td><td>$68,000</td><td>+$1,874</td></tr>
+<tr><td>Trim carpenters on jobs Ridgeline also framed, 5437 to 5403</td><td>$55,000</td><td>+$1,341</td></tr>
+<tr><td>Taping sub whose certificate expired June 30</td><td>$74,000</td><td>+$3,765</td></tr>
+<tr><td>Uninsured trim sub, no payroll records</td><td>$52,000</td><td>+$4,079</td></tr>
+<tr><td>Overtime premium excluded (register shows overtime pay)</td><td>-$35,000</td><td>-$2,745</td></tr>
+<tr><td><strong>Audit bill</strong></td><td></td><td><strong>+$12,409</strong></td></tr>
+</tbody>
+</table>
+
+<p>Two lines are correct classifications Ridgeline should have budgeted from day one. Four are record-keeping failures that cost money for no reason. One is a credit Ridgeline earned only because its payroll software prints overtime in its own column.</p>
+
+<h2>A percentage split is not a split</h2>
+
+<p>Ridgeline's four-person mixed crew frames walls one week and hangs board the next. When the agent asked for estimated payroll by code, the owner said "about half and half," and the deposit was priced that way. The auditor put the whole crew in 5403.</p>
+
+<p>That is the rule as written. Minnesota's Basic Manual, effective July 15, 2026, follows NCCI's Rule 2-G structure and states: "Estimated or percentage allocation of payroll is not permitted. If payroll records do not show the actual payroll applicable to each classification, the entire payroll of the individual employee must be assigned to the highest rated classification that represents any part of his or her work." Oregon writes the same requirement into regulation. OAR 836-042-0060 requires records with a time basis, a description of duties, and "original entries from other records, including but not limited to time cards, calendars, planners or daily logs," and adds: "Estimated ratios or percentages do not comply with the requirement of this subsection and are not acceptable for verification."</p>
+
+<p>The cost of getting this wrong has a court record. In R &amp; R Tree Service v. SAIF Corp. (Oregon Court of Appeals, 2012, case A145610), a lawn and tree company kept time records, but they did not show which hours went to ground maintenance and which to tree work. The audit put all payroll in the higher tree-work code, raised the premium by $67,516.11, and the court affirmed.</p>
+
+<p>The construction version of the rule goes one step further. Under Rule 1-D-3-d, each construction operation gets its own code "only if separate payroll records are maintained for each operation." If they are not, "the highest rated classification that applies to the job or location" is assigned. A timecard that says "Job 2614, 9 hours" tells the auditor where the crew was. It does not say what they did.</p>
+
+<h3>What the timecard needs</h3>
+
+<p>One line per person per day per code, with hours. In version B at the end of this article, coded hours come out 46 percent framing for the mixed crew and 58 percent for the leads. Under Minnesota's manual, overtime pay for a split employee goes to the code that carries most of that employee's payroll, so the mixed crew's overtime lands in 5445 and the leads' overtime in 5403. Minnesota adds a state twist by statute (Minn. Stat. 79.211): payroll is divided in blocks of four hours or more, and the insurer divides it only if the employer asks. Check your own state's version before you design the timecard.</p>
+
+<p>The cost of the records: six people coding their day takes about two minutes each, which is 48 hours a year over 240 working days. At $45 an hour of foreman time, that is roughly $2,160 a year (an estimate, not a measured figure). Against it, the coded split alone takes $5,270 off Ridgeline's audit.</p>
+
+<h2>Two reclassifications to budget from day one</h2>
+
+<p>Two of Ridgeline's lines follow directly from the code wording, and the right response is to price them into the estimate and the labor burden.</p>
+
+<h3>Trim carpenters on a job you framed are carpenters</h3>
+
+<p>Code 5437, installation of cabinet work or interior trim, carries this sentence: "Not applicable to contractors who perform any other carpentry operations at the same job or location; refer to Codes 5645, 5651, or 5403." Ridgeline's two trim carpenters earned $95,000. On trim-only jobs ($40,000) they stay in 5437. On the jobs where Ridgeline's own crews framed the building ($55,000), the trim payroll goes to 5403. The fix is a job-coded timecard, so the auditor can see which $40,000 belongs to trim-only jobs, and a burden rate that uses 5403 for trim on framed jobs.</p>
+
+<h3>Your project manager is not clerical</h3>
+
+<p>Ridgeline reported its project manager, Dana, at 8810 with the office manager. Code 8810 requires duties "limited to" records, correspondence, drafting, phones, and data entry, at a work station physically separated from the operation. It is lost by "direct supervision of nonclerical employees not performed in an eligible site" and by "any work exposed to the operative hazards of the business." Dana walks three jobs a day.</p>
+
+<p>Code 5606 fits her: executive supervisors or superintendents "exercising supervisory control through job superintendents or foremen." One more sentence closes the obvious workaround: "Code 8810 is not available for office time of an executive supervisor who qualifies for Code 5606." You cannot split Dana's Mondays in the office into 8810. If she runs a crew directly with no foreman in between, that time goes to the trade code for the work, or the highest-rated code on the job if it is not recorded separately.</p>
+
+<h2>An uninsured subcontractor is your payroll</h2>
+
+<p>The two biggest lines in Ridgeline's bill came from subcontractors. NCCI's Rule 2-H puts the payroll of a subcontractor who cannot show workers comp coverage onto your policy. Minnesota's version spells out the method:</p>
+
+<ul>
+<li>If you have the sub's complete payroll records, the auditor uses that payroll.</li>
+<li>If you have no payroll records and the price does not show a definite payroll, the auditor uses the full subcontract price for work performed during the policy period.</li>
+<li>If documentation shows a definite payroll amount, the auditor uses it, but never less than 90 percent of the price for labor only, 50 percent for labor and material, and 25 percent for mobile equipment with operators.</li>
+<li>The payroll goes to the code that would apply "if the individuals had been employees of the contractor," and your experience mod applies to it.</li>
+</ul>
+
+<p>Ridgeline's taper, Precision Finish, worked under a certificate that expired June 30. Ridgeline paid $74,000 for labor-only work after that date and never received a renewal. Ken, a sole proprietor who installs trim, never had coverage, and Ridgeline paid him $52,000 for labor and material on jobs it had framed, so his work is classified the way Ridgeline's own trim work is: 5403.</p>
+
+<table>
+<thead><tr><th>Subcontractor</th><th>Paid</th><th>No records</th><th>Documented payroll</th><th>Current certificate</th></tr></thead>
+<tbody>
+<tr><td>Precision Finish, labor only, 5445</td><td>$74,000</td><td>$3,765</td><td>$3,389 (payroll $60,000, floor 90% = $66,600)</td><td>$0</td></tr>
+<tr><td>Ken, labor and material, 5403</td><td>$52,000</td><td>$4,079</td><td>$2,353 (invoice shows $30,000 labor, floor $26,000)</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Alaska's Division of Insurance upheld exactly this charge in In re Rickman Building Company (case H 22-01, adopted July 11, 2022). The contractor argued its subcontractor was an independent contractor. The sub had no workers comp, the contractor produced no payroll records, and the carrier billed premium on the full subcontract price. The hearing officer found the audit "conducted correctly in accordance with the Basic Manual." The independent contractor argument was never decided: without a certificate, the premium stood. Ask your carrier which proof it accepts for a sole proprietor, especially where your state issues no exemption certificate.</p>
+
+<p>The documented column is the fallback. The certificate column is the goal, and it is a date problem: the certificate has to cover the dates of the work, which is why Precision Finish's first six months cost Ridgeline nothing and the second six cost $3,765. A lapsed certificate mid-job is also worth reading next to the sub's payment history; if the sub walks off, the <a href="/blog/construction-subcontractor-default-cost-to-complete-calculator-excel">subcontractor default cost to complete calculator</a> picks up from there. The <a href="/blog/certificate-of-insurance-tracking-spreadsheet">certificate of insurance tracking spreadsheet</a> covers the general liability side of the same file.</p>
+
+<h2>Overtime premium comes off, if your register shows it</h2>
+
+<p>The one line in Ridgeline's favor is worth understanding, because many contractors leave it on the table. Minnesota's Rule 2-C excludes "the extra pay for overtime" from the premium base, "provided that the insured's books and records are maintained to show overtime pay separately by employee and in summary by classification." The exclusion applies to pay for work over 8 hours a day or 40 a week, or beyond the hours usual to the business.</p>
+
+<table>
+<thead><tr><th>If the records show</th><th>Excluded from payroll</th></tr></thead>
+<tbody>
+<tr><td>Overtime premium pay separately</td><td>All of the premium pay</td></tr>
+<tr><td>Total overtime pay at time and a half, in one amount</td><td>One third of that total</td></tr>
+<tr><td>Total pay for double time, recorded separately</td><td>One half of that total</td></tr>
+</tbody>
+</table>
+
+<p>Ridgeline's field crews earned $105,000 of overtime pay at time and a half, so $35,000 came off the 5403 payroll and saved $2,745. A register that rolls overtime into gross wages gets none of it. The pricing side of overtime is in the <a href="/blog/construction-overtime-premium-vs-second-crew-calculator-excel">overtime premium vs second crew calculator</a>, which works from the same burdened rates.</p>
+
+<h2>Building the class code cost calculator</h2>
+
+<p>Five tabs. The design rule is that every dollar of payroll and every subcontract payment carries a class code the auditor would accept, and anything that does not is priced at the code the auditor will use.</p>
+
+<h3>Inputs and Rates</h3>
+
+<p>Inputs holds the experience mod in B3, the deposit premium in B4, and months elapsed in the policy year in B5. Rates holds code in column A, rate per $100 in column B, and description in column C. Take the rates from your declarations page, because carrier rates differ from bureau loss costs.</p>
+
+<h3>Employees</h3>
+
+<p>One row per person, with up to three codes the person legitimately works in (columns B to D). Column E finds the highest rate among them, and column F returns the code that carries it:</p>
+
+<p><code>=MAX(IFERROR(XLOOKUP(B2:D2,Rates!$A$2:$A$30,Rates!$B$2:$B$30),0))</code></p>
+
+<p><code>=INDEX(B2:D2,MATCH(E2,IFERROR(XLOOKUP(B2:D2,Rates!$A$2:$A$30,Rates!$B$2:$B$30),0),0))</code></p>
+
+<p>This is the code the auditor will use for any hours that are not coded, so it is the honest price of a vague timecard.</p>
+
+<h3>Payroll</h3>
+
+<p>One row per person per day per code: week ending (A), employee (B), job (C), class code or MIX (D), straight-time pay (E), overtime pay at time and a half (F). Column K converts MIX to the employee's highest code, column H is the premium base after the overtime exclusion, and column I is premium:</p>
+
+<p><code>=IF(D2="MIX",XLOOKUP(B2,Employees!$A:$A,Employees!$F:$F),D2)</code></p>
+
+<p><code>=E2+F2&#42;2/3</code></p>
+
+<p><code>=H2/100&#42;XLOOKUP(K2,Rates!$A:$A,Rates!$B:$B)&#42;Inputs!$B$3</code></p>
+
+<p>MIX exists so a foreman who did not code a day can say so. The sheet then prices that day exactly the way the audit will, and the MIX total becomes a monthly number you can push down.</p>
+
+<h3>Subs</h3>
+
+<p>One row per subcontract payment: sub (A), type L, LM or EQ (B), last day of work covered by the payment (C), certificate expiration (D), amount paid (E), documented payroll if any (F), class code (G). Column H is the payroll the auditor will add, column I the premium, column J the warning:</p>
+
+<p><code>=IF(C2&lt;=D2,0,IF(F2="",E2,MAX(F2,E2&#42;XLOOKUP(B2,{"L";"LM";"EQ"},{0.9;0.5;0.25}))))</code></p>
+
+<p><code>=H2/100&#42;XLOOKUP(G2,Rates!$A:$A,Rates!$B:$B)&#42;Inputs!$B$3</code></p>
+
+<p><code>=IF(D2-TODAY()&lt;=30,"CHASE COI","OK")</code></p>
+
+<p>The minimum percentages are Minnesota's table. Replace them with your state's. Leave column D blank for a sub with no certificate at all, and the formula charges the payment, which is what the audit will do.</p>
+
+<h3>Projection</h3>
+
+<p>One row per code. Column B is year-to-date premium base, C is year-to-date premium, D annualizes it, E10 compares the year to the deposit, and E11 flags a gap above 5 percent of the deposit:</p>
+
+<p><code>=SUMIFS(Payroll!$H:$H,Payroll!$K:$K,A2)+SUMIFS(Subs!$H:$H,Subs!$G:$G,A2)</code></p>
+
+<p><code>=B2/100&#42;XLOOKUP(A2,Rates!$A:$A,Rates!$B:$B)&#42;Inputs!$B$3</code></p>
+
+<p><code>=C2/Inputs!$B$5&#42;12</code></p>
+
+<p><code>=SUM(D2:D8)-Inputs!$B$4</code></p>
+
+<p><code>=IF(ABS(E10)&gt;Inputs!$B$4&#42;0.05,"ACCRUE","OK")</code></p>
+
+<p>When E11 says ACCRUE, book the difference as a cost that month and push it into the burden rate you bid with, using the <a href="/blog/construction-labor-burden-rate-calculator-excel">labor burden rate calculator</a>. The annualized line assumes payroll spreads evenly through the year; a seasonal contractor should annualize from last year's monthly payroll pattern instead.</p>
+
+<h2>Same crews, same jobs, two audits</h2>
+
+<p>Here is Ridgeline's year audited twice. Version A is the records Ridgeline kept. Version B is the same hours and the same payments, with coded timecards, a renewal certificate collected from Precision Finish before the June 30 lapse, and an itemized invoice from Ken.</p>
+
+<table>
+<thead><tr><th>Code</th><th>Deposit payroll</th><th>Audit A payroll</th><th>Audit B payroll</th></tr></thead>
+<tbody>
+<tr><td>5403</td><td>$382,000</td><td>$637,000</td><td>$423,780</td></tr>
+<tr><td>5445</td><td>$333,000</td><td>$224,000</td><td>$341,220</td></tr>
+<tr><td>5437</td><td>$95,000</td><td>$40,000</td><td>$40,000</td></tr>
+<tr><td>5606</td><td>$0</td><td>$96,000</td><td>$96,000</td></tr>
+<tr><td>8810</td><td>$160,000</td><td>$64,000</td><td>$64,000</td></tr>
+<tr><td><strong>Premium after 1.06 mod</strong></td><td><strong>$52,280</strong></td><td><strong>$64,689</strong></td><td><strong>$53,928</strong></td></tr>
+</tbody>
+</table>
+
+<p>The $10,761 between A and B breaks down into $3,580 from coding the mixed crew, $1,690 from coding the leads, $3,765 from the Precision Finish certificate, and $1,726 from Ken's itemized invoice. Version B still lands $1,648 above the deposit: Dana, the trim on framed jobs and Ken's documented labor add more than the overtime exclusion takes off. The sheet shows that in the first month, so it is a budgeted cost on the jobs instead of a February surprise on closed ones.</p>
+
+<p>The mod multiplies all of it. A contractor at 1.30 pays 30 percent more on every audit line above, which is a second reason to know how the mod is built; the <a href="/blog/contractor-experience-modification-rate-calculator-excel">experience modification rate calculator</a> covers that formula.</p>
+
+<h3>The pre-audit checklist</h3>
+
+<ul>
+<li>Every field employee who works in more than one code has daily hours by code.</li>
+<li>Every job carries a job number on the timecard, so trim-only jobs can be told apart from framed jobs.</li>
+<li>Supervisors who walk jobs are coded 5606 or their trade code in the estimate, never 8810.</li>
+<li>Overtime pay sits in its own column of the payroll register, by employee.</li>
+<li>Every subcontractor has a certificate covering the dates of the work, or an itemized invoice that separates labor.</li>
+<li>The Subs tab shows no CHASE COI flag older than a week.</li>
+<li>The Projection tab gap is booked as a cost every month.</li>
+</ul>
+
+<h2>The recommendation</h2>
+
+<p>Build the calculator before the next policy year starts, and start with three changes that cost almost nothing: code timecards by class for anyone who works in more than one, refuse the next payment to any sub whose certificate does not cover the dates of the work, and require an invoice that separates labor from any sub who cannot produce a certificate. On Ridgeline's numbers those three changes are worth $10,761 a year against roughly $2,160 of foreman time. Then price Dana and the trim carpenters at the codes the auditor will use, because those are real costs that belong in your bids.</p>
+
+<p>The SheetCraft <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already logs every subcontractor and supplier invoice by vendor, date and status, which is the "list of vendors and subcontractors used during the policy term (including the amounts paid)" the auditor will ask for, and it tracks budget against actual by category so an accrued audit premium shows up as a cost on the jobs that caused it. It does not hold class codes or rates: add the Rates, Employees, Payroll, Subs and Projection tabs above to it, and the February bill becomes a number you booked in March.</p>`,
+  },
+  {
     slug: 'contractor-line-of-credit-borrowing-base-tracker-excel',
     title: 'Contractor Line of Credit Borrowing Base Tracker in Excel: What the Bank Will Actually Lend on Payroll Day',
     metaTitle: 'Contractor Borrowing Base Tracker Excel | SheetCraft',
