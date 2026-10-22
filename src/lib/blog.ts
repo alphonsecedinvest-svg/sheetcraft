@@ -16,6 +16,163 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rate-and-term-refinance-closing-cost-recoup-calculator-excel',
+    title: 'Rate and Term Refinance Closing Cost Recoup Calculator Excel: Why 19.5 Months Becomes 37',
+    metaTitle: 'Refinance Closing Cost Recoup Calculator Excel | SheetCraft',
+    metaDescription: 'Rate and term refinance closing cost recoup calculator in Excel: a 19.5-month quote becomes 37 once the DSCR prepayment penalty counts. Pick by sale year.',
+    targetKeyword: 'rate and term refinance closing cost recoup calculator Excel',
+    secondaryKeywords: ['refinance break even calculator Excel', 'DSCR loan prepayment penalty calculator', 'rental property refinance break even', 'no closing cost refinance vs points', 'CUMIPMT refinance comparison'],
+    excerpt: 'The lender says your rental refinance pays for itself in 19.5 months. Strip out the prepaids, add the 3 percent DSCR prepayment penalty from the payoff letter, and it needs 37. Build the Excel model that picks the loan by the year you will sell.',
+    publishedAt: '2026-10-22',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rate-and-term-refinance-closing-cost-recoup-calculator-excel.png',
+    imageAlt: 'Two-story suburban house with a stone front porch, siding and an attached garage behind a wide spring lawn',
+    content: `<p>The lender's quote for your duplex says it plainly: rate drops from 8.25 to 6.75 percent, payment falls from $2,404.05 to $2,023.35, cash to close $7,408.59, break-even in 19.5 months. A <strong>rate and term refinance closing cost recoup calculator in Excel</strong> exists to check that last line before you sign, because on a rental financed with a DSCR loan the quote leaves out the largest cost of the whole transaction, counts money that is not a cost at all, and answers a question you did not ask. You do not need the month the fees come back. You need to know which loan is cheapest for the number of years you will actually own the building.</p>
+
+<p>This article builds that calculator on one example: a duplex bought with a $320,000 DSCR loan at 8.25 percent, originated in December 2023, with a five-year step-down prepayment penalty. The rates, fees and timeline are example figures. The rules on penalties, escrow refunds and points come from federal regulations and IRS Publication 527, cited where they are used.</p>
+
+<h2>The 19.5 months on the quote, rebuilt</h2>
+
+<p>The lender divides cash to close by the monthly payment saving: $7,408.59 divided by $380.71 is 19.5 months. Three things are wrong with that division, and they push in opposite directions.</p>
+
+<table>
+<thead><tr><th>Line in the calculation</th><th>Lender's quote</th><th>What belongs there</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td>Loan costs (0.5 point, appraisal, title, settlement, recording)</td><td>$4,814.78</td><td>$4,814.78</td><td>None</td></tr>
+<tr><td>Prepaid interest, 20 days</td><td>$1,153.81</td><td>$0 (it is interest, counted in the interest column)</td><td>Quote too high</td></tr>
+<tr><td>New escrow deposit</td><td>$1,440.00</td><td>$0 (your money, and the old escrow of $2,380 comes back)</td><td>Quote too high</td></tr>
+<tr><td>Prepayment penalty on the old loan, 3% of $311,956.69</td><td>Not shown</td><td>$9,358.70</td><td>Quote far too low</td></tr>
+<tr><td>Total cost to recover</td><td>$7,408.59</td><td>$14,173.48</td><td></td></tr>
+<tr><td>Months to recover at $380.71 a month</td><td>19.5</td><td>37.2</td><td></td></tr>
+</tbody>
+</table>
+
+<p>The penalty is missing because it is not a closing cost. It sits in the payoff letter from your current servicer, which the new lender wires money against without printing it on the page you read. On this loan it is almost twice the fees. Counted properly, the refinance needs 37 months to pay for itself, and if you plan to sell the duplex in two or three years, the quote that looked like a 19-month decision is a loss.</p>
+
+<h2>Sort the closing table into costs and cash that moves</h2>
+
+<p>Before anything goes into the spreadsheet, split the closing statement into money you spend and money that only changes accounts. If your lender issues a Closing Disclosure, the federal format already separates them: loan costs sit under Origination Charges, Services Borrower Did Not Shop For and Services Borrower Did Shop For, while Prepaids and Initial Escrow Payment at Closing are separate subheadings under other costs (12 CFR 1026.38(f) and (g)). The rule that requires that form covers consumer loans, so a lender on a rental refinance may hand you its own settlement statement instead; sort the lines yourself.</p>
+
+<ul>
+<li><strong>Cost:</strong> points, origination and underwriting fees, appraisal, credit report, lender's title policy, settlement fee, recording and transfer taxes, and the prepayment penalty on the loan being paid off.</li>
+<li><strong>Not a cost:</strong> prepaid interest (interest for the days you hold the new loan, at a lower rate than the old loan's payoff interest for the same days), the insurance premium if the policy renewal was due anyway, and the escrow deposit.</li>
+<li><strong>Cash timing to track:</strong> the refund of the old escrow balance. On a consumer mortgage the servicer must return it within 20 business days of payoff (12 CFR 1024.34(b)). A rental loan is business-purpose credit under Regulation Z (comment 3(a)-4: credit to acquire, improve or maintain a rental that is not owner-occupied is deemed business purpose), and Regulation X exempts business-purpose loans (12 CFR 1024.5(b)(2)), so that clock may not bind your servicer. Put the $2,380 on a follow-up list with a date.</li>
+</ul>
+
+<p>The skipped payment that loan officers mention belongs on the same list. Interest is paid in arrears, so the month without a payment was already covered by the payoff interest on the old loan and the prepaid interest on the new one. If your escrow is running short at reset time, the <a href="/blog/rental-property-escrow-analysis-tracker-excel">rental property escrow analysis tracker</a> shows how the new servicer will size the deposit.</p>
+
+<h2>The DSCR prepayment penalty decides the timing</h2>
+
+<p>On an owner-occupied qualified mortgage, a prepayment penalty is capped by Regulation Z at three years and at 2 percent of the balance prepaid in years one and two, 1 percent in year three (12 CFR 1026.43(g)(2)). That cap covers consumer loans. A DSCR loan on a non-owner-occupied rental is business-purpose credit, so it sits outside the cap, and state law and the note itself become the only limits.</p>
+
+<p>Lenders use that room. In a loan tape filed with the SEC on August 13, 2026 (EFMT Depositor LLC, Form ABS-15G, Exhibit 99.11), all 44 DSCR loans carried a prepayment penalty, 36 of them the five-year 5%, 4%, 3%, 2%, 1% step-down, and all were marked exempt from the ability-to-repay rule. The one bank-statement loan in the same tape had none. If your rental loan came from a DSCR lender, assume the penalty exists until you have read the note.</p>
+
+<p>The step-down creates a cheap move. The example loan was originated in December 2023, so a November 2026 closing pays it off in month 35, which is year three of the schedule: 3 percent of $311,956.69, or $9,358.70. Close in January instead, month 37, and the rate drops to 2 percent of $311,436.20, or $6,228.72. That saves $3,129.98 in penalty. The two extra months at 8.25 percent cost $779.62 more interest than the new loan would have charged, and the point is a few dollars smaller on the lower balance. Net, waiting adds $2,346 to option A on a two-year hold and $2,311 on a five-year hold. Across every option and hold period in the decision table below, the January closing comes out between $2,032 and $2,546 ahead.</p>
+
+<p>Read the note for two details before trusting that arithmetic: whether the penalty year runs from the note date or the first payment date, and whether the percentage applies to the full balance or only to prepayment above an annual free amount. The model below assumes the full balance, which is the expensive case.</p>
+
+<h2>Payment savings are the wrong denominator</h2>
+
+<p>The quote divides by the payment drop, and a payment drop mixes two things: interest you stop paying and principal you stop repaying. When the new loan restarts a 30-year term, part of the lower payment is simply slower paydown, which you hand back at sale as a larger payoff.</p>
+
+<p>On the duplex the two are close, because the old loan is only three years old: the payment falls by $380.71 and the first month's interest falls by $389.95. On a seasoned loan the gap is large. Take a hypothetical $200,000 portfolio loan at 7.0 percent that is 15 years in, with $148,037.73 left, refinanced into a new 30-year loan at 6.5 percent with $3,000 in costs.</p>
+
+<table>
+<thead><tr><th>Measure</th><th>After 24 months</th><th>After 60 months</th></tr></thead>
+<tbody>
+<tr><td>Payments saved ($1,330.60 down to $935.70)</td><td>$9,477.74</td><td>$23,694.35</td></tr>
+<tr><td>Interest saved</td><td>$903.50</td><td>-$285.06</td></tr>
+<tr><td>Equity you no longer have</td><td>$8,574.24</td><td>$23,979.41</td></tr>
+</tbody>
+</table>
+
+<p>The payment shortcut says the $3,000 comes back in 7.6 months. Counted on interest, the cumulative saving peaks at $931.49 in month 29 and then shrinks, so the costs never come back at all. The lower payment is real cash flow, and for an investor short on monthly cash it may still be worth buying, but it is borrowed from your own equity and the spreadsheet should say so.</p>
+
+<p>The fix is to compare total interest over the holding period, plus costs and penalties. For a rate and term refinance where the new loan equals the old payoff, that is exactly equal to comparing payments made plus the balance owed at sale, so nothing is lost by switching the denominator. The <a href="/blog/rental-property-mortgage-payoff-calculator-excel">rental property mortgage payoff calculator</a> covers the balance side of the same arithmetic.</p>
+
+<h2>Build the recoup calculator in Excel</h2>
+
+<p>One sheet, inputs in column B, the old loan's penalty schedule in D2:D6 and the new loan's in E2:E6 (leave E blank for a loan without one). The figures shown are option A closed in November with a sale in 24 months.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Label</th><th>Value or formula</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>B2</td><td>Original loan amount</td><td>320,000</td><td></td></tr>
+<tr><td>B3</td><td>Original rate</td><td>8.25%</td><td></td></tr>
+<tr><td>B4</td><td>Original term, months</td><td>360</td><td></td></tr>
+<tr><td>B5</td><td>Months elapsed at payoff</td><td>35</td><td></td></tr>
+<tr><td>B6</td><td>New rate</td><td>6.75%</td><td></td></tr>
+<tr><td>B7</td><td>New term, months</td><td>360</td><td></td></tr>
+<tr><td>B8</td><td>Loan costs only</td><td>4,814.78</td><td></td></tr>
+<tr><td>B9</td><td>New loan has a penalty (1 or 0)</td><td>0</td><td></td></tr>
+<tr><td>B10</td><td>Months from closing to sale</td><td>24</td><td></td></tr>
+<tr><td>B12</td><td>Payoff balance</td><td><code>=-FV(B3/12,B5,PMT(B3/12,B4,B2),B2)</code></td><td>$311,957</td></tr>
+<tr><td>B13</td><td>Penalty at payoff</td><td><code>=IF(B5&gt;60,0,INDEX($D$2:$D$6,ROUNDUP(B5/12,0))&#42;B12)</code></td><td>$9,359</td></tr>
+<tr><td>B14</td><td>Interest if you keep</td><td><code>=-CUMIPMT(B3/12,B4,B2,B5+1,B5+B10,0)</code></td><td>$50,955</td></tr>
+<tr><td>B15</td><td>Interest on the new loan</td><td><code>=-CUMIPMT(B6/12,B7,B12,1,B10,0)</code></td><td>$41,679</td></tr>
+<tr><td>B16</td><td>Penalty you pay at sale if you keep</td><td><code>=IF(B5+B10&gt;60,0,INDEX($D$2:$D$6,ROUNDUP((B5+B10)/12,0))&#42;-FV(B3/12,B5+B10,PMT(B3/12,B4,B2),B2))</code></td><td>$3,052</td></tr>
+<tr><td>B17</td><td>New loan's penalty at sale</td><td><code>=IF(OR(B9=0,B10&gt;60),0,INDEX($E$2:$E$6,ROUNDUP(B10/12,0))&#42;-FV(B6/12,B10,PMT(B6/12,B7,B12),B12))</code></td><td>$0</td></tr>
+<tr><td>B18</td><td>Net advantage of refinancing</td><td><code>=B14-B15-B8-B13+B16-B17</code></td><td>-$1,846</td></tr>
+</tbody>
+</table>
+
+<p>B16 is the line most calculators miss. If you sell inside the old loan's penalty window, keeping the loan does not avoid the penalty, it only shrinks it. Selling 24 months from a November closing lands in month 59 of the old loan, where the keep path pays 1 percent, $3,052.14. Selling 12 months out lands in month 47 and the keep path pays 2 percent, $6,174.48. The refinance's penalty is only the difference.</p>
+
+<p>B17 is the line that protects you from repeating the mistake. A new DSCR loan restarts its own step-down, and a sale in year two of a 5% to 1% schedule on the new loan costs 4 percent of its balance.</p>
+
+<p>For the recoup month, put months 1 to 120 in F2:F121 and copy the B14 to B18 logic into G2:G121 with F2 in place of B10. Then <code>=MATCH(TRUE,INDEX(G2:G121&gt;=0,0),0)</code> returns the first month at which selling would leave you ahead of keeping the old loan. For option A closed in November, that is month 37, the same month the corrected division gave. Format G with a red fill below zero so a hold period that loses money is visible without reading a number.</p>
+
+<h2>Pick the loan by the year you will sell</h2>
+
+<p>The quote compares one loan to doing nothing. In practice you choose among several offers, and the right one changes with your exit. Three example offers on the same $311,956.69 payoff, all 30-year fixed:</p>
+
+<ul>
+<li><strong>Option A:</strong> conventional at 6.75 percent with 0.5 point and $3,255 of other loan costs, no prepayment penalty. Payment $2,023.35.</li>
+<li><strong>Option B:</strong> no-cost at 7.125 percent, the lender credit covers every loan cost, no penalty. Payment $2,101.71.</li>
+<li><strong>Option C:</strong> DSCR at 6.5 percent with 1 point, the same $3,255 of other costs and a new 5%, 4%, 3%, 2%, 1% penalty. Payment $1,971.78.</li>
+</ul>
+
+<p>Net advantage over keeping the 8.25 percent loan, with each refinance closed in January (month 37), by months from today to the sale. Undiscounted, pre-tax.</p>
+
+<table>
+<thead><tr><th>Sale in</th><th>A: 6.75%, 0.5 pt</th><th>B: 7.125%, no cost</th><th>C: DSCR 6.5%, 1 pt</th><th>Cheapest</th></tr></thead>
+<tbody>
+<tr><td>12 months</td><td>-$987</td><td>$2,850</td><td>-$17,323</td><td>B</td></tr>
+<tr><td>24 months</td><td>$500</td><td>$3,165</td><td>-$11,821</td><td>B</td></tr>
+<tr><td>36 months</td><td>$2,002</td><td>$3,490</td><td>-$6,370</td><td>B</td></tr>
+<tr><td>48 months</td><td>$6,490</td><td>$6,800</td><td>$1,996</td><td>B</td></tr>
+<tr><td>60 months</td><td>$10,904</td><td>$10,034</td><td>$10,206</td><td>A</td></tr>
+<tr><td>84 months</td><td>$19,462</td><td>$16,231</td><td>$23,255</td><td>C</td></tr>
+<tr><td>120 months</td><td>$31,422</td><td>$24,667</td><td>$37,549</td><td>C</td></tr>
+</tbody>
+</table>
+
+<p>Three readings follow. The lowest rate on the sheet is the worst choice for anyone selling within four years: at a one-year sale it loses $17,323 against keeping the old loan, because its penalty and point land on exactly the sale you are planning. The no-cost loan wins every sale date through month 51, and it also wins the case the table cannot show: if rates fall another point, you can refinance B again without a sunk point or a penalty. A takes over from month 52, and C from month 63, the first sale date after its own five-year penalty has expired.</p>
+
+<p>Before you put a number in the sale column, check the other forces on it: a loan maturity or balloon elsewhere in the portfolio (the <a href="/blog/rental-portfolio-interest-rate-stress-test-excel">rental portfolio interest rate stress test</a> lists them by year), a planned 1031 exchange, a partner's exit date. If you cannot name the year, run the table and pick the option that loses least in the worst row you consider plausible.</p>
+
+<h2>What taxes change, and what they do not</h2>
+
+<p>Build the comparison pre-tax, then adjust. Mortgage interest on a rental is a Schedule E expense, so interest you stop paying also stops reducing your taxable rental income: at a 24 percent marginal rate, the first month's $389.95 of interest saved is $296.36 after tax.</p>
+
+<p>Points follow their own schedule. IRS Publication 527 (2025) treats points on a rental mortgage as prepaid interest deducted over the loan term under the original issue discount rules. When the points are under the de minimis threshold, 0.25 percent of the loan times its full years, you may deduct them straight line: here $1,559.78 of points against a threshold of $23,396.75, so $51.99 a year. When the loan ends early through a refinancing or a prepayment, such as a sale, the remaining points may be deductible that year, except that a refinance with the same lender carries them over the new loan instead. Publication 527 also lists mortgage commissions, abstract fees and recording fees as capital expenses that become part of the property's basis. Put those rules in one row per option if two options sit within a few hundred dollars of each other, as A and B do at 48 months ($310 apart), and have your preparer confirm the treatment of the prepayment penalty on your return.</p>
+
+<h2>The decision, in order</h2>
+
+<ul>
+<li>Get the payoff letter from your current servicer and the note. Write down the penalty schedule, how the year is counted, and the exact month the next step-down begins.</li>
+<li>Strip prepaids and escrow from the lender's cash to close and add the penalty. Put only real costs in B8 and B13.</li>
+<li>Run B18 for every offer at every sale year you consider possible, including the new loan's own penalty in B17.</li>
+<li>If a step-down falls within the next three months, price the wait: on this loan, two months is worth over $2,000 on every option.</li>
+<li>If the new conventional loan exceeds 80 percent of value, mortgage insurance becomes a monthly cost on the new side; the <a href="/blog/rental-property-pmi-removal-breakeven-calculator-excel">PMI removal breakeven calculator</a> covers when it ends on a rental. On a DSCR refinance, recheck coverage at the new payment with the <a href="/blog/dscr-calculator-excel-real-estate">DSCR calculator</a>.</li>
+</ul>
+
+<p>For this duplex, close in January. If the plan is to sell or recycle the equity within four years, take the no-cost loan at 7.125 percent: it is $3,165 ahead of keeping the old loan at a two-year sale. If the duplex is a long hold, the DSCR loan at 6.5 percent wins from month 63, and only because you have accepted that a sale before year five pays its new penalty.</p>
+
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> holds the rest of this decision. Its mortgage analysis tab shows the amortization schedule, total interest paid and your equity position at any point, and compares up to three loan scenarios side by side, so you can enter the old loan, option B and option C on the same property and compare total interest and equity at the year you plan to sell. Its deal summary then shows what the winning payment does to monthly cash flow and cash-on-cash return. It does not price a prepayment penalty or find the recoup month: build the sheet above next to it, and carry the winning loan's rate, payment and costs into the scenario you compare.</p>`,
+  },
+  {
     slug: 'rental-unit-interior-upgrade-rent-premium-roi-calculator-excel',
     title: 'Rental Unit Interior Upgrade Rent Premium ROI Calculator in Excel: The Answer Depends on What You Tear Out',
     metaTitle: 'Unit Upgrade Rent Premium ROI Calculator Excel | SheetCraft',
