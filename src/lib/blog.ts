@@ -16,6 +16,163 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-insurance-claim-vs-deductible-decision-excel',
+    title: 'Rental Property Insurance Claim vs Deductible Decision in Excel: Price the Claim Before You Call',
+    metaTitle: 'Rental Property Insurance Claim vs Deductible | SheetCraft',
+    metaDescription: 'A $4,800 water loss on a $2,500 deductible pays $1,241.78, not $2,300. Run the rental property insurance claim vs deductible decision in Excel first.',
+    targetKeyword: 'rental property insurance claim vs deductible decision Excel',
+    secondaryKeywords: ['claim surcharge', 'fair rental value', 'dwelling policy', 'claims history', 'water heater claim'],
+    excerpt: 'A $4,800 water heater leak on a $2,500 deductible looks like a $2,300 check. The policy excludes the tank, covers the lost rent, and the carrier\'s surcharge rule decides the rest. A two-tab Excel sheet finds your break-even loss before you call the claims line.',
+    publishedAt: '2026-10-23',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-insurance-claim-vs-deductible-decision-excel.png',
+    imageAlt: 'Water dripping into a puddle spreading across wooden floor planks',
+    content: `<p>The water heater in Unit B of your duplex splits at 2 a.m. By noon you have a contractor's estimate for $4,800 and a $2,500 deductible on the policy, and the arithmetic looks finished: file, collect $2,300, accept whatever the premium does. A <strong>rental property insurance claim vs deductible decision in Excel</strong> exists because that subtraction is wrong twice. The check is smaller than $2,300, and the cost of the claim is written in your carrier's rating manual and your state's insurance code, not in a rumor about rates going up. On the example below, the corrected numbers turn "file" into "absorb" with one carrier and keep it "file" with another, for the same leak.</p>
+
+<p>The duplex, the estimate, the rent and the premium are example figures. The policy wording, the claim history rules and the state statutes are real and cited where they are used.</p>
+
+<h2>The $2,300 check that does not exist</h2>
+
+<p>A landlord policy on a one-to-four unit building is usually a dwelling policy, and its special form, DP 00 03, carries a sentence that removes the most expensive line from most water heater estimates. After it grants coverage for water that escapes from a plumbing system or household appliance, the form says: "We do not cover loss to the system or appliance from which this water or steam escaped." The tank that split is yours to replace. The drying, the drywall and the floor are covered.</p>
+
+<p>The same policy usually adds something the estimate leaves out. On a tenant-occupied DP-3, Coverage D pays fair rental value while the unit cannot be rented. Sutton National's California dwelling manual, for example, includes Coverage D at 10 percent of the dwelling limit on tenant-occupied DP-3 policies. Twelve days without rent is part of the loss.</p>
+
+<table>
+<thead><tr><th>Line</th><th>The quick math</th><th>Rebuilt</th></tr></thead>
+<tbody>
+<tr><td>Replace 40-gallon water heater, installed</td><td>$1,650</td><td>$0 (excluded: the appliance the water came from)</td></tr>
+<tr><td>Water extraction and drying equipment, 3 days</td><td>$950</td><td>$950</td></tr>
+<tr><td>Cut out, replace, tape and paint drywall</td><td>$1,100</td><td>$1,100</td></tr>
+<tr><td>Vinyl plank flooring, hall and bedroom</td><td>$1,100</td><td>$1,100</td></tr>
+<tr><td>Lost rent, 12 days at $1,500 a month</td><td>$0</td><td>$591.78</td></tr>
+<tr><td>Loss counted against the deductible</td><td>$4,800</td><td>$3,741.78</td></tr>
+<tr><td>Less deductible</td><td>$2,500</td><td>$2,500</td></tr>
+<tr><td>Check from the carrier</td><td>$2,300</td><td>$1,241.78</td></tr>
+</tbody>
+</table>
+
+<p>The model applies one deductible to the whole covered loss, including rent. Read the deductible clause and the Coverage D section of your own form before you rely on that, because endorsements change both. If the tenant caused the damage, the deductible can be larger too. Sutton's manual makes an endorsement titled Increased Deductible for Loss or Damage Caused by Tenants mandatory on every DP-1 and DP-3, and its notes set that deductible at the greater of $2,500 or the policy deductible on tenant-occupied risks. Price that case with the <a href="/blog/landlord-move-out-damage-chargeback-calculator-excel">move-out damage chargeback calculator</a> before you call the carrier.</p>
+
+<h2>The cost of a claim is written in the carrier's manual</h2>
+
+<p>A claim costs money in three places: a surcharge or a lost discount at renewal, a record that follows you and the property, and a lower tolerance for the next claim. All three are written down somewhere you can read.</p>
+
+<h3>The record lasts seven years</h3>
+
+<p>Carriers that subscribe to C.L.U.E., the Comprehensive Loss Underwriting Exchange run by LexisNexis, report their property claims to it. The Wisconsin and Tennessee insurance regulators both describe it as holding up to seven years of personal property claims history. Tennessee lists what gets reported: claims the carrier paid, claims for which it set up a file for a possible claim, and claims it formally denied. Wisconsin puts it more bluntly: consumer claims information includes any loss you asked the company to cover, "whether or not the insurance company paid for it." Wisconsin also notes that insurers use C.L.U.E. mostly when writing new policies, because your current carrier already has your loss history in its own files. The record matters most the day you shop for a new policy or the day your carrier decides it no longer wants the building.</p>
+
+<h3>The surcharge is a published number</h3>
+
+<p>Rating rules are filed with state regulators, and some carriers publish their manuals. Three examples show how different they are:</p>
+
+<ul>
+<li><strong>Sutton National, California DP-1 and DP-3 manual (02/2021):</strong> one or more qualified losses in the past 36 months adds a 15 percent surcharge to the basic premium. Catastrophe claims with an ISO catastrophe number do not count. The same manual will not accept an applicant or dwelling with two or more chargeable losses of at least $500 each in the past 36 months.</li>
+<li><strong>Citizens Property Insurance, Florida:</strong> its underwriting review template treats two or more non-weather water losses within 36 months, or three within 60 months, as ineligible on the policy form.</li>
+<li><strong>Texas:</strong> the Insurance Code limits what a carrier may do at all, covered in the next section.</li>
+</ul>
+
+<p>Ask your agent for the loss surcharge and eligibility rules that apply to your policy form, in writing. The answer goes into cells B11 to B13 of the sheet below, and it decides more than the size of the loss does.</p>
+
+<h2>Texas rewrites the decision by cause of loss</h2>
+
+<p>Texas is worth reading even if you own nothing there, because it shows how much the cause of the water changes the cost of a claim.</p>
+
+<p>Section 544.353 of the Texas Insurance Code bars an insurer from using a prior appliance-related claim to set the rate or to decide whether to issue, renew or cancel a policy, if the damage was properly remediated and the remediation was inspected and certified by someone experienced in water damage remediation. Section 544.352 defines an appliance as a household device operated by gas or electric current, including hoses attached to it, and names water heaters, clothes washers, dishwashers, icemakers and refrigerators. The protection stops at three or more appliance-related claims within three years, and it applies to residential fire and allied lines policies, which is where a landlord's dwelling policy sits.</p>
+
+<p>Section 551.107 adds two limits for standard fire, homeowners and farm and ranch policies. A carrier may add a renewal surcharge only if you filed two or more claims in the preceding three policy years, and it may refuse to renew only after three claims in a three-year period, and only if it warned you in writing after the second. Claims from natural causes, claims filed but not paid, and protected appliance claims do not count. Wellington's Texas dwelling fire underwriting guide, which accepts rentals of up to four families, repeats these limits in its renewal claims rules. The same section narrows the word "surcharge": losing a discount, moving to another rating tier and re-rating are not surcharges. A first claim in Texas can still cost you a claim-free credit.</p>
+
+<p>The water heater claim, with a remediation certificate in the file, costs the price of the certificate. The same damage from a cracked supply line under a sink is a plumbing claim under the statute, and it counts toward the two-claim and three-claim lines.</p>
+
+<h2>The phone call is the decision</h2>
+
+<p>A call to the claims line "just to ask" can make the decision for you. Tennessee's regulator says LexisNexis advises insurers not to report a call that only asks about coverage or the deductible, and Tennessee law bars raising a premium or canceling a homeowner's policy solely because of such inquiries. Texas defines a customer inquiry in Section 551.113 as a communication that does not result in an investigation or claim, and it includes asking whether a policy will cover a loss, "unless the question concerns specific damage that has occurred and that results in an investigation or claim."</p>
+
+<p>If you describe the split tank, the date and the address, you have reported a loss, and Tennessee's list of what carriers report includes claims for which they set up a file. Ask the general questions first, about the surcharge rule and how the deductible applies to fair rental value, and give no address or date of loss. Run the sheet. Then call with a decision.</p>
+
+<p>Do not let the sheet slow down the drying. DP 00 03 lists your duties after a loss: give prompt notice, protect the property from further damage, make reasonable and necessary repairs, and keep an accurate record of repair expenses. It also excludes "constant or repeated seepage or leakage of water or steam over a period of weeks, months or years." The $950 for drying is spent whichever way you decide, so book the drying crew the same morning, photograph everything before tear-out, keep every invoice, and make the filing decision within days.</p>
+
+<h2>Build the claim decision sheet in Excel</h2>
+
+<p>The sheet has two tabs. The <strong>Loss</strong> tab lists the estimate: item in column A, amount in column B, and Y or N in column C for covered or not. Rows 4 to 7 hold the four estimate lines from the table above.</p>
+
+<ul>
+<li>B8, estimate total: <code>=SUM(B4:B7)</code> returns $4,800.</li>
+<li>B9, covered repair: <code>=SUMIFS(B4:B7,C4:C7,"Y")</code> returns $3,150. The water heater row carries N.</li>
+</ul>
+
+<p>The <strong>Claim</strong> tab does the decision:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input or formula</th><th>Example value</th><th>What it answers</th></tr></thead>
+<tbody>
+<tr><td>B3</td><td>Monthly rent of the damaged unit</td><td>$1,500</td><td>Input</td></tr>
+<tr><td>B4</td><td>Days the unit cannot be rented</td><td>12</td><td>Input</td></tr>
+<tr><td>B5</td><td><code>=B3&#42;12/365&#42;B4</code></td><td>$591.78</td><td>Fair rental value lost</td></tr>
+<tr><td>B6</td><td>Deductible</td><td>$2,500</td><td>Input</td></tr>
+<tr><td>B7</td><td><code>=Loss!B9+B5</code></td><td>$3,741.78</td><td>Covered loss</td></tr>
+<tr><td>B8</td><td><code>=MAX(0,B7-B6)</code></td><td>$1,241.78</td><td>Check from the carrier</td></tr>
+<tr><td>B10</td><td>Annual basic premium</td><td>$2,400</td><td>Input</td></tr>
+<tr><td>B11</td><td>Claim surcharge rate</td><td>15%</td><td>From the carrier's rule</td></tr>
+<tr><td>B12</td><td>Renewals that carry it</td><td>3</td><td>36 months = 3 renewals</td></tr>
+<tr><td>B13</td><td>Claim-free credit lost per year</td><td>$0</td><td>From the carrier's rule</td></tr>
+<tr><td>B14</td><td>Other cost of filing (certificate, inspection)</td><td>$0</td><td>Input</td></tr>
+<tr><td>B15</td><td><code>=B10&#42;B11&#42;B12+B13&#42;B12+B14</code></td><td>$1,080.00</td><td>Direct cost of the claim</td></tr>
+<tr><td>B17</td><td>Chargeable claims per 100 policy-years</td><td>2.73</td><td>How often the next loss comes</td></tr>
+<tr><td>B18</td><td>Lookback period, years</td><td>3</td><td>From the carrier's rule</td></tr>
+<tr><td>B19</td><td><code>=1-(1-B17/100)^B18</code></td><td>7.97%</td><td>Chance of another chargeable claim in the window</td></tr>
+<tr><td>B20</td><td>Extra cost if that next claim is your second</td><td>$3,600</td><td>Replacement policy, example</td></tr>
+<tr><td>B21</td><td><code>=B19&#42;B20</code></td><td>$286.86</td><td>Expected cost of the second claim</td></tr>
+<tr><td>B22</td><td><code>=B8-B15-B21</code></td><td>-$125.08</td><td>Net value of filing</td></tr>
+<tr><td>B23</td><td><code>=IF(B22&gt;0,"FILE","ABSORB AND DOCUMENT")</code></td><td>ABSORB AND DOCUMENT</td><td>Decision</td></tr>
+<tr><td>B24</td><td><code>=B6+B15+B21</code></td><td>$3,866.86</td><td>Covered loss at which filing breaks even</td></tr>
+</tbody>
+</table>
+
+<p>Where B17 comes from: ISO data published by the Insurance Information Institute put homeowners property damage claims at 5.53 per 100 house-years on average over 2019 to 2023, of which 2.80 were wind and hail. Sutton's rule leaves out catastrophe-coded claims and Texas leaves out natural causes, so the sheet drops wind and hail and uses the other 2.73: water damage and freezing 1.50, fire 0.23, theft 0.12, all other 0.88. Those figures cover homeowners policies (HO-2, HO-3 and HO-5), not dwelling policies on rentals, and exclude Texas. If you own enough buildings to have ten years of your own claim history, use that instead.</p>
+
+<p>B20 is the cost of being the landlord with two losses in the window: with Sutton's rule, that applicant is unacceptable as new business, so if the carrier walks away you are shopping at carriers that take two losses. The example prices that at $1,200 a year more for three years. Replace it with a real quote if your agent can get one.</p>
+
+<p>B24 is the line to watch. Under this rulebook, the claim pays for itself only when the covered loss passes $3,866.86, about 1.5 times the deductible. This loss is $125.08 short. Had the unit been down 15 days instead of 12, the lost rent alone would have crossed it.</p>
+
+<h2>One leak, four rulebooks</h2>
+
+<p>Change B11 to B14, B17 and B20 and the same $1,241.78 check produces four answers.</p>
+
+<table>
+<thead><tr><th>Rulebook</th><th>Direct cost (B15)</th><th>Expected second-claim cost (B21)</th><th>Net value of filing (B22)</th><th>Break-even covered loss (B24)</th><th>Decision</th></tr></thead>
+<tbody>
+<tr><td>15% surcharge for 36 months, two losses ineligible (Sutton, California)</td><td>$1,080.00</td><td>$286.86</td><td>-$125.08</td><td>$3,866.86</td><td>Absorb</td></tr>
+<tr><td>Texas, water heater, remediation certified (Sec. 544.353)</td><td>$350.00 (certificate, example)</td><td>$0</td><td>$891.78</td><td>$2,850.00</td><td>File</td></tr>
+<tr><td>Texas, same damage from a supply line (Sec. 551.107), $240 claim-free credit lost</td><td>$720.00</td><td>$86.06</td><td>$435.72</td><td>$3,306.06</td><td>File</td></tr>
+<tr><td>Eligibility rule only: second non-weather water loss in 36 months ineligible, no surcharge (Citizens-type)</td><td>$0</td><td>$159.58</td><td>$1,082.20</td><td>$2,659.58</td><td>File</td></tr>
+</tbody>
+</table>
+
+<p>Notes on the rows. In the Texas supply line row, the second-claim cost is the surcharge a second claim would permit under Section 551.107, priced at the same 15 percent as the first row, so B20 is $1,080 and B19 stays at 7.97 percent. In the Citizens-type row, only another non-weather water loss triggers the rule, so B17 is the water and freezing frequency alone, 1.50 per 100, and B19 falls to 4.43 percent. The $240 credit and the $350 certificate are example figures; ask for the real ones.</p>
+
+<p>Put the quick math back into the first row and the error shows. With a $2,300 check, filing under the Sutton rule nets $933.14 and looks obvious. With the real $1,241.78 check, it loses $125.08. A wrong estimate of the payout leads straight to the wrong decision.</p>
+
+<h2>When to file without running the sheet</h2>
+
+<p>The model is for the losses that sit between one and two deductibles. Outside that band the answer is fast.</p>
+
+<ul>
+<li><strong>Any liability claim.</strong> A tenant or guest injured on the property goes to the carrier the day you hear of it. ISO puts the average homeowners bodily injury and property damage liability claim at $37,174 over 2019 to 2023. Late notice on a liability loss is a risk no surcharge justifies.</li>
+<li><strong>Large property losses.</strong> Under the Sutton rule, a $12,000 covered loss nets $8,133.14 after every cost in the sheet. ISO's average water damage and freezing claim was $15,400, and fire and lightning $88,170. The policy is there for those.</li>
+<li><strong>Catastrophe losses.</strong> Wind, hail and wildfire claims with an ISO catastrophe number are outside Sutton's surcharge, and Texas excludes losses from natural causes from both its surcharge and its nonrenewal counts.</li>
+<li><strong>Texas appliance losses.</strong> Get the remediation certificate, then file, unless you already have three appliance claims in three years.</li>
+</ul>
+
+<p>When the answer is "absorb," book it as a cost. The $3,741.78 of covered loss stays with you: $3,150 of repairs paid from the operating reserve and $591.78 of rent you do not collect. The $1,650 water heater is yours either way, and it belongs in your <a href="/blog/rental-property-capital-reserve-calculator-excel">capital reserve schedule</a> with a fresh install date. If the flooring has to come out anyway, the <a href="/blog/rental-unit-interior-upgrade-rent-premium-roi-calculator-excel">interior upgrade rent premium calculator</a> tells you whether to put back the same plank or something that earns more rent.</p>
+
+<h2>Get three numbers before the next leak</h2>
+
+<p>Before the next leak, get three numbers from your agent in writing: the claim surcharge rate and how many renewals carry it, the claim-free credit you would lose, and the loss count that makes the building ineligible. Put them in B11 to B13 and B18. Your break-even covered loss in B24 then exists before anything breaks, and the 2 a.m. decision becomes a lookup: dry the unit the same day, price the covered loss without the failed appliance and with the lost rent, compare it to B24, and only then call the claims line. Review the inputs at each renewal alongside the premium in your <a href="/blog/rental-property-insurance-cost-tracker-excel">insurance cost tracker</a>, because a carrier change rewrites every one of them.</p>
+
+<p>The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> is where that decision lands. Its operating expense analysis gives insurance, maintenance reserve and vacancy their own lines, its deal summary shows what a $1,080 surcharge or $3,150 of absorbed repairs does to monthly cash flow and cash-on-cash return, and its 10-year projection carries a higher premium forward with expense growth. It does not read your policy or price a claim: build the two-tab sheet above next to it, then enter the surcharged premium or the absorbed repair in the Analyzer to see what the building returns either way.</p>`,
+  },
+  {
     slug: 'rate-and-term-refinance-closing-cost-recoup-calculator-excel',
     title: 'Rate and Term Refinance Closing Cost Recoup Calculator Excel: Why 19.5 Months Becomes 37',
     metaTitle: 'Refinance Closing Cost Recoup Calculator Excel | SheetCraft',
