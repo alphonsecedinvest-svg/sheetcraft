@@ -16,6 +16,148 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-appliance-repair-or-replace-calculator-excel',
+    title: 'Rental Property Appliance Repair or Replace Calculator (Excel): Why the 50 Percent Rule Fails',
+    metaTitle: 'Rental Appliance Repair or Replace Calculator | SheetCraft',
+    metaDescription: 'Rental property appliance repair or replace calculator in Excel: the 50 percent rule approves a $380 fridge repair that only pays off after 4.26 more years.',
+    targetKeyword: 'rental property appliance repair or replace calculator Excel',
+    secondaryKeywords: ['appliance repair vs replace rule', '50 percent rule appliances', 'rental appliance replacement cost', 'appliance useful life rental property', 'landlord appliance repair'],
+    excerpt: 'A $380 repair on a 12-year-old fridge passes the half-the-price rule and still loses money unless the unit runs 4.26 more years. Price each repair by the years it buys, the next breakdown it adds, and the annual cost of a new unit.',
+    publishedAt: '2026-10-24',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-appliance-repair-or-replace-calculator-excel.png',
+    imageAlt: 'Open side-by-side stainless refrigerator lit from inside in a dark kitchen',
+    content: `<p>The refrigerator in Unit 2 quits on a Tuesday. The technician charges a $95 trip fee, finds a failed defrost system, and quotes $380 to fix it. A new unit delivered, installed and hauled away is $1,050. The rule everyone repeats says replace when the repair costs more than half the price of new, and $380 is 36.2 percent of $1,050, so you approve the repair. A <strong>rental property appliance repair or replace calculator in Excel</strong> exists because that rule answers the wrong question. It compares the repair to the price of a new unit, when the decision depends on how many years the repair buys and what each of those years is worth. On this fridge, which is 12 years old, the $380 only pays for itself if the repaired unit runs another 4.26 years.</p>
+
+<p>The unit, the quotes, the tenant credit and the 8 percent cost of money below are example figures. The useful life tables and the tax rules are real and cited where they are used.</p>
+
+<h2>Why the 50 percent rule approves a repair the math rejects</h2>
+
+<p>The half-the-price rule has one input that matters, the repair quote, and one that does not, the sticker price of new. It ignores the two things that decide whether a repair is money well spent: how long the old unit will keep running, and what you pay when it breaks again.</p>
+
+<p>Take the age first. HUD's Capital Needs Assessment e-Tool publishes an estimated useful life table for multifamily components, and its Interiors-Dwelling Units section gives a refrigerator 12 years in family housing. This fridge has reached that number. Fannie Mae's Form 4099.F, the life table for multifamily property condition assessments, is shorter still: 10 years for a kitchen refrigerator in conventional multifamily. By either table, the unit you are about to repair has no remaining life left on paper.</p>
+
+<p>The 50 percent rule would give the same answer at 2 years old and at 14. A $380 repair on a 2-year-old fridge buys a decade. The same $380 on a 12-year-old fridge buys whatever the compressor, the door gaskets and the control board have left, and the rule cannot tell the two cases apart.</p>
+
+<h2>Price a repair by the years it buys</h2>
+
+<p>A repair does one thing financially: it pushes the purchase of the next unit into the future. That deferral has a value, and you can compute it from the cost of owning a new unit for one year.</p>
+
+<p>Spread the $1,050 over 12 years at 8 percent and the new fridge costs <code>=PMT(8%,12,-1050)</code>, or $139.33 a year. That figure is called the equivalent annual cost. It is the yearly rent you would pay for the appliance if someone leased it to you at your cost of money. Each year the old unit keeps running is a year you do not pay it.</p>
+
+<p>The $95 trip fee does not belong in the comparison. You paid it already, and you pay it whether you repair or replace. The only money still undecided is the $380 quote against the $1,050 new unit.</p>
+
+<p>There is one more cost on each unit's life, and it belongs in the annual figure. Every refrigerator ends its life with a breakdown, and a breakdown costs you more than the repair bill. In this example it is another $95 trip fee plus $105 you credit the tenant for spoiled food, so $200 per failure. Add that $200 at the end of the new unit's 12 years and its annual cost becomes <code>=PMT(8%,12,-(1050+200/(1+8%)^12))</code>, which is $149.87 a year.</p>
+
+<h3>The second breakdown is the cost the quote leaves out</h3>
+
+<p>A repaired 12-year-old fridge will break again. When it does, you pay the $200 failure cost, then you buy the new unit anyway. Replacing today avoids that second failure entirely. So the repair has to clear two hurdles: its own $380, and the $200 it adds a few years out, both measured against the years of $149.87 it saves.</p>
+
+<p>The table below turns that into a ceiling. For each number of extra years you expect the repaired unit to run, it shows the most a repair is worth: the value of deferring the new unit for that many years, minus the present value of the extra failure at the end.</p>
+
+<table>
+<thead><tr><th>Extra years the repaired fridge runs</th><th>Value of deferring the new unit</th><th>Present value of the next $200 failure</th><th>Most the repair is worth</th><th>Result of paying $380</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>$138.77</td><td>$185.19</td><td>-$46.42</td><td>-$426.42</td></tr>
+<tr><td>2</td><td>$267.26</td><td>$171.47</td><td>$95.79</td><td>-$284.21</td></tr>
+<tr><td>3</td><td>$386.23</td><td>$158.77</td><td>$227.46</td><td>-$152.54</td></tr>
+<tr><td>4</td><td>$496.38</td><td>$147.01</td><td>$349.38</td><td>-$30.62</td></tr>
+<tr><td>5</td><td>$598.38</td><td>$136.12</td><td>$462.27</td><td>$82.27</td></tr>
+<tr><td>6</td><td>$692.83</td><td>$126.03</td><td>$566.79</td><td>$186.79</td></tr>
+</tbody>
+</table>
+
+<p>In the first row, if the fridge will fail again within a year, even a free repair loses $46.42, because the extra breakdown costs more than one year of deferral is worth. The $380 repair breaks even at 4.26 years. Below that you lose money, above it you save some.</p>
+
+<p>The question for the technician becomes: will this unit run past its 16th birthday? Asked that way, most landlords can answer it from the age on the data plate.</p>
+
+<h2>Four service calls where the rule and the model disagree three times</h2>
+
+<p>The same logic changes the verdict on more than one appliance. The table below runs four calls from the same example portfolio through both methods. The life column is HUD's family-housing figure: 12 years for a refrigerator, 10 for a dishwasher, 15 for a range and 10 for a clothes washer. The failure cost is $200 for the fridge and $95, the trip fee alone, for the others.</p>
+
+<table>
+<thead><tr><th>Appliance</th><th>Age</th><th>HUD life</th><th>Repair quote</th><th>New, installed</th><th>Repair as % of new</th><th>50% rule says</th><th>Annual cost of new</th><th>Years the repair must buy</th><th>Life left on the table</th><th>Model says</th></tr></thead>
+<tbody>
+<tr><td>Refrigerator</td><td>12</td><td>12</td><td>$380</td><td>$1,050</td><td>36.2%</td><td>Repair</td><td>$149.87</td><td>4.26</td><td>0</td><td>Replace</td></tr>
+<tr><td>Dishwasher</td><td>4</td><td>10</td><td>$300</td><td>$750</td><td>40.0%</td><td>Repair</td><td>$118.33</td><td>3.75</td><td>6</td><td>Repair</td></tr>
+<tr><td>Range</td><td>6</td><td>15</td><td>$450</td><td>$800</td><td>56.2%</td><td>Replace</td><td>$96.96</td><td>7.01</td><td>9</td><td>Repair</td></tr>
+<tr><td>Washer</td><td>8</td><td>10</td><td>$220</td><td>$850</td><td>25.9%</td><td>Repair</td><td>$133.23</td><td>2.56</td><td>2</td><td>Replace</td></tr>
+</tbody>
+</table>
+
+<p>The rule gets one of four right. It replaces a 6-year-old range because the control board costs more than half of a new range, when a range lasts 15 years and the repair only has to buy 7.01 of the 9 it has left. It repairs a washer that needs 2.56 more years when the table gives it 2.</p>
+
+<p>The washer row is close, and close rows are where your own records matter. If your work orders show this model routinely running 13 or 14 years, repair it. If you have already replaced two of the same model at 9 years, replace it.</p>
+
+<h2>Where the remaining years come from</h2>
+
+<p>The weak input in this calculator is the one the 50 percent rule hides: how long the old unit will keep running. Nobody publishes a survival curve for a repaired 12-year-old refrigerator, and the published life tables are averages, not expiration dates. HUD says so in the header of its own table: the assessor "may estimate the Remaining Useful Life of any existing component independent of the Standard EUL," and must justify the estimate.</p>
+
+<p>Do the same. Use three sources, in this order:</p>
+
+<ol>
+<li>Your work order history for this make and model, if you own several. Age at replacement is the best number you will ever have.</li>
+<li>The technician's view of the failed part. A cracked door shelf on an old unit says little about its future, while a refrigerant leak or a failing compressor says a lot.</li>
+<li>The life tables as a ceiling. If HUD's table already gives the unit zero remaining years, the burden of proof sits on the repair.</li>
+</ol>
+
+<p>A <a href="/blog/rental-property-preventive-maintenance-schedule-excel">preventive maintenance schedule</a> is where that history starts. Log install date, model and every service call per unit, and the remaining-life input stops being a guess after a few years of records.</p>
+
+<h2>Do not pay a big repair to bridge to the next turnover</h2>
+
+<p>The common compromise is to fix the fridge now and replace it when the tenant moves out, so the new unit goes into an empty kitchen. It sounds prudent, and on this fridge it loses more than repairing and hoping for three more years.</p>
+
+<p>If the lease ends in 5 months, the repair defers the new unit by 5 months. Five months of $149.87 a year, discounted at 8 percent, is worth <code>=PV(8%,5/12,-149.87)</code>, or $59.12. You would pay $380 to save $59.12. A planned replacement at turnover does avoid the second breakdown, but it cannot recover the $320.88 gap.</p>
+
+<p>The turnover plan works the other way around. When a unit at or past its table life is about to go vacant, replace the appliance during the vacancy, before it fails. That avoids the $200 breakdown and the tenant call entirely. A <a href="/blog/lease-expiration-tracker-excel">lease expiration tracker</a> with an appliance age column tells you which vacancies are coming up next to an old fridge or washer.</p>
+
+<h2>Taxes and energy rarely change the answer</h2>
+
+<p>Two arguments get raised for repairing, and both are weaker than they sound.</p>
+
+<p>The tax argument says a repair is deductible this year while a new appliance must be depreciated. IRS Publication 527 does put appliances used in residential rental real estate in the 5-year property class. But two other rules usually let you deduct the new fridge in the year you buy it. The de minimis safe harbor in Treasury Regulation 1.263(a)-1(f) lets a landlord without an applicable financial statement (for most small landlords, no audited financials) deduct items costing up to $2,500 per invoice or per item, under the IRS threshold raised from $500 by Notice 2015-82. You have to elect it each year with a statement attached to a timely filed return, and have the expensing practice in place at the start of the year. And for property acquired and placed in service after January 19, 2025, the 100 percent special depreciation allowance is restored, per the 2025 edition of Publication 527. When both costs come off this year's income at the same tax rate, tax cuts the repair and the replacement by the same share and does not change which one is cheaper. The details of what counts as a repair are in our article on <a href="/blog/rental-property-repair-vs-improvement-classification-excel">repair vs improvement classification</a>.</p>
+
+<p>The energy argument says a new refrigerator uses less electricity. That saving goes to whoever pays the electric bill. In a separately metered unit, that is the tenant, and the saving to you is zero. If you pay the electricity on a master meter, measure the old unit with a plug-in meter for a week, convert the difference to a yearly dollar amount at your rate, and enter it in the calculator as a cost of keeping the old unit.</p>
+
+<p>The disruption argument is the one that holds up, and the model already carries it: the $200 failure cost is the trip fee and the food credit. If a dead fridge in your market also means a rent credit or a lost renewal, raise it.</p>
+
+<h2>Build the calculator in one tab</h2>
+
+<p>Put the inputs in column B of a sheet named Inputs:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>B2</td><td>New unit, delivered, installed, haul-away</td><td>$1,050</td></tr>
+<tr><td>B3</td><td>Life from the table, years</td><td>12</td></tr>
+<tr><td>B4</td><td>Age of the unit, years</td><td>12</td></tr>
+<tr><td>B5</td><td>Repair quote, excluding the trip fee already paid</td><td>$380</td></tr>
+<tr><td>B6</td><td>Cost of one breakdown beyond the repair (trip fee, tenant credit)</td><td>$200</td></tr>
+<tr><td>B7</td><td>Your cost of money</td><td>8%</td></tr>
+<tr><td>B8</td><td>Extra years you expect the repaired unit to run</td><td>3</td></tr>
+<tr><td>B9</td><td>Months until the lease ends</td><td>5</td></tr>
+<tr><td>B10</td><td>Extra yearly energy you pay on the old unit</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>Then the outputs. The annual cost of a new unit, with its end-of-life breakdown, goes in B12: <code>=PMT(B7,B3,-(B2+B6/(1+B7)^B3))</code>. The most the repair is worth at your expected years goes in B13: <code>=PV(B7,B8,-(B12-B10))-B6/(1+B7)^B8</code>. With 3 years, that returns $227.46. The decision goes in B15: <code>=IF(B5&lt;=B13,"REPAIR","REPLACE")</code>.</p>
+
+<p>Put the half-price rule beside it in B16, <code>=IF(B5&lt;=0.5&#42;B2,"REPAIR","REPLACE")</code>, so every call shows where the two methods disagree. The remaining life on the table goes in B17: <code>=MAX(0,B3-B4)</code>. The value of bridging to the lease end goes in B18: <code>=PV(B7,B9/12,-(B12-B10))</code>.</p>
+
+<p>For the break-even, put B14 as <code>=B13-B5</code> and use Goal Seek (Data, What-If Analysis) to set B14 to 0 by changing B8. On the example it returns 4.26 years. If you prefer a formula, list years 1 to 10 in A21:A30, compute the ceiling for each in B21 with <code>=PV($B$7,A21,-($B$12-$B$10))-$B$6/(1+$B$7)^A21</code>, and find the first whole year that clears the quote with <code>=INDEX(A21:A30,MATCH(TRUE,INDEX(B21:B30&gt;=B5,0),0))</code>. It returns 5, the first whole year past 4.26.</p>
+
+<p>Copy the tab once per appliance call and keep the copies. After a year you have a log of every quote, every decision and every unit that failed again, which is the remaining-life history the calculator needs.</p>
+
+<h2>What to do on the next service call</h2>
+
+<p>Before you approve a quote, look up the unit's age against the life table. If the table still gives it several years, repair it even when the quote is above half the price of new, as long as the years left clear the break-even. If the table gives it zero, replace it unless your own records show that model running well past its table life. Never pay a large repair just to reach a lease end a few months away, and when a vacancy lines up with an appliance at its table life, replace the appliance while the unit is empty. On the example fridge, that means declining the $380, buying the $1,050 unit, and moving on.</p>
+
+<p>If an old dishwasher or washer fails by leaking, the claim side has its own math: most landlord policies exclude the appliance the water came from, which our article on the <a href="/blog/rental-property-insurance-claim-vs-deductible-decision-excel">insurance claim vs deductible decision</a> works through line by line.</p>
+
+<p>The annual costs in this calculator also tell you what to reserve. The four appliances in the example cost $149.87, $118.33, $96.96 and $133.23 a year, or $498.39 per unit, about $41.53 a month. The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> gives maintenance reserve its own line in the operating expenses, next to vacancy, insurance and taxes, then shows what that reserve does to monthly cash flow, cash-on-cash return and the 10-year projection. It does not hold an appliance list or price a repair. Run the repair-or-replace tab beside it, then enter the per-unit appliance cost as part of the maintenance reserve so each deal carries the appliances it will actually replace. For the rest of the building's components, the <a href="/blog/rental-property-capital-reserve-calculator-excel">capital reserve calculator</a> applies the same method to roofs, HVAC and water heaters.</p>`,
+  },
+  {
     slug: 'rental-property-insurance-claim-vs-deductible-decision-excel',
     title: 'Rental Property Insurance Claim vs Deductible Decision in Excel: Price the Claim Before You Call',
     metaTitle: 'Rental Property Insurance Claim vs Deductible | SheetCraft',
