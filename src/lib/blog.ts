@@ -16,6 +16,200 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'landlord-lease-break-fee-calculator-excel',
+    title: 'Landlord Lease Break Fee Calculator in Excel: Price the Month, Not the Months Left',
+    metaTitle: 'Landlord Lease Break Fee Calculator Excel | SheetCraft',
+    metaDescription: 'A landlord lease break fee calculator in Excel: what a departure costs by move-out month, where 2 months\' rent falls short, and what FL, CA, TX and NY allow.',
+    targetKeyword: 'landlord lease break fee calculator Excel',
+    secondaryKeywords: ['early termination fee', 'landlord duty to mitigate damages', 'lease buyout clause', 'cost of a tenant breaking a lease', 'liquidated damages clause in a residential lease'],
+    excerpt: 'A tenant leaving with five months left costs $1,894.79 in May and $4,304.80 in December on the same $1,850 unit. Build the season table, check your state\'s statute, and set the fee against what you actually collect.',
+    publishedAt: '2026-10-25',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/landlord-lease-break-fee-calculator-excel.png',
+    imageAlt: 'Empty apartment with bare walls, a radiator and sunlight on a wood floor between tenants',
+    content: `<p>Your tenant calls on November 1. Job transfer, out by December 31, five months left on a lease at $1,850 a month. The lease says they owe you $9,250. A landlord lease break fee calculator in Excel built on that number is the wrong tool. In Texas and New York the statute makes you try to re-rent the unit, and the tenant owes you the gap, not the balance. In California the tenant can subtract any rental loss they prove you could have avoided. In Florida you can choose to stand by and bill the rent as it comes due, but you are then collecting $9,250 from someone who already lives in another city.</p>
+
+<p>The question that decides your early termination fee is different: what does this departure cost you, in this month, in this market? On the example unit below, the answer runs from $1,894.79 for a May move-out to $4,304.80 for a December one. The five months left on the lease barely move it. The calendar does.</p>
+
+<p>Every figure in this article comes from one example unit: $1,850 rent, $650 of make-ready, $150 of marketing, a $1,850 deposit and 60 days of notice. Swap in your own numbers; the structure is what you keep.</p>
+
+<h2>What a broken lease costs once you have to re-let</h2>
+
+<p>When the tenant leaves and you re-rent in good faith, the cost of a tenant breaking a lease has three parts, and only three:</p>
+
+<ul>
+<li><strong>Rent lost while the unit sits empty.</strong> Vacancy days times the daily rent, capped at the days left on the lease. If the lease had three weeks to run, you cannot lose eight weeks of rent on it.</li>
+<li><strong>Re-letting cost.</strong> Cleaning, paint touch-up, listing, showings. On the example unit, $650 of make-ready and $150 of marketing. A property manager charging half a month to place a tenant would make that second line $925.</li>
+<li><strong>Rent shortfall.</strong> If the replacement signs at $1,800 instead of $1,850, the old tenant owes the $50 difference for the rest of the original term only.</li>
+</ul>
+
+<p>In the spreadsheet, put the inputs in column B: rent in B2, months left in B3, make-ready in B4, marketing in B5, deposit in B6. Then for any move-out month, with expected vacancy days in B13 and the monthly concession in C13:</p>
+
+<p>Rent lost: <code>=ROUND(MIN(B13,$B$3&#42;365/12)&#42;$B$2&#42;12/365,2)</code></p>
+
+<p>The <code>MIN</code> is the cap. It stops the sheet from billing more vacant days than the lease had left. <code>$B$2&#42;12/365</code> is the daily rent, $60.82 on $1,850.</p>
+
+<p>Shortfall: <code>=ROUND(C13&#42;MAX(0,$B$3-B13&#42;12/365),2)</code></p>
+
+<p>This charges the concession only for the months between the new move-in and the end of the old lease. The <code>MAX(0,...)</code> returns zero when the vacancy outlasts the lease.</p>
+
+<p>Total cost of the departure: <code>=D13+$B$4+$B$5+E13</code></p>
+
+<p>Run it for the November call and for a tenant who gives the same notice in February and leaves April 30:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Leaves April 30</th><th>Leaves December 31</th></tr>
+</thead>
+<tbody>
+<tr><td>Vacancy before the next tenant moves in</td><td>20 days</td><td>55 days</td></tr>
+<tr><td>Rent lost</td><td>$1,216.44</td><td>$3,345.21</td></tr>
+<tr><td>Make-ready and marketing</td><td>$800.00</td><td>$800.00</td></tr>
+<tr><td>Shortfall ($50 a month winter concession)</td><td>$0.00</td><td>$159.59</td></tr>
+<tr><td>Total cost of the departure</td><td>$2,016.44</td><td>$4,304.80</td></tr>
+<tr><td>What the lease says they owe</td><td>$9,250.00</td><td>$9,250.00</td></tr>
+</tbody>
+</table>
+
+<p>The December tenant leaves on January 1 with 55 empty days ahead, so the replacement moves in February 25 and the $50 concession runs for 3.19 months until the old lease would have ended on May 31. That is where $159.59 comes from.</p>
+
+<p>Now hold the month and change the months left. A December departure with 3 months left costs $4,204.80. With 5 months left, $4,304.80. With 8 months left, $4,454.80. Five extra months on the lease add $250, and only because of the concession. An April departure costs $2,016.44 whether 3, 5 or 8 months remain, because the unit is re-let well inside all three. The number every landlord starts from, "five months left," is the input that matters least. Months left only bite at the very end: with one month left, the December case drops to $2,650.00 because the cap stops the rent loss at $1,850.00.</p>
+
+<h2>Two months' rent is generous in April and short in December</h2>
+
+<p>Most fee clauses use a round number, and two months' rent is the common one. On the example unit that is $3,700. Put the twelve possible move-out months in rows 13 to 24, fill column B from your own vacancy log (the days below are an example of a market with a slow winter), and compare.</p>
+
+<table>
+<thead>
+<tr><th>Move-out month</th><th>Vacancy days</th><th>Concession / mo</th><th>Rent lost</th><th>Shortfall</th><th>Total cost</th><th>$3,700 fee minus cost</th></tr>
+</thead>
+<tbody>
+<tr><td>January</td><td>45</td><td>$50</td><td>$2,736.99</td><td>$176.03</td><td>$3,713.02</td><td>-$13.02</td></tr>
+<tr><td>February</td><td>40</td><td>$50</td><td>$2,432.88</td><td>$184.25</td><td>$3,417.13</td><td>$282.87</td></tr>
+<tr><td>March</td><td>28</td><td>$0</td><td>$1,703.01</td><td>$0.00</td><td>$2,503.01</td><td>$1,196.99</td></tr>
+<tr><td>April</td><td>20</td><td>$0</td><td>$1,216.44</td><td>$0.00</td><td>$2,016.44</td><td>$1,683.56</td></tr>
+<tr><td>May</td><td>18</td><td>$0</td><td>$1,094.79</td><td>$0.00</td><td>$1,894.79</td><td>$1,805.21</td></tr>
+<tr><td>June</td><td>18</td><td>$0</td><td>$1,094.79</td><td>$0.00</td><td>$1,894.79</td><td>$1,805.21</td></tr>
+<tr><td>July</td><td>20</td><td>$0</td><td>$1,216.44</td><td>$0.00</td><td>$2,016.44</td><td>$1,683.56</td></tr>
+<tr><td>August</td><td>25</td><td>$0</td><td>$1,520.55</td><td>$0.00</td><td>$2,320.55</td><td>$1,379.45</td></tr>
+<tr><td>September</td><td>32</td><td>$0</td><td>$1,946.30</td><td>$0.00</td><td>$2,746.30</td><td>$953.70</td></tr>
+<tr><td>October</td><td>40</td><td>$0</td><td>$2,432.88</td><td>$0.00</td><td>$3,232.88</td><td>$467.12</td></tr>
+<tr><td>November</td><td>50</td><td>$50</td><td>$3,041.10</td><td>$167.81</td><td>$4,008.91</td><td>-$308.91</td></tr>
+<tr><td>December</td><td>55</td><td>$50</td><td>$3,345.21</td><td>$159.59</td><td>$4,304.80</td><td>-$604.80</td></tr>
+</tbody>
+</table>
+
+<p>The average of column F is $2,839.09: <code>=AVERAGE(F13:F24)</code>. A flat $3,700 fee covers that average by $860.91 and falls short in three months out of twelve. The spread between the cheapest month and the most expensive one is $2,410.01, which is larger than the fee's margin over the average. A single number cannot price twelve different costs, so the real choice is which months you are willing to under-recover.</p>
+
+<p>Add the flag in column G so the sheet tells you which side of the line each month falls on: <code>=IF(F13&gt;$B$7,"Fee short","Fee covers")</code>, with the fee in B7 as <code>=2&#42;B2</code>.</p>
+
+<p>Your vacancy log is the input that decides this table. If you have not measured days from move-out to the next move-in by month, the <a href="/blog/rental-property-vacancy-rate-calculator-excel">vacancy rate calculator</a> shows how to pull them from your rent roll, and the <a href="/blog/rental-property-turnover-cost-calculator-excel">turnover cost calculator</a> replaces the $650 and $150 with your real make-ready invoices.</p>
+
+<h2>What Florida, California, Texas, New York and federal law let you charge</h2>
+
+<p>The fee is a contract clause, and four state statutes and one federal one decide whether it survives. Here is what each text says:</p>
+
+<table>
+<thead>
+<tr><th>Rule</th><th>What the statute says</th><th>What it does to your fee</th></tr>
+</thead>
+<tbody>
+<tr><td>Florida, Fla. Stat. §83.595</td><td>Four remedies when the tenant leaves early. Remedy (4) allows liquidated damages or an early termination fee if it does not exceed 2 months' rent, the tenant is required to give no more than 60 days' notice, and the tenant signs a separate addendum. The landlord also gets rent through the end of the month the landlord retakes possession, plus damage to the unit, and waives rent beyond that month.</td><td>Cap of $3,700 on $1,850 rent. The addendum text is prescribed in substance by the statute, with a box for "I do not agree."</td></tr>
+<tr><td>California, Civ. Code §1671(c) and (d)</td><td>A liquidated damages clause in a residential lease (a lease of a dwelling) is void unless it would be "impracticable or extremely difficult to fix the actual damage."</td><td>A flat break fee is the clause most likely to be thrown out. Bill actual damages instead.</td></tr>
+<tr><td>California, Civ. Code §1951.2</td><td>After abandonment the landlord recovers unpaid rent minus the rental loss "that the lessee proves could have been reasonably avoided," plus any other amount necessary to compensate for the detriment caused.</td><td>The tenant carries the burden of proving you could have re-let faster. Your marketing log is your defense.</td></tr>
+<tr><td>Texas, Prop. Code §91.006</td><td>The landlord has a duty to mitigate damages if the tenant abandons the premises. A lease provision that purports to waive that duty is void.</td><td>No clause can turn "five months left" back into $9,250. The re-letting math above is what a Texas court measures.</td></tr>
+<tr><td>New York, Real Property Law §227-e</td><td>The landlord must take reasonable and customary actions, in good faith, to re-rent at fair market value or the rate agreed in the lease, whichever is lower. The party seeking damages bears the burden of proof. A waiver of the duty is unenforceable.</td><td>You prove your vacancy days, and you cannot hold the unit empty for a higher rent and bill the wait.</td></tr>
+<tr><td>Federal, 50 U.S.C. §3955 (SCRA)</td><td>A servicemember who signed before entering service, or who receives permanent change of station orders or orders to deploy for at least 90 days, may terminate. "The lessor may not impose an early termination charge."</td><td>The fee is $0. On a monthly lease, termination takes effect 30 days after the next rent due date following the notice.</td></tr>
+</tbody>
+</table>
+
+<p>Two lines in the calculator handle the cases where the statute sets the answer. The Florida cap check: <code>=IF(B7&gt;2&#42;B2,"Over the Florida cap","OK")</code>. The SCRA flag in B8 zeroes the fee, and for a notice date in B11 with rent due on the 1st, the effective termination date is <code>=EOMONTH(B11,0)+1+30</code>. A notice delivered March 10 makes the next rent due April 1 and the termination effective May 1, so the servicemember pays through April 30 and nothing more.</p>
+
+<p>Florida's remedy (4) has a consequence most landlords miss. Signing the addendum means you waive the right to seek rent beyond the month you retake possession. In December, on the example unit, that waiver costs you $604.80 against actual damages.</p>
+
+<h2>A fee you collect beats damages you have to chase</h2>
+
+<p>The table above compares the fee to the cost as if you always collected your damages in full. You do not. With actual damages, you apply the $1,850 deposit and then chase the balance through a demand letter, small claims, or a collection agency. The fee is one number the tenant agreed to in writing before moving in, and a clause can make it payable with the notice, before the keys come back. Have your attorney check that wording against your state's statute before you use it.</p>
+
+<p>So the comparison that decides the clause is the fee against the deposit plus the share of the remaining damages you actually recover. The damages route beats the fee only above the collection rate this formula returns:</p>
+
+<p><code>=IF(F13&lt;=$B$7,"Fee wins",($B$7-$B$6)/(F13-$B$6))</code></p>
+
+<p>At that rate the two routes tie. For December, ($3,700 - $1,850) / ($4,304.80 - $1,850) = 75.4 percent. Unless you collect three quarters of every dollar past the deposit, the fee pays more even in the month when it is "short." For January the tie is at 99.3 percent. For November, 85.7 percent.</p>
+
+<table>
+<thead>
+<tr><th>December move-out, share of the balance collected</th><th>Damages route: deposit plus collections</th><th>Fee route</th></tr>
+</thead>
+<tbody>
+<tr><td>25 percent</td><td>$2,463.70</td><td>$3,700.00</td></tr>
+<tr><td>50 percent</td><td>$3,077.40</td><td>$3,700.00</td></tr>
+<tr><td>75 percent</td><td>$3,691.10</td><td>$3,700.00</td></tr>
+<tr><td>100 percent</td><td>$4,304.80</td><td>$3,700.00</td></tr>
+</tbody>
+</table>
+
+<p>Take the collection rate from your own history of move-out balances: what you billed after the deposit, what came in within twelve months. If you track delinquent balances by age, the <a href="/blog/tenant-delinquency-aging-report-excel">tenant delinquency aging report</a> already holds it. If your history includes judgments you never collected, the <a href="/blog/rental-property-eviction-cost-calculator-excel">eviction cost calculator</a> shows what the court route costs before the first dollar arrives.</p>
+
+<h2>The cost no tenant pays: a replacement lease that ends in February</h2>
+
+<p>There is one cost of a winter break that no statute lets you bill, and you control it entirely. The December tenant leaves January 1, the replacement moves in February 25, and you hand them your standard 12-month lease. That lease ends February 24 of the next year, in the second-slowest month on your vacancy table. The break has moved your turnover into winter for good.</p>
+
+<p>Set the replacement lease to end in your fastest month instead. With the start date in B27:</p>
+
+<ul>
+<li>12-month end: <code>=EDATE(B27,12)-1</code> returns February 24.</li>
+<li>17-month end: <code>=EDATE(B27,17)-1</code> returns July 24.</li>
+<li>Expected vacancy at each end: <code>=INDEX($B$13:$B$24,MONTH(C27))</code>, which reads 40 days for February and 20 days for July from the season table.</li>
+</ul>
+
+<p>The value of the longer term is the vacancy difference times the daily rent, weighted by the chance the tenant does not renew. With your renewal rate in B9 (50 percent in the example):</p>
+
+<p><code>=(1-$B$9)&#42;(INDEX($B$13:$B$24,MONTH(C27))-INDEX($B$13:$B$24,MONTH(D27)))&#42;$B$2&#42;12/365</code></p>
+
+<p>On the example unit that is (1 - 0.5) &#215; (40 - 20) &#215; $60.82 = $608.22 of expected vacancy saved at the next turnover, which by itself cancels the $604.80 the Florida fee left on the table in December.</p>
+
+<h2>Laying out the lease break fee calculator in Excel</h2>
+
+<p>One sheet, three blocks. Keep the inputs at the top so every formula points at the same cells:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input or result</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Monthly rent</td><td>$1,850</td></tr>
+<tr><td>B3</td><td>Months left on the lease</td><td>5</td></tr>
+<tr><td>B4</td><td>Make-ready (cleaning, paint touch-up)</td><td>$650</td></tr>
+<tr><td>B5</td><td>Marketing and leasing</td><td>$150</td></tr>
+<tr><td>B6</td><td>Security deposit</td><td>$1,850</td></tr>
+<tr><td>B7</td><td>Flat break fee, <code>=2&#42;B2</code></td><td>$3,700</td></tr>
+<tr><td>B8</td><td>Tenant covered by the SCRA (Y/N)</td><td>N</td></tr>
+<tr><td>B9</td><td>Renewal rate from your history</td><td>50 percent</td></tr>
+<tr><td>B10</td><td>Florida cap check</td><td>OK</td></tr>
+<tr><td>B11</td><td>Notice date</td><td>11/1</td></tr>
+<tr><td>A13:H24</td><td>Season table: month, vacancy days, concession, rent lost, shortfall, total, fee gap, tie collection rate</td><td>See above</td></tr>
+<tr><td>B27:F27</td><td>Replacement lease: start, 12-month end, 17-month end, vacancy saved</td><td>$608.22</td></tr>
+</tbody>
+</table>
+
+<p>Two rules keep it honest. First, the fee in B7 is one number for the whole year, so the season table has to show its worst month next to its average. Second, the fee you collect is non-recurring income. Book it on its own line, the way the <a href="/blog/rental-property-other-income-tracker-excel">other income tracker</a> separates lease break fees from contractual rent, or a lender reading your T12 will haircut the whole other income line. The deposit itself stays in its own ledger; the <a href="/blog/rental-property-security-deposit-tracker-excel">security deposit tracker</a> covers the return deadlines that still apply when a tenant leaves early.</p>
+
+<h2>Which clause to write in each state</h2>
+
+<p>On the example unit, the decision falls out of three numbers you now have: the average cost of a departure ($2,839.09), the worst month ($4,304.80 in December), and the collection rate at which damages tie with the fee (75.4 percent in December).</p>
+
+<ul>
+<li><strong>In Florida:</strong> offer the remedy (4) addendum, a lease buyout clause at the 2-month cap of $3,700, with the fee due with the notice. It covers the average by $860.91, it loses to actual damages only in three winter months, and in those months only if you collect more than 75.4 to 99.3 percent of a balance from someone who has moved away.</li>
+<li><strong>In California:</strong> do not rely on a flat fee. §1671(d) makes it void unless the actual damage is impracticable to fix, and a sheet that computes the actual damage month by month undercuts any argument that it is. Bill actual damages under §1951.2 from the season table, and keep the dated marketing log that answers the tenant's claim that you could have re-let faster.</li>
+<li><strong>In Texas and New York:</strong> price the clause from the season table and keep it close to the cost, because no clause can waive the duty to re-let, and in New York you carry the burden of proving every vacancy day.</li>
+<li><strong>Everywhere:</strong> set the SCRA flag before you quote any fee, and sign every winter replacement to a lease that ends in your fastest month. On the example unit that second step is worth $608.22 per turnover.</li>
+</ul>
+
+<p>Then feed the result back into the deal. The season table gives you a measured cost per departure; multiply it by your break rate and it belongs in the vacancy and turnover lines of every rental you underwrite. The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> carries those lines in its operating expense analysis, next to management, maintenance reserve and insurance, and runs them through monthly cash flow, cash-on-cash return and a 10-year projection. It does not hold a season table or price a break fee; you build that sheet once from this article, and the Analyzer tells you what the number does to the return on each property you compare.</p>`,
+  },
+  {
     slug: 'rental-property-appliance-repair-or-replace-calculator-excel',
     title: 'Rental Property Appliance Repair or Replace Calculator (Excel): Why the 50 Percent Rule Fails',
     metaTitle: 'Rental Appliance Repair or Replace Calculator | SheetCraft',
