@@ -16,6 +16,195 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'flip-to-rental-pivot-calculator-excel',
+    title: 'Flip to Rental Pivot Calculator in Excel: Price Cut or Refinance?',
+    metaTitle: 'Flip to Rental Pivot Calculator Excel | SheetCraft',
+    metaDescription: 'Flip sat 70 days? This flip to rental pivot calculator in Excel sizes the DSCR refinance by rent, prices the cash to close and finds the breakeven.',
+    targetKeyword: 'flip to rental pivot calculator Excel',
+    secondaryKeywords: ['sell or rent a flip', 'stuck flip exit strategy', 'DSCR refinance after hard money', 'hard money extension fee'],
+    excerpt: 'A flip listed at $399,000 sits 70 days. Selling at $372,000 puts $59,207.49 in your account. Converting it to a rental asks for $52,739.68 of new cash and needs 4.31% yearly appreciation to tie a Treasury bill. Here is the side-by-side sheet.',
+    publishedAt: '2026-10-26',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/flip-to-rental-pivot-calculator-excel.png',
+    imageAlt: 'View from a shaded wooden porch toward suburban houses and a parked truck at sunset',
+    content: `<p>The flip has been on the market for 70 days at $399,000. No offers, two showings last week, and the hard money note keeps charging $2,566.67 a month in interest. The idea that arrives around day 60 is always the same: stop selling, rent it out, refinance into a long-term loan and wait for the market to come back. A flip to rental pivot calculator in Excel is the tool for deciding whether to sell or rent a flip, and on the example deal below it shows something most investors do not price before they call a lender: converting this flip to a rental does not hand you cash. It asks you for $52,739.68 of new cash and swaps a known loss for a bet on appreciation.</p>
+
+<p>Every number in this article comes from one example deal. Swap in your own; the structure of the comparison is what you keep.</p>
+
+<table>
+<thead>
+<tr><th>Example deal input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Purchase price</td><td>$245,000</td></tr>
+<tr><td>Rehab, documented with invoices</td><td>$62,000</td></tr>
+<tr><td>Hard money balance, interest-only</td><td>$280,000 at 11%</td></tr>
+<tr><td>Hard money maturity</td><td>End of month 9, 3-month extension for 1 point ($2,800)</td></tr>
+<tr><td>Vacant carry (taxes, vacant-property insurance, utilities, lawn)</td><td>$695 a month</td></tr>
+<tr><td>Months owned today</td><td>7</td></tr>
+<tr><td>List price</td><td>$399,000, 70 days on market</td></tr>
+<tr><td>Market rent for the house</td><td>$2,350 a month</td></tr>
+</tbody>
+</table>
+
+<p>Both exits run against the same clock: hard money interest plus vacant carry comes to $3,261.67 for every month the house stays unsold.</p>
+
+<h2>Price the sale you can actually close</h2>
+
+<p>The first column of the comparison is the sale, and it has to use the price a buyer will sign at. After 70 days with no offer, the market has already answered the $399,000 question. In the example, a price cut produces an offer at $372,000 that closes six weeks later, at month 8.5, inside the hard money term.</p>
+
+<table>
+<thead>
+<tr><th>Path A: cut the price and sell</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Contract price</td><td>$372,000.00</td></tr>
+<tr><td>Commissions (5%)</td><td>-$18,600.00</td></tr>
+<tr><td>Seller closing costs: title, transfer tax, escrow (1.5%)</td><td>-$5,580.00</td></tr>
+<tr><td>Buyer closing credit (1%)</td><td>-$3,720.00</td></tr>
+<tr><td>Hard money payoff</td><td>-$280,000.00</td></tr>
+<tr><td>Carry until closing (1.5 months)</td><td>-$4,892.51</td></tr>
+<tr><td>Cash in your account at month 8.5</td><td>$59,207.49</td></tr>
+</tbody>
+</table>
+
+<p>Leave out what you already spent. The down payment, the origination points and seven months of interest are gone on both paths, so they cannot help choose between them. Investors who keep them in the sheet end up picking the exit that "gets their money back", which is how a stuck flip turns into a negative rental. If you have not decided how deep the cut should be, the <a href="/blog/house-flip-price-reduction-decision-calculator-excel">price reduction decision calculator</a> handles that question; this article starts once a real offer price exists.</p>
+
+<p>In the sheet, the sale column is two formulas. Monthly carry in <code>E3</code> is <code>=B5&#42;B6/12+B7</code>, and the net cash from selling in <code>E4</code> is <code>=B8&#42;(1-B10)-B5-B9&#42;E3</code>, where <code>B8</code> is the offer price, <code>B10</code> the 7.5% of total selling costs and <code>B9</code> the months to closing. On the example deal, <code>E4</code> returns $59,207.49.</p>
+
+<h2>The refinance is sized by the rent, and the appraisal comes second</h2>
+
+<p>A DSCR refinance after hard money is where the pivot plan usually breaks. The plan sounds like this: the house appraises near $372,000, the lender does 75% loan-to-value (its limit for a 700 to 719 credit score on a rate-and-term refinance in the matrix below), that is $279,000, which pays off the $280,000 hard money loan almost exactly. The plan fails at the debt service coverage ratio, the test a DSCR lender runs instead of looking at your personal income: qualifying rent divided by PITIA (principal, interest, taxes, insurance and association dues).</p>
+
+<p>At an 8.25% rate on a 30-year fixed loan (an example quote; use yours), a $279,000 loan costs $2,096.03 a month in principal and interest. Add $350 of taxes and $150 of landlord insurance and PITIA is $2,596.03 against $2,350 of rent. The ratio is 0.905.</p>
+
+<p>One wholesale lender's published DSCR rental matrix (Constructive Capital, effective October 22, 2024) shows what happens next. Above 65% LTV it requires a DSCR of at least 1.00x on purchases and rate-and-term refinances. At 65% LTV or below it accepts 0.75x. So the loan on this house is the larger of two numbers:</p>
+
+<ul>
+<li><strong>The loan the rent can carry at 1.00x:</strong> PITIA can be at most $2,350, which leaves $1,850 for principal and interest, which supports $246,250. That is 66.2% of the appraisal.</li>
+<li><strong>The 65% fallback:</strong> 65% of $372,000 is $241,800.</li>
+</ul>
+
+<p>The answer is $246,250, which is $33,750 short of the hard money payoff before a single closing cost. In the sheet, <code>E5</code> tests the full-leverage loan with <code>=B12/(PMT(B13/12,360,-B11&#42;B15)+B14)</code>, <code>E6</code> finds the largest loan the rent supports with <code>=FLOOR(PV(B13/12,360,-(B12/B16-B14)),50)</code>, and <code>E7</code> picks the loan the lender will write with <code>=IF(E5>=B16,B11&#42;B15,MAX(MIN(E6,B11&#42;B15),B11&#42;B17))</code>. <code>B16</code> holds the 1.00 minimum and <code>B17</code> the 65% fallback.</p>
+
+<p>Now the appraisal argument you are preparing for. Suppose the appraiser lands at $399,000, your list price. 75% of that is $299,250, and the DSCR at that loan is 0.855, so it fails again. The lender drops to the 65% tier: $259,350, at a DSCR of 0.96. You gain $13,100 of loan, where 75% of the extra $27,000 would have been $20,250. The same matrix asks for 12 months of PITIA in reserves instead of six when DSCR is under 1.0, which is $29,380.92 on that loan, and 24 months ($58,761.84) if the loan being paid off is not from a recognized servicer or bank, a description that can fit a private hard money lender. The appraiser will also see why the house is still yours: Fannie Mae's Selling Guide (B4-1.3-02) has the appraiser report every listing of the subject in the prior 12 months with offering prices and dates. The rent figure this matrix relies on, the Form 1007 rent schedule, belongs to the same family of appraisal forms.</p>
+
+<h2>The lender's calendar adds two more costs</h2>
+
+<p>Three rules in that matrix shape the pivot timeline, and your lender's version will have its own equivalents. Read them before you take the sign down.</p>
+
+<ul>
+<li><strong>Seasoning sets which value counts.</strong> Owned 3 months or less, the loan is capped at purchase price plus verified improvements. Between 3 and 6 months, the loan cannot exceed 100% of that cost basis, though the matrix lets the as-is value size the loan when total loan-to-cost is 120% or less. After 6 months, the as-is appraisal applies, capped at 140% of cost basis. On this deal the cost basis is $307,000, so the cap is $429,800 and never binds. The rent binds first. For the full set of clocks lenders run, see the <a href="/blog/brrrr-seasoning-period-tracker-excel">BRRRR seasoning period tracker</a>.</li>
+<li><strong>The house must be leased.</strong> For refinances, a single-family property must be leased at closing, and every property owned more than 6 months must be occupied and leased. At month 7, that means you find a tenant before you can even apply.</li>
+<li><strong>Rate-and-term means rate-and-term.</strong> The borrower can take at most 2% of the loan amount in cash at a no-cash-out refinance. Cash-out has its own leverage table, capped at 75%.</li>
+</ul>
+
+<p>The conventional route is closed for a different reason. Fannie Mae's cash-out rules (B2-1.3-03) require the first mortgage being paid off to be at least 12 months old by note date, and a 9-month hard money note never is. Its limited cash-out refinance (B2-1.3-02) has no such seasoning rule, but caps cash back at the greater of 1% of the new loan or $2,000, and it underwrites your personal debt-to-income ratio instead of the property's DSCR.</p>
+
+<p>The lease requirement costs time. In the example, it takes six weeks to make the house rental-ready and sign a tenant, and the refinance closes a month after move-in, at month 9.5. That is past the hard money maturity, so the hard money extension fee lands: $2,800 for one point, paid to buy two weeks.</p>
+
+<h2>What converting the flip to a rental costs before it pays a dollar</h2>
+
+<p>Here is Path B, from today to the refinance closing table.</p>
+
+<table>
+<thead>
+<tr><th>Path B: lease, then refinance</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Vacant carry during lease-up (1.5 months)</td><td>$4,892.51</td></tr>
+<tr><td>Rental make-ready ($1,200) and leasing fee at half a month of rent ($1,175)</td><td>$2,375.00</td></tr>
+<tr><td>One leased month on hard money: $2,566.67 interest less $1,662.00 net rent</td><td>$904.67</td></tr>
+<tr><td>Cash out before the refinance</td><td>$8,172.18</td></tr>
+<tr><td>Hard money payoff plus extension fee</td><td>$282,800.00</td></tr>
+<tr><td>Refinance costs: 1 point ($2,462.50), lender fees ($2,355), title and appraisal ($3,200)</td><td>$8,017.50</td></tr>
+<tr><td>Less the new DSCR loan</td><td>-$246,250.00</td></tr>
+<tr><td>Cash to close</td><td>$44,567.50</td></tr>
+<tr><td>Total new cash the pivot requires</td><td>$52,739.68</td></tr>
+</tbody>
+</table>
+
+<p>The matrix also wants six months of PITIA sitting in liquid accounts after closing, $14,099.94, plus 1% of the balance of your other mortgages. That money is not spent, but it cannot be the down payment on your next flip either.</p>
+
+<p>Put the two columns side by side at the decision point. Selling puts $59,207.49 in your account by month 8.5. Pivoting takes $52,739.68 out by month 9.5. The difference in liquidity between the two exits is $111,947.17, on a house whose list price was $399,000. A stuck flip exit strategy that ignores this line is really a decision about how much of your next year's deal flow you want to give up.</p>
+
+<p>In the sheet, cash to close in <code>E8</code> is <code>=B5+B20+E7&#42;B19+B18-E7</code>, with <code>B20</code> the extension fee, <code>B19</code> the refinance points and <code>B18</code> the fixed refinance costs ($5,555). <code>E9</code> adds the bridge cost from <code>B21</code>: <code>=E8+B21</code>.</p>
+
+<h2>Only appreciation can pay for the pivot</h2>
+
+<p>Once the refinance closes, the rental runs at a loss. Budget 5% vacancy, 8% management, 6% maintenance and 5% capital reserves, 24% of rent in all, or $564 a month. Taxes and insurance take $500. That leaves $1,286 before debt service, against $1,849.99 of principal and interest. Cash flow is -$563.99 a month, or -$6,767.88 a year. A loan sized to exactly 1.00x coverage guarantees this result: the rent covers PITIA and nothing else, so every operating cost comes out of your pocket. Principal paydown offsets part of it, $6,389.16 over three years, and that equity stays locked in the house until you sell.</p>
+
+<p>So the honest version of the pivot is a three-year hold that ends in a sale anyway, with a second round of selling costs (6.5% here) and a make-ready after the tenant leaves (1.5%). The question becomes: how fast must the house appreciate for Path B to finish ahead of Path A? The sheet answers it in <code>E12</code> with <code>=((E4+E9-B23&#42;12&#42;E10+E11)/(1-B24)/B11)^(1/B23)-1</code>, where <code>E10</code> is the monthly cash flow <code>=B12&#42;(1-B22)-B14-PMT(B13/12,360,-E7)</code> and <code>E11</code> the loan balance at exit, <code>=-FV(B13/12,B23&#42;12,-PMT(B13/12,360,-E7),E7)</code>.</p>
+
+<table>
+<thead>
+<tr><th>Appreciation per year for 3 years</th><th>Sale price at exit</th><th>Path B minus Path A, sale cash left idle</th><th>Path B minus Path A, sale cash in T-bills at 4.14%</th></tr>
+</thead>
+<tbody>
+<tr><td>0%</td><td>$372,000</td><td>-$29,871.65</td><td>-$46,155.10</td></tr>
+<tr><td>2%</td><td>$394,769</td><td>-$8,923.82</td><td>-$25,207.27</td></tr>
+<tr><td>3%</td><td>$406,494</td><td>+$1,863.24</td><td>-$14,420.21</td></tr>
+<tr><td>4%</td><td>$418,449</td><td>+$12,861.81</td><td>-$3,421.64</td></tr>
+<tr><td>5%</td><td>$430,637</td><td>+$24,073.93</td><td>+$7,790.48</td></tr>
+</tbody>
+</table>
+
+<p>Breakeven is 2.83% a year if the sale cash would have sat idle, and 4.31% a year if it would have earned the 13-week Treasury bill rate, 4.14% coupon-equivalent on October 23, 2026 (U.S. Treasury daily bill rates). For the second figure, <code>E13</code> compounds each column: <code>=((E4&#42;(1+B25/12)^(B23&#42;12+1)+E9&#42;(1+B25/12)^(B23&#42;12)+FV(B25/12,B23&#42;12,E10)+E11)/(1-B24)/B11)^(1/B23)-1</code>. The extra month in the first exponent is the gap between the sale closing at month 8.5 and the refinance at month 9.5.</p>
+
+<p>Compare those thresholds with the market. The FHFA House Price Index rose 2.6% nationally from July 2025 to July 2026 (released September 29, 2026). On this deal, the pivot needs the house to beat the national pace for three straight years just to tie a sale whose cash earns Treasury bill interest. Both columns are pre-tax. A flipper's inventory is not a capital asset under 26 U.S.C. §1221(a)(1), and whether a converted house changes character is a facts-and-intent question the sheet cannot settle, so run that one with your tax preparer before you sign a lease.</p>
+
+<h2>When the rental pivot does beat the price cut</h2>
+
+<p>The obvious lever is rent, so run the deal at four rent levels. Everything else stays fixed.</p>
+
+<table>
+<thead>
+<tr><th>Market rent</th><th>DSCR loan</th><th>LTV</th><th>Total new cash</th><th>Monthly cash flow</th><th>Breakeven appreciation (idle / T-bill)</th></tr>
+</thead>
+<tbody>
+<tr><td>$2,100</td><td>$241,800</td><td>65.0%</td><td>$57,250.18</td><td>-$720.56</td><td>3.36% / 4.91%</td></tr>
+<tr><td>$2,350</td><td>$246,250</td><td>66.2%</td><td>$52,739.68</td><td>-$563.99</td><td>2.83% / 4.31%</td></tr>
+<tr><td>$2,600</td><td>$279,000</td><td>75.0%</td><td>$20,212.18</td><td>-$620.03</td><td>2.96% / 4.06%</td></tr>
+<tr><td>$2,850</td><td>$279,000</td><td>75.0%</td><td>$20,107.18</td><td>-$430.03</td><td>2.31% / 3.39%</td></tr>
+</tbody>
+</table>
+
+<p>Two things stand out. At $2,100 the loan falls into the 65% tier with a DSCR under 1.0, so the reserve requirement doubles to 12 months of PITIA. And at $2,600 the new cash drops by $32,527.50, but the breakeven barely moves when the cash would sit idle (2.96% against 2.83%): the bigger loan at 8.25% costs more in interest than the extra rent brings in. The extra rent solves the cash problem and leaves the return almost where it was, because the house was bought and renovated for a retail buyer, not for rent.</p>
+
+<p>The other lever investors reach for is a deeper cut. Rerun the deal with a $360,000 sale that takes two months to close, and an appraisal at the same $360,000. Path A falls to $46,476.66. Path B still needs $52,739.68, because the rent sizes the loan. Breakeven moves only from 2.83% to 2.76% (idle) and from 4.31% to 4.12% (T-bill). The market that refuses your price also appraises your refinance and buys the house in three years, so a weaker market makes both exits worse together.</p>
+
+<p>The pivot wins on deals with a different shape: a purchase cheap enough that rent covers PITIA at 75% LTV with room left, a DSCR rate close to the 7.32% average Freddie Mac reported for 30-year conventional loans on October 22, 2026, or a house you would have wanted as a rental on the day you bought it. The <a href="/blog/dscr-calculator-excel-real-estate">DSCR calculator</a> tells you in a minute which side of 1.00x the deal sits on. If your plan was always a refinance and the appraisal is the problem, the <a href="/blog/brrrr-refinance-appraisal-shortfall-calculator-excel">appraisal shortfall calculator</a> prices that case. A <a href="/blog/lease-option-calculator-real-estate-excel">lease option</a> is a third exit worth one row in the same sheet when a few buyers want the house but cannot close on it yet.</p>
+
+<h2>Lay out the sheet so the exit is chosen by cash</h2>
+
+<p>One tab, inputs in column B, outputs in column E. Keep the inputs you will argue about in their own cells so a lender quote or a new offer changes one number.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th><th>Cell</th><th>Output</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B5</td><td>Hard money balance</td><td>280,000</td><td>E3</td><td>Monthly carry</td><td>3,261.67</td></tr>
+<tr><td>B6</td><td>Hard money rate</td><td>11%</td><td>E4</td><td>Path A net cash</td><td>59,207.49</td></tr>
+<tr><td>B8</td><td>Offer price</td><td>372,000</td><td>E5</td><td>DSCR at max LTV</td><td>0.905</td></tr>
+<tr><td>B11</td><td>Appraisal</td><td>372,000</td><td>E7</td><td>DSCR loan</td><td>246,250</td></tr>
+<tr><td>B12</td><td>Rent (lesser of lease and 1007 limit)</td><td>2,350</td><td>E9</td><td>Path B new cash</td><td>52,739.68</td></tr>
+<tr><td>B13</td><td>DSCR rate</td><td>8.25%</td><td>E10</td><td>Monthly cash flow</td><td>-563.99</td></tr>
+<tr><td>B23</td><td>Hold years</td><td>3</td><td>E12</td><td>Breakeven, idle</td><td>2.83%</td></tr>
+<tr><td>B25</td><td>T-bill rate</td><td>4.14%</td><td>E13</td><td>Breakeven, T-bill</td><td>4.31%</td></tr>
+</tbody>
+</table>
+
+<p>Add one flag next to the timeline: <code>=IF(B26>B27,"EXTENSION FEE","OK")</code>, with the refinance month in <code>B26</code> and the hard money maturity in <code>B27</code>. On this deal it reads EXTENSION FEE, and that $2,800 is what it costs to discover the lease requirement late. Before you decide, collect three numbers from outside the sheet: the lender's current matrix (DSCR tiers, seasoning, lease and reserve rules), a written rent opinion on the Form 1007 basis, and the hard money lender's extension terms in writing. Holding costs during lease-up behave like the flip's own carry, so the <a href="/blog/house-flipping-holding-costs-calculator">holding costs calculator</a> numbers carry straight into the bridge line.</p>
+
+<h2>Take the cut on this deal, and check DSCR at purchase on the next one</h2>
+
+<p>On the example deal, sell. Accept the $372,000 offer, close inside the hard money term, and put $59,207.49 back to work. The rental pivot asks for $52,739.68 of new cash, loses $563.99 a month, and needs 4.31% annual appreciation for three years to tie a Treasury bill, against 2.6% for the national index over the last year. Pivot only if your own sheet shows a DSCR loan that pays off the hard money with less than one month of carry in new cash, or a breakeven appreciation below the local trend you can document.</p>
+
+<p>The bigger fix happens before the next purchase. Run every flip with a rental exit priced in, so you know on day one whether the house can carry a DSCR loan if the sale stalls. The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> does that in one workbook: the acquisition tab handles hard money points and rates, the rent analysis tab gives stabilized NOI and cash flow, and the refinance tab shows cash pulled out, capital left in the deal and the new payment. It sizes the refinance by LTV, so enter the rent-limited loan as an LTV (246,250 divided by 372,000 is 66.2% here) and it shows the capital trapped in the deal. It does not model the price-cut sale; that is the column from this article you place next to it.</p>`,
+  },
+  {
     slug: 'landlord-lease-break-fee-calculator-excel',
     title: 'Landlord Lease Break Fee Calculator in Excel: Price the Month, Not the Months Left',
     metaTitle: 'Landlord Lease Break Fee Calculator Excel | SheetCraft',
