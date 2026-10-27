@@ -16,6 +16,170 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-lead-paint-rrp-cost-calculator-excel',
+    title: 'House Flip Lead Paint RRP Cost Calculator in Excel: Put It in the Offer',
+    metaTitle: 'House Flip Lead Paint RRP Cost Calculator | SheetCraft',
+    metaDescription: 'House flip lead paint RRP cost calculator in Excel: price containment, testing and extra holding days on a pre-1978 rehab before you set the offer.',
+    targetKeyword: 'house flip lead paint RRP cost calculator Excel',
+    secondaryKeywords: ['EPA RRP rule', 'lead-safe renovation cost', 'pre-1978 rehab budget', 'lead paint inspection before purchase', 'RRP firm certification'],
+    excerpt: 'On a pre-1978 flip the EPA RRP rule is a cost line: $7,250.32 on the example ranch, 40.7 percent of a $17,832.00 profit if it stays out of the offer. Price it by scope, decide whether to test during the 10-day window, and cut the offer by $6,721.44 instead.',
+    publishedAt: '2026-10-27',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-lead-paint-rrp-cost-calculator-excel.png',
+    imageAlt: 'Peeling pale green paint on an old plaster wall around a window with a flaking painted shutter',
+    content: `<p>Buy a house built before 1978, replace the windows, open the kitchen wall, and you are running a federal lead renovation job whether you planned one or not. A house flip lead paint RRP cost calculator in Excel exists for one reason: to put that job into the offer before you sign, because after closing the only place the money can come from is your profit. On the example ranch below, the lead-safe line comes to $7,250.32. The flip was projected to make $17,832.00. Leave the line out of the offer and it takes 40.7 percent of the projected profit.</p>
+
+<p>Most flippers leave the EPA Renovation, Repair and Painting rule to the contractor. On a pre-1978 flip it is a cost line with three drivers you control: which scope items you choose, whether you test before you are under contract, and how many extra holding days the containment adds. This article prices all three on real numbers and shows the spreadsheet rows that carry them into the offer.</p>
+
+<h2>What the EPA RRP rule actually requires on a flip</h2>
+
+<p>The rule lives in 40 CFR Part 745, Subpart E. It applies to "all renovations performed for compensation in target housing," and target housing is any housing built before 1978, with exceptions for housing for the elderly or disabled and for 0-bedroom units where no child under 6 lives. A vacant flip is still target housing.</p>
+
+<p>The flipper question is settled by EPA itself. Its RRP program page says the rule does not apply to homeowners working on their own homes, but it does apply "if you buy, renovate and sell homes for profit (i.e., a house flipper)." EPA's published answer in its RRP frequent questions goes further: a flipper who does the work personally must be a certified renovator working under a Lead-Safe Certified Firm, a flipping company using its own employees must be a certified firm with at least one certified renovator, and a flipper who hires an outside certified firm for all of the work does not need certification personally. The hired firm then carries the work practices and the records.</p>
+
+<p>What the rule requires on site, in short:</p>
+
+<ul>
+<li>A certified firm and a certified renovator directing the work. Firm certification costs $300 and lasts 5 years (40 CFR 745.92). The renovator course runs at least 8 training hours, 2 of them hands-on (40 CFR 745.225).</li>
+<li>The Renovate Right pamphlet delivered to the owner no more than 60 days before work starts (40 CFR 745.84).</li>
+<li>Containment: interior floors covered with taped plastic 6 feet beyond the work surface, ducts sealed, doors covered; exterior ground covered 10 feet out (40 CFR 745.85).</li>
+<li>No open-flame burning, no power sanding or grinding without a shroud and HEPA attachment, no heat gun at 1,100 degrees Fahrenheit or above.</li>
+<li>Cleaning verification by the certified renovator, wiping each sill and floor section and comparing the cloth to the EPA card.</li>
+<li>Records kept for 3 years after the job (40 CFR 745.86).</li>
+</ul>
+
+<p>One sentence in the enforcement section sets the whole budget: "Lead-based paint is assumed to be present at renovations covered by this subpart" (40 CFR 745.87(e)). Unless a test clears a component, you pay as if it is lead.</p>
+
+<h2>The three scope items that void the minor repair exemption</h2>
+
+<p>The rule exempts minor repair and maintenance: work that disturbs 6 square feet or less of painted surface per room inside, or 20 square feet or less outside. The number suggests small jobs are free. The definition has three exclusions that catch the usual flip scope items, plus an anti-splitting clause.</p>
+
+<table>
+<tr><th>Scope item</th><th>Exempt under 6 / 20 sq ft?</th><th>Why (40 CFR 745.83)</th></tr>
+<tr><td>Window replacement, any size</td><td>No</td><td>The exemption excludes work that "involve[s] window replacement"</td></tr>
+<tr><td>Removing a painted wall, plaster, or cabinets</td><td>No</td><td>Excludes "demolition of painted surface areas"</td></tr>
+<tr><td>Power sanding trim without a HEPA shroud</td><td>No</td><td>Excludes jobs using practices restricted by 745.85(a)(3)</td></tr>
+<tr><td>Replacing one painted interior door</td><td>No</td><td>A removed component counts at its entire surface area; a 2'8" by 6'8" door is about 17.8 sq ft</td></tr>
+<tr><td>Cutting in 9 outlet boxes, one per room</td><td>Yes</td><td>Roughly 1 sq ft per room, no excluded practice</td></tr>
+<tr><td>A 10 sq ft patch done as two 5 sq ft visits</td><td>No</td><td>Jobs in the same room within 30 days count as one job</td></tr>
+</table>
+
+<p>The example flip below replaces windows, opens the kitchen, guts the baths, and preps the exterior. All four are covered. In practice the exemption covers the electrician's outlet work and little else.</p>
+
+<p>In the sheet, a per-room test makes this visible before anyone prices anything. With the work type in <code>C5</code>, the painted area disturbed in <code>D5</code> and "Int" or "Ext" in <code>E5</code>:</p>
+
+<p><code>=IF(OR(C5="Window",C5="Demo",C5="Power sand",D5&gt;IF(E5="Ext",20,6)),"RRP","Minor repair")</code></p>
+
+<p>Sum <code>D5</code> by room with <code>=SUMIFS(D:D,B:B,B5)</code> before running the test, so two small items in the same room cannot pass separately.</p>
+
+<h2>Price the lead-safe renovation cost on a 1958 ranch</h2>
+
+<p>Example deal, all figures illustrative: a 1958 three-bedroom ranch, 1,350 square feet, bought at $158,000 with an after-repair value of $279,000 and a $61,500 rehab. Hard money covers 90 percent of the price plus the full rehab at 11 percent with 2 points. The model assumes the loan is fully drawn from day one, which overstates interest slightly and keeps the arithmetic honest.</p>
+
+<table>
+<tr><th>Holding cost input</th><th>Annual or total</th><th>Per day</th></tr>
+<tr><td>Loan: $142,200 + $61,500 = $203,700 at 11%</td><td>$22,407.00</td><td>$61.39</td></tr>
+<tr><td>Property tax</td><td>$2,900.00</td><td>$7.95</td></tr>
+<tr><td>Builder's risk / vacant insurance</td><td>$1,650.00</td><td>$4.52</td></tr>
+<tr><td>Utilities at $210 a month</td><td>$2,520.00</td><td>$6.90</td></tr>
+<tr><td>Total holding cost</td><td></td><td>$80.76</td></tr>
+</table>
+
+<p>Over a 150-day project that is $12,114.00 of holding. With 8 percent selling costs ($22,320.00), 2 percent buy-side closing ($3,160.00) and points of $4,074.00, the projected profit before any lead work is $17,832.00.</p>
+
+<p>Now the RRP line, built from a contractor's bid. These are example inputs: replace each one with the line items your certified firm quotes.</p>
+
+<ul>
+<li>Interior containment and cleaning verification per room: $95 of plastic, tape, zip doors and wipes, plus 5 labor hours at $60, for $395.00 per room.</li>
+<li>Window installer's lead-safe surcharge: $45 per window, 14 windows.</li>
+<li>Exterior prep: $350 of ground sheeting plus 25 hours of wet scraping at $60, for $1,850.00.</li>
+<li>HEPA vacuum, bought rather than rented for a 150-day job: $650.</li>
+<li>Extra schedule: 7 days, because no other trade enters a contained room until the renovator verifies it clean.</li>
+</ul>
+
+<p>With rooms in <code>B12</code>, cost per room in <code>B13</code>, windows in <code>B14</code> and surcharge in <code>B15</code>, the block is plain multiplication: <code>=B12&#42;B13+B14&#42;B15+B16+B17+B18&#42;B19</code>, where <code>B18</code> is extra days and <code>B19</code> is the daily holding cost of $80.76. The days row matters. It is the one line that does not appear on any contractor bid, so it has to come from your own schedule.</p>
+
+<h2>Test before the contract, or presume lead everywhere</h2>
+
+<p>Federal law gives every buyer of target housing a 10-day period to run a lead inspection or risk assessment before being obligated under the contract (40 CFR 745.110). The buyer can waive it in writing (40 CFR 745.110(b)), and a waiver throws away the only tool that can shrink the RRP line, because a written determination from a certified inspector that a component is below 1.0 mg/cm2 takes that component out of the rule (40 CFR 745.82(a)(1)). Foreclosure sales are exempt from the disclosure rule (40 CFR 745.101(a)), so a house bought at auction comes with no evaluation window: budget it presumed.</p>
+
+<p>Test kits are a weaker version of the same tool. EPA recognizes kits that meet its negative response criterion (40 CFR 745.88), so a negative result from a certified renovator clears a component, while a positive result proves nothing and leaves you presuming lead. A lead paint inspection before purchase, done with an XRF analyzer by a certified inspector, reads every component in place and produces the written determination. Assume $525 for this house, and get two quotes.</p>
+
+<p>Say the inspection comes back with the original windows, the exterior trim, the kitchen and dining plaster, and both bathrooms positive, while the bedrooms, hall and living room were drywalled with new trim in a 1990s remodel and test clean. Four rooms stay contained. The other five rooms still have windows coming out, so those 9 windows each need a smaller interior setup, priced at $60 a window.</p>
+
+<table>
+<tr><th>Line</th><th>Presume lead everywhere</th><th>XRF test first</th></tr>
+<tr><td>Interior rooms contained</td><td>9 x $395 = $3,555.00</td><td>4 x $395 = $1,580.00</td></tr>
+<tr><td>Windows</td><td>14 x $45 = $630.00</td><td>$630.00 + 9 x $60 = $1,170.00</td></tr>
+<tr><td>Exterior prep</td><td>$1,850.00</td><td>$1,850.00</td></tr>
+<tr><td>HEPA vacuum</td><td>$650.00</td><td>$650.00</td></tr>
+<tr><td>Extra holding days</td><td>7 x $80.76 = $565.32</td><td>4 x $80.76 = $323.04</td></tr>
+<tr><td>XRF inspection</td><td>$0.00</td><td>$525.00</td></tr>
+<tr><td>Total RRP line</td><td>$7,250.32</td><td>$6,098.04</td></tr>
+</table>
+
+<p>The test saves $1,152.28 after paying for itself. The reason it saves no more is in the table: the windows and exterior prep stay covered, because on this house the original sashes and the exterior trim tested positive. When the windows and siding are in scope, the test trims the interior, nothing more.</p>
+
+<p>The same test on a different house changes the math. Take a 1974 split-level whose previous owner already installed vinyl windows and aluminum siding, with a scope of kitchen wall, two baths and trim work in 9 rooms. Presumed, that is 9 rooms at $395, the $650 vacuum and 6 extra days, for $4,689.56. If the XRF clears everything except one bathroom, the line becomes 1 room, the vacuum, 1 extra day and the $525 inspection: $1,650.76. The test saves $3,038.80 on a house where the paint drivers are interior.</p>
+
+<p>The rule of thumb for your sheet: test when most of the RRP line sits in interior rooms; skip the test and presume when windows and exterior dominate it. You can see which case you are in before paying anyone, by comparing the rooms row to the windows and exterior rows.</p>
+
+<p>The report also goes to your buyer. At resale, 40 CFR 745.107 requires you to give your buyer the lead pamphlet, disclose known lead-based paint, and hand over "any records or reports available to the seller" about it. Your XRF report and your contractor's RRP records go into the disclosure package, so keep them filed with the closing documents, and expect your buyer's inspector to read them. If the buyer's inspection turns up flaking paint on a component you never touched, the negotiation looks like the one in <a href="/blog/house-flip-buyer-inspection-repair-credit-calculator-excel/">the buyer inspection repair credit calculator</a>.</p>
+
+<h2>Put the pre-1978 rehab budget into the offer price</h2>
+
+<p>A dollar off the purchase price saves more than a dollar on this deal. It also saves 2 cents of buy-side closing, 1.8 cents of points on the 90 percent loan, and 4.07 cents of interest over 150 days. Each dollar of price reduction is worth $1.0787 of profit, so the offer cut that fully absorbs the RRP line is smaller than the line itself:</p>
+
+<p><code>=B20/(1+B21+0.9&#42;B22+0.9&#42;B23&#42;B24/365)</code></p>
+
+<p>Here <code>B20</code> is the RRP total, <code>B21</code> the buy-side closing rate, <code>B22</code> the points, <code>B23</code> the interest rate and <code>B24</code> the project days.</p>
+
+<table>
+<tr><th>Plan</th><th>RRP line</th><th>Profit if not in offer</th><th>Offer cut to keep $17,832.00</th><th>New offer</th></tr>
+<tr><td>Presume lead</td><td>$7,250.32</td><td>$10,581.68</td><td>$6,721.44</td><td>$151,278.56</td></tr>
+<tr><td>XRF test first</td><td>$6,098.04</td><td>$11,733.96</td><td>$5,653.22</td><td>$152,346.78</td></tr>
+</table>
+
+<p>Recompute the full deal at either new offer and the profit lands back at $17,832.00, within a dollar of rounding. Build that check into the sheet as a cell that recalculates profit at the adjusted price, so you can verify the offer formula when the seller counters.</p>
+
+<p>If you size offers with <a href="/blog/70-percent-rule-house-flipping-calculator/">the 70 percent rule</a>, note that the rule takes repairs as an input. On this house, 70 percent of $279,000 is $195,300; the RRP line belongs inside the repair figure you subtract from it, or the rule hands you an offer $7,250.32 too high. The same goes for <a href="/blog/construction-contingency-budget-percentage/">your contingency percentage</a>: a contingency is for unknowns, and on a pre-1978 house the lead line is a known.</p>
+
+<p>The 7 extra days also move the schedule. They push the listing date a week, and every holding cost row in <a href="/blog/house-flipping-holding-costs-calculator/">the holding cost calculator</a> runs on days. If permits already set the end date in your <a href="/blog/house-flip-permit-cost-and-timeline-tracker-excel/">permit timeline tracker</a>, add the lead days after the permit dates instead of overlapping them, because the renovator cannot verify cleaning in a room where other trades are still working.</p>
+
+<h2>What skipping RRP firm certification costs</h2>
+
+<p>The penalty for violating the rule falls under TSCA section 16, 15 U.S.C. 2615(a)(1). For penalties assessed on or after January 8, 2025, the inflation-adjusted maximum is $49,772 per violation (40 CFR 19.4, Table 1). One violation at the ceiling equals 6.9 times the full presumed RRP line on this house, and a single job can carry several: no firm certification, no certified renovator, no pamphlet, no containment, no records.</p>
+
+<p>EPA has enforced the rule against a well-known renovation business. In 2018 EPA settled with Magnolia Waco Properties, the company behind the Fixer Upper show, after finding evidence of noncompliance at renovations of 33 properties. The alleged violations started with the basics, including failing to obtain firm certification. Magnolia agreed to pay a $40,000 civil penalty and committed $160,000 to a lead abatement project in Waco. According to EPA, the work came to its attention because it was shown on television. A flipper's before-and-after photos posted online show the same kind of work.</p>
+
+<p>Fourteen states run their own EPA-authorized RRP programs: Alabama, Delaware, Georgia, Iowa, Kansas, Massachusetts, Mississippi, North Carolina, Oklahoma, Oregon, Rhode Island, Utah, Vermont and Wisconsin. In those states the state's certification, fees and enforcement apply in place of EPA's, so check the state program before you price certification.</p>
+
+<h2>Self-perform or hire a certified firm</h2>
+
+<p>If your own crew does the work, the certification cost is small: $300 for the firm, good for 5 years, plus the renovator course for whoever directs the work. A refresher with hands-on training keeps a renovator certified for 5 years; an online-only refresher gives 3. Spread across 4 flips a year, the firm fee is $15 per house.</p>
+
+<p>The certification is not the expensive part. The containment labor, the cleaning verification and the extra days are the same whether your crew does them or a sub does, so self-performing saves the sub's markup on those hours and nothing else. What it adds is the 3 years of records, which become your firm's job and your exposure at an inspection. If you already weigh that trade on other scopes, the method in <a href="/blog/self-perform-vs-subcontract-cost-analysis-excel/">the self-perform versus subcontract analysis</a> applies here line for line.</p>
+
+<p>A checklist for the RRP block in your flip sheet:</p>
+
+<ol>
+<li>Year built in one cell, with <code>=IF(B2&lt;1978,"Target housing","Not covered")</code> driving whether the block is active.</li>
+<li>A room-by-room scope list with painted area disturbed and work type, run through the minor repair test.</li>
+<li>Rooms contained, windows, exterior prep, HEPA equipment, each as its own row priced from the bid.</li>
+<li>Extra days, multiplied by the daily holding cost, in a row labeled so nobody deletes it.</li>
+<li>A test-or-presume comparison: XRF quote against the interior rows it could clear.</li>
+<li>The offer cut formula and a profit recheck at the adjusted price.</li>
+<li>A note of where the XRF report and the RRP records are filed for the resale disclosure.</li>
+</ol>
+
+<h2>Run the lead line through the whole flip model</h2>
+
+<p>Price the RRP line before you write the offer, test during the 10-day window when the interior rows dominate it, and cut the offer by the line divided by your price-sensitivity factor. On this ranch that turns a $7,250.32 surprise into a $6,721.44 lower offer and a profit that stays at $17,832.00.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> already carries the pieces this needs: an acquisition tab with hard money points and short-term rates, a line-item rehab tab, and an all-in cost that includes holding during the renovation. Enter the RRP rows as rehab line items, add the extra days to the project length, and the acquisition tab shows what the deal can pay. It does not test your paint or price containment for you; your certified firm's bid supplies those numbers, and the template carries them into the price you offer.</p>`,
+  },
+  {
     slug: 'flip-to-rental-pivot-calculator-excel',
     title: 'Flip to Rental Pivot Calculator in Excel: Price Cut or Refinance?',
     metaTitle: 'Flip to Rental Pivot Calculator Excel | SheetCraft',
