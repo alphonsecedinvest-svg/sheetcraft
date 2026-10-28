@@ -16,6 +16,192 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-fha-90-day-resale-rule-calculator-excel',
+    title: 'House Flip FHA 90 Day Resale Rule Calculator in Excel: Why the Contract Date Decides',
+    metaTitle: 'FHA 90 Day Resale Rule Calculator for Flips | SheetCraft',
+    metaDescription: 'An FHA buyer cannot sign on your flip until day 91 after you close. Model the dates, the cash-offer tie price and the 100 percent markup line in Excel.',
+    targetKeyword: 'house flip FHA 90 day resale rule calculator Excel',
+    secondaryKeywords: ['FHA flipping rule', 'second appraisal', 'seller concessions', 'property flipping', 'flip holding costs'],
+    excerpt: 'The FHA 90-day clock stops at the signed contract, not the closing. On the example flip, an FHA buyer can sign on day 93, a cash offer $11,500 under list nets $60.36 more, and a deep-discount flip should list at $283,900, under the 100 percent line.',
+    publishedAt: '2026-10-28',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-fha-90-day-resale-rule-calculator-excel.png',
+    imageAlt: 'Freshly painted two-story white house with new gray porch skirting on a residential street of older homes',
+    content: `<p>Finish a cosmetic rehab in six weeks, list it at an entry-level price, and the buyer most likely to pay full price is using an FHA loan that cannot touch your house yet. A house flip FHA 90 day resale rule calculator in Excel exists to answer one question before you set the list date: on which calendar day can an FHA buyer legally sign your contract, and what does it cost you to wait for that day or to sell around it? On the example flip below, the answer is November 4, 2026, which is day 93 after closing. A cash offer $11,500 under list turns out to be worth the same as the FHA offer, and on a second deal the right list price is $283,900, not $289,000.</p>
+
+<p>Most flippers carry the rule around as "FHA buyers can't close for 90 days." That version is wrong in the way that costs money. The regulation does not look at the closing date at all. It looks at the day the FHA buyer's contract is signed.</p>
+
+<h2>What the FHA flipping rule actually measures</h2>
+
+<p>The rule is 24 CFR 203.37a, in the Code of Federal Regulations. Paragraph (b)(1) says eligibility depends on the time between "the date the seller acquired the property (based upon the date of settlement) and the date of execution of the sales contract that will result in the FHA mortgage insurance." HUD's Single Family Housing Policy Handbook 4000.1, in its section on restrictions on property flipping, defines that resale date as "the date of execution of the sales contract by all parties intending to finance the Property with an FHA-insured Mortgage."</p>
+
+<p>Four consequences follow, and each one belongs in the spreadsheet:</p>
+
+<ul>
+<li><strong>Day 90 or earlier is a hard stop.</strong> If the contract is fully signed 90 days or fewer after your acquisition, the property is not eligible for FHA insurance. No appraisal, price or rehab file changes that.</li>
+<li><strong>Closing late does not cure an early contract.</strong> A contract signed on day 85 with closing set for day 120 is still a day-85 resale. Whether a lender will accept a cancelled and re-signed contract is a question for that lender, in writing, before you count on it.</li>
+<li><strong>Listing early is allowed.</strong> Nothing in the rule stops you from listing, showing, or collecting offers before day 91. Only the execution date of the FHA contract is tested.</li>
+<li><strong>Days 91 to 180 carry a price test.</strong> The handbook requires a second appraisal by another appraiser when the resale price is 100 percent or more over what the seller paid. If that appraisal comes in more than 5 percent below the first, the lower value is used. The cost of the second appraisal may not be charged to the borrower.</li>
+</ul>
+
+<p>The lender also has to pull a 12-month chain of title, so the dates are documented from public records, not taken from your listing.</p>
+
+<h3>How big the FHA pool is at entry-level prices</h3>
+
+<p>FHA endorsed 648,764 purchase mortgages in fiscal year 2025, and 83.03 percent of them went to first-time homebuyers, according to HUD's FY 2025 annual report to Congress on the Mutual Mortgage Insurance Fund. The average loan across its forward mortgages was $313,473. Those buyers put as little as 3.5 percent down (the handbook caps purchase loan-to-value at 96.5 percent for borrowers at or above a 580 credit score), which is why they cluster in the price band where most flips sell. NAR's September 2026 existing-home sales report puts first-time buyers at 31 percent of sales and cash sales at 27 percent, with a median of 33 days on market.</p>
+
+<h2>The date grid: five inputs, one status cell</h2>
+
+<p>Build the clock first, on its own block at the top of the flip sheet, so every later number reads from it. The example flip closed on Monday, August 3, 2026, and the deed recorded two days later.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input or output</th><th>Formula</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Settlement date of your purchase</td><td>input</td><td>Aug 3, 2026</td></tr>
+<tr><td>B4</td><td>Deed recording date</td><td>input</td><td>Aug 5, 2026</td></tr>
+<tr><td>B5</td><td>Clock start</td><td><code>=MAX(B3,B4)</code></td><td>Aug 5, 2026</td></tr>
+<tr><td>B6</td><td>Earliest FHA contract date</td><td><code>=B5+91</code></td><td>Nov 4, 2026</td></tr>
+<tr><td>B7</td><td>Last day of the second-appraisal window</td><td><code>=B5+180</code></td><td>Feb 1, 2027</td></tr>
+<tr><td>B8</td><td>Rehab days</td><td>input</td><td>45</td></tr>
+<tr><td>B9</td><td>Photos and listing prep days</td><td>input</td><td>2</td></tr>
+<tr><td>B10</td><td>Expected days from list to contract</td><td>input</td><td>33</td></tr>
+<tr><td>B11</td><td>Expected contract date with no FHA limit</td><td><code>=B3+B8+B9+B10</code></td><td>Oct 22, 2026</td></tr>
+<tr><td>B12</td><td>Days the rule forces you to wait</td><td><code>=MAX(0,B6-B11)</code></td><td>13</td></tr>
+</tbody>
+</table>
+
+<p>Why <code>MAX(B3,B4)</code> instead of the settlement date alone: the regulation dates acquisition from settlement, while the handbook says "the date the seller acquired legal ownership." When those two dates differ, using the later one costs you two days and removes the argument with the buyer's underwriter. On this flip the settlement date alone would give November 2. The sheet says November 4.</p>
+
+<p>Then add one status cell that checks any proposed contract date typed into B15:</p>
+
+<p><code>=IF(B15-B5&lt;=90,"FHA BLOCKED",IF(B15-B5&lt;=180,"FHA OK, TEST 100% LINE","FHA OK"))</code></p>
+
+<p>That cell is what your agent should see before countering an FHA offer. A buyer's agent who writes "contract date: October 22" on an FHA offer for this house has written an ineligible offer, and the cleanest fix is to set the offer review date at or after B6 in the listing itself.</p>
+
+<h3>The LLC deed that restarts the clock</h3>
+
+<p>Paragraph (a) of the rule requires the property to be bought from the owner of record. If you close in your own name and deed the house to your LLC on day 30, the LLC is now the seller of record, and read literally, the clock starts from the LLC's acquisition. Put the vesting entity's own deed date in B3 and B4, or decide the vesting before you close. The same owner-of-record paragraph is why a retail FHA buyer cannot take an assigned contract, which <a href="/blog/wholesale-double-closing-cost-calculator-excel/">the wholesale double closing cost analysis</a> covers from the wholesaler's side.</p>
+
+<h2>The fast-rehab trap: paying to finish early for nothing</h2>
+
+<p>Your contractor offers to finish in 31 days instead of 45 for a $3,500 crew bonus. On a normal flip that sounds like a good trade, because every day saved cuts your flip holding costs: interest, taxes, insurance and utilities. Price the day first.</p>
+
+<table>
+<thead>
+<tr><th>Daily carry item</th><th>Assumption</th><th>Formula</th><th>Per day</th></tr>
+</thead>
+<tbody>
+<tr><td>Hard money interest</td><td>$195,000 at 11 percent, interest only</td><td><code>=B20&#42;B21/365</code></td><td>$58.77</td></tr>
+<tr><td>Property tax and vacant-home insurance</td><td>$3,400 plus $1,950 a year</td><td><code>=(B22+B23)/365</code></td><td>$14.66</td></tr>
+<tr><td>Utilities</td><td>$195 a month</td><td><code>=B24&#42;12/365</code></td><td>$6.41</td></tr>
+<tr><td>Total daily carry (B25)</td><td></td><td>sum of the three</td><td>$79.84</td></tr>
+</tbody>
+</table>
+
+<p>The rates and costs are example inputs. Replace them with your loan terms and the house's tax bill.</p>
+
+<p>Now run the rush through the date grid. With the 45-day rehab, the expected contract lands on day 80 and the rule holds an FHA contract until day 93, a forced wait of 13 days. With the 31-day rehab, the expected contract lands on day 66 and the forced wait grows to 27 days. If the buyer is FHA, the contract date is November 4 in both cases, the closing date is the same, and the bonus buys zero days of carry. If the buyer pays cash, the rush saves 14 days, which at $79.84 is $1,117.76, against a $3,500 bonus. The bonus loses in both cases.</p>
+
+<p>The formula that makes this visible is B12. When it is above zero for your realistic list-to-contract time, any money spent to shorten the rehab only adds to the wait, unless you already have a non-FHA buyer lined up. Use the rehab schedule in <a href="/blog/fix-flip-project-timeline-spreadsheet/">the fix and flip project timeline</a> to set B8, and let B12 tell you whether speeding it up is worth anything.</p>
+
+<h2>Cash on day 80 or FHA on day 93: find the tie price</h2>
+
+<p>The house is listed at $289,000. On day 80, before any FHA buyer can sign, you get a cash offer at $277,500 with a 14-day close. The FHA buyer who has been waiting for November 4 offers full price and asks for 3 percent in seller concessions toward closing costs, which is well inside the 6 percent the handbook allows before contributions count as an inducement to purchase. Assume a 30-day FHA closing and 5 percent total commission. Both are example inputs.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>FHA offer (column C)</th><th>Cash offer (column D)</th></tr>
+</thead>
+<tbody>
+<tr><td>Contract price (row 30)</td><td>$289,000</td><td>$277,500</td></tr>
+<tr><td>Seller concessions (row 31)</td><td>$8,670</td><td>$0</td></tr>
+<tr><td>Commission at 5 percent</td><td>$14,450</td><td>$13,875</td></tr>
+<tr><td>Contract day after your settlement</td><td>93</td><td>80</td></tr>
+<tr><td>Closing day (row 35)</td><td>123</td><td>94</td></tr>
+<tr><td>Carry from day 0 to closing at $79.84</td><td>$9,820.32</td><td>$7,504.96</td></tr>
+<tr><td>Net before loan payoff and purchase costs</td><td>$256,059.68</td><td>$256,120.04</td></tr>
+</tbody>
+</table>
+
+<p>The cash offer, $11,500 below list, nets $60.36 more. Concessions, commission on the higher price, and 29 more days of carry eat the whole gap. The number you want in front of you when the cash offer arrives is the tie price, with the commission rate in B32:</p>
+
+<p><code>=(C30&#42;(1-B32)-C31-(C35-D35)&#42;B25)/(1-B32)</code></p>
+
+<p>On this deal it returns $277,436.46. Any cash offer above that beats waiting for the FHA buyer, as long as that buyer would ask for 3 percent. If the FHA buyer asks for nothing, the tie price rises to $286,562.78, and the cash offer stops looking good. Put the concession percentage in its own input cell and watch the tie price move with it, because the concession request matters more than the 13-day wait.</p>
+
+<p>If you sell to cash buyers often, the list you build in <a href="/blog/real-estate-cash-buyers-list-spreadsheet-excel/">a cash buyers list spreadsheet</a> is what puts a real offer on the table to compare on day 80.</p>
+
+<h2>The 100 percent line between day 91 and day 180</h2>
+
+<p>Second deal, same clock and same carry. You bought this one from a wholesaler for $142,000, put $64,000 into it, and the comps support $289,000. That resale price is 103.5 percent over what you paid, so an FHA contract signed between November 4, 2026 and February 1, 2027 triggers the second appraisal. The flag cell:</p>
+
+<p><code>=IF(AND(B15-B5&gt;=91,B15-B5&lt;=180,B18&gt;=2&#42;B17),"SECOND APPRAISAL","NO TRIGGER")</code></p>
+
+<p>B17 is your purchase price and B18 the contract price. The line sits at <code>=2&#42;B17</code>, which is $284,000 here. You have three ways to handle it.</p>
+
+<table>
+<thead>
+<tr><th>Option</th><th>What it costs</th><th>Net after 5 percent commission</th></tr>
+</thead>
+<tbody>
+<tr><td>Price at $283,900, under the line</td><td>$5,100 of price, certain</td><td>$4,845</td></tr>
+<tr><td>Wait for a contract on day 181 (Feb 2, 2027)</td><td>90 more days at $79.84</td><td>$7,185.60 of carry</td></tr>
+<tr><td>Take the second appraisal at $289,000</td><td>Appraisal fee paid by you or the lender, plus the risk below</td><td>$650 fee plus risk</td></tr>
+</tbody>
+</table>
+
+<p>The $650 fee is an example; get a quote. The risk is the 5 percent rule. If the first appraisal says $289,000, any second value at or above $274,550 changes nothing. If the second appraiser says $272,000, which is 5.88 percent lower, FHA uses $272,000. At 96.5 percent the buyer's maximum loan drops from $278,885 to $262,480, so the buyer needs $16,405 more cash at closing, on top of a down payment that may have been as low as 3.5 percent. In practice you cut the price to $272,000, a loss of $17,000 of price, or $16,150 after commission.</p>
+
+<p>The break-even probability compares the certain cost against that risk:</p>
+
+<p><code>=(B40-B41)/B42</code></p>
+
+<p>with B40 the $4,845 given up by pricing under the line, B41 the $650 appraisal fee, and B42 the $16,150 lost if the second appraisal comes in low. It returns 26.0 percent. If you believe there is more than about a one-in-four chance that a second appraiser lands more than 5 percent below the first, price at $283,900. Waiting until day 181 is the worst of the three at $7,185.60, unless the house is not sold by then anyway.</p>
+
+<p>Deal one does not have this problem: $289,000 over a $165,000 purchase is 75.15 percent, well under the line. That is the usual pattern. The test catches flips bought at a deep discount, such as wholesale and auction purchases. When a price cut becomes necessary for other reasons, <a href="/blog/house-flip-price-reduction-decision-calculator-excel/">the price reduction decision calculator</a> walks through the carry on each extra week.</p>
+
+<h3>The 12-month authority HUD has not used</h3>
+
+<p>Paragraph (b)(4) lets HUD require extra value documentation for resales from day 91 up to 12 months whenever the price is 5 percent or more above the lowest sale price in the prior 12 months. It only takes effect through a Federal Register notice, and a search of the Federal Register finds no notice under 203.37a since 2020. HUD's 2026 mortgagee letters (through 2026-12) do not touch the flipping rule either. Some lender blogs reported in 2026 that FHA officials have talked about relaxing the rule; until a notice or a handbook change is published, the sheet should model the rule as written.</p>
+
+<h2>Exceptions that do not help a flipper</h2>
+
+<p>Paragraph (c) of the rule and the handbook list exceptions, and flippers misread them because they describe who is selling to the FHA buyer, not who sold to you:</p>
+
+<ul>
+<li>Sales by HUD, other federal agencies, and state and local government agencies of their own properties.</li>
+<li>Sales by state and federally chartered financial institutions and by Fannie Mae and Freddie Mac.</li>
+<li>Sales by nonprofits that bought HUD homes at a discount with resale restrictions.</li>
+<li>Properties the seller inherited.</li>
+<li>Properties bought by an employer or relocation company for a transferring employee.</li>
+<li>Properties in presidentially declared disaster areas, only when HUD issues a notice.</li>
+<li>A builder selling a newly built house.</li>
+</ul>
+
+<p>Buying a bank-owned house does not exempt your resale. The bank's sale to you was exempt; your sale to the FHA buyer is a resale by an investor and the clock applies. The one exception a flipper can actually use is new construction: a house you build from the ground up and sell is outside the rule, so a teardown-and-rebuild has no 90-day wait.</p>
+
+<p>Checklist for the FHA block of the flip sheet:</p>
+
+<ol>
+<li>Settlement and recording dates for the entity that will sign the listing, with the later one as clock start.</li>
+<li>Earliest FHA contract date in a cell your agent sees, and the same date written into the listing as the offer review date when B12 is above zero.</li>
+<li>The status cell checking every proposed contract date before a counteroffer goes out.</li>
+<li>Daily carry built from the loan, tax, insurance and utility inputs.</li>
+<li>The tie price for any non-FHA offer, with the FHA concession percentage as its own input.</li>
+<li>The 100 percent flag and the break-even probability whenever the resale price is near twice your purchase price.</li>
+<li>A written answer from the buyer's lender on re-signed contracts, saved in the deal folder.</li>
+</ol>
+
+<h2>Set the contract date before you set the list date</h2>
+
+<p>Put the FHA clock at the top of the flip model and let three cells drive your decisions: B6 for the earliest FHA contract, B12 for the forced wait, and the 100 percent flag. On these two deals that means not paying the $3,500 rush bonus, taking any cash offer above $277,436.46 when the FHA buyer wants 3 percent, and listing the discounted house at $283,900.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> holds the parts this depends on: an acquisition tab with hard money points and short-term rates, a line-item rehab tab, and an all-in cost that tracks what you have in the deal. Take your loan amount, rate and holding inputs from it to build the $79.84 daily carry, and set the project length to the later of your rehab finish and the earliest FHA contract date plus the closing period. It does not hold a date grid or the 100 percent test; add the block from this article next to the acquisition tab, and both sit on the same purchase price.</p>`,
+  },
+  {
     slug: 'house-flip-lead-paint-rrp-cost-calculator-excel',
     title: 'House Flip Lead Paint RRP Cost Calculator in Excel: Put It in the Offer',
     metaTitle: 'House Flip Lead Paint RRP Cost Calculator | SheetCraft',
