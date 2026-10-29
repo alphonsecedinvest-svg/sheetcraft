@@ -16,6 +16,212 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-seller-concession-calculator-excel',
+    title: 'House Flip Seller Concession Calculator Excel: Credit, Price Cut or Gross-Up',
+    metaTitle: 'House Flip Seller Concession Calculator | SheetCraft',
+    metaDescription: 'House flip seller concession calculator in Excel: test buyer cash, the FHA and Fannie Mae caps and the appraisal before you swap a credit for a price cut.',
+    targetKeyword: 'house flip seller concession calculator Excel',
+    secondaryKeywords: ['seller credit', 'price cut', 'interested party contributions', 'inducement to purchase', 'gross-up'],
+    excerpt: 'A buyer asking for 3 percent in concessions on a $315,000 flip is short of cash. The price cut saves you $538.30 and does not close, the credit closes, and a gross-up nets $8,580.25 more if it appraises at $324,450.',
+    publishedAt: '2026-10-29',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-seller-concession-calculator-excel.png',
+    imageAlt: 'Covered front porch of a renovated blue-gray clapboard house with a black front door, a white wicker bench and a porch swing',
+    content: `<p>A buyer's agent sends an offer on your flip: full price, $315,000, with 3 percent in seller concessions toward closing costs. The reflex is to counter with 3 percent off the price, since it sounds like the same money. A house flip seller concession calculator in Excel shows what each answer costs you and, more important, whether it closes. On the example below, the price cut saves you $538.30 in fees and leaves the buyer $9,094.25 short of cash. The credit closes. A gross-up counter at $324,450 nets you $8,580.25 more if the appraisal agrees, and the comp each answer leaves behind can be worth up to $2,227.84 on your next flip in the same subdivision.</p>
+
+<p>Concession requests are now routine. Redfin reported on September 18, 2026 that sellers gave concessions in 44.7 percent of U.S. home sales in August, up from 42.6 percent a year earlier, and in 72.8 percent of sales in Atlanta. If you sell entry-level flips, expect the request on most offers and have the block below built before the first one arrives.</p>
+
+<h2>The example flip and what each answer nets you</h2>
+
+<p>The house is a three-bedroom flip in Florida listed at $315,000. Every number is an example input, so replace them with yours:</p>
+
+<ul>
+<li>Commission: 5.0 percent of the price, both sides combined.</li>
+<li>Deed stamps: 70 cents per $100 of price or fractional part, the Florida rate in section 201.02(1)(a) of the statutes, with your contract putting the tax on the seller.</li>
+<li>Other seller closing costs: $2,100 for title, settlement and recording.</li>
+<li>Carry: a $240,000 hard money balance at 11 percent, $3,900 a year of property tax, $2,400 of insurance and $180 a month of utilities, which comes to $95.51 a day.</li>
+<li>Buyer: an FHA loan with the 3.5 percent minimum down payment, $10,400 of closing costs and prepaids on their Loan Estimate, and $12,000 in the bank for closing.</li>
+</ul>
+
+<p>Three answers are on the table. Accept the 3 percent credit, $9,450, at $315,000. Counter at 3 percent off, $305,550 with no credit. Or counter with a gross-up: raise the price by the amount of the credit and pay the credit back at closing, here $324,450 with a $9,780.75 credit. The extra $330.75 in that credit covers the larger down payment, explained further down.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Credit at list (column C)</th><th>Price cut (column D)</th><th>Gross-up (column E)</th></tr>
+</thead>
+<tbody>
+<tr><td>Contract price (row 22)</td><td>$315,000.00</td><td>$305,550.00</td><td>$324,450.00</td></tr>
+<tr><td>Seller credit (row 23)</td><td>$9,450.00</td><td>$0.00</td><td>$9,780.75</td></tr>
+<tr><td>Commission at 5 percent (row 24)</td><td>$15,750.00</td><td>$15,277.50</td><td>$16,222.50</td></tr>
+<tr><td>Deed stamps (row 25)</td><td>$2,205.00</td><td>$2,139.20</td><td>$2,271.50</td></tr>
+<tr><td>Other seller costs</td><td>$2,100.00</td><td>$2,100.00</td><td>$2,100.00</td></tr>
+<tr><td>Net before loan payoff (row 26)</td><td>$285,495.00</td><td>$286,033.30</td><td>$294,075.25</td></tr>
+<tr><td>Buyer's cash to close (row 27)</td><td>$11,975.00</td><td>$21,094.25</td><td>$11,975.00</td></tr>
+<tr><td>Closes with $12,000? (row 28)</td><td>Yes</td><td>No, short $9,094.25</td><td>Yes, if it appraises at $324,450</td></tr>
+</tbody>
+</table>
+
+<p>The price cut is the cheaper way to give up $9,450, by $538.30, because commission and deed stamps fall with the price while a credit comes on top of a full-price commission. That is the comparison most sellers run in their head, and it is the least important line in the table. If you want every price-based fee broken out the same way, the <a href="/blog/real-estate-seller-net-sheet-excel/">seller net sheet</a> builds them as formulas of the contract price.</p>
+
+<h2>The buyer's cash decides whether a price cut can close</h2>
+
+<p>A buyer who asks for help with closing costs is usually short of cash, not short of loan. The two answers reach their bank account in very different amounts. A $9,450 credit cuts the cash they bring by $9,450. A $9,450 price cut cuts it by the down payment share of $9,450, which at 3.5 percent is $330.75. The other $9,119.25 of the cut lowers their loan balance, which helps their monthly payment and does nothing at the closing table.</p>
+
+<p>On the Concession sheet, the buyer's cash requirement in row 27 of each column is:</p>
+
+<p><code>=$B$14&#42;C22+$B$16-C23</code></p>
+
+<p>with the minimum down payment in B14, the buyer's closing costs in B16 and the credit in row 23. The test in row 28 reads:</p>
+
+<p><code>=IF(C27&lt;=$B$15,"CLOSES","SHORT "&amp;TEXT(C27-$B$15,"$#,##0"))</code></p>
+
+<p>At $305,550 with no credit the buyer needs $21,094.25 and has $12,000. Turn the formula around and ask what price would let them close with no credit at all: <code>=(B15-B16)/B14</code> returns $45,714.29. No price cut you would ever offer turns this buyer into one who can close.</p>
+
+<p>The smallest credit that works at list is <code>=MAX(0,B14&#42;B3+B16-B15)</code>, which returns $9,425. So the buyer's 3 percent has $25 of room in it, and a counter at 2 percent kills the deal as surely as the price cut does.</p>
+
+<p>Before you counter, ask the buyer's agent for three numbers: the loan program, the down payment percentage and the closing cost total from the buyer's Loan Estimate. If row 28 says SHORT on the price-cut column, your only real choices are the credit and the gross-up. If the buyer is putting 20 percent down and every column says CLOSES, the credit is a preference, and the price cut is $538.30 cheaper for you before you account for your next comp.</p>
+
+<h2>What the loan program lets you credit</h2>
+
+<p>A credit the buyer needs can still be too big for the loan. Every program caps seller-paid closing costs, and the lender subtracts the money above the cap from the price it uses to size the loan. That raises the loan-to-value ratio on a buyer who usually has no room to absorb it.</p>
+
+<table>
+<thead>
+<tr><th>Loan</th><th>Cap on seller-paid closing costs</th><th>Percentage applied to</th><th>Money above the cap</th></tr>
+</thead>
+<tbody>
+<tr><td>Conventional (Fannie Mae), home or second home, LTV above 90%</td><td>3%</td><td>Lower of price or appraised value</td><td>Sales concession, deducted from the price, LTV recalculated</td></tr>
+<tr><td>Conventional, home or second home, LTV 75.01% to 90%</td><td>6%</td><td>Lower of price or appraised value</td><td>Same</td></tr>
+<tr><td>Conventional, home or second home, LTV 75% or less</td><td>9%</td><td>Lower of price or appraised value</td><td>Same</td></tr>
+<tr><td>Conventional, investment property, any LTV</td><td>2%</td><td>Lower of price or appraised value</td><td>Same</td></tr>
+<tr><td>FHA</td><td>6%</td><td>Sales price</td><td>Inducement to purchase, deducted dollar for dollar before the LTV is applied</td></tr>
+</tbody>
+</table>
+
+<p>The conventional rows come from Fannie Mae's Selling Guide, section B3-4.1-02 (dated May 7, 2025). The FHA row comes from HUD Handbook 4000.1, in its sections on interested party contributions and inducements to purchase. The investment property row matters when your buyer is a landlord: at 2 percent of $315,000, the most a conventional investor loan accepts is $6,300.</p>
+
+<p>Both programs add a second limit that catches more flippers than the percentage does: the credit cannot exceed the buyer's actual closing costs and prepaids. Fannie Mae treats any excess as a sales concession. HUD treats contributions "that exceed actual origination fees, other closing costs, prepaid items, and Discount Points" as an inducement to purchase. Fannie Mae also states that seller money cannot fund the down payment or the buyer's reserves.</p>
+
+<p>Run it on the example buyer with a cheaper closing. Suppose their Loan Estimate shows $7,800 instead of $10,400 and the contract still says 3 percent. The $1,650 they cannot spend is an inducement, the lender sizes the loan on $313,350 instead of $315,000, and the maximum FHA loan at 96.5 percent drops from $303,975.00 to $302,382.75. The buyer has to find $1,592.25 more, and with $12,000 in the bank they are now $617.25 short.</p>
+
+<p>Write the credit as "up to $9,450 toward the buyer's allowable closing costs and prepaids" instead of a flat 3 percent. On a $7,800 Loan Estimate you pay $7,800, which saves you $1,650, and the loan is sized on the full $315,000. The cap test in row 29 checks both limits at once:</p>
+
+<p><code>=IF(C23&gt;MIN($B$18&#42;C22,$B$16),"OVER CAP","OK")</code></p>
+
+<p>B18 holds the program cap, 6 percent for FHA. For a conventional buyer, enter the Fannie Mae percentage that matches their LTV, and remember the base is the lower of price or appraisal, so a low appraisal shrinks the cap too. If repair requests come out of the same credit, the <a href="/blog/house-flip-buyer-inspection-repair-credit-calculator-excel/">inspection repair credit calculator</a> shows how to move the part above the cap into a price reduction. If your FHA buyer is waiting on a flip you bought less than 91 days ago, the <a href="/blog/house-flip-fha-90-day-resale-rule-calculator-excel/">FHA 90 day resale rule calculator</a> prices a cash offer against the same 3 percent request.</p>
+
+<h2>The gross-up counter is a bet on the appraisal</h2>
+
+<p>The gross-up answers a cash-short buyer without taking the credit out of your price. You raise the price by the amount of the credit and pay the credit back at closing. The buyer finances most of the increase through a slightly larger loan, and you net close to what a clean full-price sale would bring.</p>
+
+<p>Two details decide whether it works. First, the buyer's down payment rises with the price. At 3.5 percent of a $9,450 increase, that is $330.75, which would move the buyer from $25 under their cash limit to $305.75 over it. Column E therefore credits $9,780.75:</p>
+
+<p><code>=B17+B14&#42;B19</code></p>
+
+<p>with the gross-up amount in B19. Row 29 still reads OK, since $9,780.75 sits under both the 6 percent FHA cap of $19,467 and the $10,400 of closing costs.</p>
+
+<p>Second, the lender sizes the loan on the lower of price and value. FHA calls it the Adjusted Value: the lesser of the purchase price less any inducements, or the property value. If the appraisal comes in at $315,000, your list price, the maximum loan is $303,975, the buyer's down payment jumps from $11,355.75 to $20,475.00, and the deal comes back to you as the credit-at-list column a week or two later.</p>
+
+<p>That gives the gross-up a known payoff. If it appraises, you net $8,580.25 more than the credit at list. If it does not and the buyer accepts list price with the credit, you lose the days spent on the appraisal and the amendment. If the buyer walks, you lose the time to find and close another buyer. The appraisal odds you need are the loss divided by the gain plus the loss, with the gain in B32 and the loss in B34:</p>
+
+<p><code>=B34/(B32+B34)</code></p>
+
+<table>
+<thead>
+<tr><th>What happens after an appraisal at $315,000</th><th>Days lost (example)</th><th>Carry at $95.51 a day</th><th>Appraisal odds needed for the gross-up to pay</th></tr>
+</thead>
+<tbody>
+<tr><td>Buyer accepts list price with the credit</td><td>10</td><td>$955.07</td><td>10.0%</td></tr>
+<tr><td>Buyer walks, you re-list and go under contract again</td><td>60</td><td>$5,730.41</td><td>40.0%</td></tr>
+</tbody>
+</table>
+
+<p>If you think the house has better than a 1 in 10 chance of appraising at $324,450 and this buyer will stay through a low appraisal, counter with the gross-up. If you think they walk, you need better than 40 percent. Assume the appraiser sees the credit: FHA requires the lender to document the contributions on the sales contract or another binding document, and to give the appraiser a copy when it is a separate document. A gross-up has a chance when you priced below what your comps support to sell fast. When $315,000 was already the top of the comps, take the credit at list.</p>
+
+<h2>The comp you leave behind for your next flip</h2>
+
+<p>If you own or plan another flip within a mile, today's sale becomes one of its comparables, and the three answers leave different records. Fannie Mae's Selling Guide, section B4-1.3-09 (dated June 4, 2025), tells the appraiser to adjust a comparable that included sales or financing concessions "to reflect the impact, if any," on its price. The deduction should equal the part of the price the appraiser attributes to the concession, which the guide describes as the market's reaction, and it is dollar for dollar only when the analysis shows the market paid the full amount. Positive adjustments for concessions are not allowed.</p>
+
+<p>That last rule creates an asymmetry. The price-cut sale goes on record at $305,550 and stays there, because no appraiser can add the cut back. The credit sale goes on record at $315,000 with a $9,450 concession, and the appraiser on your next deal deducts somewhere between nothing and $9,450. Put that share in B38 and the comp value in row 40:</p>
+
+<p><code>=C22-$B$38&#42;C23</code></p>
+
+<p>Assume the comp carries a quarter of the weight in the next appraisal (B37, one of four equally weighted comps) and that each dollar of ARV nets you 94.3 cents after commission and deed stamps (B39, <code>=1-B4-B5/100</code>). The last column is <code>=(C40-$D$40)&#42;$B$37&#42;$B$39</code>:</p>
+
+<table>
+<thead>
+<tr><th>Share of the concession the next appraiser deducts (B38)</th><th>Credit-at-list comp</th><th>Price-cut comp</th><th>Gross-up comp</th><th>Next flip net, credit over cut</th></tr>
+</thead>
+<tbody>
+<tr><td>0%</td><td>$315,000.00</td><td>$305,550.00</td><td>$324,450.00</td><td>$2,227.84</td></tr>
+<tr><td>50%</td><td>$310,275.00</td><td>$305,550.00</td><td>$319,559.63</td><td>$1,113.92</td></tr>
+<tr><td>100%</td><td>$305,550.00</td><td>$305,550.00</td><td>$314,669.25</td><td>$0.00</td></tr>
+</tbody>
+</table>
+
+<p>Set the $538.30 the price cut saves today against that column and solve for the share where the two tie:</p>
+
+<p><code>=1-(D26-C26)/(B39&#42;B37&#42;B17)</code></p>
+
+<p>It returns 75.8 percent. If the next appraiser deducts less than about three quarters of the credit, the credit at list beats the cut across the two flips. You will not know that share until the next appraisal report arrives, so plan the next ARV at the full deduction, as the <a href="/blog/after-repair-value-calculator/">dated ARV calculator</a> does when it strips concessions from comps. Use the comp upside only to break a tie between two answers that both close.</p>
+
+<p>The gross-up comp is the highest in every row because an appraiser signed off on $324,450 before the sale closed. A gross-up that fails the appraisal leaves no comp at that price, since the contract is amended to $315,000 before closing.</p>
+
+<h2>Build the concession block in Excel</h2>
+
+<p>One sheet, inputs in column B, the three answers in columns C, D and E. Rows 22 to 29 use the same formula in each column, with the column letter changed.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input or output</th><th>Formula</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>List price</td><td>input</td><td>$315,000</td></tr>
+<tr><td>B4</td><td>Commission, both sides</td><td>input</td><td>5.0%</td></tr>
+<tr><td>B5</td><td>Deed stamps per $100</td><td>input</td><td>0.70</td></tr>
+<tr><td>B6</td><td>Other seller closing costs</td><td>input</td><td>$2,100</td></tr>
+<tr><td>B7</td><td>Daily carry</td><td><code>=B8&#42;B9/365+(B10+B11)/365+B12&#42;12/365</code></td><td>$95.51</td></tr>
+<tr><td>B8 to B12</td><td>Loan balance, rate, annual tax, annual insurance, monthly utilities</td><td>inputs</td><td>$240,000, 11%, $3,900, $2,400, $180</td></tr>
+<tr><td>B14</td><td>Buyer's minimum down payment</td><td>input</td><td>3.5%</td></tr>
+<tr><td>B15</td><td>Buyer's cash for closing</td><td>input from the buyer's agent</td><td>$12,000</td></tr>
+<tr><td>B16</td><td>Buyer's closing costs and prepaids</td><td>input from the Loan Estimate</td><td>$10,400</td></tr>
+<tr><td>B17</td><td>Credit requested</td><td>input</td><td>$9,450</td></tr>
+<tr><td>B18</td><td>Program cap</td><td>input</td><td>6%</td></tr>
+<tr><td>B19</td><td>Gross-up amount</td><td>input</td><td>$9,450</td></tr>
+<tr><td>C22, D22, E22</td><td>Contract price</td><td><code>=B3</code>, <code>=B3-B17</code>, <code>=B3+B19</code></td><td>$315,000, $305,550, $324,450</td></tr>
+<tr><td>C23, D23, E23</td><td>Seller credit</td><td><code>=B17</code>, 0, <code>=B17+B14&#42;B19</code></td><td>$9,450, $0, $9,780.75</td></tr>
+<tr><td>Row 24</td><td>Commission</td><td><code>=C22&#42;$B$4</code></td><td>$15,750.00 in C</td></tr>
+<tr><td>Row 25</td><td>Deed stamps</td><td><code>=ROUNDUP(C22/100,0)&#42;$B$5</code></td><td>$2,205.00 in C</td></tr>
+<tr><td>Row 26</td><td>Net before loan payoff</td><td><code>=C22-C23-C24-C25-$B$6</code></td><td>$285,495.00 in C</td></tr>
+<tr><td>Rows 27 to 29</td><td>Buyer's cash, cash test, cap test</td><td>see the sections above</td><td>$11,975.00, CLOSES, OK in C</td></tr>
+<tr><td>B32</td><td>Gross-up gain</td><td><code>=E26-C26</code></td><td>$8,580.25</td></tr>
+<tr><td>B33</td><td>Days lost after a low appraisal</td><td>input</td><td>10</td></tr>
+<tr><td>B34</td><td>Cost of those days</td><td><code>=B33&#42;B7</code></td><td>$955.07</td></tr>
+<tr><td>B35</td><td>Appraisal odds needed</td><td><code>=B34/(B32+B34)</code></td><td>10.0%</td></tr>
+<tr><td>B37 to B39</td><td>Comp weight, share deducted, net per ARV dollar</td><td>inputs and <code>=1-B4-B5/100</code></td><td>25%, 0% to 100%, 0.943</td></tr>
+</tbody>
+</table>
+
+<p>ROUNDUP in row 25 follows the statute's "or fractional part": $305,550 is 3,055.5 hundreds, taxed as 3,056, which is why column D shows $2,139.20. If your state charges transfer tax differently, change row 25 and leave the rest alone.</p>
+
+<h2>What to do when the concession request lands</h2>
+
+<ol>
+<li>Get the loan program, the down payment percentage and the Loan Estimate closing cost total from the buyer's agent before you answer.</li>
+<li>Run the cash test on the price-cut column. If it says SHORT, drop the price cut from your options.</li>
+<li>Size the credit with <code>=MIN(B18&#42;MIN(C22,B20),B16)</code>, with the appraised value in B20 once the report is in, and write it as "up to" that amount toward allowable closing costs and prepaids.</li>
+<li>For an investor buyer on a conventional loan, cap the credit at 2 percent and move the rest into the price.</li>
+<li>Counter with a gross-up only when your list price sits below your comps and the odds in B35 look reachable for this buyer.</li>
+<li>When every column closes, take the $538.30 price cut unless you own a flip nearby, then compare against the 75.8 percent tie.</li>
+<li>Log each concession you give with the sale in your own comp file, so the next ARV starts from cash-equivalent prices.</li>
+</ol>
+
+<p>On this flip, the answer is the credit at list, written as "up to $9,450", with a gross-up counter only if your comps support $324,450. The price cut saves $538.30 and loses a buyer who cannot close without the credit.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> holds the inputs this block runs on: purchase price, hard money points and rate in the acquisition tab, the line-item rehab budget, and an all-in cost that includes holding costs. Take the loan balance and rate from it to build the daily carry in B7, then set the net in row 26 against your all-in cost to see the profit each answer leaves you. It does not hold a concession block or a buyer cash test; add rows 3 to 39 from this article beside the acquisition tab, so all three answers read off the same purchase price.</p>`,
+  },
+  {
     slug: 'house-flip-fha-90-day-resale-rule-calculator-excel',
     title: 'House Flip FHA 90 Day Resale Rule Calculator in Excel: Why the Contract Date Decides',
     metaTitle: 'FHA 90 Day Resale Rule Calculator for Flips | SheetCraft',
