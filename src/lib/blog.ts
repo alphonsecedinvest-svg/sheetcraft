@@ -16,6 +16,213 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-prompt-payment-act-interest-calculator-excel',
+    title: 'Construction Prompt Payment Act Interest Calculator Excel: Bill the Number You Can Defend',
+    metaTitle: 'Prompt Payment Act Interest Calculator Excel | SheetCraft',
+    metaDescription: 'Construction prompt payment act interest calculator in Excel: a Texas owner 37 days late owes 1.5% a month. Claim $7,625.99, not $9,571.60.',
+    targetKeyword: 'construction prompt payment act interest calculator Excel',
+    secondaryKeywords: ['Texas prompt pay act', 'late payment interest', 'Texas Property Code section 28.004', 'federal prompt payment interest rate', 'right to suspend work for nonpayment'],
+    excerpt: 'Four late pay apps on a Texas private job owe $7,625.99 in statutory interest, not the $9,571.60 a quick sheet shows. The ledger applies the lender funding and postmark rules, splits the subs\' share, and tests whether billing it is worth the next job.',
+    publishedAt: '2026-10-30',
+    readTime: 15,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-prompt-payment-act-interest-calculator-excel.png',
+    imageAlt: 'Steel frame of a building under construction, beams and purlins silhouetted against a low golden sun',
+    content: `<p>Your owner paid pay application #8 thirty-seven days late. In Texas, a private owner who does that owes you 1.5 percent a month on the unpaid amount, by statute, and an attempted waiver of that rule in your contract is void. A construction prompt payment act interest calculator in Excel turns that rule into a number you can put in a letter. On the four pay apps below, the number is $7,625.99. The version built from request dates and bank deposits alone is $9,571.60, and the extra $1,945.61 is the part an owner's controller can strike from the records in their own files, along with your credibility on the rest.</p>
+
+<p>This article builds the ledger under the Texas prompt pay act on a private commercial job, compares the Texas rate with the Texas public and federal rates, shows how much of the interest belongs to your subcontractors, and ends with the decision the statute does not make for you: whether to bill it at all.</p>
+
+<h2>What a Texas owner owes you, and the three dates that decide it</h2>
+
+<p>Chapter 28 of the Texas Property Code is short. Four sections carry the money:</p>
+
+<ul>
+<li><strong>Section 28.002(a).</strong> The owner pays a written payment request for properly performed work or suitably stored materials no later than the 35th day after the owner receives the request.</li>
+<li><strong>Section 28.004.</strong> An unpaid amount starts to accrue interest on the day after it becomes due, at 1-1/2 percent each month. Interest stops on the date of delivery, or on the date of mailing if the payment is mailed and arrives within three days.</li>
+<li><strong>Section 28.003(b).</strong> On commercial work, an owner in a good faith dispute may withhold up to 100 percent of the difference between what you claim and what the owner says is due. On a detached single-family home, duplex, triplex or fourplex, the cap is 110 percent.</li>
+<li><strong>Section 28.008.</strong> If the owner has a construction loan, asked for the draw on time, and the lender is obligated to fund but has not funded within 35 days of your request, the due date moves to the 5th day after the owner receives the loan proceeds.</li>
+</ul>
+
+<p>Section 28.006 makes an attempted waiver of the chapter void. The one exception is a written contract for a single-family residence, which may push the deadline to any date before the 61st day after the owner receives the request. The chapter does not cover government owners, which section 28.001 excludes, or oilfield and mineral work, which section 28.010 exempts.</p>
+
+<p>Read those four sections again and count the dates: the day the owner received your request, the day the lender funded, and the day the check was postmarked or delivered. The rate is fixed by statute and the arithmetic is one multiplication. The three dates are where every claim is won or lost, and two of them sit in someone else's records.</p>
+
+<h2>The ledger: four pay apps, one clock per row</h2>
+
+<p>The example is a $2,860,000 two-story medical office building for a private owner in San Antonio, financed with a construction loan, 10 percent retainage. All figures are example inputs. The inputs sit at the top of the sheet:</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>B2</td><td>Statutory rate per month</td><td>1.5%</td></tr>
+<tr><td>B3</td><td>Day basis</td><td>365</td></tr>
+<tr><td>B4</td><td>Owner's days to pay</td><td>35</td></tr>
+<tr><td>B5</td><td>Days after loan funding (section 28.008)</td><td>5</td></tr>
+<tr><td>B6</td><td>Share of each pay app that is subcontracted work</td><td>64%</td></tr>
+<tr><td>B7</td><td>Your credit line rate (prime 7.00% plus 1.50%)</td><td>8.5%</td></tr>
+</tbody>
+</table>
+
+<p>Rows 10 to 13 hold one pay app each. Column B is the date the owner received the request, and it must be a date you can prove: an email with the owner's reply, a portal timestamp, a certified mail receipt. Column C is the net amount requested after retainage. Column D is anything the owner withheld in a written good faith dispute. Column E records whether the owner requested the loan draw on time, and column F is the date the lender funded, which you get by asking the owner in writing. Column H is the delivery date of the payment and column I the postmark.</p>
+
+<p>The due date in G applies section 28.008 only when its conditions are met:</p>
+
+<p><code>=IF(AND(E10="Y",F10&gt;B10+$B$4),F10+$B$5,B10+$B$4)</code></p>
+
+<p>The date interest stops, in J, follows section 28.004(c): the postmark counts if the check arrived within three days of it.</p>
+
+<p><code>=IF(AND(I10&lt;&gt;"",H10-I10&lt;=3),I10,H10)</code></p>
+
+<p>Days late in K are <code>=MAX(0,J10-G10)</code>, counted from the day after the due date through the stop date. The interest in L runs only on the amount the owner had no right to hold:</p>
+
+<p><code>=(C10-D10)&#42;K10&#42;$B$2&#42;12/$B$3</code></p>
+
+<p>That treats 1.5 percent a month as simple interest at 18 percent a year over 365 days. The statute does not say how to prorate a partial month. Reading it as 1.5 percent per 30 days gives $7,731.90 across the four pay apps instead of $7,625.99, a difference of $105.91. Use the lower reading in a demand letter and keep the other for a negotiation you expect to settle.</p>
+
+<table>
+<thead>
+<tr><th>Pay app</th><th>Received (B)</th><th>Net requested (C)</th><th>Withheld (D)</th><th>Due (G)</th><th>Interest stops (J)</th><th>Days late (K)</th><th>Interest (L)</th></tr>
+</thead>
+<tbody>
+<tr><td>#5</td><td>Apr 6, 2026</td><td>$214,650</td><td>$0</td><td>May 11</td><td>May 22</td><td>11</td><td>$1,164.40</td></tr>
+<tr><td>#6</td><td>May 5, 2026</td><td>$187,920</td><td>$18,400</td><td>Jun 9</td><td>Jun 30</td><td>21</td><td>$1,755.58</td></tr>
+<tr><td>#7</td><td>Jun 4, 2026</td><td>$243,180</td><td>$0</td><td>Jul 22</td><td>Jul 31</td><td>9</td><td>$1,079.32</td></tr>
+<tr><td>#8</td><td>Jul 6, 2026</td><td>$198,760</td><td>$0</td><td>Aug 10</td><td>Sep 16</td><td>37</td><td>$3,626.69</td></tr>
+<tr><td>Total</td><td></td><td>$844,510</td><td>$18,400</td><td></td><td></td><td></td><td>$7,625.99</td></tr>
+</tbody>
+</table>
+
+<p>Pay app #7 is the row that teaches the most. The owner asked for the draw on time, the lender funded on July 17, which is 43 days after the owner received your request, so the due date moved from July 9 to July 22. Pay app #8 was paid by a check postmarked September 16 and delivered September 18, inside three days, so interest stops on the 16th.</p>
+
+<h2>Why the inflated claim loses the whole letter</h2>
+
+<p>The quick version of this sheet has one column of due dates, request date plus 35, and one column of payment dates, the day the money landed. It charges interest on the full amount requested. Here is what that produces against the version above.</p>
+
+<table>
+<thead>
+<tr><th>Pay app</th><th>Quick version</th><th>Defensible version</th><th>Difference</th><th>What the quick version missed</th></tr>
+</thead>
+<tbody>
+<tr><td>#5</td><td>11 days on $214,650: $1,164.40</td><td>11 days on $214,650: $1,164.40</td><td>$0.00</td><td>Nothing, this row is clean</td></tr>
+<tr><td>#6</td><td>21 days on $187,920: $1,946.13</td><td>21 days on $169,520: $1,755.58</td><td>$190.55</td><td>The $18,400 withheld in a written dispute, section 28.003(b)</td></tr>
+<tr><td>#7</td><td>22 days on $243,180: $2,638.34</td><td>9 days on $243,180: $1,079.32</td><td>$1,559.02</td><td>The lender funding rule, section 28.008</td></tr>
+<tr><td>#8</td><td>39 days on $198,760: $3,822.73</td><td>37 days on $198,760: $3,626.69</td><td>$196.04</td><td>The postmark rule, section 28.004(c)(2)</td></tr>
+<tr><td>Total</td><td>$9,571.60</td><td>$7,625.99</td><td>$1,945.61</td><td>25.5 percent overstated</td></tr>
+</tbody>
+</table>
+
+<p>The owner's controller has the draw records and the check register, which hold both the July 17 funding date and the September 16 postmark. One reply pointing to either one says your number is wrong. From that point the conversation is about your math, and the $7,625.99 you were owed sits inside a letter the owner has already labeled as inflated. Build the defensible version first. If you think the statute supports more, put it in a separate column with your reasoning.</p>
+
+<p>One case belongs in that separate column. If the $18,400 dispute on pay app #6 is later resolved in your favor and paid on August 14, interest on it from June 9 would be $598.88 over 66 days. Whether an amount withheld in good faith accrues interest once you win the dispute is a question for your lawyer, so the sheet computes it and the letter leaves it out.</p>
+
+<h2>Same late payment, three statutes, three different checks</h2>
+
+<p>The chapter you claim under depends on who the owner is. Take pay app #8, $198,760 and 37 days late, and change only the owner:</p>
+
+<table>
+<thead>
+<tr><th>Owner</th><th>Rate and method</th><th>Interest on $198,760 for 37 days</th></tr>
+</thead>
+<tbody>
+<tr><td>Texas private owner (Property Code ch. 28)</td><td>1.5% a month, simple, 365-day year</td><td>$3,626.69</td></tr>
+<tr><td>Texas public owner (Government Code ch. 2251)</td><td>Prime on the first weekday of July plus 1 point: 6.75% plus 1, about 7.75%</td><td>$1,561.49</td></tr>
+<tr><td>Federal agency (Prompt Payment Act)</td><td>4.75% for July 1 to December 31, 2026, 360-day year, added to principal every 30 days</td><td>$971.06</td></tr>
+<tr><td>Your own credit line, for comparison</td><td>8.5%, 365-day year</td><td>$1,712.60</td></tr>
+</tbody>
+</table>
+
+<p>The Texas public rate is an estimate built from the statute's formula in section 2251.025 and the 6.75 percent prime rate the Federal Reserve reported for July 1, 2026; the statute names the Wall Street Journal figure, and the Comptroller's due date calculator gives the official one. The federal prompt payment interest rate is the one the Treasury publishes every six months, and the 360-day year and 30-day compounding come from 5 CFR 1315.10.</p>
+
+<p>The last row is the one that changes behavior. On a Texas private job, the statute pays 18 percent while your line costs 8.5 percent, so a late owner who pays interest has overpaid you for the wait. On public and federal work, the interest is below your own cost of money: even if every dollar of interest arrives, the late payment still cost you. On those jobs the money is in getting paid on time, which is why the clocks matter more than the rate.</p>
+
+<table>
+<thead>
+<tr><th>Clock</th><th>Texas private</th><th>Texas public</th><th>Federal</th></tr>
+</thead>
+<tbody>
+<tr><td>Owner pays you</td><td>35 days after receipt of the request</td><td>Overdue on the 31st day after the later of delivery, completion, or invoice receipt (46th for a political subdivision whose board meets monthly or less)</td><td>14 days after the billing office receives a proper payment request for a progress payment</td></tr>
+<tr><td>You pay subs</td><td>7 days after you receive payment</td><td>10 days after you receive payment</td><td>7 days after you receive payment, by required subcontract clause</td></tr>
+<tr><td>Withholding cap in a dispute</td><td>100% of the difference (110% on 1 to 4 family homes)</td><td>110% of the disputed amount, with notice by the 21st day</td><td>No interest on amounts in dispute or retained under the contract</td></tr>
+<tr><td>Attorney's fees</td><td>Court may award, as equitable and just</td><td>Prevailing party is paid its fees</td><td>Disputes go through the Contract Disputes clause</td></tr>
+<tr><td>Who has to ask</td><td>You do</td><td>State agencies pay it with the principal</td><td>Paid automatically, without request</td></tr>
+</tbody>
+</table>
+
+<p>The federal clause, FAR 52.232-27, also says that when a federal billing office fails to note the date it received your request, the due date runs from the date on your request. Date every pay app on the day you send it.</p>
+
+<h2>The interest is partly your subcontractors' money</h2>
+
+<p>Section 28.002(b) requires a contractor who receives an owner's payment to pay each sub its portion of that payment, "including interest, if any," within 7 days. The interest you collect is not all yours. On this job 64 percent of each pay app is subcontracted work, so the split is:</p>
+
+<p><code>=L10&#42;$B$6</code> in column M for the subs' share, and <code>=L10-M10</code> in column N for what you keep.</p>
+
+<table>
+<thead>
+<tr><th>Pay app</th><th>Interest (L)</th><th>Owed to subs (M)</th><th>You keep (N)</th></tr>
+</thead>
+<tbody>
+<tr><td>#5</td><td>$1,164.40</td><td>$745.22</td><td>$419.18</td></tr>
+<tr><td>#6</td><td>$1,755.58</td><td>$1,123.57</td><td>$632.01</td></tr>
+<tr><td>#7</td><td>$1,079.32</td><td>$690.76</td><td>$388.56</td></tr>
+<tr><td>#8</td><td>$3,626.69</td><td>$2,321.08</td><td>$1,305.61</td></tr>
+<tr><td>Total</td><td>$7,625.99</td><td>$4,880.63</td><td>$2,745.36</td></tr>
+</tbody>
+</table>
+
+<p>In practice, split each sub's share by its line items on the pay app, not by one average. The point holds either way: of $7,625.99 the owner would pay, you keep $2,745.36, and you carry all of the relationship risk of asking for it.</p>
+
+<p>For a sub, the same section works in two directions. Your GC has 7 days from receiving the owner's money to pay you, and late payment interest on money from the GC accrues at 1.5 percent a month under the same section 28.004. If the owner was late and your GC collected interest for it, a portion of that interest is yours. Ask your GC in writing whether interest was collected on the pay apps that include your work. The <a href="/blog/subcontractor-payment-tracking-spreadsheet">subcontractor payment tracking spreadsheet</a> covers the GC's side of that 7-day clock, using California's rules.</p>
+
+<h2>Is the interest worth the relationship?</h2>
+
+<p>Here is what each choice costs or earns on this job. Your own carrying cost is the late dollar-days on your 36 percent share at your credit line rate:</p>
+
+<p><code>=SUMPRODUCT(C10:C13-D10:D13,K10:K13)&#42;$B$7/365&#42;(1-$B$6)</code></p>
+
+<p>The late dollar-days total 15,463,810, so the formula returns $1,296.42. Your subs carried another $2,304.74 on their share, for $3,601.16 across the job.</p>
+
+<table>
+<thead>
+<tr><th>Choice</th><th>Owner pays</th><th>You keep</th><th>Subs get</th><th>What it risks</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Say nothing</td><td>$0</td><td>$0, and you absorb $1,296.42 of carrying cost</td><td>$0</td><td>Nothing with the owner; pay app #8 was the latest yet</td></tr>
+<tr><td>B. Bill the defensible schedule</td><td>$7,625.99</td><td>$2,745.36</td><td>$4,880.63</td><td>The next job with this owner</td></tr>
+<tr><td>C. Bill the quick version</td><td>$9,571.60 asked, likely $0 paid until you redo it</td><td>Uncertain</td><td>Uncertain</td><td>The next job and your credibility on every later claim</td></tr>
+<tr><td>D. Section 28.009 notice on pay app #8</td><td>Principal sooner, if the owner pays to avoid the suspension; interest stays available</td><td>Up to $433.24 of carrying cost avoided</td><td>Their carry avoided too</td><td>An escalation the owner's lender also reads</td></tr>
+</tbody>
+</table>
+
+<p>Choice B is a bet. Say this owner has a $3,100,000 follow-on building and your net margin on it would be 4 percent, $124,000. Put the interest you keep in B20 and the follow-on profit in B21:</p>
+
+<p><code>=B20/B21</code></p>
+
+<p>The result is 2.2 percent. Billing the interest pays only if you believe it raises the chance of losing the next building by less than 2.2 points. If the follow-on building is a real prospect, decide whether one invoice could move your odds by that much. With an owner you will not work for again, or at final payment when the next job is already signed or lost, the same $2,745.36 costs you nothing to ask for.</p>
+
+<p>On commercial work, choice D is the stronger tool. Section 28.009 gives you a right to suspend work for nonpayment on the 10th day after a written notice that an undisputed amount has not been paid and that you intend to suspend. The notice goes to the owner, and also to the owner's lender when the conditions of section 28.009(b) are met, including a sign on the site naming the lender. Once suspended, you need not resume until paid plus demobilization and remobilization costs. The notice does not apply to 1 to 4 family homes or government owners. On pay app #8, a notice sent August 11, the day after the due date, allows suspension from August 21. If the owner paid by then instead of on September 16, you avoid 26 days of carrying cost on your share, $433.24, and your subs avoid more on theirs. The interest schedule from this sheet becomes the exhibit that shows the owner the meter is running, without asking for a dollar of it yet.</p>
+
+<p>The pattern decides between them. Pay apps #5, #6 and #8 ran 11, 21 and 37 days late, and the lender explains only #7. A pattern that lengthens each month is not going to fix itself, and the notice addresses the next late payment while the interest bill addresses money already gone.</p>
+
+<h2>What to set up before the next pay app</h2>
+
+<ol>
+<li>Send each pay app in a form that leaves a dated receipt, and enter that date in column B the same day. An undated request is a claim you cannot prove.</li>
+<li>Ask the owner in writing, at contract signing, whether the job is financed and who the lender is. Write the lender's funding date in column F for every draw.</li>
+<li>Log every written dispute notice in column D with the amount the owner names. An owner who withholds more than 100 percent of the difference on commercial work has no statutory cover for the excess.</li>
+<li>Put a running total of column L on the cover sheet of every pay app, labeled as accrued statutory interest under Texas Property Code section 28.004. It is information, not a demand, and it tells the owner you keep the count.</li>
+<li>Set a trigger in the sheet: <code>=IF(AND(H10="",TODAY()&gt;G10),"SEND 28.009 NOTICE","")</code> flags any pay app past due with no payment.</li>
+<li>When interest is collected, pay each sub its portion within 7 days, out of column M, and keep the calculation with the payment record.</li>
+</ol>
+
+<p>The structure of each pay app matters too: the G702 summary and G703 continuation sheet are what your owner received on the date in column B, and the <a href="/blog/aia-g702-g703-excel-template">AIA G702 and G703 Excel template</a> article shows how to build them so the request is complete on arrival. Retainage has its own release terms, tracked in the <a href="/blog/construction-retainage-tracking-spreadsheet">construction retainage tracking spreadsheet</a>, and the interest in this article runs on the net after retainage. If your own subs are paid only when you are paid, the <a href="/blog/construction-pay-when-paid-cash-flow-tracker-excel">pay-when-paid cash flow tracker</a> shows the gap you finance in the meantime.</p>
+
+<p>On this job, the recommendation is choice D on pay app #8 and choice B at final payment. Send the section 28.009 notice on August 11 with the interest schedule attached, and bill the $7,625.99 with the final pay app, with $4,880.63 passed through to the subs within 7 days of receiving it. Leave the $598.88 on the disputed amount and the 30-day proration out of the letter.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already logs every invoice by vendor, status and date, which is where columns B, C and H of this ledger come from: the date each pay app went out, its net amount, and the date it was paid. It does not compute statutory interest or the section 28.008 due date. Add columns D to N from this article beside its payment log, and each late pay app will show its due date, interest and subs' share as soon as you enter the payment date.</p>`,
+  },
+  {
     slug: 'house-flip-seller-concession-calculator-excel',
     title: 'House Flip Seller Concession Calculator Excel: Credit, Price Cut or Gross-Up',
     metaTitle: 'House Flip Seller Concession Calculator | SheetCraft',
