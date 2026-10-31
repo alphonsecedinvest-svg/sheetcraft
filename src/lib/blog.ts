@@ -16,6 +16,168 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-mechanics-lien-deadline-calculator-excel',
+    title: 'Construction Mechanics Lien Deadline Calculator Excel: Send Before the Money Leaves',
+    metaTitle: 'Mechanics Lien Deadline Calculator Excel | SheetCraft',
+    metaDescription: 'Construction mechanics lien deadline calculator in Excel: a Texas sub sent every notice on time and still lost $212,000. Track the owner\'s draw dates too.',
+    targetKeyword: 'construction mechanics lien deadline calculator Excel',
+    secondaryKeywords: ['Texas mechanics lien deadlines', 'notice of claim for unpaid labor or materials', 'lien affidavit deadline', 'notice to owner deadline', 'last furnishing date'],
+    excerpt: 'A flooring sub on a Texas job sends three lien notices, each on its legal deadline, and secures $74,000 of the $286,000 it is owed. The calculator tracks the statutory date for each month of work and the owner draw dates that decide how much a notice can still trap.',
+    publishedAt: '2026-10-31',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-mechanics-lien-deadline-calculator-excel.png',
+    imageAlt: 'Black and white photo of an unfinished office floor, bare concrete slab and exposed ceiling ducts in front of a wall of windows',
+    content: `<p>A flooring subcontractor on a Texas medical office job sent three lien notices in the fall of 2026, each one on its legal deadline, each one valid. Together they secured $74,000 of the $286,000 the general contractor never paid. A construction mechanics lien deadline calculator in Excel that only counts statutory dates would have shown every row green. The sheet this article builds tracks a second date per month of work, the day the owner's next payment leaves, because in Texas that date decides how much a perfectly timely notice can still recover.</p>
+
+<p>The numbers below are a labeled example, not a real job: a $3,600,000 original contract, a $286,000 flooring subcontract with no retainage, work in July, August and September 2026, and a general contractor (GC) that stops paying its subs after June. The statute references are to the Texas Property Code, chapter 53, as amended by H.B. 2237 effective January 1, 2022, and to Florida Statutes chapter 713, both read in the current official text.</p>
+
+<h2>The statute gives you a deadline. The owner's checkbook gives you another one.</h2>
+
+<p>Texas mechanics lien deadlines for a subcontractor start with one notice per month of work. Section 53.056(a-1) requires a notice of claim for unpaid labor or materials, sent to the owner and the GC, no later than the 15th day of the third month after the month the work was done (the second month on a residential project). July work is due by October 15. A deadline calendar stops there.</p>
+
+<p>Two other sections decide what the notice is worth. Section 53.081(b) lets the owner withhold funds from the GC "immediately on receipt" of the notice. Section 53.084(a) says the owner "is not liable for any amount paid to the original contractor before the owner is authorized to withhold funds," apart from the statutory reserve. Put together: a notice traps only the owner payments that go out after the owner receives it. Every draw the owner pays before your notice arrives is money your lien can no longer reach.</p>
+
+<p>Here is the owner's side of the example job. The original contract work was completed on Friday, October 2, 2026.</p>
+
+<table>
+<thead><tr><th>Date</th><th>Owner pays the GC</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Fri Aug 14, 2026</td><td>July progress payment</td><td>$410,000</td></tr>
+<tr><td>Mon Sep 14, 2026</td><td>August progress payment</td><td>$380,000</td></tr>
+<tr><td>Wed Oct 14, 2026</td><td>September progress payment</td><td>$290,000</td></tr>
+<tr><td>Fri Nov 6, 2026</td><td>Retainage release (10% of $3,600,000)</td><td>$360,000</td></tr>
+</tbody>
+</table>
+
+<p>The sub's September invoice of $94,000 went past due on Friday, October 30. Only one owner payment was left after that date, the $360,000 retainage release on November 6. A notice for September work had to reach the owner inside that seven-day window to trap anything. The statute let the sub send it as late as December 15, which is 39 days after the last dollar had already left.</p>
+
+<h2>Same three notices, four send dates, $212,000 apart</h2>
+
+<p>The sub is owed $74,000 for July, $118,000 for August and $94,000 for September, invoiced at each month end on net 30 terms. The table runs the same three notices under four sending habits. Receipt is assumed two business days after sending (certified mail, an estimate), and a notice that lands after a payment date cannot claim that payment.</p>
+
+<table>
+<thead><tr><th>Sending habit</th><th>July notice received</th><th>August notice received</th><th>September notice received</th><th>Owner money trapped</th><th>Lost</th></tr></thead>
+<tbody>
+<tr><td>First business day after the invoice is past due</td><td>Wed Sep 2</td><td>Mon Oct 5</td><td>Wed Nov 4</td><td>$286,000</td><td>$0</td></tr>
+<tr><td>15 days after past due</td><td>Wed Sep 16</td><td>Mon Oct 19</td><td>Wed Nov 18</td><td>$192,000</td><td>$94,000</td></tr>
+<tr><td>30 days after past due</td><td>Thu Oct 1</td><td>Tue Nov 3</td><td>Wed Dec 2</td><td>$192,000</td><td>$94,000</td></tr>
+<tr><td>On the statutory deadline</td><td>Mon Oct 19</td><td>Wed Nov 18</td><td>Thu Dec 17</td><td>$74,000</td><td>$212,000</td></tr>
+</tbody>
+</table>
+
+<p>The last row is the habit of a sub who trusts the GC's "check is coming" and only acts when the calendar forces it. All three notices are legally timely. The July notice still catches the November 6 retainage release and traps $74,000. The August and September notices arrive after the owner has paid everything, and trap nothing. The $212,000 difference comes from send dates alone, with identical paperwork.</p>
+
+<p>Two qualifications matter. First, "trapped" means the owner either withholds the money or becomes liable for it under section 53.084(b), and that liability still requires a perfected lien and a final judgment. A notice gives you leverage over a pool of money, and the payment itself still depends on that lien and judgment. Second, the owner may pay anyway. If it does, the owner becomes liable for that amount under 53.084(b), which gives it a reason to make the GC pay you.</p>
+
+<h2>Five Texas clocks per job, and where each one starts</h2>
+
+<p>A lien deadline sheet that holds one date per job is wrong for Texas by construction. The monthly notice runs per month, the lien affidavit runs from your last month of work, the reserve runs from the GC's completion, and the lawsuit runs from the affidavit deadline. Here are the five clocks with the example's dates.</p>
+
+<table>
+<thead><tr><th>Clock</th><th>Starts from</th><th>Rule</th><th>Example date</th></tr></thead>
+<tbody>
+<tr><td>Notice of claim for unpaid labor or materials</td><td>Each month you furnished</td><td>15th day of the 3rd month after (2nd if residential), 53.056(a-1)</td><td>July work: Oct 15, 2026. August: Nov 16 (Nov 15 is a Sunday). September: Dec 15</td></tr>
+<tr><td>Notice of claim for unpaid retainage</td><td>Completion of your subcontract</td><td>30th day after, or 30 days after the GC's contract is terminated, whichever is earlier, 53.057(a-1)</td><td>Not triggered: no retainage in this subcontract</td></tr>
+<tr><td>Lien affidavit</td><td>The month you last furnished</td><td>15th day of the 4th month after (3rd if residential), 53.052(b) and (c)</td><td>Fri Jan 15, 2027</td></tr>
+<tr><td>Share of the owner's 10% reserve</td><td>Completion of the original contract</td><td>Affidavit filed by the 30th day after, 53.103</td><td>Mon Nov 2, 2026 (Nov 1 is a Sunday)</td></tr>
+<tr><td>Suit to foreclose</td><td>Last day to file the affidavit</td><td>First anniversary, 53.158(a)</td><td>Jan 15, 2028 is a Saturday. Calendar Fri Jan 14, 2028</td></tr>
+</tbody>
+</table>
+
+<p>Section 53.003(e) moves a deadline that falls on a Saturday, Sunday or legal holiday to the next business day, which is why August's notice is due Monday, November 16. The tracker applies that rule to notices and affidavits, where the statute is plain. For the lawsuit, it calendars the last business day before the anniversary instead of counting on an extension.</p>
+
+<p>The reserve row is the one a monthly notice calendar never shows. Section 53.101 makes the owner hold 10 percent of the contract price, here $360,000, until 30 days after the original contract is completed. A claimant who has sent its notices and files its affidavit within those 30 days has a lien on that reserve. In the statutory-deadline habit above, the sub files its affidavit in January 2027 and has no claim on the reserve at all. The reserve is also shared: under section 53.104, individual artisans and mechanics are paid first and everyone else shares the rest proportionately, so the tracker never counts the full $360,000 as yours.</p>
+
+<p>Repair trips do not reset the clock. Section 53.001(15) defines completion of an original contract as the actual completion of the work "other than warranty work or replacement or repair of the work performed under the contract." A punch-list visit in November does not move the reserve window.</p>
+
+<h2>Building the lien deadline calculator in Excel</h2>
+
+<p>The workbook needs three tables: one job header, one row per month of work, and the owner's payment schedule. If you already run a <a href="/blog/construction-pay-when-paid-cash-flow-tracker-excel">pay-when-paid cash flow tracker</a>, the payment dates you need are the owner draw dates it already holds.</p>
+
+<h3>The job header</h3>
+
+<table>
+<thead><tr><th>Cell</th><th>Field</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>B3</td><td>State</td><td>TX</td></tr>
+<tr><td>B4</td><td>Project type</td><td>Commercial</td></tr>
+<tr><td>B5</td><td>First furnishing</td><td>7/6/2026</td></tr>
+<tr><td>B6</td><td>Last furnishing date</td><td>9/24/2026</td></tr>
+<tr><td>B7</td><td>Original contract completed</td><td>10/2/2026</td></tr>
+<tr><td>B8</td><td>Business days from sending to receipt</td><td>2</td></tr>
+</tbody>
+</table>
+
+<p>Store your county's legal holidays in a named range called <code>Holidays</code>. Then the lien affidavit deadline in B10 is <code>=WORKDAY(DATE(YEAR(B6),MONTH(B6)+IF(B4="Residential",3,4),15)-1,1,Holidays)</code>. The <code>DATE</code> part builds the 15th of the third or fourth month after your last furnishing date, and <code>WORKDAY(date-1,1)</code> returns that same date if it is a business day or the next business day if not, which is the section 53.003(e) rule. For the example it returns January 15, 2027.</p>
+
+<p>The reserve deadline in B11 is <code>=WORKDAY(B7+30-1,1,Holidays)</code>, which returns November 2, 2026. The suit date in B12 is <code>=WORKDAY(EDATE(DATE(YEAR(B6),MONTH(B6)+IF(B4="Residential",3,4),15),12)+1,-1,Holidays)</code>. It takes the anniversary of the unextended affidavit date and steps back to the last business day on or before it, so the sheet never relies on a weekend extension for a filing that ends your rights if it is late. For the example it returns January 14, 2028.</p>
+
+<h3>One row per month of work</h3>
+
+<p>The month table (<code>tblMonths</code>) starts in row 5 under a header in row 4. Its columns are Month (A, the first day of the month furnished), Unpaid (B), Due (C, the invoice due date), Deadline (D), Sent (E, the date you actually sent the notice), Received (F), Trapped (G) and Flag (H).</p>
+
+<p>The notice deadline in D5 is <code>=WORKDAY(DATE(YEAR(A5),MONTH(A5)+IF(Job!$B$4="Residential",2,3),15)-1,1,Holidays)</code>. The receipt date in F5 is <code>=IF(E5="","",WORKDAY(E5,Job!$B$8,Holidays))</code>, because the owner's right to withhold starts on receipt, and receipt comes after mailing.</p>
+
+<p>The column that changes decisions is G, the owner money this notice can still trap:</p>
+
+<p><code>=IF(F5="",0,MAX(0,MIN(B5,SUMIFS(tblPay[Amount],tblPay[Date],"&gt;="&amp;F5)-SUM(G$4:G4))))</code></p>
+
+<p>It adds up every owner payment dated on or after the receipt date, subtracts what earlier notices already claimed, and caps the result at the unpaid amount. Subtracting every earlier claim, even claims that caught earlier draws, makes the column conservative: it can understate what a notice traps, never overstate it. On the statutory-deadline habit it returns $74,000, $0 and $0. On the day-after-past-due habit it returns $74,000, $118,000 and $94,000.</p>
+
+<p>The status flag in H5 is <code>=IF(E5&lt;&gt;"",IF(E5&gt;D5,"LATE: NO LIEN FOR THIS MONTH","SENT"),IF(TODAY()&gt;C5,"PAST DUE: SEND TODAY",IF(D5-TODAY()&lt;=10,"DEADLINE IN 10 DAYS","OPEN")))</code>. It fires on the invoice due date first and on the statutory deadline only as a backstop, which is the order the money table above argues for.</p>
+
+<h3>The cell that tells you to file early</h3>
+
+<p>Two summary cells on the Job tab compare what is unpaid and not yet noticed with what the owner still has to pay out. Unpaid and unnoticed in B20 is <code>=SUMIFS(tblMonths[Unpaid],tblMonths[Sent],"")</code>. Owner money still to come in B21 is <code>=SUMIFS(tblPay[Amount],tblPay[Date],"&gt;"&amp;TODAY())</code>. The decision cell in B22 is <code>=IF(B20&gt;B21,"RESERVE ONLY: FILE AFFIDAVIT BY "&amp;TEXT(B11,"mmm d"),"OK")</code>. When your open claims exceed the owner's remaining payments, the reserve is the only pool left, and the reserve has a 30-day clock that the monthly notice dates will not show you.</p>
+
+<p>The owner's payment dates are often estimates. Pull them from the pay application cycle in your subcontract and the GC's billing date, mark each one as estimated or confirmed in a fourth column, and treat an estimated date as one week earlier than the schedule says.</p>
+
+<h2>Same sub, Florida job: the first clock starts on day one</h2>
+
+<p>Move the same subcontract to Florida and the shape of the deadlines changes. Florida's notice to owner deadline is counted from the first day you furnish, not from an unpaid month. Section 713.06(2)(a) requires it "before commencing, or not later than 45 days after commencing, to furnish," and in any event before the owner's final payment. Failing to serve it on time "is a complete defense to enforcement of a lien by any person." The claim of lien must be recorded within 90 days after final furnishing under section 713.08(5), and the lien expires one year after recording unless a suit is filed under section 713.22(1).</p>
+
+<table>
+<thead><tr><th>Clock</th><th>Texas job</th><th>Florida job</th></tr></thead>
+<tbody>
+<tr><td>First notice</td><td>One per month of work. July work: Oct 15, 2026</td><td>One per job, counted from first furnishing: Thu Aug 20, 2026</td></tr>
+<tr><td>Lien filing</td><td>Fri Jan 15, 2027</td><td>Wed Dec 23, 2026</td></tr>
+<tr><td>Suit</td><td>Calendar Fri Jan 14, 2028</td><td>1 year after recording, or 60 days after the owner serves a notice of contest</td></tr>
+<tr><td>Does a repair trip move the date?</td><td>No, for completion of the original contract (53.001(15))</td><td>No (713.01, definition of final furnishing)</td></tr>
+<tr><td>First notice missed</td><td>No valid lien for that month's work (53.056(a))</td><td>Complete defense to the whole lien (713.06(2)(a))</td></tr>
+</tbody>
+</table>
+
+<p>In the example, the Florida notice to owner is due August 20, ten days before the July invoice is even past due. A sub who waits for a payment problem before sending it has already lost the lien. The only safe habit is to serve it with the first delivery, on every job, which section 713.06(2)(a) explicitly allows.</p>
+
+<p>The last furnishing date is where Florida subs lose filings. Section 713.01 defines final furnishing as the last date the lienor furnishes labor, services or materials, and says it "does not include the correction of deficiencies in the lienor's previously performed work or materials supplied." The example sub installed its last flooring on Thursday, September 24, so the claim of lien is due December 23. If its crew came back on October 20 to replace cupped planks and the office counted 90 days from that visit, it would calendar January 18, 2027 and record 26 days after the deadline had passed.</p>
+
+<p>The owner can also shorten the enforcement window. Under section 713.22(2), an owner who records a notice of contest of lien limits the time to sue to 60 days from service. In the example, a notice served on February 1, 2027 would put the suit deadline at Friday, April 2, 2027 instead of December 2027. The tracker needs a "contest served" cell that overrides the one-year date: <code>=IF(B18&lt;&gt;"",MIN(B17,B18+60),B17)</code>, where B17 is the one-year date and B18 is the service date.</p>
+
+<p>The two Florida formulas step back to the last business day on or before each deadline, so the sheet never relies on a weekend extension: notice to owner <code>=WORKDAY(B5+45+1,-1,Holidays)</code> and claim of lien <code>=WORKDAY(B6+90+1,-1,Holidays)</code>.</p>
+
+<h2>What the calculator cannot do for you</h2>
+
+<p>A lien deadline sheet is a calendar with arithmetic. Four things stay outside it.</p>
+
+<ul>
+<li><strong>Receipt proof.</strong> Texas section 53.003(c) treats certified mail as compliance once deposited, but the owner's right to withhold under 53.081(b) starts on receipt. Hand delivery is an allowed method under 53.003(b)(1). On a job where one draw is days away, a courier beats certified mail by the size of that draw.</li>
+<li><strong>Both recipients.</strong> The Texas notice goes to the owner and the original contractor. A notice sent only to the GC, the party that is not paying you, traps nothing.</li>
+<li><strong>Public work.</strong> This sheet covers private jobs. Public projects use payment bond claims, which have their own deadlines.</li>
+<li><strong>The form itself.</strong> Section 53.056(a-2) prescribes the notice text and 53.054 the affidavit contents. Have a construction attorney approve your forms once, then let the sheet decide the dates.</li>
+</ul>
+
+<p>The payment side and the lien side need to agree. When you log an invoice in a <a href="/blog/construction-prompt-payment-act-interest-calculator-excel">prompt payment interest calculator</a>, its due date is the trigger for the notice row here. When you deal with a GC whose subs and suppliers have their own rights against you, the <a href="/blog/construction-joint-check-tracking-excel">joint check register</a> and <a href="/blog/construction-lien-waiver-tracking-excel">lien waiver tracking</a> are the same problem from the other side of the contract. Notice deadlines for delays and claims under the subcontract follow the same logic of counting from an event, and the <a href="/blog/construction-delay-notice-deadline-tracker-excel">delay notice deadline tracker</a> uses the same <code>WORKDAY</code> structure.</p>
+
+<h2>Recommendation: send on the past-due date, file before the reserve closes</h2>
+
+<p>On a Texas job, send the monthly notice of claim the first business day after an invoice goes past due, to the owner and the GC, by a method that gets it there before the next owner draw. In the example that habit traps $286,000 against $74,000 for the sub that waits for the statutory deadline. When the GC completes with months still unpaid, file the lien affidavit before the 30th day after completion so you share the 10 percent reserve, even if the section 53.052 deadline is months away. Keep the statutory dates as the last line of defense.</p>
+
+<p>On a Florida job, serve the notice to owner with the first delivery, count the claim of lien from your last real installation date, and ignore repair visits when you count.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already logs every invoice from every sub and supplier by vendor, status and date, so it holds the invoice due dates this calculator runs on, and it tells you who has been paid and what is due this week. It does not compute lien deadlines or owner draw windows. Add the three tables above as a tab next to its payment log, and each past-due invoice becomes the trigger for a notice row with a dollar figure attached.</p>`,
+  },
+  {
     slug: 'construction-prompt-payment-act-interest-calculator-excel',
     title: 'Construction Prompt Payment Act Interest Calculator Excel: Bill the Number You Can Defend',
     metaTitle: 'Prompt Payment Act Interest Calculator Excel | SheetCraft',
