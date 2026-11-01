@@ -16,6 +16,178 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-mobilization-payment-calculator-excel',
+    title: 'Construction Mobilization Payment Calculator Excel: Bill the Move-In You Can Prove',
+    metaTitle: 'Mobilization Payment Calculator Excel | SheetCraft',
+    metaDescription: 'Construction mobilization payment calculator in Excel: bill the move-in at documented cost and get $107,257.50 back on day 60, not $4,290.30.',
+    targetKeyword: 'construction mobilization payment calculator Excel',
+    secondaryKeywords: ['TxDOT Item 500 mobilization', 'front-loading the schedule of values', 'mobilization cost estimate', 'pay application cash flow'],
+    excerpt: 'A $3.85M warehouse job spends $110,475 on the bond, insurance, fence, trailer and equipment hauls before the first check arrives on day 60. Five payment structures compared, the TxDOT Item 500 steps in one cell, and what front-loading the line to 6% really buys: $4,746.05.',
+    publishedAt: '2026-11-01',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-mobilization-payment-calculator-excel.png',
+    imageAlt: 'Excavator loading an articulated dump truck on a freshly cleared commercial site, with formwork lumber and layout stakes in the foreground',
+    content: `<p>A general contractor signs a $3,850,000 warehouse addition with a 9-month schedule, monthly pay applications and net 30 payment. Before the first footing is dug, the company has paid $110,475 to get onto the site: the bond, the job insurance, the trailer, the fence, temporary power, erosion control, eight equipment hauls, layout and two weeks of superintendent time. The first progress payment arrives on day 60. A construction mobilization payment calculator in Excel answers two questions that decide how much of that money comes back on day 60 and how much rides along until closeout: what the move-in really cost, and which payment structure the contract gives it.</p>
+
+<p>On this job, an owner's 2 percent cap on mobilization costs the contractor $1,081.95 of interest. Having no mobilization line at all costs $3,057.28, and loading the line to 6 percent gains $4,746.05 while showing $111,825 of overbilling on the first application. The figures below are an example built for this article: the bond uses the same tiered surety schedule as the <a href="/blog/construction-performance-bond-premium-calculator-excel">performance bond premium calculator</a>, the other costs are example quotes, and the line of credit costs 8.5 percent, the prime rate of 7.00 percent on October 27, 2026 (Federal Reserve Economic Data series DPRIME) plus a 1.50 point margin. Swap in your own quotes and the mechanics stay the same.</p>
+
+<h2>What the Move-In Costs Before Day 60</h2>
+
+<p>Build the mobilization cost estimate from the invoices you will actually pay. Put each cost on its own row of a sheet called <code>Mob</code>, with the amount in column B and the day you pay it in column C, counting from the day you sign.</p>
+
+<table>
+<thead>
+<tr><th>Row</th><th>Mobilization cost</th><th>Amount (B)</th><th>Paid on day (C)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>Payment and performance bond premium</td><td>$38,625</td><td>0</td></tr>
+<tr><td>6</td><td>Builder's risk and job-specific liability premium</td><td>$11,200</td><td>0</td></tr>
+<tr><td>7</td><td>Field office trailer delivery, tie-down and setup</td><td>$6,800</td><td>10</td></tr>
+<tr><td>8</td><td>Temporary fence and gates</td><td>$9,450</td><td>10</td></tr>
+<tr><td>9</td><td>Temporary power and water connections</td><td>$7,300</td><td>10</td></tr>
+<tr><td>10</td><td>Erosion control installation</td><td>$8,900</td><td>10</td></tr>
+<tr><td>11</td><td>Equipment hauls in, 8 loads at $1,150</td><td>$9,200</td><td>10</td></tr>
+<tr><td>12</td><td>Layout survey and staking</td><td>$6,400</td><td>10</td></tr>
+<tr><td>13</td><td>Superintendent and project manager, setup weeks</td><td>$12,600</td><td>10</td></tr>
+<tr><td>14</td><td>Demobilization: hauls out, trailer and fence removal</td><td>$8,700</td><td>280</td></tr>
+<tr><td>15</td><td>Total mobilization lump sum</td><td>$119,175</td><td></td></tr>
+</tbody>
+</table>
+
+<p>The lump sum in <code>B15</code> is <code>=SUM(B5:B14)</code>, $119,175, or 3.10 percent of the contract. The cash you carry before the first check is <code>=SUMIFS(B5:B14,C5:C14,"&lt;"&amp;Inputs!B6)</code>, where <code>Inputs!B6</code> holds day 60. That returns $110,475, or 2.87 percent of the contract, paid out of your own pocket. Demobilization belongs in the lump sum because the move out is part of the same scope, but you pay it on day 280, after most of the job has been billed.</p>
+
+<p>Carrying $110,475 for 50 to 60 days costs $1,402.38 at 8.5 percent. That number is small, and it is the floor: no payment structure can return the money before day 60. Every structure below starts from the same $110,475 outlay. They differ in how fast they repay it.</p>
+
+<h2>Five Ways the Same $119,175 Comes Back</h2>
+
+<p>The owner's contract decides the structure, and the structure decides your pay application cash flow for the first six months. Here are the five a contractor runs into on private work, all with 10 percent retainage except where stated, and all paid 30 days after each monthly billing. The work is earned on a curve of 4, 9, 13, 15, 16, 15, 13, 9 and 6 percent over the nine months.</p>
+
+<ul>
+<li><strong>A, capped line.</strong> The owner's draft contract limits mobilization to 2 percent of the contract sum, $77,000, billed in the first application. The other $42,175 has to move into other lines and comes back in proportion to progress.</li>
+<li><strong>B, documented line.</strong> The full $119,175 sits on one line, billed in the first application with the bond and insurance invoices attached.</li>
+<li><strong>C, documented line, no retainage.</strong> Same as B, with retainage waived on that one line.</li>
+<li><strong>D, staged payment.</strong> The owner copies the public highway schedule described in the next section. In this model no retainage applies to the line, because that schedule already holds back 3 percent until the end.</li>
+<li><strong>E, buried.</strong> The owner says mobilization is part of your general conditions and refuses a separate line. The $119,175 is spread across the schedule of values and comes back as the work is earned.</li>
+</ul>
+
+<table>
+<thead>
+<tr><th>Structure</th><th>Received by day 60</th><th>Received by day 120</th><th>Received by day 180</th><th>Interest at 8.5%</th></tr>
+</thead>
+<tbody>
+<tr><td>A, capped at 2%</td><td>$70,818.30</td><td>$79,168.95</td><td>$90,935.77</td><td>$2,787.94</td></tr>
+<tr><td>B, documented line</td><td>$107,257.50</td><td>$107,257.50</td><td>$107,257.50</td><td>$1,705.99</td></tr>
+<tr><td>C, documented, no retainage</td><td>$119,175</td><td>$119,175</td><td>$119,175</td><td>$1,402.38</td></tr>
+<tr><td>D, staged payment</td><td>$61,742.50</td><td>$107,257.50</td><td>$107,257.50</td><td>$2,073.93</td></tr>
+<tr><td>E, buried in the schedule</td><td>$4,290.30</td><td>$27,886.95</td><td>$61,136.78</td><td>$4,763.27</td></tr>
+</tbody>
+</table>
+
+<p>Under structure E, on day 120 the job still owes you $82,588.05 of a move-in that ended on day 10, and on day 180 it still owes $49,338.22. The last of it arrives with the retainage on day 330. The interest gap between E and B is $3,057.28 on a single job. Under A, the cap leaves $39,656.70 unrecovered on day 60, and the cost against B is $1,081.95.</p>
+
+<p>Retainage on the mobilization line is the smallest of these numbers. Waiving it moves $11,917.50 from day 330 to day 60, and the difference between B and C is $303.61. Spend your negotiating capital on getting the line into the first application at its documented amount before you spend any of it on retainage.</p>
+
+<h2>How TxDOT Pays Mobilization in Steps</h2>
+
+<p>Public owners write mobilization payment rules into their standard specifications. Item 500 of the Texas Department of Transportation's 2024 Standard Specifications is a clear example, and it is short enough to model in one cell. It defines mobilization as establishing and removing offices, plants and facilities and moving personnel, equipment and supplies to and from the project, and it states that bonds and insurance are required for performing mobilization. The TxDOT Item 500 mobilization rule pays in steps:</p>
+
+<ul>
+<li>The bond and required insurance are paid on presentation of a paid invoice.</li>
+<li>Plant and facility setup is paid on documented expenditures, capped at 10 percent of the mobilization lump sum or 1 percent of the total contract, whichever is less.</li>
+<li>When 1 percent of the adjusted contract amount is earned, the cumulative payment reaches 50 percent of the lump sum or 5 percent of the total contract, whichever is less.</li>
+<li>At 5 percent earned, 75 percent of the lump sum or 10 percent of the contract, whichever is less.</li>
+<li>At 10 percent earned, 90 percent of the lump sum or 10 percent of the contract, whichever is less.</li>
+<li>At final acceptance, 97 percent of the lump sum. The remainder follows once all submittals are in, final quantities are set, and any establishment or test periods are complete.</li>
+</ul>
+
+<p>The adjusted contract amount is the total contract less the mobilization lump sum, and material on hand does not count as earned work. Each step deducts what has already been paid, so each step is a cumulative ceiling.</p>
+
+<p>On this job, month 1 earns 4 percent. The bond and insurance invoices total $49,825 and the setup cap is $11,917.50, so the first payment is $61,742.50, which already exceeds the 50 percent step of $59,587.50. Month 2 takes cumulative earned work to 13 percent and the line jumps to 90 percent, $107,257.50. Final acceptance adds $8,342.25 and the last $3,575.25 waits for closeout paperwork.</p>
+
+<p>The schedule rewards a contractor who bids mobilization at its real cost and punishes one who loads it. Here is the same rule applied to three bids on the same $3,850,000 contract:</p>
+
+<table>
+<thead>
+<tr><th>Cumulative payment when earned work reaches</th><th>Bid at 3.10% ($119,175)</th><th>Bid at 6% ($231,000)</th><th>Bid at 14% ($539,000)</th></tr>
+</thead>
+<tbody>
+<tr><td>1%</td><td>$61,742.50</td><td>$115,500</td><td>$192,500</td></tr>
+<tr><td>5%</td><td>$89,381.25</td><td>$173,250</td><td>$385,000</td></tr>
+<tr><td>10%</td><td>$107,257.50</td><td>$207,900</td><td>$385,000</td></tr>
+<tr><td>Final acceptance</td><td>$115,599.75</td><td>$224,070</td><td>$522,830</td></tr>
+</tbody>
+</table>
+
+<p>On the 14 percent bid, the 10 percent of contract ceiling stops payment at $385,000, and $137,830 sits until final acceptance, with another $16,170 after closeout. Mobilization money loaded above the cap comes back last.</p>
+
+<p>In Excel, with the total contract in <code>B1</code>, the lump sum in <code>B2</code>, the paid bond invoice in <code>B3</code>, the paid insurance invoice in <code>B4</code> and cumulative earned percent in <code>E7</code>, the cumulative entitlement is:</p>
+
+<p><code>=MAX(B3+B4+MIN(0.1&#42;B2,0.01&#42;B1),IF(E7&gt;=0.01,MIN(0.5&#42;B2,0.05&#42;B1),0),IF(E7&gt;=0.05,MIN(0.75&#42;B2,0.1&#42;B1),0),IF(E7&gt;=0.1,MIN(0.9&#42;B2,0.1&#42;B1),0))</code></p>
+
+<p>The payment due on a given application is that cell minus the same cell one row up. The formula assumes the bond and insurance invoices are paid and the setup costs are documented. If they are not, those terms are zero and the first check shrinks to whatever the 1 percent step allows.</p>
+
+<h2>Front-Loading Buys $4,746.05</h2>
+
+<p>The temptation runs the other way. If the owner allows a mobilization line billed in full on the first application, why not make it 6 percent, $231,000, and take the extra $111,825 out of the finish lines billed in months 7 to 9? Net of retainage, $100,642.50 arrives 180 to 240 days sooner. At 8.5 percent, that is worth $4,746.05.</p>
+
+<p>Front-loading the schedule of values this way has a price. The extra $111,825 is overbilling from the first application. The mobilization line says 100 percent complete while the cost behind it is $119,175. On your <a href="/blog/construction-wip-report-excel">WIP report</a> that shows up as billings in excess of cost on a job that has barely started, and a surety reviewing it will ask where the cash went. A lender's inspector who reviews the <a href="/blog/construction-schedule-of-values-template">schedule of values</a> sees the same thing and can ask for a revised schedule. If the owner later terminates you, the overbilled amount is money the owner paid for work nobody performed.</p>
+
+<p>The <a href="/blog/contractor-cash-conversion-cycle-calculator-excel">cash conversion cycle</a> makes the same point from the other side: a mobilization line in the first application is the cheapest working capital a contractor has.</p>
+
+<p>Put a check beside the line so the overbilling is visible on every application: <code>=MAX(0,BilledToDate-Mob!$B$15)</code>. On the 6 percent version it reads $111,825 from pay app #1 until the finish lines catch up. A bid of 3.10 percent backed by invoices carries no such balance.</p>
+
+<h2>Building the Calculator in Four Sheets</h2>
+
+<p>The workbook needs four sheets, and the order matters because each one feeds the next.</p>
+
+<ol>
+<li><strong>Inputs.</strong> Contract sum in <code>B1</code>, line of credit rate in <code>B2</code>, retainage in <code>B3</code>, payment lag in days in <code>B4</code>, first payment day in <code>B6</code> as <code>=30+B4</code>. Monthly earned percent in <code>C8:C16</code>, which must sum to 100 percent: <code>=IF(ROUND(SUM(C8:C16),4)=1,"OK","CHECK CURVE")</code>.</li>
+<li><strong>Mob.</strong> The cost table above, with the day each cost is paid.</li>
+<li><strong>Events.</strong> One row per cash movement: day in column A, amount in column B, negative for costs, positive for receipts. Costs link straight from <code>Mob</code>. Receipts depend on the structure. For the buried case, month m pays <code>=Mob!$B$15&#42;Inputs!C8&#42;(1-Inputs!$B$3)</code> on day <code>=30&#42;ROW(C1)+Inputs!$B$4</code>, copied down nine rows, plus the retainage on the closeout day. For the staged case, use the cumulative formula from the TxDOT section and take the difference row by row.</li>
+<li><strong>Ledger.</strong> Days 0 to 400 down column E. Column F pulls the day's cash with <code>=SUMIFS(Events!B:B,Events!A:A,E5)</code>, column G runs the balance with <code>=G4+F5</code>, column H prices the gap with <code>=MAX(0,-G5)&#42;Inputs!$B$2/365</code>. Interest is <code>=SUM(H5:H405)</code> and the peak balance carried is <code>=-MIN(G5:G405)</code>.</li>
+</ol>
+
+<p>Build one <code>Events</code> block per structure and point five copies of the ledger at them, or switch structures with a dropdown in <code>Inputs!B10</code> and <code>CHOOSE</code>. Either way, the five rows of the comparison table come out of the same cost sheet, so a change to one quote moves every answer at once.</p>
+
+<p>A monthly model rounds the gap to whole months. The daily ledger prices 60 days on the bond and insurance and 50 days on the setup costs, which is where the $1,402.38 comes from.</p>
+
+<h2>What to Ask the Owner For, in Order of Value</h2>
+
+<p>The comparison table ranks the requests. On this job, each one is worth:</p>
+
+<table>
+<thead>
+<tr><th>Request</th><th>Compared with</th><th>Interest saved at 8.5%</th></tr>
+</thead>
+<tbody>
+<tr><td>A separate mobilization line at all</td><td>Buried in the schedule (E)</td><td>$3,057.28</td></tr>
+<tr><td>The line at full documented cost</td><td>Capped at 2% (A)</td><td>$1,081.95</td></tr>
+<tr><td>Single billing instead of staged steps</td><td>Staged payment (D)</td><td>$367.94</td></tr>
+<tr><td>No retainage on the mobilization line</td><td>Documented line with retainage (B)</td><td>$303.61</td></tr>
+</tbody>
+</table>
+
+<p>The interest is the smaller cost. The larger one is capacity. A contractor starting four jobs like this one in the same quarter carries $441,900 of move-in cost at once, and every dollar of it is drawn against a line whose availability depends on eligible receivables. The <a href="/blog/contractor-line-of-credit-borrowing-base-tracker-excel">borrowing base tracker</a> shows how fast that availability disappears. Under structure E, $330,352.20 of it is still drawn on day 120.</p>
+
+<p>Before you sign, run this checklist:</p>
+
+<ul>
+<li>Read the contract's payment article for any cap on mobilization, any staged schedule, and any statement that mobilization is included in general conditions.</li>
+<li>Price mobilization from quotes and invoices, row by row, and compare the total in <code>Mob!B15</code> to the cap with <code>=IF(Mob!B15&gt;Inputs!B1&#42;Inputs!B12,"OVER CAP BY "&amp;TEXT(Mob!B15-Inputs!B1&#42;Inputs!B12,"$#,##0"),"WITHIN CAP")</code>, where <code>Inputs!B12</code> holds the cap percentage.</li>
+<li>Pay the bond premium and insurance before the first application, and attach the paid invoices to it.</li>
+<li>Ask for bonds and insurance as their own line billed at invoice. TxDOT already pays them that way.</li>
+<li>If the owner insists on a cap, move the excess into the earliest lines that legitimately carry it, such as site work, not into general conditions spread over nine months.</li>
+<li>On unit-price work, where no lump sum line exists, the move-in hides inside the first units, and the <a href="/blog/construction-unit-price-contract-tracker-excel">unit price contract tracker</a> shows how an underrun strands it.</li>
+</ul>
+
+<h2>The Recommendation</h2>
+
+<p>Bid mobilization at its documented cost, put it on its own line, and bill all of it in the first application with the bond and insurance invoices attached. On this job that recovers $107,257.50 on day 60 instead of $4,290.30, and costs $1,705.99 of interest instead of $4,763.27. If the owner caps the line, price the excess and negotiate it into early site work. If the owner imposes a staged schedule like TxDOT's, accept it: on an honest 3.10 percent line it costs $367.94 more than a single billing. Do not load the line to 6 percent. The $4,746.05 it buys comes with $111,825 of overbilling on the first application, in front of your surety and the owner's lender.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> already carries the pieces this calculation feeds: a budget broken down line by line, a payment log by vendor, status and date, and a dashboard of percent complete against percent spent. It does not hold a mobilization ledger or the TxDOT steps. Add the <code>Mob</code> table and the daily ledger from this article as a tab beside its payment log, and the mobilization line on your first pay application will match the invoices behind it.</p>`,
+  },
+  {
     slug: 'construction-mechanics-lien-deadline-calculator-excel',
     title: 'Construction Mechanics Lien Deadline Calculator Excel: Send Before the Money Leaves',
     metaTitle: 'Mechanics Lien Deadline Calculator Excel | SheetCraft',
