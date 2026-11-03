@@ -16,6 +16,166 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'contractor-company-truck-cost-per-job-allocation-excel',
+    title: 'Contractor Company Truck Cost per Job Allocation in Excel: Charge by the Day and the Mile',
+    metaTitle: 'Company Truck Cost per Job Allocation Excel | SheetCraft',
+    metaDescription: 'A $64,000 crew truck costs $26,386 a year and the IRS mileage rate charges jobs $15,960 of it. Allocate company truck cost per job in Excel by day and mile.',
+    targetKeyword: 'contractor company truck cost per job allocation Excel',
+    secondaryKeywords: ['truck cost per mile', 'IRS mileage rate', 'fleet cost allocation', 'vehicle day rate', 'overhead markup'],
+    excerpt: 'The IRS mileage rate charges jobs $15,960 a year for a crew truck that costs $26,386, and it misses most on trucks that sit parked at the site. Charge each truck $72.36 a day plus $0.498 a mile from your own costs, take the trucks out of overhead, and the markup falls from 17.23 to 12.66 percent.',
+    publishedAt: '2026-11-03',
+    readTime: 13,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-company-truck-cost-per-job-allocation-excel.png',
+    imageAlt: 'Flat illustration of three white work pickups at a contractor\'s gravel yard at sunrise, with a worker loading lumber into one truck bed',
+    content: `<p>A three-quarter-ton crew-cab pickup bought for $64,000 costs its owner $26,386 a year in this example: $15,920 in ownership costs that run every day of the year, and $10,466 in fuel, tires and repairs on 21,000 miles. Charge that truck to jobs at the IRS business mileage rate of 76 cents a mile and the jobs absorb $15,960. The other $10,426 lands in overhead, and it lands hardest on the jobs where the truck sat parked all day. A contractor company truck cost per job allocation in Excel fixes that with two rates per truck, one per day and one per mile, and a daily log that says which job had the truck.</p>
+
+<p>The figures below come from an example contractor built for this article: four crew trucks, one superintendent's pickup, $2.6 million of direct cost a year and $448,000 of overhead. Every input is labeled so you can swap in your own. Fuel is priced at $4.269 a gallon, the U.S. average retail price of regular gasoline on October 26, 2026 in the Energy Information Administration's weekly survey.</p>
+
+<h2>What One Crew Truck Costs in a Year</h2>
+
+<p>A truck carries two kinds of cost. Ownership cost accrues on the calendar: the truck loses resale value, the money tied up in it has a price, and insurance and registration renew whether it moves or not. Operating cost accrues on the odometer. The split matters because it decides the unit you charge jobs in.</p>
+
+<table>
+<thead>
+<tr><th>Cost item (example values)</th><th>Basis</th><th>Annual cost</th><th>Unit cost</th></tr>
+</thead>
+<tbody>
+<tr><td>Loss of value</td><td>$64,000 purchase, $24,000 resale after 5 years</td><td>$8,000</td><td>Per day</td></tr>
+<tr><td>Cost of money</td><td>Average investment $44,000 at 8.5%</td><td>$3,740</td><td>Per day</td></tr>
+<tr><td>Commercial auto insurance</td><td>Example premium</td><td>$3,400</td><td>Per day</td></tr>
+<tr><td>Registration and inspection</td><td>Example</td><td>$420</td><td>Per day</td></tr>
+<tr><td>GPS tracking</td><td>$30 a month</td><td>$360</td><td>Per day</td></tr>
+<tr><td><strong>Ownership subtotal</strong></td><td>Over 220 planned job days</td><td><strong>$15,920</strong></td><td><strong>$72.36 a day</strong></td></tr>
+<tr><td>Fuel</td><td>$4.269 a gallon at 13 mpg</td><td>$6,896</td><td>$0.328 a mile</td></tr>
+<tr><td>Tires</td><td>$1,500 a set every 50,000 miles</td><td>$630</td><td>$0.030 a mile</td></tr>
+<tr><td>Maintenance and repairs</td><td>Example, from your shop records</td><td>$2,940</td><td>$0.140 a mile</td></tr>
+<tr><td><strong>Operating subtotal</strong></td><td>Over 21,000 miles</td><td><strong>$10,466</strong></td><td><strong>$0.498 a mile</strong></td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>$26,386</strong></td><td>$1.256 a mile if spread on miles alone</td></tr>
+</tbody>
+</table>
+
+<p>Ownership is 60 percent of the total. Two inputs need care. Loss of value is the purchase price minus what you expect to sell the truck for, divided by the years you keep it. Your tax depreciation schedule follows tax rules and has no link to what the truck will sell for, so leave it out of the rate. Cost of money applies your borrowing rate to the average of purchase price and resale value, whether the truck is financed or paid in cash, because cash in a truck is cash that is not paying down the line of credit.</p>
+
+<p>The divisor is planned job days. This truck works about 220 days a year once weekends, holidays, shop days and rain-outs come out. Divide by 365 and the day rate falls to $43.62, which looks cheaper on a bid and leaves $6,324 a year that no job ever pays.</p>
+
+<h2>Why the IRS Mileage Rate Is the Wrong Job Cost</h2>
+
+<p>The IRS set the 2026 business standard mileage rate at 72.5 cents a mile in Notice 2026-10, then raised it to 76 cents for miles driven from July 1, 2026 in Announcement 2026-11, citing recent increases in the price of fuel. It is a tax substantiation shortcut. The IRS bases it on an annual study of the fixed and variable costs of operating an automobile, and it bases the medical rate, 23.5 cents for the second half of 2026, on the variable costs alone. So roughly 52.5 cents of the 76 is ownership cost spread over miles, and Notice 2026-10 treats 35 cents of each business mile as depreciation.</p>
+
+<p>That structure is the problem for job costing. A per-mile rate that carries ownership cost spreads that cost over the miles a vehicle is assumed to drive. A crew truck that drives 30 miles a day to and from a remodel and sits in the driveway for nine hours generates 30 miles of rate and a full day of ownership cost. On the job portfolio below, the mileage rate charges the in-town remodel $1,026 for a truck that cost $3,929 to have there, 26 percent of its real cost. The operating side is off too: this truck's own fuel, tires and repairs come to 49.8 cents a mile against the 23.5-cent variable component in the IRS rate.</p>
+
+<p>There is a second reason to stop using the IRS mileage rate as a job cost. Section 4.05(1) of Rev. Proc. 2019-46 bars the business standard mileage rate for five or more automobiles a taxpayer owns or leases and uses at the same time, and the procedure counts pickups, vans and panel trucks as automobiles. The example company runs five vehicles, so it already deducts actual costs on its tax return. The fuel card statements, repair invoices and insurance bills it keeps for that purpose are the inputs to the rate table above.</p>
+
+<h2>The Same Truck Charged Three Ways to Four Jobs</h2>
+
+<p>Here is one truck's year, 220 job days and 21,000 miles, split across four jobs with different driving patterns. Each method is applied to the same log.</p>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Days</th><th>Miles</th><th>IRS rate, 76 cents a mile</th><th>Own cost per mile, $1.256</th><th>$72.36 a day plus $0.498 a mile</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Kitchen and bath remodel, in town</td><td>45</td><td>1,350</td><td>$1,026</td><td>$1,696</td><td>$3,929</td></tr>
+<tr><td>B. Rural foundation and framing</td><td>30</td><td>4,500</td><td>$3,420</td><td>$5,654</td><td>$4,414</td></tr>
+<tr><td>C. Tenant improvement, office park</td><td>80</td><td>5,600</td><td>$4,256</td><td>$7,036</td><td>$8,580</td></tr>
+<tr><td>D. Service calls and small jobs</td><td>65</td><td>9,550</td><td>$7,258</td><td>$11,999</td><td>$9,463</td></tr>
+<tr><td><strong>Charged to jobs</strong></td><td>220</td><td>21,000</td><td><strong>$15,960</strong></td><td><strong>$26,386</strong></td><td><strong>$26,385</strong></td></tr>
+</tbody>
+</table>
+
+<p>The IRS column misses $10,426 of real cost across the year, so every job is underpriced and the gap sits in overhead. The middle column recovers the full cost, but it moves money between jobs. It overcharges the rural job by $1,241 and the service work by $2,536, because those jobs drive a lot, and it undercharges the remodel by $2,233 and the tenant improvement by $1,543, because there the truck mostly sits on site. The right column charges each job for the days it held the truck and the miles it put on it. The 81-cent difference against the $26,386.08 total comes from rounding the day rate to the cent.</p>
+
+<p>The distortion matters at bid time. A contractor who prices service work at $1.256 a mile sees $11,999 of truck cost on it instead of $9,463, decides small jobs barely pay, and raises the service price or drops the work. The same contractor prices the remodel with $1,696 of truck when the job held the truck for $3,929.</p>
+
+<h2>Build the Truck Rate Sheet and the Daily Log</h2>
+
+<p>Two tabs carry the whole method. The Trucks tab holds one row per vehicle with the inputs from the cost table. On row 2, for the truck above:</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Input or result</th><th>Truck 14</th></tr>
+</thead>
+<tbody>
+<tr><td>B, C, D</td><td>Purchase price, expected resale, years kept</td><td>$64,000, $24,000, 5</td></tr>
+<tr><td>E</td><td>Borrowing rate</td><td>8.5%</td></tr>
+<tr><td>F, G, H</td><td>Insurance, registration, GPS per year</td><td>$3,400, $420, $360</td></tr>
+<tr><td>I</td><td>Planned job days</td><td>220</td></tr>
+<tr><td>J, K</td><td>Miles per gallon, fuel price</td><td>13, $4.269</td></tr>
+<tr><td>L, M, N</td><td>Tire set cost, tire life in miles, maintenance per mile</td><td>$1,500, 50,000, $0.14</td></tr>
+<tr><td>O</td><td>Ownership cost per year</td><td>$15,920</td></tr>
+<tr><td>P</td><td>Day rate</td><td>$72.36</td></tr>
+<tr><td>Q</td><td>Mile rate</td><td>$0.498</td></tr>
+</tbody>
+</table>
+
+<p>Ownership cost in O2: <code>=(B2-C2)/D2+(B2+C2)/2&#42;E2+F2+G2+H2</code>. That is loss of value, plus cost of money on the average investment, plus the fixed bills. Day rate in P2: <code>=ROUND(O2/I2,2)</code>. Mile rate in Q2: <code>=K2/J2+L2/M2+N2</code>, which adds fuel, tires and repairs per mile. Keep Q2 unrounded so the miles add back to the operating cost exactly.</p>
+
+<p>The Log tab gets one row per truck per day: date in A, truck in B, job number in C, share of the day in D, miles in E. The share column handles a truck that serves two jobs in one day. A foreman who spends the morning on job A and the afternoon on a service call enters two rows at 0.5 each, and each job pays $36.18 of ownership for that day. The charge in F2:</p>
+
+<p><code>=D2&#42;XLOOKUP(B2,Trucks!$A:$A,Trucks!$P:$P)+E2&#42;XLOOKUP(B2,Trucks!$A:$A,Trucks!$Q:$Q)</code></p>
+
+<p>It looks up that truck's own rates, so an older truck with a lower resale value and higher repairs carries its own numbers. The job total on a summary tab is <code>=SUMIFS(Log!$F:$F,Log!$C:$C,A5)</code> with the job number in A5. Miles come from the GPS trip report or the odometer at the end of the day; the foreman or the dispatcher fills in the job number. Days the truck spends in the shop or in the yard get no row, and that gap is the point of the next section.</p>
+
+<p>Post the job totals monthly as a cost on each job, under a company trucks cost code. Monthly is enough: the log builds daily, but nobody needs to post 22 entries a month per truck.</p>
+
+<h2>Take the Trucks Out of Overhead or You Charge Them Twice</h2>
+
+<p>Before this change, the four crew trucks lived in the overhead pool. Overhead of $448,000 on $2.6 million of direct cost gave a markup of 17.23 percent, and $105,544 of it was crew trucks. Once the trucks are charged to jobs as direct cost, the pool drops to $342,456, direct cost rises to $2,705,544, and the overhead markup falls to 12.66 percent. The superintendent's pickup, $29,875 a year on 28,000 miles, stays in overhead in this example because the superintendent is an overhead salary. If your superintendent's hours are coded to jobs, charge the pickup to the same jobs in the same proportion.</p>
+
+<p>Skip the markup change and every truck dollar is charged twice: once as a direct cost on the job and again inside the 17.23 percent. On two bids from this contractor:</p>
+
+<table>
+<thead>
+<tr><th>Bid (cost before trucks)</th><th>Truck use</th><th>Trucks in overhead, 17.23%</th><th>Trucks direct, 12.66%</th><th>Trucks direct, markup not changed</th></tr>
+</thead>
+<tbody>
+<tr><td>X. Office fit-out, mostly subcontracted, $400,000</td><td>20 days, 1,200 miles: $2,045</td><td>$468,920</td><td>$452,944</td><td>$471,318</td></tr>
+<tr><td>D. Service and small jobs, $78,000</td><td>65 days, 9,550 miles: $9,463</td><td>$91,439</td><td>$98,536</td><td>$102,533</td></tr>
+</tbody>
+</table>
+
+<p>The overhead method charged the fit-out $16,238 of truck cost through the markup for a job that used $2,045 of truck, so the bid came in $15,976 high on work where subcontractor prices make up most of the number. It charged the service work $3,166 of truck cost for $9,463 of truck use, so those jobs were priced $7,096 low. A fleet cost allocation that charges trucks direct without dropping the markup puts both bids above the correct number, by $18,373 on the fit-out and $3,997 on the service work. Change the trucks and the markup in the same update to the bid template. The <a href="/blog/construction-overhead-allocation-by-job-excel/">overhead allocation by job</a> article shows the same correction on the rest of the pool, with field hours as the base.</p>
+
+<h2>Idle Days, Fuel Swings and the Rate Review</h2>
+
+<p>The day rate assumes 220 job days. If a slow winter leaves the truck on 180 logged days, jobs absorb $13,024.80 of its $15,920 ownership cost and $2,895.20 stays unabsorbed. A year-to-date check on the Trucks tab catches it by month:</p>
+
+<p><code>=O2&#42;MONTH($B$1)/12-SUMIFS(Log!$D:$D,Log!$B:$B,A2,Log!$A:$A,"&gt;="&amp;DATE(YEAR($B$1),1,1),Log!$A:$A,"&lt;="&amp;$B$1)&#42;P2</code></p>
+
+<p>With the report date in B1 and the truck ID in A2, the result is ownership cost this year that no job has been charged for yet. Seasonal work makes it swing from month to month, so read the trend over a quarter.</p>
+
+<p>Do not fix under-absorption by raising the day rate. Spread over 180 days the rate becomes $88.44, which raises bids in the slow season and can push logged days down further. Keep the rate on planned days, report the unabsorbed amount as its own overhead line called idle trucks, and treat two quarters of it on the same truck as a decision about that truck. A truck that sits needs the same keep, rent or sell test as any piece of iron, which the <a href="/blog/construction-equipment-utilization-rate-tracker-excel/">equipment utilization rate tracker</a> runs on hour meters.</p>
+
+<p>Fuel is two thirds of the mile rate. At 13 mpg, each $1 a gallon adds $0.077 a mile, or $1,615 a year on 21,000 miles. The IRS raised its rate mid-year for the same reason. Update K2 every quarter from your fuel card average, because your trucks buy fuel at your region's prices. A diesel truck at 16 mpg, at the $6.352 national on-highway diesel average for the week of October 26, 2026, burns about $0.40 a mile.</p>
+
+<p>Review the ownership inputs once a year: the insurance renewal, the resale value of trucks of the same age, and the borrowing rate. A truck kept past its planned years still carries cost of money on its resale value, insurance and registration, so it keeps a vehicle day rate after the loss of value runs out.</p>
+
+<h2>Travel Jobs, Tools in the Truck and T&amp;M Work</h2>
+
+<p>The same log feeds three other cost questions. The <a href="/blog/construction-per-diem-travel-cost-calculator-excel/">per diem travel cost calculator</a> charged the truck at the IRS rate as a stand-in for your own truck cost per mile. With the two rates from this article, an out-of-town job pays the day rate for every workday the truck spends there, which a per-mile charge leaves out once the truck stops driving. For the stay-or-drive-home question on weekends, use the mile rate alone, $0.498 here, because the ownership cost runs whether the truck comes home or stays at the hotel.</p>
+
+<p>Tools and consumables stocked on the truck are a separate pool. Keep them out of the truck's ownership cost and allocate them on crew hours, as the <a href="/blog/construction-small-tools-consumables-cost-allocation-excel/">small tools and consumables allocation</a> does. Otherwise a job that holds a truck for a day but uses no blades or fasteners pays for them anyway.</p>
+
+<p>On cost-plus and time-and-material work, the contract's cost-of-work clause decides whether owned vehicles can be billed and at what rate. When a clause allows it, a day rate built from your own purchase price, resale value, insurance and fuel records is easier to defend in an audit of the billing than a rate copied from a tax table.</p>
+
+<h2>What to Set Up Before the Next Bid</h2>
+
+<ol>
+<li>List every truck with purchase price, expected resale value, years kept, insurance, registration and GPS cost. Pull fuel, tires and repairs per mile from last year's fuel card and shop invoices.</li>
+<li>Set planned job days per truck from last year's dispatch record.</li>
+<li>Compute the day rate and the mile rate per truck. In this example: $72.36 a day and $0.498 a mile.</li>
+<li>Start the daily log with a share-of-day column, and post job totals monthly under a company trucks cost code.</li>
+<li>Take the crew trucks out of the overhead pool and recompute the markup in the same update. Here it falls from 17.23 to 12.66 percent.</li>
+<li>Add a truck line to the estimate template: <code>=Days&#42;DayRate+Miles&#42;MileRate</code>, with days taken from the schedule and miles from the distance to the site.</li>
+<li>Check unabsorbed ownership cost every quarter and send it to an idle trucks overhead line.</li>
+</ol>
+
+<p>The recommendation for this contractor: charge each crew truck at its own day and mile rate, $72.36 and $0.498 on truck 14, take $105,544 out of overhead, and reprice the office fit-out at $452,944 instead of $468,920. Keep pricing service work as before and those jobs stay $7,096 short.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> holds the job side of this method. Its budget runs line by line in CSI divisions or your own categories, so a company trucks line can sit on every job at the estimate value, and each monthly truck charge from the log goes in as an actual against it. The variance column then shows whether the job is using more truck than the bid assumed, and the dashboard compares percent complete with percent spent. It does not compute day rates or hold a truck log: build those two tabs from this article and post their monthly totals into the tracker.</p>`,
+  },
+  {
     slug: 'contractor-callback-warranty-reserve-accrual-excel',
     title: 'Contractor Callback Warranty Reserve Accrual in Excel: Charge the Job That Caused It',
     metaTitle: 'Contractor Callback Warranty Reserve Accrual | SheetCraft',
