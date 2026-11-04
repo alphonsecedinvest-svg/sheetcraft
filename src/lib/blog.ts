@@ -16,6 +16,185 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-diesel-fuel-cost-tracker-by-job-excel',
+    title: 'Construction Diesel Fuel Cost Tracker by Job in Excel: Gallons per Yard, Not per Hour',
+    metaTitle: 'Construction Diesel Fuel Cost Tracker by Job | SheetCraft',
+    metaDescription: 'Construction diesel fuel cost tracker by job in Excel: log each fill by machine, compare gallons per yard to the bid, and split fuel price from usage.',
+    targetKeyword: 'construction diesel fuel cost tracker by job Excel',
+    secondaryKeywords: ['dyed diesel off-road tax', 'fuel burn per hour excavator', 'fuel cost per cubic yard', 'fuel price variance', 'construction fuel log'],
+    excerpt: 'At 40 percent complete every machine burned at or under its bid gallons per hour, and the job was still 967 gallons over. A per-fill fuel log that divides by the work produced, splits price from usage, and keeps dyed diesel out of road vehicles.',
+    publishedAt: '2026-11-04',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-diesel-fuel-cost-tracker-by-job-excel.png',
+    imageAlt: 'Flat illustration of a worker refueling a yellow excavator from a fuel tank on a small service truck at a graded earthwork site, with an articulated dump truck and a roller in the background',
+    content: `<p>A site contractor in the Houston area is 40 percent through a 48,000 cubic yard pad: 19,200 yards cut, hauled and compacted. The superintendent checks the fuel log against the estimate the way the estimate was built, in gallons per hour, and every machine on the job is at or under its number. The excavator bid at 7.0 gallons an hour is burning 6.6. The haul trucks bid at 5.5 are burning 5.3. Fuel looks fine. It is 967 gallons over, 21.6 percent, and on the current trend the fuel line finishes $14,087 above the bid. A construction diesel fuel cost tracker by job in Excel catches that on day 30 only if it divides gallons by the work produced, because a machine that idles more burns fewer gallons per hour and more gallons per yard.</p>
+
+<p>This article builds that tracker: a per-fill fuel log, a job sheet that compares gallons per cubic yard against the bid, a price and usage split of the variance, a check that keeps dyed diesel out of highway vehicles, and a forecast at completion you can carry into the next bid. Every figure below is a labeled example except the tax rates and the published fuel prices, which are sourced where they appear.</p>
+
+<h2>The Per-Hour Check Says Fuel Is Fine. The Gallons Say Otherwise.</h2>
+
+<p>The estimate carried five fuel burners for the full 48,000 yards: one excavator loading, two articulated haul trucks, a dozer spreading at the fill, a smooth drum roller, and a 0.9 gallon per hour generator running the site trailer and light tower. At the bid price of $5.30 a gallon for delivered dyed diesel, the fuel line was 11,190 gallons and $59,307, or 0.233 gallons per cubic yard of finished pad.</p>
+
+<p>Here is the job at 19,200 yards. "Earned gallons" is what the estimate allows for the work actually done: the bid gallons per yard times the yards placed.</p>
+
+<table>
+<thead>
+<tr><th>Machine</th><th>Bid gal/hr</th><th>Actual gal/hr</th><th>Bid gal/CY</th><th>Actual gal/CY</th><th>Earned gal</th><th>Actual gal</th><th>Over</th></tr>
+</thead>
+<tbody>
+<tr><td>Excavator</td><td>7.0</td><td>6.6</td><td>0.0583</td><td>0.0705</td><td>1,120</td><td>1,353</td><td>20.8%</td></tr>
+<tr><td>Haul trucks (2)</td><td>5.5</td><td>5.3</td><td>0.0917</td><td>0.1132</td><td>1,760</td><td>2,173</td><td>23.5%</td></tr>
+<tr><td>Dozer</td><td>6.0</td><td>5.8</td><td>0.0500</td><td>0.0592</td><td>960</td><td>1,137</td><td>18.4%</td></tr>
+<tr><td>Roller</td><td>3.5</td><td>3.4</td><td>0.0219</td><td>0.0266</td><td>420</td><td>510</td><td>21.4%</td></tr>
+<tr><td>Generator</td><td>0.9</td><td>0.9</td><td>0.0113</td><td>0.0141</td><td>216</td><td>270</td><td>25.0%</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td>0.2331</td><td>0.2835</td><td>4,476</td><td>5,443</td><td>21.6%</td></tr>
+</tbody>
+</table>
+
+<p>The gallons per hour column is green on every row. The gallons per yard column is red on every row. Both columns come from the same fuel tickets and the same hour meters. The difference is the denominator, and only one of the two denominators is what the owner pays you for.</p>
+
+<h2>Where the 967 Gallons Went</h2>
+
+<p>The hour meter runs whenever the engine runs, digging or idling. Suppose a steady hour of digging burns 8.4 gallons on this excavator and an idle hour burns 1.2 (example values; read your own from the machine's telematics or from one timed day with a full tank at each end). The share of meter hours spent idling is then <code>=(8.4-H5)/(8.4-1.2)</code>, where H5 is the actual gallons per hour. The bid's 7.0 assumed about 19 percent idle. The actual 6.6 means about 25 percent.</p>
+
+<p>That idle time is why the gallons per hour dropped and why production dropped with it. The estimate planned 120 cubic yards per excavator meter hour, and the job is getting 94. The per-hour comparison rewards the idling: the more the excavator waits for trucks, the better its fuel rate looks. If you want more on reading idle hours as cost, the logic for ownership cost is in the <a href="/blog/construction-equipment-utilization-rate-tracker-excel/">equipment utilization rate tracker</a>, and it applies to fuel the same way.</p>
+
+<p>The fuel is the cheap symptom. The same 967 gallons came with extra meter hours, and the hours cost far more than the diesel. At example owned rates with operator (excavator $210 an hour, each haul truck $150, dozer $175, roller $110):</p>
+
+<table>
+<thead>
+<tr><th>Machine</th><th>Earned hours</th><th>Actual hours</th><th>Extra hours</th><th>Rate with operator</th><th>Extra cost to date</th></tr>
+</thead>
+<tbody>
+<tr><td>Excavator</td><td>160</td><td>205</td><td>45</td><td>$210</td><td>$9,450</td></tr>
+<tr><td>Haul trucks (2)</td><td>320</td><td>410</td><td>90</td><td>$150</td><td>$13,500</td></tr>
+<tr><td>Dozer</td><td>160</td><td>196</td><td>36</td><td>$175</td><td>$6,300</td></tr>
+<tr><td>Roller</td><td>120</td><td>150</td><td>30</td><td>$110</td><td>$3,300</td></tr>
+<tr><td><strong>Total</strong></td><td>760</td><td>961</td><td>201</td><td></td><td><strong>$32,550</strong></td></tr>
+</tbody>
+</table>
+
+<p>Fuel usage is $5,125 over at the bid price. Machine and operator hours are $32,550 over. If nothing changes, the hours finish about $81,375 over on this job. The fuel log is useful because fuel tickets exist every day, by machine, with a meter reading on them, and gallons per yard moves the day the production problem starts. The log tells you where to look, and the decision it forces belongs to the superintendent: add a third truck, shorten the haul, or fix whatever is keeping the loader waiting.</p>
+
+<h2>Price Is the Small Half of the Variance</h2>
+
+<p>On this job the fuel price is about 9 percent of the problem. The site took three deliveries of dyed diesel:</p>
+
+<table>
+<thead>
+<tr><th>Delivery</th><th>Gallons</th><th>Price per gallon</th><th>Invoice</th></tr>
+</thead>
+<tbody>
+<tr><td>Sep 30</td><td>2,000</td><td>$5.42</td><td>$10,840</td></tr>
+<tr><td>Oct 14</td><td>2,000</td><td>$5.31</td><td>$10,620</td></tr>
+<tr><td>Oct 28</td><td>1,500</td><td>$5.47</td><td>$8,205</td></tr>
+<tr><td><strong>Total</strong></td><td>5,500</td><td>$5.3936 average</td><td>$29,665</td></tr>
+</tbody>
+</table>
+
+<p>The machines burned 5,443 of the 5,500 gallons, and 57 are still in the site tank. Priced at the delivered average, the fuel used to date cost $29,357.56 against $23,722.80 earned at the bid price, a $5,634.76 overrun. Split it the way a cost engineer would:</p>
+
+<ul>
+<li>Price variance: <code>=(B8-B7)&#42;G10</code>, the actual average price minus the bid price, times actual gallons. Here $509.66.</li>
+<li>Usage variance: <code>=(G10-I10)&#42;B7</code>, actual gallons minus earned gallons, times the bid price. Here $5,125.10, or 91 percent of the overrun.</li>
+</ul>
+
+<p>The two lines add back to the total, which is the check that the cells point where they should. The same split is the core of the <a href="/blog/construction-budget-variance-analysis/">construction budget variance analysis</a> method, applied to one cost code where both quantity and price are measured every day.</p>
+
+<p>For scale on the price side: the Energy Information Administration's weekly retail on-highway diesel average for the Gulf Coast moved between $5.809 and $5.955 a gallon in the six weekly readings from September 28 to November 2, 2026, and stood at $5.912 on November 2 (the U.S. average was $6.292). That 14.6 cent swing, applied to the whole 11,190 gallon bid, is $1,634. Retail on-highway prices include taxes that dyed off-road fuel does not carry, so use them as a trend line and price your bid from your supplier's delivered quote.</p>
+
+<h2>Dyed, Clear, and the Two Mistakes That Cost Real Money</h2>
+
+<p>The tax difference between the two kinds of diesel is larger than that six-week price swing. Federal excise tax on diesel is $0.244 a gallon, and dyed diesel pays only the $0.001 Leaking Underground Storage Tank tax (IRS Publication 510). Texas adds 20 cents a gallon on clear diesel (Tax Code 162.202), and the Texas Comptroller states that diesel meant for off-road use only, such as in construction equipment, is not taxed. In Texas that is 44.3 cents a gallon between clear and dyed, or $4,957 on this job's 11,190 bid gallons.</p>
+
+<p>The first mistake is paying the clear price for off-road work and never claiming it back. A small contractor with a skid steer and a mini excavator, fueled from cans at a retail pump, buys clear diesel. Publication 510 lists off-highway business use as a nontaxable use (it names bulldozers, earthmovers and stationary generators), and the ultimate purchaser can claim $0.243 a gallon. At 2,900 gallons a quarter that is $704.70 a quarter, $2,818.80 a year. A quarterly refund on Form 8849 needs a claim of at least $750, so at this volume one quarter carries into the next (two quarters together are $1,409.40) or the year goes on Form 4136 with the income tax return. Either way, the claim rests on records of gallons by machine and use, which is exactly the fuel log below. This covers the federal credit only; ask your state about its own tax.</p>
+
+<p>The second mistake is the opposite one: dyed fuel in a vehicle registered for the road. The pickups and the tri-axle dump truck are highway vehicles. Publication 510 sets the penalty for using dyed diesel in one at the greater of $1,000 or $10 a gallon, so an 85 gallon fill costs $1,000 and a 120 gallon fill costs $1,200, on top of the tax. The <a href="/blog/contractor-company-truck-cost-per-job-allocation-excel/">company truck cost allocation</a> prices those vehicles on clear fuel from the fuel card. Keep them on that card and out of the site tank, and let the log flag any exception.</p>
+
+<h2>Build the Fuel Log and the Job Sheet</h2>
+
+<p>The log is one row per fill. The fuel truck driver or the operator fills every machine to full each time, so the gallons at a fill equal what the machine burned since its last fill. A partial fill breaks that and makes the per-fill rate meaningless.</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Field</th><th>Example row 5</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Date</td><td>10/16/2026</td></tr>
+<tr><td>B</td><td>Job</td><td>101</td></tr>
+<tr><td>C</td><td>Machine ID</td><td>EX-03</td></tr>
+<tr><td>D</td><td>Fuel</td><td>Dyed</td></tr>
+<tr><td>E</td><td>Hour meter</td><td>4,218.6</td></tr>
+<tr><td>F</td><td>Gallons</td><td>66.0</td></tr>
+<tr><td>G</td><td>Highway vehicle (Y/N)</td><td>N</td></tr>
+<tr><td>H</td><td>Hours since last fill</td><td>10.0</td></tr>
+<tr><td>I</td><td>Gallons per hour</td><td>6.6</td></tr>
+<tr><td>J</td><td>Flag</td><td>(blank)</td></tr>
+</tbody>
+</table>
+
+<p>The working formulas, in row 5 and filled down:</p>
+
+<ul>
+<li>H5, hours since this machine's previous fill: <code>=IF(COUNTIF(C$4:C4,C5)=0,"",E5-MAXIFS(E$4:E4,C$4:C4,C5))</code>. The first fill of a machine returns blank because there is no previous reading.</li>
+<li>I5, burn rate for the period: <code>=IF(N(H5)=0,"",F5/H5)</code>.</li>
+<li>J5, the tax check: <code>=IF(AND(D5="Dyed",G5="Y"),"STOP: dyed fuel in a highway vehicle","")</code>. Add a conditional format that turns the row red when J5 is not blank.</li>
+</ul>
+
+<p>The job sheet reads the log. Put the bid quantity in B2 (48,000), the quantity placed to date in B3 (19,200, from the survey or the load count), the bid price in B7 ($5.30) and the delivered average in B8. One row per machine, starting in row 5:</p>
+
+<ul>
+<li>Actual hours, F5: <code>=SUMIFS(FuelLog!H:H,FuelLog!B:B,$B$1,FuelLog!C:C,A5)</code>, with the job number in B1.</li>
+<li>Actual gallons, G5: <code>=SUMIFS(FuelLog!F:F,FuelLog!B:B,$B$1,FuelLog!C:C,A5)</code>.</li>
+<li>Bid gallons per yard, E5: <code>=D5/$B$2</code>, where D5 is the bid gallons for that machine.</li>
+<li>Earned gallons, I5: <code>=E5&#42;$B$3</code>.</li>
+<li>Over or under, K5: <code>=IF(I5=0,"",(G5-I5)/I5)</code>, formatted as a percentage, with a flag at 10 percent: <code>=IF(K5&gt;0.1,"CHECK","")</code>.</li>
+<li>Delivered average price, B8: <code>=SUMIFS(Invoices!E:E,Invoices!B:B,$B$1)/SUMIFS(Invoices!D:D,Invoices!B:B,$B$1)</code>.</li>
+</ul>
+
+<p>Keep the gallons per hour column on the sheet. It is still the right test for one thing: a machine whose rate jumps with no change in work is leaking, being siphoned, or needs service. It is the wrong test for whether the job is on budget.</p>
+
+<h2>Yard Tank Fuel: Charge Jobs From the Log</h2>
+
+<p>When fuel goes to a yard tank and a fuel truck carries it to several jobs, the supplier's invoice names the yard, not the job. If the bookkeeper codes the whole invoice to equipment overhead or to the biggest job, the job costs are wrong by exactly the amount nobody tracks. In October the yard took 6,200 gallons at an average of $5.38, a $33,356 bill. The log charges it out:</p>
+
+<table>
+<thead>
+<tr><th>Job</th><th>Gallons from the log</th><th>Charge at $5.38</th></tr>
+</thead>
+<tbody>
+<tr><td>Job 204</td><td>3,050</td><td>$16,409.00</td></tr>
+<tr><td>Job 207</td><td>1,900</td><td>$10,222.00</td></tr>
+<tr><td>Job 211</td><td>880</td><td>$4,734.40</td></tr>
+<tr><td>Not in the log</td><td>370</td><td>$1,990.60</td></tr>
+<tr><td><strong>Delivered</strong></td><td>6,200</td><td>$33,356.00</td></tr>
+</tbody>
+</table>
+
+<p>Each job's charge is <code>=SUMIFS(FuelLog!F:F,FuelLog!B:B,A5,FuelLog!A:A,"&gt;="&amp;DATE(2026,10,1),FuelLog!A:A,"&lt;"&amp;DATE(2026,11,1))&#42;$C$2</code>, with the month's delivered average in C2. The unlogged line is the delivered gallons minus the sum of the log, plus any drop in the tank's stick reading over the month (zero here). Do not spread it across the jobs. 370 gallons is six percent of the month. It is fills nobody wrote down, a stick reading that was off, fuel that left the yard, or a highway vehicle filled from the dyed tank. Each of those has a different owner, and a pro-rata spread hides all four. The <a href="/blog/construction-equipment-tracking-spreadsheet-save-money/">equipment tracking spreadsheet</a> is the place to tie each machine ID in the log to the asset register, so that a fill against an unknown ID shows up the day it happens.</p>
+
+<h2>Forecast at Completion and Carry the Factor to the Next Bid</h2>
+
+<p>On the pad job, the job-to-date rate is 5,443 gallons over 19,200 yards, 0.2835 gallons per yard. The forecast at completion is <code>=G10/B3&#42;B2</code> gallons, 13,607.5, and <code>=G10/B3&#42;B2&#42;B8</code> dollars, $73,393.91 at the delivered average. Against the $59,307 bid, the fuel line finishes $14,087 over, 23.8 percent, unless production recovers. Put that number in the monthly cost report now. On day 30 the superintendent can still change the trucking. Once the bill comes in at the end of the job, nobody can change anything.</p>
+
+<p>The generator needs a different driver. It burns 9 gallons a day whether the crew moves 400 yards or 900, so its fuel follows the calendar, not the yards. The plan was 60 working days, and at the current 640 yards a day the job takes 75. That is 15 extra days and 135 extra gallons of generator fuel. Track support equipment (generators, light towers, dewatering pumps, heaters) in gallons per day against the schedule, and production equipment in gallons per unit of work against the quantities.</p>
+
+<p>When the job closes, the job sheet holds the number the next estimate needs: actual gallons per cubic yard by machine class, for this soil, this haul length and this spread. Bid the next pad as quantity times gallons per yard times the supplier's delivered quote, for example <code>=48000&#42;0.2835&#42;5.38</code>, and keep gallons per hour only as the check on idle time. A job file with three or four closed pads gives you a factor the estimator can defend, which an equipment manufacturer's burn chart cannot, because the chart does not know how long your trucks wait at the excavator.</p>
+
+<h2>Set Up the Fuel Line Before the Next Delivery</h2>
+
+<p>Three things decide whether fuel stays a lump that surprises you at closeout or becomes a cost code you can manage:</p>
+
+<ol>
+<li>Log every fill by machine and hour meter, fill to full, and mark dyed or clear. That one sheet supports the job cost, the federal credit on clear diesel used off-road, and the check against dyed fuel in road vehicles.</li>
+<li>Compare gallons per unit of work against the bid every week, and treat a rise above 10 percent as a production problem first and a fuel problem second.</li>
+<li>Split the overrun into price and usage before anyone reacts to the fuel bill. On this job, usage was $5,125 and price was $510.</li>
+</ol>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> is where the result belongs. Give each job its own fuel line next to equipment and labor, post the monthly charge from the log, and log the delivery invoices in its payment log. Its variance column and projected final cost show the fuel line drifting next to the rest of the budget, so the $14,087 shows up in the same report as the labor and equipment overruns behind it. It does not hold a per-machine fuel log or compute gallons per yard. Keep the log sheet from this article for that, and let the tracker carry the totals.</p>`,
+  },
+  {
     slug: 'contractor-company-truck-cost-per-job-allocation-excel',
     title: 'Contractor Company Truck Cost per Job Allocation in Excel: Charge by the Day and the Mile',
     metaTitle: 'Company Truck Cost per Job Allocation Excel | SheetCraft',
