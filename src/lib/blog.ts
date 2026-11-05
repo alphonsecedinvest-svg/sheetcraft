@@ -16,6 +16,188 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'fha-self-sufficiency-test-calculator-excel',
+    title: 'FHA Self Sufficiency Test Calculator Excel: The Rent Number That Sets Your Down Payment',
+    metaTitle: 'FHA Self Sufficiency Test Calculator Excel | SheetCraft',
+    metaDescription: 'FHA self sufficiency test calculator in Excel: a $760,000 fourplex fails at 3.5% down. Solve the down payment, price and seller points that pass.',
+    targetKeyword: 'FHA self sufficiency test calculator Excel',
+    secondaryKeywords: ['FHA self-sufficiency test', 'FHA fourplex down payment', 'net self-sufficiency rental income', 'FHA 3-4 unit rental income', 'FHA duplex with ADU'],
+    excerpt: 'A $760,000 fourplex with $1,700 rents fails the FHA self-sufficiency test at 3.5 percent down by $1,447.27 a month. Passing takes $208,897 down, more than an investor loan. Build the test in Excel and price the four levers before you offer.',
+    publishedAt: '2026-11-05',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/fha-self-sufficiency-test-calculator-excel.png',
+    imageAlt: 'Flat illustration of a couple carrying a moving box toward the front door of a red brick multi-unit house at dusk, with lit windows and a tree beside the sidewalk',
+    content: `<p>A buyer finds a $760,000 fourplex, plans to live in one unit, and gets an FHA preapproval at 3.5 percent down, $26,600. The income works. The appraisal comes back at value with market rent of $1,700 per unit. The loan still cannot close, because the monthly payment is $6,547.27 and FHA's self-sufficiency test allows $5,100. To pass at that price the buyer needs $208,897 down, 27.5 percent, which is more than the 25 percent Fannie Mae asks from an investor who will never live in the building. An FHA self sufficiency test calculator in Excel, run before the offer, shows that gap and the four things that can close it: the price, the down payment, seller-paid points, and the appraiser's rent.</p>
+
+<p>This article builds the test cell by cell, solves for the down payment that passes, prices each lever on the same fourplex, and shows the one property type where buyers walk into the test without knowing it applies. Every deal figure is a labeled example. The rules come from HUD Handbook 4000.1 as updated on August 12, 2026, Fannie Mae's Eligibility Matrix dated April 1, 2026, and HUD's 2026 loan limit announcement.</p>
+
+<h2>What the FHA Self-Sufficiency Test Measures</h2>
+
+<p>The rule sits in Handbook 4000.1 under three- to four-unit properties, "Self-Sufficiency Rental Income Eligibility." It has three parts:</p>
+
+<ul>
+<li><strong>Whose rent counts.</strong> The appraiser's estimate of fair market rent for all units, including the unit you will live in. Your signed leases and the listing's pro forma do not set the number.</li>
+<li><strong>The haircut.</strong> Subtract the greater of the appraiser's estimate for vacancies and maintenance, or 25 percent of fair market rent. In practice that is 25 percent unless the appraiser writes a bigger number.</li>
+<li><strong>The standard.</strong> PITI divided by that net rent "may not exceed 100 percent." Your salary does not appear anywhere in the formula.</li>
+</ul>
+
+<p>That third part is why preapproved buyers fail it. FHA runs two separate tests on a three- or four-unit purchase. The borrower test adds 75 percent of the rent from the units you will lease out to your income and checks your debt ratios. The property test ignores you completely and asks whether the building carries its own payment. A high salary passes the first test and does nothing for the second.</p>
+
+<p>The Handbook spells PITI out only as principal, interest, taxes and insurance. FHA's definition of the total mortgage payment, used for the debt ratios, adds the monthly mortgage insurance premium (MIP), HOA dues and special assessments. This calculator includes MIP, which is the conservative reading. Ask your lender which version its underwriters use, because on this fourplex the MIP alone is $458.38 a month.</p>
+
+<p>FHA adds two more requirements on these properties. It requires reserves equal to three months of PITI after closing on any three- to four-unit property. And the loan has to fit the county limit: the 2026 floor is $837,700 for three units and $1,041,125 for four, so a $760,000 fourplex fits everywhere.</p>
+
+<h2>The Fourplex at 3.5 Percent Down</h2>
+
+<p>Here is the deal as the buyer would underwrite it. The rate is an example FHA quote of 6.875 percent; Freddie Mac's Primary Mortgage Market Survey put the conventional 30-year average at 7.24 percent on October 29, 2026. Property tax is modeled at 1.4 percent of the price, which has to be the tax after the sale. The seller's current bill describes the seller's assessment, and our <a href="/blog/rental-property-tax-reassessment-after-purchase-calculator-excel">tax reassessment model</a> shows how far that number can move once the deed records.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input or formula</th><th>Fourplex</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Purchase price</td><td>$760,000</td></tr>
+<tr><td>B4</td><td>Down payment percent</td><td>3.5%</td></tr>
+<tr><td>B5</td><td>Down payment <code>=B3&#42;B4</code></td><td>$26,600</td></tr>
+<tr><td>B6</td><td>Base loan <code>=B3-B5</code></td><td>$733,400</td></tr>
+<tr><td>B7</td><td>Upfront MIP <code>=B6&#42;1.75%</code></td><td>$12,834.50</td></tr>
+<tr><td>B8</td><td>Total loan <code>=ROUNDDOWN(B6+B7,0)</code></td><td>$746,234</td></tr>
+<tr><td>B9</td><td>Note rate</td><td>6.875%</td></tr>
+<tr><td>B10</td><td>Principal and interest <code>=PMT(B9/12,360,-B8)</code></td><td>$4,902.23</td></tr>
+<tr><td>B11</td><td>Annual MIP, basis points</td><td>75</td></tr>
+<tr><td>B12</td><td>Monthly MIP <code>=B6&#42;B11/10000/12</code></td><td>$458.38</td></tr>
+<tr><td>B13</td><td>Property tax <code>=B3&#42;1.4%/12</code></td><td>$886.67</td></tr>
+<tr><td>B14</td><td>Hazard insurance</td><td>$300.00</td></tr>
+<tr><td>B15</td><td>PITI <code>=B10+B12+B13+B14</code></td><td>$6,547.27</td></tr>
+<tr><td>B16</td><td>Appraised market rent, 4 units <code>=SUM(E3:E6)</code></td><td>$6,800</td></tr>
+<tr><td>B17</td><td>Haircut <code>=MAX(E8,25%)</code></td><td>25%</td></tr>
+<tr><td>B18</td><td>Net self-sufficiency rent <code>=B16&#42;(1-B17)</code></td><td>$5,100.00</td></tr>
+<tr><td>B19</td><td>Ratio <code>=B15/B18</code></td><td>128.38%</td></tr>
+<tr><td>B20</td><td>Result <code>=IF(B19&lt;=100%,"PASS","FAIL")</code></td><td>FAIL</td></tr>
+<tr><td>B21</td><td>Monthly shortfall <code>=B15-B18</code></td><td>$1,447.27</td></tr>
+</tbody>
+</table>
+
+<p>E3 to E6 hold the appraiser's rent for each unit, $1,700 each, and E8 holds the appraiser's vacancy and maintenance estimate, so the 25 percent floor applies automatically when the appraiser writes less. B12 applies the annual rate to the base loan as a first-year approximation; the Loan Estimate shows your lender's exact premium.</p>
+
+<p>B11 is not a constant. FHA's premium chart for loans over 15 years sets the annual MIP by base loan amount and loan-to-value: 55 basis points above 95 percent LTV and 50 at or below, as long as the base loan is $726,200 or less, and 75 and 70 above that amount. Write it as a formula so it moves with the down payment:</p>
+
+<p><code>=IF(B6&lt;=726200,IF(B6/B3&gt;95%,55,50),IF(B6/B3&gt;95%,75,70))</code></p>
+
+<p>That threshold matters on this deal. At 3.5 percent down the base loan is $733,400, just over the line. Putting down $7,200 more brings it to exactly $726,200 and drops the premium from 75 to 55 basis points. The MIP falls by $125.54 a month and PITI by $173.66. The deal still fails, but those $7,200 return $2,083.92 a year in lower payments, 28.9 percent, which makes them the best-paying dollars in the purchase.</p>
+
+<h2>Solve for the Down Payment That Passes</h2>
+
+<p>Excel's Goal Seek (Data, What-If Analysis) can set B19 to 1 by changing B4, but the MIP tier jumps when the LTV crosses 95 percent and when the base loan crosses $726,200, and Goal Seek can stop on the wrong side of a jump. A direct formula avoids that. Whatever the net rent leaves after tax and insurance has to cover principal, interest and MIP, so the largest base loan that passes, in B23, is:</p>
+
+<p><code>=(B18-B13-B14)/(1.0175&#42;PMT(B9/12,360,-1)+50/120000)</code></p>
+
+<p>The 1.0175 carries the financed upfront premium and the 50 is the MIP tier the loan will land in, which at this down payment is the under-95-percent tier. On the fourplex it returns a base loan of $551,103, so the down payment that passes, in B24, is <code>=B3-B23</code>: $208,897, or 27.5 percent of the price. Check B11 after you solve: if the answer lands in a different tier, change the 50 and solve again.</p>
+
+<p>Here is what that number means against the other loans the same buyer could use:</p>
+
+<table>
+<thead>
+<tr><th>Loan path</th><th>Minimum down</th><th>Down on $760,000</th><th>Self-sufficiency test</th><th>Reserves</th></tr>
+</thead>
+<tbody>
+<tr><td>FHA, 3.5% down</td><td>3.5%</td><td>$26,600</td><td>Fails at 128.38%</td><td>3 months PITI</td></tr>
+<tr><td>FHA, sized to pass</td><td>27.5%</td><td>$208,897</td><td>Passes at 100%</td><td>3 months PITI, $15,300</td></tr>
+<tr><td>Fannie Mae, owner-occupied, DU</td><td>5%</td><td>$38,000</td><td>None</td><td>6 months</td></tr>
+<tr><td>Fannie Mae, investment property</td><td>25%</td><td>$190,000</td><td>None</td><td>6 months</td></tr>
+</tbody>
+</table>
+
+<p>Fannie Mae's Eligibility Matrix allows 95 percent LTV on a two- to four-unit principal residence underwritten through Desktop Underwriter, as long as the loan is not high-balance. A $722,000 loan sits below the 2026 baseline conforming limit of $832,750, so the exclusion does not bite here. The Selling Guide then has DU require six months of reserves on a two- to four-unit principal residence, and on an investment property. The conventional loan carries private mortgage insurance and its own rate, so compare the actual quotes. On cash alone, the FHA loan that passes needs $224,197 between down payment and reserves, and the conventional owner-occupied loan starts at $38,000 down.</p>
+
+<p>FHA is the low-down-payment loan for one- and two-unit homes. On a three- or four-unit building with these rents, the FHA loan that can close needs more cash than either Fannie Mae path, and the buyer who had a $26,600 plan needs a lender who will quote the conventional loan before the offer goes in. If you are weighing the fourplex against renting at all, a $208,897 down payment also carries an opportunity cost that belongs in a <a href="/blog/rent-vs-buy-calculator-excel">rent vs buy calculation</a>.</p>
+
+<h2>Each $100 of Appraised Rent Moves the Down Payment $42,248</h2>
+
+<p>Every dollar of appraised rent is worth 75 cents of PITI capacity, and a payment carries a loan many times its size. On the fourplex, $100 more per unit adds $300 to the net rent, and that changes the down payment needed to pass by $42,248.</p>
+
+<table>
+<thead>
+<tr><th>Appraised rent per unit</th><th>Net rent</th><th>Ratio at 3.5% down</th><th>Down payment to pass</th></tr>
+</thead>
+<tbody>
+<tr><td>$1,600</td><td>$4,800</td><td>136.40%</td><td>$251,144</td></tr>
+<tr><td>$1,700</td><td>$5,100</td><td>128.38%</td><td>$208,897</td></tr>
+<tr><td>$1,800</td><td>$5,400</td><td>121.25%</td><td>$166,649</td></tr>
+</tbody>
+</table>
+
+<p>To pass at 3.5 percent down, the appraiser would have to find $8,729.69 of total rent, $2,182.42 a unit, 28 percent above the market the appraiser actually saw. Rent alone will not rescue this deal. On a closer deal, $100 a unit is the difference between closing and a failed financing contingency. And if the appraiser writes a 30 percent vacancy and maintenance factor instead of 25, the down payment to pass rises by $47,881.</p>
+
+<p>The appraiser builds market rent from rental comparables on the small residential income report. Hand your lender a rent survey before the inspection: same unit size, same bedroom count, adjusted for concessions and for who pays utilities, which our <a href="/blog/multifamily-rent-comp-survey-spreadsheet-excel">rent comp survey spreadsheet</a> lays out. If the report still lands low, the Handbook lets the underwriter request a reconsideration of value when the appraiser did not consider relevant information, and the underwriter has to send the appraiser the data. That request goes through the lender, so the comps have to be in the lender's file.</p>
+
+<h2>Price Cut or Seller-Paid Points</h2>
+
+<p>Suppose the seller will give $22,800, 3 percent of the price, to keep the deal together. FHA lets interested parties contribute up to 6 percent of the sales price, $45,600 here, toward closing costs, prepaid items and discount points, and that cap explicitly includes permanent rate buydowns. The contribution cannot pay the 3.5 percent minimum investment. The question is whether the $22,800 should come off the price or buy down the rate.</p>
+
+<p>The buydown pricing below is an example of 0.25 percent of rate per discount point. Lenders price points daily, so replace it with your lender's sheet. At that pricing, $22,800 buys 3.06 points on the $746,234 loan and moves the rate from 6.875 percent to 6.11 percent.</p>
+
+<table>
+<thead>
+<tr><th>Use of the $22,800</th><th>Price</th><th>Rate</th><th>MIP tier</th><th>PITI at 3.5% down</th><th>Down payment to pass</th></tr>
+</thead>
+<tbody>
+<tr><td>Nothing</td><td>$760,000</td><td>6.875%</td><td>75</td><td>$6,547.27</td><td>$208,897</td></tr>
+<tr><td>Price cut</td><td>$737,200</td><td>6.875%</td><td>55</td><td>$6,241.28</td><td>$182,350</td></tr>
+<tr><td>Seller-paid points</td><td>$760,000</td><td>6.11%</td><td>75</td><td>$6,172.56</td><td>$166,170</td></tr>
+</tbody>
+</table>
+
+<p>The price cut does more than its face value suggests, because it lowers the tax line and pulls the base loan under $726,200, into the cheaper MIP tier. Even so, the points lower PITI by $374.71 a month against $305.99 for the price cut, and they reduce the down payment needed to pass by $42,726 against $26,546. On this test the same seller dollars are worth $16,180 more as points. The seller nets about the same either way, less a slightly larger commission on the higher price, so ask for the credit.</p>
+
+<p>Two cautions. A credit must be written into the sales contract, and the appraiser sees it. And the credit also has to cover closing costs, which come out of the same 6 percent. Our <a href="/blog/house-flip-seller-concession-calculator-excel">seller concession calculator</a> works the same negotiation from the seller's side.</p>
+
+<h2>The Duplex With an ADU Is a Three-Unit Property</h2>
+
+<p>The test applies to three- and four-unit properties, and buyers of duplexes assume they are clear of it. The Handbook defines a three- to four-unit property as three or four dwelling units, or two units plus one accessory dwelling unit (ADU), or three units plus one ADU. A duplex with a permitted backyard cottage is a three-unit property for this rule.</p>
+
+<p>Take a $585,000 duplex with two units the appraiser rents at $1,850 each and a cottage at $1,250. Without the cottage, the buyer qualifies on income plus 75 percent of the other unit's rent and the property test never runs. With it:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Duplex plus ADU</th></tr>
+</thead>
+<tbody>
+<tr><td>Appraised market rent, 3 units</td><td>$4,950</td></tr>
+<tr><td>Net self-sufficiency rent at 25%</td><td>$3,712.50</td></tr>
+<tr><td>PITI at 3.5% down, 55 basis point MIP</td><td>$5,014.67</td></tr>
+<tr><td>Ratio</td><td>135.08%</td></tr>
+<tr><td>Down payment to pass</td><td>$200,541, or 34.3%</td></tr>
+<tr><td>Highest price that passes at 3.5% down</td><td>$423,427</td></tr>
+</tbody>
+</table>
+
+<p>The cottage adds $1,250 of rent and turns a loan that needed $20,475 down into one that needs $200,541. This is the case to check on every duplex listing that mentions an ADU, a garage apartment or a basement unit with its own entrance. Ask the listing agent whether the second structure is a legal unit, and run this sheet before you write the offer. Our <a href="/blog/house-hacking-calculator-excel">house hacking calculator</a> covers the owner-occupied duplex where the test does not apply.</p>
+
+<h2>Set the Offer From the Test</h2>
+
+<p>The test turns into an offer price once you fix the cash you actually have. Put your available down payment in B4 as a dollar amount, keep the rents and the tax rate, and solve for the price instead of the down payment. Goal Seek on B19 by changing B3 works here as long as you check the MIP tier afterward.</p>
+
+<p>A buyer with $80,000 for the down payment, plus the $15,300 of reserves, can pay up to $649,292 for this fourplex and pass. That is $110,708 under the asking price. At 3.5 percent down the ceiling is $595,589. Those two numbers are the honest range for an FHA offer on this building, and both come from the rents rather than from the comps the listing agent used to set the price.</p>
+
+<p>Run the sheet in this order before every three- or four-unit FHA offer:</p>
+
+<ol>
+<li>Enter the rents you expect the appraiser to write, from your own survey, never from the listing.</li>
+<li>Use the post-sale property tax and an actual insurance quote for a multi-unit building.</li>
+<li>Read B20 at 3.5 percent down. If it says PASS, you have an FHA deal and the next question is your debt ratios.</li>
+<li>If it says FAIL, read the down payment to pass from B24 and the price that passes from Goal Seek, then price the seller credit as points.</li>
+<li>Get a conventional owner-occupied quote at 5 percent down on the same day, and compare total cash, payment and mortgage insurance side by side.</li>
+</ol>
+
+<h2>Carry the Passing Price Into the Deal Analysis</h2>
+
+<p>The self-sufficiency block is about twenty cells, and it answers one question: can this loan close. Whether the fourplex is worth buying at the price that passes is a separate question, and it needs the operating expenses, the cash flow after you move out, and the return on the cash you put in.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> handles that second question. Enter the price that passed, your down payment and the loan terms, and it calculates monthly cash flow, cap rate, cash-on-cash return and a 10-year projection, with up to three loan scenarios side by side, so the FHA loan sized to pass and the 5 percent conventional loan can sit next to each other on the same building. It does not run the FHA self-sufficiency test or pick the MIP tier, so keep the block from this article on its own tab and carry the passing price into the analyzer.</p>`,
+  },
+  {
     slug: 'construction-diesel-fuel-cost-tracker-by-job-excel',
     title: 'Construction Diesel Fuel Cost Tracker by Job in Excel: Gallons per Yard, Not per Hour',
     metaTitle: 'Construction Diesel Fuel Cost Tracker by Job | SheetCraft',
