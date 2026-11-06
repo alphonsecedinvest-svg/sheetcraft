@@ -16,6 +16,195 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-late-fee-cap-calculator-excel',
+    title: 'Rental Property Late Fee Cap Calculator in Excel: Why a Flat Fee Breaks on a Short Pay',
+    metaTitle: 'Rental Property Late Fee Cap Calculator Excel | SheetCraft',
+    metaDescription: 'Rental property late fee cap calculator in Excel for 8 states: why a flat $100 clause fails on a short pay, and the formula that bills what the law allows.',
+    targetKeyword: 'rental property late fee cap calculator Excel',
+    secondaryKeywords: ['late fee laws by state', 'maximum late fee on rent', 'landlord late fee calculator', 'rent late fee grace period', 'late fee lease clause'],
+    excerpt: 'A $100 plus $10 a day late fee clause stays inside the limit in 5 of 27 cases across eight states. Build the Excel sheet that computes the legal maximum per payment, including short pays and voucher units.',
+    publishedAt: '2026-11-06',
+    readTime: 14,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-late-fee-cap-calculator-excel.png',
+    imageAlt: 'Flat illustration of a hand sliding a plain envelope into a brass mail slot in a green apartment office door, with a potted plant on a tiled floor',
+    content: `<p>A rental property late fee cap calculator in Excel has one job: tell you, for each late payment, the largest fee the law of that state lets you collect. Most landlords never build one. They copy a lease clause that reads "$100 if rent is not paid in full by the 5th, plus $10 per day until paid" and assume the number is either legal everywhere or illegal everywhere. It is neither. On a $1,650 rent that clause bills $240 when the rent arrives on the 20th. Of the eight states checked for this article, it stays inside the cap or the safe harbor in none of them for that payment, and only in Texas is the excess a matter of argument instead of a clear statutory limit.</p>
+
+<p>The bigger surprise is the short pay. When a tenant pays $1,350 on the 1st and the last $300 on the 20th, the same clause still bills $240, while the legal maximum in Minnesota drops to $24, in Maryland and Connecticut to $15, and in Virginia to $30. In those states the cap is a percentage of what is unpaid, so the fee has to shrink with the balance. A flat clause cannot do that, and the short pay is exactly the tenant who is trying, who is still in the unit, and who is most likely to dispute a charge that is 8 to 16 times the legal amount.</p>
+
+<p>This article builds the sheet that computes the cap per payment, shows where a flat clause breaks, and ends with a clause that collects what the law allows. Statutes were read in their official text on November 6, 2026 (Texas in the enacted text of S.B. 1414, the 2019 bill that last amended section 92.019). City ordinances can be stricter, so treat the state number as a ceiling and check your city before you use it.</p>
+
+<h2>What the Law Actually Caps in Eight States</h2>
+
+<p>Late fee laws differ on four things, and a calculator needs a column for each: how long the tenant gets before any fee is allowed, whether the cap is a percentage of the monthly rent or of the unpaid amount, whether there is a flat dollar ceiling, and whether there is a per-day ceiling. Where a state sets more than one limit, the smallest one controls, so the legal maximum is always the lowest of the caps that apply.</p>
+
+<table>
+<thead>
+<tr><th>State and source</th><th>Fee allowed only after</th><th>Cap</th><th>Cap measured on</th></tr>
+</thead>
+<tbody>
+<tr><td>Texas, Prop. Code 92.019</td><td>Rent unpaid two full days after due</td><td>Safe harbor 12% of rent (1 to 4 units), 10% (5+ units)</td><td>Rent for the period</td></tr>
+<tr><td>New York, RPL 238-a(2)</td><td>Rent not paid within five days of due date</td><td>Lesser of $50 or 5% of monthly rent</td><td>Monthly rent</td></tr>
+<tr><td>Maryland, Real Prop. 8-208(d)(3)</td><td>Set by the lease</td><td>5%</td><td>Unpaid rent due for the period</td></tr>
+<tr><td>Virginia, Code 55.1-1204(E)</td><td>Set by the lease</td><td>Lesser of 10% of rent or 10% of remaining balance</td><td>Both</td></tr>
+<tr><td>Minnesota, Stat. 504B.177</td><td>Set by the lease, in writing</td><td>8%</td><td>The overdue rent payment</td></tr>
+<tr><td>Connecticut, Gen. Stat. 47a-15a(b)</td><td>Nine-day grace period (four for weekly)</td><td>Lesser of $5 per day up to $50, or 5%</td><td>The delinquent payment</td></tr>
+<tr><td>Maine, 14 M.R.S. 6028</td><td>Payment not made within 15 days</td><td>4% of one month's rent</td><td>Monthly rent</td></tr>
+<tr><td>Iowa, Code 562A.9(4)</td><td>Not set by statute</td><td>$20 per day and $100 per month (rent over $700)</td><td>Fixed dollars</td></tr>
+</tbody>
+</table>
+
+<p>Three details in that table move money. Texas is the only state on the list where 12% is a safe harbor rather than a ceiling: under 92.019(a-1)(2) a landlord may charge more if the fee does not exceed the landlord's actual uncertain damages from the late payment, which the landlord has to be ready to prove. Texas also counts the initial fee and the daily fee as one combined fee under 92.019(b), so the daily charge eats into the same 12%. And Connecticut allows only one late charge per delinquent payment "regardless of how long the rent remains unpaid", which rules out a new fee every month the same balance stays open.</p>
+
+<p>Iowa needed one reading choice. The statute caps the fee per day and per month but does not say which day the count starts. The sheet counts days from the day after the due date, which is the reading used in every number below.</p>
+
+<h2>Build the Rules Tab First</h2>
+
+<p>Put the law on its own tab so that a change in a statute means editing one cell. Name the tab <code>Rules</code> and give each state one row.</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Header</th><th>Texas 1-4</th><th>New York</th><th>Minnesota</th><th>Connecticut</th><th>Iowa</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>State</td><td>TX-4</td><td>NY</td><td>MN</td><td>CT</td><td>IA</td></tr>
+<tr><td>B</td><td>Statutory grace days</td><td>2</td><td>5</td><td>0</td><td>9</td><td>0</td></tr>
+<tr><td>C</td><td>% of monthly rent</td><td>12%</td><td>5%</td><td></td><td></td><td></td></tr>
+<tr><td>D</td><td>% of unpaid amount</td><td></td><td></td><td>8%</td><td>5%</td><td></td></tr>
+<tr><td>E</td><td>Flat cap</td><td></td><td>$50</td><td></td><td>$50</td><td>$100</td></tr>
+<tr><td>F</td><td>Per-day cap</td><td></td><td></td><td></td><td>$5</td><td>$20</td></tr>
+</tbody>
+</table>
+
+<p>A blank cell means the state has no cap of that type. Zero in column B means the statute sets no waiting period and your lease decides when the fee starts. Keep Texas as two rows (TX-4 at 12% and TX-5 at 10%) because the cap depends on how many units are in the building.</p>
+
+<p>On the payments tab, one row per late payment: unit in A, state code in B, monthly rent in C, due date in D, date the rent was paid in full in E, and in F the amount still unpaid when the fee was assessed. Days late is plain date arithmetic:</p>
+
+<p><code>=E5-D5</code></p>
+
+<p>The fee your current clause bills goes in H. For the "$100 after the 5th plus $10 per day" clause, with rent due on the 1st:</p>
+
+<p><code>=IF(G5&lt;5,0,100+10&#42;(G5-5))</code></p>
+
+<p>Paid on the 6th, G5 is 5 and the clause bills $100. Paid on the 20th, G5 is 19 and it bills $240.</p>
+
+<h2>The Formula That Returns the Legal Maximum</h2>
+
+<p>Column I pulls the state's row and takes the smallest cap that applies. Each missing cap is replaced by a very large number so it can never win the <code>MIN</code>:</p>
+
+<p><code>=LET(r,XLOOKUP(B5,Rules!$A$2:$A$10,Rules!$B$2:$F$10),g,INDEX(r,1),pr,INDEX(r,2),pu,INDEX(r,3),fl,INDEX(r,4),pd,INDEX(r,5),IF(G5&lt;=g,0,MIN(IF(pr&gt;0,pr&#42;C5,9E9),IF(pu&gt;0,pu&#42;F5,9E9),IF(fl&gt;0,fl,9E9),IF(pd&gt;0,pd&#42;G5,9E9))))</code></p>
+
+<p>In business terms: if the payment arrived inside the statutory grace period, no fee is allowed at all; otherwise the fee is the lowest of the percentage of rent, the percentage of the unpaid amount, the flat ceiling and the daily ceiling. Then two more columns tell you what to do with the row:</p>
+
+<p><code>=MAX(0,H5-I5)</code> in J is the part of your fee above the cap.</p>
+
+<p><code>=IF(J5&gt;0,"OVER CAP",IF(H5&lt;I5,"UNDER CAP","OK"))</code> in K turns it into an instruction.</p>
+
+<p>If you run older Excel without <code>LET</code> and <code>XLOOKUP</code>, replace each name with an <code>INDEX(Rules!$B$2:$B$10,MATCH(B5,Rules!$A$2:$A$10,0))</code> on the matching column. It is longer and does the same thing.</p>
+
+<h2>Three Late Payments, Same Clause, Nine Answers</h2>
+
+<p>Here is the clause run against three ordinary events on a $1,650 unit in a building of four units or fewer (example figures). Event A is a full miss paid on the 20th. Event B is a short pay: $1,350 on the 1st, the last $300 on the 20th. Event C is full rent paid on the 6th, one day after the lease's own deadline.</p>
+
+<table>
+<thead>
+<tr><th>State</th><th>A: full miss, day 20 (clause $240)</th><th>B: $300 short, day 20 (clause $240)</th><th>C: paid on the 6th (clause $100)</th></tr>
+</thead>
+<tbody>
+<tr><td>Texas, 1-4 units</td><td>$198 (over by $42)</td><td>$198 (over by $42)</td><td>$198 (OK)</td></tr>
+<tr><td>Texas, 5+ units</td><td>$165 (over by $75)</td><td>$165 (over by $75)</td><td>$165 (OK)</td></tr>
+<tr><td>New York</td><td>$50 (over by $190)</td><td>$50 (over by $190)</td><td>$0 (over by $100)</td></tr>
+<tr><td>Maryland</td><td>$82.50 (over by $157.50)</td><td>$15 (over by $225)</td><td>$82.50 (over by $17.50)</td></tr>
+<tr><td>Virginia</td><td>$165 (over by $75)</td><td>$30 (over by $210)</td><td>$165 (OK)</td></tr>
+<tr><td>Minnesota</td><td>$132 (over by $108)</td><td>$24 (over by $216)</td><td>$132 (OK)</td></tr>
+<tr><td>Connecticut</td><td>$50 (over by $190)</td><td>$15 (over by $225)</td><td>$0 (over by $100)</td></tr>
+<tr><td>Maine</td><td>$66 (over by $174)</td><td>$66 (over by $174)</td><td>$0 (over by $100)</td></tr>
+<tr><td>Iowa, rent over $700</td><td>$100 (over by $140)</td><td>$100 (over by $140)</td><td>$100 (OK)</td></tr>
+</tbody>
+</table>
+
+<p>The clause is inside the limit in 5 of the 27 cells, and all five are event C, the mildest late payment there is. The two Texas rows on events A and B are outside the safe harbor. In Texas that is not automatically a violation, and the landlord can still defend the fee with records of the actual cost of collecting late rent. Every other "over" cell is a fee the statute says you may not charge.</p>
+
+<p>Three patterns come out of the table, and each one is a column in the Rules tab doing its work.</p>
+
+<ul>
+<li><strong>The waiting period kills event C</strong> in New York, Connecticut and Maine. "Late after the 5th" is one day early in New York, where the fee is allowed only once rent has gone unpaid for more than five days, five days early in Connecticut, where the fee is allowed from the 11th, and eleven days early in Maine, where it is allowed from the 17th.</li>
+<li><strong>The daily fee kills event A.</strong> An open-ended $10 per day passes every percentage cap sooner or later. In a Texas building of four units or fewer, it crosses $198 on the 16th. In a building of five or more units, it crosses $165 on the 13th.</li>
+<li><strong>The unpaid-amount base kills event B.</strong> In Maryland, Virginia, Minnesota and Connecticut, the cap on a $300 balance is $15 to $30. The landlord who bills $240 on a $300 shortfall is charging 80% of the balance.</li>
+</ul>
+
+<h2>What an Over-Cap Fee Costs You</h2>
+
+<p>Add the three events up and the gap between what the clause bills and what the law allows is the money you are asking for and cannot keep.</p>
+
+<table>
+<thead>
+<tr><th>State</th><th>Clause bills</th><th>Legal maximum</th><th>Above the cap</th><th>Events within the limit</th></tr>
+</thead>
+<tbody>
+<tr><td>Texas, 1-4 units</td><td>$580</td><td>$594</td><td>$84</td><td>1 of 3</td></tr>
+<tr><td>Texas, 5+ units</td><td>$580</td><td>$495</td><td>$150</td><td>1 of 3</td></tr>
+<tr><td>New York</td><td>$580</td><td>$100</td><td>$480</td><td>0 of 3</td></tr>
+<tr><td>Maryland</td><td>$580</td><td>$180</td><td>$400</td><td>0 of 3</td></tr>
+<tr><td>Virginia</td><td>$580</td><td>$360</td><td>$285</td><td>1 of 3</td></tr>
+<tr><td>Minnesota</td><td>$580</td><td>$288</td><td>$324</td><td>1 of 3</td></tr>
+<tr><td>Connecticut</td><td>$580</td><td>$65</td><td>$515</td><td>0 of 3</td></tr>
+<tr><td>Maine</td><td>$580</td><td>$132</td><td>$448</td><td>0 of 3</td></tr>
+<tr><td>Iowa, rent over $700</td><td>$580</td><td>$300</td><td>$280</td><td>1 of 3</td></tr>
+</tbody>
+</table>
+
+<p>The Texas 1-4 row shows something else: the clause bills more than the safe harbor on events A and B and $98 less than it on event C, so it is too high and too low on the same unit. A clause written to the cap would collect $594 on these three events with no exposure. The current one collects $580 and carries two fees outside the safe harbor.</p>
+
+<p>Texas is also the state where the downside has a price written into the statute. Under 92.019(c), a landlord who violates the section owes the tenant $100, plus three times the late fee collected in violation, plus the tenant's reasonable attorney's fees. If a court finds the $240 fee on event A unreasonable, that is <code>=100+3&#42;240</code>, or $820, before the tenant's lawyer bills a single hour. The upside of the extra $42 above the safe harbor does not come close. A tenant can also ask in writing for a statement of whether a late fee is owed and how much under 92.0191, so a sloppy number is easy for the tenant to put on paper.</p>
+
+<p>In New York the fee has a second problem. RPAPL 702 says no fees, charges or penalties other than rent may be sought in a summary proceeding, whatever the lease says. A late fee cannot ride along in the nonpayment case, so the ledger has to keep it as a separate balance and apply each payment to rent first. If the sheet credits payments to fees before rent, the rent balance you sue for quietly includes the fees the statute keeps out.</p>
+
+<h2>Short Pays and Subsidized Rent Need Their Own Column</h2>
+
+<p>Column F, the unpaid amount when the fee is assessed, is the input most landlord sheets do not have, and it is the one that decides event B. Fill it from the ledger: rent charged for the period minus every payment credited to that period before the fee date.</p>
+
+<p>With a ledger laid out as unit in A, date in B, type in C, charge in D, payment in E and the rent period (its due date) in F, and the date you assess the fee in L5 of the payments tab:</p>
+
+<p><code>=SUMIFS(Ledger!$D:$D,Ledger!$A:$A,A5,Ledger!$F:$F,D5,Ledger!$C:$C,"Rent")-SUMIFS(Ledger!$E:$E,Ledger!$A:$A,A5,Ledger!$F:$F,D5,Ledger!$B:$B,"&lt;="&amp;L5)</code></p>
+
+<p>Adapt the ranges to your own layout. The point is that the fee is computed on the balance that was actually open, which the tenant can check against the receipts.</p>
+
+<p>Subsidized tenancies shrink the base again. Minnesota 504B.177(c) says that when the landlord has a housing assistance payments contract, the late fee is calculated only on the portion of rent the tenant pays, and Connecticut's 5% applies to the tenant's share when a government or charitable entity pays part of the rent. On a $1,650 voucher unit where the tenant's portion is $450, the Minnesota cap on a full miss of that portion is <code>=0.08&#42;450</code>, or $36. The full contract rent would have suggested $132. If you hold voucher units, add a column for the tenant portion and point F at it. The <a href="/blog/section-8-rental-property-analysis">Section 8 rental property analysis</a> walks through how the rent splits between the housing authority and the tenant.</p>
+
+<p>The same check applies to examples you may already be using. The sample ledger in our <a href="/blog/landlord-rent-ledger-template-excel">landlord rent ledger template</a> charges $75 on September 10 after an $800 partial payment on $1,650 rent, leaving $850 open. That works in Texas or Virginia. In Minnesota the cap on $850 is $68, in Maryland $42.50, and in Connecticut the 10th is still inside the grace period, so no fee is allowed yet.</p>
+
+<h2>Write the Clause the Sheet Can Defend</h2>
+
+<p>The fix is to stop writing the fee as a flat dollar figure and write it in the same shape as the statute. Then the sheet bills <code>=MIN(H5,I5)</code>, your clause and the law agree, and there is no over-cap column to explain.</p>
+
+<table>
+<thead>
+<tr><th>State</th><th>Clause shape that matches the statute</th><th>On $1,650 rent, full miss</th><th>On $300 short</th></tr>
+</thead>
+<tbody>
+<tr><td>Texas, 1-4 units</td><td>Initial fee plus daily fee, combined total capped at 12% of monthly rent, starting after two full days</td><td>$198</td><td>$198</td></tr>
+<tr><td>New York</td><td>$50 or 5% of monthly rent, whichever is less, if unpaid more than five days</td><td>$50</td><td>$50</td></tr>
+<tr><td>Maryland</td><td>5% of the unpaid rent for the period</td><td>$82.50</td><td>$15</td></tr>
+<tr><td>Virginia</td><td>10% of the unpaid balance, not more than 10% of monthly rent</td><td>$165</td><td>$30</td></tr>
+<tr><td>Minnesota</td><td>8% of the overdue amount, with the assessment date stated</td><td>$132</td><td>$24</td></tr>
+<tr><td>Connecticut</td><td>One charge after the grace period: lesser of $5 per day to $50, or 5% of the delinquent amount</td><td>$50</td><td>$15</td></tr>
+<tr><td>Maine</td><td>4% of one month's rent, after 15 days, disclosed in writing at signing</td><td>$66</td><td>$66</td></tr>
+<tr><td>Iowa, rent over $700</td><td>$20 per day, not more than $100 per month</td><td>$100</td><td>$100</td></tr>
+</tbody>
+</table>
+
+<p>These are the clause amounts at the cap. Charging less is always allowed. Several of these statutes also attach conditions that live outside the number: Minnesota requires the written agreement to state when the fee is imposed, Maine requires written notice of the possible penalty at the time the rental agreement is made, and Virginia and Texas require the fee to be in the written lease. Put a Yes/No column next to each lease for those, because a correct number in a lease that never disclosed it is still uncollectible.</p>
+
+<p>If your portfolio is in a state not listed here, add a row only after reading the statute itself. Some states set no numeric cap and judge the fee by reasonableness, which is a different test and the subject of our <a href="/blog/landlord-lease-break-fee-calculator-excel">lease break fee calculator</a>, where the same question about liquidated damages decides what an early termination fee may charge. Record the citation and the date you read it in a column on the Rules tab, and log the clause itself where the rest of the lease terms live, as in a <a href="/blog/lease-abstract-template-excel">lease abstract</a>.</p>
+
+<h2>The Recommendation</h2>
+
+<p>Do three things this week. First, build the Rules tab for every state you own in, from the statute text, with the citation in the row. Second, run your last twelve months of late payments through columns G to K. Any row marked OVER CAP is a fee you should credit back or stop pursuing, and any short pay in Maryland, Virginia, Minnesota or Connecticut will almost certainly be one of them. Third, rewrite the lease clause at renewal in the shape of your state's cap, then bill <code>=MIN(H5,I5)</code> so the sheet never asks for more than the clause and the law both allow. In Texas that also means a cap on the daily fee: without it, an ordinary $100 plus $10 per day clause leaves the safe harbor on the 16th in a small building and on the 13th in a large one.</p>
+
+<p>The late fee is a small line on a rental, but it shows up in every dispute with a tenant who is behind, and a fee that is 8 to 16 times the legal amount gives that tenant an easy first argument. The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> is where the rest of the deal lives: cash flow, cap rate, cash-on-cash return, three loan scenarios side by side and a 10-year projection, with every operating expense on its own line. It does not hold a state rules table or compute the per-payment cap, so build that tab from this article next to it, and underwrite the deal on rent alone: in Connecticut the three late payments above would have earned $65 in a year.</p>`,
+  },
+  {
     slug: 'fha-self-sufficiency-test-calculator-excel',
     title: 'FHA Self Sufficiency Test Calculator Excel: The Rent Number That Sets Your Down Payment',
     metaTitle: 'FHA Self Sufficiency Test Calculator Excel | SheetCraft',
