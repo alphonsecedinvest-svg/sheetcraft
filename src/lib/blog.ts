@@ -16,6 +16,210 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'short-term-rental-material-participation-hours-log-excel',
+    title: 'Short Term Rental Material Participation Hours Log in Excel: Your Cleaner Decides the Test',
+    metaTitle: 'Short Term Rental Material Participation Log | SheetCraft',
+    metaDescription: 'A short term rental material participation hours log in Excel must count the cleaner too: 181.6 owner hours lose to 336 cleaning hours under the 100-hour test.',
+    targetKeyword: 'short term rental material participation hours log Excel',
+    secondaryKeywords: ['material participation tests', '100 hour test short term rental', 'average period of customer use', 'STR tax loophole', 'passive activity loss rules'],
+    excerpt: 'The 100-hour test compares you with every other individual who works on the rental, cleaner included. On a $585,000 cabin, 181.6 owner hours lost to 336 cleaning hours and turned a $147,758.60 first-year loss passive. Here is the Excel log that counts both sides.',
+    publishedAt: '2026-11-07',
+    readTime: 14,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/short-term-rental-material-participation-hours-log-excel.png',
+    imageAlt: 'Illustration of a person carrying folded towels up the steps of a timber mountain cabin, with a cleaning caddy and bucket on the porch',
+    content: `<p>A short term rental material participation hours log in Excel has one job: prove, line by line, that you passed one of the seven tests in Treasury Regulation 1.469-5T. Most owners build it as a diary of their own hours. The test most cabin and condo owners rely on, more than 100 hours and not less than anyone else, also counts the hours of your cleaner, your handyman and your co-host. Those are the rows most logs leave out, and on a typical one-property rental they are the reason the owner fails.</p>
+
+<p>Here is what is at stake on one property. A couple buys a two-bedroom cabin for $585,000 in early 2026. A cost segregation study moves $117,600 of the $490,000 building into short-life property, the furniture package cost $32,000, and both qualify for 100 percent bonus depreciation, which the One Big Beautiful Bill Act made permanent for property acquired and placed in service after January 19, 2025 (Section 70301, restated by the IRS in Notice 2026-11). First-year depreciation comes to $158,750.85 and the rental shows a tax loss of $147,758.60. At a 35 percent marginal rate, that loss is worth $51,715.51 against W-2 income this year, if the hours hold up. If they do not, the same loss is passive and sits on Form 8582 until the cabin produces passive income or is sold.</p>
+
+<h2>Why the Hours Matter Only Below Seven Days</h2>
+
+<p>Section 469(c)(2) treats every rental activity as passive, whatever you do. The short term rental route works because Treasury Regulation 1.469-1T(e)(3)(ii)(A) says an activity is not a rental activity at all when "the average period of customer use for such property is seven days or less." Once it is not a rental activity, Section 469(c)(1) applies instead, and the loss is passive only if you do not materially participate. The hours log is the proof of that participation.</p>
+
+<p>Two consequences follow. First, the hours are worthless if the average stay drifts above seven days, so the log needs a stays tab as much as an hours tab. Second, the $25,000 allowance in Section 469(i) covers "rental real estate activities" with active participation, and under the seven-day rule the cabin is not one. An owner who fails material participation on a short stay rental gets neither the allowance nor the offset.</p>
+
+<p>The average is computed under Regulation 1.469-1(e)(3)(iii)(C): the aggregate days in all periods of customer use that end during the year, divided by the number of those periods. Put one stay per row on a Stays tab, check-in in column A, check-out in column B, and nights in column C with <code>=B2-A2</code>. Then:</p>
+
+<p><code>=AVERAGE(C2:C97)</code></p>
+
+<p><code>=IF(AVERAGE(C2:C97)&lt;=7,"NOT A RENTAL ACTIVITY","RENTAL ACTIVITY: HOURS DO NOT HELP")</code></p>
+
+<p>The cabin had 96 stays and 338 booked nights, an average of 3.52. The regulation counts days and does not say whether a three-night stay is three days or four, so add a conservative column that counts one extra day per stay: 4.52. Both readings sit well under seven, so the question for this cabin is the hours. If your conservative figure is above 6, you have a stays problem before you have an hours problem, and one month rented to a traveling nurse can be enough to cross the line.</p>
+
+<h2>The Seven Tests, and the Three a Cabin Owner Can Actually Use</h2>
+
+<p>Regulation 1.469-5T(a) lists seven tests. Passing any one is enough. Most of them do not fit a single short term rental:</p>
+
+<table>
+<thead>
+<tr><th>Test</th><th>What it requires</th><th>Fits a one-cabin owner?</th></tr>
+</thead>
+<tbody>
+<tr><td>(a)(1)</td><td>More than 500 hours in the year</td><td>Rarely, about 10 hours every week</td></tr>
+<tr><td>(a)(2)</td><td>Your participation is substantially all of the participation of all individuals, including non-owners</td><td>Only if you clean, repair and manage everything yourself</td></tr>
+<tr><td>(a)(3)</td><td>More than 100 hours, and not less than any other individual, including non-owners</td><td>Yes, the usual target</td></tr>
+<tr><td>(a)(4)</td><td>Over 500 hours across all your significant participation activities</td><td>Only with other businesses of more than 100 hours each</td></tr>
+<tr><td>(a)(5)</td><td>Material participation in 5 of the prior 10 years</td><td>Not in the purchase year</td></tr>
+<tr><td>(a)(6)</td><td>Personal service activity, 3 prior years</td><td>No, a rental is not a personal service activity</td></tr>
+<tr><td>(a)(7)</td><td>Regular, continuous and substantial participation on all facts and circumstances</td><td>Possible, with conditions below</td></tr>
+</tbody>
+</table>
+
+<p>Test (a)(3) is the one that decides most short term rentals, and the regulation puts the trap in a parenthesis: "including individuals who are not owners of interests in the activity." Your cleaner is an individual. So is your handyman, and so is a co-host who answers guest messages for a percentage.</p>
+
+<p>Test (a)(7) has two limits written into Regulation 1.469-5T(b)(2). It is closed to anyone who participates 100 hours or less. And your management hours do not count toward it if anyone else is paid for management services, or if any other individual performs more management hours than you. Hiring a co-host to run the calendar therefore takes your management hours out of test (a)(7) entirely.</p>
+
+<h2>Whose Hours Count, and Which of Yours Do Not</h2>
+
+<p>The regulation adds and removes hours in three places, and each one needs its own column in the log.</p>
+
+<p>Your spouse counts as you. Regulation 1.469-5T(f)(3) treats a spouse's participation as yours "without regard to whether the spouse owns an interest in the activity and without regard to whether the spouses file a joint return." Log both people, then add them before you compare against anyone else.</p>
+
+<p>Investor work does not count. Under 1.469-5T(f)(2)(ii), studying financial statements, preparing summaries of the finances for your own use, and monitoring the finances in a non-managerial capacity are excluded unless you are directly involved in day-to-day management or operations. The hour you spend each month reading the payout report goes in the log under its own category, and the test formulas leave it out.</p>
+
+<p>Work done mainly to create hours does not count either. Regulation 1.469-5T(f)(2)(i) excludes work "not of a type that is customarily done by an owner" when one of its principal purposes is avoiding the passive loss rules. Cleaning, restocking, guest messaging, pricing and repairs are all work owners of rentals customarily do. Repainting a fence that was painted last spring is a harder line to defend.</p>
+
+<p>Travel time to the property is not addressed in the regulation. Keep it in a separate Travel category and run the test without it. If you pass only by counting the drive, you are relying on a position, and the log should make that visible to you first.</p>
+
+<h2>Building the Log So It Survives an Exam</h2>
+
+<p>Regulation 1.469-5T(f)(4) says contemporaneous daily time reports "are not required if the extent of such participation may be established by other reasonable means," naming appointment books, calendars and narrative summaries. That sentence is why owners wait until March. The Tax Court has read it narrowly: in Warren v. Commissioner, T.C. Summary Opinion 2024-20, the court restated that while contemporaneous records are not required, "a postevent 'ballpark guesstimate' is not sufficient," citing Moss v. Commissioner, 135 T.C. 365, 369 (2010). A spreadsheet typed up in March from memory is exactly that kind of estimate.</p>
+
+<p>The fix is a log where every row points to a record made at the time by someone else. Set up the Hours tab like this:</p>
+
+<table>
+<thead>
+<tr><th>Column</th><th>Field</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>Date</td><td>2026-03-14</td></tr>
+<tr><td>B</td><td>Person</td><td>Owner, Spouse, Cleaner 1, Handyman</td></tr>
+<tr><td>C</td><td>Side</td><td>Taxpayer or Other</td></tr>
+<tr><td>D</td><td>Task</td><td>Turnover clean after 3-night stay</td></tr>
+<tr><td>E</td><td>Category</td><td>Operations, Management, Investor, Travel</td></tr>
+<tr><td>F, G</td><td>Start, End</td><td>10:05, 13:20</td></tr>
+<tr><td>H</td><td>Hours</td><td><code>=(G2-F2)&#42;24</code></td></tr>
+<tr><td>I</td><td>Evidence</td><td>Lock log entry, message thread, receipt number</td></tr>
+</tbody>
+</table>
+
+<p>Column H converts Excel's fraction of a day into hours, so 10:05 to 13:20 returns 3.25. Column I is the column an examiner reads. The best evidence for a short term rental already exists without you writing anything: the platform's message timestamps show when you answered guests, a smart lock records each code's entry and exit, store receipts show the restock run, and the handyman's invoice shows his date and time. Give every person their own lock code, including the cleaner. That one setting produces a third-party record of the hours the cleaner spent on site, which is the number test (a)(3) compares you against.</p>
+
+<p>On a Persons tab, list each individual in column A, their side in column B, and their countable hours in column C:</p>
+
+<p><code>=SUMIFS(Hours!H:H,Hours!B:B,A2,Hours!E:E,"&lt;&gt;Investor",Hours!E:E,"&lt;&gt;Travel")</code></p>
+
+<p>The two "not equal" criteria on the same column drop investor and travel rows. Then the Tests tab does the comparison. B3 adds owner and spouse, B4 finds the largest other individual, B5 shows your share of all hours:</p>
+
+<p><code>=SUMIFS(Persons!C:C,Persons!B:B,"Taxpayer")</code></p>
+
+<p><code>=MAXIFS(Persons!C:C,Persons!B:B,"Other")</code></p>
+
+<p><code>=B3/SUM(Persons!C:C)</code></p>
+
+<p><code>=IF(B3&gt;500,"PASS (a)(1)",IF(AND(B3&gt;100,B3&gt;=B4),"PASS (a)(3)","FAIL (a)(1) AND (a)(3)"))</code></p>
+
+<p>B4 is the cell owners never build. Keep it on screen all year, together with the gap <code>=MAX(0,B4-B3)</code>, because a gap found in June can still be closed with about six months of turnovers left.</p>
+
+<h2>The Cabin's Year: 181.6 Hours Against the Cleaner's 336</h2>
+
+<p>Here is the example cabin's log at year end. All hours are an illustration, built from task counts the owners could document.</p>
+
+<table>
+<thead>
+<tr><th>Person</th><th>Work logged</th><th>Countable hours</th></tr>
+</thead>
+<tbody>
+<tr><td>Owner</td><td>Guest messaging, 96 stays at 0.6 h (57.6), pricing and calendar (26), 24 restock visits at 2 h (48), repairs and contractor visits (22)</td><td>153.6</td></tr>
+<tr><td>Spouse</td><td>10 restock visits at 2 h (20), guest lockouts and check-in calls (8)</td><td>28.0</td></tr>
+<tr><td>Owner and spouse together</td><td>Test side</td><td>181.6</td></tr>
+<tr><td>Cleaner</td><td>96 turnovers at 3.25 h (312), 4 deep cleans at 6 h (24)</td><td>336.0</td></tr>
+<tr><td>Handyman</td><td>Repairs</td><td>30.0</td></tr>
+<tr><td>Not counted</td><td>Owner investor time 18 h, travel 34 h (owner 24, spouse 10)</td><td>0</td></tr>
+</tbody>
+</table>
+
+<p>Test (a)(1) fails at 181.6 hours. Test (a)(2) fails, since the couple did 33.2 percent of all hours worked on the cabin. Test (a)(3) fails because the cleaner logged 336 hours, 154.4 more than the couple. Counting the 34 hours of travel would bring the couple to 215.6, still short of the cleaner. The owners worked every week of the year, wrote a careful diary, and the $147,758.60 loss is passive.</p>
+
+<h3>Three ways the year could have gone</h3>
+
+<p>Each turnover the owners clean themselves moves 3.25 hours to their side and removes 3.25 hours from the cleaner's, so the gap closes at 6.5 hours per turnover. The number of self-cleaned turnovers needed is:</p>
+
+<p><code>=ROUNDUP(MAX(0,B4-B3)/(2&#42;3.25),0)</code></p>
+
+<p>For the cabin that returns 24. Run the scenarios against the same year:</p>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Owner and spouse</th><th>Largest other individual</th><th>Test (a)(3)</th><th>Cash effect</th></tr>
+</thead>
+<tbody>
+<tr><td>As logged</td><td>181.6</td><td>Cleaner 336.0</td><td>Fail</td><td>None</td></tr>
+<tr><td>Owners clean 24 turnovers</td><td>259.6</td><td>Cleaner 258.0</td><td>Pass by 1.6 h</td><td>$3,240 of cleaning fees saved</td></tr>
+<tr><td>Owners clean 30 turnovers</td><td>279.1</td><td>Cleaner 238.5</td><td>Pass by 40.6 h</td><td>$4,050 of cleaning fees saved</td></tr>
+<tr><td>Co-host takes messaging and pricing for 15%</td><td>98.0</td><td>Cleaner 336.0</td><td>Fail, and (a)(7) closed under 100 h</td><td>$12,421.50 of co-host fees paid</td></tr>
+</tbody>
+</table>
+
+<p>A margin of 1.6 hours over a full year disappears with one disputed restock visit. Thirty turnovers, roughly one turnover in three, gives the couple 40.6 hours of room and saves $4,050 in cleaning fees at $135 a clean. The deduction then falls by those same fees, so the loss becomes $143,708.60 and is worth $50,298.01 at 35 percent. Giving up $1,417.50 of deduction value to secure the $50,298.01 is an easy call.</p>
+
+<p>The co-host row is the expensive mistake. The couple pays $12,421.50 for convenience, their own countable hours fall to 98, test (a)(3) and test (a)(7) both close below 100 hours, and the loss becomes passive. Owners who plan to use the short term rental route and also hire a co-host should run this row before signing the co-host agreement.</p>
+
+<p>One more row comes up whenever owners hear about the cleaner problem. Test (a)(3) compares you with "any other individual." If a cleaning company rotates three people evenly across the year, each one works about 112 hours, under the couple's 181.6. That reading helps only if you can show which person cleaned which turnover, and a company invoice at a flat fee per clean usually does not. Separate lock codes per cleaner are the record that would support it, and the example year does not rely on it.</p>
+
+<h2>What the Deduction Is Worth, Line by Line</h2>
+
+<p>The hours decide the character of the loss. The amount comes from the property itself, and the year-one figures for the cabin, all illustrative, are:</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Rental revenue, 338 nights at $245</td><td>$82,810</td></tr>
+<tr><td>Cleaning, 96 turnovers at $135 plus 4 deep cleans at $300</td><td>$14,160</td></tr>
+<tr><td>Platform fees, 3%</td><td>$2,484.30</td></tr>
+<tr><td>Utilities and internet</td><td>$6,000</td></tr>
+<tr><td>Supplies</td><td>$3,200</td></tr>
+<tr><td>Repairs</td><td>$4,500</td></tr>
+<tr><td>Insurance</td><td>$3,600</td></tr>
+<tr><td>Property tax, 1%</td><td>$5,850</td></tr>
+<tr><td>Mortgage interest, $468,000 at 6.875%, first 12 payments</td><td>$32,023.45</td></tr>
+<tr><td>Net before depreciation</td><td>$10,992.25</td></tr>
+<tr><td>Bonus depreciation, $117,600 cost segregation plus $32,000 furniture</td><td>$149,600</td></tr>
+<tr><td>Building, $372,400 over 39 years, mid-month, January start</td><td>$9,150.85</td></tr>
+<tr><td>Tax loss</td><td>-$147,758.60</td></tr>
+<tr><td>Value at a 35% marginal rate if non-passive</td><td>$51,715.51</td></tr>
+</tbody>
+</table>
+
+<p>The recovery period for the building shell is a question for your preparer; the example uses 39 years. The cost segregation percentage is a study result, and 24 percent is an illustration. The structure of the table is the point: the property earns $10,992.25 before depreciation, and almost the entire loss comes from bonus depreciation in the first year. That is why the first year is the one the log has to win, and why the purchase year is the one where test (a)(5) cannot help. Our <a href="/blog/cost-segregation-calculator-excel">cost segregation calculator</a> covers the reclassification side, and the <a href="/blog/short-term-rental-expense-tracker-excel">short term rental expense tracker</a> holds the expense lines above.</p>
+
+<p>Failing the test does not destroy the loss. Section 469(b) carries a disallowed loss forward to the next year, and Section 469(g) releases it when you dispose of your entire interest in a fully taxable sale. For an owner who plans to hold the cabin for ten years with modest positive cash flow, that release can be a decade away, and $51,715.51 of tax saved today is worth more than the same amount at a sale in 2036.</p>
+
+<h2>Keep the Stays Tab and the Hours Tab in One Workbook</h2>
+
+<p>The two tests interact, and owners usually track them in different places. An owner who takes a 45-night winter booking for steady income moves the average stay up, while taking 45 nights of turnovers and their cleaning hours out of the log. Both changes need to be visible in the same file before the booking is accepted. Our <a href="/blog/airbnb-occupancy-tracker-spreadsheet">Airbnb occupancy tracker</a> is a natural source for the Stays tab, and if you are weighing longer bookings on purpose, the <a href="/blog/mid-term-rental-analysis-spreadsheet-excel">mid term rental analysis</a> shows what the switch costs once the average passes seven days and the loss turns passive whatever your hours.</p>
+
+<p>The discipline is the same one a vehicle log needs, where Regulation 1.274-5T(c)(1) gives a record made at or near the time of the use "a high degree of credibility" that a statement prepared later lacks. If you already keep a <a href="/blog/rental-property-mileage-log-excel">rental property mileage log</a>, the restock trips in it are rows for the Hours tab, with the same dates.</p>
+
+<p>A quarterly checklist keeps the log from becoming a March project:</p>
+
+<ul>
+<li>Export platform messages and lock logs for the quarter and attach them to the Evidence column.</li>
+<li>Enter every cleaner, handyman and co-host hour, from lock logs or invoices, as Other rows.</li>
+<li>Check B4 against B3 and read the gap. Plan self-cleaned turnovers for the next quarter from the ROUNDUP formula.</li>
+<li>Check the conservative average stay on the Stays tab before accepting any booking over 14 nights.</li>
+<li>Move any financial review time into the Investor category.</li>
+</ul>
+
+<h2>The Recommendation</h2>
+
+<p>Build the Persons tab before you build the diary. Enter your cleaner's hours from the first turnover of the year, give every person their own lock code, and keep the gap formula on screen. If the gap is positive by midyear, schedule your own turnovers at the ROUNDUP count plus a buffer of six or so, which for the example cabin meant 30 cleans and $4,050 saved in fees. If you are about to hire a co-host, run the co-host row first: on this cabin it turns a $51,715.51 first-year deduction into a passive carryforward and costs $12,421.50 a year. Take the final log and its evidence files to your preparer in January, while they can still be checked against the lock and message records.</p>
+
+<p>The hours log tells you whether the loss is usable this year. Whether the cabin is worth owning at all is a separate calculation, and it should not lean on the tax result. The <a href="/products/rental-property-analyzer">SheetCraft Rental Property Analyzer</a> runs that one: cash flow, cap rate, cash-on-cash return, three loan scenarios side by side and a 10-year projection, with every operating expense on its own line. It does not keep an hours log or apply the participation tests, so add the Hours, Persons and Tests tabs from this article to the same workbook, and underwrite the cabin on its $10,992.25 before depreciation, not on the deduction.</p>`,
+  },
+  {
     slug: 'rental-property-late-fee-cap-calculator-excel',
     title: 'Rental Property Late Fee Cap Calculator in Excel: Why a Flat Fee Breaks on a Short Pay',
     metaTitle: 'Rental Property Late Fee Cap Calculator Excel | SheetCraft',
