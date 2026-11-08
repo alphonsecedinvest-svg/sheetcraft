@@ -30099,7 +30099,7 @@ Ready to analyze your next deal with confidence? Our <a href="/products/flip-brr
 
 <p>Your effective rent calculation needs to account for tenant concessions: <code>=B3&#42;(B4/100)&#42;B2&#42;(1-(B6/12))</code></p>
 
-<p>This formula takes your base rent, multiplies by occupancy rate and total square footage, then reduces it by the free rent percentage. A $35/sq ft rent with 3 months free rent is really $26.25/sq ft effective.</p>
+<p>This formula takes your base rent, multiplies by occupancy rate and total square footage, then reduces it by the free rent percentage. A $35/sq ft rent with 3 months free rent collects $26.25/sq ft in year one; spread over a five-year lease, the same three months cost 5% of the rent, not 25%.</p>
 
 <h3>Retail Property Inputs (Cells A25:C45)</h3>
 
