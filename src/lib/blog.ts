@@ -16,6 +16,204 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'small-commercial-lease-tenant-improvement-allowance-calculator-excel',
+    title: 'Small Commercial Lease Tenant Improvement Allowance Calculator in Excel: The $30 Tenant Who Loses to the $22 One',
+    metaTitle: 'Tenant Improvement Allowance Calculator Excel | SheetCraft',
+    metaDescription: 'A small commercial lease tenant improvement allowance calculator in Excel must price tenant survival: $30 rent nets $13.58 per sq ft, the $22 offer $16.43.',
+    targetKeyword: 'small commercial lease tenant improvement allowance calculator Excel',
+    secondaryKeywords: ['net effective rent calculator', 'TI allowance negotiation', 'retail lease leasing commission', 'tenant default risk', 'burn-down guaranty'],
+    excerpt: 'A new bakery offering $30 per square foot beats an eight-year-old agency at $22 on net effective rent, until you price the BLS odds that a new business closes within five years. Then the $22 lease is worth $18,866.85 more. Here is the Excel model, the break-even allowance and the guaranty that closes the gap.',
+    publishedAt: '2026-11-08',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/small-commercial-lease-tenant-improvement-allowance-calculator-excel.png',
+    imageAlt: 'Illustration of a landlord and a baker in an apron unrolling a blank sheet inside an empty retail bay with exposed ceiling joists, drywall stacked against a wall and plumbing pipes rising from a floor trench',
+    content: `<p>A small commercial lease tenant improvement allowance calculator in Excel usually answers one question: what does the rent come to once the allowance, the free months and the leasing commission are paid back? Brokers call the answer net effective rent. It is the right first number and the wrong last one, because it assumes the tenant pays every month of the lease. A tenant improvement allowance is money the landlord spends before the tenant has paid anything, and it comes back only if the business stays open long enough.</p>
+
+<p>Here is the decision this article prices. You own a 1,600 square foot retail bay in a strip center, vacant in gray shell condition. Two prospects want it on five-year triple net leases. Tenant A is a bakery-café opening its first location under a new LLC. It offers $30.00 per square foot with 3 percent annual bumps, and asks for a $35 per square foot allowance to build a kitchen, plus three months free. Tenant B is an insurance agency that has operated for eight years and wants to move. It offers $22.00 with the same bumps, $12 per square foot of allowance, and one month free. On face rent, A pays 36 percent more in year one. On net effective rent at an 8 percent cost of capital, A still wins by $1.17 per square foot. Once you price the chance that each business closes before the lease ends, B is worth $2.85 per square foot per year more, and the gap equals $18,866.85 of present value on one bay.</p>
+
+<h2>The Two Offers on Paper</h2>
+
+<p>All figures below are an example built for this article. The rents, allowances and expenses are assumptions you replace with your own, and the leasing commission is modeled at 6 percent of the base rent actually payable, half at signing and half when rent starts.</p>
+
+<table>
+<thead><tr><th>Term</th><th>Tenant A: new bakery-café</th><th>Tenant B: agency, 8 years old</th></tr></thead>
+<tbody>
+<tr><td>Year 1 base rent per sq ft</td><td>$30.00</td><td>$22.00</td></tr>
+<tr><td>Average base rent over 5 years</td><td>$30.35</td><td>$22.99</td></tr>
+<tr><td>Free rent</td><td>3 months</td><td>1 month</td></tr>
+<tr><td>Allowance</td><td>$35/sq ft = $56,000</td><td>$12/sq ft = $19,200</td></tr>
+<tr><td>Leasing commission (6%)</td><td>$14,570.31</td><td>$11,036.89</td></tr>
+<tr><td>Cash out before the first full rent check</td><td>$70,570.31</td><td>$30,236.89</td></tr>
+<tr><td>Base rent over the term</td><td>$242,838.52</td><td>$183,948.25</td></tr>
+<tr><td>Security deposit (1 month)</td><td>$4,000.00</td><td>$2,933.33</td></tr>
+</tbody>
+</table>
+
+<p>Tenant A brings $58,890.27 more rent over the term and costs $40,333.42 more up front. Every landlord sees that trade. The term sheet does not show the timing: the extra cost leaves before the first full rent check, and the extra rent comes in over 57 months, as long as the tenant stays open.</p>
+
+<h2>Four Comparisons, Two Different Winners</h2>
+
+<p>Landlords usually compare offers with one of the first three numbers below. Each fixes a flaw of the one above it, and none of them uses anything about the tenant except the rent it offers. The fourth row adds the tenant's odds of staying open.</p>
+
+<table>
+<thead><tr><th>Method</th><th>Tenant A</th><th>Tenant B</th><th>Winner</th></tr></thead>
+<tbody>
+<tr><td>Face rent, average over 5 years</td><td>$30.35</td><td>$22.99</td><td>A by $7.36</td></tr>
+<tr><td>Net effective rent, undiscounted</td><td>$21.53</td><td>$19.21</td><td>A by $2.32</td></tr>
+<tr><td>Net effective rent at 8%</td><td>$19.44</td><td>$18.27</td><td>A by $1.17</td></tr>
+<tr><td>Net effective rent at 8%, survival priced</td><td>$13.58</td><td>$16.43</td><td>B by $2.85</td></tr>
+</tbody>
+</table>
+
+<p>The undiscounted version subtracts allowance and commission from total rent and divides by five years and 1,600 square feet: <code>=(SUM(D21:D80)-B7&#42;B4-B9&#42;SUM(D21:D80))/5/B4</code>. It treats a dollar of allowance paid today the same as a dollar of rent received in year five, which flatters the tenant who asks for more money up front.</p>
+
+<p>The discounted version is what most calculators stop at, and it is what the usual advice describes: amortize the allowance over the term at your cost of capital. Put the net monthly cash flows in a column, take their present value, and turn it back into a level rent with <code>PMT</code>. A still wins, by a smaller margin. This version treats the allowance as a loan repaid through rent, which is correct, and it assumes the borrower never defaults, which no lender would assume about a business in its first year.</p>
+
+<h2>What the Allowance Really Is: a Loan to a Small Business</h2>
+
+<p>The Bureau of Labor Statistics publishes the survival of every private establishment by the year it opened, in Business Employment Dynamics Table 7. Of the establishments that opened in the year ended March 2020, 80.9 percent were still operating a year later and 51.4 percent after five years. For an established tenant, the same table gives a different curve: of the establishments that opened in the year ended March 2012 and were still open at age eight in March 2020, 71.3 percent were still open in March 2025.</p>
+
+<table>
+<thead><tr><th>Lease year</th><th>A: survival, new establishment</th><th>A: closes during year</th><th>B: survival, age 8 at signing</th><th>B: closes during year</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>80.9%</td><td>19.1%</td><td>93.2%</td><td>6.8%</td></tr>
+<tr><td>2</td><td>72.3%</td><td>8.6%</td><td>87.9%</td><td>5.3%</td></tr>
+<tr><td>3</td><td>63.6%</td><td>8.7%</td><td>81.1%</td><td>6.8%</td></tr>
+<tr><td>4</td><td>57.2%</td><td>6.4%</td><td>76.1%</td><td>5.0%</td></tr>
+<tr><td>5</td><td>51.4%</td><td>5.8%</td><td>71.3%</td><td>4.8%</td></tr>
+</tbody>
+</table>
+
+<p>These are national averages across all industries, so treat them as the starting point for one bakery's odds. Two limits matter. The table counts establishments, so a business that closes one location and keeps others still counts as a closure of that establishment, which is the event a landlord cares about. And it says nothing about the person behind the business, which is why the screening and guaranty steps later in this article exist. If you screen commercial tenants with the discipline of a <a href="/blog/rental-application-screening-scorecard-excel/">rental application screening scorecard</a>, you can move a tenant toward the better curve.</p>
+
+<h2>Pricing a Closure, Month by Month</h2>
+
+<p>A closure does not cost the whole lease. The model assumes the tenant stops paying in the middle of the lease year in which it closes, the landlord keeps the one-month deposit, carries the bay empty for eight months at $8.00 per square foot per year of taxes, insurance and common area charges ($1,066.67 a month), and then signs a replacement tenant on market terms. The replacement pays the market net effective rent of a tenant like B, survival included, which solves to $16.43 per square foot. The model stops at month 60 for every path, so renewal value is not counted for either tenant.</p>
+
+<table>
+<thead><tr><th>Tenant A outcome</th><th>Probability</th><th>Present value at 8%</th></tr></thead>
+<tbody>
+<tr><td>Closes in year 1</td><td>19.1%</td><td>$17,634.58</td></tr>
+<tr><td>Closes in year 2</td><td>8.6%</td><td>$39,847.89</td></tr>
+<tr><td>Closes in year 3</td><td>8.7%</td><td>$61,664.80</td></tr>
+<tr><td>Closes in year 4</td><td>6.4%</td><td>$83,056.84</td></tr>
+<tr><td>Closes in year 5</td><td>5.8%</td><td>$108,392.24</td></tr>
+<tr><td>Pays the full term</td><td>51.4%</td><td>$128,689.90</td></tr>
+<tr><td>Probability-weighted</td><td>100.0%</td><td>$89,908.96</td></tr>
+</tbody>
+</table>
+
+<p>The weighted present value of $89,908.96 converts to $13.58 per square foot. For B the same steps give $108,775.81, or $16.43. The difference of $18,866.85 is what signing A costs you today in expected value, on the assumptions stated.</p>
+
+<p>Give Tenant A the survival curve of an eight-year-old business and keep its rent, allowance and free months. Its net effective rent becomes $16.41, two cents under B. On equal credit, the two offers are almost identical. The entire gap is the tenant's odds of staying open.</p>
+
+<h2>Building the Calculator in Excel</h2>
+
+<p>One sheet per offer, with inputs at the top and a 60-row monthly grid below. The layout below matches the formulas.</p>
+
+<h3>Inputs</h3>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Tenant A</th></tr></thead>
+<tbody>
+<tr><td>B4</td><td>Rentable square feet</td><td>1,600</td></tr>
+<tr><td>B5</td><td>Year 1 base rent per sq ft</td><td>$30.00</td></tr>
+<tr><td>B6</td><td>Annual increase</td><td>3%</td></tr>
+<tr><td>B7</td><td>Allowance per sq ft</td><td>$35.00</td></tr>
+<tr><td>B8</td><td>Free rent months</td><td>3</td></tr>
+<tr><td>B9</td><td>Leasing commission</td><td>6%</td></tr>
+<tr><td>B10</td><td>Cost of capital, annual</td><td>8%</td></tr>
+<tr><td>B11</td><td>Deposit, months of rent</td><td>1</td></tr>
+<tr><td>B12</td><td>Downtime after a closure, months</td><td>8</td></tr>
+<tr><td>B13</td><td>Vacant carry per sq ft per year</td><td>$8.00</td></tr>
+<tr><td>B14</td><td>Replacement net effective rent per sq ft</td><td>$16.43</td></tr>
+<tr><td>B15</td><td>Monthly rate</td><td><code>=(1+B10)^(1/12)-1</code></td></tr>
+</tbody>
+</table>
+
+<h3>The monthly grid</h3>
+
+<p>Months 1 to 60 go in C21:C80. Base rent in D21, filled down: <code>=IF(C21&lt;=$B$8,0,$B$5&#42;(1+$B$6)^INT((C21-1)/12)&#42;$B$4/12)</code>. The free months return zero and the bump steps up every twelfth month. The commission in B17 is <code>=$B$9&#42;SUM(D21:D80)</code>, and the allowance in B18 is <code>=$B$7&#42;$B$4</code>.</p>
+
+<p>Columns F to K hold six outcomes: closure in years 1 to 5, and the full term. Row 19 holds the closure year (1 to 5, and 99 in column K). Row 20 holds the last month the tenant pays: <code>=MIN(60,12&#42;(F19-1)+6)</code>. Each cell of the grid then reads:</p>
+
+<p><code>=IF($C21&lt;=F$20,$D21,IF($C21&lt;=F$20+$B$12,-$B$13&#42;$B$4/12,$B$14&#42;$B$4/12))+IF($C21=F$20+1,$B$11&#42;INDEX($D$21:$D$80,$B$8+1),0)-IF($C21=$B$8,$B$18+$B$17/2,0)</code></p>
+
+<p>In plain terms: rent while the tenant is open, carrying costs while the bay is empty, replacement rent after that, the deposit in the month after the closure, and the allowance plus the second half of the commission in the month the build-out ends and rent starts. For the full-term column, F20 is 60 and the closure branches never fire.</p>
+
+<h3>From six outcomes to one number</h3>
+
+<p>Present value of each outcome in row 82: <code>=-$B$17/2+NPV($B$15,F21:F80)</code>, the first half of the commission being paid at signing. Survival from the BLS table goes in F84:K84 (100%, 80.9%, 72.3%, 63.6%, 57.2%, 51.4%). The closure probability in F85, filled across to J85, is <code>=F84-G84</code>, and K85 is <code>=K84</code>, the five-year survival. The expected value in F87 is <code>=SUMPRODUCT(F82:K82,F85:K85)</code>, and the net effective rent per square foot is <code>=PMT($B$15,60,-F87)&#42;12/$B$4</code>.</p>
+
+<p>Check the build before trusting it: set every survival cell to 100% and the expected value must equal the no-default value of $128,689.90, and the net effective rent must return $19.44. If it does not, a reference is off.</p>
+
+<h3>Does the verdict survive the assumptions?</h3>
+
+<p>Three inputs carry the most judgment: the cost of capital, the downtime and the survival curve. The first two can be stress-tested in a minute with a data table on B10 and B12.</p>
+
+<table>
+<thead><tr><th>Assumption</th><th>A, no default</th><th>B, no default</th><th>A, survival priced</th><th>B, survival priced</th></tr></thead>
+<tbody>
+<tr><td>Cost of capital 6%</td><td>$19.97</td><td>$18.51</td><td>$14.11</td><td>$16.68</td></tr>
+<tr><td>Cost of capital 8%</td><td>$19.44</td><td>$18.27</td><td>$13.58</td><td>$16.43</td></tr>
+<tr><td>Cost of capital 10%</td><td>$18.91</td><td>$18.03</td><td>$13.06</td><td>$16.19</td></tr>
+<tr><td>Downtime 4 months</td><td>$19.44</td><td>$18.27</td><td>$14.46</td><td>$16.92</td></tr>
+<tr><td>Downtime 12 months</td><td>$19.44</td><td>$18.27</td><td>$12.80</td><td>$16.01</td></tr>
+</tbody>
+</table>
+
+<p>In every row the no-default comparison picks A and the survival-priced one picks B. The survival curve is the input that can flip it, and that one you change by underwriting the tenant and structuring the allowance.</p>
+
+<h2>What Tenant A Would Have to Change</h2>
+
+<p>Rejecting the bakery is not the only answer. The calculator tells you what A has to change, and each fix below is one input.</p>
+
+<table>
+<thead><tr><th>Structure</th><th>A, net effective rent</th><th>Against B ($16.43)</th></tr></thead>
+<tbody>
+<tr><td>Terms as offered</td><td>$13.58</td><td>-$2.85</td></tr>
+<tr><td>Deposit of 6 months ($24,000)</td><td>$14.85</td><td>-$1.58</td></tr>
+<tr><td>Guaranty of unamortized allowance and commission, collected 40% of the time</td><td>$14.74</td><td>-$1.69</td></tr>
+<tr><td>Same guaranty, always collected</td><td>$16.48</td><td>+$0.05</td></tr>
+<tr><td>Allowance cut to $15/sq ft, rent to $26.00</td><td>$15.82</td><td>-$0.61</td></tr>
+<tr><td>Allowance cut to $22.98/sq ft at $30.00 rent</td><td>$16.43</td><td>even</td></tr>
+<tr><td>Rent raised to $34.56 at $35 allowance</td><td>$16.43</td><td>even</td></tr>
+</tbody>
+</table>
+
+<p>The guaranty in the table covers the unamortized share of the allowance and commission, straight-line over 60 months, so it shrinks as the lease runs. A guaranty from a first-time owner is only as good as the owner's assets, which is why the table shows it collected 40 percent of the time as well as in full. The 40 percent is an assumption; put in the rate your attorney thinks you would collect in your state.</p>
+
+<p>The rent and allowance break-evens are the numbers to bring to the negotiation. At $30.00 rent the bay supports $22.98 of allowance per square foot from a first-location tenant, or $36,768, not $56,000. At a $35 allowance the rent has to be $34.56. If neither is acceptable to the tenant, the remaining gap is what the guaranty or the deposit has to close.</p>
+
+<p>Two structural points cost nothing to add. Pay the allowance after the work is complete, against paid invoices and lien waivers from the contractor and major subcontractors, so the money goes into improvements that exist; a <a href="/blog/construction-lien-waiver-tracking-excel/">lien waiver tracking sheet</a> keeps the releases matched to each payment. And separate improvements the next tenant can use (restrooms, HVAC, storefront, electrical service) from those only a bakery can use (the hood, the grease interceptor, the walk-in). The model treats all $56,000 as gone on a closure, which is close to true for the kitchen and too pessimistic for the restrooms.</p>
+
+<h3>Or wait for a Tenant B</h3>
+
+<p>Often only Tenant A is at the table, and the real choice is between signing now and leaving the bay empty. The calculator answers that too: waiting k months for a tenant like B costs the carrying charges plus the discounting of B's lease by k months.</p>
+
+<p>With A at $89,908.96 and B at $108,775.81, the gap is $18,866.85. Waiting 11 months for a B costs $18,702.17 and waiting 12 months costs $20,337.85. On these assumptions, a landlord who expects to find an established tenant within about eleven months does better leaving the bay dark than signing A as offered. Past that, A wins, and the fixes above improve it further. Put your own leasing broker's estimate of absorption in that cell.</p>
+
+<h2>Tax Treatment, Briefly</h2>
+
+<p>Three provisions of the Internal Revenue Code touch this deal, and none of them changes the pre-tax ranking above. Under Section 110, a tenant leasing retail space for 15 years or less can exclude a construction allowance from income to the extent it spends the money on improvements that revert to the landlord at the end of the lease; the landlord then treats those improvements as its own nonresidential real property. Interior improvements to a nonresidential building placed in service after the building itself are qualified improvement property, which Section 168(e)(3)(E)(vii) classifies as 15-year property, eligible for bonus depreciation under Section 168(k). And Section 168(i)(8)(B) lets a landlord recognize a loss on improvements it made for a tenant and abandons or disposes of when that tenant's lease ends, which softens the year-one closure in the table above. How these apply to your return, and in which year, is a question for your preparer.</p>
+
+<p>If you also run this bay through a full property model, note that free rent belongs to the whole term. The formula in our <a href="/blog/commercial-real-estate-noi-calculator-excel/">commercial NOI calculator article</a> applies three free months to year-one income, which is right for year one and overstates the discount when read as the rent for a five-year lease. Record the allowance, the free months and the guaranty cap in your <a href="/blog/lease-abstract-template-excel/">lease abstract</a>, so the number you negotiated is the number your next buyer sees.</p>
+
+<h2>What to Do Before You Sign</h2>
+
+<ol>
+<li>Put both offers into the calculator with the survival curve that matches each tenant's age, not a single vacancy rate for the whole building.</li>
+<li>Read the no-default and survival-priced net effective rents side by side. If they disagree on the winner, the tenant's credit is the deciding term.</li>
+<li>Compute the allowance and the rent at which the new tenant breaks even with your best established alternative ($22.98 per square foot and $34.56 in this example), and negotiate toward one of them.</li>
+<li>Close what remains with a burn-down guaranty of the unamortized allowance and commission, or a larger deposit, and price the guaranty at the rate you would actually collect.</li>
+<li>Pay the allowance only against completed work, paid invoices and lien waivers.</li>
+<li>Estimate honestly how long a tenant like B would take to find. Under about eleven months on these numbers, waiting wins.</li>
+</ol>
+
+<p>The <a href="/products/rental-property-analyzer/">Rental Property Analyzer</a> handles the property side of this decision: it computes cash flow, cap rate and cash-on-cash return for the whole asset, compares up to three loan scenarios, and runs a 10-year projection of rent growth, expenses and appreciation. It does not compute tenant survival or a per-lease net effective rent. Run the lease calculator above for each offer, then put the winning lease's net effective rent into the Analyzer as the bay's rent to see what the choice does to the property's return and to the loan you can carry.</p>`,
+  },
+  {
     slug: 'short-term-rental-material-participation-hours-log-excel',
     title: 'Short Term Rental Material Participation Hours Log in Excel: Your Cleaner Decides the Test',
     metaTitle: 'Short Term Rental Material Participation Log | SheetCraft',
