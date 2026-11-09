@@ -16,6 +16,162 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-transfer-to-llc-cost-calculator-excel',
+    title: 'Rental Property Transfer to LLC Cost Calculator in Excel: Price the Deed, the Cap and the Loan',
+    metaTitle: 'Rental Property Transfer to LLC Calculator | SheetCraft',
+    metaDescription: 'A rental property transfer to LLC cost calculator in Excel: Florida taxes the deed on the mortgage, and who owns the loan decides the biggest cost.',
+    targetKeyword: 'rental property transfer to LLC cost calculator Excel',
+    secondaryKeywords: ['due-on-sale clause LLC', 'Florida documentary stamp tax', 'non-homestead 10 percent cap', 'Fannie Mae LLC transfer', 'California LLC annual tax'],
+    excerpt: 'Moving three Florida rentals into an LLC costs $3,213.70 in stamp tax on the mortgages, $627.05 in lost cap, and up to $40,806.51 if a Fannie Mae loan acquired before June 2016 gets called. Here is the Excel model that prices each deed, and why one house should stay out.',
+    publishedAt: '2026-11-09',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-transfer-to-llc-cost-calculator-excel.png',
+    imageAlt: 'Illustration of two hands placing the third of three small wooden model houses into an open cardboard box on a desk, next to a blank rubber stamp, an ink pad and a brass key ring',
+    content: `<p>A rental property transfer to LLC cost calculator in Excel has to answer a narrower question than the one most landlords ask. The usual question is whether an LLC is worth it. The answerable one is what this deed, for this property, under this loan, will cost you, and which of those costs are certain, which are temporary, and which are only a risk. Legal blogs list the hazards: transfer tax, a property tax reassessment, insurance, the lender's due-on-sale clause. They rarely price them. Priced, the cap loss everyone warns about is often the cheapest line, and the most expensive one depends on a date printed nowhere on your mortgage statement.</p>
+
+<p>This article prices one investor's decision in Florida, where every one of those hazards has a statute behind it, and then contrasts it with California, where the same deed costs almost nothing up front and bleeds money every year after. The investor owns three single-family rentals in their own name and wants them in an LLC before the next lease cycle. All property values, balances, millage and loan terms below are an example built for this article. The statutes, the guide language and the fees are real and cited.</p>
+
+<h2>Three Rentals, Three Different Bills</h2>
+
+<p>Each house carries a different loan and a different gap between its market value and its capped assessed value. Those two facts drive almost the whole cost of the transfer.</p>
+
+<table>
+<thead><tr><th>Input</th><th>Maple (bought 2015)</th><th>Birch (bought 2020)</th><th>Cedar (bought 2024)</th></tr></thead>
+<tbody>
+<tr><td>Loan held by</td><td>Fannie Mae, acquired July 2015</td><td>Fannie Mae, acquired October 2020</td><td>Local bank, kept in portfolio</td></tr>
+<tr><td>Original loan and rate</td><td>$132,000 at 3.875%</td><td>$172,000 at 3.00%</td><td>$216,750 at 7.25%</td></tr>
+<tr><td>Balance at transfer</td><td>$99,160.02</td><td>$148,394.27</td><td>$211,408.29</td></tr>
+<tr><td>Monthly principal and interest</td><td>$620.71</td><td>$725.16</td><td>$1,478.62</td></tr>
+<tr><td>Months remaining</td><td>225</td><td>287</td><td>331</td></tr>
+<tr><td>Just (market) value on the TRIM notice</td><td>$318,000</td><td>$336,000</td><td>$285,000</td></tr>
+<tr><td>Assessed value, non-school levies</td><td>$271,500</td><td>$318,400</td><td>$285,000</td></tr>
+<tr><td>Gap the 10% cap is holding back</td><td>$46,500</td><td>$17,600</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>The model uses four more assumptions, each in its own input cell: 13.2 mills of non-school property tax, 4 percent annual market growth, $450 per deed for preparation and recording, and a 7.875 percent replacement rate if a lender ever calls a loan. That last figure sits above Freddie Mac's survey average of 7.18 percent for the week of November 5, 2026, because the survey describes an owner-occupant with 20 percent down and investor loans price higher. Replace all four with your own quotes.</p>
+
+<h2>Florida Taxes the Mortgage, Not the Equity</h2>
+
+<p>Florida's documentary stamp tax on deeds is 70 cents per $100 of consideration under section 201.02(1)(a), Florida Statutes, and the same paragraph defines consideration to include "the amount of any mortgage, purchase money mortgage lien, or other encumbrance, whether or not the underlying indebtedness is assumed." The Department of Revenue's rule 12B-4.013(19) says it again: on a deed, total consideration includes any mortgage on the property. A deed from you to your own LLC for ten dollars is therefore taxed on the loan balance. The free-and-clear rental moves for nearly nothing. The heavily financed one pays the most, which is the opposite of how most owners rank their properties for this decision.</p>
+
+<p>In the sheet, with the balance in column E:</p>
+
+<p><code>=ROUNDUP(E5/100,0)&#42;0.70</code></p>
+
+<p>That returns $694.40 for Maple, $1,038.80 for Birch and $1,480.50 for Cedar, or $3,213.70 for the three. Section 201.031 lets Miami-Dade County add a surtax, but not on a deed that conveys only a single-family residence, so these three houses pay the base rate.</p>
+
+<p>The tax is charged on every deed, including the ones you sign later, and that matters for anyone who plans to refinance. Fannie Mae's Servicing Guide, section D1-4.1-02, tells servicers to warn the borrower that "a property transferred to an LLC must be transferred back to a natural person in order to qualify for a refinance loan." If Birch goes into the LLC now and you refinance it in five years, the deed back to you is taxed on the balance at that date, $125,498.13, which costs $878.50. The round trip in and out, with two deed fees, costs $2,817.30 before the refinance itself. Our <a href="/blog/rate-and-term-refinance-closing-cost-recoup-calculator-excel/">refinance recoup calculator</a> should carry that line if the property sits in an entity.</p>
+
+<h2>The 10 Percent Cap: The Loudest Warning, the Smallest Number</h2>
+
+<p>Florida limits annual increases in the assessed value of non-homestead residential property with nine or fewer units to 10 percent for all levies except school taxes (section 193.1554(3)). The cap resets to full just value on the January 1 after a "change of ownership or control," which section 193.1554(5) defines as any "transfer of legal title or beneficial title in equity to any person." The listed exceptions are a deed that corrects an error, a transfer between legal and equitable title, a transfer between spouses, and trading in a public company's shares. A deed to your own LLC is none of those. Florida's Third District Court of Appeal applied exactly that reading in S &amp; A Property Investment Services v. Garcia, No. 3D22-835 (March 15, 2023), holding that a couple's quitclaim to their wholly owned LLC was a change of ownership, and the Florida Supreme Court declined review.</p>
+
+<p>So the cap is lost. What that costs depends on how long the gap would have survived without the deed, and the gap shrinks every year. Without the transfer, the appraiser raises Maple's assessed value by up to 10 percent a year until it meets just value. Model it as a ten-row column on a separate tab, with growth in B2 and millage in B3:</p>
+
+<ul>
+<li>Just value next year: <code>=C4&#42;(1+$B$2)</code></li>
+<li>Assessed value if you keep the cap: <code>=MIN(C5,D4&#42;1.1)</code></li>
+<li>Extra tax caused by the transfer that year: <code>=(C5-D5)&#42;$B$3/1000</code></li>
+</ul>
+
+<table>
+<thead><tr><th>Tax year</th><th>Maple just value</th><th>Assessed if kept</th><th>Gap</th><th>Extra tax from transfer</th></tr></thead>
+<tbody>
+<tr><td>2027</td><td>$330,720.00</td><td>$298,650.00</td><td>$32,070.00</td><td>$423.32</td></tr>
+<tr><td>2028</td><td>$343,948.80</td><td>$328,515.00</td><td>$15,433.80</td><td>$203.73</td></tr>
+<tr><td>2029</td><td>$357,706.75</td><td>$357,706.75</td><td>$0.00</td><td>$0.00</td></tr>
+</tbody>
+</table>
+
+<p>Losing Maple's cap costs $627.05 in total, spread over two tax bills. Birch shows a $17,600 gap on its TRIM notice and loses $0, because a 10 percent step on $318,400 already overtakes its just value in the first year. Cedar has no gap at all. Florida rental values went flat in many markets after 2023, so many owners will find their own gap is small for the same reason.</p>
+
+<p>The number moves sharply with the market, which is the reason growth gets its own input cell:</p>
+
+<table>
+<thead><tr><th>Annual market growth</th><th>Maple, cost of losing the cap</th><th>Birch, cost of losing the cap</th></tr></thead>
+<tbody>
+<tr><td>0%</td><td>$255.42 (1 year)</td><td>$0.00</td></tr>
+<tr><td>4%</td><td>$627.05 (2 years)</td><td>$0.00</td></tr>
+<tr><td>8%</td><td>$3,137.84 (8 years)</td><td>$254.58 (2 years)</td></tr>
+<tr><td>12%</td><td>$19,673.88 (all 10 years)</td><td>$13,490.62 (all 10 years)</td></tr>
+</tbody>
+</table>
+
+<p>Below 10 percent growth the gap closes on its own and the loss is temporary. Above it the gap widens every year, and the cap becomes the largest certain cost on the sheet. One cost does not shrink: section 193.1556 requires the owner to notify the property appraiser of the change, a recorded deed counts as notice, and an owner who keeps the capped value without notice owes the taxes avoided for up to ten years, plus 15 percent interest a year and a 50 percent penalty. Record the deed. If you bought recently and want the reset logic for a purchase rather than a transfer, our <a href="/blog/rental-property-tax-reassessment-after-purchase-calculator-excel/">reassessment after purchase calculator</a> covers it state by state.</p>
+
+<h2>Who Owns Your Loan Decides the Biggest Line</h2>
+
+<p>The federal Garn-St Germain Act lists the transfers a lender may not use to call a loan on a home of fewer than five units, at 12 U.S.C. 1701j-3(d): a transfer to a spouse or children, a transfer on death, a short lease, a transfer into an inter vivos trust in which the borrower remains a beneficiary, and a few others. A transfer to an LLC is not on the list. Federal law leaves the decision to the note and to whoever owns the loan.</p>
+
+<p>Fannie Mae has decided it, but only for part of its book. Servicing Guide section D1-4.1-02 tells servicers to process, without review, a transfer to an LLC "provided that the mortgage loan was purchased or securitized by Fannie Mae on or after June 1, 2016, and the LLC is controlled by the original borrower or the original borrower owns a majority interest in the LLC." Birch, acquired in October 2020, qualifies. Maple, acquired in July 2015, does not. Both loans look identical on a statement, and the acquisition date is what separates them. A loan closed in early 2016 may have been bought after the cutoff, so ask the servicer for the date in writing. Freddie Mac loans fall under its own Guide section 8406.4, with its own conditions. Fannie Mae and Freddie Mac each run a public loan lookup that tells you whether they own your loan at all. Cedar's bank loan answers to its note alone, so the only safe path is the bank's written consent before the deed is recorded.</p>
+
+<p>No public statistic says how often a servicer calls a performing loan after a transfer, so price the risk as a cost if it happens and a probability at which it stops being worth taking. If Maple's loan were called, refinancing $99,160.02 over the remaining 225 months at 7.875 percent raises the payment from $620.71 to $844.59, and leaves a larger balance after ten years. With the new loan's rate in B4 and its closing costs in B5:</p>
+
+<ul>
+<li>New payment: <code>=PMT($B$4/12,G5,-E5)</code> in K5</li>
+<li>Balance after 120 months, new loan: <code>=-FV($B$4/12,120,-K5,E5)</code> in L5</li>
+<li>Balance after 120 months, current loan: <code>=-FV(F5/12,120,-H5,E5)</code> in M5</li>
+<li>Ten-year cost if called: <code>=120&#42;(K5-H5)+(L5-M5)+$B$5</code></li>
+</ul>
+
+<table>
+<thead><tr><th>Maple, if the loan is called</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Payment increase per month</td><td>$223.88</td></tr>
+<tr><td>Balance after 10 years: current loan / replacement</td><td>$55,200.58 / $63,941.01</td></tr>
+<tr><td>Refinance closing costs (example)</td><td>$5,200.00</td></tr>
+<tr><td>Ten-year cost if called</td><td>$40,806.51</td></tr>
+<tr><td>Certain cost of moving Maple (stamps, deed, cap)</td><td>$1,771.45</td></tr>
+<tr><td>Call probability at which the risk costs more than the certain costs</td><td>4.34%</td></tr>
+</tbody>
+</table>
+
+<p>The last row is the one to argue about: <code>=N5/O5</code>, the certain cost of the move divided by the cost if called. If you believe there is better than a 1 in 23 chance that Maple's servicer acts on the deed in the next ten years, the risk alone outweighs the stamps, the deed and the cap combined. A 1 in 20 guess is worth $2,040.33. Our <a href="/blog/subject-to-real-estate-deal-calculator-excel/">subject-to deal calculator</a> prices the same clause from the buyer's side, where the call is the central risk of the deal.</p>
+
+<h2>Insurance and Title: Costs You Avoid With Paperwork</h2>
+
+<p>Two lines on the sheet should read zero dollars, but only if someone does the paperwork before the deed records.</p>
+
+<p>The landlord policy names you as the insured. After the deed, the LLC owns the building, and a policy whose named insured no longer owns the property invites a dispute at the worst moment. Ask the carrier to name the LLC before closing the transfer, and to add you as an additional insured. Fannie Mae's guide also requires the servicer to notify the insurer and the tax authorities when it processes a transfer, so the change will surface anyway.</p>
+
+<p>Title insurance carries a condition most owners never read. The 2006 ALTA owner's policy, in the form approved by Florida's insurance regulator, keeps covering "a grantee of an Insured under a deed delivered without payment of actual valuable consideration" when the grantee's membership interests are "wholly-owned by the named Insured." A single-member LLC owned by the person named on the policy fits. An LLC in which you hold 60 percent and a partner holds 40 does not, and neither does a deed that recites real consideration. Older policy forms may lack the clause entirely. Read Schedule A and the definition of Insured before you choose the member list. A new owner's policy is the cost if you get it wrong.</p>
+
+<h2>Four Structures, Ten Years</h2>
+
+<p>The sheet adds the lines per structure over ten years. Florida charges $125 to form an LLC (the $100 filing fee plus $25 to designate a registered agent, section 605.0213) and $138.75 for each annual report ($50 plus the $88.75 supplemental fee of section 607.193), with a $400 late charge after May 1.</p>
+
+<table>
+<thead><tr><th>Structure</th><th>One-time (stamps, deeds, formation)</th><th>Annual reports, 10 years</th><th>Lost cap</th><th>Certain total</th><th>Exposure if Maple is called</th></tr></thead>
+<tbody>
+<tr><td>A. Keep all three in your name</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td></tr>
+<tr><td>B. One LLC holds all three</td><td>$4,688.70</td><td>$1,387.50</td><td>$627.05</td><td>$6,703.25</td><td>$40,806.51</td></tr>
+<tr><td>C. One LLC holds Birch and Cedar</td><td>$3,544.30</td><td>$1,387.50</td><td>$0.00</td><td>$4,931.80</td><td>$0.00</td></tr>
+<tr><td>D. One LLC per house</td><td>$4,938.70</td><td>$4,162.50</td><td>$627.05</td><td>$9,728.25</td><td>$40,806.51</td></tr>
+</tbody>
+</table>
+
+<p>Structure C costs $1,771.45 less than B and removes the only large contingent line. Structure D buys something B does not: a judgment from a tenant at Cedar reaches Cedar's LLC and not the other two houses. In Florida that separation costs $3,025.00 over ten years. Know its limit, too. For a single-member LLC, section 605.0503(4) lets a court order the sale of your membership interest when a charging order will not pay a judgment against you within a reasonable time. The LLC is built to keep claims that start at the property inside the LLC. It does far less against claims that start with you, such as a car accident, and that is the job of your umbrella policy.</p>
+
+<p>California inverts the bill. A transfer that leaves each owner's proportional interest exactly the same is excluded from reassessment under Revenue and Taxation Code section 62(a)(2), as the Board of Equalization explains it, so the deed itself can cost close to nothing. The costs arrive later. Every LLC organized or doing business in California owes the Franchise Tax Board an $800 annual tax "even if you are not conducting business," and the first-year exemption covered only tax years 2021 through 2023. Over ten years that is $8,000 for one LLC and $24,000 for three, so the Florida separation that costs $3,025.00 costs $16,000 there. The excluded transfer also makes you an "original co-owner": once more than 50 percent of those interests change hands, in one sale or added up over the years, the property is reassessed under section 64(d). Selling a partner 51 percent of the LLC later reassesses the whole house.</p>
+
+<h2>What to Do Before You Record the Deed</h2>
+
+<ol>
+<li>Pull each property's TRIM notice and enter just value and the non-school assessed value. Compute the gap and run the ten-row cap column at a growth rate you can defend.</li>
+<li>Enter every loan balance and compute the stamp tax with <code>=ROUNDUP(E5/100,0)&#42;0.70</code>. Count a second deed for any property you expect to refinance with Fannie Mae.</li>
+<li>Use the Fannie Mae and Freddie Mac lookups to find who owns each loan, and get the acquisition date in writing from the servicer. Before June 1, 2016 means no LLC exemption at Fannie Mae.</li>
+<li>For bank and portfolio loans, get written consent before recording. No consent means the property stays out.</li>
+<li>Compute the cost if called and the break-even probability for every loan that is not exempt. Leave those properties out until a refinance or payoff moves them for free.</li>
+<li>Re-title the landlord policy, confirm the title policy's continuation clause against your planned member list, and record the deed so the appraiser has notice.</li>
+</ol>
+
+<p>On these numbers the recommendation is structure C: Birch and Cedar go into one LLC for $4,931.80 over ten years with Cedar's bank consent in hand, Maple stays in your name under an umbrella policy until its 3.875 percent loan is refinanced or paid down, and a second LLC is worth its $3,025.00 only if one house carries a liability profile the others should not share.</p>
+
+<p>The <a href="/products/rental-property-analyzer/">Rental Property Analyzer</a> covers the property side of this decision: it computes cash flow, cap rate and cash-on-cash return, compares up to three loan scenarios and runs a 10-year projection. It does not compute transfer taxes, cap resets or due-on-sale exposure. Build the transfer sheet above for each house, then enter the post-transfer property tax and, if a loan is ever called, the replacement loan as one of the Analyzer's three scenarios to see what the LLC does to each rental's cash flow.</p>`,
+  },
+  {
     slug: 'small-commercial-lease-tenant-improvement-allowance-calculator-excel',
     title: 'Small Commercial Lease Tenant Improvement Allowance Calculator in Excel: The $30 Tenant Who Loses to the $22 One',
     metaTitle: 'Tenant Improvement Allowance Calculator Excel | SheetCraft',
