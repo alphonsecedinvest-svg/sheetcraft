@@ -16,6 +16,181 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-add-a-bathroom-roi-calculator-excel',
+    title: 'House Flip Add a Bathroom ROI Calculator in Excel: Price the Bath, Not the Bigger House',
+    metaTitle: 'House Flip Add a Bathroom ROI Calculator Excel | SheetCraft',
+    metaDescription: 'House flip add a bathroom ROI calculator in Excel: split the bath premium from house size with LINEST, then price a half bath, basement bath or addition.',
+    targetKeyword: 'house flip add a bathroom ROI calculator Excel',
+    secondaryKeywords: ['second bathroom resale value', 'bathroom addition cost vs value', 'half bath ROI on a flip', 'LINEST comps regression', 'basement bathroom appraisal count'],
+    excerpt: 'Two-bath ranches on the street sold for $64,982 more than one-bath ranches, but they were also 336 square feet bigger. Held at constant size, the second bath is worth $25,269, the $58,000 addition loses $34,309, and a half bath from a hall closet makes $4,470.',
+    publishedAt: '2026-11-10',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-add-a-bathroom-roi-calculator-excel.png',
+    imageAlt: 'Bright finished bathroom with a glass walk-in shower, a white toilet and a gray double vanity with a wood-framed mirror',
+    content: `<p>You are under contract on a 1,180 square foot three-bed ranch with one bathroom. The rehab budget is $38,000, the after-repair value is $227,500, and your contractor has bid $58,000 to bump out the back wall and add a 6 by 8 foot second bath over a crawlspace. In the subdivision, two-bath ranches sold for an average of $292,857 last year and one-bath ranches for $227,875. The gap is $64,982, the bid is $58,000, and the back of the envelope says the bathroom earns $6,982. A house flip add a bathroom ROI calculator in Excel exists to catch what that envelope misses: the two-bath houses are also 336 square feet bigger, and buyers were paying for the space as much as for the toilet.</p>
+
+<p>Run the same 16 sales through a regression that holds size constant and the second full bath is worth $25,269 on this street. The addition, fully loaded, loses $34,309. A half bath carved out of a hall closet makes $4,470. The sections below build that model, cell by cell, from your own closed sales.</p>
+
+<h2>Why the 1-bath vs 2-bath price gap overstates the bathroom</h2>
+
+<p>The brief most flippers work from is reasonable: compare the cost of the bath with the price difference between one-bath and two-bath sales in the same neighborhood, and build only where buyers pay. The flaw is in the comparison group. In almost every subdivision built before the 1980s, the houses that have a second bath are the ones that were built larger or were already expanded. You are not comparing one house with and without a bathroom. You are comparing two different houses.</p>
+
+<p>Here is the example data: 16 closed sales of three-bed ranches in one subdivision over the last 12 months. The addresses and prices are invented for this article, and the structure is what you should pull from your MLS.</p>
+
+<table>
+<thead><tr><th>Address</th><th>Sale price (B)</th><th>Finished sq ft (C)</th><th>Full baths (D)</th><th>Half baths (E)</th></tr></thead>
+<tbody>
+<tr><td>112 Alder</td><td>$216,500</td><td>1,120</td><td>1</td><td>0</td></tr>
+<tr><td>140 Alder</td><td>$233,500</td><td>1,190</td><td>1</td><td>0</td></tr>
+<tr><td>206 Birch</td><td>$230,500</td><td>1,240</td><td>1</td><td>0</td></tr>
+<tr><td>231 Birch</td><td>$252,500</td><td>1,260</td><td>1</td><td>1</td></tr>
+<tr><td>318 Cedar</td><td>$255,500</td><td>1,310</td><td>1</td><td>1</td></tr>
+<tr><td>402 Cedar</td><td>$231,000</td><td>1,150</td><td>1</td><td>0</td></tr>
+<tr><td>415 Dogwood</td><td>$271,500</td><td>1,380</td><td>2</td><td>0</td></tr>
+<tr><td>433 Dogwood</td><td>$293,000</td><td>1,450</td><td>2</td><td>0</td></tr>
+<tr><td>507 Elm</td><td>$296,000</td><td>1,520</td><td>2</td><td>0</td></tr>
+<tr><td>522 Elm</td><td>$292,500</td><td>1,560</td><td>2</td><td>0</td></tr>
+<tr><td>618 Fir</td><td>$309,000</td><td>1,600</td><td>2</td><td>0</td></tr>
+<tr><td>640 Fir</td><td>$289,000</td><td>1,490</td><td>2</td><td>0</td></tr>
+<tr><td>711 Grove</td><td>$328,000</td><td>1,640</td><td>2</td><td>1</td></tr>
+<tr><td>729 Grove</td><td>$299,000</td><td>1,580</td><td>2</td><td>0</td></tr>
+<tr><td>804 Hazel</td><td>$260,500</td><td>1,340</td><td>1</td><td>1</td></tr>
+<tr><td>826 Hazel</td><td>$332,000</td><td>1,700</td><td>2</td><td>1</td></tr>
+</tbody>
+</table>
+
+<p>Put this on a sheet named Comps, headers in row 1, data in rows 2 to 17. The naive gap is two averages:</p>
+
+<p><code>=AVERAGEIFS(Comps!B2:B17,Comps!D2:D17,2,Comps!E2:E17,0)-AVERAGEIFS(Comps!B2:B17,Comps!D2:D17,1,Comps!E2:E17,0)</code></p>
+
+<p>That returns $64,982: seven two-bath sales at $292,857 against four one-bath sales at $227,875. Swap column B for column C in the same formula and you get the size gap: the two-bath houses average 1,511 square feet, the one-bath houses 1,175. That is 336 square feet, and at this street's rate of $122.93 per square foot it accounts for about $41,358 of the price difference before a single fixture is counted. Every flipper who reads the $64,982 as the value of a bathroom is pricing a room addition they are not building.</p>
+
+<h2>Isolate the bath premium with LINEST</h2>
+
+<p>Appraisers separate features with paired sales: two houses alike in everything but one feature, where the price difference is the feature's contribution. The <a href="/blog/arv-comps-spreadsheet-excel">ARV comps grid</a> walks through that method one adjustment at a time. With 16 sales and three things varying at once, a regression does the same job in one formula and tells you how much to trust the answer.</p>
+
+<p>On a sheet named Model:</p>
+
+<ul>
+<li><code>B2</code>, price per square foot: <code>=INDEX(LINEST(Comps!B2:B17,Comps!C2:E17,TRUE,TRUE),1,3)</code></li>
+<li><code>B3</code>, second full bath: <code>=INDEX(LINEST(Comps!B2:B17,Comps!C2:E17,TRUE,TRUE),1,2)</code></li>
+<li><code>B4</code>, half bath: <code>=INDEX(LINEST(Comps!B2:B17,Comps!C2:E17,TRUE,TRUE),1,1)</code></li>
+<li><code>B5</code>, standard error of the full bath: <code>=INDEX(LINEST(Comps!B2:B17,Comps!C2:E17,TRUE,TRUE),2,2)</code></li>
+<li><code>B6</code>, standard error of the half bath: <code>=INDEX(LINEST(Comps!B2:B17,Comps!C2:E17,TRUE,TRUE),2,1)</code></li>
+<li><code>B7</code>, R squared: <code>=INDEX(LINEST(Comps!B2:B17,Comps!C2:E17,TRUE,TRUE),3,1)</code></li>
+<li><code>B8</code>, intercept: <code>=INDEX(LINEST(Comps!B2:B17,Comps!C2:E17,TRUE,TRUE),1,4)</code></li>
+</ul>
+
+<p>One trap catches almost everyone the first time: LINEST returns coefficients in reverse order of the input columns. Column E (half baths) comes out first, then D, then C, then the intercept. If your full bath premium comes out at $122.93, you read the wrong column.</p>
+
+<table>
+<thead><tr><th>Output</th><th>Value</th><th>What it tells you</th></tr></thead>
+<tbody>
+<tr><td>Price per sq ft (B2)</td><td>$122.93</td><td>What buyers pay for space alone, bath count held fixed</td></tr>
+<tr><td>Second full bath (B3)</td><td>$25,269</td><td>The bath premium at constant size</td></tr>
+<tr><td>Standard error (B5)</td><td>$8,130</td><td>One standard error either side runs from $17,139 to $33,399</td></tr>
+<tr><td>Half bath (B4)</td><td>$14,958</td><td>Premium for a toilet and sink at constant size</td></tr>
+<tr><td>Standard error (B6)</td><td>$4,213</td><td>Tighter, because five sales carry a half bath</td></tr>
+<tr><td>R squared (B7)</td><td>0.98</td><td>Size and baths explain almost all the price spread here</td></tr>
+<tr><td>Intercept (B8)</td><td>$57,114</td><td>The regression's starting point, with no feature attached to it</td></tr>
+</tbody>
+</table>
+
+<p>Your ARV check falls out of the same cells. With the subject's 1,180 square feet in <code>B10</code>, one full bath in <code>B11</code> and zero half baths in <code>B12</code>, <code>=B8+B2&#42;B10+B3&#42;B11+B4&#42;B12</code> returns $227,443, which you round to the $227,500 your comps already gave you. If the regression and your comps disagree by more than a few thousand dollars, fix the data before trusting either.</p>
+
+<p>Three rules for the comp set before you run it. Keep the bedroom count constant, because a fourth bedroom tangles with the bath count the same way size does. Time-adjust any sale older than six months if the market moved. And keep at least four sales per estimated coefficient as a working rule: three variables plus the intercept make four coefficients, so 16 sales is the floor, and with fewer the standard error swamps the answer.</p>
+
+<h2>Three ways to add the bathroom, priced against the deal</h2>
+
+<p>The base deal first, all example numbers. Purchase $142,000, rehab $38,000 (including a refresh of the existing bath), hard money loan of $153,000 at 11 percent interest-only, five months of hold, selling costs at 6 percent of price.</p>
+
+<ul>
+<li>Monthly interest: <code>=B15&#42;B16/12</code> gives $1,402.50 with the loan in <code>B15</code> and the rate in <code>B16</code>.</li>
+<li>Monthly hold with taxes of $210, insurance of $140 and utilities of $180 in <code>B17:B19</code>: $1,932.50.</li>
+<li>Weekly hold in <code>B14</code>: <code>=(B15&#42;B16/12+SUM(B17:B19))&#42;12/52</code> gives $445.96 per week.</li>
+<li>Base profit: $227,500 minus $142,000, $38,000, $9,662.50 of hold and $13,650 of selling costs leaves $24,187.50.</li>
+</ul>
+
+<p>Now three bids for a second bath, each with its own build time. Every extra week is another $445.96. The selling cost rises with the price, so 6 percent of whatever value the bath adds goes to the agents and the closing. The money for the build is drawn from the lender, so it carries 11 percent for the roughly three months until sale (<code>B21</code> holds 3).</p>
+
+<table>
+<thead><tr><th>Option</th><th>Bid (B)</th><th>Extra weeks (C)</th><th>Value added (D)</th><th>Extra hold (E)</th><th>Extra selling (F)</th><th>Draw interest (G)</th><th>Net (H)</th></tr></thead>
+<tbody>
+<tr><td>Half bath from hall closet, main floor</td><td>$8,900</td><td>1</td><td>$14,958</td><td>$446</td><td>$897</td><td>$245</td><td>$4,470</td></tr>
+<tr><td>Full bath in the basement</td><td>$22,500</td><td>3</td><td>$25,269</td><td>$1,338</td><td>$1,516</td><td>$619</td><td>-$704</td></tr>
+<tr><td>6 by 8 bump-out addition</td><td>$58,000</td><td>9</td><td>$31,170</td><td>$4,014</td><td>$1,870</td><td>$1,595</td><td>-$34,309</td></tr>
+<tr><td>Same addition, valued at the naive gap</td><td>$58,000</td><td>9</td><td>$64,982</td><td>$4,014</td><td>$3,899</td><td>$1,595</td><td>-$2,525</td></tr>
+</tbody>
+</table>
+
+<p>The formulas, with the half bath in row 24:</p>
+
+<ul>
+<li>Value added for the half bath: <code>=$B$4</code>. For the basement bath: <code>=$B$3</code>. For the addition, the bath plus its 48 new square feet: <code>=$B$3+$B$2&#42;48</code>.</li>
+<li>Extra hold in <code>E24</code>: <code>=C24&#42;$B$14</code></li>
+<li>Extra selling in <code>F24</code>: <code>=D24&#42;$B$20</code>, with 6 percent in <code>B20</code></li>
+<li>Draw interest in <code>G24</code>: <code>=B24&#42;$B$16&#42;$B$21/12</code></li>
+<li>Net in <code>H24</code>: <code>=D24-B24-E24-F24-G24</code></li>
+<li>Verdict in <code>J24</code>: <code>=IF(H24&gt;0,"BUILD","SKIP")</code></li>
+</ul>
+
+<p>Look at the last row. Even if you believed the $64,982 gap, the addition loses $2,525 once you count nine more weeks of hold, the commission on the higher price and the interest on the draw. The back-of-envelope $6,982 profit was two errors stacked: the wrong value and missing costs. The honest number, at constant size, is a $34,309 loss on a deal that only makes $24,187.50 to begin with. The addition costs more than the whole flip earns.</p>
+
+<p>The half bath is the only option that clears. It wins because it is cheap and fast: one week of extra time and a bid that sits next to the existing wet wall. With the house at $227,500 plus the half bath, the deal makes $28,657.09.</p>
+
+<h2>Break-even bids: the number to take back to your contractor</h2>
+
+<p>A net figure tells you yes or no at one price. A break-even bid tells you what to negotiate. Solve the net formula for the bid that makes it zero, remembering that the draw interest rises with the bid:</p>
+
+<p><code>=(D24-E24-F24)/(1+$B$16&#42;$B$21/12)</code></p>
+
+<table>
+<thead><tr><th>Option</th><th>Bid on the table</th><th>Break-even bid</th><th>Room to move</th></tr></thead>
+<tbody>
+<tr><td>Half bath, main floor</td><td>$8,900</td><td>$13,250</td><td>Bid can rise by $4,350 before it stops paying</td></tr>
+<tr><td>Full bath in the basement</td><td>$22,500</td><td>$21,815</td><td>Needs a lower bid or a shorter schedule</td></tr>
+<tr><td>Bump-out addition</td><td>$58,000</td><td>$24,609</td><td>No contractor builds a foundation and a bath for that</td></tr>
+</tbody>
+</table>
+
+<p>Run it the other way for the addition: what bath premium would the street need to show for the $58,000 bid to break even? <code>=(B26+C26&#42;$B$14+B26&#42;$B$16&#42;$B$21/12)/(1-$B$20)-$B$2&#42;48</code> returns $61,768. Divide the distance from the estimate by the standard error, <code>=(B30-$B$3)/$B$5</code>, and you get 4.49. The premium would have to be four and a half standard errors above what the sales show. With 16 sales behind it, that is a firm no.</p>
+
+<p>The half bath runs the same test the other way. It needs a premium of $10,203 to break even, and the estimate of $14,958 sits 1.13 standard errors above that. That is a yes with a real chance of being wrong: about 14 percent on a t distribution with 12 degrees of freedom, roughly one in seven. The practical answer is to keep the bid fixed and the schedule at one week. If either one slips, re-run the row before you sign the change order.</p>
+
+<h2>The basement bath and the November 2026 appraisal change</h2>
+
+<p>The basement option is the closest call in the table, and the rule for counting it just changed. Freddie Mac's FAQ on the appraisal forms redesign (updated September 30, 2026) states that UAD 3.6 is mandatory for all new appraisal reports submitted to the Uniform Collateral Data Portal on or after November 2, 2026. Fannie Mae's Collateral Underwriter release notes of June 16, 2025 describe what that means for your bathroom: UAD 3.6 "will make no distinction between above grade and below grade bedrooms or bathrooms and will instead only count total bedrooms and bathrooms."</p>
+
+<p>Under the old forms, a basement bath sat outside the above-grade room count that drove the comparison grid. On a report for a buyer using a Fannie Mae or Freddie Mac loan, it now counts in the same total as the bath upstairs. That makes the basement option look better on paper. It does not tell you what buyers pay for it. Fannie Mae's UAD 3.6 policy still requires the appraiser to identify the level of each room and whether it is above or below grade, and the adjustment for a below-grade bath still comes from the market.</p>
+
+<p>So test it. In the table the basement bath is valued at the full main-floor premium of $25,269 and still loses $704. It needs buyers to pay 103 percent of what they pay for a main-floor bath, a level the example comps never test because none of them has a basement bath. Valued at half the premium, $12,635, it loses $12,580. When your comps hold no basement bath, your data cannot price one, and the honest entry is a haircut you write down as an assumption. Check how each comp's MLS listing counts baths, too: sales recorded under the old forms may leave the basement bath out of the count, and a mix of both conventions in the same column adds noise to <code>B3</code>.</p>
+
+<h2>What the Cost vs Value figure does and does not tell you</h2>
+
+<p>Search for the payback on a bathroom addition and you will land on the Cost vs Value report. In the 2025 edition, a midrange bathroom addition (a 6 by 8 foot bath over a crawlspace) has a national job cost of $60,645 and a resale value of $32,347: 53.3 percent recouped. A midrange remodel of an existing bath costs $26,138 and returns $20,915, or 80 percent.</p>
+
+<p>Read how the resale number is made before you put it in a cell. The report's methodology says it comes from an online survey of over 6,000 Realtors asked what value each of 28 projects adds to the sale price of a home, across 119 markets. It is an informed opinion averaged over the country. Your 16 sales are transactions on the street you are selling on.</p>
+
+<p>On this street the regression happens to land close: the addition adds $31,170 on a $58,000 bid, 53.7 percent. Do not take that as confirmation. The national figure averages 119 markets, so by construction it sits above some neighborhoods and below others, and nothing in it says which side yours is on. The survey gives you a reason to check. Only your comps give you a number.</p>
+
+<h2>Before you sign the bathroom change order</h2>
+
+<ul>
+<li>Pull at least 16 closed sales with the same bedroom count, inside the subdivision, within 12 months. Record finished square feet, full baths and half baths in separate columns.</li>
+<li>Run the naive gap and the size gap side by side. If the two-bath houses are much bigger, the naive gap is mostly square footage.</li>
+<li>Run LINEST and read the coefficients right to left. Write down the standard error next to every premium you use.</li>
+<li>Price every option with its own schedule. Extra weeks cost $445.96 each on this deal, and the addition's nine weeks alone cost $4,014.</li>
+<li>Price the permit in calendar days as well as dollars. Plumbing rough-in, framing and final inspections each add days, and the <a href="/blog/house-flip-permit-cost-and-timeline-tracker-excel">permit timeline tracker</a> shows how review delays turn into carry.</li>
+<li>If the house was built before 1978, cutting a closet wall is not minor repair under the EPA lead rule: 40 CFR 745.83 excludes any job that demolishes painted surface, whatever the size. Put the containment cost in the bid, using the <a href="/blog/house-flip-lead-paint-rrp-cost-calculator-excel">lead paint RRP cost calculator</a>.</li>
+<li>Compute the break-even bid and take it to the contractor. A bid under break-even with a fixed schedule is a build. Anything else is a skip or a renegotiation.</li>
+</ul>
+
+<p>On the example house, the recommendation is to build the half bath from the hall closet at $8,900, hold the schedule to one week, and skip both full baths. The addition would turn a $24,187.50 profit into a loss, and the basement bath only pays if buyers value it above a main-floor bath.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> carries the rest of the deal: hard money with points and rates, a line-item rehab tab where the half bath goes as its own line, holding costs inside the all-in cost, and the ARV that drives the exit. It does not run the regression or compare bathroom options. Build the Comps and Model sheets above, then feed the winning option's cost into the rehab tab and the regression's ARV into the deal, and the calculator tells you whether the flip still clears your margin with the bathroom in it.</p>`,
+  },
+  {
     slug: 'rental-property-transfer-to-llc-cost-calculator-excel',
     title: 'Rental Property Transfer to LLC Cost Calculator in Excel: Price the Deed, the Cap and the Loan',
     metaTitle: 'Rental Property Transfer to LLC Calculator | SheetCraft',
