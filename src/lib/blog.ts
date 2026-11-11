@@ -16,6 +16,159 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-unpermitted-work-cost-calculator-excel',
+    title: 'House Flip Unpermitted Work Cost Calculator in Excel: Three Exits, Three Offers',
+    metaTitle: 'House Flip Unpermitted Work Cost Calculator | SheetCraft',
+    metaDescription: 'House flip unpermitted work cost calculator in Excel: price legalizing, restoring or disclosing a garage conversion, then set the offer each exit supports.',
+    targetKeyword: 'house flip unpermitted work cost calculator Excel',
+    secondaryKeywords: ['unpermitted garage conversion', 'after-the-fact permit cost', 'unpermitted addition appraisal', 'FHA gross living area rules', 'seller disclosure unpermitted work'],
+    excerpt: 'The listing says four beds and 1,414 square feet. The tax card says three beds and 1,150, because the fourth bedroom is a garage converted without a permit. Priced as three exits, the best offer is $135,245, $39,755 under the asking price.',
+    publishedAt: '2026-11-11',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-unpermitted-work-cost-calculator-excel.png',
+    imageAlt: 'Kitchen under renovation with white cabinets and the range hood wrapped in plastic sheeting, paper taped to the walls and a small step ladder on a protected floor',
+    content: `<p>The listing says four bedrooms and 1,414 square feet, priced at $175,000. The county tax card says three bedrooms and 1,150 square feet. The difference is the attached one-car garage, 12 by 22 feet, which a previous owner turned into a bedroom with carpet on the slab, a plug-in electric heater and no permit anywhere in the city portal. A house flip unpermitted work cost calculator in Excel exists for this moment, before the offer, because the asking price assumes the fourth bedroom is real and free. On the example deal below, the best exit supports an offer of $135,245. Paying the asking price and legalizing the room loses $9,755.</p>
+
+<p>The brief most investors carry into this deal is that an appraiser will throw out the unpermitted square footage, so the room is worth nothing. Under Fannie Mae and FHA guidelines that is wrong, and it sends the analysis to the wrong variable. The appraisal rules test heat, access and quality. The permit decides something else: what the city can make you do, what you have to disclose, and how long the house sits. Price those, one exit per column, and the sheet returns the offer.</p>
+
+<h2>What the appraiser tests, and why the permit is not on the list</h2>
+
+<p>Fannie Mae's Selling Guide, section B4-1.3-05 (dated 06/04/2025), handles the case in one sentence: if the appraiser identifies an addition that does not have the required permit, the appraiser must comment on the quality and appearance of the work and its impact, if any, on the market value of the subject property. That is a reporting duty. There is no instruction to exclude the space.</p>
+
+<p>FHA is more specific. HUD Handbook 4000.1, in the Gross Living Area section under "Additions and Converted Space," tells the appraiser to treat room additions and garage conversions as part of the gross living area (GLA, the finished above-grade square footage on the report) when the space meets three conditions:</p>
+
+<ul>
+<li>it is accessible from the interior of the main dwelling in a functional manner;</li>
+<li>it has a permanent and sufficient heat source;</li>
+<li>it was built in keeping with the design, appeal and quality of construction of the main dwelling.</li>
+</ul>
+
+<p>A conversion that fails any of the three goes on a separate line of the sales comparison grid, and the appraiser addresses its effect on marketability and its contributory value, if any. A permit appears nowhere in the test. The example room fails it on heat, because a heater plugged into a wall outlet is not a permanent source, and probably on quality, because the old door opening is framed in with plywood siding that does not match the house.</p>
+
+<p>Put the test in a sheet called GLA Test so nobody argues about it from memory. Answer each condition Yes or No in <code>C3:C5</code>, then let the cell decide:</p>
+
+<p><code>=IF(COUNTIF(C3:C5,"Yes")=3,"Counts in GLA","Separate line, contributory value only")</code></p>
+
+<p>For the example room the answers are Yes for access, No for heat and No for quality, so an FHA report shows 1,150 square feet of GLA, three bedrooms, and a 264 square foot room valued on its own line. Two consequences follow. First, a permanent heat source and a finish that matches the house matter more to the appraisal than the paperwork. Second, the same handbook requires the property to comply with all applicable zoning ordinances, so check whether the zoning code requires off-street parking that the garage used to provide.</p>
+
+<h2>What the missing permit actually costs you</h2>
+
+<p>If the appraiser does not need the permit, the city does, and the city's tools are written into the International Residential Code, the model code that state and local governments adopt with their own amendments. The sections below are quoted from a Hendersonville, Tennessee, building department handout; your jurisdiction's adopted version may differ, so read your own.</p>
+
+<ul>
+<li>R108.6: anyone who commences work requiring a permit before obtaining it is subject to a fee set by the local authority, in addition to the required permit fees. Each city sets that amount in its own fee schedule. The model below uses 100 percent of the permit fee as a starting assumption; replace it with your city's schedule.</li>
+<li>R102.7.1: additions, alterations and repairs must conform to the requirements for a new structure. Legalizing the room means meeting today's code for the room.</li>
+<li>R113.2 and R113.3: the building official can serve a notice of violation directing abatement, and ask the jurisdiction's counsel to require removal if the notice is ignored. Abatement can mean tearing the work out on a deadline the city sets.</li>
+<li>R310.1, 2021 edition, as reproduced by the Billings, Montana, building division: every sleeping room needs at least one operable emergency escape and rescue opening. On a grade floor that means at least 5 square feet of net clear opening, with a sill no higher than 44 inches. The small slider in the example room does not qualify, so selling it as a bedroom adds an egress window.</li>
+</ul>
+
+<p>Then there is the resale form. The Texas Seller's Disclosure Notice (TREC form OP-H) asks the seller, in item 9, whether they are aware of "room additions, structural modifications, or other alterations or repairs made without necessary permits or not in compliance with building codes in effect at that time." Once you have read the permit history, you are aware. Other states use their own forms; read yours for the same question before you assume the disclosure is optional.</p>
+
+<p>The legal path also takes time. The <a href="/blog/house-flip-permit-cost-and-timeline-tracker-excel">permit cost and timeline tracker</a> covers how review queues and resubmittals turn into carry; for an after-the-fact permit, add the weeks it takes to open walls, pass the inspections and close them again.</p>
+
+<h2>Build the exit cost sheet</h2>
+
+<p>Every number in the example below is an example, chosen to be realistic for a 1960s ranch in a mid-priced market. Replace each one with your bids and your comps. The sheet called Exit Costs lists each line with a cost in column B and a probability in column C, so a hidden condition is priced at its expected value instead of being ignored or assumed away.</p>
+
+<table>
+<thead><tr><th>Line (Exit A, legalize as a bedroom)</th><th>Cost (B)</th><th>Probability (C)</th><th>Expected (D)</th></tr></thead>
+<tbody>
+<tr><td>Drawings for the after-the-fact permit</td><td>$1,800</td><td>1.00</td><td>$1,800</td></tr>
+<tr><td>Permit fee</td><td>$1,450</td><td>1.00</td><td>$1,450</td></tr>
+<tr><td>Investigation fee at 100% of the permit fee</td><td>$1,450</td><td>1.00</td><td>$1,450</td></tr>
+<tr><td>Open and patch walls and ceiling for inspection</td><td>$3,800</td><td>1.00</td><td>$3,800</td></tr>
+<tr><td>Insulation to current energy code</td><td>$2,200</td><td>1.00</td><td>$2,200</td></tr>
+<tr><td>Ductless mini-split (permanent heat)</td><td>$4,800</td><td>1.00</td><td>$4,800</td></tr>
+<tr><td>Egress window, grade floor</td><td>$3,200</td><td>1.00</td><td>$3,200</td></tr>
+<tr><td>Electrical corrections (receptacles, AFCI)</td><td>$1,400</td><td>1.00</td><td>$1,400</td></tr>
+<tr><td>Smoke and CO alarms</td><td>$300</td><td>1.00</td><td>$300</td></tr>
+<tr><td>Hidden condition: no footing under the infill wall</td><td>$7,500</td><td>0.35</td><td>$2,625</td></tr>
+<tr><td>Total</td><td>$27,900</td><td></td><td>$23,025</td></tr>
+</tbody>
+</table>
+
+<p>Column D is <code>=B5&#42;C5</code> copied down, and the exit cost is <code>=SUM(D5:D14)</code>. The 35 percent is your inspector's judgment after looking at the slab edge where the garage door used to be. If the inspector cannot see it, the probability is the honest place to say so.</p>
+
+<p>Exit A2 legalizes the same room as a den and skips the egress window: $19,825. Exit B restores the garage: $1,600 to demo the finishes, $2,400 for a garage door and opener, $1,500 to rebuild the opening and patch the siding, $600 to make the electrical safe, and $250 for the restoration permit, $6,350 in total. Exit C sells as-is with disclosure and spends $900 to clean and paint the room. The extra weeks on top of a 14-week base schedule are 6 for both legalization exits, 1 for the restoration and 4 for the as-is sale, which stays on the market longer.</p>
+
+<h2>The max offer under each exit</h2>
+
+<p>The Exits sheet holds one column per exit and shared inputs in column H: asking price in <code>H2</code> ($175,000), selling costs in <code>H3</code> (7 percent), purchase closing in <code>H4</code> ($3,200), base rehab of the main house in <code>H5</code> ($41,000, the same in every exit), base weeks in <code>H6</code> (14), weekly carry in <code>H7</code> ($420) and the profit you require in <code>H8</code> ($30,000). Row 4 is the after-repair value, row 5 the exit cost, row 6 the extra weeks. The max offer in row 7 is everything the sale nets, minus everything you spend, minus your profit:</p>
+
+<p><code>=B4&#42;(1-$H$3)-$H$4-$H$5-B5-$H$7&#42;($H$6+B6)-$H$8</code></p>
+
+<p>Row 8 is the gap to the asking price, <code>=$H$2-B7</code>, and row 9 is the profit if you pay the asking price, <code>=B7+$H$8-$H$2</code>. The after-repair values come from paired sales: three-bed ranches of about 1,150 square feet with a one-car garage at $232,000, four-bed ranches of about 1,400 square feet with no garage at $259,000, three-bed plus den at $251,000. The as-is value starts from the restored house, loses the $12,000 the garage contributes in these comps, adds $6,000 for the room on its own line, and takes a 3 percent discount for the disclosure. That discount is an assumption, tested below. The <a href="/blog/arv-comps-spreadsheet-excel">ARV comps spreadsheet</a> shows how to pull those adjustments out of your own closed sales.</p>
+
+<table>
+<thead><tr><th>Row</th><th>A: legalize, bedroom</th><th>A2: legalize, den</th><th>B: restore garage</th><th>C: as-is, disclosed</th></tr></thead>
+<tbody>
+<tr><td>After-repair value</td><td>$259,000</td><td>$251,000</td><td>$232,000</td><td>$219,220</td></tr>
+<tr><td>Selling costs at 7%</td><td>$18,130</td><td>$17,570</td><td>$16,240</td><td>$15,345.40</td></tr>
+<tr><td>Exit cost</td><td>$23,025</td><td>$19,825</td><td>$6,350</td><td>$900</td></tr>
+<tr><td>Weeks, close to sale</td><td>20</td><td>20</td><td>15</td><td>18</td></tr>
+<tr><td>Carry at $420 a week</td><td>$8,400</td><td>$8,400</td><td>$6,300</td><td>$7,560</td></tr>
+<tr><td>Max offer at $30,000 profit</td><td>$135,245</td><td>$131,005</td><td>$128,910</td><td>$121,214.60</td></tr>
+<tr><td>Profit at the $175,000 asking price</td><td>-$9,755</td><td>-$13,995</td><td>-$16,090</td><td>-$23,785.40</td></tr>
+</tbody>
+</table>
+
+<p>Pick the winner with <code>=INDEX($B$3:$E$3,MATCH(MAX($B$7:$E$7),$B$7:$E$7,0))</code>, where row 3 holds the exit names. Here it is Exit A, legalizing as a bedroom, by $4,240 over the den and $6,335 over restoring the garage. Selling as-is is last, $7,695.40 below the restoration.</p>
+
+<p>The seller priced the house as a legal four-bed, and the best exit supports $135,245, which is $39,755 under the asking price. The fourth bedroom is real in the end, but it costs $23,025 and six weeks to make it real, and the asking price charged you for it as if it were already done.</p>
+
+<h2>The three inputs that change the answer</h2>
+
+<p>A $6,335 lead on a $259,000 sale is thin. Before you defend Exit A in a negotiation, find the inputs that would hand the win to Exit B, each one computed on the same sheet.</p>
+
+<p>The first is the bedroom premium. Solve for the after-repair value at which legalization only ties restoration:</p>
+
+<p><code>=(D7+$H$4+$H$5+B5+$H$7&#42;($H$6+B6)+$H$8)/(1-$H$3)</code></p>
+
+<p>It returns $252,188.17. The four-bed comps have to beat the restored three-bed by $20,188.17 for the legal bedroom to pay. Here the comps show $27,000, so the margin is $6,811.83 of comp value. If you only have two four-bed sales and one of them had a new kitchen, that margin is smaller than the error in your comps, and Exit B is the safer column.</p>
+
+<p>The second is the hidden condition. With the footing priced at $7,500 and a 35 percent chance, legalization still wins if the footing turns out to be missing: the max offer drops from $137,870 with a clean wall to $130,370 with the repair, still $1,460 above restoration. If the inspector is certain the footing is missing, legalization ties restoration when the repair costs $8,960. If it stays at 35 percent, the repair would have to cost $25,600 before restoration wins, which is the formula <code>=(B7-D7+'Exit Costs'!D14)/'Exit Costs'!C14</code>. A structural surprise moves the answer only when it is large and likely at the same time.</p>
+
+<p>The third is time, and it matters least. Each extra week of permit review costs $420, so legalization survives <code>=(B7-D7)/$H$7</code>, about 15.08 more weeks of delay, before restoration wins. On this deal, permit delay is the weakest of the three inputs.</p>
+
+<p>The as-is exit depends on a number nobody publishes: how much buyers knock off for a disclosed unpermitted room. Run it at three levels.</p>
+
+<table>
+<thead><tr><th>Disclosure discount</th><th>As-is value</th><th>Max offer, Exit C</th><th>Behind Exit B by</th></tr></thead>
+<tbody>
+<tr><td>0%</td><td>$226,000</td><td>$127,520</td><td>$1,390</td></tr>
+<tr><td>3%</td><td>$219,220</td><td>$121,214.60</td><td>$7,695.40</td></tr>
+<tr><td>6%</td><td>$212,440</td><td>$114,909.20</td><td>$14,000.80</td></tr>
+</tbody>
+</table>
+
+<p>Even with no discount at all, the as-is sale loses to a $6,350 restoration, because the garage is worth more in these comps than a room the FHA appraiser puts on its own line. At a 3 percent discount, the as-is sale only wins if the restoration bid tops $14,045.40 or the garage adds less than $3,469.46 in your comps. With no discount, the garage threshold rises to $10,505.38. You can check both numbers before the offer.</p>
+
+<h2>The shortcut that turns into Exit A anyway</h2>
+
+<p>Somebody will suggest a middle path: leave the room unpermitted, install a mini-split so it passes the heat test, and let the appraiser count the square footage. Code section R105.1 requires a permit to install a mechanical or electrical system regulated by the code, which covers a mini-split, and a mechanical inspector standing in a converted garage with carpet on the slab is looking at the rest of the unpermitted work. If you skip that permit too, R108.6 applies to work you did yourself, the disclosure form now describes your own work, and the buyer's inspector photographs a new unit wired into a room with no permit history. The shortcut ends in Exit A with less control over the schedule, or in Exit C with a worse disclosure.</p>
+
+<p>The same logic applies to every permit you pull for the main house. A kitchen or panel permit brings an inspector through the hallway that opens into the converted garage. Decide the exit for the converted room before you file anything else, and put that decision in the rehab schedule.</p>
+
+<p>If none of the exits clears your margin at a price the seller will accept, check whether the house works as a rental after the restoration. The <a href="/blog/flip-to-rental-pivot-calculator-excel">flip-to-rental pivot calculator</a> compares the hold with the sale on the same purchase price and rehab.</p>
+
+<h2>Before you write the offer</h2>
+
+<ul>
+<li>Search the address in the permit portal and compare the tax card square footage and bedroom count with the listing. Any gap is a line on the Exit Costs sheet.</li>
+<li>Run the GLA Test for the converted space: interior access, permanent heat, quality that matches the house. Answer it for the room as it is today, then for the room after each exit.</li>
+<li>Call the permit desk and ask three questions: the investigation fee for work done without a permit, what they will require you to open for inspection, and whether the zoning requires the parking the garage provided.</li>
+<li>Get one bid for legalization and one for restoration, written to the same scope as the Exit Costs sheet.</li>
+<li>Ask your inspector for a probability on the hidden condition, and put it in column C instead of leaving it out.</li>
+<li>Pull paired sales for the bedroom premium and the garage value, and compare the premium with the break-even after-repair value from the Exits sheet.</li>
+<li>Build the buyer's repair requests into the as-is column, using the <a href="/blog/house-flip-buyer-inspection-repair-credit-calculator-excel">inspection repair credit calculator</a>, because the buyer's inspector will find the room too.</li>
+</ul>
+
+<p>On the example house, offer $135,245, legalize the room as a fourth bedroom, and send the seller the Exits table with the offer, since the gap to $175,000 is the cost of making their listing true. If the four-bed comps are thin, drop to the restoration column at $128,910. Consider the as-is exit only if the restoration bid comes in above $14,045.40. If you screen deals with the <a href="/blog/70-percent-rule-house-flipping-calculator">70 percent rule</a>, put the legalization cost in the repair figure: with the base rehab alone it returns $140,300 on a $259,000 value, $5,055 above what the Exits sheet supports.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> handles the rest of the deal: purchase and closing costs, hard money with points, a line-item rehab tab, holding costs inside the all-in cost, and the after-repair value that drives the exit. It does not run the GLA test or compare legalization with restoration. Build the GLA Test, Exit Costs and Exits sheets above, then put the winning exit's cost into the rehab tab as its own line and its after-repair value into the deal, and the calculator shows whether the flip still clears your margin at the price you are about to offer.</p>`,
+  },
+  {
     slug: 'house-flip-add-a-bathroom-roi-calculator-excel',
     title: 'House Flip Add a Bathroom ROI Calculator in Excel: Price the Bath, Not the Bigger House',
     metaTitle: 'House Flip Add a Bathroom ROI Calculator Excel | SheetCraft',
