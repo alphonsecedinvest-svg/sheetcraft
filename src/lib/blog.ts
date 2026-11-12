@@ -16,6 +16,155 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-as-is-sale-vs-rehab-comparison-excel',
+    title: 'House Flip As-Is Sale vs Rehab Comparison in Excel: Price Both Exits From Today',
+    metaTitle: 'House Flip As-Is Sale vs Rehab Comparison | SheetCraft',
+    metaDescription: 'House flip as is sale vs rehab comparison in Excel: price both exits from today, find the ARV, overrun and delay break-evens, then pick the one that survives.',
+    targetKeyword: 'house flip as is sale vs rehab comparison Excel',
+    secondaryKeywords: ['selling a house as is to an investor', 'hard money extension fee', 'rehab cost overrun', 'flip exit strategy', 'sunk costs'],
+    excerpt: 'Four weeks after closing, the rehab bid jumps from $46,000 to $71,500 and an investor offers $172,000 as is. Both exits lose money. The rehab earns $5,163.33 more, and a 1.98% ARV miss erases it.',
+    publishedAt: '2026-11-12',
+    readTime: 11,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-as-is-sale-vs-rehab-comparison-excel.png',
+    imageAlt: 'Ceiling opened during a renovation, with new metal furring channels and loose wiring framed by an ornate plaster cornice, old wood boards visible above and a work light shining through',
+    content: `<p>You closed four weeks ago at $168,000. The plan was a $46,000 cosmetic rehab and a $285,000 resale. Then the sewer scope came back with a collapsed clay line under the driveway, the engineer wants three helical piers on the back wall, and the general contractor's revised fixed bid is $71,500. The same week, a local investor who runs his own crew offers $172,000 cash, as is, closing in 14 days. A house flip as is sale vs rehab comparison in Excel exists for this moment: two exits from the same house, priced from today forward, with the break-even that tells you which one survives a bad month.</p>
+
+<p>Most flippers frame this flip exit strategy question as "do I take a loss or finish the job and get my money back." Both framings are wrong, because both exits lose money on this deal. Sell as is and the deal ends $6,727 in the red. Finish the rehab and, if everything goes to plan, it ends $1,563.67 in the red. The rehab does not get your money back. It earns $5,163.33 more than selling, and asks for $41,194.67 of new cash and six more months of risk to do it. That is the number to decide on.</p>
+
+<h2>Why the brief's metric picks the wrong exit</h2>
+
+<p>The usual advice is to compare exits on profit per month of capital tied up. Run it here and the as-is sale wins by a factor of nine: $17,217 recovered in half a month is $34,434 per month, against $22,380.33 over six months for the rehab, or $3,730.06 per month. The ratio is meaningless. The $17,217 is not profit. It is what is left of your own cash after the loan payoff, and the deal as a whole lost $6,727 on that exit. Dividing recovered capital by a short time period will always crown the fastest exit.</p>
+
+<p>Two corrections fix it. First, ignore sunk costs. The $16,800 down payment, $3,200 of closing costs and $3,944 of lender points (2 points on a $197,200 commitment) are gone in both columns, so they cannot change the answer. Second, treat the rehab as what it now is: a new six-month investment. You give up $17,217 today and put in fresh cash every month, in exchange for one check at the end. The return on that difference, and how much error it can absorb, is the decision.</p>
+
+<p>The national data says the error band matters more than it did a year ago. ATTOM's Q2 2026 Home Flipping Report puts the typical gross flipping profit at $60,526, down from $71,000 a year earlier, and the typical margin at 21.5 percent against 27.6 percent in Q2 2025. ATTOM's margin is purchase price to resale price only, before rehab and holding costs, and it counts every arms-length resale within 12 months, so as-is resales between investors sit in the same statistic as full rehabs. A shrinking cushion means a smaller ARV miss is enough to flip the decision.</p>
+
+<h2>The two-column model, from today forward</h2>
+
+<p>Put the loan terms and fixed facts in an input block in column H so both exits read the same numbers. The values below describe one example deal; replace them with yours.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>H2</td><td>Hard money drawn on purchase (90% of $168,000)</td><td>$151,200</td></tr>
+<tr><td>H3</td><td>Interest rate, interest only</td><td>11.0%</td></tr>
+<tr><td>H4</td><td>Rehab holdback in the loan (original budget)</td><td>$46,000</td></tr>
+<tr><td>H5</td><td>Taxes, vacant insurance and utilities per month</td><td>$620</td></tr>
+<tr><td>H6</td><td>Extension fee, share of loan balance</td><td>1.0%</td></tr>
+<tr><td>H7</td><td>Months already held</td><td>1</td></tr>
+<tr><td>H8</td><td>Loan term, months</td><td>6</td></tr>
+<tr><td>H9</td><td>Revised rehab bid</td><td>$71,500</td></tr>
+<tr><td>H10</td><td>Cash already in (down, closing, points)</td><td>$23,944</td></tr>
+</tbody>
+</table>
+
+<p>The lender approved a $46,000 holdback and declined to raise it for the change in scope. The other $25,500 of the new bid comes out of your pocket. The <a href="/blog/hard-money-loan-calculator-excel">hard money loan calculator</a> covers how points and draw interest stack up on the original loan. Here the only question is what each exit costs from this week on.</p>
+
+<p>Column B is the as-is sale, column C is the rehab. Selling costs in B are 1.5 percent for title, escrow and transfer tax with no agent, because the buyer came to you. In C they are 8.5 percent: 5 percent commission ($14,250), 1.5 percent seller closing costs ($4,275) and a 2 percent buyer concession ($5,700). The <a href="/blog/house-flip-seller-concession-calculator-excel">seller concession calculator</a> shows why that last line belongs in the model before you list.</p>
+
+<table>
+<thead><tr><th>Row</th><th>Line</th><th>Formula (column B)</th><th>B: sell as is</th><th>C: rehab and list</th></tr></thead>
+<tbody>
+<tr><td>4</td><td>Sale price</td><td>input</td><td>$172,000</td><td>$285,000</td></tr>
+<tr><td>5</td><td>Selling cost rate</td><td>input</td><td>1.5%</td><td>8.5%</td></tr>
+<tr><td>6</td><td>Selling costs</td><td><code>=B4&#42;B5</code></td><td>$2,580</td><td>$24,225</td></tr>
+<tr><td>7</td><td>Holdback drawn</td><td>input</td><td>$0</td><td>$46,000</td></tr>
+<tr><td>8</td><td>Loan payoff</td><td><code>=$H$2+B7</code></td><td>$151,200</td><td>$197,200</td></tr>
+<tr><td>9</td><td>Net proceeds at closing</td><td><code>=B4-B6-B8</code></td><td>$18,220</td><td>$63,575</td></tr>
+<tr><td>10</td><td>Months from today to closing</td><td>input</td><td>0.5</td><td>6</td></tr>
+<tr><td>11</td><td>Rehab months</td><td>input</td><td>0</td><td>4</td></tr>
+<tr><td>12</td><td>Interest from today</td><td><code>=$H$3/12&#42;($H$2&#42;B10+B7&#42;(B11/2+B10-B11))</code></td><td>$693</td><td>$10,002.67</td></tr>
+<tr><td>13</td><td>Holding costs</td><td><code>=$H$5&#42;B10</code></td><td>$310</td><td>$3,720</td></tr>
+<tr><td>14</td><td>Extension fee</td><td><code>=IF(B10+$H$7&gt;$H$8,$H$6&#42;B8,0)</code></td><td>$0</td><td>$1,972</td></tr>
+<tr><td>15</td><td>Your cash into the rehab</td><td>0 in B, <code>=$H$9-C7</code> in C</td><td>$0</td><td>$25,500</td></tr>
+<tr><td>16</td><td>Forward profit</td><td><code>=B9-SUM(B12:B15)</code></td><td>$17,217</td><td>$22,380.33</td></tr>
+<tr><td>17</td><td>Deal result incl. sunk cash</td><td><code>=B16-$H$10</code></td><td>-$6,727</td><td>-$1,563.67</td></tr>
+</tbody>
+</table>
+
+<p>Row 12 is where most spreadsheets go wrong. The purchase loan accrues on the full $151,200 for every month you hold. The holdback accrues only as it is drawn: about half the balance on average during the four rehab months, then the full $46,000 until closing. The term <code>B7&#42;(B11/2+B10-B11)</code> carries that, and for the as-is column it returns zero because nothing was drawn.</p>
+
+<p>Row 14 is the line the original plan did not have. A four-week delay to get bids, four months of work, a month on market and a month to close puts the sale at month 7 of a 6-month loan. One point on $197,200, the hard money extension fee, buys three more months. The gap between the exits is <code>=C16-B16</code>, $5,163.33, and it is identical in rows 16 and 17 because the sunk $23,944 cancels.</p>
+
+<h2>How much error the rehab can absorb</h2>
+
+<p>A $5,163.33 advantage is the payoff if every input holds. Three inputs carry most of the risk on a rehab this size: the resale price, the bid, and the calendar. Solve each one for the value that erases the gap.</p>
+
+<table>
+<thead><tr><th>Risk</th><th>Break-even formula</th><th>Break-even</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td>Resale price</td><td><code>=C4-(C16-B16)/(1-C5)</code></td><td>$279,357.02</td><td>A 1.98% ARV miss ties the exits</td></tr>
+<tr><td>Rehab overrun</td><td><code>=(C16-B16)/$H$9</code></td><td>7.22%</td><td>$5,163.33 over a $71,500 bid</td></tr>
+<tr><td>Delay</td><td><code>=(C16-B16)/($H$3/12&#42;C8+$H$5)</code></td><td>2.13 months</td><td>Each month costs $2,427.67</td></tr>
+</tbody>
+</table>
+
+<p>The resale price divides by <code>1-C5</code> because every dollar of ARV you lose also lowers commission, closing costs and concession, so a $1 miss costs $0.915. A rehab cost overrun has no such cushion: the lender capped its holdback, so every dollar over the bid is yours. The delay cost is a full month of interest on $197,200 plus $620 of holding.</p>
+
+<p>Now run the scenarios a flipper actually sees. The as-is column does not move, since that offer closes in two weeks.</p>
+
+<table>
+<thead><tr><th>Rehab scenario</th><th>Rehab forward profit</th><th>Versus selling as is</th></tr></thead>
+<tbody>
+<tr><td>Plan holds</td><td>$22,380.33</td><td>+$5,163.33</td></tr>
+<tr><td>ARV 2% lower ($279,300)</td><td>$17,164.83</td><td>-$52.17</td></tr>
+<tr><td>Bid overruns 10% ($7,150)</td><td>$15,230.33</td><td>-$1,986.67</td></tr>
+<tr><td>One month late</td><td>$19,952.66</td><td>+$2,735.66</td></tr>
+<tr><td>Two months late</td><td>$17,525</td><td>+$308</td></tr>
+<tr><td>Three months late (second extension)</td><td>$13,125.33</td><td>-$4,091.67</td></tr>
+<tr><td>ARV 2% lower, 5% overrun, one month late</td><td>$11,162.16</td><td>-$6,054.84</td></tr>
+</tbody>
+</table>
+
+<p>The third month of delay costs more than the first two, because it runs past month 9 and triggers a second $1,972 extension. Model that step in row 14 with a nested condition if your lender's extensions come in three-month blocks: <code>=IF(B10+$H$7&gt;$H$8+3,2,IF(B10+$H$7&gt;$H$8,1,0))&#42;$H$6&#42;B8</code>.</p>
+
+<p>The last row is a mediocre outcome, nothing more. A comp set that was a little generous, a sewer contractor who finds a second break, and a slow month on market. On this house it turns a $5,163.33 advantage into a $6,054.84 deficit.</p>
+
+<h2>The return on the extra six months</h2>
+
+<p>Break-evens tell you how fragile the rehab is. The return tells you whether it is worth the cash. Lay out the difference between the two exits as dated cash flows: you give up the as-is check, then fund interest, holding and your share of the bid every month, then collect the sale.</p>
+
+<table>
+<thead><tr><th>Date</th><th>What happens</th><th>Rehab minus as is</th></tr></thead>
+<tbody>
+<tr><td>2026-10-28</td><td>As-is closing you pass on</td><td>-$17,217</td></tr>
+<tr><td>2026-11-14</td><td>Interest $1,438.71, holding $620, bid share $6,375</td><td>-$8,433.71</td></tr>
+<tr><td>2026-12-14</td><td>Interest $1,544.12, holding, bid share</td><td>-$8,539.12</td></tr>
+<tr><td>2027-01-14</td><td>Interest $1,649.54, holding, bid share</td><td>-$8,644.54</td></tr>
+<tr><td>2027-02-14</td><td>Interest $1,754.96, holding, bid share</td><td>-$8,749.96</td></tr>
+<tr><td>2027-03-14</td><td>Interest $1,807.67, holding, extension $1,972</td><td>-$4,399.67</td></tr>
+<tr><td>2027-04-14</td><td>Interest and holding, then net sale proceeds</td><td>+$61,147.33</td></tr>
+</tbody>
+</table>
+
+<p>With dates in A22:A28 and flows in D22:D28, <code>=XIRR(D22:D28,A22:A28)</code> returns 31.01 percent annualized, and <code>=SUM(D22:D28)</code> returns the same $5,163.33 as the static model, which is your check that nothing was dropped. You put $55,984 at risk over six months to earn it.</p>
+
+<p>Thirty-one percent looks like an easy yes until you set it against the break-even table. It is the return of a bet whose cushion is 2 percent of ARV. Compare it with the next deal you could fund with the $17,217 plus the $38,767 of monthly outlays you would not make. If your pipeline has a clean purchase at the <a href="/blog/70-percent-rule-house-flipping-calculator">70 percent rule</a> that needs that cash in November, the as-is sale funds it. If the cash would sit in a savings account, 31 percent on a well-supported ARV is hard to beat, and the question becomes how well supported it really is.</p>
+
+<h2>Checks the spreadsheet will not do for you</h2>
+
+<p>Five items change the numbers above, and all of them are in documents you already have or can get this week.</p>
+
+<ul>
+<li><strong>Minimum interest clause.</strong> Read the note for a minimum number of months of interest. With a three-month minimum, selling at month 1.5 adds 1.5 months on $151,200, or $2,079, to the as-is column. That widens the gap to $7,242.33 in favor of the rehab, and moves the ARV break-even to $277,084.89.</li>
+<li><strong>Is the as-is offer real?</strong> Before selling a house as is to an investor, run the offer through the 70 percent rule with the buyer's likely costs. At your $71,500 bid, 70 percent of $285,000 minus repairs is $128,000. An offer of $172,000 means the buyer has a crew that does this work for much less, or plans to hold the house as a rental. Ask for proof of funds and a short inspection period, because a buyer who retrades after your loan clock runs is worse than no offer.</li>
+<li><strong>Who can buy the finished house.</strong> Under 24 CFR 203.37a, a home is not eligible for an FHA-insured loan if the resale contract is signed 90 days or less after the seller's acquisition settlement. Between 91 and 180 days, a resale price 100 percent or more above the purchase price requires a second appraisal. ATTOM's Q2 2026 report has 10.7 percent of flipped homes selling to FHA buyers. Here the contract lands around day 181 at a 69.64 percent markup, so neither rule bites, but a faster, lighter rehab could list into the 90-day window. Add <code>=IF(C30-$C$29&lt;=90,"No FHA buyers","FHA eligible")</code> with the settlement date in C29 and the expected contract date in C30.</li>
+<li><strong>How fixed is the fixed bid.</strong> Read the exclusions. A sewer bid that stops at the property line or excludes city tap fees is not $71,500. Price the exclusions into row 15 before you compare.</li>
+<li><strong>How tight are your comps.</strong> A 1.98 percent cushion on $285,000 is $5,643. If your three best comps spread more than that after adjustments, the ARV is not known to the precision this decision needs. The <a href="/blog/arv-comps-spreadsheet-excel">ARV comps spreadsheet</a> shows how to adjust them.</li>
+</ul>
+
+<p>The structure is the same one that settled the garage-conversion house in the <a href="/blog/house-flip-unpermitted-work-cost-calculator-excel">unpermitted work cost calculator</a>, where an as-is column sat beside legalization and restoration. It also differs from <a href="/blog/flip-vs-wholesale-profit-comparison-excel">assigning the contract before closing</a>. Once you own the house, the as-is sale is a second closing with its own seller costs, and the loan, the points and the clock are already running.</p>
+
+<h2>The recommendation for this house</h2>
+
+<p>On these numbers, take the $172,000 offer unless three conditions all hold. The comps after adjustment sit within about 2 percent of $285,000. The contractor signs a fixed price that includes the city sewer connection and the piers, with no allowance lines. And you have no deal in the next two months that needs the $55,984. If any one of them fails, the rehab's $5,163.33 edge is smaller than the error you are carrying. Sell, accept the $6,727 loss, and put the cash into a deal priced correctly from the start.</p>
+
+<p>If all three hold, rehab, and put the extension fee and the second-extension trigger in the model now, so you can see the cost of each week before it happens.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> already holds the inputs this comparison reads: purchase and closing costs, hard money points and rate, a line-item rehab budget, holding costs and ARV. Enter the deal there, then add the two-column block and the break-even rows from this article on a new tab that points at those cells. It does not run the as-is exit or the incremental XIRR for you. Once the inputs are in, those rows take about ten minutes to build, which is less time than it takes the investor with the $172,000 offer to call back.</p>`,
+  },
+  {
     slug: 'house-flip-unpermitted-work-cost-calculator-excel',
     title: 'House Flip Unpermitted Work Cost Calculator in Excel: Three Exits, Three Offers',
     metaTitle: 'House Flip Unpermitted Work Cost Calculator | SheetCraft',
