@@ -16,6 +16,170 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-sewer-scope-repair-contingency-calculator-excel',
+    title: 'House Flip Sewer Scope Repair Contingency Calculator Excel: Price the Pipe Nobody Filmed',
+    metaTitle: 'House Flip Sewer Scope Contingency Calculator | SheetCraft',
+    metaDescription: 'A house flip sewer scope found a belly and stopped 18 feet short. Price each finding by the repair that fixes it, branch the unseen pipe, test a $475 rescope.',
+    targetKeyword: 'house flip sewer scope repair contingency calculator Excel',
+    secondaryKeywords: ['sewer lateral repair cost', 'cured-in-place liner vs dig and replace', 'sewer scope inspection contingency', 'PACP grade remaining useful life', 'point-of-sale sewer lateral ordinance'],
+    excerpt: 'The camera found roots, an offset and a belly, then stopped 18 feet short of the main. Mapped to the repair methods that can fix each finding, the sewer costs $12,200 against $6,050 of headroom, and a $475 rescope pays for itself if the seller covers 23.42 percent of a street repair.',
+    publishedAt: '2026-11-13',
+    readTime: 12,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-sewer-scope-repair-contingency-calculator-excel.png',
+    imageAlt: 'Cast iron storm drain grate half covered by dry leaves and twigs at ground level',
+    content: `<p>The sewer scope on a 1950s ranch comes back on day four of a ten-day inspection period: roots at three clay joints, an offset at 22 feet, a belly holding water from 30 to 41 feet, and a camera that stopped at 54 feet against a root mass. The plumber's report recommends a spot repair for $3,900. Most flippers type $3,900 into the rehab sheet, lean on the 10 percent contingency, and close. A <strong>house flip sewer scope repair contingency calculator in Excel</strong> exists to stop that move, because the $3,900 line prices the only defect the plumber quoted, and the 18 feet nobody has seen are still in the deal.</p>
+
+<p>This article builds that calculator around one example deal. Every figure below is an example input, labeled as such, so you can replace each one with your own bids. The method is what carries over: map each finding to the repair method that can actually fix it, price the unseen footage as a branch, and decide whether a $475 second look is worth buying before the inspection contingency runs out.</p>
+
+<h2>The deal, and the headroom the sewer has to fit inside</h2>
+
+<p>Start from the numbers you already have before the scope report arrives. The example deal is a three-bedroom ranch under contract at $152,000 with a ten-day inspection contingency.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input (example)</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>B4</td><td>After-repair value (ARV)</td><td>$265,000</td></tr>
+<tr><td>B5</td><td>Selling costs</td><td>7%</td></tr>
+<tr><td>B6</td><td>Rehab budget, sewer excluded</td><td>$46,000</td></tr>
+<tr><td>B7</td><td>Buy-side closing costs</td><td>$4,200</td></tr>
+<tr><td>B8</td><td>Holding cost per week (loan interest, taxes, insurance, utilities)</td><td>$410</td></tr>
+<tr><td>B9</td><td>Planned weeks from close to sale</td><td>20</td></tr>
+<tr><td>B10</td><td>Target profit</td><td>$30,000</td></tr>
+<tr><td>B11</td><td>Contract price</td><td>$152,000</td></tr>
+</tbody>
+</table>
+
+<p>Two formulas turn those inputs into the number that matters for the sewer. The first is the highest price at which the deal still makes the target profit with a sewer that costs nothing:</p>
+
+<p><code>=B4-B4&#42;B5-B6-B7-B8&#42;B9-B10</code> in B12 returns $158,050.</p>
+
+<p>The second is the headroom: how much sewer the deal can absorb at the price you already signed before the target profit starts to shrink.</p>
+
+<p><code>=B12-B11</code> in B13 returns $6,050.</p>
+
+<p>Every sewer number from here on gets compared against $6,050. If the repair costs more, the difference comes out of your profit dollar for dollar, or out of the seller through a credit you negotiate before the contingency expires.</p>
+
+<h2>Map each finding to a method that can fix it</h2>
+
+<p>A scope report lists defects by footage. A budget needs repair methods, and the two do not map one to one, because each trenchless method has defects it cannot cure. The EPA's fact sheet on trenchless sewer rehabilitation (EPA 832-F-99-032, September 1999) states the principle in one line: trenchless methods "use the existing pipe as a host for a new pipe or liner." It lists cracks, offset joints and structurally deficient segments as defects that cured-in-place pipe (a resin-soaked liner cured inside the old pipe) can rehabilitate.</p>
+
+<p>The host principle has a consequence the report will not spell out. A liner cured inside a sagging pipe takes the sag with it, so the belly at 30 to 41 feet still holds water after lining. That section has to be dug up and relaid at the right slope. The EPA's pipe bursting fact sheet (EPA 832-F-06-030, September 2006) names the other hard limit: bursting "difficulties can arise from expansive soils, close proximity of other service lines, a collapsed pipe along the pipeline, and other causes."</p>
+
+<p>Put that into a Scope tab, one row per finding:</p>
+
+<table>
+<thead><tr><th>Footage</th><th>Finding</th><th>Method that fixes it</th><th>Cost (example bid)</th></tr></thead>
+<tbody>
+<tr><td>0 to 22 ft</td><td>Roots at three clay joints</td><td>Liner</td><td>In liner price</td></tr>
+<tr><td>22 ft</td><td>Offset joint</td><td>Liner</td><td>In liner price</td></tr>
+<tr><td>30 to 41 ft</td><td>Belly, standing water</td><td>Dig and relay 11 ft</td><td>$4,400</td></tr>
+<tr><td>41 to 54 ft</td><td>Roots, pipe round</td><td>Liner</td><td>In liner price</td></tr>
+<tr><td>54 to 72 ft</td><td>Not seen, camera stopped</td><td>Unknown</td><td>Branch below</td></tr>
+</tbody>
+</table>
+
+<p>The lateral length of 72 feet is an estimate from the cleanout to the main's location on the city sewer map. The camera covered 54 feet, so the unseen share is <code>=(B16-B17)/B16</code>, or 25 percent of the pipe you are about to own.</p>
+
+<p>The liner bid in the example is $2,400 to mobilize plus $75 per foot over the full length:</p>
+
+<p><code>=B18+B19&#42;B16</code> returns $7,800.</p>
+
+<p>The known plan is the dig plus the liner: <code>=SUMIFS(Scope!D:D,Scope!C:C,"Dig&#42;")+B20</code> returns $12,200. That is the cost of fixing only what the camera saw, and it is already $6,150 above the $6,050 of headroom. The plumber's $3,900 spot repair at the offset would leave the belly and the roots in place, and your buyer's inspector will scope the same pipe before your resale closes.</p>
+
+<h2>Price the 18 feet nobody has seen</h2>
+
+<p>The footage past the camera's stopping point is where a blanket contingency fails, because it is the only part of the lateral whose cost can double the sewer line. Model it as two branches.</p>
+
+<p>In the first branch, the pipe past 54 feet is round and root-filled like the rest. The full-length liner already covers it, so the sewer costs $12,200. In the second branch, the pipe is collapsed or broken near the tap at the main. A liner cannot be pulled through a collapse, and bursting runs into the limit the EPA names, so the contractor excavates at the street. The example bid for that work is $12,700 for the right-of-way permit, traffic control, the street cut, the pipe section and the patch, plus two extra weeks of holding while the permit and the patch are scheduled.</p>
+
+<p>Who pays for the section between the property line and the main depends on the city's sewer code. Read it before you price this branch, because in a city where the utility owns that section, the second branch belongs to the city and your bad case shrinks to the known plan.</p>
+
+<p>The probability of the bad branch is your own input. This example uses 15 percent. Set it from what the camera saw just before it stopped (a root mass in round pipe argues low, a crushed joint argues high) and from what your plumber has dug up on the same street.</p>
+
+<table>
+<thead><tr><th>Branch</th><th>Probability</th><th>Sewer work</th><th>Extra holding</th><th>Total sewer cost</th><th>Profit at $152,000</th></tr></thead>
+<tbody>
+<tr><td>Round pipe past 54 ft</td><td>85%</td><td>$12,200</td><td>$0</td><td>$12,200</td><td>$23,850</td></tr>
+<tr><td>Collapse near the main</td><td>15%</td><td>$24,900</td><td>$820</td><td>$25,720</td><td>$10,330</td></tr>
+<tr><td>Probability-weighted</td><td>100%</td><td></td><td></td><td>$14,228</td><td>$21,822</td></tr>
+</tbody>
+</table>
+
+<p>The formulas behind the table, with probabilities in B24:B25 and total costs in F24:F25:</p>
+
+<ul>
+<li><code>=E24+D24&#42;$B$8</code> adds the extra weeks of holding to the sewer work for each branch.</li>
+<li><code>=$B$10+$B$13-F24</code> returns the profit in each branch at the contract price you signed.</li>
+<li><code>=SUMPRODUCT(B24:B25,F24:F25)</code> returns the probability-weighted sewer cost of $14,228.</li>
+</ul>
+
+<h2>Why the 10 percent contingency does not cover this</h2>
+
+<p>The default answer is that a 10 percent contingency on the rehab budget absorbs surprises. On a $46,000 rehab that is $4,600. Compare it with the branches: the known plan alone is 2.65 times the contingency, and the collapse branch is 5.59 times. The contingency is sized on the kitchen and the flooring, and the sewer's uncertainty does not scale with either one. A cheap cosmetic rehab on an old house carries a small percentage contingency and the same buried clay pipe. The <a href="/blog/construction-contingency-budget-percentage/">contingency percentage article</a> makes the same argument for ground-up work: size a contingency from the specific unknowns in the job.</p>
+
+<p>Run the lazy version through the same sheet to see what it costs. With $3,900 in the sewer line, the spreadsheet shows a profit of $32,150. The probability-weighted profit is $21,822. The model hides $10,328 of expected cost, and in the collapse branch the deal makes $10,330 against a sheet that promised $32,150.</p>
+
+<table>
+<thead><tr><th>Sewer line in the budget</th><th>Profit the sheet shows</th><th>Profit, round pipe</th><th>Profit, collapse</th></tr></thead>
+<tbody>
+<tr><td>Plumber's spot repair, $3,900</td><td>$32,150</td><td>$23,850</td><td>$10,330</td></tr>
+<tr><td>Known plan, $12,200</td><td>$23,850</td><td>$23,850</td><td>$10,330</td></tr>
+<tr><td>Probability-weighted, $14,228</td><td>$21,822</td><td>$23,850</td><td>$10,330</td></tr>
+</tbody>
+</table>
+
+<p>The last two columns never change, because the pipe does not care what you typed. Only the first column changes, and the first column is the number you use to decide whether to ask the seller for money. That is the whole reason to build the branch table before you answer the seller's agent.</p>
+
+<h2>Read the grade on the report as severity, not as time left</h2>
+
+<p>Some scope reports grade each defect with NASSCO codes, a standard for coding sewer video. The tempting reading is that a grade 3 defect has years left and can be deferred to the next owner. NASSCO's Technical Advisory Council addressed that reading directly in its June 2020 tech tip on PACP (the Pipeline Assessment Certification Program) and remaining useful life. Manuals before Version 6 (2010) paired each grade with a guideline on remaining life. The council's current answer is that "there is no measurable direct relationship" between PACP grades and remaining useful life, and that the grades "only consider internal pipe observations," leaving out pipe material, depth, soils and surface conditions.</p>
+
+<p>For a flip, the deferral question is narrower anyway. You hold the house for 20 weeks, and the buyer who closes on it will hire an inspector who can order the same scope. A belly that holds water on your report will hold water on theirs. The <a href="/blog/house-flip-buyer-inspection-repair-credit-calculator-excel/">buyer inspection repair credit calculator</a> shows what that request costs once you are the seller, priced against a lender's credit caps and a relist.</p>
+
+<p>In some places the deferral option does not exist at all. In the East Bay communities covered by the Regional Private Sewer Lateral Ordinance, EBMUD requires a compliance certificate for buying or selling property, and its program page lists the trigger as "required to close escrow." A seller who cannot obtain the certificate before transferring title can buy a time extension certificate, which allows "180 days from the TEC issue date for PSL work to be completed," and must mail a $4,500 refundable deposit. If your flip sits in one of those communities, the lateral has to pass before your own resale closes, so the known plan is a cost of selling the house.</p>
+
+<h2>Should you buy a second look before the contingency expires?</h2>
+
+<p>The cheapest information in the deal is a hydro-jet and rescope, quoted in the example at $475. Jetting clears the root mass at 54 feet and lets the camera reach the main. The case for paying it rests on one point: you can ask the seller for a credit on the known plan with the report you have, but you cannot get a credit for a collapse nobody has filmed. With footage and a street-cut bid, you can.</p>
+
+<p>Treat the rescope as a small investment and compute its expected value. If the camera finds a collapse, you present a $13,520 bid (the street work plus the two extra weeks of holding) and the seller covers some share of it. Call that share s. The expected value of the rescope is:</p>
+
+<p><code>=B25&#42;B32&#42;B33-B31</code>, with the collapse probability in B25, the seller's share in B32, the $13,520 bid in B33 and the $475 rescope in B31.</p>
+
+<p>Solve for the share that makes it break even: <code>=B31/(B25&#42;B33)</code> returns 23.42 percent. At a 15 percent chance of collapse, the rescope pays for itself if the seller covers at least 23.42 percent of the street work. Flip the question and hold the seller's share at 50 percent: <code>=B31/(0.5&#42;B33)</code> returns 7.03 percent, so the rescope pays if you put the chance of a collapse above 7.03 percent.</p>
+
+<table>
+<thead><tr><th>Chance of collapse</th><th>Seller covers 0%</th><th>Seller covers 25%</th><th>Seller covers 50%</th><th>Seller covers 100%</th></tr></thead>
+<tbody>
+<tr><td>5%</td><td>-$475</td><td>-$306</td><td>-$137</td><td>$201</td></tr>
+<tr><td>10%</td><td>-$475</td><td>-$137</td><td>$201</td><td>$877</td></tr>
+<tr><td>15%</td><td>-$475</td><td>$32</td><td>$539</td><td>$1,553</td></tr>
+<tr><td>25%</td><td>-$475</td><td>$370</td><td>$1,215</td><td>$2,905</td></tr>
+</tbody>
+</table>
+
+<p>The grid leaves out one thing the rescope also buys: the option to walk. In this example the collapse branch still makes $10,330, so most investors would close anyway and the walk option adds little. That changes with the contract price. The collapse branch reaches zero profit at <code>=B12+B10-F25</code>, which returns $162,330. Above that price, the rescope decides whether you buy a loss, and the grid understates its value.</p>
+
+<h2>What to ask the seller for</h2>
+
+<p>Put three credit numbers side by side before you answer, each one computed as <code>=MAX(0,F24-$B$13)</code> against the $6,050 of headroom:</p>
+
+<ul>
+<li>$6,150 restores the $30,000 target if the pipe past 54 feet is round. This is the floor of your ask, and the known-plan bids for the belly dig and the liner justify it line by line.</li>
+<li>$8,178 restores the target on the probability-weighted cost. Use it if the seller refuses a rescope or the contingency runs out before a jetting crew can come.</li>
+<li>$19,670 restores the target if the camera finds a collapse. You only get to ask for this number with footage in hand.</li>
+</ul>
+
+<p>Anchor the conversation on the repair bids, which total $12,200 for the known findings, and treat $6,150 as the credit you accept. Your profit target is your business, and the bids are evidence the seller's agent can forward. On the next deal, run the same sheet before you offer: with a $14,228 probability-weighted sewer line, the maximum offer on this house is <code>=B12-F26</code>, or $143,822, which is $8,178 below the price signed here. The <a href="/blog/house-flip-as-is-sale-vs-rehab-comparison-excel/">as-is sale versus rehab comparison</a> starts from a sewer scope that found a collapsed clay line after closing, which is what this calculator is meant to prevent. The <a href="/blog/70-percent-rule-house-flipping-calculator/">70 percent rule calculator</a> covers why a rule of thumb on ARV cannot see a line item like this one.</p>
+
+<h2>The recommendation</h2>
+
+<p>On every flip with an original clay or cast iron lateral, order the scope before the inspection contingency is half gone, so a jetting and rescope still fits in the window. Build the sewer line from the methods that fix each finding, including the ones the report did not quote. Price the unseen footage as its own branch with your own probability, and keep it out of the percentage contingency. Then decide on the rescope with the breakeven share: at a 15 percent chance of collapse, $475 pays for itself if the seller covers 23.42 percent of a street repair.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator/">BRRRR Deal Calculator</a> holds the rest of this deal: purchase price and closing costs, hard money points and rate, a line-item rehab tab where the dig and the liner go as separate lines, holding costs in the all-in total, and the ARV the profit hangs on. It does not build the scope branches or the rescope breakeven for you. Add a Scope tab with the two-branch table above, link its probability-weighted total into the rehab tab, and the deal summary will show the profit the pipe allows before you answer the seller.</p>`,
+  },
+  {
     slug: 'house-flip-as-is-sale-vs-rehab-comparison-excel',
     title: 'House Flip As-Is Sale vs Rehab Comparison in Excel: Price Both Exits From Today',
     metaTitle: 'House Flip As-Is Sale vs Rehab Comparison | SheetCraft',
