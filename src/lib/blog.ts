@@ -16,6 +16,174 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-value-engineering-savings-log-excel',
+    title: 'Construction Value Engineering Savings Log in Excel: Net the Redesign, the Delay and the Split',
+    metaTitle: 'Construction Value Engineering Savings Log | SheetCraft',
+    metaDescription: 'A construction value engineering savings log in Excel nets each VE credit against redesign, delay and life-cycle cost, then shows who keeps it under a GMP.',
+    targetKeyword: 'construction value engineering savings log Excel',
+    secondaryKeywords: ['value engineering log template', 'VE proposal tracking spreadsheet', 'GMP shared savings clause', 'value engineering change proposal', 'construction cost savings tracker'],
+    excerpt: 'Six VE items, $243,500 in sub deducts, and $48,791.70 of real savings once redesign, plan review, critical-path weeks and life-cycle cost go in the same row. Here is the Excel log that nets each item, and the GMP savings clause that decides whether the owner or the GC wants it.',
+    publishedAt: '2026-11-14',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-value-engineering-savings-log-excel.png',
+    imageAlt: 'Black and white photo of a flooring installer on his knees fitting a vinyl plank against a white wall in an unfinished apartment',
+    content: `<p>A construction value engineering savings log in Excel has one job: tell you which VE items to sign before the architect starts redrawing. On a 30-unit, three-story walk-up with a $6,240,000 GMP, the general contractor and the owner's rep sat down in week nine with six value engineering items. The subs had quoted $243,500 in deducts. Everyone in the room called it "a quarter million in savings." Once the redesign fees, the plan review resubmittals, the weeks added to the critical path and the higher operating costs went into the same row, the six items were worth $48,791.70. Two of them lost money. Dropping those two raised the total to $60,684.61.</p>
+
+<p>The numbers in this article are a worked example, not market data. Every figure comes from one model, so you can rebuild it cell by cell. What the example shows is general: a VE credit is quoted gross, by the party that does not pay for the redesign or the delay, and the contract's savings clause then decides who keeps it. The log below does both steps in order: net first, split second.</p>
+
+<h2>What a VE credit leaves out</h2>
+
+<p>The number a sub writes on a VE proposal is the reduction in its own price. It leaves out four costs that land somewhere else on the project:</p>
+
+<ul>
+<li><strong>Redesign.</strong> The architect or engineer redraws the system and bills the owner for it. A mechanical swap can need new load calcs, new duct and pipe routing, new electrical circuits and a revised energy compliance form.</li>
+<li><strong>Permit resubmittal.</strong> A structural or mechanical change usually goes back to plan review, with a fee and a wait.</li>
+<li><strong>Critical-path time.</strong> Every week the redesign or the review pushes the finish date costs the job its weekly general conditions plus the owner's carrying cost on the loan. If you do not know which activities sit on the critical path this month, a <a href="/blog/construction-look-ahead-schedule-template-excel/">three-week look-ahead schedule</a> is where that answer lives.</li>
+<li><strong>Life-cycle cost.</strong> A cheaper system that uses more energy or wears out sooner moves cost from the construction budget to the owner's operating budget. It is still a cost, it just shows up after the GC has left.</li>
+</ul>
+
+<p>The federal government writes the same logic into its own construction contracts. FAR 52.248-3, the Value Engineering, Construction clause (October 2025 version), defines instant contract savings as the reduction in the contractor's cost of performance minus the contractor's development and implementation costs, and it subtracts the agency's own added costs, including net increases in operations and maintenance, before any split is calculated. A private VE log should do at least as much.</p>
+
+<h2>The log: one row per item, net before anything else</h2>
+
+<p>Put five inputs at the top of the sheet. In this example they come from the contract and the owner's pro forma:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Example value</th></tr></thead>
+<tbody>
+<tr><td>B2</td><td>Contractor's fee, percent of Cost of the Work</td><td>5%</td></tr>
+<tr><td>B3</td><td>Owner's share of savings under the GMP</td><td>75%</td></tr>
+<tr><td>B4</td><td>Contractor's general conditions per week</td><td>$8,000</td></tr>
+<tr><td>B5</td><td>Owner's carrying cost per week (loan interest)</td><td>$6,000</td></tr>
+<tr><td>B6</td><td>Discount rate for life-cycle costs</td><td>6%</td></tr>
+</tbody>
+</table>
+
+<p>The log starts on row 9. Column D is the gross credit the sub quoted, E the redesign fee in writing from the architect or engineer, F the permit resubmittal cost, G the weeks added to the critical path, H the life-cycle cost in today's dollars. Column I is the number that decides the item:</p>
+
+<p><code>=D9-E9-F9-G9&#42;($B$4+$B$5)-H9</code></p>
+
+<p>In business terms: the credit, less everything the change costs anyone on the project. The contractor's fee is left out of column I on purpose, because the fee is a transfer between owner and contractor. It moves money from one party to the other and does not change what the project as a whole saves.</p>
+
+<p>Life-cycle cost needs one formula per item. For the first item below, the mechanical engineer estimates the PTAC units cost $3,900 a year more in energy than the specified VRF system over 15 years, and need a $28,000 replacement round in year 12 that the VRF system would not:</p>
+
+<p><code>=PV($B$6,15,-3900)+28000/(1+$B$6)^12</code></p>
+
+<p>That returns $37,877.77 for the energy plus $13,915.14 for the replacement, so $51,792.91 goes in H9. For the roof item, the roofer estimates a $96,000 replacement comes five years earlier on the thinner membrane, year 20 instead of year 25. The present value of pulling that cost forward is <code>=96000/(1+$B$6)^20-96000/(1+$B$6)^25</code>, or $7,565.39. Both are estimates from the trade, and the log should say so in a notes column.</p>
+
+<table>
+<thead><tr><th>Item</th><th>Gross credit</th><th>Redesign</th><th>Permit</th><th>Weeks</th><th>Delay cost</th><th>Life-cycle</th><th>Net saving</th></tr></thead>
+<tbody>
+<tr><td>1. VRF to PTAC units</td><td>$118,000</td><td>$14,000</td><td>$2,400</td><td>4</td><td>$56,000</td><td>$51,792.91</td><td>-$6,192.91</td></tr>
+<tr><td>2. Steel moment frame to plywood shear walls</td><td>$48,000</td><td>$9,500</td><td>$1,200</td><td>2</td><td>$28,000</td><td>$0</td><td>$9,300</td></tr>
+<tr><td>3. Engineered hardwood to LVP</td><td>$31,500</td><td>$900</td><td>$0</td><td>0</td><td>$0</td><td>$0</td><td>$30,600</td></tr>
+<tr><td>4. Retaining wall to regraded slope</td><td>$22,000</td><td>$6,800</td><td>$650</td><td>0</td><td>$0</td><td>$0</td><td>$14,550</td></tr>
+<tr><td>5. 80-mil to 60-mil TPO roof</td><td>$14,200</td><td>$400</td><td>$0</td><td>0</td><td>$0</td><td>$7,565.39</td><td>$6,234.61</td></tr>
+<tr><td>6. Lighting package substitution</td><td>$9,800</td><td>$1,500</td><td>$0</td><td>1</td><td>$14,000</td><td>$0</td><td>-$5,700</td></tr>
+<tr><td><strong>All six</strong></td><td>$243,500</td><td>$33,100</td><td>$4,250</td><td></td><td>$98,000</td><td>$59,358.30</td><td>$48,791.70</td></tr>
+</tbody>
+</table>
+
+<p>The largest credit on the list is a loser. The PTAC swap saves $118,000 on the mechanical subcontract and costs $124,192.91 in redesign, review, four weeks of delay and higher operating cost. The lighting substitution looks like free money at $9,800 until the longer fixture lead time adds a week to the finish.</p>
+
+<p>The total that belongs in the owner's monthly report is <code>=SUMIFS(I9:I14,I9:I14,"&gt;0")</code>, which returns $60,684.61 for the four items worth accepting. Accepting all six gives $48,791.70, so rejecting items 1 and 6 is worth $11,892.91.</p>
+
+<h2>Who keeps the saving: three ways to write the clause</h2>
+
+<p>The AIA's cost-plus-fee agreement with a GMP, A102-2017, leaves this decision blank. Section 5.2.1 says the GMP is subject to additions and deductions by change order. Section 5.1.2 asks the parties to write how the fee adjusts for changes. Section 5.1.7, titled "Other," is where the parties insert "provisions for bonus, cost savings or other incentives, if any." If 5.1.7 is empty, the contract sum is the Cost of the Work plus the fee and nothing is shared. This example compares three ways to write it.</p>
+
+<h3>Clause A: every VE credit reduces the GMP</h3>
+
+<p>The owner takes the whole credit plus the fee that came with it. With the fee at 5 percent of cost, the contractor's side of each item is:</p>
+
+<p><code>=-D9&#42;$B$2+G9&#42;$B$4&#42;$B$2</code></p>
+
+<p>The contractor loses 5 percent of the credit and earns 5 percent on any extended general conditions. That is negative on all six items, -$9,375 if all six go through. Under clause A a contractor has no financial reason to bring a single VE idea to the table. The one item where the contractor loses least is the lighting substitution, at -$90, because its week of delay pays fee on general conditions.</p>
+
+<h3>Clause B: credits stay inside the GMP and go into a 75/25 savings pool at closeout</h3>
+
+<p>Here the owner's side is <code>=D9&#42;(1+$B$2)&#42;$B$3-E9-F9-G9&#42;($B$4&#42;(1+$B$2)+$B$5)-H9</code>. The owner pays the whole redesign, the whole delay and the whole life-cycle penalty, and gets back only 75 percent of the credit. The contractor gets 25 percent of the credit plus its fee, net of the fee it gave up, and pays none of the costs:</p>
+
+<p><code>=D9&#42;(1+$B$2)&#42;(1-$B$3)-D9&#42;$B$2+G9&#42;$B$4&#42;$B$2</code></p>
+
+<p>The contractor wins on every item, and wins most on item 1, the one that destroys value: $26,675 to the contractor while the owner loses $32,867.91. The owner, reading the same row, would rationally refuse item 2 even though the project nets $9,300 from it, because the owner's side is -$1,700. The owner would need 78.37 percent of the savings to break even on item 2:</p>
+
+<p><code>=(E10+F10+G10&#42;($B$4&#42;(1+$B$2)+$B$5)+H10)/(D10&#42;(1+$B$2))</code></p>
+
+<p>There is a second effect under clause B that never shows up in a log. A credit left inside the GMP is a cushion. If other trades overrun, the contractor spends the VE credit before it spends its own fee, so the 25 percent share is the least the contractor gets from it.</p>
+
+<h3>Clause C: split the net, not the credit</h3>
+
+<p>Clause C shares column I instead of column D. Owner side <code>=I9&#42;$B$3</code>, contractor side <code>=I9&#42;(1-$B$3)</code>, with the contractor's share paid as an addition to the fee after the deductive change order. That is the same mechanism FAR 52.248-3 uses: reduce the contract price by the instant contract savings, then add the contractor's share to the price or fee.</p>
+
+<table>
+<thead><tr><th>Item</th><th>Net saving</th><th>Owner A</th><th>GC A</th><th>Owner B</th><th>GC B</th><th>Owner C</th><th>GC C</th></tr></thead>
+<tbody>
+<tr><td>1. VRF to PTAC</td><td>-$6,192.91</td><td>-$1,892.91</td><td>-$4,300</td><td>-$32,867.91</td><td>$26,675</td><td>-$4,644.68</td><td>-$1,548.23</td></tr>
+<tr><td>2. Shear walls</td><td>$9,300</td><td>$10,900</td><td>-$1,600</td><td>-$1,700</td><td>$11,000</td><td>$6,975</td><td>$2,325</td></tr>
+<tr><td>3. LVP</td><td>$30,600</td><td>$32,175</td><td>-$1,575</td><td>$23,906.25</td><td>$6,693.75</td><td>$22,950</td><td>$7,650</td></tr>
+<tr><td>4. Regraded slope</td><td>$14,550</td><td>$15,650</td><td>-$1,100</td><td>$9,875</td><td>$4,675</td><td>$10,912.50</td><td>$3,637.50</td></tr>
+<tr><td>5. 60-mil TPO</td><td>$6,234.61</td><td>$6,944.61</td><td>-$710</td><td>$3,217.11</td><td>$3,017.50</td><td>$4,675.96</td><td>$1,558.65</td></tr>
+<tr><td>6. Lighting</td><td>-$5,700</td><td>-$5,610</td><td>-$90</td><td>-$8,182.50</td><td>$2,482.50</td><td>-$4,275</td><td>-$1,425</td></tr>
+</tbody>
+</table>
+
+<p>Under clause C both parties gain on exactly the four items with a positive net and both lose on the two with a negative net. On the four good items the owner nets $45,513.46 and the contractor $15,171.15. Clause A gives the owner more per item, $65,669.61 on the same four, but only if the contractor proposes them, and under clause A the contractor has no reason to.</p>
+
+<h2>Columns that turn the log into a decision</h2>
+
+<p>Add a decision column and a warning column. The decision only reads the net:</p>
+
+<p><code>=IF(I9&lt;=0,"REJECT","ACCEPT")</code></p>
+
+<p>The warning compares the net with each party's side under clause B, the shared-pool version:</p>
+
+<p><code>=IF(AND(I9&gt;0,L9&lt;0),"OWNER WILL BALK",IF(AND(I9&lt;=0,M9&gt;0),"GC WILL PUSH",""))</code></p>
+
+<p>On this job item 2 shows OWNER WILL BALK and items 1 and 6 show GC WILL PUSH. Those three rows are where the meeting time goes.</p>
+
+<p>Then add a break-even column for time, because time is the input most likely to be wrong. For item 2:</p>
+
+<p><code>=(D10-E10-F10-H10)/($B$4+$B$5)</code></p>
+
+<p>It returns 2.66 weeks. The log carries 2 weeks for the structural resubmittal. If plan review takes three weeks instead of two, the shear wall swap goes negative. That is the number to put in front of the structural engineer before anyone signs: can the revised drawings be in review within the week, and has the building department given a turnaround?</p>
+
+<p>Three more columns belong in the log, and none of them is a formula:</p>
+
+<ol>
+<li><strong>Proposed by.</strong> Sub, GC, architect or owner. Under clause B the contractor-proposed items deserve the hardest look at column H, because life-cycle cost is the one cost the proposer never pays.</li>
+<li><strong>Decide by.</strong> FAR 52.248-3 asks the contractor to state the date by which the change must be accepted to get the full saving, and requires the contracting officer to report the proposal's status within 45 calendar days. A private job needs the same date, because a credit on a package the sub has already released to fabrication shrinks every week. Track that date the same way you track <a href="/blog/construction-change-order-tracking-excel/">change order notice deadlines</a>.</li>
+<li><strong>Owner decision date.</strong> If the owner sits on a VE item for three weeks and the credit drops, the drop belongs in the record. A <a href="/blog/construction-owner-decision-log-template-excel/">construction owner decision log</a> holds that date with the cost attached.</li>
+</ol>
+
+<h2>Where the delay number comes from</h2>
+
+<p>Column G times the weekly cost is the biggest deduction on this log, $98,000 across three items, so the weekly cost has to be built from line items. The $8,000 in B4 is the contractor's time-related general conditions: superintendent, project manager share, trailer, temporary utilities, equipment rental, dumpsters. If your estimate carries general conditions as a percentage, convert it to a weekly figure first, as covered in <a href="/blog/construction-general-conditions-cost-estimate-excel/">pricing general conditions by line item</a>. The $6,000 in B5 is the owner's interest on the drawn construction loan for one week. An owner who loses a week of lease-up should add that week's net rent to B5, and the break-even weeks will drop.</p>
+
+<p>Only critical-path weeks go in column G. The retaining wall redesign takes the civil engineer three weeks, but site work has five weeks of float, so the item carries 0. If the float is consumed by a rain delay before the revised grading plan is approved, the item picks up weeks it did not have when it was accepted. Re-run the log every time the schedule updates.</p>
+
+<table>
+<thead><tr><th>Item</th><th>Weeks carried</th><th>Break-even weeks</th><th>Margin</th></tr></thead>
+<tbody>
+<tr><td>2. Shear walls</td><td>2</td><td>2.66</td><td>0.66 week</td></tr>
+<tr><td>3. LVP</td><td>0</td><td>2.19</td><td>2.19 weeks</td></tr>
+<tr><td>4. Regraded slope</td><td>0</td><td>1.04</td><td>1.04 weeks</td></tr>
+<tr><td>5. 60-mil TPO</td><td>0</td><td>0.45</td><td>0.45 week</td></tr>
+</tbody>
+</table>
+
+<p>The roof item has the thinnest margin on the list. Half a week of delay erases it, which matters if the membrane change also changes the roofer's lead time on the material.</p>
+
+<h2>Recommendation</h2>
+
+<p>If you are the owner or the owner's rep, net every item in column I before it reaches the meeting, and refuse to discuss an item that has no written redesign fee and no critical-path answer. Then negotiate section 5.1.7 so the share applies to the net, clause C, with the contractor's share paid as a fee addition after the deductive change order. Clause A looks better for you item by item and produces no proposals. Clause B pays the contractor to push items 1 and 6.</p>
+
+<p>If you are the general contractor, run the same log on your own proposals before you submit them. Pushing item 1 under clause B pays you $26,675 and costs the owner $32,867.91, and the owner's cost consultant can rebuild that row from the same inputs you used. Ask for clause C at GMP negotiation. The federal construction clause gives the contractor 55 percent of the net on a fixed-price contract, so a 25 percent share of the net is not an aggressive request.</p>
+
+<p>Once an item is accepted, it becomes a deductive change order against specific budget lines, and the fee adjustment has to follow it. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> holds the cost codes, the change orders and the cost-plus markup calculation, so each accepted VE item shows up as a dated deduction on the right line with its fee effect and its variance. It does not build the VE log or the three-clause comparison for you; it is where the accepted items go once the log has decided them.</p>`,
+  },
+  {
     slug: 'house-flip-sewer-scope-repair-contingency-calculator-excel',
     title: 'House Flip Sewer Scope Repair Contingency Calculator Excel: Price the Pipe Nobody Filmed',
     metaTitle: 'House Flip Sewer Scope Contingency Calculator | SheetCraft',
