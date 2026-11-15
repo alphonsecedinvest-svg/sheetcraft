@@ -16,6 +16,176 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'contractor-1099-vs-w2-labor-cost-comparison-excel',
+    title: 'Contractor 1099 vs W2 Labor Cost Comparison Excel: The $30 Helper Costs $32.40',
+    metaTitle: 'Contractor 1099 vs W2 Labor Cost Comparison | SheetCraft',
+    metaDescription: 'Contractor 1099 vs W2 labor cost comparison in Excel: a $30 helper beats a $26 W-2 hire on paper, then the comp audit and IRS 3509 rates reverse it.',
+    targetKeyword: 'contractor 1099 vs W2 labor cost comparison Excel',
+    secondaryKeywords: ['1099 vs W-2 employee cost', 'worker misclassification penalty', 'workers comp audit 1099 payments', 'loaded labor rate', 'independent contractor test construction'],
+    excerpt: 'A $30.00 1099 helper looks $997.40 a year cheaper than a $26.00 W-2 hire. Once the workers comp auditor bills his pay, he costs $32.40 an hour, and an IRS reclassification takes him to $35.78. Here is the sheet that prices all three and checks classification first.',
+    publishedAt: '2026-11-15',
+    readTime: 10,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-1099-vs-w2-labor-cost-comparison-excel.png',
+    imageAlt: 'Framed upper floor of a house under construction, with temporary diagonal bracing, an OSB subfloor and window openings onto woods',
+    content: `<p>A helper you have used on two remodels offers to come on full time. He wants $30.00 an hour on a 1099, or $26.00 an hour if you put him on payroll. You run the contractor 1099 vs W2 labor cost comparison in Excel the way most small contractors do: add employer payroll taxes and workers comp to the $26.00, compare it with the flat $30.00, and the 1099 wins by $997.40 a year. That number is wrong before any tax agency looks at it, and it gets worse when one does.</p>
+
+<p>The example below is a licensed remodeling contractor in California, 1,600 hours a year (40 weeks of 40 hours), a new employer with a 3.4 percent state unemployment rate, and a workers comp rate of $8.00 per $100 of payroll. The comp rate and the $600 payroll service fee are assumptions for the example; take yours from your policy declarations page and your payroll provider. Every tax rate comes from IRS Publication 15 (2026) or the California Employment Development Department (EDD).</p>
+
+<h2>The comparison everyone runs: $30.00 against $30.62</h2>
+
+<p>The W-2 side carries four costs on top of the wage. Employer Social Security and Medicare is 7.65 percent of wages (6.2 percent up to the $184,500 wage base for 2026, plus 1.45 percent). Federal unemployment (FUTA) is 6.0 percent on the first $7,000, reduced to 0.6 percent by the credit for state unemployment paid on time. California adds 3.4 percent for a new employer and 0.1 percent Employment Training Tax, both on the first $7,000. Workers comp is charged on the whole payroll. California was also a FUTA credit reduction state for 2025 (1.2 points more, or $84 per employee, per the Department of Labor notice of January 2026); the example uses the base 0.6 percent.</p>
+
+<table>
+<thead><tr><th>Line</th><th>W-2 at $26.00</th><th>1099 at $30.00</th></tr></thead>
+<tbody>
+<tr><td>Wages or fees (1,600 hours)</td><td>$41,600.00</td><td>$48,000.00</td></tr>
+<tr><td>Employer FICA, 7.65%</td><td>$3,182.40</td><td>$0</td></tr>
+<tr><td>FUTA, state UI and ETT on $7,000</td><td>$287.00</td><td>$0</td></tr>
+<tr><td>Workers comp at $8.00 per $100</td><td>$3,328.00</td><td>$0</td></tr>
+<tr><td>Payroll service</td><td>$600.00</td><td>$0</td></tr>
+<tr><td><strong>Annual cost</strong></td><td><strong>$48,997.40</strong></td><td><strong>$48,000.00</strong></td></tr>
+<tr><td>Cost per hour worked</td><td>$30.62</td><td>$30.00</td></tr>
+</tbody>
+</table>
+
+<p>Read this way, the W-2 hire costs $0.62 an hour more, and the 1099 looks like the cheaper, simpler choice. The burden side of that table is correct, and if you want to price it more fully (paid holidays, tool allowance, unbillable hours) the <a href="/blog/construction-labor-burden-rate-calculator-excel">labor burden rate calculator</a> covers it. What is wrong is the 1099 column. It prices the comp audit and a reclassification at zero, and neither costs zero.</p>
+
+<h2>The bill the comp auditor sends at the end of the policy year</h2>
+
+<p>Your workers comp premium is an estimate until the policy ends. Then the carrier audits your books, and the auditor reads your 1099s along with your payroll. California's State Compensation Insurance Fund tells its policyholders that "unlicensed individuals who perform work requiring a contractor license are employees for workers' compensation purposes," and that if you cannot produce a certificate of insurance and the subcontractor has no valid license, it "will charge the appropriate premium."</p>
+
+<p>A helper who hangs drywall and frames walls under your direction holds no license and no comp policy. At audit, his $48,000 goes into your payroll at your rate: $3,840.00 of premium you did not budget, billed months after the work is done.</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Annual cost</th><th>Per hour</th><th>Against W-2</th></tr></thead>
+<tbody>
+<tr><td>W-2 at $26.00</td><td>$48,997.40</td><td>$30.62</td><td>Baseline</td></tr>
+<tr><td>1099 at $30.00, no audit</td><td>$48,000.00</td><td>$30.00</td><td>$997.40 cheaper</td></tr>
+<tr><td>1099 at $30.00, comp premium charged at audit</td><td>$51,840.00</td><td>$32.40</td><td>$2,842.60 more</td></tr>
+</tbody>
+</table>
+
+<p>Once the auditor charges premium on him, the helper has to quote below $28.35 an hour to beat the W-2 hire, because every 1099 dollar then carries the $8.00 comp rate as well. The formula is <code>=E6/(B2&#42;(1+B10/100))</code>: the W-2 annual cost divided by hours times one plus the comp rate. The $997.40 paper saving survives only while the chance that the auditor bills the 1099 payments stays below 25.97 percent. If your carrier audits every year and reads the 1099 list, that chance is close to certain. The threshold is <code>=(E6-F2)/(F2&#42;B10/100)</code>. The <a href="/blog/construction-workers-comp-class-code-cost-calculator-excel">workers comp class code calculator</a> walks through how an auditor reclassifies uninsured subcontractor payments, including an Alaska hearing that upheld the full charge.</p>
+
+<h2>What the helper's extra $4.00 is really paying for</h2>
+
+<p>The $4.00 gap between $26.00 and $30.00 is not a markup for convenience. A self-employed worker pays both halves of Social Security and Medicare: 15.3 percent on 92.35 percent of net earnings, per the IRS, which works out to 14.13 percent of his gross. Price his side of the deal per hour.</p>
+
+<table>
+<thead><tr><th>Per hour, before income tax</th><th>1099 at $30.00</th><th>W-2 at $26.00</th></tr></thead>
+<tbody>
+<tr><td>Gross</td><td>$30.00</td><td>$26.00</td></tr>
+<tr><td>His Social Security and Medicare</td><td>$4.24 (self-employment tax)</td><td>$1.99 (7.65% withheld)</td></tr>
+<tr><td>Kept</td><td>$25.76</td><td>$24.01</td></tr>
+<tr><td>Comp coverage if he is hurt on your job</td><td>None of his own</td><td>Yes</td></tr>
+</tbody>
+</table>
+
+<p>He keeps $1.75 an hour more on the 1099 and carries his own injury risk. That gap is your negotiating room. A W-2 wage that leaves him the same $25.76 an hour is $27.90, from <code>=B4&#42;(1-0.9235&#42;0.153)/(1-B5)</code>. At $27.90 your loaded cost is $52,513.16 a year, or $32.82 an hour. That is $673.16 more than the 1099 with comp charged, and it removes a reclassification exposure of $5,413.40 for each year an agency examines. If the chance of that examination in a given year is above about 12.4 percent, the matched W-2 wage is the cheaper choice even on pure expected cost. In California, an unlicensed helper is an employee under state law, so the probability only prices a violation.</p>
+
+<h2>Reclassification: the IRS rates and the California test</h2>
+
+<p>When the IRS reclassifies a worker you treated as a contractor, Section 3509 of the Internal Revenue Code sets your liability at reduced rates, but you still owe the full employer share and you cannot recover anything from the worker. Publication 15 (2026) spells out the combined rates.</p>
+
+<table>
+<thead><tr><th>Federal item</th><th>1099-NEC filed</th><th>No 1099 filed</th></tr></thead>
+<tbody>
+<tr><td>Social Security (employer 6.2% plus share of employee 6.2%)</td><td>7.44%</td><td>8.68%</td></tr>
+<tr><td>Medicare (employer 1.45% plus share of employee 1.45%)</td><td>1.74%</td><td>2.03%</td></tr>
+<tr><td>Income tax withholding</td><td>1.5%</td><td>3.0%</td></tr>
+<tr><td><strong>Combined rate on wages</strong></td><td><strong>10.68%</strong></td><td><strong>13.71%</strong></td></tr>
+<tr><td>On $48,000 of 1099 payments</td><td>$5,126.40</td><td>$6,580.80</td></tr>
+</tbody>
+</table>
+
+<p>Add the $287.00 of unemployment tax you never paid on him and the year costs $57,253.40 with the 1099 filed ($35.78 an hour), or $58,707.80 without it ($36.69 an hour). Against the W-2 hire at $26.00, that is $8,256.00 or $9,710.40 more for one year, before interest, penalties, or any state assessment. The rates also assume you did not intentionally disregard withholding; Section 3509 does not apply to intentional disregard.</p>
+
+<p>The 1099-NEC filing threshold rose from $600 to $2,000 for payments made after 2025 (P.L. 119-21, noted in Publication 15), so a few short jobs may not require one, but $48,000 does, and skipping it moves you to the higher column. And the IRS test is about control: Publication 15 says a worker is your employee if you have "the right to control what will be done and how it will be done," and that "it doesn't matter what it is called." A helper on your schedule, with your tools, doing what you point at, fits that description.</p>
+
+<p>California is stricter. Under the EDD's construction information sheet (DE 231G), a contractor who engages an unlicensed worker for work that requires a contractor license is that worker's employer, unless the worker controls the manner of the work, runs an independently established business, has bona fide independent status, and holds a valid contractor license for the work. A licensed subcontractor only escapes the ABC test, and gets the multi-factor Borello test instead, if all of these hold:</p>
+
+<ul>
+<li>The subcontract is in writing.</li>
+<li>The subcontractor holds a Contractors State License Board license covering the work performed.</li>
+<li>The subcontractor has a business license or business tax registration, where one is required.</li>
+<li>The subcontractor has a business location separate from yours and from your job sites.</li>
+<li>He can hire and fire his own help, carries financial responsibility for his work through insurance, bonds, or warranties, and is customarily in business doing the same kind of work.</li>
+</ul>
+
+<p>An unlicensed helper fails the first gate, so in California he is your employee under state law and for the comp auditor, whatever the paperwork says. The decision is not 1099 versus W-2. It is a W-2 helper versus a licensed, insured subcontractor who bids a scope, and those are two different purchases. If you are weighing that second choice, the <a href="/blog/self-perform-vs-subcontract-cost-analysis-excel">self-perform vs subcontract cost analysis</a> prices it. Outside California, your state unemployment agency publishes its own test; read it before relying on the IRS one.</p>
+
+<h2>Build the comparison sheet</h2>
+
+<p>Put inputs in column B so every scenario recalculates from one place. Classification runs first and cost second, so the sheet cannot recommend a 1099 that the law would not allow.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Example value</th></tr></thead>
+<tbody>
+<tr><td>B2</td><td>Hours per year</td><td>1,600</td></tr>
+<tr><td>B3</td><td>W-2 hourly wage</td><td>$26.00</td></tr>
+<tr><td>B4</td><td>1099 quoted rate</td><td>$30.00</td></tr>
+<tr><td>B5</td><td>Employer FICA</td><td>7.65%</td></tr>
+<tr><td>B6</td><td>FUTA after credit</td><td>0.6%</td></tr>
+<tr><td>B7</td><td>State UI rate</td><td>3.4%</td></tr>
+<tr><td>B8</td><td>ETT</td><td>0.1%</td></tr>
+<tr><td>B9</td><td>UI and FUTA wage base</td><td>$7,000</td></tr>
+<tr><td>B10</td><td>Comp rate per $100 of payroll</td><td>$8.00</td></tr>
+<tr><td>B11</td><td>Payroll service per year</td><td>$600</td></tr>
+<tr><td>B12</td><td>Section 3509 rate, 1099 filed</td><td>10.68%</td></tr>
+<tr><td>B13</td><td>Chance the comp auditor charges the 1099 payments</td><td>100%</td></tr>
+<tr><td>B14</td><td>Chance of a classification exam this year</td><td>0%</td></tr>
+</tbody>
+</table>
+
+<p>W-2 column, in E2 to E7:</p>
+
+<ul>
+<li>Wages: <code>=B2&#42;B3</code></li>
+<li>Employer FICA: <code>=E2&#42;B5</code></li>
+<li>Unemployment taxes: <code>=MIN(E2,B9)&#42;(B6+B7+B8)</code>, capped at the $7,000 base</li>
+<li>Workers comp: <code>=E2&#42;B10/100</code></li>
+<li>Annual cost: <code>=E2+E3+E4+E5+B11</code></li>
+<li>Per hour: <code>=E6/B2</code></li>
+</ul>
+
+<p>1099 column, in F2 to F6:</p>
+
+<ul>
+<li>Fees: <code>=B2&#42;B4</code></li>
+<li>Comp audit charge: <code>=F2&#42;B10/100&#42;B13</code></li>
+<li>Expected reclassification cost: <code>=(F2&#42;B12+MIN(F2,B9)&#42;(B6+B7+B8))&#42;B14</code></li>
+<li>Expected annual cost: <code>=F2+F3+F4</code></li>
+<li>Per hour: <code>=F5/B2</code></li>
+</ul>
+
+<p>The break-even 1099 rate, with the comp charge applied, is <code>=(E6-B14&#42;B9&#42;(B6+B7+B8))/(B2&#42;(1+B10/100&#42;B13+B14&#42;B12))</code>. It tells you the highest hourly quote at which the 1099 still costs less. Change B14 and watch it fall.</p>
+
+<table>
+<thead><tr><th>Chance of a classification exam (B14)</th><th>Break-even 1099 rate</th></tr></thead>
+<tbody>
+<tr><td>0%</td><td>$28.35</td></tr>
+<tr><td>10%</td><td>$28.06</td></tr>
+<tr><td>25%</td><td>$27.63</td></tr>
+<tr><td>50%</td><td>$26.94</td></tr>
+</tbody>
+</table>
+
+<p>Then gate the answer on classification. List the four DE 231G criteria in H2:H5 with a Yes or No in each, and put the verdict in H7: <code>=IF(COUNTIF(H2:H5,"Yes")&lt;4,"EMPLOYEE: RUN AS W-2",IF(F5&lt;E6,"1099 CHEAPER","W-2 CHEAPER"))</code>. A single No ends the cost discussion, which is the order the EDD applies the rules.</p>
+
+<h2>If a helper is already on 1099s</h2>
+
+<p>The IRS Voluntary Classification Settlement Program lets you move a class of workers to W-2 going forward and settle the federal side for 10 percent of one year's liability at the Section 3509(a) rates, with no interest or penalties on that amount and no employment tax audit of those workers' classification for prior years. For the helper above, that is 10 percent of $5,126.40, or $512.64. Compare that with $5,413.40 of federal and unemployment exposure for every year an examiner opens.</p>
+
+<p>The conditions are strict. You must have treated the workers consistently as contractors and filed all required 1099s for them for the previous three years, and you cannot be under an IRS employment tax audit or a Department of Labor or state classification audit. You apply on Form 8952 at least 120 days before the date you want to start treating them as employees. The program is federal. It settles nothing with EDD and nothing with your comp carrier, so the $3,840.00 audit charge in the example still applies to the year already worked.</p>
+
+<h2>Recommendation</h2>
+
+<p>Put a helper who works your hours, with your tools, on your jobs on payroll, and offer a wage that leaves his take-home where the 1099 left it. In the example, $27.90 costs you $32.82 an hour, against $32.40 for the 1099 once the comp auditor bills it and $35.78 once anyone reclassifies it. Keep 1099s for licensed, insured subcontractors who bid a scope under a written subcontract, collect their comp certificate before the first payment, and file the 1099-NEC every year. If you already pay a helper on 1099s, file Form 8952 before anyone audits you; the $512.64 in the example is the cheapest line on this page.</p>
+
+<p>The cost of a crew only shows up correctly if the loaded rate reaches your job budgets. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> gives each labor line its own budget against actuals, so the $30.62 or $32.82 loaded rate goes into the estimate instead of the bare wage, and it logs every subcontractor invoice by vendor, so the 1099 payments a comp auditor will ask about sit in one list you can filter. It does not run the classification test or the Section 3509 math for you; the sheet above does that in an afternoon, and the tracker keeps the result on every job that follows.</p>`,
+  },
+  {
     slug: 'construction-value-engineering-savings-log-excel',
     title: 'Construction Value Engineering Savings Log in Excel: Net the Redesign, the Delay and the Split',
     metaTitle: 'Construction Value Engineering Savings Log | SheetCraft',
