@@ -16,6 +16,184 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'contractor-jobsite-theft-loss-tracking-excel',
+    title: 'Contractor Jobsite Theft and Loss Tracking in Excel: What the Deductible Hides',
+    metaTitle: 'Contractor Jobsite Theft & Loss Tracking Excel | SheetCraft',
+    metaDescription: 'Contractor jobsite theft and loss tracking in Excel: charge each theft to its job, rate exposure per site-week, and test a $14,400 camera quote first.',
+    targetKeyword: 'contractor jobsite theft and loss tracking Excel',
+    secondaryKeywords: ['construction site theft cost per job', 'contractors equipment floater deductible', 'jobsite security cost break-even', 'theft loss deduction business property'],
+    excerpt: 'Fourteen thefts, $40,280 stolen, $18,250 recovered. Charged back to the jobs, 92.92 percent of the net loss sat on two open lots and a vacant rehab, and a $14,400 camera package would have had to prevent more than twice the expected losses to pay for itself.',
+    publishedAt: '2026-11-16',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/contractor-jobsite-theft-loss-tracking-excel.png',
+    imageAlt: 'Chain-link fence mesh against a clear blue sky',
+    content: `<p>A residential builder closes the year with 14 thefts on six jobs: copper wire, an appliance package, two HVAC condensers, a plate compactor, a handful of tools. Replacement cost: $40,280. Insurance paid $18,250 of it. The other $22,030 went where theft goes when nobody logs it, into the small tools and supplies account in overhead, where it added 0.63 percent of revenue to overhead and showed up on no job at all. Contractor jobsite theft and loss tracking in Excel fixes the accounting with one row per incident. The more useful result is what the log tells you about the next three decisions: which bids carry a loss line, which thefts to claim, and whether the camera tower the security vendor quoted is worth renting.</p>
+
+<p>Every number below comes from one labeled example: a general contractor with $3,485,000 of revenue on six jobs over 12 months. Deductibles, security prices and the claim rule are assumptions. Replace them with your own policy and your own quotes before you use the results.</p>
+
+<h2>Where a Theft Lands When Nobody Logs It by Job</h2>
+
+<p>The superintendent calls the office, the office buys a replacement, the bookkeeper codes the receipt to small tools or job supplies because there is no other account for it. If insurance pays, the check gets deposited against the same overhead account or against miscellaneous income. Twelve months later the overhead rate is a little higher and the reason is gone.</p>
+
+<p>Here is the same year, charged back to the jobs where the losses happened:</p>
+
+<table>
+<thead><tr><th>Job</th><th>Site condition</th><th>Contract</th><th>Site weeks</th><th>Incidents</th><th>Stolen</th><th>Net after insurance</th><th>Net as % of contract</th></tr></thead>
+<tbody>
+<tr><td>Kitchen and bath remodel</td><td>Occupied</td><td>$185,000</td><td>10</td><td>1</td><td>$640</td><td>$640</td><td>0.35%</td></tr>
+<tr><td>Whole-house remodel</td><td>Occupied</td><td>$420,000</td><td>22</td><td>2</td><td>$610</td><td>$610</td><td>0.15%</td></tr>
+<tr><td>Retail tenant improvement</td><td>Occupied</td><td>$640,000</td><td>14</td><td>1</td><td>$310</td><td>$310</td><td>0.05%</td></tr>
+<tr><td>Vacant gut rehab</td><td>Vacant</td><td>$310,000</td><td>16</td><td>2</td><td>$5,740</td><td>$4,760</td><td>1.54%</td></tr>
+<tr><td>Spec home, subdivision lot</td><td>Open lot</td><td>$780,000</td><td>30</td><td>3</td><td>$12,660</td><td>$6,380</td><td>0.82%</td></tr>
+<tr><td>Custom home, rural lot</td><td>Open lot</td><td>$1,150,000</td><td>38</td><td>5</td><td>$20,320</td><td>$9,330</td><td>0.81%</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td>$3,485,000</td><td>130</td><td>14</td><td>$40,280</td><td>$22,030</td><td>0.63%</td></tr>
+</tbody>
+</table>
+
+<p>The vacant rehab and the two open-lot homes produced 64.28 percent of revenue and 92.92 percent of the net loss. The three occupied jobs, where a homeowner or a tenant is on site every night, lost $1,560 between them. Spread as one overhead rate, the occupied jobs pay for the open lots, which is the same distortion described in <a href="/blog/construction-overhead-allocation-by-job-excel/">overhead allocation by job</a>, applied to a cost that has a clear physical cause.</p>
+
+<h2>The Log: One Row per Incident, Twelve Columns</h2>
+
+<p>Put the policy terms on a Settings tab so every formula reads them from one place. In this example, <code>Settings!B2</code> holds the contractor's equipment floater deductible ($1,000), <code>B3</code> the builder's risk deductible ($2,500), <code>B4</code> the claim floor ($750, explained in the next section) and <code>B5</code> the credibility weeks (40, explained after that).</p>
+
+<p>On the Log tab, one row per incident starting in row 5:</p>
+
+<table>
+<thead><tr><th>Column</th><th>Field</th><th>Entry or formula</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Date discovered</td><td>Typed. Tax timing runs from the discovery date.</td></tr>
+<tr><td>B</td><td>Job</td><td>Data validation list from the Jobs tab. No blanks allowed.</td></tr>
+<tr><td>C</td><td>Item</td><td>Typed, with serial number for tools and equipment</td></tr>
+<tr><td>D</td><td>Type</td><td>Tool, Equipment, Material, or Missing (cause unknown)</td></tr>
+<tr><td>E</td><td>Replacement cost</td><td>Typed from the replacement invoice</td></tr>
+<tr><td>F</td><td>Policy</td><td>FL (equipment floater), BR (builder's risk), or None</td></tr>
+<tr><td>G</td><td>Deductible</td><td><code>=IF(F5="FL",Settings!$B$2,IF(F5="BR",Settings!$B$3,""))</code></td></tr>
+<tr><td>H</td><td>Excess over deductible</td><td><code>=IF(G5="",0,MAX(0,E5-G5))</code></td></tr>
+<tr><td>I</td><td>Decision</td><td><code>=IF(H5&gt;=Settings!$B$4,"CLAIM","ABSORB")</code></td></tr>
+<tr><td>J</td><td>Expected recovery</td><td><code>=IF(I5="CLAIM",H5,0)</code></td></tr>
+<tr><td>K</td><td>Net cost to the company</td><td><code>=E5-J5</code></td></tr>
+<tr><td>L</td><td>Adjusted tax basis</td><td>From the fixed asset schedule; 0 if it was expensed or fully depreciated</td></tr>
+</tbody>
+</table>
+
+<p>The Type column is there for a reason. "Missing" is a separate category from a theft, and the tax section below shows that the IRS treats the two differently. A superintendent who cannot say when or how a box of bits disappeared should log it as Missing, because that is the honest entry.</p>
+
+<p>The Jobs tab lists the six jobs in rows 3 to 8 and pulls each job's net with <code>=SUMIFS(Log!$K:$K,Log!$B:$B,A3)</code> and its share of contract with <code>=E3/C3</code>. Row 10 holds the totals, with <code>=E10/C10</code> in <code>F10</code>. Those columns produce the table above.</p>
+
+<h2>Covered Is Not the Same as Paid</h2>
+
+<p>The log shows what the two policies actually returned:</p>
+
+<table>
+<thead><tr><th>Outcome</th><th>Incidents</th><th>Stolen</th><th>Paid by the contractor</th></tr></thead>
+<tbody>
+<tr><td>Claimed, insurer paid the excess</td><td>6</td><td>$31,750</td><td>$13,500 in deductibles</td></tr>
+<tr><td>Under the deductible, nothing to claim</td><td>1</td><td>$2,180</td><td>$2,180</td></tr>
+<tr><td>Over the deductible, under the claim floor</td><td>2</td><td>$2,530</td><td>$2,530</td></tr>
+<tr><td>No policy applied</td><td>5</td><td>$3,820</td><td>$3,820</td></tr>
+<tr><td><strong>Total</strong></td><td>14</td><td>$40,280</td><td>$22,030</td></tr>
+</tbody>
+</table>
+
+<p>Insurance recovered 45.31 percent of the loss. Of the $22,030 the company absorbed, $13,500 was deductibles on the six claims. Each of the six claims cost exactly one full deductible, so with a per-occurrence deductible, a site that gets hit twice costs $2,500 on the second break-in as well.</p>
+
+<p>The claim floor in <code>Settings!B4</code> is your own rule about when a recovery is worth a claim on your record. In this example the two declined claims would have recovered $530 between them ($380 on a cordless tool kit, $150 on a laser level). Paid claims appear on the loss runs that carriers review at renewal, so ask your agent what two small claims would do to your premium and set the floor from that answer. The formula applies the same rule to every incident, whoever takes the call from the site.</p>
+
+<p>One check before you file: confirm which policy responds. Staged materials fall under builder's risk only if that policy covers them, and on some contracts the owner carries it; tools and equipment fall under your floater. The article on <a href="/blog/builders-risk-insurance-cost-calculator-vacant-property-excel/">builders risk for a vacant property</a> covers the theft sublimit that catches staged cabinets and HVAC equipment.</p>
+
+<h2>Rate Exposure per Site-Week, Then Discount Thin Data</h2>
+
+<p>Percent of contract is the wrong base for a theft rate. Thieves do not take more from a bigger contract. They take more from a site that is unattended longer with something worth taking on it. The base that tracks exposure is the site-week: one week in which the job had material or equipment on site. A 38 week custom home is exposed almost four times as long as a 10 week remodel, regardless of price.</p>
+
+<p>On a Rates tab, one row per site condition:</p>
+
+<ul>
+<li>Site-weeks: <code>=SUMIFS(Jobs!$D:$D,Jobs!$B:$B,A3)</code></li>
+<li>Net loss: <code>=SUMIFS(Jobs!$E:$E,Jobs!$B:$B,A3)</code></li>
+<li>Raw rate per site-week: <code>=C3/B3</code></li>
+<li>Credibility weight: <code>=B3/(B3+Settings!$B$5)</code></li>
+<li>Rate to bid: <code>=E3&#42;D3+(1-E3)&#42;$B$8</code>, where <code>B8</code> is the company-wide rate, which is $22,030 over 130 site-weeks, or $169.46. Use the fixed range <code>=SUM(Jobs!E3:E8)/SUM(Jobs!D3:D8)</code> so the totals row is not counted twice.</li>
+</ul>
+
+<table>
+<thead><tr><th>Site condition</th><th>Site-weeks</th><th>Net loss</th><th>Raw rate per week</th><th>Weight</th><th>Rate to bid per week</th></tr></thead>
+<tbody>
+<tr><td>Occupied</td><td>46</td><td>$1,560</td><td>$33.91</td><td>53.49%</td><td>$96.96</td></tr>
+<tr><td>Vacant</td><td>16</td><td>$4,760</td><td>$297.50</td><td>28.57%</td><td>$206.04</td></tr>
+<tr><td>Open lot</td><td>68</td><td>$15,710</td><td>$231.03</td><td>62.96%</td><td>$208.23</td></tr>
+</tbody>
+</table>
+
+<p>The raw numbers say a vacant site loses 8.77 times what an occupied one does. That ratio rests on one vacant job and two incidents, and one more break-in or one quiet year would move it a lot. The credibility weight blends each class toward the company average until the class has enough weeks behind it. With 40 credibility weeks, a class with 16 weeks of history gets 28.57 percent weight on its own data and the rest on the company rate. The blended ratio between vacant and occupied drops to 2.12. Raise <code>Settings!B5</code> if your losses come in large, rare events; lower it once you have two or three years of logs.</p>
+
+<p>Without the weight, the raw vacant rate would put $4,165 on the next 14 week vacant rehab, based on two incidents on one job. With it, the line is $2,884.56.</p>
+
+<h2>What the Next Three Bids Should Carry</h2>
+
+<p>The bid sheet reads the class rate with <code>=C12&#42;XLOOKUP(D12,Rates!$A:$A,Rates!$F:$F)</code>, site-weeks times the rate to bid, and compares it with what the flat overhead rate would have charged, <code>=B12&#42;Jobs!$F$10</code>, where <code>F10</code> is the 0.63 percent company total.</p>
+
+<table>
+<thead><tr><th>Next bid</th><th>Contract</th><th>Site-weeks</th><th>Flat overhead charge</th><th>Exposure-based loss line</th><th>Difference</th></tr></thead>
+<tbody>
+<tr><td>Occupied whole-house remodel</td><td>$385,000</td><td>18</td><td>$2,433.73</td><td>$1,745.28</td><td>-$688.45</td></tr>
+<tr><td>Spec home, open lot</td><td>$860,000</td><td>32</td><td>$5,436.38</td><td>$6,663.36</td><td>+$1,226.98</td></tr>
+<tr><td>Vacant gut rehab</td><td>$290,000</td><td>14</td><td>$1,833.20</td><td>$2,884.56</td><td>+$1,051.36</td></tr>
+</tbody>
+</table>
+
+<p>The differences are real but small. On the vacant rehab, the flat rate covers 63.55 percent of the expected loss, and the $1,051.36 gap comes out of profit on the job most likely to be hit. On the remodel, the flat rate adds $688.45 to a price the homeowner is comparing against two other bids. Neither difference decides a bid. The two security options in the next section are $12,435 apart.</p>
+
+<h2>Price Security Against the Expected Loss</h2>
+
+<p>After a break-in, the security vendor quotes a package for the next open-lot home. In this example: perimeter fence at $95 a week, a lockable storage container at $45 a week, and a monitored camera tower at $310 a week, $450 a week in total, $14,400 over 32 weeks. These are assumed prices; get your own quotes.</p>
+
+<p>The break-even test is one cell: <code>=SecurityCost/ExpectedLoss</code>, the share of expected losses the package must prevent to pay for itself.</p>
+
+<table>
+<thead><tr><th>Option for the spec home</th><th>Cost over 32 weeks</th><th>Expected loss without it</th><th>Losses it must prevent to break even</th></tr></thead>
+<tbody>
+<tr><td>Fence, container and camera tower</td><td>$14,400</td><td>$6,663.36</td><td>216.11%</td></tr>
+<tr><td>Container only, plus three split deliveries at $175</td><td>$1,965</td><td>$6,663.36</td><td>29.49%</td></tr>
+</tbody>
+</table>
+
+<p>The full package has to prevent more than twice the losses the site is expected to have, which it cannot do. Even if it stopped every theft, at $450 a week it pays only on a site whose expected loss runs at least 2.16 times the open-lot rate, for example a job with a history of repeat break-ins or a long stretch with finished equipment installed and nobody living there. Rent it for those weeks only.</p>
+
+<p>The targeted option goes after what the log shows was actually taken. On the two open-lot homes, staged high-value material (copper wire, the appliance package, the condensers) and tools left in gang boxes account for 70.21 percent of the net loss. A container keeps the tools locked up, and splitting deliveries so appliances and condensers arrive the week they are installed keeps them off the site during the empty weeks. The plan breaks even if it prevents 29.49 percent of expected losses, or 42 percent of the losses it actually targets. That is a judgment you can make from the log, and it costs $1,965 against $14,400 for the full package.</p>
+
+<p>Lumber and installed copper make up the rest of the open-lot losses. Neither option protects them well, and the <a href="/blog/construction-material-waste-factor-calculator-excel/">material waste factor article</a> makes the same point from the other side: theft is a site control problem, and padding the waste allowance to cover it hides the loss in the takeoff.</p>
+
+<h2>The Tax Write-Off Is Smaller Than You Expect</h2>
+
+<p>If you count on the tax deduction to soften a theft, IRS Publication 547 (2025) limits it in four ways that matter on this log.</p>
+
+<ol>
+<li><strong>The loss is limited to adjusted basis.</strong> For stolen business property, Publication 547 figures the loss as adjusted basis, minus salvage value, minus any insurance you receive or expect to receive. Fair market value does not enter into it. A $1,380 cordless kit you deducted under the de minimis safe harbor (up to $2,500 per invoice or item for a business without an applicable financial statement, per the IRS tangible property regulations page) has a basis of zero, so the theft itself produces no deduction. You deduct the replacement when you buy it, the same way you deducted the original.</li>
+<li><strong>An insurance check over basis is a gain.</strong> The plate compactor and generator were written off under Section 179 in the year of purchase, so their adjusted basis is zero (Publication 946 reduces basis by the Section 179 deduction). The $2,950 the insurer paid is a $2,950 gain. You can postpone reporting it if you buy similar replacement equipment within the replacement period, which generally ends 2 years after the close of the first tax year in which you realize the gain.</li>
+<li><strong>A pending claim delays the deduction.</strong> You deduct a theft loss in the year you discover it, but not the part for which you have a claim with a reasonable prospect of recovery. A break-in in December with the claim still open at year end is not deductible that year to the extent you expect the insurer to pay. Column A, the discovery date, and column I, the decision, carry this information.</li>
+<li><strong>Missing is not theft.</strong> Publication 547 says the simple disappearance of property is not a theft. The $190 of bits and cords that nobody can account for can qualify as a casualty only if it results from an identifiable event that is sudden, unexpected, or unusual. That is why the log has a separate Missing type.</li>
+</ol>
+
+<p>For the bid, use the pre-tax cost in column K. The tax effect depends on how each item was written off, and for tools you expensed when you bought them it is zero.</p>
+
+<h2>Set Up the Log Before the Next Open-Lot Start</h2>
+
+<p>The recommendation for this contractor, and for most small builders with a similar job mix:</p>
+
+<ol>
+<li>Create a Theft and Loss cost line on every job, and code every replacement invoice and every insurance recovery to the job where it happened. Overhead keeps only losses that cannot be traced to a site, which in this example is none.</li>
+<li>Log each incident the day it is discovered, with the policy, the deductible and the adjusted basis, and let the claim floor decide claims.</li>
+<li>Bid the loss line by site-weeks times the blended class rate. Expect it to change bids by a few hundred to a few thousand dollars, and keep the 40 credibility weeks until each class has at least a year behind it.</li>
+<li>Before renting security, divide the quote by the expected loss. Buy the measures that target what your log shows was taken, and rent cameras only for the weeks when the expected loss supports them.</li>
+<li>Give your accountant the log at year end with columns A, I and L filled. It answers the discovery date, pending claim and basis questions before they are asked.</li>
+</ol>
+
+<p>If you already separate consumables by job, the <a href="/blog/construction-small-tools-consumables-cost-allocation-excel/">small tools allocation sheet</a> allocates those on labor hours, and its rate tab can sit beside this one in the same workbook.</p>
+
+<p>The <a href="/products/construction-budget-tracker/">Construction Budget Tracker</a> has the structure this log feeds into: budget lines by CSI division or your own categories, actual costs logged against each line, and a payment log you can filter by vendor. Add Theft and Loss as a line on each job, post column K of the log as actuals against it, and the budget-versus-actual view shows which sites are losing material while the job is still running. It does not build the exposure rates, the credibility blend or the claim decision for you. Those are the Settings, Log and Rates tabs described above, which you add next to it.</p>`,
+  },
+  {
     slug: 'contractor-1099-vs-w2-labor-cost-comparison-excel',
     title: 'Contractor 1099 vs W2 Labor Cost Comparison Excel: The $30 Helper Costs $32.40',
     metaTitle: 'Contractor 1099 vs W2 Labor Cost Comparison | SheetCraft',
