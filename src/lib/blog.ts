@@ -16,6 +16,147 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-differing-site-conditions-claim-calculator-excel',
+    title: 'Differing Site Conditions Claim Calculator in Excel: Price the Rock Against the Borings',
+    metaTitle: 'Differing Site Conditions Claim Calculator | SheetCraft',
+    metaDescription: 'Price a construction differing site conditions claim in Excel against the boring logs, not your bid. A trench example shows the $7,932.72 an owner strikes.',
+    targetKeyword: 'construction differing site conditions claim calculator Excel',
+    secondaryKeywords: ['concealed or unknown conditions A201', 'FAR 52.236-2 differing site conditions', 'rock excavation claim', 'equitable adjustment calculation', 'notice before conditions are disturbed'],
+    excerpt: 'Rock at 5.5 feet where the borings showed 9 is a differing site condition, and the claim is measured against the contract drawings. A worked storm line example shows the $7,932.72 an owner can strike from a bid-based claim and why $1,850 of resequencing protects a $42,222.92 claim.',
+    publishedAt: '2026-11-17',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-differing-site-conditions-claim-calculator-excel.png',
+    imageAlt: 'Horizontal layers of tan sedimentary rock exposed on a dry hillside, with broken rock along each ledge',
+    content: `<p>Your excavator hits rock at 5.5 feet on a storm line where the borings showed rock below 9. The estimator carried zero rock for the whole job, so the first instinct is to claim every cubic yard that comes out of the trench at the rock price. A <strong>construction differing site conditions claim calculator in Excel</strong> has to measure something else: what you found against what the contract documents indicated, because that is the comparison both AIA A201-2017 and the federal clause write into the contract. Your bid is not a contract document. In the example below, a claim built on the bid instead of the borings asks for $7,932.72 more than the drawings support once the owner's credit is counted, about one dollar in six, and every dollar of that gap is visible to anyone who opens the drawings.</p>
+
+<p>The example is labeled as such: a site utility contractor on a private lump-sum storm drain job under unmodified A201-2017 general conditions, 580 feet of trench, 4 feet wide, excavated to 8.5 feet (8 feet to the bottom of pipe plus 6 inches of bedding). Every production rate and cost below is an assumption. Replace each one with your own job cost records before you send anything to an owner.</p>
+
+<h2>What the clause compares, and what it ignores</h2>
+
+<p>A201-2017 Section 3.7.4, Concealed or Unknown Conditions, covers two kinds of conditions. The first is subsurface or otherwise concealed physical conditions "that differ materially from those indicated in the Contract Documents." The second is unknown physical conditions of an unusual nature that differ materially from those ordinarily found in construction of the same character. FAR 52.236-2, the Differing Site Conditions clause in federal fixed-price construction contracts, uses the same two categories in nearly the same words.</p>
+
+<p>For the first kind, everything turns on what counts as a Contract Document. A201 Section 1.1.1 answers it: unless the Agreement specifically enumerates them, the Contract Documents do not include "other information furnished by the Owner in anticipation of receiving bids or proposals" or "the Contractor's bid or proposal." Three consequences follow for the spreadsheet:</p>
+
+<ul>
+<li><strong>Boring logs drawn on a contract drawing sheet are indicated.</strong> They are your baseline, reach by reach.</li>
+<li><strong>A geotechnical report handed out with the bid package and not listed in the Agreement is not.</strong> The claim then has to fit the second kind, an unusual condition, which is a harder argument about what is ordinary in that area.</li>
+<li><strong>Your estimate never enters the formula.</strong> If the estimator ignored rock that a boring showed, that miss stays with you.</li>
+</ul>
+
+<p>Federal work adds a second filter. Under FAR 52.236-3, the contractor acknowledges that it has satisfied itself about surface and subsurface materials "insofar as this information is reasonably ascertainable from an inspection of the site, including all exploratory work done by the Government." Ledge rock visible in the road cut next to the site can undercut a claim that the rock was a surprise, so photograph the site walk before bid day and file the photos with the estimate.</p>
+
+<h2>Three reaches, three different answers</h2>
+
+<p>In this example the boring logs sit on drawing sheet C-0.2 and the Agreement enumerates the drawings, so the logs are indicated in the Contract Documents. Split the line at the boring locations, then measure the rock inside the 8.5-foot excavation for each reach twice: as the borings indicated it and as the crew found it.</p>
+
+<table>
+<thead><tr><th>Reach</th><th>Length</th><th>Top of rock per borings</th><th>Top of rock found</th><th>Rock indicated (CY)</th><th>Rock found (CY)</th><th>Found minus indicated (CY)</th></tr></thead>
+<tbody>
+<tr><td>STA 2+00 to 4+40</td><td>240 LF</td><td>9.0 ft (below excavation)</td><td>5.5 ft</td><td>0.00</td><td>106.67</td><td>+106.67</td></tr>
+<tr><td>STA 4+40 to 5+80</td><td>140 LF</td><td>7.0 ft</td><td>5.0 ft</td><td>31.11</td><td>72.59</td><td>+41.48</td></tr>
+<tr><td>STA 5+80 to 7+80</td><td>200 LF</td><td>8.0 ft</td><td>None above 8.5 ft</td><td>14.81</td><td>0.00</td><td>-14.81</td></tr>
+<tr><td><strong>Total</strong></td><td>580 LF</td><td></td><td></td><td>45.92</td><td>179.26</td><td>+148.15 and -14.81</td></tr>
+</tbody>
+</table>
+
+<p>On a Reaches tab with the length in B, top of rock per borings in C and top of rock found in D, rock thickness inside the excavation is <code>=IF(C5="",0,MAX(0,Inputs!$B$3-C5))</code>, where Inputs!B3 holds the 8.5-foot excavation depth and a blank cell means no rock above it. Indicated cubic yards are <code>=B5&#42;Inputs!$B$2&#42;F5/27</code>: length times the 4-foot trench width in Inputs!B2 times thickness, divided by 27 cubic feet per yard. The found volume uses the same formula on the found thickness in G, and the difference is <code>=I5-H5</code>. That difference is the only column the claim reads.</p>
+
+<p>Each reach answers differently. In the first, the whole found volume is a difference, because the borings put rock below the excavation. In the second, boring B-3 showed rock at 7.0 feet, so 31.11 CY were indicated; the estimator priced none of it, and only the 41.48 CY above the indication belong in the claim. In the third, the borings showed half a foot of rock in the bottom of the trench and the crew found none. Both A201 3.7.4 and FAR 52.236-2(b) speak of conditions that cause "an increase or decrease" in the contractor's cost, so the owner can ask for a credit on that reach.</p>
+
+<p>Sum the two directions separately. Increases are <code>=SUMIF(J5:J7,"&gt;0")</code>, which returns 148.15 CY, and decreases are <code>=-SUMIF(J5:J7,"&lt;0")</code>, which returns 14.81 CY. A sheet built as "found minus bid" would read 179.26 CY, because the bid column is zero on every row.</p>
+
+<h2>Price the rock as a premium, then add the water</h2>
+
+<p>The bid already paid to dig every one of those cubic yards as common excavation. The claim is the difference between digging them as rock and digging them as dirt, plus what rock does that dirt does not: the spoil cannot go back in the trench.</p>
+
+<ul>
+<li>Crew and equipment with the hoe ram: $4,350 per day (Costs!B6).</li>
+<li>Rock production: 38 CY per day (B7). Common excavation, same crew: 210 CY per day (B8).</li>
+<li>Rock unit cost <code>=ROUND(B6/B7,2)</code> returns $114.47 per CY. Common unit cost <code>=ROUND(B6/B8,2)</code> returns $20.71. The premium <code>=B9-B10</code> is $93.76 per CY.</li>
+<li>Haul the rock spoil off and import select backfill: $29.00 per CY (B13).</li>
+<li>Extra excavation days <code>=ROUND(B12/B7,2)-ROUND(B12/B8,2)</code>, with the claimed volume in B12: 3.90 days in rock against 0.71 in dirt, so 3.19 extra days.</li>
+</ul>
+
+<p>Groundwater is the second condition. The boring logs recorded no water to 15 feet; the crew hit it at 6 feet along 260 feet of the first two reaches. The pipe crew costs $5,200 per day and lays 80 LF per day dry and 52 LF per day in a pumped trench, so the wet stretch takes 5.00 days instead of 3.25, which adds 1.75 days. Two pumps rent for $640 per day for the 5 wet days. If you run the pumps on your own fuel, the <a href="/blog/construction-diesel-fuel-cost-tracker-by-job-excel">job fuel tracker</a> logs support equipment in gallons per day, which is the record that backs a fuel line.</p>
+
+<table>
+<thead><tr><th>Line</th><th>Basis</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Rock premium</td><td>148.15 CY x $93.76</td><td>$13,890.54</td></tr>
+<tr><td>Haul rock spoil, import backfill</td><td>148.15 CY x $29.00</td><td>$4,296.35</td></tr>
+<tr><td>Dewatering pumps</td><td>5.00 days x $640</td><td>$3,200.00</td></tr>
+<tr><td>Pipe crew lost production</td><td>1.75 days x $5,200</td><td>$9,100.00</td></tr>
+<tr><td><strong>Direct cost</strong></td><td></td><td><strong>$30,486.89</strong></td></tr>
+<tr><td>Markup on direct cost</td><td>15 percent</td><td>$4,573.03</td></tr>
+<tr><td>Field overhead</td><td>4.94 days x $1,450</td><td>$7,163.00</td></tr>
+<tr><td><strong>Claim</strong></td><td></td><td><strong>$42,222.92</strong></td></tr>
+</tbody>
+</table>
+
+<p>Markup is <code>=ROUND(B18&#42;B15,2)</code> on the direct cost, with the 15 percent in B15 taken from the change clause of your own Agreement; the <a href="/blog/construction-change-order-markup-calculator-excel">change order markup calculator</a> covers how that rate should be built. Field overhead is <code>=B19&#42;B14</code>, extra days times $1,450 per day for the superintendent, trailer and truck, and it is only claimable for days on the critical path. This example assumes both the rock days and the wet days were critical; your schedule has to show it.</p>
+
+<p>One line stays out. A201 Section 15.1.7 waives the contractor's claims for consequential damages, including "principal office expenses" and loss of profit "except anticipated profit arising directly from the Work." Unless the owner struck or rewrote that section, a daily home-office overhead charge does not belong on an A201 claim. Check the Agreement before you add one.</p>
+
+<h2>What the owner strikes from the wrong baseline</h2>
+
+<p>Run the same cost build three ways: on the bid, on the documents, and on the documents net of the reach 3 credit. The credit is the 14.81 CY priced the same way: $1,818.08 of direct cost, $272.71 of markup and 0.32 days of field overhead at $464.00, for $2,554.79.</p>
+
+<table>
+<thead><tr><th></th><th>Found minus bid</th><th>Found minus documents</th><th>Documents, net of credit</th></tr></thead>
+<tbody>
+<tr><td>Rock in the claim</td><td>179.26 CY</td><td>148.15 CY</td><td>148.15 CY less 14.81 CY credit</td></tr>
+<tr><td>Extra days</td><td>5.62</td><td>4.94</td><td>4.62</td></tr>
+<tr><td>Direct cost</td><td>$34,305.96</td><td>$30,486.89</td><td>$28,668.81</td></tr>
+<tr><td>Markup</td><td>$5,145.89</td><td>$4,573.03</td><td>$4,300.32</td></tr>
+<tr><td>Field overhead</td><td>$8,149.00</td><td>$7,163.00</td><td>$6,699.00</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$47,600.85</strong></td><td><strong>$42,222.92</strong></td><td><strong>$39,668.13</strong></td></tr>
+</tbody>
+</table>
+
+<p>The gap between the first and last columns is $7,932.72, or 16.67 percent of the bid-based number. Of that, $5,377.93 is the 31.11 CY the estimator missed at boring B-3, and $2,554.79 is the credit on reach 3. The first piece is a bid error and no clause pays for it. The second is arguable, because half a foot of missing rock may not be a material difference, but the argument belongs in the claim, written by you, with the reach 3 row shown.</p>
+
+<p>The <a href="/blog/construction-unit-price-contract-tracker-excel">unit price contract tracker</a> covers the other case. When rock excavation is a pay item with its own unit price, the extra yards are billed through the pay item quantity and no differing site conditions claim is needed for the quantity itself.</p>
+
+<h2>The notice decision, made in the trench</h2>
+
+<p>The claim above is worth nothing if the notice fails. A201 3.7.4 requires notice to the owner and architect "before conditions are disturbed and in no event later than 14 days after first observance of the conditions," and Section 15.1.5 requires notice of a claim for added cost "before proceeding to execute the portion of the Work that is the subject of the Claim." FAR 52.236-2(a) requires written notice "promptly, and before the conditions are disturbed," and paragraph (c) bars any adjustment without that notice, although the contracting officer may extend the time.</p>
+
+<p>The day the bucket hits rock, the superintendent has three options. In this example the owner's engineer needs 2 days to come out and look, which is an assumption to replace with what your owner actually does.</p>
+
+<table>
+<thead><tr><th>Option</th><th>Cash cost now</th><th>What happens to the $42,222.92</th><th>Breakeven chance of losing the claim</th></tr></thead>
+<tbody>
+<tr><td>Keep digging, write it up at the end of the week</td><td>$0</td><td>Rides on whether a late notice gets excused</td><td>Reference case</td></tr>
+<tr><td>Stop both crews until the engineer has looked</td><td>2 days x $9,550 = $19,100</td><td>Protected</td><td>45.24 percent</td></tr>
+<tr><td>Leave STA 2+00 to 5+80 untouched, move both crews to reach 3, send notice the same day</td><td>$1,850 to resequence</td><td>Protected</td><td>4.38 percent</td></tr>
+</tbody>
+</table>
+
+<p>With the claim in B30 and the cash cost of an option in B31, the breakeven is <code>=B31/B30</code>. If you put the chance of losing the claim for late notice above 4.38 percent, resequencing costs less than digging on. Stopping both crews only beats digging on if that chance tops 45.24 percent. This example treats the resequencing cost as unrecovered, which is the conservative assumption. Whatever you choose, photograph the exposed rock face and the water level with a tape in the frame before anyone touches the reach again.</p>
+
+<p>Carry the dates on a Log tab. With first observance in B2, the date notice went out in C2 and the date the reach was disturbed in D2, the flag is <code>=IF(OR(C2&gt;B2+14,C2&gt;=D2),"LATE","OK")</code>. A201 Section 8.1.4 defines a day as a calendar day, so plain date arithmetic is correct. Section 15.1.3.1 gives 21 days from the occurrence or from the day the claimant first recognizes the condition, whichever is later; with first observance as the recognition date, the claim is due <code>=B2+21</code>. A subcontractor's clock runs shorter than the general contractor's, as the <a href="/blog/construction-delay-notice-deadline-tracker-excel">delay notice deadline tracker</a> shows for A401.</p>
+
+<p>Two federal dates matter as well. FAR 52.236-2(d) bars any differing site conditions adjustment requested after final payment. FAR 33.207 requires the contractor's certification for any claim exceeding $100,000, and paragraph (d) measures that threshold on the aggregate of increases and decreases. Here that aggregate is $42,222.92 plus $2,554.79, or $44,777.71, so no certification is needed.</p>
+
+<h2>The workbook, four tabs</h2>
+
+<ul>
+<li><strong>Inputs.</strong> Trench width, excavation depth, crew costs, production rates, backfill price, field overhead per day, contract markup. Every cell labeled as a measured rate or an assumption.</li>
+<li><strong>Reaches.</strong> One row per stretch between borings: length, top of rock per borings, top of rock found, indicated and found cubic yards, the difference. A bid column for reference only, never read by a cost formula.</li>
+<li><strong>Costs.</strong> The premium, backfill, dewatering and lost production lines, markup and field overhead, built three times: bid baseline, documents, documents net of credit.</li>
+<li><strong>Log.</strong> First observance, notice sent, reach disturbed, claim initiated, with the LATE flag and the photo file names.</li>
+</ul>
+
+<p>Two checks belong at the bottom of the Costs tab. <code>=IF(ROUND(B12-SUMIF(Reaches!J5:J7,"&gt;0"),2)=0,"OK","CHECK VOLUME")</code> catches a claimed volume that someone typed over instead of pulling from the Reaches tab. And with the documents total in C24, the credit in C25 and the net total in D24, the test <code>=ROUND(C24-C25,2)=D24</code> returns TRUE on this example at $39,668.13.</p>
+
+<h2>Recommendation</h2>
+
+<p>Build the claim from the boring logs on the contract drawings, reach by reach, and write the credit row yourself. On this job that means submitting $39,668.13 with the reach 3 credit shown, or $42,222.92 with a short paragraph on why half a foot of missing rock is not a material difference. Do not submit $47,600.85: $5,377.93 of it is an estimating miss that boring B-3 proves on the owner's own drawing. Make the notice decision in the first hour, not at the end of the week. Moving the crews to reach 3 cost $1,850 and kept a $42,222.92 claim intact.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> is where the claim lands once it becomes a change order. It holds your budget by CSI division or your own categories, logs each change order as one entry and carries its effect through every total, and records every invoice by vendor, so the pump rental and the backfill tickets behind the claim are already filed against the right line. It does not build the reach table or test the notice dates for you; the four tabs above do that, and the tracker keeps the money straight once the owner signs.</p>`,
+  },
+  {
     slug: 'contractor-jobsite-theft-loss-tracking-excel',
     title: 'Contractor Jobsite Theft and Loss Tracking in Excel: What the Deductible Hides',
     metaTitle: 'Contractor Jobsite Theft & Loss Tracking Excel | SheetCraft',
