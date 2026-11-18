@@ -16,6 +16,156 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-gmp-shared-savings-calculator-excel',
+    title: 'Construction GMP Shared Savings Calculator in Excel: What 25 Percent Pays Per Dollar',
+    metaTitle: 'Construction GMP Shared Savings Calculator | SheetCraft',
+    metaDescription: 'Construction GMP shared savings calculator in Excel: what a 75/25 split pays per dollar of buyout, contingency and allowance, and when a rebid pays.',
+    targetKeyword: 'construction GMP shared savings calculator Excel',
+    secondaryKeywords: ['GMP savings split', 'buyout savings', 'allowance change order', 'cost plus fee with GMP', 'A102 savings clause'],
+    excerpt: 'A job finishing $306,800 under its GMP pays the contractor $61,100 of shared savings, and the fee drops $11,800. The per-dollar keep rate shows which buyout efforts pay and which clause to sign.',
+    publishedAt: '2026-11-18',
+    readTime: 12,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-gmp-shared-savings-calculator-excel.png',
+    imageAlt: 'Close-up of a coil of copper tubing catching warm light against a dark background',
+    content: `<p>The cost report on a $7,248,800 GMP job shows the project finishing $306,800 under the guaranteed maximum price. The contract splits savings 75 percent to the owner and 25 percent to the contractor, so the project executive tells the owner of the company to expect $76,700. The final accounting pays $61,100, and the fee has dropped by $11,800 on the way. A <strong>construction GMP shared savings calculator in Excel</strong> exists to show that gap before closeout, line by line, and more usefully before buyout, when the contractor is deciding how hard to push each subcontract price. On this job, every dollar squeezed out of a sub was worth 22 cents to the contractor, every dollar left unspent in an allowance cost it 4 cents, and every dollar saved after the job crossed the GMP was worth a full dollar.</p>
+
+<p>The job is a worked example: a general contractor on a cost-plus-fee contract with a guaranteed maximum price under AIA A102-2017, with A201-2017 as the general conditions. The fee is 4 percent of the Cost of the Work, changes carry the same 4 percent, and the savings clause is a 75/25 split. Every dollar amount comes from one model. Swap in your own contract terms before you use any of it in a negotiation.</p>
+
+<h2>What the GMP clause actually guarantees</h2>
+
+<p>A102-2017 Section 5.1 defines the Contract Sum as the Cost of the Work plus the Contractor's Fee. Section 5.2.1 caps it: the Contract Sum is guaranteed not to exceed the GMP, subject to additions and deductions by change order, and "costs which would cause the Guaranteed Maximum Price to be exceeded shall be paid by the Contractor without reimbursement by the Owner." Nothing in the printed form shares savings. The form leaves Section 5.1.7 blank for "provisions for bonus, cost savings or other incentives, if any." If that section stays empty, the owner pays actual cost plus fee and keeps every dollar under the cap.</p>
+
+<p>So the savings split lives in whatever the parties typed into 5.1.7, and three other blanks change what it pays:</p>
+
+<ul>
+<li><strong>Section 5.1.1, the fee.</strong> The form asks for "a lump sum, percentage of Cost of the Work, or other provision." A percentage fee shrinks every time cost shrinks.</li>
+<li><strong>Section 5.1.2, the fee on changes.</strong> It sets what happens to the fee when a change order moves the GMP, including the change order that reconciles an allowance.</li>
+<li><strong>Section 5.2.3, the allowances.</strong> A201 Section 3.8.2.3 says that whenever costs are more or less than an allowance, the Contract Sum "shall be adjusted accordingly by Change Order." An allowance that comes in low moves the GMP down. It never reaches the savings pool unless the contract says otherwise.</li>
+</ul>
+
+<p>One more sentence in A102 decides how buyout strategy plays out. Section 12.1.5 has the schedule of values split the GMP among the portions of the Work, a contingency, and the fee, and Section 12.1.5.2 adds that this allocation "shall not constitute a separate guaranteed maximum price for the Cost of the Work of each individual line item." A buyout saving on the mechanical package is not set aside for anyone. It sits inside the cap and absorbs the overrun on whatever line goes over next.</p>
+
+<p>The example job at signing and at final accounting:</p>
+
+<table>
+<thead><tr><th>Line</th><th>In the GMP</th><th>Final cost</th><th>Variance</th><th>What drove it</th></tr></thead>
+<tbody>
+<tr><td>Subcontracts and materials</td><td>$6,000,000</td><td>$5,820,000</td><td>$180,000</td><td>Buyout below the carried numbers</td></tr>
+<tr><td>Contingency</td><td>$210,000</td><td>$130,000</td><td>$80,000</td><td>Scope gaps and rework charged to it</td></tr>
+<tr><td>General conditions</td><td>$520,000</td><td>$545,000</td><td>-$25,000</td><td>Three extra weeks of supervision</td></tr>
+<tr><td>Allowances (hardware, light fixtures)</td><td>$240,000</td><td>$180,000</td><td>$60,000</td><td>Owner picked cheaper fixtures</td></tr>
+<tr><td>Fee at 4 percent</td><td>$278,800</td><td>$267,000</td><td>$11,800</td><td>Follows the Cost of the Work</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$7,248,800</strong></td><td><strong>$6,942,000</strong></td><td><strong>$306,800</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<h2>Three numbers for the same closeout</h2>
+
+<p>The $306,800 at the bottom of the table is what a cost report shows, and 25 percent of it is the $76,700 the project executive promised. The clause pays on a different base. First, the allowance change order: $60,000 under the allowance, plus 4 percent fee on the change, takes $62,400 off the GMP and leaves an adjusted cap of $7,186,400. Then the pool is the adjusted GMP minus actual cost minus actual fee: $7,186,400 minus $6,942,000, or $244,400. The contractor's 25 percent is $61,100. The $15,600 difference is exactly 25 percent of the allowance change order, money the contractor counted as savings and that the owner got back through A201 Section 3.8.2.3.</p>
+
+<p>The third number is the one a contractor should plan around. The share is $61,100, but the fee fell from $278,800 to $267,000 because the Cost of the Work fell. Against the fee the contractor signed for, the savings clause added $49,300, which is 16.71 percent of the $295,000 in line-item savings the field team produced. Put all three numbers on the closeout forecast, because the company that books $76,700 in its backlog report and collects $49,300 more than its signed fee is $27,400 short of its own forecast.</p>
+
+<h2>The keep rate: what the contractor holds from each saved dollar</h2>
+
+<p>The shared savings calculator turns those three numbers into a rate per dollar, by source. With a percentage fee F and a contractor share S, a dollar of cost saved below the GMP raises the pool by 1 plus F, because the fee falls with it, and lowers the fee by F. The contractor keeps S times (1 + F) minus F. At 25 percent and 4 percent that is 0.25 times 1.04 minus 0.04, or 22 cents. An allowance dollar never enters the pool, so the contractor keeps minus F: it loses 4 cents of fee. Once the job is over the GMP, the cap pays nothing more, and every dollar saved is a dollar the contractor no longer pays out of its own pocket.</p>
+
+<p>The same arithmetic under four ways of writing the contract:</p>
+
+<table>
+<thead><tr><th>Source of the saved dollar</th><th>Percentage fee, savings stay in GMP</th><th>Lump-sum fee, savings stay in GMP</th><th>Percentage fee, buyout savings returned at buyout</th><th>Percentage fee, unused contingency returned to owner</th></tr></thead>
+<tbody>
+<tr><td>Buyout below the carried number</td><td>$0.22</td><td>$0.25</td><td>-$0.04</td><td>$0.22</td></tr>
+<tr><td>Contingency left unspent</td><td>$0.22</td><td>$0.25</td><td>$0.22</td><td>-$0.04</td></tr>
+<tr><td>Allowance under budget</td><td>-$0.04</td><td>$0.00</td><td>-$0.04</td><td>-$0.04</td></tr>
+<tr><td>Any dollar once the job is over the GMP</td><td>$1.00</td><td>$1.00</td><td>$1.00</td><td>$1.00</td></tr>
+</tbody>
+</table>
+
+<p>The lump-sum column assumes the fee does not move on the allowance change order. On the example job a lump-sum fee pays the contractor $337,550 in fee and share, against $328,100 under the percentage fee, because the $278,800 fee stays whole and the pool is $235,000. Owners who negotiate the fee as a percentage and then read the 25 percent as the contractor's incentive are counting 3 cents per dollar that the fee formula takes back.</p>
+
+<p>Two items in A102 Article 9 sit outside this table. Trade discounts, rebates and refunds accrue to the owner and are credited as a deduction from the Cost of the Work under Section 9.2, so they behave like a buyout dollar and pay the contractor 22 cents. Cash discounts accrue to the contractor unless it billed the discounted amount and was paid first, or the owner advanced the funds (Section 9.1). A contractor that pays $400,000 of supplier invoices from its own cash on 2 percent terms keeps the $8,000 whole, with no overrun required.</p>
+
+<h3>The cells behind the keep rate</h3>
+
+<p>Put the contract terms on one tab. B2 holds the fee rate (4%), B3 the contractor's share (25%), B4 the GMP at signing ($7,248,800). The line ledger runs from row 16 to row 19, with the GMP amount in column B, final cost in column C, variance in column D as <code>=B16-C16</code>, and allowances in row 19. Then:</p>
+
+<ul>
+<li>B5, allowance change orders: <code>=-(B19-C19)&#42;(1+B2)</code> returns -$62,400.</li>
+<li>B6, adjusted GMP: <code>=B4+B5</code> returns $7,186,400.</li>
+<li>B7, final Cost of the Work: <code>=SUM(C16:C19)</code> returns $6,675,000.</li>
+<li>B8, fee: <code>=B2&#42;B7</code> returns $267,000.</li>
+<li>B9, savings pool: <code>=MAX(B6-B7-B8,0)</code> returns $244,400.</li>
+<li>B10, contractor share: <code>=B3&#42;B9</code> returns $61,100.</li>
+<li>B11, overrun the contractor absorbs: <code>=MAX(B7+B8-B6,0)</code> returns $0.</li>
+<li>B12, contractor result: <code>=B8+B10-B11</code> returns $328,100.</li>
+<li>B14, keep rate on the next buyout dollar: <code>=IF(B7&#42;(1+B2)&lt;B6,B3&#42;(1+B2)-B2,1)</code> returns 0.22.</li>
+</ul>
+
+<p>B14 is the cell to read at every buyout meeting. While the forecast stays under the cap it shows 0.22, and the day the forecast crosses the GMP it jumps to 1, which is the moment the contractor's interest in buyout changes completely. If you track buyout in a separate workbook, as in this <a href="/blog/construction-subcontract-buyout-log-excel">subcontract buyout log</a>, point B7 at its forecast final cost instead of the actuals.</p>
+
+<h2>The rebid nobody runs</h2>
+
+<p>The low mechanical bid is $35,000 above what the estimator believes two new bidders would quote. A rebid takes 80 hours of estimating and project management time at the home office, $120 an hour, $9,600 in total. A102 Section 8.1.1 excludes salaries of personnel stationed at the principal office from the Cost of the Work, so that $9,600 is the contractor's own money, and nobody reimburses it.</p>
+
+<p>If the rebid lands the $35,000, the contractor gains $7,700 (35,000 times 0.22) and is out $9,600, a net loss of $1,900. The owner gains $27,300, which is 35,000 times 0.75 times 1.04. A contractor reading its own numbers skips the rebid, and the owner does not see the $27,300 it would have saved.</p>
+
+<p>The break-even share for the rebid is <code>=(B23/B22+B2)/(1+B2)</code>, with the expected saving in B22 and the rebid cost in B23. It returns 30.22 percent. The contractor test is <code>=IF(B22&#42;B14&gt;B23,"REBID","SKIP")</code>, which returns SKIP at 25 percent.</p>
+
+<table>
+<thead><tr><th>Mechanical package rebid</th><th>Contractor</th><th>Owner</th></tr></thead>
+<tbody>
+<tr><td>No rebid</td><td>$0</td><td>$0</td></tr>
+<tr><td>Rebid at the 75/25 split</td><td>-$1,900</td><td>$27,300</td></tr>
+<tr><td>Rebid with that package's savings split 50/50</td><td>$7,200</td><td>$18,200</td></tr>
+</tbody>
+</table>
+
+<p>A 50/50 split on that one package gives the owner $18,200 instead of nothing and gives the contractor $7,200 instead of a loss. An owner's representative who wants harder buyout has a cheaper tool than pressure: write a higher share for buyout savings that clear the carried number with no scope gaps, and let the contractor's own math do the rest. The condition on scope gaps matters because a low bid that excludes work the contract still requires leaves the contractor paying for that work, which is why the buyout log prices exclusions in their own column.</p>
+
+<h2>Return buyout savings at buyout, or leave them in the GMP?</h2>
+
+<p>An owner can ask for buyout savings to come out of the GMP by deductive change order as each trade is bought, so the savings are locked in before the job can spend them. On this job that change order is $180,000 plus 4 percent fee, $187,200, and the GMP drops to $6,999,200. The contractor's question is what the cushion was worth. That depends on how much unbudgeted cost the job still has ahead of it, which nobody knows at buyout, so the sheet runs a range:</p>
+
+<table>
+<thead><tr><th>Unbudgeted cost after buyout</th><th>Contractor result, savings left in GMP</th><th>Contractor result, savings returned</th><th>Cushion value</th></tr></thead>
+<tbody>
+<tr><td>$0</td><td>$328,100</td><td>$281,300</td><td>$46,800</td></tr>
+<tr><td>$100,000</td><td>$306,100</td><td>$224,200</td><td>$81,900</td></tr>
+<tr><td>$200,000</td><td>$284,100</td><td>$124,200</td><td>$159,900</td></tr>
+<tr><td>$300,000</td><td>$211,400</td><td>$24,200</td><td>$187,200</td></tr>
+<tr><td>$400,000</td><td>$111,400</td><td>-$75,800</td><td>$187,200</td></tr>
+</tbody>
+</table>
+
+<p>Put the overrun values in F3:F7 and the contractor result next to them in G3: <code>=IF(($B$7+F3)&#42;(1+$B$2)&lt;=$B$6,$B$2&#42;($B$7+F3)+$B$3&#42;($B$6-($B$7+F3)&#42;(1+$B$2)),$B$6-($B$7+F3))</code>. Column H uses the same formula with the reduced GMP in B27, <code>=B6-D16&#42;(1+B2)</code>, in place of B6. The pool runs dry at <code>=B6/(1+B2)-B7</code>: $235,000 of unbudgeted cost with the savings left in, $55,000 with them returned.</p>
+
+<p>Every row is a pure transfer. Total cost is the same in both columns, so the cushion value is exactly what the owner saves by taking the savings out early. At zero overrun it is the contractor's 25 percent of $187,200. Past $235,000 it is the whole $187,200, because the owner has moved that much overrun risk back onto the contractor. Returning savings at buyout also resets the keep rate on buyout to minus 4 cents, the column of the keep-rate table headed buyout savings returned at buyout, so from that day the contractor has no financial reason to buy any trade below its carried number.</p>
+
+<p>Contingency follows the same logic. An owner who asks for unused contingency back at 100 percent is asking for the last column of the keep-rate table, and the contractor who agrees should expect to draw the contingency down harder, because each unspent dollar now costs it 4 cents. The <a href="/blog/construction-contingency-budget-percentage">contingency percentage guide</a> covers how large that line should be at each design stage.</p>
+
+<h2>Which savings the clause should share</h2>
+
+<p>The keep rates point to a clause that pays each party for what it controls. The contractor controls buyout, field productivity and the draw on contingency. The owner controls allowance selections and scope. A practical 5.1.7 for the example job would:</p>
+
+<ul>
+<li>Leave buyout savings inside the GMP until a stated milestone, with the split applied at final accounting.</li>
+<li>Pay a higher contractor share on buyout savings below the carried number, net of any scope gap the contractor absorbs.</li>
+<li>Reconcile allowances by change order under A201 Section 3.8.2.3, and say whether the fee moves on that change order.</li>
+<li>Treat value engineering items separately, because a VE credit carries redesign and delay costs that a buyout saving does not. The <a href="/blog/construction-value-engineering-savings-log-excel">value engineering savings log</a> nets those before any split.</li>
+</ul>
+
+<p>Allowances need their own tab regardless of the clause, because they are the one line where a contractor reports savings it will never share. The <a href="/blog/construction-allowance-tracking-spreadsheet-excel">allowance tracking spreadsheet</a> keeps each allowance against its selections so the change order amount is known before the owner's auditor calculates it.</p>
+
+<h2>Recommendation</h2>
+
+<p>If you are the contractor, build the keep-rate cell before you sign the GMP amendment, and price every buyout effort against it. On this job a rebid had to save more than $43,636.36 at a 25 percent share to cover $9,600 of home-office time, because only 22 cents of each dollar came back. Do not agree to return buyout savings at buyout without a matching increase in contingency: on the example job, returning them cost the contractor between $46,800 and $187,200. Forecast closeout at the $49,300 the clause adds over your signed fee, never at 25 percent of the cost report.</p>
+
+<p>If you are the owner, read your own fee clause before you read the savings split. A percentage fee takes back 3 cents of every 25, allowances never reach the pool, and a contractor whose keep rate is 22 cents will skip rebids like the mechanical package here, which would have saved you $27,300. Raising the share on clean buyout savings costs less than the rebids you lose without it.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> holds the line items this calculator reads. It carries the budget by CSI division or your own categories, logs actuals against each line with the variance updating as invoices arrive, records each change order as one entry that flows through every total, and its markup calculator applies your agreed cost-plus percentage to the costs. It does not compute the savings pool, the keep rate or the cushion table for you; those three blocks sit on a terms tab that reads the tracker's final cost column.</p>`,
+  },
+  {
     slug: 'construction-differing-site-conditions-claim-calculator-excel',
     title: 'Differing Site Conditions Claim Calculator in Excel: Price the Rock Against the Borings',
     metaTitle: 'Differing Site Conditions Claim Calculator | SheetCraft',
