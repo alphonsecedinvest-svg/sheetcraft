@@ -16,6 +16,192 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-material-tariff-surcharge-tracker-excel',
+    title: 'Construction Material Tariff Surcharge Tracker in Excel: Two Dates Decide Who Pays',
+    metaTitle: 'Construction Material Tariff Surcharge Tracker | SheetCraft',
+    metaDescription: 'Construction material tariff surcharge tracker in Excel: flag quotes that lapse before the PO or carry a surcharge clause, then price each lock.',
+    targetKeyword: 'construction material tariff surcharge tracker Excel',
+    secondaryKeywords: ['tariff surcharge clause', 'supplier quote validity date', 'fixed-price contract tariff risk', 'stored materials payment', 'after-imposed federal tax'],
+    excerpt: 'Six of eight quotes on a $3.15 million fixed-price job can still rise before the contractor buys, and 73.59 percent of that exposure sits on validity dates, not surcharge clauses. Here is the tracker that flags both and prices each lock.',
+    publishedAt: '2026-11-19',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-material-tariff-surcharge-tracker-excel.png',
+    imageAlt: 'Black and white close-up of light-gauge steel roof trusses with riveted chords and diagonal web members',
+    content: `<p>A general contractor signs a $3,150,000 fixed-price contract on November 16, 2026 for a 22,000 square foot single-story retail and office building. The owner used AIA A201-2017 without changes. The estimate rests on seven material quotes and one electrical subcontract proposal, together worth $785,750. Three days later, six of those eight lines can still go up in price before the contractor buys, and the prime contract gives the contractor no way to pass a dollar of it to the owner. A construction material tariff surcharge tracker in Excel answers one question for each quote: if the price moves before you buy, who pays? On this job the answer is the contractor, for $42,357.25 under the planner's scenario, which is 16.81 percent of the $252,000 margin in the bid.</p>
+
+<p>Most of that money does not sit in the surcharge clauses everyone reads. $31,170.25 of it, 73.59 percent, sits on quotes that expire before the purchase order goes out, and an expired quote needs no clause for the supplier to re-price it. The job and every figure below are an example built for this article; the contract and statute language is quoted from the documents themselves.</p>
+
+<h2>Where a Tariff Increase Lands on a Fixed-Price Job</h2>
+
+<p>Tariff rates on metals moved several times in 2026. The Federal Register published three presidential proclamations changing the tariff treatment of aluminum, steel or copper imports between April 9 and July 23, 2026 (Proclamations 11021, 11032 and 11045). The gaps between them were 56 and 49 days. A 30-day supplier quote is shorter than either gap.</p>
+
+<p>Three documents decide who absorbs a change, and each one has its own date:</p>
+
+<ul>
+<li><strong>The supplier's quote.</strong> It is the offer. It carries a validity date and, often, a line like "prices subject to tariff-related surcharges at time of shipment."</li>
+<li><strong>Your purchase order or subcontract.</strong> It accepts the offer, and with it whatever surcharge language the offer contains.</li>
+<li><strong>Your prime contract.</strong> Under A201-2017, § 3.4.1 says the Contractor shall provide and pay for materials, and § 3.6 says the Contractor shall pay "sales, consumer, use and similar taxes for the Work provided by the Contractor that are legally enacted when bids are received or negotiations concluded, whether or not yet effective or merely scheduled to go into effect." The document has no price adjustment clause for materials. An increase between bid day and purchase day belongs to the contractor unless the owner agrees to a change order.</li>
+</ul>
+
+<p>So the owner side is closed on this job, and the tracker works on the supplier side. A quote carries zero tariff exposure only when two conditions hold at the same time: the purchase order goes out before the quote expires, and the quote carries no surcharge clause, or the clause has been struck in writing. Fail either test and the whole exposure stays.</p>
+
+<h2>The Tracker: One Row per Quote, Two Tests per Row</h2>
+
+<p>Put the as-of date in <code>B2</code> (11/19/2026) and the bid margin in <code>B3</code> ($252,000). Quotes start in row 5, one row per quote, with these columns:</p>
+
+<table>
+<thead><tr><th>Column</th><th>Field</th><th>Formula or entry</th></tr></thead>
+<tbody>
+<tr><td>A to C</td><td>Cost code, line, supplier</td><td>Entry</td></tr>
+<tr><td>D</td><td>Quote amount</td><td>Entry</td></tr>
+<tr><td>E, F</td><td>Quote date, validity in days</td><td>Entry, from the quote itself</td></tr>
+<tr><td>G</td><td>Valid until</td><td><code>=E5+F5</code></td></tr>
+<tr><td>H</td><td>Planned PO date</td><td>From the schedule, after submittal approval</td></tr>
+<tr><td>I</td><td>Surcharge clause in the quote</td><td>Y or N, read from the quote's terms page</td></tr>
+<tr><td>J</td><td>Tariff-sensitive share</td><td>Imported or metal content as a share of the price, asked of the supplier in writing</td></tr>
+<tr><td>K</td><td>Scenario increase on that share</td><td>Your planning assumption, labeled as such</td></tr>
+<tr><td>L</td><td>Days left on the quote</td><td><code>=G5-$B$2</code></td></tr>
+<tr><td>M</td><td>Status</td><td><code>=IF(H5&gt;G5,"LAPSED",IF(I5="Y","CLAUSE","FIRM"))</code></td></tr>
+<tr><td>N</td><td>Exposure</td><td><code>=IF(M5="FIRM",0,D5&#42;J5&#42;K5)</code></td></tr>
+<tr><td>O</td><td>Alert</td><td><code>=IF(AND(M5="LAPSED",L5&gt;=0,L5&lt;=14),"ACT NOW","")</code></td></tr>
+</tbody>
+</table>
+
+<p>Column M is the business test. LAPSED means the supplier will be free to quote a new price on the day you need to buy, with or without a clause. CLAUSE means the price holds but the surcharge line lets the supplier add to it. FIRM means the supplier carries the risk. Column O fires only on quotes that are still alive and will die within two weeks, because those are the only ones a phone call this week can still save.</p>
+
+<p>Here is the job on November 19:</p>
+
+<table>
+<thead><tr><th>Code</th><th>Line</th><th>Quote</th><th>Valid until</th><th>PO date</th><th>Clause</th><th>Status</th><th>Exposure</th></tr></thead>
+<tbody>
+<tr><td>05 12 00</td><td>Structural steel (fabricator)</td><td>$186,400</td><td>11/25/2026</td><td>1/11/2027</td><td>Y</td><td>LAPSED</td><td>$16,776.00</td></tr>
+<tr><td>05 31 00</td><td>Steel deck</td><td>$41,250</td><td>11/27/2026</td><td>1/11/2027</td><td>Y</td><td>LAPSED</td><td>$4,331.25</td></tr>
+<tr><td>08 41 13</td><td>Aluminum storefront</td><td>$96,800</td><td>12/29/2026</td><td>1/25/2027</td><td>Y</td><td>LAPSED</td><td>$8,712.00</td></tr>
+<tr><td>26 00 00</td><td>Electrical subcontract</td><td>$212,000</td><td>11/28/2026</td><td>11/20/2026</td><td>Y</td><td>CLAUSE</td><td>$7,632.00</td></tr>
+<tr><td>06 10 00</td><td>Framing lumber</td><td>$38,600</td><td>11/13/2026</td><td>2/8/2027</td><td>N</td><td>LAPSED</td><td>$1,351.00</td></tr>
+<tr><td>03 21 00</td><td>Rebar</td><td>$27,900</td><td>12/2/2026</td><td>11/23/2026</td><td>N</td><td>FIRM</td><td>$0.00</td></tr>
+<tr><td>03 30 00</td><td>Ready-mix concrete</td><td>$64,300</td><td>6/30/2027</td><td>12/14/2026</td><td>N</td><td>FIRM</td><td>$0.00</td></tr>
+<tr><td>23 74 13</td><td>Rooftop units</td><td>$118,500</td><td>12/11/2026</td><td>12/7/2026</td><td>Y</td><td>CLAUSE</td><td>$3,555.00</td></tr>
+</tbody>
+</table>
+
+<p>The scenario inputs behind column N: steel 60 percent sensitive at a 15 percent increase, deck 70 percent at 15 percent, storefront 45 percent at 20 percent, the electrical proposal 30 percent (wire and gear) at 12 percent, lumber 35 percent at 10 percent, rooftop units 25 percent at 12 percent. Change K and the totals move; column M depends only on the dates and the clause.</p>
+
+<h2>Why the Validity Date Carries Three Quarters of the Risk</h2>
+
+<p>Roll the exposure up by status:</p>
+
+<table>
+<thead><tr><th>Status</th><th>Lines</th><th>Exposure</th><th>Share</th></tr></thead>
+<tbody>
+<tr><td>LAPSED</td><td>4</td><td>$31,170.25</td><td>73.59%</td></tr>
+<tr><td>CLAUSE</td><td>2</td><td>$11,187.00</td><td>26.41%</td></tr>
+<tr><td>FIRM</td><td>2</td><td>$0.00</td><td>0.00%</td></tr>
+<tr><td>Total</td><td>8</td><td>$42,357.25</td><td>100.00%</td></tr>
+</tbody>
+</table>
+
+<p>The formulas are <code>=SUMIFS(N5:N12,M5:M12,"LAPSED")</code> and the same with "CLAUSE", and <code>=N13/B3</code> for the share of margin. The structural steel row shows why both tests matter. The fabricator's quote expires on November 25. The PO is planned for January 11, after shop drawing approval, 47 days later. Pull the PO forward to November 24 and the status flips from LAPSED to CLAUSE, but column N does not move by a cent, because the quote still says surcharges apply at shipment. Get the clause struck and keep the January PO, and the row stays LAPSED at $16,776.00. Only both fixes together zero it.</p>
+
+<p>Two sections of the Uniform Commercial Code, Article 2, which governs sales of goods, set the rules for both fixes.</p>
+
+<h3>Holding the price: UCC 2-205</h3>
+
+<p>A merchant's offer "in a signed writing which by its terms gives assurance that it will be held open" cannot be revoked during the stated time, even without payment, "but in no event may such period of irrevocability exceed three months." If the assurance sits on a form you supplied, the supplier must sign that term separately. In practice: ask the fabricator for a signed extension of the quote to the PO date. If the hold runs under three months, it binds the supplier without a deposit. If you need longer, or the supplier wants something for it, the deposit becomes the price of the hold.</p>
+
+<h3>Striking the clause: UCC 2-207</h3>
+
+<p>A PO that says "prices firm, no surcharges" in response to a quote that says the opposite does not settle the matter. Under 2-207, between merchants, the additional terms in an acceptance become part of the contract unless the offer expressly limits acceptance to its own terms, the new terms materially alter it, or the other side objects within a reasonable time. A quote that limits acceptance to its own terms keeps your PO language out of the contract from the day the PO arrives. The reliable fix is a change to the supplier's quote, signed by the supplier.</p>
+
+<p>A third section, 2-615, excuses a seller's "delay in delivery or non-delivery" when performance as agreed has been made impracticable by a contingency the contract assumed would not occur, or by good-faith compliance with a governmental regulation or order, and it requires the seller to notify the buyer seasonably. Its text speaks of delivery, not of price. A supplier who wants more money on a firm, clause-free order is asking you for it.</p>
+
+<h2>Price the Lock Before You Ask for It</h2>
+
+<p>Every fix costs something, and the tracker should show that cost next to the exposure it removes. Three lines are worth working through.</p>
+
+<h3>Steel and deck: release the mill material now</h3>
+
+<p>Shop drawing approval is six weeks out, but the fabricator can buy the mill steel now under a separate material release with a firm price and the surcharge clause struck for the released tonnage. The sensitive material is 60 percent of the steel quote plus 70 percent of the deck quote, $140,715. The contractor pays for it on December 1. Under A201 § 9.3.2, the owner pays for materials suitably stored off site only "if approved in advance by the Owner" at a location agreed in writing, and only after the contractor follows procedures that establish the owner's title. Ask for that approval in writing before you sign the release.</p>
+
+<p>Set up the lock sheet with the material in <code>B20</code>, the line of credit rate in <code>B21</code> (8.5 percent, an assumption), the payment date in <code>B22</code>, the owner's payment date in <code>B23</code>, retainage in <code>B24</code> (10 percent), completion in <code>B25</code> (7/30/2027) and the fabricator's storage and insurance fee in <code>B26</code> ($2,400). Carry until the owner pays: <code>=B20&#42;B21&#42;(B23-B22)/365</code>. Carry on retainage until completion: <code>=B20&#42;B24&#42;B21&#42;(B25-B23)/365</code>. Add <code>B26</code>, and the breakeven increase is the total divided by <code>B20</code>.</p>
+
+<table>
+<thead><tr><th>Item</th><th>Owner pays stored material (Jan 5)</th><th>Owner refuses, billed after delivery (Mar 30)</th></tr></thead>
+<tbody>
+<tr><td>Carry on $140,715</td><td>$1,146.92 (35 days)</td><td>$3,899.54 (119 days)</td></tr>
+<tr><td>Carry on retainage to 7/30/2027</td><td>$675.05 (206 days)</td><td>$399.78 (122 days)</td></tr>
+<tr><td>Storage and insurance</td><td>$2,400.00</td><td>$2,400.00</td></tr>
+<tr><td>Cost of the lock</td><td>$4,221.97</td><td>$6,699.32</td></tr>
+<tr><td>Breakeven mill price increase</td><td>3.00%</td><td>4.76%</td></tr>
+</tbody>
+</table>
+
+<p>The lock removes $21,107.25 of scenario exposure and nets $16,885.28 if the owner approves off-site payment. If mill prices rise less than 3.00 percent before January, the contractor would have done better waiting. The owner's approval moves the breakeven by 1.76 points, which is why the request goes out before the release does. Our <a href="/blog/construction-stored-materials-tracking-spreadsheet">stored materials tracking spreadsheet</a> covers the title and insurance paperwork behind a stored-material billing.</p>
+
+<h3>Storefront: buy the clause strike with a deposit</h3>
+
+<p>The storefront quote is good until December 29 and the PO is planned for January 25. A signed hold from November 19 to January 25 runs under three months, so 2-205 already makes it binding without payment. What the supplier will want something for is striking the aluminum surcharge clause. A 10 percent deposit, $9,680, paid December 1 and credited at delivery on March 15, costs $234.44 in carry over 104 days. The sensitive share is $43,560, so the breakeven increase is 0.54 percent against an $8,712.00 exposure.</p>
+
+<h3>Lumber: leave it on schedule</h3>
+
+<p>The lumber quote expired on November 13. Buying now and storing on site would lock today's price, but the cost is real: $1,200 for protection and double handling, $1,158.00 for a 3 percent theft and weather loss allowance on an open lot, and $190.57 of carry on retainage for 212 days. That is $2,548.57 to remove $1,351.00, with a breakeven of 18.86 percent on the sensitive share. The loss allowance is the input to check against your own history; our <a href="/blog/contractor-jobsite-theft-loss-tracking-excel">jobsite theft and loss tracking log</a> shows how to rate it per site-week instead of guessing.</p>
+
+<h3>The full plan</h3>
+
+<table>
+<thead><tr><th>Line</th><th>Action</th><th>Cost</th><th>Exposure before</th><th>Exposure after</th></tr></thead>
+<tbody>
+<tr><td>Steel and deck</td><td>Material release, off-site storage approved</td><td>$4,221.97</td><td>$21,107.25</td><td>$0.00</td></tr>
+<tr><td>Storefront</td><td>Deposit, hold to 1/25, clause struck</td><td>$234.44</td><td>$8,712.00</td><td>$0.00</td></tr>
+<tr><td>Electrical</td><td>Rewrite the exclusion before signing</td><td>$0.00</td><td>$7,632.00</td><td>$3,180.00 maximum</td></tr>
+<tr><td>Framing lumber</td><td>Buy on schedule</td><td>$0.00</td><td>$1,351.00</td><td>$1,351.00</td></tr>
+<tr><td>Rooftop units</td><td>Documented duty only</td><td>$0.00</td><td>$3,555.00</td><td>$3,555.00</td></tr>
+<tr><td>Total</td><td></td><td>$4,456.41</td><td>$42,357.25</td><td>$8,086.00</td></tr>
+</tbody>
+</table>
+
+<p>The contractor signs the electrical subcontract on November 20, one day after this snapshot, so its tariff exclusion can still be rewritten. As proposed, it lets the sub pass through any tariff-related increase on wire and gear. The rewrite allows only an increase the sub documents with the supplier's invoice showing the duty, capped at 5 percent of the $63,600 of wire and gear, which limits the exposure to $3,180.00. The rooftop unit PO goes out before its quote expires, so the only lever left is the same documentation rule. After the plan, worst-case scenario exposure is $8,086.00, 3.21 percent of margin instead of 16.81 percent, for $4,456.41 of cost.</p>
+
+<h2>On Federal Work the Contingency Can Cost You the Claim</h2>
+
+<p>Federal fixed-price contracts work the other way. FAR 29.401-3 calls for the clause at FAR 52.229-3 in fixed-price contracts performed in the United States that are expected to exceed the simplified acquisition threshold. Paragraph (c) of that clause says "the contract price shall be increased by the amount of any after-imposed Federal tax," and the definition of after-imposed Federal tax covers "any new or increased Federal excise tax or duty" that the contractor "is required to pay or bear" because of action taking effect after the contract date, which for a sealed bid is the date set for bid opening. The increase comes with conditions:</p>
+
+<ul>
+<li>The contractor must warrant in writing "that no amount for such newly imposed Federal excise tax or duty or rate increase was included in the contract price, as a contingency reserve or otherwise."</li>
+<li>No adjustment is made unless it exceeds $250.</li>
+<li>The contractor must promptly notify the contracting officer of any duty matter that may raise or lower the price.</li>
+<li>Paragraph (d) decreases the price by any after-relieved duty, so a tariff cut after bid opening goes to the government.</li>
+</ul>
+
+<table>
+<thead><tr><th>Question</th><th>Private job, A201-2017 unmodified</th><th>Federal fixed-price job with FAR 52.229-3</th></tr></thead>
+<tbody>
+<tr><td>Duty raised after bid day</td><td>Contractor pays</td><td>Price increase if the contractor bears the duty and signs the warranty</td></tr>
+<tr><td>Tariff contingency in the bid</td><td>The only protection you have</td><td>Blocks the warranty for that duty</td></tr>
+<tr><td>Duty cut after bid day</td><td>Contractor keeps the saving</td><td>Price decreases</td></tr>
+<tr><td>Subcontractor</td><td>Whatever the subcontract says</td><td>Only what the subcontract passes down</td></tr>
+</tbody>
+</table>
+
+<p>The <a href="/blog/construction-cost-escalation-calculator-excel">escalation contingency method</a> that protects a private bid is exactly what the warranty asks you to deny on a federal one. Whether a supplier's surcharge counts as a duty you "bear" is the contracting officer's call, so keep the evidence the tracker can hold: the supplier invoice with the duty line, the proclamation number and its effective date against the bid opening date.</p>
+
+<h2>What to Put in the Next Proposal</h2>
+
+<p>The tracker also tells you how long your own proposal can stay open. On this job bids were received on November 2, and the lumber quote expired 11 days later, 3 days before the contract was signed. Two changes stop that:</p>
+
+<ol>
+<li><strong>Proposal validity tied to the quotes.</strong> Hold your price no longer than the earliest validity date among the tariff-sensitive quotes, less the days you need to issue POs: <code>=MINIFS(G5:G12,J5:J12,"&gt;0")-B30-B31</code>, with the bid date in <code>B30</code> and PO processing days in <code>B31</code>. The MINIFS ignores quotes with no tariff-sensitive content.</li>
+<li><strong>A tariff adjustment clause on listed lines.</strong> Name the cost codes, tie the adjustment to the duty shown on the supplier's invoice for duties enacted after the bid date, and make it run in both directions, as paragraph (d) of the federal clause does. The <a href="/blog/construction-long-lead-item-tracker-excel">long lead item tracker</a> gives you the release dates the clause needs.</li>
+</ol>
+
+<h2>Run the Tracker Weekly Until the Last Metal PO Is Out</h2>
+
+<p>Build the eight-row tracker on the day the contract is signed, sort it by column L, and call every supplier whose row says ACT NOW that week. On this job that is the steel fabricator and the deck supplier, with six and eight days left. Price each lock with the breakeven formula before you ask for it: the steel release pays above a 3.00 percent mill increase, the storefront deposit above 0.54 percent, and the lumber buy only above 18.86 percent. Then rewrite any open-ended exclusion in a subcontract that has not been signed yet.</p>
+
+<p>The quotes, validity dates and lock costs belong next to the budget lines they protect. The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> breaks the budget down by CSI division, logs actual costs against each line, records a change order in one entry and keeps every supplier invoice filterable by vendor, so a surcharge that lands shows up against its cost code the week it is invoiced. It does not run the validity test or price the lock for you. Add the tracker columns above on a tab beside it, and the $42,357.25 you can see today stays smaller than the margin it would otherwise eat.</p>`,
+  },
+  {
     slug: 'construction-gmp-shared-savings-calculator-excel',
     title: 'Construction GMP Shared Savings Calculator in Excel: What 25 Percent Pays Per Dollar',
     metaTitle: 'Construction GMP Shared Savings Calculator | SheetCraft',
