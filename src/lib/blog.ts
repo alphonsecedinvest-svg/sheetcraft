@@ -16,6 +16,191 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'construction-silica-exposure-control-plan-cost-calculator-excel',
+    title: 'Construction Silica Exposure Control Plan Cost Calculator in Excel: Price the Worker-Shift',
+    metaTitle: 'Silica Exposure Control Plan Cost Calculator | SheetCraft',
+    metaDescription: 'Construction silica exposure control plan cost calculator in Excel: run the OSHA 4-hour test per worker-shift and the 30-day exam line before you crew a job.',
+    targetKeyword: 'construction silica exposure control plan cost calculator Excel',
+    secondaryKeywords: ['OSHA Table 1 silica', 'respirable crystalline silica', 'silica medical surveillance', 'respirator fit testing cost', 'silica exposure monitoring'],
+    excerpt: 'OSHA Table 1 sets silica controls by task, but respirators and medical exams follow the worker-shift and the worker-year. On an eight-day slab job, one crew swap saves $211, and the choice of who wears the respirator on the next job runs from $18 to $647.',
+    publishedAt: '2026-11-20',
+    readTime: 14,
+    relatedProduct: 'construction-budget-tracker',
+    image: '/images/blog/construction-silica-exposure-control-plan-cost-calculator-excel.png',
+    imageAlt: 'Close-up of a pale concrete surface split by branching dark cracks',
+    content: `<p>A concrete subcontractor prices an eight-day interior job: saw-cut a trench through an existing slab for new plumbing, break out the concrete between the cuts, drill anchors for the new hangers and grind the patch edges flush. The estimator builds a construction silica exposure control plan cost calculator in Excel the obvious way: one row per task, the OSHA Table 1 controls beside it, a price for each. Every task on this job has a Table 1 entry, so the sheet shows no exposure monitoring, and the estimator moves on.</p>
+
+<p>The task list is correct, and the cost on it is still wrong, because the respirable crystalline silica standard sets its respirator and medical obligations by worker-shift and by worker-year. The same two hours of indoor grinding cost nothing in respiratory protection on one employee and require a respirator on another, depending on what else that employee did with the same shift. On this job, the crew assignment alone moves the silica cost by $211, and on the company's annual roster, the choice of who wears the respirator on the next job moves it from $18 to $647. This article builds the three sheets that catch both.</p>
+
+<h2>What Table 1 Decides, and What It Leaves to the Crew Schedule</h2>
+
+<p>The construction standard is 29 CFR 1926.1153. It applies to construction work with respirable crystalline silica except where exposure will stay below 25 micrograms per cubic meter as an 8-hour time-weighted average "under any foreseeable conditions" (paragraph (a)). The permissible exposure limit is 50 micrograms per cubic meter, 8-hour average (paragraph (d)(1)).</p>
+
+<p>Paragraph (c)(1) gives the employer a shortcut: for each task listed on Table 1, "fully and properly implement the engineering controls, work practices, and respiratory protection specified for the task," and you do not have to assess exposures under paragraph (d). The part that sets the cost sits in the respirator columns, which split each task into "≤4 hours/shift" and "&gt;4 hours/shift", and in paragraph (c)(3):</p>
+
+<p>"Where an employee performs more than one task on Table 1 during the course of a shift, and the total duration of all tasks combined is more than four hours, the required respiratory protection for each task is the respiratory protection specified for more than four hours per shift."</p>
+
+<p>The four-hour test runs on the employee's whole shift, across every Table 1 task, including tasks whose own entry never requires a respirator. Here are the four entries this job uses, copied from Table 1:</p>
+
+<table>
+<thead><tr><th>Table 1 line</th><th>Required control</th><th>Respirator, 4 hours or less</th><th>Respirator, over 4 hours</th></tr></thead>
+<tbody>
+<tr><td>(iv) Walk-behind saw, indoors</td><td>Integrated water delivery to the blade</td><td>APF 10</td><td>APF 10</td></tr>
+<tr><td>(x) Jackhammer, indoors</td><td>Continuous water at the point of impact, or shroud with dust collection</td><td>APF 10</td><td>APF 10</td></tr>
+<tr><td>(vii) Handheld or stand-mounted drill</td><td>Shroud with dust collection, HEPA vacuum to clean holes</td><td>None</td><td>None</td></tr>
+<tr><td>(xii) Handheld grinder, other than mortar removal, indoors</td><td>Shroud with dust collection, 25 cfm per inch of wheel diameter</td><td>None</td><td>APF 10</td></tr>
+</tbody>
+</table>
+
+<p>APF 10 is an assigned protection factor of 10, which under 29 CFR 1910.134 includes filtering facepieces and elastomeric half masks. Two lines require a respirator no matter how long the task runs. The drill never does. The grinder depends on the clock, and the clock includes the drilling.</p>
+
+<p>Table 1 also does not remove the obligations that apply to every covered employer: a written exposure control plan describing each task, its controls, the housekeeping methods and the access restrictions (paragraph (g)(1)), reviewed at least annually (g)(2), a competent person making "frequent and regular inspections" (g)(4), and no dry sweeping or compressed air where it adds exposure unless no alternative is feasible (f). Those are real costs. They belong in the estimate as line items, and the last section prices them.</p>
+
+<h2>The Inputs Sheet: What a Respirator Day Actually Costs</h2>
+
+<p>Once a respirator is required, paragraph (e)(2) requires a respiratory protection program under 29 CFR 1910.134. Three of its requirements carry most of the money. A medical evaluation "before the employee is fit tested or required to use the respirator in the workplace" (1910.134(e)(1)). A fit test for tight-fitting facepieces "prior to initial use" and "at least annually thereafter" (1910.134(f)(2)). Retraining "annually" (1910.134(k)(5)). Then, under 1926.1153(h)(1)(i), medical surveillance for every employee "who will be required under this section to use a respirator for 30 or more days per year": a baseline exam within 30 days of initial assignment, with a chest X-ray read by a NIOSH-certified B Reader, spirometry and a latent tuberculosis test, repeated at least every three years without the tuberculosis test.</p>
+
+<p>Put the inputs on their own sheet. The figures below are this example's assumptions; replace each one with your own quote:</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Example value</th></tr></thead>
+<tbody>
+<tr><td>B1</td><td>First-year program cost per new wearer: medical evaluation $60, fit test $40, 1.5 hours of training and fit-test time at $68 loaded</td><td>$202.00</td></tr>
+<tr><td>B2</td><td>Baseline silica exam: $425 clinic fee plus 3 paid hours at $68</td><td>$629.00</td></tr>
+<tr><td>B3</td><td>Consumables per respirator day (filters or filtering facepieces)</td><td>$3.00</td></tr>
+<tr><td>B4</td><td>Loaded labor rate</td><td>$68.00</td></tr>
+<tr><td>B5</td><td>Industrial hygienist quote, one day with two personal samples analyzed</td><td>$1,400.00</td></tr>
+</tbody>
+</table>
+
+<p>B1 is <code>=60+40+1.5&#42;B4</code>, which returns $202. In later years the medical evaluation is not repeated unless one of the triggers in 1910.134(e)(7) applies, so the annual renewal for the same wearer is the fit test plus training, $142 here. B2 is <code>=425+3&#42;B4</code>.</p>
+
+<p>The point of this sheet is that "a respirator day" has no single price. It costs $3 on an employee already enrolled and already in surveillance, $205 on an employee who has never worn one ($202 plus $3), and $632 on an enrolled employee whose schedule reaches 30 respirator days for the year on that day ($629 plus $3). On the roster below, the same six days of work cost anywhere from $18 to $647.</p>
+
+<h2>The Shift Log: Running the Four-Hour Test Per Employee</h2>
+
+<p>The Log sheet holds one row per employee, per date, per Table 1 task. Column A is the employee, B the date, C the Table 1 line code, D the hours on that task. A lookup sheet called T1 holds the line codes in column A, the 4-hours-or-less entry in C and the over-4-hours entry in D. Log only Table 1 work here; forming, finishing and hauling time does not count toward the test.</p>
+
+<p>Column E totals the employee's Table 1 hours for that shift:</p>
+
+<p><code>=SUMIFS($D$2:$D$200,$A$2:$A$200,A2,$B$2:$B$200,B2)</code></p>
+
+<p>Column F picks the respirator entry the standard requires for that row, using the shift total in column E:</p>
+
+<p><code>=IF(E2&gt;4,XLOOKUP(C2,T1!$A:$A,T1!$D:$D),XLOOKUP(C2,T1!$A:$A,T1!$C:$C))</code></p>
+
+<p>Column G flags the whole shift as a respirator day if any task in it requires one:</p>
+
+<p><code>=IF(COUNTIFS($A$2:$A$200,A2,$B$2:$B$200,B2,$F$2:$F$200,"APF&#42;")&gt;0,1,0)</code></p>
+
+<p>The <code>"APF&#42;"</code> wildcard catches APF 10 and APF 25 alike. Luis and Dee are already enrolled in the respirator program and in medical surveillance. Here is the job as the foreman first scheduled it, Plan A:</p>
+
+<table>
+<thead><tr><th>Employee</th><th>Days</th><th>Table 1 work per shift</th><th>Shift total</th><th>Respirator days</th></tr></thead>
+<tbody>
+<tr><td>Luis</td><td>1 to 3</td><td>Walk-behind saw, indoors, 6 h</td><td>6 h</td><td>3</td></tr>
+<tr><td>Dee</td><td>2 to 5</td><td>Jackhammer, indoors, 6 h</td><td>6 h</td><td>4</td></tr>
+<tr><td>Sam</td><td>4 and 5</td><td>Drill, 3 h</td><td>3 h</td><td>0</td></tr>
+<tr><td>Sam</td><td>6 to 8</td><td>Drill, 3 h, plus grinder indoors, 2 h</td><td>5 h</td><td>3</td></tr>
+</tbody>
+</table>
+
+<p>Sam never touches the saw or the jackhammer and still ends up with three respirator days. On days 6 to 8, Sam's three hours of drilling, a task that never requires a respirator on its own, push the shift to five hours, and paragraph (c)(3) moves the two hours of grinding into the over-4-hours column, which reads APF 10. Sam has never worn a respirator for this company, so those three days mean a first enrollment: $202 plus $9 of consumables.</p>
+
+<p>Plan B changes one assignment. Luis finishes sawing on day 3 and spends days 6 to 8 on forming and backfill. He takes the two hours of grinding on those days. His Table 1 total for each of those shifts is 2 hours, the grinder's 4-hours-or-less entry is None, and Sam's shifts stay at 3 hours of drilling. Respirator days drop from 10 to 7, and nobody new enters the program:</p>
+
+<table>
+<thead><tr><th>Line</th><th>Plan A</th><th>Plan B</th></tr></thead>
+<tbody>
+<tr><td>Respirator days</td><td>10</td><td>7</td></tr>
+<tr><td>New wearers enrolled</td><td>1 (Sam)</td><td>0</td></tr>
+<tr><td>Consumables at $3.00 per day</td><td>$30.00</td><td>$21.00</td></tr>
+<tr><td>First-year program cost at $202</td><td>$202.00</td><td>$0.00</td></tr>
+<tr><td>Respiratory cost for the job</td><td>$232.00</td><td>$21.00</td></tr>
+</tbody>
+</table>
+
+<p>That is $211 on an eight-day job, and it was free to capture because it is a scheduling decision made before the crew mobilizes. To count respirator days per employee on a Summary sheet, with names in column A:</p>
+
+<p><code>=IFERROR(ROWS(UNIQUE(FILTER(Log!$B$2:$B$200,(Log!$A$2:$A$200=A2)&#42;(Log!$G$2:$G$200=1)))),0)</code></p>
+
+<p>FILTER keeps the dates where the employee had a respirator shift, UNIQUE collapses the several task rows of one shift into one date, and IFERROR returns 0 for an employee with no respirator days at all.</p>
+
+<h2>The 30-Day Line: Who Wears the Respirator on the Next Job</h2>
+
+<p>The job log decides the job. The roster decides the year, because the medical surveillance trigger counts days "per year" across every job, and it looks forward: the standard says "will be required," so the baseline exam is owed within 30 days of the assignment that puts an employee on schedule to reach 30.</p>
+
+<p>Say the next job needs six days of indoor jackhammering, APF 10 at any duration. Build a Wearers sheet: A employee, B respirator days so far this year from the job logs, C enrolled in the respirator program (Y or N), D in medical surveillance (Y or N), E days planned on the new job. Column F is the marginal cost of giving that employee the work:</p>
+
+<p><code>=E2&#42;Inputs!$B$3+IF(C2="N",Inputs!$B$1,0)+IF(AND(D2="N",B2+E2&gt;=30),Inputs!$B$2,0)</code></p>
+
+<table>
+<thead><tr><th>Employee</th><th>Days so far</th><th>After the job</th><th>Enrolled</th><th>In surveillance</th><th>Cost of the 6 days</th></tr></thead>
+<tbody>
+<tr><td>Luis</td><td>41</td><td>47</td><td>Y</td><td>Y</td><td>$18.00</td></tr>
+<tr><td>Dee</td><td>36</td><td>42</td><td>Y</td><td>Y</td><td>$18.00</td></tr>
+<tr><td>Ray</td><td>26</td><td>32</td><td>Y</td><td>N</td><td>$647.00</td></tr>
+<tr><td>Sam</td><td>0</td><td>6</td><td>N</td><td>N</td><td>$220.00</td></tr>
+<tr><td>Tom</td><td>12</td><td>18</td><td>Y</td><td>N</td><td>$18.00</td></tr>
+</tbody>
+</table>
+
+<p>Ray looks like the natural pick on a busy week: enrolled, fit-tested, already on the respirator crew. Ray is also the most expensive choice on the sheet by $629, since this job carries Ray from 26 to 32 days and triggers the baseline exam. Luis, Dee and Tom each cost $18. To pull the cheapest name automatically:</p>
+
+<p><code>=INDEX($A$2:$A$6,MATCH(MIN($F$2:$F$6),$F$2:$F$6,0))</code></p>
+
+<p>MATCH returns the first of a tie, so read the three $18 rows and break the tie on schedule and skill. If Ray is going to run the jackhammer for most of next year anyway, the $629 exam is coming regardless, and one exam covers three years. The sheet exists to stop the line being crossed by accident, in November, on a six-day job that three other people could have done for $18.</p>
+
+<p>The same logic decides whether to concentrate or spread respirator work across the year. Concentrating it on two or three wearers in surveillance keeps every additional day at the consumables price. Spreading it so that everyone stays under 30 days saves the exams but enrolls more people at $202 each in the first year and $142 each after that. With this example's inputs, one exam ($629) equals about three first-year enrollments. Your clinic quote moves that ratio, which is why it lives in a cell.</p>
+
+<h2>When Exposure Monitoring Beats Table 1</h2>
+
+<p>The other way to cut respirator cost is to measure instead of following Table 1. Paragraph (d) allows it, with conditions. Leave Table 1 for a task and you must assess each exposed employee's 8-hour average, by the performance option (air monitoring or objective data "sufficient to accurately characterize employee exposures") or by the scheduled monitoring option. A respirator is then required where exposures exceed the PEL despite feasible controls (paragraph (e)(1)(ii)). Under scheduled monitoring, a result at or above the action level but at or below the PEL has to be repeated "within six months" (d)(2)(iii)(C), and any change in "production, process, control equipment, personnel, or work practices" that may raise exposures forces a reassessment (d)(2)(iv).</p>
+
+<p>Take a 20-day indoor demolition job with a jackhammer crew of four employees who have never worn respirators. Under Table 1, each one needs a respirator every day, at APF 10:</p>
+
+<table>
+<thead><tr><th>Path</th><th>Cost</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>Table 1, four new wearers, 20 days each</td><td>$1,048.00</td><td><code>=4&#42;(Inputs!B1+20&#42;Inputs!B3)</code></td></tr>
+<tr><td>Monitoring, one round</td><td>$1,400.00</td><td><code>=Inputs!B5</code></td></tr>
+<tr><td>Monitoring, result between action level and PEL, repeated</td><td>$2,800.00</td><td><code>=2&#42;Inputs!B5</code></td></tr>
+<tr><td>Table 1, same crew, if other jobs later this year add 10 respirator days each (30 in total, four baseline exams)</td><td>$3,564.00</td><td><code>=4&#42;(Inputs!B1+20&#42;Inputs!B3+Inputs!B2)</code></td></tr>
+</tbody>
+</table>
+
+<p>Break-even crew size for one round of monitoring is <code>=Inputs!B5/(Inputs!B1+20&#42;Inputs!B3)</code>, which returns 5.34 new wearers. With four people and no surveillance exposure, Table 1 is cheaper. Monitoring starts to pay at six new wearers on one round, or at eleven if the result forces a second round, or when the crew's schedule for the year reaches 30 respirator days and buys four exams.</p>
+
+<p>Even then, monitoring is a bet on a number you do not have yet. If the samples come back above 50 micrograms, the crew wears respirators anyway and the $1,400 is gone. Table 1 requires a respirator for an indoor jackhammer at any duration, with water delivery or with a shroud. Price the monitoring path only where you have reason to expect a low result, such as objective data from your own earlier sampling on the same tool, water delivery and room type.</p>
+
+<h2>Putting the Silica Lines Into the Estimate</h2>
+
+<p>With the three sheets in place, the estimate carries the silica cost as lines that a project manager can check against the job. Rental, disposal and inspection rates are this example's assumptions:</p>
+
+<table>
+<thead><tr><th>Estimate line</th><th>Basis</th><th>Plan A</th><th>Plan B</th></tr></thead>
+<tbody>
+<tr><td>HEPA vacuum for drilling, grinding and housekeeping</td><td>5 days at $85 rental</td><td>$425.00</td><td>$425.00</td></tr>
+<tr><td>Wet-method slurry handling and disposal</td><td>5 days at $40</td><td>$200.00</td><td>$200.00</td></tr>
+<tr><td>Competent person inspections</td><td>0.5 h per day, 8 days, at $68</td><td>$272.00</td><td>$272.00</td></tr>
+<tr><td>Respirator consumables</td><td>Respirator days times $3.00</td><td>$30.00</td><td>$21.00</td></tr>
+<tr><td>New wearer enrollment</td><td>New wearers times $202</td><td>$202.00</td><td>$0.00</td></tr>
+<tr><td>Medical surveillance triggered by this job</td><td>Wearers crossing 30 days times $629</td><td>$0.00</td><td>$0.00</td></tr>
+<tr><td>Silica total</td><td></td><td>$1,129.00</td><td>$918.00</td></tr>
+</tbody>
+</table>
+
+<p>Three things stay out of the job line. The written exposure control plan and its annual review are company overhead, the same way your safety program is; the plan describes tasks across all jobs, so recover it through the overhead rate. Annual fit tests and retraining for wearers already enrolled are the same: they are owed whether or not this job happens. And the controls themselves, the water-fed saw and the shrouded tools, are equipment you either own or rent; if you rent, the rental is a job cost and belongs in the equipment lines of your <a href="/blog/concrete-estimating-spreadsheet-excel">concrete estimating spreadsheet</a>.</p>
+
+<p>One failure mode erases the whole calculation. Table 1 only protects an employer who implements it "fully and properly." A saw whose water line is kinked, or a grinder vacuum below the required airflow, takes that task out of Table 1 and into paragraph (d), where you owe an exposure assessment you never budgeted. Put a daily check on the competent person's list for each control in the T1 sheet, and log it in the same place you track incidents for your <a href="/blog/construction-safety-tracking-spreadsheet-osha-compliant">OSHA safety tracking spreadsheet</a>. If a silica exposure turns into a recordable illness, it will show up in your <a href="/blog/construction-trir-calculator-excel">TRIR</a> long after the job closes.</p>
+
+<h2>Build It Around the Worker-Shift</h2>
+
+<p>Price silica in three layers, in this order. First the T1 sheet, which turns each task into a control and two respirator entries. Then the shift log, which runs the four-hour test on each employee's whole shift and catches the drill that pushes the grinder over. Then the roster, which knows who is enrolled, who is in surveillance and who is four days from the 30-day line. Assign the crew from the roster before the schedule is published, because once the respirator days are worked, the exam and the enrollment are owed.</p>
+
+<p>The <a href="/products/construction-budget-tracker">Construction Budget Tracker</a> holds the other side of this: break the budget into CSI divisions or your own categories, add the silica lines from this estimate, and log actual rental invoices and clinic bills against them so the variance column shows when the silica cost runs over. It does not run the four-hour test or the 30-day roster for you; those three sheets sit beside it and feed it the numbers.</p>`,
+  },
+  {
     slug: 'construction-material-tariff-surcharge-tracker-excel',
     title: 'Construction Material Tariff Surcharge Tracker in Excel: Two Dates Decide Who Pays',
     metaTitle: 'Construction Material Tariff Surcharge Tracker | SheetCraft',
