@@ -16,6 +16,175 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-lease-up-cost-calculator-excel',
+    title: 'Rental Property Lease Up Cost Calculator in Excel: Size the Reserve, Time the Refinance',
+    metaTitle: 'Rental Property Lease Up Cost Calculator Excel | SheetCraft',
+    metaDescription: 'Rental property lease up cost calculator in Excel: size the reserve to the lender\'s 90-for-90 test, then time free months so the refinance is not cut $160,247.',
+    targetKeyword: 'rental property lease up cost calculator Excel',
+    secondaryKeywords: ['lease-up reserve', 'rental absorption schedule', 'free month rent concession', '90 percent occupancy for 90 days', 'stabilized occupancy refinance'],
+    excerpt: 'After a gut rehab, the bridge payment starts before the rent and keeps running until the lender says the building is stabilized. On a 14-unit example, the leasing plan with the smallest reserve ends $172,469 short at the refinance, and a free month timed outside the lender\'s trailing window ends $9,677 short.',
+    publishedAt: '2026-11-21',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-lease-up-cost-calculator-excel.png',
+    imageAlt: 'Empty, freshly renovated apartment living room with light oak floor and a balcony door, waiting for its first tenant',
+    content: `<p>A landlord finishes a gut rehab on a 14-unit building and gets the certificate of occupancy on the first of the month. The bridge loan is $1,850,000 at 10 percent interest-only, so $15,417 is due on every first of the month from now on, whether one unit is rented or none. The plan is to refinance into a permanent loan once the building is full. The question for a rental property lease up cost calculator in Excel is how much cash to set aside until then, and the usual answer is to multiply the monthly shortfall by the number of months it takes to fill the units.</p>
+
+<p>That answer sizes the wrong period and ranks the leasing strategies in the wrong order. The shortfall does not end when the last tenant moves in. It ends when the permanent lender agrees the building is stabilized, which is a written test with its own clock, and the lender sizes the new loan on the rent and concessions it sees during that test. In the model below, the leasing plan that needs the smallest reserve leaves the owner $172,469 short at the refinance table, and the plan that fills the building fastest leaves the owner $175,807 short unless the closing waits one month. The best plan of the four needs a reserve of $74,603 and ends $9,677 short.</p>
+
+<h2>The Gap Runs Until the Refinance Closes</h2>
+
+<p>Lenders write their stabilization rule into the term sheet, and the clearest public version is Freddie Mac's. Its Conventional Small product covers predominantly market-rate properties of 5 to 50 units, generally for loans of $2 million to $10 million. Freddie Mac's own FAQ for that product says there is "a 90 for 90 requirement like any other Conventional loan": 90 percent occupancy for 90 days, with exceptions assessed case by case. The same FAQ sets the debt coverage baseline at 1.25x, underwrites a minimum 10 percent physical vacancy for properties of 30 units or fewer, and says bad debt and concessions "will be underwritten separately." The product brochure caps loan-to-value at 80 percent on amortizing loans with a term of 7 years or more.</p>
+
+<p>A community bank or a DSCR lender writes its own version, and a 14-unit refinance under $2 million may never see Freddie Mac. The structure is what matters: an occupancy threshold, a number of months the building must hold it, a coverage ratio, a vacancy floor and some treatment of concessions. Read those five terms off your own term sheet before the rehab ends. If the term sheet is silent on any of them, ask the loan officer in writing.</p>
+
+<p>On 14 units, 90 percent is 12.6, so the building needs 13 occupied units. If the 13th tenant moves in during month 8 and the building must hold that for three months, the refinance cannot close before the end of month 10. Those three months carry the bridge interest too, and that is the period a simple "months to fill" estimate leaves out.</p>
+
+<h2>One Row Per Month: The Lease-Up Model</h2>
+
+<p>Put the assumptions on an Inputs sheet, one per cell, so each leasing plan is a change of inputs rather than a new workbook. The figures below are an example, labeled as such: replace each one with your own bid, quote or term sheet.</p>
+
+<table>
+<thead>
+<tr><th>Cell</th><th>Input</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>B3</td><td>Units</td><td>14</td></tr>
+<tr><td>B4</td><td>Asking rent per unit per month</td><td>$1,850</td></tr>
+<tr><td>B5</td><td>Bridge loan balance</td><td>$1,850,000</td></tr>
+<tr><td>B6</td><td>Bridge rate, interest-only</td><td>10.00%</td></tr>
+<tr><td>B7</td><td>Fixed carry per month (taxes, insurance, common utilities)</td><td>$5,300</td></tr>
+<tr><td>B8</td><td>Cost per occupied unit per month</td><td>$180</td></tr>
+<tr><td>B9</td><td>Marketing per month until the building is full</td><td>$1,200</td></tr>
+<tr><td>B10</td><td>Leasing fee per signed lease</td><td>$500</td></tr>
+<tr><td>B11</td><td>Lender occupancy test</td><td>90%</td></tr>
+<tr><td>B12</td><td>Months the test must hold</td><td>3</td></tr>
+<tr><td>B13</td><td>Underwritten vacancy</td><td>10%</td></tr>
+<tr><td>B14</td><td>Underwritten operating expenses per unit per year</td><td>$7,400</td></tr>
+<tr><td>B15</td><td>Minimum debt coverage ratio</td><td>1.25</td></tr>
+<tr><td>B16</td><td>Permanent loan rate</td><td>6.25%</td></tr>
+<tr><td>B17</td><td>Amortization, years</td><td>30</td></tr>
+<tr><td>B18</td><td>Maximum loan-to-value</td><td>80%</td></tr>
+<tr><td>B19</td><td>Appraisal cap rate</td><td>6.00%</td></tr>
+</tbody>
+</table>
+
+<p>The Lease-Up sheet has one row per month, months 1 to 24 in rows 5 to 28, with row 4 left as month 0. Column B is the number of leases signed that month and column C is 1 if those leases carry a free first month, 0 if they do not. Those two columns are the absorption plan, and they are the only place where the four strategies below differ, apart from the asking rent.</p>
+
+<p>A lease signed in a month moves in the following month, so occupied units in column D are every lease signed before this month: <code>=SUM($B$4:B4)</code> in D5, filled down. Free-month units in E are last month's signings if they carried the concession: <code>=B4&#42;C4</code>. Rent collected in F is <code>=(D5-E5)&#42;Inputs!$B$4</code>, and the concession value in G, which the lender will look for later, is <code>=E5&#42;Inputs!$B$4</code>.</p>
+
+<p>Monthly cost in H carries every dollar that leaves the account before the refinance:</p>
+
+<p><code>=Inputs!$B$7+Inputs!$B$8&#42;D5+Inputs!$B$5&#42;Inputs!$B$6/12+IF(D5&lt;Inputs!$B$3,Inputs!$B$9,0)+Inputs!$B$10&#42;B5</code></p>
+
+<p>Net cash in I is <code>=F5-H5</code> and the running total in J is <code>=SUM($I$5:I5)</code>. Column K counts consecutive months at or above the lender's threshold: <code>=IF(D5&gt;=ROUNDUP(Inputs!$B$11&#42;Inputs!$B$3,0),K4+1,0)</code>. It resets to zero the month occupancy drops below 13, which is the lender's view too: one move-out during the test restarts the clock.</p>
+
+<p>The results sit in column N. The refinance month, in N3, is <code>=MATCH(Inputs!$B$12,K5:K28,0)</code>, the first month the counter reaches 3. The reserve, in N4, is the deepest point of the running total up to that month: <code>=-MIN(OFFSET(J5,0,0,N3))</code>. Sizing the reserve at the minimum of the cumulative line matters once the building turns cash positive before the refinance: here it does in the month it fills, because $25,900 of rent covers $23,237 of cost.</p>
+
+<h3>The refinance block</h3>
+
+<p>The new loan is sized on the stabilized rent roll, the vacancy floor and whatever concessions the lender counts. This model assumes the lender takes the concessions on the trailing three-month operating statement and annualizes them, which is one possible method; no lender publishes it as the rule. Ask your lender which one it uses.</p>
+
+<ul>
+<li>Trailing concessions, annualized, in N5: <code>=SUM(OFFSET(G5,N3-3,0,3))&#42;4</code></li>
+<li>Underwritten NOI in N6: <code>=Inputs!$B$4&#42;Inputs!$B$3&#42;12&#42;(1-Inputs!$B$13)-N5-Inputs!$B$14&#42;Inputs!$B$3</code></li>
+<li>Loan the coverage ratio allows, in N7: <code>=PV(Inputs!$B$16/12,Inputs!$B$17&#42;12,-N6/Inputs!$B$15/12)</code></li>
+<li>Loan the appraisal allows, in N8: <code>=Inputs!$B$18&#42;N6/Inputs!$B$19</code></li>
+<li>New loan in N9: <code>=MIN(N7,N8)</code></li>
+<li>Cash position after paying off the bridge, in N10: <code>=INDEX(J5:J28,N3)+N9-Inputs!$B$5</code></li>
+</ul>
+
+<p>At $1,850 on 14 units, gross rent is $310,800 a year, the 10 percent vacancy floor brings it to $279,720 and $103,600 of operating expenses leaves $176,120 of NOI. At 1.25x that supports a payment of $11,741 a month, which is a loan of $1,906,936 at 6.25 percent over 30 years. The appraisal at a 6 percent cap rate values the building at $2,935,333, so the 80 percent limit is $2,348,267 and the coverage ratio is the binding constraint. Every leasing decision below therefore moves the loan through the coverage ratio.</p>
+
+<h2>Four Ways to Lease 14 Units</h2>
+
+<p>The absorption rates below are assumptions for the example: two leases a month at the full asking rent, four a month with one month free on a 13-month lease, three a month at $100 off the asking rent. Your own showing-to-application ratio from the last building you leased is a better number than any of these.</p>
+
+<table>
+<thead>
+<tr><th></th><th>A: hold $1,850</th><th>B: free month on every lease</th><th>C: asking rent cut to $1,750</th><th>D: free month on the first 8 leases</th></tr>
+</thead>
+<tbody>
+<tr><td>Leases per month</td><td>2</td><td>4</td><td>3</td><td>4, then 2</td></tr>
+<tr><td>Refinance month (90-day test met)</td><td>10</td><td>7</td><td>8</td><td>8</td></tr>
+<tr><td>Reserve needed (deepest cumulative deficit)</td><td>$90,277</td><td>$77,823</td><td>$69,483</td><td>$74,603</td></tr>
+<tr><td>Bridge interest paid</td><td>$154,167</td><td>$107,917</td><td>$123,333</td><td>$123,333</td></tr>
+<tr><td>Concessions given</td><td>$0</td><td>$25,900</td><td>$0</td><td>$14,800</td></tr>
+<tr><td>Concessions in the trailing 3 months, annualized</td><td>$0</td><td>$14,800</td><td>$0</td><td>$0</td></tr>
+<tr><td>Underwritten NOI</td><td>$176,120</td><td>$161,320</td><td>$161,000</td><td>$176,120</td></tr>
+<tr><td>New loan at 1.25x</td><td>$1,906,936</td><td>$1,746,689</td><td>$1,743,225</td><td>$1,906,936</td></tr>
+<tr><td>Cash position after paying off the bridge</td><td>-$25,351</td><td>-$175,807</td><td>-$172,469</td><td>-$9,677</td></tr>
+</tbody>
+</table>
+
+<p>The last row is the number to decide on. It is the cumulative lease-up deficit plus the difference between the new loan and the bridge balance, before refinance closing costs, which are close to equal in all four columns. A negative number is equity the owner leaves in the building after the refinance.</p>
+
+<h2>Why the Smallest Reserve Belongs to the Worst Plan</h2>
+
+<p>Plan C needs the least cash during lease-up, $69,483: at three leases a month, the last lease is signed in month 5 and the building is full in month 6. If the reserve is the only output of the sheet, C wins.</p>
+
+<p>The $100 cut does not go away when the building fills. Over 14 units it is $16,800 a year of gross rent, $15,120 after the vacancy floor, and the lender capitalizes it. Each dollar of underwritten NOI is worth <code>=1/(1.25&#42;PMT(6.25%/12,360,-1)&#42;12)</code>, which is $10.83 of loan at these terms, so the cut costs $163,712 of loan proceeds. The owner saves $20,793 of reserve compared with plan A and gives up $163,712 at the refinance, then keeps collecting $1,400 a month less for as long as those leases run.</p>
+
+<p>A rent cut is a permanent change in the rent roll. A concession is a one-time cost that only reaches the loan if it is still on the statement the lender reads, which is the question the next two plans answer.</p>
+
+<h2>The Free Month Is Cheap Until It Sits in the Lender's Window</h2>
+
+<p>Plan B fills the fastest. Four signings a month put 14 units in place by month 5, the 90-day test is met at the end of month 7 and the bridge interest drops to $107,917. The free month costs $25,900 in total, and on a 13-month lease it brings the net effective rent to $1,707.69, a deeper discount over the first lease than plan C's $1,750.</p>
+
+<p>The trouble is timing. The last two leases move in during month 5 with their free month, so month 5 is in the trailing three months the lender reads at a month-7 closing. Annualized, those two free months become $14,800 of concessions, NOI falls to $161,320 and the loan falls by $160,247 to $1,746,689. Closing at the first possible date turns the fastest lease-up into the most expensive.</p>
+
+<p>Waiting one month moves the window to months 6 through 8, which hold no concessions. The building is cash positive by then, $2,663 a month after bridge interest, so the cumulative position goes to -$69,833 and the loan goes back to $1,906,936, for a cash position of -$12,897. The one-month wait is worth $162,910.</p>
+
+<h3>Plan D: put the concession where the lender will not see it</h3>
+
+<p>Plan D offers the free month to the first 8 leases only, when the building is empty and each signing matters most, then holds the asking rent. Here is its schedule.</p>
+
+<table>
+<thead>
+<tr><th>Month</th><th>Leases signed</th><th>Occupied</th><th>Free-month units</th><th>Rent collected</th><th>Cost</th><th>Net</th><th>Cumulative</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>4</td><td>0</td><td>0</td><td>$0</td><td>$23,917</td><td>-$23,917</td><td>-$23,917</td></tr>
+<tr><td>2</td><td>4</td><td>4</td><td>4</td><td>$0</td><td>$24,637</td><td>-$24,637</td><td>-$48,553</td></tr>
+<tr><td>3</td><td>2</td><td>8</td><td>4</td><td>$7,400</td><td>$24,357</td><td>-$16,957</td><td>-$65,510</td></tr>
+<tr><td>4</td><td>2</td><td>10</td><td>0</td><td>$18,500</td><td>$24,717</td><td>-$6,217</td><td>-$71,727</td></tr>
+<tr><td>5</td><td>2</td><td>12</td><td>0</td><td>$22,200</td><td>$25,077</td><td>-$2,877</td><td>-$74,603</td></tr>
+<tr><td>6</td><td>0</td><td>14</td><td>0</td><td>$25,900</td><td>$23,237</td><td>$2,663</td><td>-$71,940</td></tr>
+<tr><td>7</td><td>0</td><td>14</td><td>0</td><td>$25,900</td><td>$23,237</td><td>$2,663</td><td>-$69,277</td></tr>
+<tr><td>8</td><td>0</td><td>14</td><td>0</td><td>$25,900</td><td>$23,237</td><td>$2,663</td><td>-$66,613</td></tr>
+</tbody>
+</table>
+
+<p>The concessions end in month 3, five months before the closing, so the lender's window is clean and the loan is the full $1,906,936. The reserve peaks at $74,603 in month 5. The cash position after the refinance is -$9,677, which beats plan B with the one-month wait by $3,220, because D gives away $11,100 less in free rent. D also beats plan A by $15,673, mostly through two fewer months of bridge interest.</p>
+
+<p>Put a flag beside the refinance block so the sheet tells you when a concession is inside the window: <code>=IF(N5&gt;0,"CONCESSIONS IN T3: MOVE CLOSING OR END OFFER","OK")</code>. When the flag fires, change the month the offer stops in column C, or push the target closing one row down, and watch N10.</p>
+
+<h2>What the Tax Return Does With the Empty Months</h2>
+
+<p>IRS Publication 527 (2025) puts the start of depreciation at the date the property is "ready and available for rent," and it is in service from that date even if no unit is leased yet. The same publication lets you deduct ordinary and necessary expenses for managing, conserving or maintaining rental property "from the time you make it available for rent," and lets you deduct expenses, including depreciation, while the property is vacant. It also says you "can't deduct any loss of rental income for the period the property is vacant."</p>
+
+<p>Two things follow for the model. The fixed carry, the bridge interest, the marketing and the leasing fees in column H are rental expenses from the day the building is offered for rent, subject to the passive activity limits the same publication describes. The free month in column G is rent never received, so it appears on the return neither as income nor as an expense. Track G separately from H for that reason. Your <a href="/blog/rental-property-depreciation-calculator-excel">depreciation schedule</a> should start at the certificate-of-occupancy date when the units are listed that day, not at the first lease.</p>
+
+<h2>Before the Certificate of Occupancy</h2>
+
+<p>Run this checklist while the rehab still has a month to go, because two of its items change what you sign with the bridge lender and the leasing agent.</p>
+
+<ul>
+<li>Get the permanent lender's stabilization test in writing: occupancy percentage, months held, coverage ratio, vacancy floor and the method for concessions. Type each one into B11 to B15.</li>
+<li>Check the bridge maturity against the refinance month in N3 plus the lender's processing time. If the bridge matures first, the extension fee belongs in column H. The <a href="/blog/construction-loan-interest-calculator-excel">construction loan interest calculator</a> shows how to carry an extension month.</li>
+<li>Fund the reserve at N4 plus one month of fixed carry and bridge interest, $20,717 here, as a margin for a slower month than planned.</li>
+<li>Decide the last month a concession can be offered. Count backward from the target closing: the free month must fall before the lender's trailing window.</li>
+<li>Offer lease terms between 12 and 15 months. Leases signed in the same two months otherwise come up for renewal in the same two months next year, and a building that turns four units at once can fail the next lender's occupancy test too.</li>
+<li>Compare N9 with the bridge balance. If the loan the coverage ratio allows is below the payoff, the gap is cash you bring to closing, and the <a href="/blog/brrrr-refinance-appraisal-shortfall-calculator-excel">refinance shortfall calculator</a> walks through the options before you are at the table.</li>
+</ul>
+
+<h2>Recommendation: Spend the Concession Early, Close When the Window Is Clean</h2>
+
+<p>Size the reserve at the deepest point of the cumulative line up to the refinance month, and decide between leasing plans on the cash position after the bridge is paid off. On these numbers, a free month on the first 8 leases and the full asking rent after that needs $74,603 of reserve and ends $9,677 short, against $172,469 for the rent cut that needs the smallest reserve. If you have already given concessions late, move the closing until the lender's trailing three months hold none.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> picks up where this sheet ends. Enter the stabilized rent, vacancy and operating expenses to get the cash flow, cap rate and cash-on-cash return of the finished building, and use its mortgage comparison to put the permanent loan offers side by side before you choose a closing date. It does not build the month-by-month lease-up schedule or test the lender's window for you; the Lease-Up sheet above sits beside it and feeds it the stabilized numbers.</p>`,
+  },
+  {
     slug: 'construction-silica-exposure-control-plan-cost-calculator-excel',
     title: 'Construction Silica Exposure Control Plan Cost Calculator in Excel: Price the Worker-Shift',
     metaTitle: 'Silica Exposure Control Plan Cost Calculator | SheetCraft',
