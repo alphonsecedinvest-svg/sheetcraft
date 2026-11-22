@@ -16,6 +16,154 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'landlord-rental-registration-inspection-fee-tracker-excel',
+    title: 'Landlord Rental Registration and Inspection Fee Tracker in Excel: Rank by What a Lapse Blocks',
+    metaTitle: 'Landlord Rental Registration Fee Tracker Excel | SheetCraft',
+    metaDescription: 'Landlord rental registration and inspection fee tracker in Excel: $1,212.76 of fees on 19 units, $70,100 at risk if a license lapses 90 days.',
+    targetKeyword: 'landlord rental registration and inspection fee tracker Excel',
+    secondaryKeywords: ['rental license renewal', 'Certificate of Rental Suitability', 'HPD property registration', 'rental inspection fee', 'Minneapolis rental license tier'],
+    excerpt: 'Rental license and registration fees on a 19-unit, four-city portfolio total $1,212.76 a year. A 90-day lapse puts $70,100 of rent and tenant damages at risk, because Philadelphia, New York and Los Angeles tie rent collection or eviction to a valid registration.',
+    publishedAt: '2026-11-22',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/landlord-rental-registration-inspection-fee-tracker-excel.png',
+    imageAlt: 'Brick rowhouse front stoops with iron railings and flower pots along a city sidewalk',
+    content: `<p>A landlord owns 19 units in five buildings across four cities: a duplex and a 6-unit building in Philadelphia, a 4-unit building in Brooklyn, a rent-stabilized 4-unit building in Los Angeles and a triplex in Minneapolis. Every one of those cities makes the owner register or license the rentals, pay a fee and keep a date. A landlord rental registration and inspection fee tracker in Excel usually starts as a list of those fees with a column for due dates, so the money lands in the budget and nothing lapses. On this portfolio the fees add up to $1,212.76 a year, which is 0.316 percent of $383,400 in annual rent.</p>
+
+<p>The cost sits somewhere else. In three of the four cities, a lapsed license or registration blocks something the landlord needs: collecting rent, filing a nonpayment case, or recovering the unit. In the model below, a 90-day lapse on every property puts $70,100 of rent and tenant damages at risk, 57.8 times the annual fees, while the late charges the cities add total $1,929.37. A tracker that ranks properties by fee sends you to the wrong building first. This one ranks them by what the lapse blocks.</p>
+
+<h2>What Each City Charges, and What a Lapse Blocks</h2>
+
+<p>Every figure in this table comes from the city's own page or ordinance, read in November 2026. Fees change every year, so put the source URL in a column beside each rule and re-read it at renewal.</p>
+
+<table>
+<thead><tr><th>City</th><th>Annual fee</th><th>Deadline</th><th>Late charge</th><th>What a lapse blocks</th></tr></thead>
+<tbody>
+<tr><td>Philadelphia rental license</td><td>$69 per unit, maximum $27,830, no fee for owner-occupied units</td><td>Renew every year, from the date on the license</td><td>1.5% of the license fee per month since expiry, if renewed more than 60 days late</td><td>Rent collection and eviction for the period of noncompliance</td></tr>
+<tr><td>New York City HPD property registration</td><td>$13, billed on the property tax statement due July 1</td><td>September 1, and again on any change of owner or managing agent</td><td>Civil penalty of $500 to $1,500 for a multiple dwelling of five units or less</td><td>A court action to recover possession for nonpayment of rent</td></tr>
+<tr><td>Los Angeles RSO registration and SCEP</td><td>$38.75 RSO plus $67.94 SCEP per unit</td><td>Billed in January, delinquent if unpaid by the last day of February</td><td>Delinquent rates of $58.13 RSO and $135.88 SCEP per unit</td><td>Demanding or accepting rent; unpaid fees are an eviction defense</td></tr>
+<tr><td>Minneapolis rental license</td><td>$98 per building plus $41 per unit (Tier 1, 1 to 3 units)</td><td>All licenses expire March 1</td><td>25% if the renewal arrives after March 15</td><td>Not modeled here: the fee itself rises with the property's record</td></tr>
+</tbody>
+</table>
+
+<p>Sources: Philadelphia's Get a Rental License page and Bill No. 250329-AA amending Chapter 9-3900 of the Philadelphia Code; HPD's Register Your Property page; the Los Angeles Housing Department's annual RSO, JCO and SCEP bill page (last modified June 18, 2026) and its RSO registration bulletin; Minneapolis's rental license fees and tiers pages. Los Angeles units under the Just Cause Ordinance instead of the RSO pay $31.05 per unit, $46.58 delinquent. If the Brooklyn building is rent stabilized, HPD's page notes a separate state registration with HCR due July 31, with a fine of $500 per unregistered unit for each month the registration is late.</p>
+
+<h2>Ranking the Portfolio by Exposure</h2>
+
+<p>The exposure column assumes a 90-day lapse. That length is an assumption, chosen to cover an unread renewal email, an open violation that blocks the renewal, and the re-inspection that clears it. Each city's rule sets what the lapse puts at risk:</p>
+
+<ul>
+<li>Philadelphia: three months of rent on every unit, plus $1,000 per tenant, the floor of the liquidated damages a prevailing tenant can recover.</li>
+<li>Brooklyn: three months of rent on the one unit whose tenant stops paying, because the nonpayment case cannot be filed until the registration is valid.</li>
+<li>Los Angeles: three months of rent on every unit, the rent the owner may not demand while the registration is missing. Whether it can be recovered afterward is a question for a California landlord-tenant lawyer, so the sheet counts it as frozen rather than lost.</li>
+<li>Minneapolis: nothing in the rent column, because this article does not verify a rent bar there. Its cost shows up in the fee, in the Minneapolis section below.</li>
+</ul>
+
+<table>
+<thead><tr><th>Property</th><th>Units</th><th>Rent per unit</th><th>Annual fee</th><th>Late charge at 90 days</th><th>Rent and damages at risk at 90 days</th><th>Rank by fee</th><th>Rank by exposure</th></tr></thead>
+<tbody>
+<tr><td>Philadelphia 6-unit</td><td>6</td><td>$1,300</td><td>$414.00</td><td>$18.63</td><td>$29,400</td><td>2</td><td>1</td></tr>
+<tr><td>Los Angeles 4-unit (RSO)</td><td>4</td><td>$1,900</td><td>$426.76</td><td>$349.28</td><td>$22,800</td><td>1</td><td>2</td></tr>
+<tr><td>Philadelphia duplex</td><td>2</td><td>$1,450</td><td>$138.00</td><td>$6.21</td><td>$10,700</td><td>4</td><td>3</td></tr>
+<tr><td>Brooklyn 4-unit</td><td>4</td><td>$2,400</td><td>$13.00</td><td>$1,500.00 (maximum penalty)</td><td>$7,200</td><td>5</td><td>4</td></tr>
+<tr><td>Minneapolis triplex</td><td>3</td><td>$1,350</td><td>$221.00</td><td>$55.25</td><td>$0</td><td>3</td><td>5</td></tr>
+<tr><td>Total</td><td>19</td><td></td><td>$1,212.76</td><td>$1,929.37</td><td>$70,100</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p>Rents are an example; replace them with yours. The Philadelphia late fee shows the problem with budgeting by fee: three months late on the 6-unit license costs $18.63, or $6.21 a month, while the same three months put $23,400 of rent and $6,000 of liquidated damages at risk. At 1.5 percent of the fee per month, the late fee is too small to tell you which renewal is urgent. Brooklyn has the smallest fee in the portfolio and the largest penalty, and it still ranks fourth, because only a nonpaying tenant turns its lapse into lost rent.</p>
+
+<h2>Philadelphia Since November 1, 2026: Four Dates per Building</h2>
+
+<p>Bill No. 250329-AA took effect on November 1, 2026, and it is why the Philadelphia rows carry the most weight. Section 9-3901(4)(h) now says that an owner who lacks a valid rental license, lacks a Certificate of Rental Suitability, fails to correct code violations as described in 9-3903(2)(d), or has a suspended license "shall be denied the right to recover possession of the premises or to collect rent during or for the period of noncompliance." In any eviction or rent action the owner must attach the license, every required Certificate of Rental Suitability and every code violation issued during the tenancy.</p>
+
+<p>The same bill gives tenants a private right of action. A prevailing tenant recovers compensatory damages or $1,000 per violation, whichever is greater, plus a refund of rent collected while the owner was noncompliant, plus reasonable attorney's fees. A continuing violation from the same condition counts once. That is where the $1,000 per tenant in the exposure column comes from.</p>
+
+<p>The license is one date. The Certificate of Rental Suitability adds three more, each with its own freshness window:</p>
+
+<table>
+<thead><tr><th>Trigger</th><th>Rule in 9-3903</th><th>What happens if you miss it</th></tr></thead>
+<tbody>
+<tr><td>New tenancy</td><td>Certificate issued no more than 60 days before the tenancy begins</td><td>Noncompliance under 9-3901(4)(h)</td></tr>
+<tr><td>Filing an eviction</td><td>Certificate issued no more than 30 days before filing, given to the tenant and the court</td><td>No right to file for eviction or obtain possession</td></tr>
+<tr><td>Tenant request</td><td>Provide within 10 days a certificate no older than 30 days; one request per 90 days</td><td>No rent until the certificate is provided</td></tr>
+</tbody>
+</table>
+
+<p>The Department issues a certificate only if the property holds every required license and has no outstanding violation notices, except violations under a pending appeal the owner has reported. Renewing the license requires being current on City taxes and fines and having no outstanding L&amp;I violations, and any property built before March 1978 must be certified lead-free or lead-safe. So one open violation on the 6-unit building blocks the renewal due December 15 and blocks the certificate you would need to file an eviction. Violations for unsafe, unfit or imminently dangerous conditions must be corrected within 30 days of the notice, or sooner if the Department says so.</p>
+
+<p>L&amp;I sends its renewal email 45 days before expiry and its letter about 30 days before. That is shorter than a violation's 30-day correction period plus a re-inspection, so the tracker sets its own alarm at 90 days for any Philadelphia property with an open violation. Keep the written inspection requests, too: the bill's safe harbor protects an owner whose license lapsed mainly because the City was slow to re-inspect, but only if the owner can show, among other conditions, that they corrected the condition on time, applied on time, asked for the inspection in writing, and told the tenants about the repair. Within 7 days of receiving a license, the owner must also give each tenant a copy along with a restatement of 9-3901(4)(h), by posting it or by personal delivery or certified mail.</p>
+
+<h2>Buying, Deeding to an LLC, or Converting a House</h2>
+
+<p>The annual fee is the small recurring line. The larger city charges arrive with events, and they belong in the acquisition budget. A new owner is a new registrant in all four cities, and a deed from you to your own LLC makes the LLC the new owner. The <a href="/blog/rental-property-transfer-to-llc-cost-calculator-excel">LLC transfer cost calculator</a> covers the transfer tax and lender side of that move. Add these lines to it:</p>
+
+<table>
+<thead><tr><th>Event</th><th>City rule</th><th>Cost on the triplex example</th></tr></thead>
+<tbody>
+<tr><td>Change of ownership, Minneapolis duplex to fourplex</td><td>Inspection required when the owner changes</td><td>$450</td></tr>
+<tr><td>No license application within 60 days of closing, Minneapolis</td><td>Administrative fee of $250 for the first unit plus $20 per additional unit</td><td>$290</td></tr>
+<tr><td>Single-family house that was owner-occupied or unlicensed for a year, Minneapolis</td><td>Conversion inspection</td><td>$1,000 (does not apply to the triplex)</td></tr>
+<tr><td>License applied for between September 1 and February 28, Minneapolis</td><td>License fee prorated by 50%</td><td>$110.50 instead of $221</td></tr>
+<tr><td>New owner, Los Angeles RSO</td><td>45 days from close of escrow to register; no rent may legally be collected until the units are registered</td><td>Counts in days, not dollars</td></tr>
+<tr><td>Ownership change, New York City</td><td>A new HPD registration is required</td><td>$13, plus the nonpayment bar until it is valid</td></tr>
+</tbody>
+</table>
+
+<p>On the Minneapolis triplex, applying on time costs $450 for the inspection plus $221 for a Tier 1 license, or $671, before proration. Missing the 60-day window adds $290, for $961. Licenses are not transferable in Minneapolis, so the seller's license does not carry over. Philadelphia rental licenses are not transferable either: a new owner closes the old license and applies for a new one, and an applicant whose name differs from the deed must file an extra form. Because the certificate test looks at outstanding violations on the property, run the City's property history search before you sign.</p>
+
+<h2>Minneapolis Prices the Property's Record</h2>
+
+<p>Minneapolis sets the fee from the property's record. It scores 11 items over the last two years of records, including violations found at inspection and, on the management side, repeat inspections, late payments and citations. A score of 0 to 19 is Tier 1, 20 to 39 is Tier 2, and 40 and over is Tier 3. The tier sets the base fee and the routine inspection cycle; the management score sets a supplemental fee level, which can sit above the tier. For a triplex:</p>
+
+<table>
+<thead><tr><th>Tier</th><th>Building fee</th><th>Per unit</th><th>Base fee, 3 units</th><th>Supplemental fee at the matching level</th><th>Total</th><th>Routine inspection</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>$98</td><td>$41</td><td>$221</td><td>$0</td><td>$221</td><td>Every eight years</td></tr>
+<tr><td>2</td><td>$105</td><td>$75</td><td>$330</td><td>$121</td><td>$451</td><td>Every five years</td></tr>
+<tr><td>3</td><td>$121</td><td>$190</td><td>$691</td><td>$243</td><td>$934</td><td>Every year</td></tr>
+</tbody>
+</table>
+
+<p>The city's own worked example checks the table: two units in a Tier 2 building at Fee Level 2 come to $376, which is $105 plus 2 times $75 plus $121. Falling from Tier 1 with no supplemental fee to Tier 3 at Fee Level 3 adds $713 a year, and because the score looks back two years, one bad stretch can be billed at two renewals, $1,426. The inspection cycle moves from once every eight years to once a year. The city says it plans to update its tiering method in January 2028, so pin the rule's date in the tracker and re-read it then.</p>
+
+<p>On a single triplex, $1,426 is still small next to the Philadelphia exposure. It matters because a slow repair shows up twice: once as the open violation that can block a renewal in a city like Philadelphia, and again as points that raise the fee in Minneapolis. The <a href="/blog/rental-property-expense-categories-list">rental property expense categories</a> list already carries a line for rental registration and inspection fees; the recurring part goes there.</p>
+
+<h2>Building the Tracker in Excel</h2>
+
+<p>Use three sheets. <strong>Rules</strong> holds one row per city with the fee rates, deadline rule, late rule, what a lapse blocks, the source URL and the date you last read it. <strong>Properties</strong> holds one row per building. <strong>Events</strong> logs acquisitions, deed transfers, violations and inspection requests with dates, so the safe harbor evidence exists if you ever need it.</p>
+
+<p>On Properties, put the as-of date in B1 and the buildings in rows 5 to 9, in this order: Philadelphia duplex, Philadelphia 6-unit, Brooklyn, Los Angeles, Minneapolis. On Rules, rows 12 to 14 hold the Minneapolis building fee, per-unit fee and supplemental fee for Tiers 1 to 3 of a 1 to 3 unit building.</p>
+
+<table>
+<thead><tr><th>Column</th><th>Content</th><th>Formula or entry</th></tr></thead>
+<tbody>
+<tr><td>A to D</td><td>Property, city, units, rent per unit</td><td>Entered</td></tr>
+<tr><td>E</td><td>Next deadline (license expiry, registration due, fee delinquency date)</td><td>Entered from the license or bill</td></tr>
+<tr><td>F</td><td>Days left</td><td><code>=E5-$B$1</code></td></tr>
+<tr><td>G</td><td>Open violations</td><td><code>=COUNTIFS(Events!$B:$B,A5,Events!$C:$C,"Violation",Events!$E:$E,"")</code></td></tr>
+<tr><td>H</td><td>Confirmed by the city (Y or N)</td><td>Entered when the receipt or certificate arrives</td></tr>
+<tr><td>I</td><td>Annual fee</td><td>Philadelphia <code>=MIN(C5&#42;69,27830)</code>, Los Angeles <code>=C8&#42;(38.75+67.94)</code>, Minneapolis <code>=INDEX(Rules!$C$12:$C$14,K9)+C9&#42;INDEX(Rules!$D$12:$D$14,K9)+INDEX(Rules!$E$12:$E$14,L9)</code></td></tr>
+<tr><td>J</td><td>Exposure at 90 days</td><td>Philadelphia <code>=C5&#42;D5&#42;3+C5&#42;1000</code>, Los Angeles <code>=C8&#42;D8&#42;3</code>, Brooklyn <code>=D7&#42;3</code></td></tr>
+<tr><td>K, L</td><td>Minneapolis tier and fee level</td><td>Entered from the city's tier lookup</td></tr>
+<tr><td>M</td><td>Status</td><td><code>=IF(AND(B5="Philadelphia",G5&gt;0),"BLOCKED",IF(AND(F5&lt;0,H5&lt;&gt;"Y"),"VERIFY",IF(F5&lt;=90,"START","OK")))</code></td></tr>
+<tr><td>N</td><td>Priority</td><td><code>=RANK(J5,$J$5:$J$9)</code></td></tr>
+</tbody>
+</table>
+
+<p>Two of the five buildings show something other than OK on November 23, 2026. The Philadelphia 6-unit reads BLOCKED: 22 days to its December 15 expiry with one open violation, which means no renewal and no certificate until the violation is cleared. Brooklyn reads VERIFY: the September 1 registration was mailed on August 20, but no receipt came back, and HPD says to check HPDONLINE or your PROS account if nothing arrives within 2 to 4 weeks. Until a check shows a valid registration, the building cannot start a nonpayment case. The other three are 97 to 128 days out.</p>
+
+<p>Sort the Properties sheet by column N, not by column F. The Los Angeles fee is the largest in the portfolio and Brooklyn's is the smallest, and neither fact says which building to work on today. For the Philadelphia certificate, add a check beside any planned eviction filing date in column O: <code>=IF(AND(G6=0,O6-P6&lt;=30),"CAN FILE","NEW CERTIFICATE")</code>, where P6 is the date the current certificate was issued. Use the same 30-day test for a tenant request, with a 10-day due date counted from the request.</p>
+
+<p>Apply conditional formatting to column M (red for BLOCKED, amber for VERIFY and START), and keep the sheet next to the <a href="/blog/rental-property-late-fee-cap-calculator-excel">late fee cap calculator</a> if you also charge tenants late fees: the late fee a city charges you and the one state law lets you charge a tenant follow separate rules. A building coming out of a rehab needs its first certificate dated within 60 days of each new tenancy, so the <a href="/blog/rental-property-lease-up-cost-calculator-excel">lease-up schedule</a> is the place to put those dates.</p>
+
+<h2>Recommendation: Rank by What the Lapse Blocks, Then Pay the Fees</h2>
+
+<p>Pay the fees on time, and set the order of work by column N. On this portfolio, $1,212.76 of annual fees sits beside $70,100 of rent and damages that a 90-day lapse puts at risk. Start with any Philadelphia building with an open violation inside 90 days of expiry, then any registration you mailed but never saw confirmed, then the Los Angeles bill before the last day of February. Put the event fees ($450 inspection, $290 for a late application, 45 days to register in Los Angeles) in the purchase budget of every acquisition and every deed to an LLC.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> takes the recurring side of this sheet. Fold each building's annual registration fee into the operating expenses you enter, next to taxes, insurance and the management fee, so it flows into the cash flow, cap rate and cash-on-cash return; then use the side-by-side view to compare up to five properties, which covers this whole portfolio. It does not track city deadlines, certificates or violations for you; the Properties and Events sheets above do that and feed it the fee for each building.</p>`,
+  },
+  {
     slug: 'rental-property-lease-up-cost-calculator-excel',
     title: 'Rental Property Lease Up Cost Calculator in Excel: Size the Reserve, Time the Refinance',
     metaTitle: 'Rental Property Lease Up Cost Calculator Excel | SheetCraft',
