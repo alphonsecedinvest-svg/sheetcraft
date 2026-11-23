@@ -16,6 +16,194 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'converted-primary-residence-rental-section-121-calculator-excel',
+    title: 'Converted Primary Residence Rental Section 121 Calculator in Excel: The Closing Date Sets the Tax',
+    metaTitle: 'Converted Residence Rental Section 121 Excel | SheetCraft',
+    metaDescription: 'Converted primary residence rental section 121 calculator in Excel: closing by April 2, 2027 means $10,244.95 of tax; four weeks late, $31,979.06.',
+    targetKeyword: 'converted primary residence rental section 121 calculator Excel',
+    secondaryKeywords: ['section 121 exclusion', 'nonqualified use', '2 out of 5 year rule', 'unrecaptured section 1250 gain', 'cash-for-keys'],
+    excerpt: 'A couple who lived in a house for six years and rented it from April 2024 keeps the section 121 exclusion only if the sale closes by April 2, 2027. On a $585,000 sale, closing March 15 costs $10,244.95 of federal tax and closing April 30 costs $31,979.06. Renting after the move-out is not nonqualified use.',
+    publishedAt: '2026-11-23',
+    readTime: 12,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/converted-primary-residence-rental-section-121-calculator-excel.png',
+    imageAlt: 'Two-story gray clapboard house with a covered front porch and a magnolia tree in bloom',
+    content: `<p>A couple bought a house on July 2, 2018, lived in it for almost six years, moved out on March 31, 2024 and has rented it since April 1, 2024 for $2,900 a month. They now want to know what a sale costs in tax. A converted primary residence rental section 121 calculator in Excel usually starts from the fear that the rental years will cut the exclusion, because the tax code taxes gain "allocated to periods of nonqualified use." For an owner who lived in the house first and rented it afterward, that rule takes nothing. The rental years after the move-out are excluded from nonqualified use by the statute itself.</p>
+
+<p>What decides the tax is a date. If the sale closes by April 2, 2027, the couple excludes $114,050 of gain and owes $10,244.95 of federal tax on a $585,000 sale, all of it on depreciation. If the closing slips to April 30, 2027, the exclusion is gone and the federal tax is $31,979.06. Four weeks cost $21,734.11. The sheet below finds that date, prices both sides of it, and tells you what the house has to earn if you keep renting past it.</p>
+
+<h2>The Rule That Applies After You Move Out</h2>
+
+<p>Section 121 of the Internal Revenue Code excludes up to $250,000 of gain ($500,000 on a joint return) if, during the 5 years ending on the date of the sale, you owned the home and used it as your principal residence for periods adding up to 2 years. This is the 2 out of 5 year rule, and Treasury Regulation 1.121-1(c)(1) lets you meet the 2 years with 24 full months or with 730 days. The use test looks back from the closing date, so every day the house is rented pushes the start of the 5-year window past one of the days you lived there.</p>
+
+<p>Section 121(b)(5) is the rule owners in this position fear. It does deny the exclusion on gain allocated to nonqualified use, meaning any period after 2008 when the house was not your principal residence. But clause (C)(ii)(I) carves out "any portion of the 5-year period ... which is after the last date that such property is used as the principal residence." IRS Publication 523 (2025) repeats the exception in its list. For the owner who moves out and rents, the rental years inside the window never count against the exclusion.</p>
+
+<p>Two other rules do take money from this owner:</p>
+
+<ul>
+<li><strong>Depreciation is never excluded.</strong> Section 121(d)(6) keeps out of the exclusion any gain up to the depreciation adjustments after May 6, 1997. The tax code calls that gain unrecaptured section 1250 gain, and Publication 523 says the rule applies to depreciation "allowed or allowable," so the tax is the same whether you claimed it or not. The <a href="/blog/rental-property-depreciation-calculator-excel">rental property depreciation calculator</a> covers what skipping the deduction costs you.</li>
+<li><strong>The window closes 3 years after you move out.</strong> If you lived in the house for at least 2 years right up to the move-out, the last day of the window is the move-out date minus 729 days, plus 5 years. After that day the exclusion is zero. A reduced exclusion exists only for a sale caused by a change of employment, health or other unforeseen circumstances (section 121(c)).</li>
+</ul>
+
+<p>The date of sale is the closing. Publication 523 defines it as the date in box 1 of Form 1099-S, or the earlier of the date title transferred and the date the economic burdens and benefits shifted to the buyer. A signed contract in March with a closing in April is an April sale.</p>
+
+<h2>The Example: Six Years as a Home, Then a Rental</h2>
+
+<p>Every input below is an example. Replace each one with your own figures from the closing statements, the lender payoff letter and your tax returns.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input</th><th>Example value</th></tr></thead>
+<tbody>
+<tr><td>B2</td><td>Purchase closing date</td><td>7/2/2018</td></tr>
+<tr><td>B3</td><td>Last day you lived there</td><td>3/31/2024</td></tr>
+<tr><td>B4</td><td>First day available for rent</td><td>4/1/2024</td></tr>
+<tr><td>B5</td><td>Planned closing date</td><td>3/15/2027</td></tr>
+<tr><td>B6</td><td>Purchase price plus purchase closing costs</td><td>$408,000</td></tr>
+<tr><td>B7</td><td>Improvements while you lived there (kitchen)</td><td>$22,000</td></tr>
+<tr><td>B8</td><td>Fair market value on 4/1/2024</td><td>$540,000</td></tr>
+<tr><td>B9</td><td>Land share of value</td><td>22%</td></tr>
+<tr><td>B10</td><td>Expected sale price</td><td>$585,000</td></tr>
+<tr><td>B11</td><td>Selling costs (commission, transfer tax, credits)</td><td>7%</td></tr>
+<tr><td>B12</td><td>Exclusion cap (joint return, both spouses lived there)</td><td>$500,000</td></tr>
+<tr><td>B13</td><td>Rate on depreciation gain</td><td>25%</td></tr>
+<tr><td>B14</td><td>Rate on long-term gain</td><td>15%</td></tr>
+<tr><td>B15</td><td>Net investment income tax</td><td>3.8%</td></tr>
+<tr><td>B16</td><td>Mortgage payoff at closing</td><td>$264,682.18</td></tr>
+</tbody>
+</table>
+
+<p>The rates are assumptions for a couple whose income puts the depreciation gain at the 25 percent ceiling of section 1(h)(1)(E) and the rest at 15 percent, with modified adjusted gross income above the $250,000 joint threshold of section 1411, so the 3.8 percent tax applies to the taxable gain. Use your own bracket, and add your state's tax, which this sheet leaves out. The mortgage is a $320,000 loan at 4.25 percent over 30 years, taken in July 2018, with a payment of $1,574.21.</p>
+
+<p>The depreciation basis follows Publication 527 (2025): when a home becomes a rental, the basis for depreciation is the lesser of its adjusted basis and its fair market value on the conversion date. Here that is $430,000, the adjusted basis, because the house was worth more. Without the land, $335,400 is depreciated over 27.5 years, $12,196.36 for a full year.</p>
+
+<h2>The Calculator: The Window Test First, Then the Tax</h2>
+
+<p>The first block answers one question: does the planned closing date still pass the use test?</p>
+
+<ul>
+<li>B17, days of use in the 5 years before closing: <code>=MAX(0,B3-MAX(EDATE(B5,-60),B2)+1)</code>. It counts the days from the start of the look-back window (or the purchase, if later) to the move-out. For 3/15/2027 it returns 748.</li>
+<li>B18, the test: <code>=IF(B17&gt;=730,"EXCLUSION AVAILABLE","WINDOW CLOSED")</code>.</li>
+<li>B19, the last closing date that passes: <code>=EDATE(B3-729,60)</code>. It returns 4/2/2027. Format the cell as a date and put it at the top of the sheet in red.</li>
+</ul>
+
+<p>The second block prices the sale:</p>
+
+<ul>
+<li>B20, depreciable building basis: <code>=MIN(B6+B7,B8)&#42;(1-B9)</code> returns $335,400.</li>
+<li>B21, annual depreciation: <code>=B20/27.5</code> returns $12,196.36.</li>
+<li>B22, depreciation through closing, with the mid-month convention in the first and last year: <code>=B21&#42;((12.5-MONTH(B4))/12+(YEAR(B5)-YEAR(B4)-1)+(MONTH(B5)-0.5)/12)</code> returns $35,572.73. The formula assumes the sale falls in a later calendar year than the conversion.</li>
+<li>B23, total gain: <code>=B10&#42;(1-B11)-(B6+B7-B22)</code> returns $149,622.73.</li>
+<li>B24, the part that is depreciation: <code>=MIN(B22,B23)</code> returns $35,572.73.</li>
+<li>B25, excluded gain: <code>=IF(B18="EXCLUSION AVAILABLE",MIN(B23-B24,B12),0)</code> returns $114,050.</li>
+<li>B26, federal tax on the sale: <code>=B24&#42;(B13+B15)+(B23-B24-B25)&#42;(B14+B15)</code> returns $10,244.95.</li>
+<li>B27, cash after payoff and tax: <code>=B10&#42;(1-B11)-B16-B26</code> returns $269,122.88.</li>
+</ul>
+
+<p>B26 is the number that tells the couple what a sale before the deadline costs: the whole bill is depreciation, 28.8 percent of $35,572.73. The exclusion at this date is worth $21,441.40, which is the difference between $31,686.35 of tax without it and $10,244.95 with it.</p>
+
+<p>Change B5 and watch B17 and B18. This table shows the test at seven closing dates:</p>
+
+<table>
+<thead><tr><th>Closing date</th><th>Days of use in the window</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>12/15/2026</td><td>838</td><td>EXCLUSION AVAILABLE</td></tr>
+<tr><td>1/29/2027</td><td>793</td><td>EXCLUSION AVAILABLE</td></tr>
+<tr><td>3/15/2027</td><td>748</td><td>EXCLUSION AVAILABLE</td></tr>
+<tr><td>4/1/2027</td><td>731</td><td>EXCLUSION AVAILABLE</td></tr>
+<tr><td>4/2/2027</td><td>730</td><td>EXCLUSION AVAILABLE (last day)</td></tr>
+<tr><td>4/3/2027</td><td>729</td><td>WINDOW CLOSED</td></tr>
+<tr><td>4/30/2027</td><td>702</td><td>WINDOW CLOSED</td></tr>
+</tbody>
+</table>
+
+<p>Do not plan the closing for April 2. A buyer's appraisal, a lender condition or a title problem moves closings by days or weeks, and the test has no grace period. Plan for mid-March and treat the last two weeks of March as slack.</p>
+
+<h2>Closing Late: What Four Weeks Cost</h2>
+
+<p>Here is the same sale at the same price, closing on 3/15/2027 and on 4/30/2027.</p>
+
+<table>
+<thead><tr><th>Line</th><th>Closes 3/15/2027</th><th>Closes 4/30/2027</th></tr></thead>
+<tbody>
+<tr><td>Amount realized ($585,000 less 7%)</td><td>$544,050.00</td><td>$544,050.00</td></tr>
+<tr><td>Depreciation through closing</td><td>$35,572.73</td><td>$36,589.09</td></tr>
+<tr><td>Total gain</td><td>$149,622.73</td><td>$150,639.09</td></tr>
+<tr><td>Excluded gain</td><td>$114,050.00</td><td>$0.00</td></tr>
+<tr><td>Federal tax</td><td>$10,244.95</td><td>$31,979.06</td></tr>
+<tr><td>Mortgage payoff</td><td>$264,682.18</td><td>$264,045.39</td></tr>
+<tr><td>Cash after payoff and tax</td><td>$269,122.88</td><td>$248,025.56</td></tr>
+</tbody>
+</table>
+
+<p>The late closing pays $21,734.11 more tax and leaves $21,097.32 less cash, after one more mortgage payment. That gap is the budget for anything that keeps the closing inside the window.</p>
+
+<p>The usual threat is the tenant. If the lease runs to May 31, 2027, the owners can sell with the tenant in place, which narrows the buyers to investors, or they can offer the tenant money to leave early. The <a href="/blog/rental-property-eviction-cost-calculator-excel">eviction cost calculator</a> prices a cash-for-keys offer; on this sale, any buyout under about $21,000 that saves the closing date pays for itself. Do not renew a lease past January 2027 without running B19 first, and make the listing date the output of the sheet: count back from B19 the days your market takes to go under contract and close, then add a month.</p>
+
+<p>Commission, concessions and transfer tax vary by market. Take them from your own <a href="/blog/real-estate-seller-net-sheet-excel">seller net sheet</a> and enter the total in B11 instead of the 7 percent used here.</p>
+
+<h2>Keep Renting Instead? The Appreciation You Need to Break Even</h2>
+
+<p>Missing the window is a cost only if selling was the better plan. Some owners keep the house because it rents well and their market is rising. The fair comparison puts both plans on the same date, March 2029:</p>
+
+<ul>
+<li><strong>Sell by March 15, 2027:</strong> take $269,122.88 and earn an assumed 3 percent a year after tax on it for two years, which ends at $285,512.46.</li>
+<li><strong>Keep renting and sell in March 2029:</strong> collect the rent after the mortgage payment, the $650 a month of tax and insurance and a 15 percent allowance for vacancy, repairs and management, which is roughly $241 a month and $5,779.02 over 24 months. Then sell with no exclusion and two more years of depreciation, $59,965.45 in total.</li>
+</ul>
+
+<table>
+<thead><tr><th>Yearly price growth to 2029</th><th>Sale price</th><th>Federal tax</th><th>Cash after payoff and tax</th><th>Plus 24 months of rent</th><th>Against selling in 2027 ($285,512.46)</th></tr></thead>
+<tbody>
+<tr><td>0%</td><td>$585,000.00</td><td>$38,711.45</td><td>$256,578.31</td><td>$262,357.32</td><td>Selling wins</td></tr>
+<tr><td>2.59%</td><td>$615,662.56</td><td>$44,072.49</td><td>$279,733.44</td><td>$285,512.46</td><td>Break-even</td></tr>
+<tr><td>3%</td><td>$620,626.50</td><td>$44,940.39</td><td>$283,482.01</td><td>$289,261.03</td><td>Keeping wins</td></tr>
+<tr><td>5%</td><td>$644,962.50</td><td>$49,195.29</td><td>$301,859.59</td><td>$307,638.60</td><td>Keeping wins</td></tr>
+</tbody>
+</table>
+
+<p>To find the break-even, put the growth rate in G2, the 2029 price in G3 as <code>=B10&#42;(1+G2)^2</code>, rebuild B22 to B27 for a March 2029 closing in column G with the exclusion forced to zero, add the rent in G28, and run Goal Seek on the total against $285,512.46 by changing G2. On this house the answer is 2.59 percent a year.</p>
+
+<p>The break-even depends on the rent and on what the cash would earn. Sell before the deadline if you expect this house to grow by less than 2.59 percent a year; keep it if you expect more. The rental's own yearly tax result is left out: depreciation keeps it close to zero, about $1,600 of loss in 2027 on these numbers. A <a href="/blog/1031-exchange-calculator-excel">1031 exchange</a> changes the comparison again, because Publication 523 says that when a converted home meets both sections, the section 121 exclusion applies first and section 1031 then defers the rest of the gain, including the gain from depreciation. The worked examples are in Revenue Procedure 2005-14.</p>
+
+<h2>Where Nonqualified Use Does Bite: Moving Back In</h2>
+
+<p>Some owners plan to keep the exclusion by moving back in for two more years. That restarts the use test, and it is the case where section 121(b)(5) applies. The exception covers only the time after the last day the house was your residence. Once you move back in, the rental years from 4/1/2024 to 3/31/2027 are no longer after the last residence day, so they become nonqualified use.</p>
+
+<p>The gain allocated to nonqualified use is the gain after depreciation times the ratio of nonqualified days to days owned. In the sheet, with the rental start in D2, the rental end in D3 and the new sale date in D5: <code>=(D3-D2+1)/(D5-B2)</code>.</p>
+
+<table>
+<thead><tr><th>Move back in 4/1/2027, sell 4/1/2029 at $620,626.50</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Days owned (7/2/2018 to 4/1/2029)</td><td>3,926</td></tr>
+<tr><td>Days of nonqualified use (4/1/2024 to 3/31/2027)</td><td>1,095</td></tr>
+<tr><td>Nonqualified share</td><td>27.89%</td></tr>
+<tr><td>Depreciation, taxed in full</td><td>$35,572.73</td></tr>
+<tr><td>Gain after depreciation</td><td>$147,182.65</td></tr>
+<tr><td>Taxable as nonqualified use</td><td>$41,050.69</td></tr>
+<tr><td>Excluded</td><td>$106,131.96</td></tr>
+<tr><td>Federal tax</td><td>$17,962.47</td></tr>
+</tbody>
+</table>
+
+<p>If the rental years did not count, the tax would stay at the $10,244.95 owed on depreciation. Moving back in also gives up two years of rent and costs two moves. The same rule hits investors who buy a rental and move into it later: every rental year after 2008 before the move-in is nonqualified use from the start. And a house acquired in a 1031 exchange cannot use the exclusion until 5 years after the exchange, under section 121(d)(10).</p>
+
+<h2>Checklist Before You List</h2>
+
+<ul>
+<li>Pull the move-out date from evidence (utility shutoff, new lease or deed elsewhere, change of address) and enter it in B3. Every other date in the sheet depends on it.</li>
+<li>Confirm both spouses lived there for 730 days in the window if the gain exceeds $250,000. Publication 523 requires each spouse to meet the residence test for the $500,000 cap. On this sale the gain after depreciation is $114,050, so the cap does not matter.</li>
+<li>Check that neither of you excluded gain on another home sale in the 2 years before this closing (section 121(b)(3)).</li>
+<li>Add up depreciation from every Schedule E since the conversion and compare it with B22. If you skipped years, the tax is the same, so talk to your preparer about catching up the deduction before the sale.</li>
+<li>Keep the purchase closing statement and the receipts for improvements. They set B6 and B7, and every dollar missing from basis is taxed at 28.8 percent on this house. The <a href="/blog/real-estate-tax-deduction-tracker-excel">real estate tax deduction tracker</a> is the place to keep them year by year.</li>
+<li>Read the lease end date against B19 before you renew or sign anything.</li>
+</ul>
+
+<h2>Recommendation: Put the Deadline in the Sheet, Then Decide</h2>
+
+<p>Compute B19 the month you move out and every time you touch the lease. On this house the window closes on April 2, 2027, a closing on March 15 costs $10,244.95 of federal tax, and a closing on April 30 costs $31,979.06. If you expect the house to grow by less than 2.59 percent a year, list it so the closing lands by mid-March, and spend up to about $21,000 on a tenant buyout or a price cut that protects that date. If you expect more, keep renting, knowing the exclusion is gone for good unless you move back in for two years and accept the nonqualified-use tax.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> handles the keep-renting side of this decision: enter the current rent, operating expenses and loan, and its 10-year projection shows cash flow, mortgage paydown and appreciation for the house as a rental, which is the column you compare against the after-tax sale cash in B27. It does not run the section 121 window test or the sale tax for you; the two blocks above do that and give you the number to compare against.</p>`,
+  },
+  {
     slug: 'landlord-rental-registration-inspection-fee-tracker-excel',
     title: 'Landlord Rental Registration and Inspection Fee Tracker in Excel: Rank by What a Lapse Blocks',
     metaTitle: 'Landlord Rental Registration Fee Tracker Excel | SheetCraft',
