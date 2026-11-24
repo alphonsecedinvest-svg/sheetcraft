@@ -16,6 +16,200 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-adu-addition-roi-calculator-excel',
+    title: 'Rental Property ADU Addition ROI Calculator in Excel: Let the Fee Schedule Pick the Size',
+    metaTitle: 'Rental Property ADU Addition ROI Calculator | SheetCraft',
+    metaDescription: 'Rental property ADU addition ROI calculator in Excel: a 749 sq ft cottage earns 5.23% on cost, a garage conversion 8.52%. Size the unit to the fee steps.',
+    targetKeyword: 'rental property ADU addition ROI calculator Excel',
+    secondaryKeywords: ['ADU impact fees California', 'garage conversion ADU cost', 'ADU yield on cost', 'ADU financing rental property', 'ADU property tax reassessment'],
+    excerpt: 'In this California example a 749 sq ft backyard cottage costs $331,685 all-in and earns 5.23 percent, below a 9.35 percent loan. The garage conversion earns 8.52 percent, and the last 201 sq ft of a bigger unit return 1.94 percent. Build the ADU sheet that shows which size pays.',
+    publishedAt: '2026-11-24',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-adu-addition-roi-calculator-excel.png',
+    imageAlt: 'Red two-story detached accessory building at the back of a fenced lawn, behind a house with a screened porch',
+    content: `<p>A rental property ADU addition ROI calculator in Excel has to answer one question before any other: how big. The builder quotes $360 a square foot, the property manager quotes $2,450 a month for a two-bedroom cottage, and the landlord divides one number by the other. In California the law that governs accessory dwelling units (ADUs) charges fees in steps tied to interior square footage. A 749 square foot unit and a 950 square foot unit therefore sit on different fee schedules, and in the example below the last 201 square feet of the bigger unit cost $102,727.50 and add $1,988.90 a year of net operating income. That is a 1.94 percent return on the extra money.</p>
+
+<p>This article builds the full model for one example rental: three ways to add the unit, the fees each one triggers, the property tax, the financing, and the cell layout to rebuild it with your own numbers. Every dollar figure is an example on stated assumptions. The fee rules are quoted from the California Government Code as amended effective January 1, 2026.</p>
+
+<h2>The example rental and three ways to add a unit</h2>
+
+<p>The example is a 1,600 square foot single-family rental in California, rented at $2,900 a month, with a detached two-car garage and a 3.25 percent mortgage with $268,000 left on it and 26 years to run. The owner has $120,000 in cash for the project. Three options are on the table:</p>
+
+<ul>
+<li>Option A: convert the 400 square foot garage into a studio, rented at $1,650 a month.</li>
+<li>Option B: build a new detached two-bedroom, one-bath unit of 749 square feet, rented at $2,450.</li>
+<li>Option C: build the same unit at 950 square feet with a second bath, rented at $2,750.</li>
+</ul>
+
+<p>Rents, hard costs and the city fee schedule are assumptions for this example. So is the drop in the main house's rent. The tenant in front loses the garage in Option A, priced at $100 a month, and half the yard in B and C, priced at $150 a month. Most ADU spreadsheets leave that line out. On the garage conversion it erases 6.06 percent of the new unit's gross rent.</p>
+
+<h2>California charges ADU fees in steps, by the square foot</h2>
+
+<p>Government Code section 66311.5, renumbered from section 66324 on January 1, 2026, sets the rules that decide most of the fee line:</p>
+
+<ul>
+<li>No impact fee may be charged on an ADU with 750 square feet of interior livable space or less. Above 750, impact fees "shall be charged proportionately in relation to the square footage of the primary dwelling unit."</li>
+<li>An ADU is not a new residential use for water and sewer connection fees or capacity charges, unless it is built together with a new single-family home.</li>
+<li>For a conversion inside existing space under section 66323(a)(1), the utility may not require a new or separate connection, and may not charge a connection fee or capacity charge for one.</li>
+<li>For any other ADU, the utility may require a separate connection. The charge must be proportionate to the unit's square feet or its drainage fixture units, and may not exceed the reasonable cost of the service.</li>
+</ul>
+
+<p>School fees follow a second step. Education Code section 17620(a)(1)(C) lets a school district charge other residential construction only when the added assessable space exceeds 500 square feet, and then on the whole increase. Section 66311.5(c)(3) confirms that an ADU under 500 square feet falls below that line. The district decides how it classifies a detached unit above 500 square feet, so call it before the architect draws anything.</p>
+
+<p>In this example the city's impact fees for a new single-family home total $38,000, and the school district charges $5.00 a square foot. Both are assumptions. The model reads "proportionately" as the ADU's square feet divided by the main house's square feet, applied to the single-family fee. Here is what the steps do to the three options:</p>
+
+<table>
+<thead>
+<tr><th>Cost line</th><th>A: garage conversion, 400 sq ft</th><th>B: detached, 749 sq ft</th><th>C: detached, 950 sq ft</th></tr>
+</thead>
+<tbody>
+<tr><td>Hard construction cost</td><td>$118,000</td><td>$269,640</td><td>$342,000</td></tr>
+<tr><td>Site work and utility trenching</td><td>$0</td><td>$28,000</td><td>$30,000</td></tr>
+<tr><td>Design and engineering</td><td>$9,000</td><td>$16,000</td><td>$18,000</td></tr>
+<tr><td>Permits and plan check</td><td>$6,500</td><td>$9,500</td><td>$11,000</td></tr>
+<tr><td>Impact fees</td><td>$0</td><td>$0</td><td>$22,562.50</td></tr>
+<tr><td>School fees</td><td>$0</td><td>$3,745</td><td>$4,750</td></tr>
+<tr><td>Water and sewer connection</td><td>$0</td><td>$4,800</td><td>$6,100</td></tr>
+<tr><td><strong>All-in cost</strong></td><td><strong>$133,500</strong></td><td><strong>$331,685</strong></td><td><strong>$434,412.50</strong></td></tr>
+<tr><td>All-in cost per square foot</td><td>$333.75</td><td>$442.84</td><td>$457.28</td></tr>
+</tbody>
+</table>
+
+<p>The builder's $360 a square foot became $442.84 on Option B before a dollar of financing. On Option C the impact fee alone is $22,562.50, and it is charged on all 950 square feet: the statute charges nothing at 750 and then prices the whole unit once it passes that size.</p>
+
+<h3>The last 201 square feet</h3>
+
+<p>Subtract Option B from Option C and the extra space has its own return:</p>
+
+<table>
+<thead>
+<tr><th>Line, C minus B</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Extra hard cost (201 sq ft at $360)</td><td>$72,360</td></tr>
+<tr><td>Extra site work, design and permits</td><td>$5,500</td></tr>
+<tr><td>Impact fees</td><td>$22,562.50</td></tr>
+<tr><td>Extra school fees and connection charge</td><td>$2,305</td></tr>
+<tr><td><strong>Extra cost</strong></td><td><strong>$102,727.50</strong></td></tr>
+<tr><td>Extra gross rent per year</td><td>$3,600</td></tr>
+<tr><td>Extra net operating income per year</td><td>$1,988.90</td></tr>
+<tr><td><strong>Return on the extra cost</strong></td><td><strong>1.94%</strong></td></tr>
+</tbody>
+</table>
+
+<p>To earn 7.125 percent on the extra $102,727.50, Option C would have to rent for $857.76 a month more than Option B. The bigger unit with its second bathroom rents for $300 more in this example market, so the drawing stops at 749 square feet. Our <a href="/blog/house-flip-add-a-bathroom-roi-calculator-excel">add-a-bathroom ROI calculator</a> runs the same test on a flip, where the bath and the extra square footage also have to be priced separately. Outside California there is no statewide cap like this one. Enter your city's schedule in the same cells and the sheet will show where its steps fall.</p>
+
+<h2>The reassessment only touches the new construction</h2>
+
+<p>Landlords who bought years ago often assume a building permit resets the assessed value of the whole property. Revenue and Taxation Code section 71 says otherwise. The assessor sets a new base year value for "the portion of any taxable real property which has been newly constructed," and the base year value of the rest "shall not be changed." Section 70 defines new construction as any addition to real property, which includes an ADU. Article XIII A of the California Constitution caps the general levy at 1 percent of full cash value. Voter-approved bonds come on top, and this example assumes 0.15 percent for them, for a 1.15 percent total rate.</p>
+
+<p>The model also assumes the assessor values the new unit at its construction cost without the fees. That is an assumption: the assessor sets the value, and your county may use its own cost tables. On that basis the added tax is $1,460.50 a year on Option A, $3,606.86 on B and $4,485.00 on C, while the house keeps its old base. In other states the assessor may revalue the whole parcel on a different cycle, and our <a href="/blog/rental-property-tax-reassessment-after-purchase-calculator-excel">tax reassessment calculator</a> shows how to model a reset in those states.</p>
+
+<h2>Net operating income and yield on cost for each option</h2>
+
+<p>Yield on cost is the unit's net operating income divided by its all-in cost. It is the return the project earns before any financing, so it is the number to compare against what the borrowed money costs.</p>
+
+<table>
+<thead>
+<tr><th>Yearly line</th><th>A: conversion</th><th>B: 749 sq ft</th><th>C: 950 sq ft</th></tr>
+</thead>
+<tbody>
+<tr><td>ADU gross rent</td><td>$19,800</td><td>$29,400</td><td>$33,000</td></tr>
+<tr><td>Vacancy at 8%</td><td>-$1,584</td><td>-$2,352</td><td>-$2,640</td></tr>
+<tr><td>Main house rent given up</td><td>-$1,200</td><td>-$1,800</td><td>-$1,800</td></tr>
+<tr><td>Property tax on the new construction</td><td>-$1,460.50</td><td>-$3,606.86</td><td>-$4,485.00</td></tr>
+<tr><td>Management at 8% of collected rent</td><td>-$1,457.28</td><td>-$2,163.84</td><td>-$2,428.80</td></tr>
+<tr><td>Maintenance reserve at 5% of gross rent</td><td>-$990</td><td>-$1,470</td><td>-$1,650</td></tr>
+<tr><td>Owner-paid water and power</td><td>-$1,080</td><td>$0</td><td>$0</td></tr>
+<tr><td>Added insurance</td><td>-$650</td><td>-$650</td><td>-$650</td></tr>
+<tr><td><strong>Net operating income</strong></td><td><strong>$11,378.22</strong></td><td><strong>$17,357.30</strong></td><td><strong>$19,346.20</strong></td></tr>
+<tr><td><strong>Yield on cost</strong></td><td><strong>8.52%</strong></td><td><strong>5.23%</strong></td><td><strong>4.45%</strong></td></tr>
+</tbody>
+</table>
+
+<p>Vacancy for the ADU is set at 8 percent, above what you would use for the house, on the assumption that small units turn over more often. The conversion carries $90 a month of owner-paid water and power because it shares the house's meters, which is the trade for section 66311.5(d) waiving the connection fee. It still beats Option B by 3.29 points of yield. Options B and C have their own meters, and the tenant pays.</p>
+
+<h2>What the money costs: cash-out refinance or second loan</h2>
+
+<p>Option B needs $211,685 beyond the owner's $120,000. The rates and closing costs below are assumptions for this example, and the effective cost is the internal rate of return of the extra loan proceeds against the extra payments, month by month.</p>
+
+<table>
+<thead>
+<tr><th>Line</th><th>Cash-out refinance</th><th>Second loan</th></tr>
+</thead>
+<tbody>
+<tr><td>Rate and term</td><td>7.125%, 30 years</td><td>9.25%, 20 years</td></tr>
+<tr><td>Closing costs</td><td>2% of the new loan</td><td>$1,500</td></tr>
+<tr><td>Loan amount</td><td>$489,474.49 (replaces the $268,000)</td><td>$213,185</td></tr>
+<tr><td>Monthly payment added</td><td>$2,024.18</td><td>$1,952.49</td></tr>
+<tr><td>Yearly debt service added</td><td>$24,290.17</td><td>$23,429.89</td></tr>
+<tr><td>First-year interest added</td><td>$26,165.06</td><td>$19,719.61</td></tr>
+<tr><td><strong>Effective cost of the $211,685</strong></td><td><strong>11.21%</strong></td><td><strong>9.35%</strong></td></tr>
+</tbody>
+</table>
+
+<p>The cash-out has the lower rate and the higher cost, because it reprices the $268,000 still owed at 3.25 percent. At 74.16 percent of a $660,000 value it would fit under a 75 percent lender cap (also an assumption), and it would still be the worse loan. Our <a href="/blog/rental-property-heloc-vs-cash-out-refinance-excel">HELOC vs cash-out refinance comparison</a> works through that repricing toll in detail. Whichever loan you take, Option B's 5.23 percent yield on cost sits below both effective rates. Every borrowed dollar costs more than the unit it builds earns.</p>
+
+<h2>Cash flow and value after financing</h2>
+
+<p>Run all three options with the same $120,000 of cash and the rest on the 9.25 percent second loan, with its $1,500 of closing costs financed:</p>
+
+<table>
+<thead>
+<tr><th>Yearly line</th><th>A: conversion</th><th>B: 749 sq ft</th><th>C: 950 sq ft</th></tr>
+</thead>
+<tbody>
+<tr><td>Amount borrowed</td><td>$15,000</td><td>$213,185</td><td>$315,912.50</td></tr>
+<tr><td>Debt service</td><td>-$1,648.56</td><td>-$23,429.89</td><td>-$34,720.05</td></tr>
+<tr><td>Cash flow after debt</td><td>$9,729.66</td><td>-$6,072.59</td><td>-$15,373.85</td></tr>
+<tr><td>Cash-on-cash on the $120,000</td><td>8.11%</td><td>-5.06%</td><td>-12.81%</td></tr>
+<tr><td>Added income valued at a 5.5% cap rate</td><td>$206,876.73</td><td>$315,587.27</td><td>$351,749.09</td></tr>
+<tr><td><strong>Value minus all-in cost</strong></td><td><strong>$73,376.73</strong></td><td><strong>-$16,097.73</strong></td><td><strong>-$82,663.41</strong></td></tr>
+</tbody>
+</table>
+
+<p>Option B loses $6,072.59 a year and needs $3,085.42 a month of rent to break even, $635.42 above the example rent. The 5.5 percent cap rate is an assumption, and appraisers of single-family homes lean on comparable sales rather than income, so check what ADU properties near you have sold for before you count on the value line. Our <a href="/blog/cap-rate-calculator-excel">cap rate calculator</a> shows how to back a local cap rate out of sales.</p>
+
+<p>Depreciation narrows the loss without closing it. IRS Publication 527 depreciates residential rental property over 27.5 years under the general depreciation system, so Option B's cost gives $12,061.27 a year of deduction in a full year of service. At an assumed 24 percent bracket that is worth $2,894.71, if the passive activity rules let you use the loss (Publication 925 and Form 8582; ask your preparer). Option B is still $3,177.88 short every year.</p>
+
+<h2>Build the ADU sheet in Excel</h2>
+
+<p>Put the three options in columns C, D and E and the shared assumptions in column H. Rows 4 to 9 hold square feet, hard cost, site work, design, permits and the connection charge for each option. H4 is the main house's square feet (1,600), H5 the city fee for a new single-family home ($38,000), H6 the school fee per square foot ($5.00), H7 the tax rate (1.15%), H8 vacancy (8%), H9 management (8%), H10 maintenance (5%), H11 insurance ($650), H12 the cap rate (5.5%), H13 the cash ($120,000), H14 the second-loan rate (9.25%), H15 its term in months (240) and H16 its closing costs ($1,500). Then, in column C, copied across to D and E:</p>
+
+<ul>
+<li>Impact fee, C12: <code>=IF(C4&gt;750,$H$5&#42;C4/$H$4,0)</code>. This is the 750 square foot step. Change 750 if your state or city uses another threshold.</li>
+<li>School fee, C13: <code>=IF(C4&gt;500,$H$6&#42;C4,0)</code>. The fee applies to the whole unit once it passes 500 square feet.</li>
+<li>All-in cost, C14: <code>=SUM(C5:C9)+C12+C13</code>.</li>
+<li>Rows 16 to 18 hold the ADU rent, the main house rent given up and the owner-paid utilities, all monthly. Gross rent, C20: <code>=C16&#42;12</code>. Vacancy, C21: <code>=C20&#42;$H$8</code>. Main house loss, C22: <code>=C17&#42;12</code>.</li>
+<li>Property tax on the new construction only, C24: <code>=SUM(C5:C7)&#42;$H$7</code>. Management, C25: <code>=(C20-C21)&#42;$H$9</code>. Maintenance, C26: <code>=C20&#42;$H$10</code>. Utilities, C27: <code>=C18&#42;12</code>. Insurance, C28: <code>=$H$11</code>.</li>
+<li>Net operating income, C29: <code>=C20-C21-C22-SUM(C24:C28)</code>. Yield on cost, C30: <code>=C29/C14</code>.</li>
+<li>Value minus cost, C32: <code>=C29/$H$12-C14</code>.</li>
+<li>Loan, C33: <code>=IF(C14&gt;$H$13,C14-$H$13+$H$16,0)</code>. Debt service, C34: <code>=IF(C33&gt;0,-PMT($H$14/12,$H$15,C33)&#42;12,0)</code>. Cash flow, C35: <code>=C29-C34</code>.</li>
+<li>Decision flag, C36: <code>=IF(C35&lt;0,"NEGATIVE CASH FLOW",IF(C30&lt;$H$14,"BUILD, BORROW LESS","BUILD"))</code>. Option A shows BUILD, BORROW LESS: its 8.52 percent yield sits under the 9.25 percent rate, so the $15,000 loan pulls its cash-on-cash down from 8.52 to 8.11 percent.</li>
+<li>Marginal return of the bigger unit, in a spare cell: <code>=(E29-D29)/(E14-D14)</code>. It returns 1.94 percent in this example.</li>
+</ul>
+
+<p>For the cash-out refinance, use a second tab. Put the extra proceeds in D2 as a positive number, the added payment <code>=-PMT(new_rate/12,360,new_loan)+PMT(old_rate/12,312,old_balance)</code> as a negative number in D3 to D314, and the full new payment in D315 to D362, after the old loan would have been paid off. <code>=IRR(D2:D362)&#42;12</code> returns the effective annual cost, 11.21 percent here.</p>
+
+<h2>Which unit to build, and what to ask before you draw</h2>
+
+<p>In this example, build the garage conversion. It costs $133,500, earns 8.52 percent on cost, cash flows $9,729.66 a year after debt and is worth $73,376.73 more than it cost at a 5.5 percent cap rate. Build the 749 square foot cottage only if the local rent reaches $3,085.42 or you can fund it with cash that earns less than 5.23 percent elsewhere. Do not build the 950 square foot unit unless the second bathroom rents for at least $857.76 a month more. Before you pay an architect, get these answers in writing:</p>
+
+<ol>
+<li>From the planning department: the impact fees for a new single-family home, and how the city applies them to an ADU above 750 square feet.</li>
+<li>From the school district: whether it charges a detached ADU above 500 square feet, and at what rate per square foot.</li>
+<li>From the water and sewer district: the capacity charge at your planned square footage and fixture count, and whether a conversion can stay on the house's meter.</li>
+<li>From the assessor: how the county values new ADU construction, and when the first tax bill for it arrives.</li>
+<li>From your property manager: the rent for the ADU and the rent the main house loses with the garage or the yard.</li>
+<li>From the zoning code: rental terms. Section 66315 bars a city from imposing an owner-occupancy requirement on an ADU, so a pure rental qualifies, but it allows a minimum rental term of 30 days, and section 66323(e) requires rentals longer than 30 days for units approved under that section. A junior ADU that shares a bathroom with the house requires the owner to live in the house or in the junior unit under section 66333(b).</li>
+</ol>
+
+<p>If the lot already holds a duplex, an ADU makes it a three-unit property for FHA buyers, and our <a href="/blog/fha-self-sufficiency-test-calculator-excel">FHA self-sufficiency test calculator</a> shows how that can shrink your pool of buyers at sale.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> takes the result of this sheet one step further. Enter the house with each ADU option as a separate deal: it lays out operating expenses line by line, compares up to three loan scenarios side by side and projects cash flow, loan paydown and appreciation over 10 years, so you can see whether the cottage that loses $6,072.59 in year one ever pays you back. It does not apply the California fee steps or the assessor's rules for you; the formulas above do that.</p>`,
+  },
+  {
     slug: 'converted-primary-residence-rental-section-121-calculator-excel',
     title: 'Converted Primary Residence Rental Section 121 Calculator in Excel: The Closing Date Sets the Tax',
     metaTitle: 'Converted Residence Rental Section 121 Excel | SheetCraft',
