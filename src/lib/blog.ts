@@ -16,6 +16,183 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rental-property-solar-panel-roi-calculator-landlords-excel',
+    title: 'Rental Property Solar Panel ROI Calculator for Landlords (Excel): Who Pays the Meter Decides',
+    metaTitle: 'Rental Property Solar ROI Calculator Excel | SheetCraft',
+    metaDescription: 'Rental property solar panel ROI calculator for landlords in Excel: who pays the meter, the 48E deadline of 2027, passive limits and recapture, with numbers.',
+    targetKeyword: 'rental property solar panel ROI calculator for landlords Excel',
+    secondaryKeywords: ['landlord solar tax credit', 'section 48E credit rental property', 'master metered building solar', 'solar net billing rental', 'passive activity credit solar'],
+    excerpt: 'The installer quotes $3,078 a year of savings. On the same fourplex roof the landlord keeps between $2,446.20 and $0, depending on who pays the meter, and the 30 percent credit ends for systems placed in service after December 31, 2027.',
+    publishedAt: '2026-11-25',
+    readTime: 13,
+    relatedProduct: 'rental-property-analyzer',
+    image: '/images/blog/rental-property-solar-panel-roi-calculator-landlords-excel.png',
+    imageAlt: 'Rooftop solar panels on a residential metal roof beside a TV antenna under a clear blue sky',
+    content: `<p>A rental property solar panel ROI calculator for landlords in Excel has to start with the electric meter, not the panels. The installer's proposal for a 12 kW array on the example fourplex below shows $3,078.00 of first-year savings, because the installer's calculator assumes the owner pays the electric bill and gets full retail credit for every kilowatt-hour. On the same roof, the landlord's real first-year savings range from $2,446.20 to $0, depending on who pays which meter. The federal credit that makes the deal work also changed in 2025: the homeowner credit is gone, the business credit a landlord uses now ends for solar systems placed in service after December 31, 2027, and it comes with a supply-chain test the installer has to document.</p>
+
+<p>This article builds the model for one example building: five meter arrangements, the tax credit rules that apply to a rental in 2026, the passive activity limits that decide when you can actually use the credit, and the cell layout to rebuild it with your own quote and tariff. Every dollar figure is an example on stated assumptions. The tax rules are quoted from the Internal Revenue Code as amended by Public Law 119-21 (July 4, 2025) and from IRS Notice 2026-15.</p>
+
+<h2>The example fourplex and the installer's quote</h2>
+
+<p>The building is a fourplex with four apartments and one house meter that runs the hallway lights, the exterior lights and the shared laundry. The installer quotes a 12 kW system at $2.90 per watt, so $34,800 installed. All the inputs below are assumptions for the example; replace each one with your own quote, your utility tariff and a production estimate for your address.</p>
+
+<table>
+<thead><tr><th>Input</th><th>Example value</th><th>Where to get yours</th></tr></thead>
+<tbody>
+<tr><td>System size</td><td>12 kW</td><td>Installer proposal</td></tr>
+<tr><td>Installed cost</td><td>$34,800 ($2.90 per watt)</td><td>Installer proposal, all-in</td></tr>
+<tr><td>Year-1 production</td><td>16,200 kWh (1,350 kWh per kW)</td><td>Production estimate for your roof and orientation</td></tr>
+<tr><td>Retail rate</td><td>$0.19 per kWh</td><td>Your utility bill, energy charges only</td></tr>
+<tr><td>Export credit</td><td>$0.06 per kWh</td><td>Your utility's net metering or net billing tariff</td></tr>
+<tr><td>Share of production used on site, up to the meter's annual load</td><td>70 percent</td><td>Hourly load data from the utility, or a conservative guess</td></tr>
+<tr><td>Annual load, each apartment</td><td>6,500 kWh</td><td>Tenant bills, or the utility's usage history</td></tr>
+<tr><td>Annual load, house meter</td><td>4,800 kWh</td><td>Your own bills</td></tr>
+<tr><td>Rate escalation / panel degradation</td><td>2.5 percent / 0.5 percent a year</td><td>Assumptions</td></tr>
+<tr><td>Maintenance / inverter replacement</td><td>$15 per kW a year / $3,000 in year 13</td><td>Assumptions</td></tr>
+<tr><td>Tax rate / discount rate / horizon</td><td>24 percent / 7 percent / 20 years</td><td>Your bracket and your hurdle rate</td></tr>
+</tbody>
+</table>
+
+<p>The installer's $3,078.00 is simply 16,200 kWh times $0.19. Two things in that product are wrong for a landlord. Most utilities no longer credit exported power at the retail rate, which is why the model splits production into power used on site, worth $0.19, and power pushed to the grid, worth $0.06. And the savings land on whoever pays the bill for the meter the array is wired to.</p>
+
+<h2>Who pays the meter decides the savings</h2>
+
+<p>The table runs the same 12 kW array through five arrangements. The formula is identical in every row; only the meter and the person paying it change.</p>
+
+<table>
+<thead><tr><th>Arrangement</th><th>Load on that meter</th><th>Used on site</th><th>Exported</th><th>Landlord's year-1 savings</th></tr></thead>
+<tbody>
+<tr><td>Installer's proposal (owner pays, full retail credit)</td><td>n/a</td><td>16,200 kWh</td><td>0</td><td>$3,078.00</td></tr>
+<tr><td>Master meter, owner pays the whole bill</td><td>30,800 kWh</td><td>11,340 kWh</td><td>4,860 kWh</td><td>$2,446.20</td></tr>
+<tr><td>Master meter, tenants reimburse 80 percent through RUBS</td><td>30,800 kWh</td><td>11,340 kWh</td><td>4,860 kWh</td><td>$489.24</td></tr>
+<tr><td>Separate meters, array wired to the house meter</td><td>4,800 kWh</td><td>3,360 kWh</td><td>12,840 kWh</td><td>$1,408.80</td></tr>
+<tr><td>Separate meters, tenants pay, no rent change</td><td>26,000 kWh</td><td>n/a</td><td>n/a</td><td>$0</td></tr>
+</tbody>
+</table>
+
+<p>The master-metered row is the only one where the landlord captures most of the value: 11,340 kWh at $0.19 is $2,154.60, plus 4,860 kWh exported at $0.06, $291.60. Under a ratio utility billing system (RUBS), the tenants reimburse a share of the actual bill, so a lower bill lowers their reimbursement and the landlord keeps only the unrecovered 20 percent. Our <a href="/blog/rental-property-rubs-calculator-excel">RUBS calculator</a> shows how that recovery rate is built.</p>
+
+<p>On a separately metered building, the house meter is the only meter the landlord pays, and a 12 kW array is far too big for it. Only 3,360 kWh offset retail power; the other 12,840 kWh go to the grid at $0.06. If the apartments are on their own meters and the tenants pay, the array saves the landlord nothing unless rent goes up, which the model tests further down.</p>
+
+<p>In Excel, put the arrangement in one cell and let one formula route the savings:</p>
+
+<ul>
+<li><code>B11 =B8&#42;MIN(B6,B7)</code> gives the kilowatt-hours used on site: the match factor times the smaller of production and the load on that meter.</li>
+<li><code>B12 =B11&#42;B9+(B6-B11)&#42;B10</code> values them: on-site power at retail, the rest at the export credit.</li>
+<li><code>B15 =IF(B13="Tenant",0,IF(B13="RUBS",B12&#42;(1-B14),B12))</code> sends the value to the person who actually receives it. B13 holds "Owner", "RUBS" or "Tenant", and B14 the RUBS recovery rate.</li>
+</ul>
+
+<p>Change B13 before you change anything else. The meter question moves first-year savings by $2,446.20 on this building; a 10 percent better price per watt moves the cost by $3,480.</p>
+
+<h2>The credit a landlord can claim in 2026</h2>
+
+<p>The residential clean energy credit of section 25D, the one homeowners claimed through 2025, does not apply to this building. Section 25D(h) ends it for expenditures made after December 31, 2025, and it never covered a rental: section 25D(d)(2) requires a dwelling unit "used as a residence by the taxpayer."</p>
+
+<p>A landlord claims the clean electricity investment credit of section 48E instead, because the panels are depreciable business property. Four rules decide the amount and the deadline:</p>
+
+<ol>
+<li><strong>Rate.</strong> The base rate is 6 percent, but section 48E(a)(2)(A)(ii)(I) applies 30 percent to a facility with a maximum net output of less than 1 megawatt (AC), without the prevailing wage and apprenticeship requirements. Any rooftop array on a small rental qualifies. On the example: 30 percent of $34,800 is $10,440.</li>
+<li><strong>Deadline.</strong> Section 48E(e)(4) denies the credit for solar property placed in service after December 31, 2027. Under the 2025 law, that cutoff applies to facilities whose construction begins after July 4, 2026, which covers every project you start today. Put the completion date in the contract and ask your CPA which event your return will treat as the placed-in-service date.</li>
+<li><strong>Supply chain.</strong> For construction beginning after December 31, 2025, section 48E(b)(6) excludes a facility built with "material assistance from a prohibited foreign entity." Under section 7701(a)(52)(B), the facility's material assistance cost ratio (the share of the cost of its manufactured products that does not come from such an entity) must be at least 40 percent if construction begins in 2026 and 45 percent in 2027. Notice 2026-15 restates the interim rule of the statute: until Treasury publishes its safe harbor tables (due by December 31, 2026), you may use the tables of Notice 2025-08 and rely on supplier certifications. Ask the installer for those certifications in writing, with the model numbers of the panels and inverters.</li>
+<li><strong>Basis.</strong> Section 50(c)(3) reduces the depreciable basis by half of the credit: $34,800 minus $5,220 leaves $29,580. Section 168(e)(3)(B)(viii) puts 48E property in the 5-year class, and section 168(k) now allows 100 percent bonus depreciation. The model uses ordinary 5-year MACRS, which is worth $1,419.84 of tax in year one and $7,099.20 in total at 24 percent.</li>
+</ol>
+
+<p>Section 48E(i), added by the 2025 law, denies the credit for property the owner "rents or leases" to a third party, but only for property described in paragraphs (1) and (4) of section 25D(d), which are solar water heating and small wind. Solar electric panels sit in paragraph (2), so section 48E(i) does not reach a rooftop PV array on your rental. If a solar water heater is in the same bid, settle its treatment with your CPA before you sign.</p>
+
+<p>In the sheet, the credit cell tests the deadline and the supply-chain ratio before it pays anything:</p>
+
+<ul>
+<li><code>B20 =IF(AND(B17&lt;=DATE(2027,12,31),B18&gt;=IF(B19=2026,0.4,0.45)),0.3&#42;B4,0)</code>, where B17 is the expected placed-in-service date, B18 the cost ratio from the supplier certifications and B19 the year construction begins.</li>
+<li><code>B21 =B4-0.5&#42;B20</code> gives the depreciable basis.</li>
+</ul>
+
+<h2>Twenty years, with and without the credit</h2>
+
+<p>The cash flow sheet runs 20 annual columns. Savings grow with the rate escalation and shrink with panel degradation, maintenance grows at 2.5 percent, the inverter is replaced in year 13, and savings are taxed at 24 percent because a lower electric bill raises rental income. Case A takes the $10,440 credit at the first tax filing. Case B never uses it.</p>
+
+<table>
+<thead><tr><th>Arrangement</th><th>NPV at 7%, credit used (A)</th><th>IRR (A)</th><th>Payback (A)</th><th>NPV at 7%, no credit (B)</th><th>IRR (B)</th></tr></thead>
+<tbody>
+<tr><td>Installer's proposal</td><td>$6,654.80</td><td>10.42%</td><td>Year 8</td><td>-$3,102.21</td><td>5.72%</td></tr>
+<tr><td>Master meter, owner pays</td><td>$744.85</td><td>7.41%</td><td>Year 10</td><td>-$9,012.16</td><td>3.03%</td></tr>
+<tr><td>Master meter, RUBS at 80%</td><td>-$17,560.85</td><td>-11.75%</td><td>Never</td><td>-$27,317.85</td><td>-14.79%</td></tr>
+<tr><td>House meter, 12 kW</td><td>-$8,959.14</td><td>0.99%</td><td>Year 19</td><td>-$18,716.15</td><td>-2.85%</td></tr>
+<tr><td>House meter, 4 kW at $3.40 per watt</td><td>-$2,192.36</td><td>3.35%</td><td>Year 12</td><td>-$6,005.45</td><td>-0.81%</td></tr>
+<tr><td>Tenants pay, no rent change</td><td>-$22,137.27</td><td>n/a</td><td>Never</td><td>-$31,894.28</td><td>n/a</td></tr>
+</tbody>
+</table>
+
+<p>Only the master-metered building clears a 7 percent hurdle, and only with the credit: $744.85 of NPV with it, -$9,012.16 without. The credit is worth $9,757.01 in present value, more than the whole margin of the deal. On a separately metered building the right size for the house meter is much smaller than the roof. A 4 kW array at a higher price per watt, $13,600, saves $760.80 in year one and loses far less than the 12 kW array on the same meter.</p>
+
+<p>The NPV cell is <code>=B40+NPV(Inputs!B30,C40:V40)</code>, where B40 is the year-0 cost and C40:V40 the 20 after-tax cash flows. Each year's savings cell is <code>=Inputs!$B$15&#42;((1+Inputs!$B$27)&#42;(1-Inputs!$B$28))^(C$5-1)</code>, with B27 the rate escalation, B28 the degradation and row 5 the year number. Depreciation uses <code>=IF(C$5&lt;=6,Inputs!$B$21&#42;INDEX({0.2,0.32,0.192,0.1152,0.1152,0.0576},C$5),0)</code>.</p>
+
+<h2>When you can actually use the credit</h2>
+
+<p>The credit from a rental is a passive activity credit, and Case A assumes you can use all of it at the first filing. Section 469 decides whether you can. Credits that cannot be used are carried to the next year under section 469(b), so a blocked credit is delayed, and delay costs present value.</p>
+
+<p>Section 469(i) lets an individual who actively participates in the rental use up to $25,000 of rental losses, or the "deduction equivalent" of credits, against other income. The $25,000 shrinks by 50 percent of adjusted gross income (AGI) above $100,000, so it is gone at $150,000. The deduction equivalent is the deduction that would cut your tax by the amount of the credit (section 469(j)(5)), roughly the credit divided by your marginal rate. Credits can also offset the tax on net passive income, such as taxable profit from your other rentals. Losses use the allowance before credits, so subtract any rental losses first.</p>
+
+<table>
+<thead><tr><th>Owner's situation (master-metered case)</th><th>Credit usable per year (approx.)</th><th>Years to use $10,440</th><th>NPV at 7%</th><th>IRR</th></tr></thead>
+<tbody>
+<tr><td>AGI $95,000, allowance unused by losses</td><td>$6,000</td><td>2 ($6,000 then $4,440)</td><td>$473.38</td><td>7.26%</td></tr>
+<tr><td>AGI $130,000, allowance $10,000</td><td>$2,400</td><td>5 (last year $840)</td><td>-$283.94</td><td>6.86%</td></tr>
+<tr><td>AGI $160,000, $20,000 of net rental income</td><td>$4,800</td><td>3 (last year $840)</td><td>$352.02</td><td>7.19%</td></tr>
+<tr><td>AGI $160,000, no passive income during the 20 years</td><td>$0</td><td>Never</td><td>-$9,012.16</td><td>3.03%</td></tr>
+</tbody>
+</table>
+
+<p>In the sheet: <code>B23 =MAX(0,25000-0.5&#42;MAX(0,B22-100000))</code> for the allowance, with AGI in B22, and <code>B26 =MIN(B20,(B23+B25)&#42;B24)</code> for the credit usable in year one, with net passive income in B25 and the marginal rate in B24. This uses one flat marginal rate and ignores the general business credit limits, so treat it as an estimate and have your CPA run the actual Form 8582-CR before you count on the credit. If you track hours to qualify for non-passive treatment on a short-term rental, our <a href="/blog/short-term-rental-material-participation-hours-log-excel">material participation hours log</a> covers the test.</p>
+
+<h2>The five-year recapture clock</h2>
+
+<p>The credit is not final when you claim it. Section 50(a) takes back part of it if the property is disposed of, which includes selling the building, within five full years of the placed-in-service date:</p>
+
+<table>
+<thead><tr><th>Building sold within</th><th>Recapture percentage</th><th>Tax given back on $10,440</th></tr></thead>
+<tbody>
+<tr><td>1 full year after placed in service</td><td>100%</td><td>$10,440</td></tr>
+<tr><td>2nd full year</td><td>80%</td><td>$8,352</td></tr>
+<tr><td>3rd full year</td><td>60%</td><td>$6,264</td></tr>
+<tr><td>4th full year</td><td>40%</td><td>$4,176</td></tr>
+<tr><td>5th full year</td><td>20%</td><td>$2,088</td></tr>
+</tbody>
+</table>
+
+<p>For a BRRRR investor who plans to refinance and hold, this changes nothing. For anyone who might sell inside five years, the credit is partly a loan from the IRS. The cell is <code>=Inputs!B20&#42;CHOOSE(MIN(B32,6),1,0.8,0.6,0.4,0.2,0)</code>, where B32 counts the full years elapsed plus one. Section 50(c)(2) then adds half of the recaptured amount back to the basis, which matters for the gain calculation on the sale.</p>
+
+<h2>Tenant-metered buildings: the rent premium you would need</h2>
+
+<p>A single-family rental, or any building where every apartment has its own meter and the tenants pay, leaves the landlord one way to get paid: higher rent. Goal Seek gives the premium that brings the NPV of the tenant-paid case to zero. Set the NPV cell to 0 by changing the monthly premium cell.</p>
+
+<table>
+<thead><tr><th>Case</th><th>Break-even premium, whole building</th><th>Per apartment</th></tr></thead>
+<tbody>
+<tr><td>Credit used at first filing</td><td>$189.45 a month</td><td>$47.36</td></tr>
+<tr><td>Credit never used</td><td>$272.96 a month</td><td>$68.24</td></tr>
+</tbody>
+</table>
+
+<p>Compare that with what the tenants would save. If the utility runs a program that splits one array's credits across several meters, the same 70 percent match rule gives the four apartments $2,446.20 a year, or $50.96 per apartment per month. With the credit, the break-even premium of $47.36 leaves each tenant about $3.60 a month better off, which is not enough to market. Without the credit, the landlord would have to charge more than the tenant saves. Whether tenants in your market pay any premium for solar is an open question; collect comparable listings before you put a number in that cell. The same logic decides any upgrade the tenant benefits from and the landlord pays for, and our <a href="/blog/rental-property-appliance-repair-or-replace-calculator-excel">appliance repair or replace calculator</a> applies it to equipment you already own.</p>
+
+<h2>What to ask before signing an installer contract</h2>
+
+<p>The installer's proposal answers none of the questions that set the landlord's return. Get these answers in writing:</p>
+
+<ol>
+<li>Which meter the array connects to, who pays that meter, and its last 12 months of usage. Size the system to that meter's load, not to the roof.</li>
+<li>The utility's export credit for your rate class, as a number per kWh, and whether hourly data is available to set the on-site share.</li>
+<li>A completion date before December 31, 2027, with a remedy if the installer misses it, since a system placed in service in January 2028 loses $10,440 on this example.</li>
+<li>Supplier certifications for the material assistance cost ratio, with the model numbers of the panels and inverters.</li>
+<li>Whether the bid includes any solar water heating or small wind equipment, which section 48E(i) treats differently on a rental.</li>
+<li>From your CPA: how much of the credit your AGI, your other rental losses and your passive income let you use in the first year, and the placed-in-service event your return will use.</li>
+</ol>
+
+<p>The roof is also a cost item: an array on a roof that needs replacing in six years has to come off and go back on. If you are weighing a bigger capital project on the same rental, our <a href="/blog/rental-property-adu-addition-roi-calculator-excel">ADU addition ROI calculator</a> uses the same yield-on-cost method, and the <a href="/blog/rental-property-depreciation-calculator-excel">rental property depreciation calculator</a> covers the building's own schedule.</p>
+
+<p>The <a href="/products/rental-property-analyzer">Rental Property Analyzer</a> is where the result of this sheet goes next. Enter the fourplex twice, once with the current utility expense and once with the solar savings you calculated for your meter arrangement: it lays out operating expenses line by line, compares up to three loan scenarios side by side and projects cash flow, loan paydown and appreciation over 10 years, so you can see what $2,446.20 or $1,408.80 a year does to the building's cash-on-cash return. It does not apply the section 48E deadline, the supply-chain test or the passive limits for you; the formulas above do that.</p>`,
+  },
+  {
     slug: 'rental-property-adu-addition-roi-calculator-excel',
     title: 'Rental Property ADU Addition ROI Calculator in Excel: Let the Fee Schedule Pick the Size',
     metaTitle: 'Rental Property ADU Addition ROI Calculator | SheetCraft',
