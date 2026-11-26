@@ -16,6 +16,171 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-title-lien-payoff-cost-calculator-excel',
+    title: 'House Flip Title Lien Payoff Cost Calculator (Excel): Which Liens Become Your Price',
+    metaTitle: 'House Flip Title Lien Payoff Cost Calculator | SheetCraft',
+    metaDescription: 'House flip title lien payoff cost calculator in Excel: rank the liens, see which follow the house, price the IRS discharge and code fines before you sign.',
+    targetKeyword: 'house flip title lien payoff cost calculator Excel',
+    secondaryKeywords: ['code enforcement lien reduction', 'IRS certificate of discharge', 'HOA estoppel certificate', 'lien search before closing', 'maximum allowable offer liens'],
+    excerpt: 'A $160,000 contract with seven liens on title. The seller\'s proceeds clear the taxes, the mortgage and most of the IRS lien; the HOA, utility and code fines follow the house, and at face they turn a $50,750 flip into a $10,985.80 loss.',
+    publishedAt: '2026-11-26',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-title-lien-payoff-cost-calculator-excel.png',
+    imageAlt: 'Vacant two-story brick house behind bare trees and an overgrown lot on a cracked residential street under a gray sky',
+    content: `<p>A house flip title lien payoff cost calculator in Excel answers one question that a lien total cannot: which of the liens on the title commitment will the seller's proceeds pay, and which ones become part of your purchase price. In the Florida example below, the contract price is $160,000 and the title commitment lists seven liens totaling $227,110. Subtract that total from your maximum offer and the deal looks impossible. Run the liens in order of priority instead and the seller's check clears the taxes, the mortgage and most of an IRS lien, while three small creditors and one large code enforcement fine stay attached to the house. At face value those four turn a $50,750 flip into a $10,985.80 loss. Negotiated and priced correctly, the same house closes at a 15 percent margin.</p>
+
+<p>Every dollar figure in this article is an example on stated assumptions. The legal rules are quoted from the Florida Statutes, the Florida Constitution, the Internal Revenue Code and IRS Publication 783. Other states treat code liens, judgments and HOA dues differently, so keep the method and replace the rules column with your own state's.</p>
+
+<h2>The contract and the seven liens</h2>
+
+<p>The house is a three-bedroom ranch in a Florida city. The seller lives in it, is behind on everything, and signed a contract on December 1, 2026 at $160,000. Your numbers support that price: after-repair value $315,000, rehab $62,000, five months of holding at $2,450, $4,800 of buy-side closing costs, selling costs of 8 percent and a 15 percent profit target give a maximum allowable offer of $163,500. Then the title commitment and the municipal lien search come back.</p>
+
+<table>
+<thead><tr><th>Lien, year recorded</th><th>Amount at contract</th><th>Grows by</th></tr></thead>
+<tbody>
+<tr><td>Property taxes, 2025</td><td>$4,860</td><td>not modeled (use the tax collector's quote for your closing month)</td></tr>
+<tr><td>First mortgage, 2016</td><td>$96,400</td><td>$17.83 a day</td></tr>
+<tr><td>Credit card judgment, 2022</td><td>$14,200</td><td>not modeled</td></tr>
+<tr><td>IRS tax lien, 2023</td><td>$58,000</td><td>not modeled</td></tr>
+<tr><td>HOA claim of lien, 2024</td><td>$6,300</td><td>$3.12 a day (dues of $95 a month)</td></tr>
+<tr><td>Code enforcement lien, 2025</td><td>$46,200</td><td>$150 a day</td></tr>
+<tr><td>City utility lien, 2025</td><td>$1,150</td><td>none</td></tr>
+<tr><td>Total</td><td>$227,110</td><td></td></tr>
+</tbody>
+</table>
+
+<p>The code lien is a $150 daily fine for a roof left under a tarp and an overgrown lot, running for 300 days past the compliance date ($45,000), plus $1,200 of the city's costs. It is the line that decides this deal, because Florida lets the fine keep running: under section 162.09(3), a fine "shall continue to accrue until the violator comes into compliance". The seller will not fix the roof, so the fine grows until you own the house and fix it yourself.</p>
+
+<h2>Sort each lien by who ends up paying it</h2>
+
+<p>A lien on title is a claim against the property. In a normal sale the seller's proceeds pay those claims at closing, in order of priority, and the buyer never sees them. Your problem starts only when the proceeds run out before the list does. At that point each remaining lien falls into one of three groups, and the group decides whether it is your cost.</p>
+
+<table>
+<thead><tr><th>Lien</th><th>Rule in this example</th><th>Who pays if proceeds run short</th></tr></thead>
+<tbody>
+<tr><td>Property taxes</td><td>"A first lien, superior to all other liens" (Fla. Stat. 197.122(1))</td><td>Always paid first from proceeds</td></tr>
+<tr><td>Credit card judgment</td><td>No judgment "shall be a lien" on a natural person's homestead (Fla. Const. art. X, s. 4(a))</td><td>Nobody: it does not attach while the seller lives there</td></tr>
+<tr><td>IRS tax lien</td><td>Attaches to "all property and rights to property" of the taxpayer (26 USC 6321); the IRS may discharge the house for the value of its interest (6325(b)(2)(A))</td><td>The IRS takes what is left; the unpaid balance stays the seller's debt</td></tr>
+<tr><td>HOA dues</td><td>The new owner is "jointly and severally liable" with the previous owner for unpaid assessments (Fla. Stat. 720.3085(2)(b))</td><td>You</td></tr>
+<tr><td>Code enforcement fine</td><td>A recorded fine is "a lien against the land on which the violation exists" (Fla. Stat. 162.09(3))</td><td>You, unless the board reduces it</td></tr>
+<tr><td>City utility charges</td><td>Depends on the local ordinance; treated here as a recorded lien on the parcel</td><td>You</td></tr>
+</tbody>
+</table>
+
+<p>Two of these groups surprise buyers. The judgment is $14,200 that nobody has to pay to close, because the house is the seller's homestead, although the title underwriter will want an affidavit proving it. Paying it anyway is a gift to the card company. The HOA and the code fine, on the other hand, follow the house regardless of what the seller agrees to. Ordering a payoff letter does not change that.</p>
+
+<h2>Build the payoff waterfall in Excel</h2>
+
+<p>The sheet has two blocks. The deal block sits in column B, the lien schedule in rows 21 to 27, one lien per row, sorted by priority. The sort order is the model: the waterfall formula pays each row only from what the rows above it left behind.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Input or formula</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>B3</td><td>Contract date</td><td>12/1/2026</td></tr>
+<tr><td>B4</td><td>Days to closing</td><td>50</td></tr>
+<tr><td>B5</td><td>Closing date <code>=B3+B4</code></td><td>1/20/2027</td></tr>
+<tr><td>B6</td><td>Contract price</td><td>$160,000</td></tr>
+<tr><td>B7</td><td>Documentary stamp tax on the deed <code>=ROUNDUP(B6/100,0)&#42;0.7</code></td><td>$1,120</td></tr>
+<tr><td>B8</td><td>Seller's other settlement costs</td><td>$2,480</td></tr>
+<tr><td>B9</td><td>Proceeds available for liens <code>=B6-B7-B8</code></td><td>$156,400</td></tr>
+<tr><td>B11 to B16</td><td>ARV, rehab, holding, selling costs, buy-side closing costs, target profit <code>=0.15&#42;B11</code> in B16</td><td>$315,000 to $47,250</td></tr>
+<tr><td>B17</td><td>Maximum allowable offer <code>=B11-B12-B13-B14-B15-B16</code></td><td>$163,500</td></tr>
+</tbody>
+</table>
+
+<p>The documentary stamp tax is 70 cents per $100 of consideration under Fla. Stat. 201.02(1)(a); the contract in this example puts it on the seller. In the lien schedule, column B holds the amount at contract, C the daily accrual, D a 1 or 0 for whether the lien attaches, E a Y or N for whether it follows the house, and I an optional negotiated amount. Then four formulas per row:</p>
+
+<ul>
+<li><code>F21 =D21&#42;(B21+C21&#42;$B$4)</code> is the payoff on closing day. It is the number title will ask for on closing day.</li>
+<li><code>G21 =MIN(F21,MAX(0,$B$9-SUM(G$20:G20)))</code> pays the lien from whatever proceeds the senior rows left. Row 20 stays empty so the first row sums nothing.</li>
+<li><code>H21 =F21-G21</code> is what the proceeds could not cover.</li>
+<li><code>J21 =IF(E21="Y",IF(I21="",H21,MIN(H21,I21)),0)</code> is your cure cost: the unpaid amount of any lien that follows the house, or the negotiated figure once you have one in writing.</li>
+</ul>
+
+<p>The totals sit under column J: <code>J28 =SUM(J21:J27)</code> is your cure, and <code>J30 =B6+J28+J29</code> is your real acquisition price. Compare it with the maximum offer in <code>J31 =B17-J30</code> and let <code>J32 =IF(J31&lt;0,"REPRICE, NEGOTIATE OR WALK","CLOSE")</code> say it plainly. J29 holds a Florida detail that most sheets miss. Section 201.02(1)(a) counts "the discharge of an obligation" as consideration, so the seller's debts you pay add to the taxable price of the deed: <code>J29 =ROUNDUP((B6+J28)/100,0)&#42;0.7-B7</code>.</p>
+
+<p>On closing day, January 20, 2027, the waterfall runs like this. The $156,400 pays the taxes ($4,860), the mortgage at $97,291.50 after 50 days of interest, skips the judgment, and gives the IRS the remaining $54,248.50 of its $58,000. The HOA ($6,456 by then), the code fine ($53,700) and the utility lien ($1,150) receive nothing. Your cure at face is $61,306, plus $429.80 of extra stamp tax.</p>
+
+<h2>The IRS sets its own number</h2>
+
+<p>The IRS does not release its lien because the seller ran out of money. Someone has to apply for a certificate of discharge on Form 14135, and under section 6325(b)(2)(A) the IRS issues it in exchange for a payment "not less than the value, as determined by the Secretary, of the interest of the United States". Publication 783 shows the arithmetic, which is the same as column G: sale price, minus encumbrances senior to the IRS lien, minus settlement costs. In its own example a $215,000 sale with $135,000 of senior debt and $15,000 of costs gives the IRS $65,000 against a $203,000 lien.</p>
+
+<p>Three consequences for your sheet:</p>
+
+<ul>
+<li>Time. Publication 783 asks for the application "at least 45 days before the transaction date". Signed on December 1, the earliest realistic closing is <code>=B3+45</code>, January 15, 2027. A 21-day close is not available on this house.</li>
+<li>Price. The application requires an appraisal by a disinterested third party. The IRS checks your price against it before it sets its number. Make sure the appraiser sees the roof and the open violation.</li>
+<li>Priority. The model ranks liens by recording date. Florida dates an HOA lien back to the community's original declaration (720.3085(1)), except against a first mortgage. Against a federal tax lien, federal law decides, and the IRS may not accept that relation-back. That one question moves $6,456 between the IRS's check and your cure line, so get the title underwriter's answer in writing.</li>
+</ul>
+
+<p>The homestead question moves money too, just not yours. If the seller had moved out and the house were no longer a homestead, the 2022 judgment would attach ahead of the 2023 IRS lien. The card company would collect $14,200 and the IRS would get $40,048.50 instead of $54,248.50. Your cure stays at $13,806 in the negotiated case either way. The ranking shifts money among the seller's creditors; it only touches your cost when a lien that follows the house moves above or below the line where proceeds run out.</p>
+
+<h2>The liens that follow the house become your price</h2>
+
+<p>Here is the deal run the simple way after the title commitment arrives: keep the $160,000, pay whatever title says. The acquisition becomes $160,000 plus $61,306 of cure plus $429.80 of stamp tax, so $221,735.80. Against the $315,000 resale, the profit is minus $10,985.80.</p>
+
+<p>The code fine is $53,700 of that cure, and it is the only big number anyone can move. Section 162.09(2)(c) says plainly that an enforcement board "may reduce a fine". Whether your city will settle before closing, and on what terms, is local policy, so read its reduction rules and treat the following as the example's assumption. At a hearing on January 12, 2027, the board agrees to release the lien at closing for $6,200 if the buyer cures within 60 days. Your cure drops to $13,806.</p>
+
+<p>The HOA works differently, because the statute gives the association a number it has to stand behind. Section 720.30851 requires an estoppel certificate within 10 business days of the request. The certificate is effective for 30 days when delivered by email, and the association waives anything above the certified amount against a buyer who relies on it in good faith. Order it so that its 30 days cover closing.</p>
+
+<h2>Days cost money, but not equally</h2>
+
+<p>Every day between contract and closing adds $17.83 of mortgage interest, $3.12 of HOA dues and $150 of code fines. The mortgage interest comes out of the IRS's share, not yours. The other two come out of your pocket, because they sit on liens that follow the house. One formula keeps that honest:</p>
+
+<p><code>J33 =SUMPRODUCT((E21:E27="Y")&#42;(H21:H27&gt;0)&#42;(I21:I27="")&#42;C21:C27)</code></p>
+
+<p>It adds the daily accrual of every lien that follows the house, that the proceeds do not cover, and that has no negotiated figure yet. Before the code settlement it returns $153.12, so each week of delay costs you $1,071.84. Once the board fixes the code figure it returns $3.12, and a week costs $21.84. Settle the code fine first, then let the rest of the timeline take what it takes.</p>
+
+<table>
+<thead><tr><th>Date</th><th>Step</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>Dec 1, 2026</td><td>Contract; file the IRS discharge application with the appraisal; order the municipal lien search</td><td><code>=B3</code></td></tr>
+<tr><td>Dec 21, 2026</td><td>Request the HOA estoppel certificate</td><td><code>=B5-30</code></td></tr>
+<tr><td>Jan 6, 2027</td><td>Latest delivery of the estoppel (10 business days, Christmas and New Year's Day excluded)</td><td><code>=WORKDAY(B5-30,10,Holidays)</code></td></tr>
+<tr><td>Jan 12, 2027</td><td>Code enforcement board hearing on the reduction (example)</td><td>entered</td></tr>
+<tr><td>Jan 15, 2027</td><td>45 days after the IRS application</td><td><code>=B3+45</code></td></tr>
+<tr><td>Jan 20, 2027</td><td>Closing</td><td><code>=B5</code></td></tr>
+</tbody>
+</table>
+
+<p>Unrecorded items are what make the timeline slip. Unpaid utility charges and open code cases that have not become liens yet do not appear in the county records. A municipal lien search finds them, and the estoppel finds HOA balances that the association has not yet liened. A contractor the seller never paid can still record a claim of lien. Our <a href="/blog/construction-mechanics-lien-deadline-calculator-excel">mechanics lien deadline calculator</a> shows how long that window stays open.</p>
+
+<h2>Four ways to price the same house</h2>
+
+<p>All four rows use the same house, the same 50-day closing and the same resale. Profit is resale minus rehab, holding, selling, buy-side closing costs and the acquisition price shown.</p>
+
+<table>
+<thead><tr><th>Approach</th><th>Price</th><th>Your cure</th><th>Extra stamp tax</th><th>Acquisition</th><th>Profit</th><th>Margin on ARV</th></tr></thead>
+<tbody>
+<tr><td>A. Subtract every lien from the maximum offer</td><td>none: $163,500 minus $227,110 is minus $63,610</td><td>n/a</td><td>n/a</td><td>n/a</td><td>no deal</td><td>n/a</td></tr>
+<tr><td>B. Keep $160,000, pay every lien that follows the house at face</td><td>$160,000</td><td>$61,306.00</td><td>$429.80</td><td>$221,735.80</td><td>minus $10,985.80</td><td>minus 3.5%</td></tr>
+<tr><td>C. Keep $160,000, code fine settled at $6,200</td><td>$160,000</td><td>$13,806.00</td><td>$97.30</td><td>$173,903.30</td><td>$36,846.70</td><td>11.7%</td></tr>
+<tr><td>D. Code fine settled, price cut to $149,500 with the IRS's agreement</td><td>$149,500</td><td>$13,806.00</td><td>$97.30</td><td>$163,403.30</td><td>$47,346.70</td><td>15.0%</td></tr>
+</tbody>
+</table>
+
+<p>Approach A is the lazy version, and it loses a deal that exists. It subtracts the mortgage and the taxes, which the seller's price already pays, along with a judgment that does not attach. Approach B is what happens when nobody models the waterfall. Approach C is the minimum work. Approach D is the correct offer. Because the IRS takes whatever the seniors leave, a $10,500 price cut comes out of the IRS's share: it receives $43,822 instead of $54,248.50, and the seller's personal tax debt rises from $3,751.50 to $14,178. That only works if the as-is appraisal supports $149,500, and the appraisal is your evidence for the IRS, so it has to describe the roof and the violation.</p>
+
+<p>The cut is not a trick played on the seller. Without it the seller cannot deliver clear title at any price you can pay, and the likely alternative is a foreclosure. If you are bidding at that foreclosure instead, the rules change: the sale wipes out junior liens but not senior ones, and our <a href="/blog/real-estate-auction-max-bid-calculator-excel">auction max bid calculator</a> prices that case.</p>
+
+<h2>Order the lien search before you sign</h2>
+
+<p>The idea that liens only show up after the contract is a habit, not a fact. Recorded liens are in the county's official records, a municipal lien search costs a few hundred dollars (ask your title agent for a quote), and the HOA estoppel can be ordered on the seller's authorization. On a distressed house, run this before you put a price on paper:</p>
+
+<ol>
+<li>Pull the recorded liens and the municipal lien search. Put each lien in a row, in recording order, with its daily accrual.</li>
+<li>Set column D and E with your title agent: which liens attach, which follow the house, and the homestead status of the seller.</li>
+<li>Run the waterfall at your intended price and closing date. If J31 is negative, the number in J28 is what you negotiate.</li>
+<li>If a federal tax lien is under water, plan 45 days plus an appraisal, and make the contract contingent on the certificate of discharge.</li>
+<li>If a code fine is running, get the city's reduction terms in writing before you waive any contingency, and treat the fine as $150 a day of your money until you do.</li>
+</ol>
+
+<p>A code case often sits next to work done without permits. If the open violation is an unpermitted addition rather than a roof, our <a href="/blog/house-flip-unpermitted-work-cost-calculator-excel">unpermitted work cost calculator</a> prices the legalization, and the <a href="/blog/house-flip-closing-cost-estimator-excel">closing cost estimator</a> covers the resale side of the same flip.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> is where the waterfall's answer goes. Enter the negotiated price, add the cure from J28 and the extra stamp tax to the acquisition closing costs, and its acquisition, rehab and holding tabs show your all-in cost and whether the capital comes back at refinance or resale. It does not rank the liens, apply the homestead rule or price the IRS discharge for you; the lien schedule above does that in 7 rows.</p>`,
+  },
+  {
     slug: 'rental-property-solar-panel-roi-calculator-landlords-excel',
     title: 'Rental Property Solar Panel ROI Calculator for Landlords (Excel): Who Pays the Meter Decides',
     metaTitle: 'Rental Property Solar ROI Calculator Excel | SheetCraft',
