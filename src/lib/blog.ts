@@ -16,6 +16,168 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'tax-lien-certificate-yield-calculator-excel',
+    title: 'Tax Lien Certificate Yield Calculator in Excel: Why the Bid Rate Is Not Your Return',
+    metaTitle: 'Tax Lien Certificate Yield Calculator Excel | SheetCraft',
+    metaDescription: 'A tax lien certificate yield calculator in Excel that prices Florida\'s 5% minimum, the redemption month and the certificates that never redeem.',
+    targetKeyword: 'tax lien certificate yield calculator Excel',
+    secondaryKeywords: ['Florida tax certificate interest rate', 'tax lien investing returns', 'tax certificate redemption', 'tax deed application cost', 'tax lien bid down'],
+    excerpt: 'In a Florida tax certificate sale the rate you win is rarely the rate you earn. The 5% minimum, the month the owner redeems and the certificates that never redeem set the yield, and one lost certificate in twenty turns a pool of floor bids into a loss.',
+    publishedAt: '2026-11-27',
+    readTime: 13,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/tax-lien-certificate-yield-calculator-excel.png',
+    imageAlt: 'Vacant grassy lot with palm trees and a stand of hardwoods under a cloudy Florida sky',
+    content: `<p>A tax lien certificate yield calculator in Excel has to answer a question the auction screen never shows: what you earn on a certificate depends far more on when the owner redeems, and on whether they redeem at all, than on the interest rate you win. Seminar slides quote Florida's 18 percent maximum. On a competitive parcel the bidding drops to a quarter of one percent, and from that point the bid rate no longer matters, because Florida law pays a 5 percent minimum on redemption. A $1,000 certificate won at 0.25 percent and redeemed in 3 months returns 14.19 percent annualized. The same certificate redeemed in 24 months returns 2.13 percent. And one certificate in twenty that never redeems turns a whole pool of floor bids into a loss.</p>
+
+<p>The rules below are quoted from the Florida Statutes, chapter 197. Every dollar figure is an example on stated assumptions: a $1,000 face, a sale on June 1, 2027, and redemption curves that are hypotheses, not county data. Other states run different systems (premium bids, penalty rates, redemption periods), so keep the method and replace the rules rows with your own state's.</p>
+
+<h2>The bid rate is a ceiling, the 5 percent minimum is the floor</h2>
+
+<p>Four provisions decide the cash a Florida tax certificate pays. Read them before any formula, because each one becomes a cell.</p>
+
+<ul>
+<li><strong>Maximum rate.</strong> Section 197.172(2): "The maximum rate of interest on a tax certificate is 18 percent per year." Subsection (4) adds that interest is calculated from the first day of each month.</li>
+<li><strong>Bid down.</strong> Section 197.432(6) awards each certificate to the bidder who "will demand the lowest rate of interest", in quarter-point increments. Ties go to the first bid or to a random-number generator, at the tax collector's choice.</li>
+<li><strong>Mandatory minimum.</strong> Section 197.472(2): when the interest earned is less than 5 percent of the face amount, "a mandatory minimum interest of an absolute 5 percent shall be levied upon the face value." It applies to every individual certificate "except those with an interest rate bid of zero percent."</li>
+<li><strong>Expiration.</strong> Section 197.482: seven years after issuance, if nobody has applied for a tax deed, "the tax certificate is null and void and shall be canceled."</li>
+</ul>
+
+<p>Two smaller rules move the yield too. The tax collector keeps a $6.25 fee per redeemed certificate and pays the holder "the amount received by the tax collector less the redemption fee within 15 business days" (197.472(3) and (5)). This model takes the fee out of your proceeds and adds 0.7 of a month for the payment delay, which is the conservative reading; check how your county applies it. And 197.432(13) bars you from contacting the owner "to encourage or demand payment until 2 years after April 1 of the year of issuance." You cannot speed up a redemption, so the timing is an input you estimate and carry in the model.</p>
+
+<p>Put the first three rules together and you get one number per bid rate: the month at which interest at the bid rate finally exceeds the 5 percent minimum. Before that month, every bid rate pays the same.</p>
+
+<table>
+<thead><tr><th>Bid rate</th><th>Interest passes 5% of face after</th><th>Inside the 84-month life?</th></tr></thead>
+<tbody>
+<tr><td>0.25%</td><td>240 months</td><td>No, you only ever earn the 5% minimum</td></tr>
+<tr><td>3%</td><td>20 months</td><td>Yes</td></tr>
+<tr><td>8%</td><td>7.5 months</td><td>Yes</td></tr>
+<tr><td>18%</td><td>3.33 months</td><td>Yes</td></tr>
+</tbody>
+</table>
+
+<p>The crossover is <code>=0.05&#42;12/B5</code>, with the bid rate in B5. Any bid below about 0.71 percent never reaches it inside seven years, so a 0.25 percent bid and a 0.50 percent bid pay exactly the same dollars in every redemption month. On a parcel everyone expects to redeem within a year, the auction therefore runs to the bottom increment, and your return becomes a function of redemption speed alone.</p>
+
+<h2>What $1,000 earns, by bid rate and redemption month</h2>
+
+<p>The table below is the whole argument in one grid. Each cell is the net dollars you receive above your $1,000 (after the $6.25 fee), then the annualized yield over the months your money was out, including the 0.7-month payment delay.</p>
+
+<table>
+<thead><tr><th>Redeemed after</th><th>Bid 0.25%</th><th>Bid 3%</th><th>Bid 8%</th><th>Bid 18%</th></tr></thead>
+<tbody>
+<tr><td>3 months</td><td>$43.75 / 14.19%</td><td>$43.75 / 14.19%</td><td>$43.75 / 14.19%</td><td>$43.75 / 14.19%</td></tr>
+<tr><td>6 months</td><td>$43.75 / 7.84%</td><td>$43.75 / 7.84%</td><td>$43.75 / 7.84%</td><td>$83.75 / 15.00%</td></tr>
+<tr><td>12 months</td><td>$43.75 / 4.13%</td><td>$43.75 / 4.13%</td><td>$73.75 / 6.97%</td><td>$173.75 / 16.42%</td></tr>
+<tr><td>24 months</td><td>$43.75 / 2.13%</td><td>$53.75 / 2.61%</td><td>$153.75 / 7.47%</td><td>$353.75 / 17.19%</td></tr>
+<tr><td>48 months</td><td>$43.75 / 1.08%</td><td>$113.75 / 2.80%</td><td>$313.75 / 7.73%</td><td>$713.75 / 17.59%</td></tr>
+</tbody>
+</table>
+
+<p>Read the first row and the bid rate is irrelevant: at 3 months, every certificate pays the $50 minimum. Read the 0.25 percent column and the yield falls by roughly half every time the wait doubles, because the dollars are fixed at $43.75. Read the 18 percent column and the yield climbs toward the statutory rate the longer the owner waits, which is the only column where waiting helps you. The seminar number, 18 percent, appears in one column, and even there the yield is 17.59 percent after 48 months once the fee and the payment delay are counted.</p>
+
+<p>A zero percent bid is the odd case. It is exempt from the minimum and earns nothing, so under the fee reading above it returns minus $6.25. A bidder who enters zero is positioning to apply for a deed.</p>
+
+<h2>Build the yield calculator, one certificate per row</h2>
+
+<p>Start with a single-certificate block so every rule sits in one visible cell, then copy the logic into a portfolio sheet.</p>
+
+<table>
+<thead><tr><th>Cell</th><th>Label</th><th>Example</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>B4</td><td>Face amount paid</td><td>$1,000</td><td>input</td></tr>
+<tr><td>B5</td><td>Bid rate won</td><td>0.25%</td><td>input</td></tr>
+<tr><td>B6</td><td>Months until redemption</td><td>6</td><td>input</td></tr>
+<tr><td>B7</td><td>Payment delay, months</td><td>0.7</td><td>input (15 business days)</td></tr>
+<tr><td>B8</td><td>Redemption fee kept</td><td>$6.25</td><td>input</td></tr>
+<tr><td>B10</td><td>Interest at bid rate</td><td>$1.25</td><td><code>=B4&#42;B5&#42;B6/12</code></td></tr>
+<tr><td>B11</td><td>Interest actually due</td><td>$50.00</td><td><code>=IF(B5=0,B10,MAX(B10,0.05&#42;B4))</code></td></tr>
+<tr><td>B12</td><td>Net to you</td><td>$43.75</td><td><code>=B11-B8</code></td></tr>
+<tr><td>B13</td><td>Annualized yield</td><td>7.84%</td><td><code>=B12/B4/((B6+B7)/12)</code></td></tr>
+<tr><td>B14</td><td>Crossover month</td><td>240</td><td><code>=IF(B5=0,"none",0.05&#42;12/B5)</code></td></tr>
+</tbody>
+</table>
+
+<p>B11 is the statute in one line: the greater of the bid-rate interest and 5 percent of face, except at a zero bid. B14 tells you, before you bid, whether the rate you are fighting for will ever be paid. Add <code>=IF(AND(ISNUMBER(B14),B14&gt;84),"BID RATE NEVER PAYS","")</code> next to it so the sheet says it out loud.</p>
+
+<p>The face amount already includes the tax collector's 5 percent commission, which 197.432(12) says "must be included in the face value of the certificate." Your yield is computed on what you paid, so do not add the commission again as a cost.</p>
+
+<p>For the portfolio sheet, put the sale date in B2 and one certificate per row from row 3: face in C, bid rate in D, expected redemption month in E. The cash-back date is <code>=EDATE($B$2,E3)+21</code> and the cash-back amount is <code>=C3+IF(D3=0,0,MAX(C3&#42;D3&#42;E3/12,0.05&#42;C3))-6.25</code>. List the purchase as one negative flow on the sale date, the redemptions as positive flows, and <code>=XIRR(G2:G22,F2:F22)</code> gives the pool's annual yield. A certificate you expect to lose gets a cash-back of zero, which is the row that matters most.</p>
+
+<h2>A pool's yield is decided by the certificates that do not redeem</h2>
+
+<p>Take a $20,000 pool of twenty $1,000 certificates. Assume this redemption curve, which is a hypothesis to replace with your own county's history: 4 redeem at month 2, 4 at month 5, 5 at month 10, 3 at month 16, 2 at month 24, 1 at month 40 and 1 at month 60. Then replace the slowest redeemers, one at a time, with certificates that never redeem and that you let expire.</p>
+
+<table>
+<thead><tr><th>Certificates lost out of 20</th><th>All bid 0.25%</th><th>All bid 8%</th><th>All bid 18%</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>+$875.00 / 3.71%</td><td>+$1,915.00 / 7.68%</td><td>+$4,065.00 / 15.48%</td></tr>
+<tr><td>1</td><td>-$168.75 / -0.84%</td><td>+$521.25 / 2.53%</td><td>+$2,171.25 / 10.24%</td></tr>
+<tr><td>2</td><td>-$1,212.50 / -6.89%</td><td>-$739.17 / -4.15%</td><td>+$577.50 / 3.19%</td></tr>
+<tr><td>3</td><td>-$2,256.25 / -13.69%</td><td>-$1,892.92 / -11.37%</td><td>-$776.25 / -4.61%</td></tr>
+</tbody>
+</table>
+
+<p>The floor pool earns $875 of interest on twenty certificates, less than the $1,000 face of one. Its loss budget is zero. The 18 percent pool can absorb two lost certificates and still return 3.19 percent, which sounds like cushion until you ask why those certificates cleared at 18 percent. Nobody bid them lower. At a sale where most parcels go to the floor, a certificate that stays at the maximum is one the other bidders passed on, and that is information about its redemption odds.</p>
+
+<p>So the honest version of the decision is a pair of numbers per certificate: an expected redemption month, which sets the yield if it redeems, and a probability that it never does, which sets how much of the face you are betting. The county's list of certificates sold, which 197.432(9) requires the tax collector to keep with "the interest rate bid" for each one, is where you start building that curve for your own county.</p>
+
+<h2>What a certificate that never redeems costs you</h2>
+
+<p>"Never redeems" has three endings, and only one of them is the windfall the seminars describe. Take a 2027 certificate with a $2,400 face, won at 18 percent on a vacant lot assessed at $9,000 (assumed). The owner never pays. Someone else holds the 2028 certificate on the same lot: $2,350 face at 6 percent.</p>
+
+<p>Section 197.502(1) lets you apply for a tax deed "at any time after 2 years have elapsed since April 1 of the year of issuance", so from April 2029 here; the example applies in May 2029, month 23 after the sale. The tax collector may charge a $75 application fee. Under 197.502(2) you must also pay "all amounts required for redemption or purchase of all other outstanding tax certificates", plus the costs to bring the property to sale. The clerk's costs (title search, notices, advertising) are assumed at $1,100 here; get your county's schedule.</p>
+
+<table>
+<thead><tr><th>Item at application, month 23</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Your certificate, cash already paid</td><td>$2,400.00</td></tr>
+<tr><td>Interest on your certificate, 18% for 23 months</td><td>$828.00 (owed to you; no cash out)</td></tr>
+<tr><td>2028 certificate redeemed: $2,350 plus 6% for 11 months</td><td>$2,479.25</td></tr>
+<tr><td>Application fee</td><td>$75.00</td></tr>
+<tr><td>Clerk's costs to bring the lot to sale (assumed)</td><td>$1,100.00</td></tr>
+<tr><td>Your cash in the lot</td><td>$6,054.25</td></tr>
+</tbody>
+</table>
+
+<p>Section 197.542(1) sets your bid at the deed sale: the amount to redeem your certificate, the other certificates and costs you paid, "plus interest at the rate of 1.5 percent per month for the period running from the month after the date of application for the deed through the month of sale." With a sale in September 2029, that is 4 months. The model applies the 1.5 percent to the whole amount above ($6,882.25), which is the reading to confirm with your clerk: 4 months add $412.94, for an opening bid of $7,295.19. Current 2029 taxes are not yet due at a September sale and are left out.</p>
+
+<table>
+<thead><tr><th>Ending</th><th>What happens</th><th>Result on $6,054.25 in</th></tr></thead>
+<tbody>
+<tr><td>A. Someone outbids you</td><td>You are paid the $7,295.19 opening bid, assumed at month 28</td><td>+$1,240.94, 16.18% a year</td></tr>
+<tr><td>B1. No bidder, lot resells</td><td>Struck to you; you pay $51.10 of stamp tax and $20 of recording (assumed); you sell at $9,000 less 10% costs in month 34</td><td>+$1,974.65, 17.47% a year</td></tr>
+<tr><td>B2. No bidder, lot is unsellable</td><td>Struck to you at $6,125.35 all in, and you own a strip nobody wants</td><td>-$6,125.35</td></tr>
+<tr><td>C. You never apply</td><td>The certificate expires at year 7 under 197.482</td><td>-$2,400.00</td></tr>
+</tbody>
+</table>
+
+<p>The stamp tax is 70 cents per $100 of consideration under 201.02(1)(a), on the $7,295.19 bid rounded up to the next $100. The interest you owe yourself in B cancels out, so your cash in B is $6,125.35, below the $7,295.19 opening bid. Before you count on B1, ask a title insurer whether it will insure a resale from a tax deed in that county without further court work, and add that cost if it will not.</p>
+
+<p>Notice what the deed branch does to your capital. A $2,400 certificate became a $6,125.35 position in a lot you may not want. Endings A and B1 look excellent. Ending B2 is the risk the 18 percent pays you to carry. Before bidding, check the parcel for the usual reasons a lot cannot be sold: no road access, a drainage or utility easement across it, a strip too narrow to build on, or common area of a subdivision (197.502(4)(h) has a notice rule written for exactly that last case). Ending C caps the loss at the face, which is why some holders let junk certificates die.</p>
+
+<p>If you work the deed side on purpose, our <a href="/blog/real-estate-auction-max-bid-calculator-excel">auction max bid calculator</a> covers what you can pay at the clerk's sale, and the <a href="/blog/house-flip-title-lien-payoff-cost-calculator-excel">title lien payoff calculator</a> shows which other liens survive and which ones the proceeds clear.</p>
+
+<h2>Bid rules that come out of the model</h2>
+
+<p>Run the per-certificate block on every parcel on your list before the sale, then apply these rules.</p>
+
+<ol>
+<li><strong>At the floor, bid only where you would accept ending B.</strong> A 0.25 percent certificate pays $43.75 on $1,000 at best. Its only defense against a lost face is a parcel you would be glad to own at the deed-branch cost, typically an improved, occupied property worth many times the opening bid.</li>
+<li><strong>Price the wait into anything above the floor.</strong> If B14 shows a crossover beyond month 12 and your expected redemption is month 6, you are paying for interest you will never collect. Bid the floor instead, or skip.</li>
+<li><strong>Treat an 18 percent certificate as a property purchase in slow motion.</strong> Pull the parcel on the property appraiser's map, check frontage, access and use. If you would not buy the lot at the deed-branch cost, skip the certificate whatever its rate.</li>
+<li><strong>Budget the deed branch before you bid.</strong> Add a column for "cash at application": other certificates likely to be sold on the parcel in later years, the $75 fee and the clerk's costs. If you cannot fund that column for every certificate you might lose, you cannot hold the pool.</li>
+<li><strong>Use XIRR, never the bid rate, to compare against other uses of the cash.</strong> The floor pool above returns 3.71 percent before any loss. Set that next to what the same $20,000 earns as a private loan: our <a href="/blog/real-estate-note-investing-yield-calculator-excel">note investing yield calculator</a> runs that comparison on the same XIRR logic.</li>
+<li><strong>Track every certificate's deadlines.</strong> The 2-year mark for a deed application, the 7-year expiration and the 30-day payment windows in 197.502(2) are dates, and a missed one costs face value. A row per certificate in a <a href="/blog/real-estate-deal-pipeline-tracker-manage-funnel-excel">deal pipeline tracker</a> keeps them visible.</li>
+</ol>
+
+<h2>The recommendation</h2>
+
+<p>Stop bidding on rate. In a Florida sale, a certificate's yield comes from three inputs: the 5 percent minimum, the month the owner redeems and the odds that they never do. The bid rate only enters after the crossover month, and for floor bids that month never arrives. Build the ten-cell block above, fill the redemption month and the loss probability for every parcel on your list, and bid only where the XIRR still holds with one certificate in twenty lost.</p>
+
+<p>When you take the deed branch on purpose, the parcel becomes a flip or a rental, and the <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> takes over from the certificate sheet. Enter the $6,125.35 all-in from ending B as the acquisition cost, add the quiet title or survey work as closing costs, then its rehab, rent and refinance tabs show whether the lot or the house on it recycles your capital. It does not apply the 5 percent minimum, the bid-down or the deed application rules for you; the certificate block above does that in ten cells.</p>`,
+  },
+  {
     slug: 'house-flip-title-lien-payoff-cost-calculator-excel',
     title: 'House Flip Title Lien Payoff Cost Calculator (Excel): Which Liens Become Your Price',
     metaTitle: 'House Flip Title Lien Payoff Cost Calculator | SheetCraft',
