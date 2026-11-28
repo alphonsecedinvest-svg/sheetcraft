@@ -16,6 +16,166 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'house-flip-asbestos-abatement-cost-calculator-excel',
+    title: 'House Flip Asbestos Abatement Cost Calculator in Excel: Price It Before You Sign',
+    metaTitle: 'House Flip Asbestos Abatement Cost Calculator | SheetCraft',
+    metaDescription: 'A house flip asbestos abatement cost calculator in Excel prices the survey, notice and holding days before you sign. Found mid-demo, it costs 2.48x more.',
+    targetKeyword: 'house flip asbestos abatement cost calculator Excel',
+    secondaryKeywords: ['asbestos survey before renovation', 'popcorn ceiling asbestos removal cost', 'asbestos NESHAP residential exemption', 'Oregon DEQ asbestos notification', 'flip holding costs'],
+    excerpt: 'On a 1962 ranch, the same popcorn ceiling, duct wrap and old flooring cost $9,871.44 when a survey finds them during the inspection contingency and $24,473.08 when the demo crew finds them on day 3. Here is the Excel block that prices each material against your scope, runs the notice clock and resets your maximum offer.',
+    publishedAt: '2026-11-28',
+    readTime: 14,
+    relatedProduct: 'flip-brrrr-calculator',
+    image: '/images/blog/house-flip-asbestos-abatement-cost-calculator-excel.png',
+    imageAlt: 'Bare light bulb hanging from a ceiling under renovation, drywall seams and patches covered in fresh joint compound',
+    content: `<p>A house flip asbestos abatement cost calculator in Excel has one job: put a price on the asbestos while you can still negotiate the purchase. The expensive way to find asbestos is with a crowbar: work stops, the debris already in the dumpster becomes regulated waste, and the whole house needs cleaning before anyone can go back in. On the 1962 ranch modeled below, the same popcorn ceiling, duct wrap and old flooring cost $9,871.44 when a survey finds them during the inspection contingency, and $24,473.08 when the demo crew finds them on day 3. Same materials, same bids, 2.48 times the cost.</p>
+
+<p>Every dollar figure in this article is an example on stated assumptions: an illustrative deal, assumed survey and abatement bids, and a holding cost built from a hard money loan. The rules are quoted from federal regulations and from Oregon's asbestos rules (OAR chapter 340, division 248), which this example uses because Oregon regulates single-family renovation directly. Other states differ, so keep the method and replace the rules rows with your state's.</p>
+
+<h2>The federal asbestos rule skips your flip, the crew rule does not</h2>
+
+<p>Most flippers have heard of "the asbestos NESHAP", the EPA standard that requires a 10 working day notice before regulated asbestos is removed (40 CFR 61.145(b)(3)). It does not reach a typical flip. Its definition of a covered facility in 40 CFR 61.141 includes residential buildings "but excluding residential buildings having four or fewer dwelling units". EPA's 1995 Clarification of Intent (60 FR 38725) confirms that "individual small residential buildings that are demolished or renovated are not covered by the asbestos NESHAP", and adds the exception investors miss: renovating "multiple (more than one) small residential buildings on the same site by the same owner or operator" as part of one project is covered. Two duplexes on one lot, renovated together, are back inside the federal rule.</p>
+
+<p>Two other layers still apply to the single house.</p>
+
+<ul>
+<li><strong>OSHA, through your contractor.</strong> The construction asbestos standard, 29 CFR 1926.1101, protects employees on any job. Under paragraph (k)(1), employers and building owners "shall identify TSI and sprayed or troweled on surfacing materials in buildings as asbestos-containing" unless testing shows otherwise, and asphalt and vinyl flooring "installed no later than 1980 must also be considered as asbestos containing". The standard calls this presumed asbestos containing material, PACM, for "buildings constructed no later than 1980". Paragraph (k)(2)(i) puts a duty on you as the owner: "Before work subject to this standard is begun, building and facility owners shall determine the presence, location, and quantity of ACM and/or PACM at the work site." A popcorn ceiling in a 1962 house is presumed asbestos until a lab says otherwise, and any crew with employees has to treat it that way.</li>
+<li><strong>Your state or local air agency.</strong> Oregon is the clearest example. OAR 340-248-0270(1) says that before a demolition or renovation "the owner or operator of a demolition or renovation activity must have an accredited inspector complete a survey". The only residential carve-outs are a building of four or fewer units "constructed after January 1, 2004" (0250(1)(c)) and an owner who lives in the house and does the work personally (0250(1)(a)). A flipper is neither.</li>
+</ul>
+
+<p>Outside Oregon, find the equivalent rule before you build the sheet: whether your state requires a survey for a single-family renovation, the notice lead time, the fee, and whether removal needs a licensed contractor. In Lane County, the regional agency LRAPA publishes its own residential survey requirement, so even within Oregon, check which agency has jurisdiction.</p>
+
+<h2>Oregon's sequence sets the schedule, and the notice clock is the long pole</h2>
+
+<p>The Oregon rules turn into four steps in a fixed order. Each one is a row in the timeline and a line in the budget.</p>
+
+<ol>
+<li><strong>Survey.</strong> An accredited inspector samples every suspect material, with "at least three (3) random bulk samples for each homogeneous area" of sprayed or troweled surfacing such as popcorn ceiling (0270(3)(b)). The report lists each material, its asbestos percentage, condition, friability and quantity, and a copy stays on site during the work (0270(2)).</li>
+<li><strong>Notice and fee.</strong> DEQ "must receive" the notification and fee "at least 10 days before beginning a friable asbestos abatement project and at least five days before beginning a nonfriable asbestos abatement project" (0260(2)). The rule says days, where the federal rule says working days; this model counts calendar days. The current fee for a project "at a residential building" is $136 (0260(2)(a)(A)). Copies of the rule on third-party sites still show $100, so read the fee on the Secretary of State's site. And "Notification has not occurred until DEQ receives the completed notification form and appropriate fee."</li>
+<li><strong>Licensed removal.</strong> A contractor performing an asbestos abatement project "must be licensed by DEQ" (0110(4)). Nonfriable removal is exempt from licensing as long as the material stays nonfriable (0270(6)(c)), but it still needs the notice and fee.</li>
+<li><strong>Clearance, then demo.</strong> The abatement has to come before any other work that would "break up, dislodge, or disturb the materials or preclude access to the materials for subsequent removal" (0270(8)(b)).</li>
+</ol>
+
+<p>The branch that breaks budgets is 0270(5). On discovering asbestos during demolition or renovation, the owner or operator must "Stop work immediately", keep the material wet and covered "with 6 mil plastic or equivalent at all times until a licensed asbestos abatement contractor begins removal", and have that contractor dispose of the waste "as friable asbestos-containing material". Everything the crew already tore out goes with it. DEQ can waive the 10-day notice for unplanned projects that "will cause damage to equipment or impose unreasonable financial burden if not performed immediately" (0260(2)(d)), so the model runs that case too.</p>
+
+<p>Here is the timeline for a survey ordered the day after closing, with a rush lab result:</p>
+
+<table>
+<thead><tr><th>Day</th><th>Step</th><th>Rule or assumption</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Book the accredited inspector</td><td>Assumption: next-day availability</td></tr>
+<tr><td>2</td><td>Sampling, 11 bulk samples</td><td>0270(3), three for the popcorn ceiling</td></tr>
+<tr><td>3</td><td>Rush lab results</td><td>Assumption: 24-hour turnaround, $300 extra</td></tr>
+<tr><td>5</td><td>Abatement contract signed, notice and $136 received by DEQ</td><td>0260(2)</td></tr>
+<tr><td>15 to 17</td><td>Friable abatement, 3 working days</td><td>10 days after DEQ receives the notice</td></tr>
+<tr><td>18</td><td>Clearance air test</td><td>Assumption: contractor's standard practice</td></tr>
+<tr><td>19</td><td>Demo starts</td><td>18 days later than planned</td></tr>
+</tbody>
+</table>
+
+<p>Eighteen days on a hard money loan is real money, but as the next sections show, it is the smaller of the two costs.</p>
+
+<h2>Price each material against your scope, not against the survey</h2>
+
+<p>A positive lab result does not by itself cost anything. The cost comes from the intersection of two columns: what the survey found and what your rehab scope will disturb. The example house is a 1,450 square foot 1962 ranch in Portland. The scope calls for smooth ceilings, a new furnace and ductwork, and new floors throughout. The bids below are assumptions; replace them with your own quotes.</p>
+
+<table>
+<thead><tr><th>Material</th><th>Quantity</th><th>Lab result</th><th>Scope disturbs it?</th><th>Class</th><th>Assumed bid</th><th>Cost</th></tr></thead>
+<tbody>
+<tr><td>Popcorn ceiling (surfacing)</td><td>1,100 sq ft</td><td>Positive</td><td>Yes, smooth ceilings</td><td>Friable</td><td>$3.25/sq ft</td><td>$3,575.00</td></tr>
+<tr><td>Duct wrap and furnace tape</td><td>1 lot</td><td>Positive</td><td>Yes, HVAC replaced</td><td>Friable</td><td>$1,150 lump sum</td><td>$1,150.00</td></tr>
+<tr><td>Sheet vinyl, kitchen and bath</td><td>260 sq ft</td><td>Positive</td><td>Yes, if torn out</td><td>Friable backing</td><td>$4.50/sq ft</td><td>$1,170.00</td></tr>
+<tr><td>9x9 tile and black mastic under carpet</td><td>420 sq ft</td><td>Positive</td><td>Yes, if torn out</td><td>Nonfriable</td><td>$3.75/sq ft</td><td>$1,575.00</td></tr>
+<tr><td>Drywall joint compound</td><td>3 samples</td><td>Negative</td><td>Yes</td><td>None</td><td>None</td><td>$0.00</td></tr>
+<tr><td>Fiber cement siding</td><td>Not sampled</td><td>Presumed</td><td>No</td><td>Nonfriable</td><td>Leave and document</td><td>$0.00</td></tr>
+</tbody>
+</table>
+
+<p>Add the fixed lines: the survey at $735 (an assumed $350 visit plus 11 samples at $35), one $600 mobilization, a $450 clearance test and the $136 DEQ fee. Removing every positive material comes to $7,470.00 of material bids, $8,656.00 of abatement, and $9,391.00 with the survey.</p>
+
+<p>The two floor rows hold the only real choice. A floating floor over the old vinyl and tile avoids $2,745 of removal for $408 of underlayment, and saves one abatement day. That plan totals $7,054.00 plus 3 holding days ($360.33), or $7,414.33 against $9,871.44, a saving of $2,457.11. It depends on one sentence. Once you are performing an abatement project in Oregon, 0270(8)(b) says to remove "all asbestos-containing materials" before work that would "preclude access to the materials for subsequent removal", and a new floor laid over the tile arguably does exactly that. Do not put the cheaper plan in your offer until DEQ has answered in writing. The base case below assumes full removal.</p>
+
+<p>In the sheet, one formula per row turns the two columns into an action, and one cell picks the notice lead time:</p>
+
+<ul>
+<li><code>=IF(D5="Negative","PROCEED",IF(E5="Yes","ABATE FIRST","LEAVE, DOCUMENT"))</code> in column I tells the crew what each material means before anyone touches it.</li>
+<li><code>=IF(AND(D5&lt;&gt;"Negative",E5="Yes"),B5&#42;G5,0)</code> in column H prices only what the scope disturbs. A positive material you leave alone costs nothing.</li>
+<li><code>=IF(COUNTIFS(D5:D11,"&lt;&gt;Negative",E5:E11,"Yes",F5:F11,"Friable")&gt;0,10,IF(COUNTIFS(D5:D11,"&lt;&gt;Negative",E5:E11,"Yes")&gt;0,5,0))</code> in B21 returns 10 days if any disturbed material is friable, 5 if only nonfriable material is disturbed, and 0 if nothing is.</li>
+</ul>
+
+<p>The same logic applies to lead paint, which the federal RRP rule handles very differently; our <a href="/blog/house-flip-lead-paint-rrp-cost-calculator-excel">lead paint RRP cost calculator</a> covers that side of a pre-1978 house.</p>
+
+<h2>Three timings, one house: what the delay and the discovery cost</h2>
+
+<p>The deal: contract price $375,000, ARV $585,000, base rehab $78,000, a 120-day plan, buy-side closing costs of $6,150 and 7 percent selling costs. The loan covers 80 percent of the price at 11 percent interest-only with 2 points. Taxes run $5,200 a year, a vacant-property policy $2,400 and utilities $270 a month.</p>
+
+<p>The daily holding cost in B16 is <code>=B4&#42;B5&#42;B6/365+(B7+B8)/365+B9&#42;12/365</code>: $90.41 of interest, $14.25 of tax, $6.58 of insurance and $8.88 of utilities, $120.11 a day, or $14,413.15 over the planned 120 days. If you have not split holding costs this way before, our <a href="/blog/house-flipping-holding-costs-calculator">holding costs calculator</a> walks through each line.</p>
+
+<p>Now run the same materials and bids through four timings. In the discovery case, the crew pulls kitchen vinyl and scrapes popcorn in two rooms before someone recognizes it on day 3. Under 0270(5), that adds three assumed costs: the half-full dumpster disposed of as friable waste ($4,800), a HEPA cleaning of the house ($6,500), and crew standby and remobilization ($1,200), $12,500 in all, plus the rush survey.</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Asbestos cost</th><th>Delay (days)</th><th>Delay cost</th><th>Total hit</th><th>Profit</th></tr></thead>
+<tbody>
+<tr><td>No asbestos in the house</td><td>$0.00</td><td>0</td><td>$0.00</td><td>$0.00</td><td>$64,486.85</td></tr>
+<tr><td>A. Survey inside the inspection contingency</td><td>$9,391.00</td><td>4</td><td>$480.44</td><td>$9,871.44</td><td>$54,615.41</td></tr>
+<tr><td>B. Survey after closing</td><td>$9,691.00</td><td>18</td><td>$2,161.97</td><td>$11,852.97</td><td>$52,633.88</td></tr>
+<tr><td>C. No survey, crew finds it on day 3</td><td>$22,191.00</td><td>19</td><td>$2,282.08</td><td>$24,473.08</td><td>$40,013.77</td></tr>
+<tr><td>C, with DEQ waiving the 10-day notice</td><td>$22,191.00</td><td>9</td><td>$1,080.99</td><td>$23,271.99</td><td>$41,214.86</td></tr>
+</tbody>
+</table>
+
+<p>Three readings come out of the table.</p>
+
+<ul>
+<li><strong>The schedule is the smaller cost.</strong> Surveying after closing instead of before costs $1,981.53 more: the $300 rush lab fee plus 14 extra holding days ($1,681.53). In scenario A, the abatement contractor files the notice during escrow and schedules the start for the day after closing, so the 10-day clock runs while you are still closing. You need the seller's permission for the inspector's visit, and you risk $735 if you walk.</li>
+<li><strong>The discovery is the larger cost.</strong> Scenario C costs $14,601.64 more than A, and $12,500 of that difference comes from material that was disturbed before anyone knew what it was. The waiver saves only $1,201.09, because it shortens the wait and does nothing for the dumpster or the cleaning.</li>
+<li><strong>Penalties are not in the table.</strong> Starting a renovation in Oregon without the survey violates 0270(1). The model carries no fine because none is assumed; ask DEQ what an enforcement case would add.</li>
+</ul>
+
+<p>The cell layout for the timeline: B20 is the day the notice reaches DEQ (a negative number when it is filed during escrow), B21 the lead time from the COUNTIFS above, B22 the abatement days, B23 the clearance day, B24 the day demo would otherwise have started or resumed. Demo day in B25 is <code>=MAX(1,B20+B21)+B22+B23</code> and the delay in B26 is <code>=B25-B24</code>. For scenario B: <code>=MAX(1,5+10)+3+1</code> returns day 19 and the delay is 18. For scenario A, with the notice in on day minus 12, it returns day 5 and a 4-day delay. The delay cost is <code>=B26&#42;Deal!B16</code>.</p>
+
+<h2>What the survey does to your offer</h2>
+
+<p>The profit line in Deal!B18 is <code>=B3-B4-B11-B4&#42;B5&#42;B12-B13-ACM!H16-B16&#42;(B10+ACM!B26)-B3&#42;B14</code>, where B3 is the ARV, B4 the price, B11 buy-side closing costs, B12 the points, B13 the rehab, ACM!H16 the total asbestos cost and B14 the selling percentage. Because interest and points scale with the price, the maximum offer for a target profit has to divide by more than 1:</p>
+
+<p><code>=(B3-B11-B13-ACM!H16-((B7+B8)/365+B9&#42;12/365)&#42;(B10+ACM!B26)-B3&#42;B14-B15)/(1+B5&#42;B12+B5&#42;B6/365&#42;(B10+ACM!B26))</code></p>
+
+<p>With a $55,000 target profit in B15:</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Maximum offer</th><th>Drop from the clean-house offer</th></tr></thead>
+<tbody>
+<tr><td>No asbestos in the house</td><td>$384,078.92</td><td>$0.00</td></tr>
+<tr><td>A. Survey inside the contingency</td><td>$374,632.29</td><td>$9,446.63</td></tr>
+<tr><td>B. Survey after closing</td><td>$372,744.98</td><td>$11,333.94</td></tr>
+<tr><td>C. Found on day 3</td><td>$360,720.77</td><td>$23,358.15</td></tr>
+<tr><td>C, notice waived</td><td>$361,834.95</td><td>$22,243.97</td></tr>
+</tbody>
+</table>
+
+<p>At the $375,000 contract price, scenario A leaves the deal $367.71 above its maximum offer. That is a gap you can close with a seller credit, and the survey report gives you the documented reason to ask. Scenario C would have justified an offer $13,911.52 lower than A, but by day 3 you already own the house and the gap comes out of your profit. The pre-closing logic is the same one behind a sewer camera inspection, and our <a href="/blog/house-flip-sewer-scope-repair-contingency-calculator-excel">sewer scope contingency calculator</a> turns that finding into an offer number the same way.</p>
+
+<h2>Build the asbestos block in an afternoon</h2>
+
+<p>Two tabs are enough. Keep them next to your rehab budget so the abatement lines and the delay days feed the deal directly.</p>
+
+<ol>
+<li><strong>Deal tab, rows 3 to 19.</strong> ARV, price, LTV, rate, annual tax, annual insurance, monthly utilities, planned days, buy-side closing costs, points, rehab, selling percentage and target profit in B3 to B15. Holding per day in B16, profit in B18, maximum offer in B19.</li>
+<li><strong>ACM tab, rows 5 to 11.</strong> One row per homogeneous material from the survey report: quantity in B, unit in C, lab result in D (Positive, Negative or Presumed), "does the scope disturb it" in E, friable or nonfriable in F, unit bid in G, cost in H, action in I.</li>
+<li><strong>ACM tab, rows 12 to 16.</strong> Material total <code>=SUM(H5:H11)</code> in H12, then survey, mobilization, clearance and DEQ fee in H13 to H15, and the total in H16. Read the fee from the rules block: in Oregon, any project at a residential building falls in the $136 tier, while a commercial job uses the size tiers of 0260(2)(a).</li>
+<li><strong>ACM tab, rows 20 to 26.</strong> The timeline cells above, with B24 set to 1 for a planned start or to the stop day plus 1 for a discovery.</li>
+<li><strong>A rules block.</strong> Four cells per jurisdiction: survey required for single-family (Yes or No), friable notice days, nonfriable notice days, fee. Every formula reads these cells, so switching from Portland to a state without a residential survey rule changes the answer without touching a formula.</li>
+</ol>
+
+<p>Before you trust the sheet, run it once with every lab result set to Negative. The asbestos cost and the delay must both return 0, and the maximum offer must equal the clean-house figure of $384,078.92. If they do not, a formula is reading the wrong row. When you put the scope rows together, the same row-by-row discipline from our <a href="/blog/rehab-scope-of-work-template-excel">rehab scope of work template</a> keeps the "does the scope disturb it" column honest.</p>
+
+<h2>The recommendation</h2>
+
+<p>On any pre-1981 house, order the accredited survey inside the inspection contingency, even where your state does not require it. In Oregon the rule requires it anyway; everywhere else, OSHA's presumption already tells your contractor's crew to treat the popcorn ceiling and the old flooring as asbestos. Price every positive material against your scope, get DEQ's written answer before you count on covering a floor, and have your abatement contractor file the notice during escrow so the 10-day clock runs before you own the house. In this example, that order turns a $24,473.08 problem into a $9,871.44 line item and a seller credit request.</p>
+
+<p>The <a href="/products/flip-brrrr-calculator">BRRRR Deal Calculator</a> holds the rest of the deal. Put each abatement line from the ACM tab into its line-item rehab budget, add the delay days to the holding period in its holding cost section, and its acquisition tab carries the hard money points and rate used here. It does not read a survey report or apply Oregon's notice rules for you; the ACM tab above does that in about forty cells, and the BRRRR Deal Calculator shows what the result does to your all-in cost.</p>`,
+  },
+  {
     slug: 'tax-lien-certificate-yield-calculator-excel',
     title: 'Tax Lien Certificate Yield Calculator in Excel: Why the Bid Rate Is Not Your Return',
     metaTitle: 'Tax Lien Certificate Yield Calculator Excel | SheetCraft',
